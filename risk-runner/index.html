@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b101a" />
+    <meta
+      name="description"
+      content="上昇は引っ張れ。下落したら即逃げろ。売るだけデイトレード反射神経ゲーム。"
+    />
+    <title>RISK RUNNER | 売るだけデイトレード</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-app">
+      <section class="screen screen--start" id="startScreen" aria-labelledby="startTitle">
+        <div class="start-orbit start-orbit--one" aria-hidden="true"></div>
+        <div class="start-orbit start-orbit--two" aria-hidden="true"></div>
+
+        <div class="brand-lockup" aria-label="RISK RUNNER">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brand-name">RISK <b>RUNNER</b></span>
+        </div>
+
+        <div class="start-kicker"><span class="live-dot" aria-hidden="true"></span>REFLEX TRADER</div>
+        <h1 id="startTitle">売るだけで、<br /><span>生き残れ。</span></h1>
+        <p class="start-subtitle">RISK RUNNER / 売るだけデイトレード</p>
+        <p class="start-copy">
+          上昇は引っ張れ。下落したら即逃げろ。<br />
+          資金がゼロになるまで、何年生き残れる？
+        </p>
+        <p class="exit-rule"><span>EXIT LINE</span><strong>資産10万円以下で退場</strong></p>
+
+        <div class="rule-card" aria-label="ゲームルール">
+          <div class="rule-item">
+            <span class="rule-number">01</span>
+            <strong>自動で保有</strong>
+            <small>ラウンド開始と同時にエントリー</small>
+          </div>
+          <div class="rule-item">
+            <span class="rule-number">02</span>
+            <strong>チャートを読む</strong>
+            <small>上昇か、崩れか。動きは止まらない</small>
+          </div>
+          <div class="rule-item">
+            <span class="rule-number">03</span>
+            <strong>売って次へ</strong>
+            <small>利益を確定して1営業日クリア</small>
+          </div>
+        </div>
+
+        <button class="primary-action" id="startButton" type="button">
+          <span>ゲーム開始</span>
+          <b aria-hidden="true">→</b>
+        </button>
+
+        <div class="personal-record" aria-live="polite">
+          <span>PERSONAL RECORD</span>
+          <div>
+            <strong id="startBestDays">0年 0日</strong>
+            <small>最高生存期間</small>
+          </div>
+          <div>
+            <strong id="startBestAsset">1,000,000円</strong>
+            <small>最高資産</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen screen--game" id="gameScreen" aria-labelledby="assetValue" hidden>
+        <header class="game-header">
+          <div class="brand-lockup brand-lockup--small" aria-label="RISK RUNNER">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="brand-name">RISK <b>RUNNER</b></span>
+          </div>
+          <div class="day-badge">
+            <span>営業日</span>
+            <strong id="roundLabel">001</strong>
+            <small>/ 250</small>
+          </div>
+        </header>
+
+        <section class="asset-panel" aria-label="現在資産">
+          <div class="asset-panel__topline">
+            <span class="eyebrow-label">CURRENT ASSET</span>
+            <span class="holding-state" id="accountStatus">保有中</span>
+          </div>
+          <h1 id="assetValue" class="asset-value">1,000,000円</h1>
+          <div class="asset-panel__meta">
+            <span>生存 <strong id="survivalValue">0年 0日</strong></span>
+            <span>ラウンド資金 <strong id="roundStartAsset">1,000,000円</strong></span>
+          </div>
+          <div class="asset-meter" aria-hidden="true"><span id="assetMeterFill"></span></div>
+          <p class="bankruptcy-rule"><span>EXIT LINE</span><strong>10万円以下で退場</strong></p>
+        </section>
+
+        <section class="market-card" aria-label="株価チャート">
+          <div class="market-card__header">
+            <div>
+              <div class="market-kicker"><span class="live-dot" aria-hidden="true"></span>MARKET LIVE</div>
+              <h2>RISK / JPY <span id="marketMood">値動き観察</span></h2>
+            </div>
+            <div class="price-block">
+              <span>現在値</span>
+              <strong id="priceValue">¥1,000</strong>
+            </div>
+          </div>
+
+          <div class="chart-frame" id="chartFrame">
+            <div class="chart-frame__topline">
+              <span id="chartCaption">チャートは止まらない</span>
+              <span id="chartTimer">00.0s</span>
+            </div>
+            <canvas id="chartCanvas" aria-label="リアルタイムで動く株価チャート"></canvas>
+            <div class="operator-scene is-neutral" id="operatorScene" aria-label="パソコンの前でチャートを見ているプレイヤーキャラ">
+              <div class="operator-scene__header">
+                <span id="operatorMood">WATCH MODE</span>
+                <small>LIVE OPERATOR</small>
+              </div>
+              <img class="operator-character operator-character--joy" src="./喜び.png" alt="喜びながら株価チャートを見るプレイヤーキャラクター" width="1536" height="1024" />
+              <img class="operator-character operator-character--sad" src="./悲しみ.png" alt="焦りながら株価チャートを見るプレイヤーキャラクター" width="1536" height="1024" aria-hidden="true" />
+              <div class="operator-scene__image-shade" aria-hidden="true"></div>
+              <div class="operator-speech" id="operatorSpeech">見極め中…</div>
+            </div>
+            <div class="event-alert" id="eventAlert" aria-live="assertive" hidden>
+              <span class="event-alert__icon" aria-hidden="true">!</span>
+              <span><b>急落開始</b><small>反応して売却</small></span>
+            </div>
+          </div>
+
+          <div class="position-card">
+            <div class="position-card__head">
+              <span class="eyebrow-label">UNREALIZED P&amp;L</span>
+              <span id="unrealizedRate">+0.00%</span>
+            </div>
+            <div class="position-card__value-row">
+              <strong id="unrealizedValue">+0円</strong>
+              <span id="tradeHint">上昇か下落かを見極める</span>
+            </div>
+            <div class="position-bar" aria-hidden="true"><span id="positionBarFill"></span></div>
+          </div>
+        </section>
+
+        <section class="game-controls" aria-label="売却操作">
+          <button class="sell-button" id="sellButton" type="button">
+            <span>売却</span>
+            <small>タップで即決済</small>
+          </button>
+          <p class="live-message" id="liveMessage" aria-live="polite">利益を伸ばすか、先に逃げるか。</p>
+        </section>
+
+        <section class="result-card" id="roundResult" aria-labelledby="resultTitle" hidden>
+          <div class="result-card__kicker"><span class="result-check" aria-hidden="true">✓</span>ROUND CLEARED</div>
+          <h2 id="resultTitle">今回の決済</h2>
+          <div class="result-main">
+            <span>今回の損益</span>
+            <strong id="resultProfit">+0円</strong>
+          </div>
+          <div class="result-grid">
+            <div><span>現在資産</span><strong id="resultAsset">1,000,000円</strong></div>
+            <div><span>売却時株価</span><strong id="resultPrice">¥1,000</strong></div>
+            <div><span id="resultReactionLabel">反応速度</span><strong id="resultReaction">急落前に利確</strong></div>
+          </div>
+          <p class="result-next"><span class="mini-spinner" aria-hidden="true"></span>次の営業日へ</p>
+        </section>
+      </section>
+
+      <section class="screen screen--gameover" id="gameOverScreen" aria-labelledby="gameOverTitle" hidden>
+        <div class="gameover-mark" aria-hidden="true">—</div>
+        <div class="start-kicker"><span class="live-dot live-dot--muted" aria-hidden="true"></span>RUN COMPLETE</div>
+        <h1 id="gameOverTitle">ここで、<br /><span>相場終了。</span></h1>
+        <p class="gameover-copy" id="gameOverCopy">資金が尽きました。次は、もう少し早く逃げよう。</p>
+
+        <div class="final-survival">
+          <span>生存期間</span>
+          <strong id="finalSurvival">0年 0日</strong>
+          <small>250営業日 = 1年</small>
+        </div>
+
+        <div class="summary-grid" aria-label="ゲーム結果">
+          <div><span>最終資産</span><strong id="finalAsset">0円</strong></div>
+          <div><span>最高資産</span><strong id="finalHighestAsset">1,000,000円</strong></div>
+          <div><span>最大利益</span><strong id="finalMaxProfit">+0円</strong></div>
+          <div><span>最大損失</span><strong id="finalMaxLoss">0円</strong></div>
+          <div><span>平均反応速度</span><strong id="finalAverageReaction">—</strong></div>
+          <div><span>ベスト反応速度</span><strong id="finalBestReaction">—</strong></div>
+          <div><span>総取引回数</span><strong id="finalTrades">0回</strong></div>
+        </div>
+
+        <button class="primary-action" id="retryButton" type="button">
+          <span>もう一度挑戦</span>
+          <b aria-hidden="true">↗</b>
+        </button>
+      </section>
+    </main>
+
+    <noscript>このゲームを遊ぶにはJavaScriptを有効にしてください。</noscript>
+  </body>
+</html>
