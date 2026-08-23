@@ -852,6 +852,52 @@ button {
 .content-card--purple { --card-accent: #7850b1; --card-background: #f0eafb; }
 .content-card--orange { --card-accent: #df6d16; --card-background: #fff0dd; }
 
+.content-card--with-image {
+  padding: 0;
+}
+
+.content-card__media {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1 / 0.9;
+  overflow: hidden;
+  background: var(--card-background);
+  border-bottom: 1px solid var(--line);
+}
+
+.content-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease, filter 0.35s ease;
+}
+
+.content-card--with-image:hover .content-card__media img {
+  filter: saturate(1.08);
+  transform: scale(1.035);
+}
+
+.content-card--with-image .content-card__top,
+.content-card--with-image .content-card__body,
+.content-card--with-image .content-card__footer {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.content-card--with-image .content-card__top {
+  margin-top: 16px;
+}
+
+.content-card--with-image .content-card__body {
+  padding-top: 16px;
+}
+
+.content-card--with-image .content-card__footer {
+  margin-bottom: 20px;
+}
+
 .content-card__top,
 .content-card__footer {
   position: relative;
