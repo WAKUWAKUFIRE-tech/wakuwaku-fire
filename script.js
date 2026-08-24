@@ -83,6 +83,7 @@ filterButtons.forEach((button) => {
 
 // リンクを登録した本だけを、日本時間の日付で1日1冊表示します。
 const dailyBookSection = document.querySelector("#daily-book");
+const dailyBookImage = document.querySelector("#daily-book-image");
 const dailyBookDate = document.querySelector("#daily-book-date");
 const dailyBookCategory = document.querySelector("#daily-book-category");
 const dailyBookTitle = document.querySelector("#daily-book-book-title");
@@ -135,6 +136,14 @@ function renderDailyBook() {
   const book = booksWithLinks[getTokyoDayNumber() % booksWithLinks.length];
   const categories = Array.isArray(book.category) ? book.category : [];
   const parts = getTokyoDateParts();
+  const fallbackImage = "reading.png";
+
+  if (dailyBookImage) {
+    dailyBookImage.onerror = () => {
+      if (!dailyBookImage.src.endsWith(fallbackImage)) dailyBookImage.src = fallbackImage;
+    };
+    dailyBookImage.src = book.imageUrl || fallbackImage;
+  }
 
   if (dailyBookDate) dailyBookDate.textContent = `${Number(parts.month)}月${Number(parts.day)}日の一冊`;
   if (dailyBookCategory) dailyBookCategory.textContent = categories.join(" / ");
