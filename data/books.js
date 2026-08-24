@@ -10,7 +10,8 @@ window.wakuwakuBooks = [
     category: ["FIRE", "資産形成"],
     catchCopy: "FIREを体系的に学ぶ王道の一冊。",
     description: "収入・支出・投資をどう組み合わせれば自由に近づけるのか。早期リタイアを目指す人が、数字と暮らしを一緒に考えるきっかけになります。",
-    affiliateUrl: "https://link.amazon/B0aUzLX6H"
+    affiliateUrl: "https://link.amazon/B0aUzLX6H",
+    imageUrl: "https://m.media-amazon.com/images/I/91C+f2s4aQL._SY522_.jpg"
   },
   {
     title: "本気でFIREをめざす人のための資産形成入門",
@@ -18,7 +19,8 @@ window.wakuwakuBooks = [
     category: ["FIRE", "資産形成"],
     catchCopy: "会社員のまま始めるFIRE準備。",
     description: "毎月の入金力を高め、長く続けられる投資を選ぶ。働きながら経済的自由を目指すための、実践的な道筋をイメージしやすい本です。",
-    affiliateUrl: "https://link.amazon/B03TZ4AGc"
+    affiliateUrl: "https://link.amazon/B03TZ4AGc",
+    imageUrl: "https://m.media-amazon.com/images/I/81CCshXeyTL._SY522_.jpg"
   },
   {
     title: "経済・精神の自由を手に入れる主体的思考法 ＃シンFIRE論",
@@ -26,7 +28,8 @@ window.wakuwakuBooks = [
     category: ["FIRE", "人生", "働き方"],
     catchCopy: "お金だけでなく、心の自由も考える。",
     description: "FIREを資産額だけの話にせず、自分で人生を選ぶための考え方として捉え直せます。何から自由になりたいかを考えたい人におすすめです。",
-    affiliateUrl: "https://link.amazon/B00J8SsUJ"
+    affiliateUrl: "https://link.amazon/B00J8SsUJ",
+    imageUrl: "https://m.media-amazon.com/images/I/71SZZ6yy-qL._SY522_.jpg"
   },
   {
     title: "普通の会社員でもできる 日本版FIRE超入門",
@@ -34,7 +37,8 @@ window.wakuwakuBooks = [
     category: ["FIRE", "お金"],
     catchCopy: "日本の制度で考えるFIREの入り口。",
     description: "日本の働き方や社会制度に合わせて、資産形成とリタイア後の生活を考える入門書。特別な人だけの夢にしない視点が見つかります。",
-    affiliateUrl: "https://link.amazon/B041JZfeb"
+    affiliateUrl: "https://link.amazon/B041JZfeb",
+    imageUrl: "https://m.media-amazon.com/images/I/71DgEtMzLjS._SY522_.jpg"
   },
   {
     title: "ゆるFIRE 億万長者になりたいわけじゃない私たちの投資生活",
@@ -42,7 +46,8 @@ window.wakuwakuBooks = [
     category: ["FIRE", "働き方", "人生"],
     catchCopy: "全部を捨てなくても、自由はつくれる。",
     description: "完全リタイアだけにこだわらず、働く量と暮らしをゆるめる選択肢を考えられます。自分にちょうどいい自由を探す人にぴったりです。",
-    affiliateUrl: "https://link.amazon/B0hd5gvVC"
+    affiliateUrl: "https://link.amazon/B0hd5gvVC",
+    imageUrl: "https://m.media-amazon.com/images/I/81kr-jijTVL._SY466_.jpg"
   },
   {
     title: "DIE WITH ZERO 人生が豊かになりすぎる究極のルール",
@@ -50,7 +55,8 @@ window.wakuwakuBooks = [
     category: ["お金", "時間", "幸福"],
     catchCopy: "貯めるだけの人生になってない？",
     description: "お金を使うタイミングと、経験に変える時間の価値を見つめ直す一冊。FIRE後にどんな思い出を増やしたいか、具体的に考えられます。",
-    affiliateUrl: "https://link.amazon/B0iG1wat7"
+    affiliateUrl: "https://link.amazon/B0iG1wat7",
+    imageUrl: "https://m.media-amazon.com/images/I/71Gop9CPTpL._SY522_.jpg"
   },
   {
     title: "サイコロジー・オブ・マネー 一生お金に困らない「富」のマインドセット",
@@ -58,7 +64,8 @@ window.wakuwakuBooks = [
     category: ["お金", "投資", "幸福"],
     catchCopy: "お金の差は、知識より行動に出る。",
     description: "投資の知識だけではなく、お金と向き合うときの感情や習慣に光を当てます。相場に振り回されず、長く続ける力を育てたい人へ。",
-    affiliateUrl: "https://link.amazon/B072eqNFk"
+    affiliateUrl: "https://link.amazon/B072eqNFk",
+    imageUrl: "https://m.media-amazon.com/images/I/81oSXOzT+UL._SY522_.jpg"
   },
   {
     title: "JUST KEEP BUYING 自動的に富が増え続ける「お金」と「時間」の法則",
@@ -66,7 +73,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成", "時間"],
     catchCopy: "迷い続けるより、続けられる仕組み。",
     description: "投資と貯蓄を一度きりの決断ではなく、続けられる仕組みに変えるヒントが満載。FIREへの道を淡々と歩きたい人に向いています。",
-    affiliateUrl: "https://link.amazon/B06cjpIEy"
+    affiliateUrl: "https://link.amazon/B06cjpIEy",
+    imageUrl: "https://m.media-amazon.com/images/I/81hUqx6lIOL._SY522_.jpg"
   },
   {
     title: "ウォール街のランダム・ウォーカー 株式投資の不滅の真理",
@@ -74,7 +82,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "市場の未来を当てなくてもいい。",
     description: "株式市場の歴史と、予測の難しさを知りながら投資の基本を学べます。長期・分散というFIREの土台を、落ち着いて見直したいときに。",
-    affiliateUrl: "https://link.amazon/B09J0m1FS"
+    affiliateUrl: "https://link.amazon/B09J0m1FS",
+    imageUrl: "https://m.media-amazon.com/images/I/81ESNiilnpL._SY522_.jpg"
   },
   {
     title: "敗者のゲーム",
@@ -82,7 +91,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "勝ちにいくより、負けを減らす。",
     description: "投資で大切なのは、派手な予想よりも大きな失敗を避けること。運用をシンプルにして、自由な時間を守りたい人に響く考え方です。",
-    affiliateUrl: "https://link.amazon/B0iq5TQM1"
+    affiliateUrl: "https://link.amazon/B0iq5TQM1",
+    imageUrl: "https://m.media-amazon.com/images/I/71sk2pKuMiL._SY522_.jpg"
   },
   {
     title: "インデックス投資は勝者のゲーム",
@@ -90,7 +100,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "手間を減らして、時間を味方に。",
     description: "低コストで市場全体に投資するという発想を、長期の資産形成と結びつけて学べます。投資以外の人生も大切にしたい人へ。",
-    affiliateUrl: "https://link.amazon/B09ZKNpGu"
+    affiliateUrl: "https://link.amazon/B09ZKNpGu",
+    imageUrl: "https://m.media-amazon.com/images/I/81zvJrZ1W5L._SY522_.jpg"
   },
   {
     title: "ほったらかし投資術",
@@ -98,7 +109,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "投資にかける時間を、もっと減らす。",
     description: "長期・分散・低コストを軸に、忙しい人でも続けやすい投資方法を考えます。FIREのために大切な時間を、相場以外にも使いたい人へ。",
-    affiliateUrl: "https://link.amazon/B07SMhDZm"
+    affiliateUrl: "https://link.amazon/B07SMhDZm",
+    imageUrl: "https://m.media-amazon.com/images/I/71PLX+hY8SL._SY522_.jpg"
   },
   {
     title: "経済評論家の父から息子への手紙",
@@ -106,7 +118,8 @@ window.wakuwakuBooks = [
     category: ["お金", "人生"],
     catchCopy: "お金と人生を、長い目で考える手紙。",
     description: "資産形成の話から、働き方や生き方まで。目先の損得だけでは測れない人生の選び方を、親から子への言葉として受け取れます。",
-    affiliateUrl: "https://link.amazon/B0cIlwYgV"
+    affiliateUrl: "https://link.amazon/B0cIlwYgV",
+    imageUrl: "https://m.media-amazon.com/images/I/61bWVRt++AL._SY522_.jpg"
   },
   {
     title: "金持ち父さん 貧乏父さん",
@@ -114,7 +127,8 @@ window.wakuwakuBooks = [
     category: ["お金", "資産形成"],
     catchCopy: "お金の見方を、いったん逆さにする。",
     description: "収入を得ることと、資産を持つことの違いを考えるきっかけになる定番書。自分の働き方とお金の流れを整理したい人におすすめです。",
-    affiliateUrl: "https://link.amazon/B0euGtSOF"
+    affiliateUrl: "https://link.amazon/B0euGtSOF",
+    imageUrl: "https://m.media-amazon.com/images/I/414AZmbFGyL._SY445_SX342_QL70_ML2_.jpg"
   },
   {
     title: "バビロン大富豪の教え",
@@ -122,7 +136,8 @@ window.wakuwakuBooks = [
     category: ["お金", "資産形成"],
     catchCopy: "時代が変わっても、貯める知恵は残る。",
     description: "古代バビロンの物語を通して、収入の一部を残し、育てる基本を楽しく学べます。難しい金融用語が苦手な人の最初の一冊にも。",
-    affiliateUrl: "https://link.amazon/B0hTsyLjy"
+    affiliateUrl: "https://link.amazon/B0hTsyLjy",
+    imageUrl: "https://m.media-amazon.com/images/I/81ceewbArjL._SY522_.jpg"
   },
   {
     title: "となりの億万長者",
@@ -130,7 +145,8 @@ window.wakuwakuBooks = [
     category: ["お金", "資産形成"],
     catchCopy: "お金持ちは、意外と目立たない。",
     description: "本当の資産家に共通する暮らし方やお金の使い方を、調査データから読み解きます。見栄より自由を選ぶFIREの価値観と相性の良い本です。",
-    affiliateUrl: "https://link.amazon/B01th3oUv"
+    affiliateUrl: "https://link.amazon/B01th3oUv",
+    imageUrl: "https://m.media-amazon.com/images/I/71KurLtpA4L._SY522_.jpg"
   },
   {
     title: "私の財産告白",
@@ -138,7 +154,8 @@ window.wakuwakuBooks = [
     category: ["お金", "資産形成", "人生"],
     catchCopy: "小さな習慣を、長い味方にする。",
     description: "収入の一部を先に取り分ける考え方や、働き方と蓄財を結びつける知恵を学べます。昔の本ですが、自由をつくる基本は今にも通じます。",
-    affiliateUrl: "https://link.amazon/B06SXzKSC"
+    affiliateUrl: "https://link.amazon/B06SXzKSC",
+    imageUrl: "https://m.media-amazon.com/images/I/81kVk+vQu8L._SY522_.jpg"
   },
   {
     title: "お金の大学",
@@ -146,7 +163,8 @@ window.wakuwakuBooks = [
     category: ["お金", "資産形成"],
     catchCopy: "貯める・稼ぐ・増やす・守る・使う。",
     description: "生活費の見直しから収入アップ、投資、使い方まで、お金の全体像をやさしく整理。FIRE準備の最初に、家計の地図を描きたい人へ。",
-    affiliateUrl: "https://link.amazon/B0jfkZrJu"
+    affiliateUrl: "https://link.amazon/B0jfkZrJu",
+    imageUrl: "https://m.media-amazon.com/images/I/8192AhJjKdL._SY522_.jpg"
   },
   {
     title: "ジェイソン流お金の増やし方",
@@ -154,7 +172,8 @@ window.wakuwakuBooks = [
     category: ["お金", "投資", "資産形成"],
     catchCopy: "シンプルなルールを、淡々と続ける。",
     description: "生活を楽しみながら支出を整え、長期投資を続けるための考え方を学べます。頑張りすぎずに資産形成を始めたい人の背中を押します。",
-    affiliateUrl: "https://link.amazon/B03BHhS4I"
+    affiliateUrl: "https://link.amazon/B03BHhS4I",
+    imageUrl: "https://m.media-amazon.com/images/I/8148blXS9bL._SY522_.jpg"
   },
   {
     title: "きみのお金は誰のため",
@@ -162,7 +181,8 @@ window.wakuwakuBooks = [
     category: ["お金", "人生"],
     catchCopy: "お金の向こう側にいる人を想像する。",
     description: "お金そのものではなく、社会で人が支え合う仕組みに目を向ける経済教養小説。FIRE後に何へ時間とお金を使いたいか考える助けになります。",
-    affiliateUrl: "https://link.amazon/B0ajo4pDO"
+    affiliateUrl: "https://link.amazon/B0ajo4pDO",
+    imageUrl: "https://m.media-amazon.com/images/I/81MnfJ1FZnL._SY522_.jpg"
   },
   {
     title: "お金のむこうに人がいる",
@@ -170,7 +190,8 @@ window.wakuwakuBooks = [
     category: ["お金", "人生"],
     catchCopy: "経済を、暮らしの言葉で読み直す。",
     description: "ニュースの数字や制度の裏側で、誰が働き、何を支えているのかを考えます。資産額だけではない豊かさの輪郭を見つめたい人に。",
-    affiliateUrl: "https://link.amazon/B04ayIsce"
+    affiliateUrl: "https://link.amazon/B04ayIsce",
+    imageUrl: "https://m.media-amazon.com/images/I/71ICyah7RVL._SY522_.jpg"
   },
   {
     title: "投資で一番大切な20の教え",
@@ -178,7 +199,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "うまくいく方法より、崩れにくい判断。",
     description: "リスク、逆張り、サイクルなど、投資で考えるべき本質を丁寧に掘り下げます。資産を増やすだけでなく、守る視点を持ちたい人へ。",
-    affiliateUrl: "https://link.amazon/B09QAnbe3"
+    affiliateUrl: "https://link.amazon/B09QAnbe3",
+    imageUrl: "https://m.media-amazon.com/images/I/71ZnWbxncZL._SY522_.jpg"
   },
   {
     title: "賢明なる投資家",
@@ -186,7 +208,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "市場の熱気から、一歩離れて考える。",
     description: "投資と投機を分け、安全余裕を重視するバリュー投資の古典。FIRE資産を長く守るために、感情と判断の距離を学べる一冊です。",
-    affiliateUrl: "https://link.amazon/B01zG2leC"
+    affiliateUrl: "https://link.amazon/B01zG2leC",
+    imageUrl: "https://m.media-amazon.com/images/I/7192YH2nouL._SY522_.jpg"
   },
   {
     title: "ピーター・リンチの株で勝つ",
@@ -194,7 +217,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "身近な気づきを、投資の視点に変える。",
     description: "日常の観察から企業を知る楽しさと、調べて判断する姿勢を教えてくれます。投資を難しい数字だけにしたくない人におすすめです。",
-    affiliateUrl: "https://link.amazon/B0j8gYQQH"
+    affiliateUrl: "https://link.amazon/B0j8gYQQH",
+    imageUrl: "https://m.media-amazon.com/images/I/91I84fTq48L._SY522_.jpg"
   },
   {
     title: "株式投資の未来",
@@ -202,7 +226,8 @@ window.wakuwakuBooks = [
     category: ["投資", "資産形成"],
     catchCopy: "長い時間で見ると、景色は変わる。",
     description: "株式の長期的なリターンや、配当・成長・分散の関係を考える材料になります。FIREまでの長い航海で、投資の軸を持ちたい人へ。",
-    affiliateUrl: "https://link.amazon/B05zILjsu"
+    affiliateUrl: "https://link.amazon/B05zILjsu",
+    imageUrl: "https://m.media-amazon.com/images/I/81DhAa2iJ0L._SY522_.jpg"
   },
   {
     title: "限りある時間の使い方",
@@ -210,7 +235,8 @@ window.wakuwakuBooks = [
     category: ["時間", "幸福", "人生"],
     catchCopy: "全部はできない。だから選べる。",
     description: "時間を完全に支配しようとする発想を手放し、本当に大切なことを選ぶ方法を考えます。FIRE後の自由時間を豊かにしたい人に。",
-    affiliateUrl: "https://link.amazon/B02KbF2D0"
+    affiliateUrl: "https://link.amazon/B02KbF2D0",
+    imageUrl: "https://m.media-amazon.com/images/I/71uP0Xn86UL._SY522_.jpg"
   },
   {
     title: "エッセンシャル思考",
@@ -218,7 +244,8 @@ window.wakuwakuBooks = [
     category: ["時間", "働き方"],
     catchCopy: "やらないことを決めると、人生が軽くなる。",
     description: "すべてを頑張るのではなく、重要なことを見極めて集中する考え方。お金だけでなく、時間と体力も大切にするFIRE設計に役立ちます。",
-    affiliateUrl: "https://link.amazon/B0aPR3mDK"
+    affiliateUrl: "https://link.amazon/B0aPR3mDK",
+    imageUrl: "https://m.media-amazon.com/images/I/81apzvuw7wL._SY522_.jpg"
   },
   {
     title: "幸福の「資本」論",
@@ -226,7 +253,8 @@ window.wakuwakuBooks = [
     category: ["幸福", "人生", "資産形成"],
     catchCopy: "幸福を、ひとつの資産だけに預けない。",
     description: "金融資産、人的資本、社会資本という複数の視点から、自由で幸福な人生を考えます。FIRE後の暮らしを設計するヒントが見つかります。",
-    affiliateUrl: "https://link.amazon/B0b36lbV8"
+    affiliateUrl: "https://link.amazon/B0b36lbV8",
+    imageUrl: "https://m.media-amazon.com/images/I/71mgeQPS08L._SY522_.jpg"
   },
   {
     title: "シンプルで合理的な人生設計",
@@ -234,7 +262,8 @@ window.wakuwakuBooks = [
     category: ["人生", "幸福", "お金"],
     catchCopy: "人生の複雑さを、少しだけ整理する。",
     description: "お金、健康、人間関係、働き方を別々にせず、人生全体の設計として考える本。自分に合う自由の形を組み立てたい人に向いています。",
-    affiliateUrl: "https://link.amazon/B0gE9LEn8"
+    affiliateUrl: "https://link.amazon/B0gE9LEn8",
+    imageUrl: "https://m.media-amazon.com/images/I/71vJ5lzXfWL._SY522_.jpg"
   },
   {
     title: "暇と退屈の倫理学",
@@ -242,7 +271,8 @@ window.wakuwakuBooks = [
     category: ["時間", "幸福", "人生"],
     catchCopy: "自由な時間は、どうして退屈になる？",
     description: "暇や退屈を手がかりに、欲望や消費、豊かさの意味を考える哲学書。FIRE後に何をして過ごすかを、深く想像したい人へ。",
-    affiliateUrl: "https://link.amazon/B02O0PvEW"
+    affiliateUrl: "https://link.amazon/B02O0PvEW",
+    imageUrl: "https://m.media-amazon.com/images/I/71kmsKbLguL._SY522_.jpg"
   },
   {
     title: "嫌われる勇気",
@@ -250,7 +280,8 @@ window.wakuwakuBooks = [
     category: ["人生", "幸福"],
     catchCopy: "他人の期待から、自分の人生を取り戻す。",
     description: "アドラー心理学を対話形式で読み解き、他人の評価と自分の選択を切り分けます。会社を辞める・続けるを自分で決めたい人に。",
-    affiliateUrl: "https://link.amazon/B0huhpgFl"
+    affiliateUrl: "https://link.amazon/B0huhpgFl",
+    imageUrl: "https://m.media-amazon.com/images/I/71uQVPeynWL._SY522_.jpg"
   },
   {
     title: "幸せになる勇気",
@@ -258,7 +289,8 @@ window.wakuwakuBooks = [
     category: ["人生", "幸福"],
     catchCopy: "自由の先で、人とどう関わる？",
     description: "自分らしく生きるだけでなく、他者とつながりながら幸せをつくる道を考えます。FIRE後の居場所やコミュニティを想像する本です。",
-    affiliateUrl: "https://link.amazon/B03kp5AjF"
+    affiliateUrl: "https://link.amazon/B03kp5AjF",
+    imageUrl: "https://m.media-amazon.com/images/I/71VQbaPG4dL._SY522_.jpg"
   },
   {
     title: "夜と霧",
@@ -266,7 +298,8 @@ window.wakuwakuBooks = [
     category: ["人生", "幸福"],
     catchCopy: "どんな状況でも、意味を探す力。",
     description: "極限状況を生きた精神科医の記録から、人生の意味と選択について考えます。自由な時間を何のために使うのか、静かに問い直せる本です。",
-    affiliateUrl: "https://link.amazon/B06YhAfZ4"
+    affiliateUrl: "https://link.amazon/B06YhAfZ4",
+    imageUrl: "https://m.media-amazon.com/images/I/614-cTbIFWL._SY522_.jpg"
   },
   {
     title: "生きがいについて",
@@ -274,7 +307,8 @@ window.wakuwakuBooks = [
     category: ["幸福", "人生"],
     catchCopy: "生きる力は、どこから生まれる？",
     description: "人が生きがいを感じる瞬間や、誰かの役に立つ喜びを見つめた名著。仕事を減らしたあとにも残る、自分の軸を探したい人へ。",
-    affiliateUrl: "https://link.amazon/B062WLbUQ"
+    affiliateUrl: "https://link.amazon/B062WLbUQ",
+    imageUrl: "https://m.media-amazon.com/images/I/71LY2-Rk5oL._SY522_.jpg"
   },
   {
     title: "人生の短さについて",
@@ -282,7 +316,8 @@ window.wakuwakuBooks = [
     category: ["時間", "人生"],
     catchCopy: "人生が短いのではなく、使い方を忘れている？",
     description: "古代ローマの哲学者が、時間を他人に明け渡さず生きる大切さを語ります。FIREを目指す理由を、資産額の先まで考えるきっかけに。",
-    affiliateUrl: "https://link.amazon/B07DPsRmY"
+    affiliateUrl: "https://link.amazon/B07DPsRmY",
+    imageUrl: "https://m.media-amazon.com/images/I/51NVvQ5nDgL._SY522_.jpg"
   },
   {
     title: "自省録",
@@ -290,7 +325,8 @@ window.wakuwakuBooks = [
     category: ["人生", "幸福"],
     catchCopy: "外の世界より、まず自分の心を整える。",
     description: "皇帝が自分に向けて書いた、静かな人生のメモ。相場や周囲の変化に揺れたとき、自分で選べることへ意識を戻す助けになります。",
-    affiliateUrl: "https://link.amazon/B0j0km5L9"
+    affiliateUrl: "https://link.amazon/B0j0km5L9",
+    imageUrl: "https://m.media-amazon.com/images/I/81HeN-2naGL._SY466_.jpg"
   },
   {
     title: "7つの習慣",
@@ -298,7 +334,8 @@ window.wakuwakuBooks = [
     category: ["人生", "働き方", "時間"],
     catchCopy: "自由は、毎日の小さな選択から。",
     description: "主体性、優先順位、相互理解など、人生を自分で動かすための原則を整理します。FIREへの道を習慣として続けたい人におすすめです。",
-    affiliateUrl: "https://link.amazon/B08cQUOd1"
+    affiliateUrl: "https://link.amazon/B08cQUOd1",
+    imageUrl: "https://m.media-amazon.com/images/I/819n53KtwmL._SY466_.jpg"
   },
   {
     title: "LIFE SHIFT",
@@ -306,7 +343,8 @@ window.wakuwakuBooks = [
     category: ["人生", "働き方", "時間"],
     catchCopy: "人生100年時代を、一本道にしない。",
     description: "長寿化で変わる学び・仕事・引退の形を考えます。早く辞めるだけでなく、何度も働き方を組み替える人生設計にも目を向けられます。",
-    affiliateUrl: "https://link.amazon/B056LYWQf"
+    affiliateUrl: "https://link.amazon/B056LYWQf",
+    imageUrl: "https://m.media-amazon.com/images/I/71s8+fXBAtL._SY522_.jpg"
   },
   {
     title: "人生後半の戦略書",
@@ -314,7 +352,8 @@ window.wakuwakuBooks = [
     category: ["人生", "幸福", "働き方"],
     catchCopy: "人生の後半は、別の強みで輝ける。",
     description: "年齢とともに変化する能力や、成功の意味を見つめ直します。FIRE後の第二章で、競争以外の価値を育てたい人にぴったりです。",
-    affiliateUrl: "https://link.amazon/B0b6uKRMI"
+    affiliateUrl: "https://link.amazon/B0b6uKRMI",
+    imageUrl: "https://m.media-amazon.com/images/I/81Z2dzDHvgL._SY522_.jpg"
   },
   {
     title: "グッド・ライフ",
@@ -322,7 +361,8 @@ window.wakuwakuBooks = [
     category: ["幸福", "人生"],
     catchCopy: "よい人生は、よい関係から育つ。",
     description: "長期研究から、幸福と健康に深く関わる人間関係の大切さを学びます。自由な時間を、誰とどう過ごすか考えたいFIRE志向の人へ。",
-    affiliateUrl: "https://link.amazon/B0gKniXun"
+    affiliateUrl: "https://link.amazon/B0gKniXun",
+    imageUrl: "https://m.media-amazon.com/images/I/61hUUaDKT6L._SY522_.jpg"
   },
   {
     title: "フロー体験 喜びの現象学",
@@ -330,7 +370,8 @@ window.wakuwakuBooks = [
     category: ["幸福", "時間", "人生"],
     catchCopy: "時間を忘れるほどの夢中を探す。",
     description: "人が活動そのものに深く没頭するフローの仕組みを解説します。FIRE後の自由を、ただの暇ではなく充実した体験に変えるヒントです。",
-    affiliateUrl: "https://link.amazon/B0azE34NL"
+    affiliateUrl: "https://link.amazon/B0azE34NL",
+    imageUrl: "https://m.media-amazon.com/images/I/41fPkU2DJSL.jpg"
   },
   {
     title: "ジェームズ・クリアー式 複利で伸びる1つの習慣",
@@ -338,7 +379,8 @@ window.wakuwakuBooks = [
     category: ["時間", "人生", "資産形成"],
     catchCopy: "大きな変化は、小さな一歩の積み重ね。",
     description: "行動を続けやすくする環境づくりと、習慣の積み上げ方を学びます。投資も暮らしも、無理なく複利で育てたい人におすすめです。",
-    affiliateUrl: "https://link.amazon/B0gk0S1fO"
+    affiliateUrl: "https://link.amazon/B0gk0S1fO",
+    imageUrl: "https://m.media-amazon.com/images/I/81i72pS-+QL._SY522_.jpg"
   },
   {
     title: "ファスト＆スロー",
@@ -346,7 +388,8 @@ window.wakuwakuBooks = [
     category: ["投資", "人生"],
     catchCopy: "自分の判断は、いつも合理的？",
     description: "人が直感と熟考を使い分ける仕組みを知ると、投資や買い物のクセが見えてきます。お金の判断を少し冷静にしたい人に。",
-    affiliateUrl: "https://link.amazon/B08ZNI0xx"
+    affiliateUrl: "https://link.amazon/B08ZNI0xx",
+    imageUrl: "https://m.media-amazon.com/images/I/71sbidl1DQL._SY522_.jpg"
   },
   {
     title: "予想どおりに不合理",
@@ -354,7 +397,8 @@ window.wakuwakuBooks = [
     category: ["お金", "人生"],
     catchCopy: "つい選んでしまう理由を、楽しく知る。",
     description: "人の選択がどのように偏るのかを、身近な実験から読み解きます。衝動買いや相場の誘惑と距離を置き、自由を守る工夫が見つかります。",
-    affiliateUrl: "https://link.amazon/B01hL1mKn"
+    affiliateUrl: "https://link.amazon/B01hL1mKn",
+    imageUrl: "https://m.media-amazon.com/images/I/71Uf23prC5L._SY522_.jpg"
   },
   {
     title: "FACTFULNESS",
@@ -362,7 +406,8 @@ window.wakuwakuBooks = [
     category: ["人生", "お金"],
     catchCopy: "世界を、思い込みではなくデータで見る。",
     description: "世界の現状を数字で確かめ、恐れや思い込みから判断を取り戻す本。投資でも人生でも、落ち着いて選択する土台をつくれます。",
-    affiliateUrl: "https://link.amazon/B08HM3P3v"
+    affiliateUrl: "https://link.amazon/B08HM3P3v",
+    imageUrl: "https://m.media-amazon.com/images/I/71XJV4nRq4S._SY522_.jpg"
   },
   {
     title: "THINK AGAIN",
@@ -370,7 +415,8 @@ window.wakuwakuBooks = [
     category: ["人生", "働き方"],
     catchCopy: "考え直せる人は、変化に強い。",
     description: "一度決めた意見を手放し、学び直す力を育てます。FIREの計画も環境に合わせて更新しながら、自分らしい道を選びたい人へ。",
-    affiliateUrl: "https://link.amazon/B06ak16NB"
+    affiliateUrl: "https://link.amazon/B06ak16NB",
+    imageUrl: "https://m.media-amazon.com/images/I/81y0sMZvgQL._SY522_.jpg"
   },
   {
     title: "科学的な適職",
@@ -378,7 +424,8 @@ window.wakuwakuBooks = [
     category: ["働き方", "人生"],
     catchCopy: "仕事選びを、気分だけで決めない。",
     description: "仕事の幸福度や適性を考えるときに役立つ研究を、実践しやすく整理。会社を辞める前にも、辞めた後にも、自分に合う働き方を探せます。",
-    affiliateUrl: "https://link.amazon/B09A5DV5B"
+    affiliateUrl: "https://link.amazon/B09A5DV5B",
+    imageUrl: "https://m.media-amazon.com/images/I/81+zrGFKB5L._SY522_.jpg"
   },
   {
     title: "苦しかったときの話をしようか",
@@ -386,7 +433,8 @@ window.wakuwakuBooks = [
     category: ["働き方", "人生"],
     catchCopy: "自分の強みは、どこで輝く？",
     description: "キャリアの不安を抱える人に、強みの見つけ方と選択の考え方を届けます。FIRE後に何をして働くか、考え始めるきっかけに。",
-    affiliateUrl: "https://link.amazon/B0frEgLGn"
+    affiliateUrl: "https://link.amazon/B0frEgLGn",
+    imageUrl: "https://m.media-amazon.com/images/I/81yzjQfAstL._SY522_.jpg"
   },
   {
     title: "ブルシット・ジョブ",
@@ -394,7 +442,8 @@ window.wakuwakuBooks = [
     category: ["働き方", "人生"],
     catchCopy: "その仕事は、誰のためにある？",
     description: "意味を感じにくい仕事が生まれる社会の仕組みを問い直します。働く時間と人生の価値を、自分の言葉で考えたい人に刺激を与える一冊です。",
-    affiliateUrl: "https://link.amazon/B02REvpII"
+    affiliateUrl: "https://link.amazon/B02REvpII",
+    imageUrl: "https://m.media-amazon.com/images/I/51IAdqOn5KL._SY522_.jpg"
   },
   {
     title: "なぜ働いていると本が読めなくなるのか",
@@ -402,6 +451,7 @@ window.wakuwakuBooks = [
     category: ["働き方", "時間", "人生"],
     catchCopy: "忙しさの正体を、本から見つめる。",
     description: "働き方と読書、情報との付き合い方の変化をたどります。FIREを目指す途中でも、自由時間をどう取り戻すか考えるきっかけになります。",
-    affiliateUrl: "https://link.amazon/B04nMFsz7"
+    affiliateUrl: "https://link.amazon/B04nMFsz7",
+    imageUrl: "https://m.media-amazon.com/images/I/71ULGhR6hmL._SY522_.jpg"
   }
 ];
