@@ -121,6 +121,39 @@
         </div>
       </section>
 
+      <section class="section daily-book" id="daily-book" aria-labelledby="daily-book-heading" hidden>
+        <div class="container">
+          <div class="daily-book__shell">
+            <div class="daily-book__heading">
+              <div class="section-heading">
+                <p class="eyebrow eyebrow--yellow">TODAY'S BOOK</p>
+                <h2 id="daily-book-heading">今日のおすすめ<br /><span>FIRE本 📚</span></h2>
+              </div>
+              <div class="daily-book__stamp"><span>DAILY PICK</span><strong id="daily-book-date">今日の一冊</strong></div>
+            </div>
+
+            <article class="daily-book__card" aria-live="polite">
+              <div class="daily-book__cover" aria-hidden="true">
+                <span class="daily-book__cover-icon">📚</span>
+                <span class="daily-book__cover-label">WAKUWAKU<br />READING</span>
+                <span class="daily-book__cover-spark">✦</span>
+              </div>
+              <div class="daily-book__content">
+                <p class="daily-book__category" id="daily-book-category"></p>
+                <h3 class="daily-book__book-title" id="daily-book-book-title"></h3>
+                <p class="daily-book__author" id="daily-book-author"></p>
+                <p class="daily-book__catch" id="daily-book-catch"></p>
+                <p class="daily-book__description" id="daily-book-description"></p>
+                <div class="daily-book__tags" id="daily-book-tags" aria-label="本のカテゴリー"></div>
+                <a class="button button--primary daily-book__link" id="daily-book-link" target="_blank" rel="noopener noreferrer sponsored" hidden>Amazonで見る <span aria-hidden="true">↗</span></a>
+                <p class="daily-book__disclosure">※当サイトはAmazonアソシエイト・プログラムを利用しています。</p>
+              </div>
+            </article>
+            <p class="daily-book__note">リンクを登録した本の中から、日本時間の日付で毎日1冊を紹介します。</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section world" id="world" aria-labelledby="world-title">
         <div class="container">
           <div class="world__heading">
@@ -195,6 +228,7 @@
       <div class="container site-footer__bottom"><small>© <span id="current-year">2026</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div>
     </footer>
 
+    <script src="data/books.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
