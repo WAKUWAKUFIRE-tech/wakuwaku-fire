@@ -1671,3 +1671,30 @@ noscript {
     transition-duration: 0.01ms !important;
   }
 }
+
+.game-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px max(20px, 4vw);
+  color: rgba(236, 242, 255, 0.72);
+  background: #0b101a;
+  border-top: 1px solid rgba(236, 242, 255, 0.14);
+  font-size: 11px;
+}
+
+.game-footer > a {
+  color: #ffcf45;
+  font-weight: 900;
+}
+
+.game-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.game-footer nav a:hover,
+.game-footer nav a:focus-visible { color: #ffcf45; }
