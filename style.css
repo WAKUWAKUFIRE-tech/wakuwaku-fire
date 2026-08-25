@@ -1912,8 +1912,9 @@ a.article-preview-card:focus-visible {
 
 .article-page__hero {
   margin: 34px 0 26px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: var(--ink);
+  background: var(--paper);
   border: 2px solid var(--ink);
   border-radius: var(--radius);
 }
@@ -1921,8 +1922,9 @@ a.article-preview-card:focus-visible {
 .article-page__hero img {
   display: block;
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   background: transparent;
 }
 
