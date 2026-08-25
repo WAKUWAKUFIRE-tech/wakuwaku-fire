@@ -11,7 +11,7 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 - `articles/index.html`：FIREコラム一覧
 - `articles/各スラッグ/index.html`：FIREコラムの個別ページ（現在13本）
 - `about/index.html`：運営者情報
-- `privacy/index.html`：プライバシーポリシーの確認用テンプレート
+- `privacy/index.html`：公開中のプライバシーポリシー
 - `contact/index.html`：指定メールアドレスへ送るお問い合わせフォーム
 - `404.html`：存在しないURLを開いたときの案内ページ
 - `sitemap.xml`：検索エンジン向けのページ一覧
@@ -60,7 +60,7 @@ GitHub連携方式なら、GitHubへ変更を保存するたびにCloudflare Pag
 
 1. Search Consoleでサイトを登録します。
 2. HTMLのmetaタグによる確認を選びます。
-3. Googleから表示された `google-site-verification` のmetaタグを、各HTMLのhead内にある「確認用metaタグ」のコメントの直後へ追加します。
+3. Googleから表示された `google-site-verification` のmetaタグを、各HTMLの `<head>` 内へ追加します。
 4. GitHubへ保存し、Cloudflare Pagesの公開後に確認ボタンを押します。
 5. Search Consoleで `sitemap.xml` のURL（例：`https://公開URL/sitemap.xml`）を送信します。
 
@@ -68,9 +68,9 @@ GitHub連携方式なら、GitHubへ変更を保存するたびにCloudflare Pag
 
 ## Google AdSenseの設定
 
-AdSenseのPublisher IDをまだ設定していないため、現在のHTMLには広告コードを動かす状態で入れていません。サイト全体のheadには、追加場所が分かるコメントだけ用意しています。
+AdSenseのPublisher IDをまだ設定していないため、現在のHTMLには広告コードを入れていません。審査コードを受け取ったら、各HTMLの `<head>` 内へ追加します。
 
-AdSenseの審査コードを受け取ったら、各HTMLのhead内の「AdSense審査コード」のコメント位置へ、Googleが発行したコードを追加します。 `YOUR_ADSENSE_CLIENT_ID` のような文字列を実際のコードとして残さないでください。
+AdSenseの審査コードを受け取ったら、Googleが発行したコードだけを追加します。 `YOUR_ADSENSE_CLIENT_ID` のような文字列を実際のコードとして残さないでください。
 
 審査に通ったあと広告ユニットを追加する場合も、本文やボタンを押しのけない位置に置き、広告であることが分かる表示と、Googleの最新ポリシーを確認してください。
 
@@ -82,7 +82,7 @@ AdSenseの審査コードを受け取ったら、各HTMLのhead内の「AdSense�
 
 ## Amazonアソシエイトについて
 
-サイトにはAmazonアソシエイトのリンクが含まれています。プライバシーポリシーに表示文のテンプレートを入れていますが、公開前にAmazonの最新の参加規約と必要な表示を確認してください。
+サイトにはAmazonアソシエイトのリンクが含まれています。プライバシーポリシーに参加者であることと紹介料に関する表示を掲載しています。規約や表示要件が変更された場合は、最新の内容に合わせて更新してください。
 
 ## AdSense申請前に私が手動でやること
 

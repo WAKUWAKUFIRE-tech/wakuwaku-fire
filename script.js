@@ -58,12 +58,10 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 // コンテンツカードのカテゴリー絞り込み。
 const filterButtons = document.querySelectorAll(".filter-button");
 const contentCards = document.querySelectorAll(".content-card");
-const filterEmpty = document.querySelector("#filter-empty");
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedFilter = button.dataset.filter;
-    let visibleCount = 0;
 
     filterButtons.forEach((item) => {
       const isActive = item === button;
@@ -74,10 +72,7 @@ filterButtons.forEach((button) => {
     contentCards.forEach((card) => {
       const shouldShow = selectedFilter === "all" || card.dataset.category === selectedFilter;
       card.classList.toggle("is-hidden", !shouldShow);
-      if (shouldShow) visibleCount += 1;
     });
-
-    if (filterEmpty) filterEmpty.hidden = visibleCount !== 0;
   });
 });
 
@@ -188,7 +183,7 @@ function scheduleDailyBookRefresh() {
 renderDailyBook();
 scheduleDailyBookRefresh();
 
-// 準備中の期間も楽しめる、ランダムメッセージ。
+// 気分転換になるランダムメッセージ。
 const messageButton = document.querySelector("#message-button");
 const messageText = document.querySelector("#message-text");
 const messages = [

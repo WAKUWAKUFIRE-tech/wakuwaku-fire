@@ -1234,16 +1234,6 @@ button {
 .content-card:hover .content-card__arrow { transform: rotate(45deg); }
 .content-card.is-hidden { display: none; }
 
-.filter-empty {
-  margin: 18px 0 0;
-  padding: 18px;
-  color: var(--muted);
-  background: var(--cream);
-  border-radius: 16px;
-  font-size: 13px;
-  text-align: center;
-}
-
 .playground {
   position: relative;
   isolation: isolate;
