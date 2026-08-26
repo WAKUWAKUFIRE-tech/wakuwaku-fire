@@ -1,0 +1,1572 @@
+
+    #world-iju-guide-app,
+    #world-iju-guide-app * {
+      box-sizing: border-box;
+    }
+
+    #world-iju-guide-app {
+      --wigu-red: #e74735;
+      --wigu-red-dark: #a92e29;
+      --wigu-yellow: #ffd34b;
+      --wigu-yellow-soft: #fff2bc;
+      --wigu-cream: #fffaf0;
+      --wigu-paper: #fffef9;
+      --wigu-ink: #202a36;
+      --wigu-muted: #68727c;
+      --wigu-navy: #173b59;
+      --wigu-blue: #5eb6ce;
+      --wigu-green: #5b956f;
+      --wigu-line: #e7dccb;
+      width: 100%;
+      padding: 14px 8px 24px;
+      color: var(--wigu-ink);
+      background:
+        radial-gradient(circle at 7% 12%, rgba(255, 211, 75, .35) 0 6px, transparent 7px),
+        radial-gradient(circle at 92% 18%, rgba(231, 71, 53, .12) 0 8px, transparent 9px),
+        linear-gradient(145deg, #fff8e8 0%, #f1fbfc 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    #world-iju-guide-app button,
+    #world-iju-guide-app a {
+      font: inherit;
+    }
+
+    #world-iju-guide-app button {
+      min-height: 44px;
+      cursor: pointer;
+    }
+
+    #world-iju-guide-app button:focus-visible,
+    #world-iju-guide-app a:focus-visible {
+      outline: 4px solid rgba(94, 182, 206, .75);
+      outline-offset: 3px;
+    }
+
+    #world-iju-guide-app .wigu-shell {
+      width: min(100%, 780px);
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--wigu-cream);
+      border: 3px solid var(--wigu-ink);
+      border-radius: 26px;
+      box-shadow: 0 12px 0 rgba(23, 59, 89, .13), 0 24px 42px rgba(59, 45, 27, .14);
+    }
+
+    #world-iju-guide-app .wigu-header {
+      padding: 12px 16px 13px;
+      color: #fff;
+      background: var(--wigu-red);
+      border-bottom: 3px solid var(--wigu-ink);
+    }
+
+    #world-iju-guide-app .wigu-flight-row,
+    #world-iju-guide-app .wigu-brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    #world-iju-guide-app .wigu-flight-row {
+      margin-bottom: 9px;
+      color: var(--wigu-yellow);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    #world-iju-guide-app .wigu-flight-no {
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      letter-spacing: .1em;
+    }
+
+    #world-iju-guide-app .wigu-brand-row {
+      align-items: center;
+    }
+
+    #world-iju-guide-app .wigu-brand-row strong {
+      font-size: clamp(13px, 3vw, 17px);
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    #world-iju-guide-app .wigu-brand-row em {
+      color: var(--wigu-yellow);
+      font-style: normal;
+    }
+
+    #world-iju-guide-app .wigu-route {
+      color: rgba(255, 255, 255, .86);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    #world-iju-guide-app .wigu-route b {
+      color: var(--wigu-yellow);
+      font-size: 16px;
+    }
+
+    #world-iju-guide-app .wigu-stamp {
+      padding: 3px 7px;
+      color: var(--wigu-ink);
+      background: var(--wigu-yellow);
+      border: 2px solid var(--wigu-ink);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      transform: rotate(3deg);
+    }
+
+    #world-iju-guide-app .wigu-main {
+      min-height: 420px;
+      padding: clamp(22px, 5vw, 38px) clamp(12px, 4vw, 25px) 32px;
+    }
+
+    #world-iju-guide-app .wigu-footer {
+      padding: 14px 16px 20px;
+      color: var(--wigu-muted);
+      background: rgba(255, 255, 255, .28);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-screen {
+      width: min(100%, 700px);
+      margin: 0 auto;
+      animation: wigu-fade-in .32s ease both;
+    }
+
+    #world-iju-guide-app .wigu-card {
+      padding: clamp(19px, 4vw, 32px);
+      background: rgba(255, 255, 255, .86);
+      border: 2px solid var(--wigu-line);
+      border-radius: 21px;
+      box-shadow: 0 10px 24px rgba(64, 54, 38, .08);
+    }
+
+    #world-iju-guide-app .wigu-home {
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-eyebrow,
+    #world-iju-guide-app .wigu-kicker {
+      margin: 0 0 8px;
+      color: var(--wigu-red-dark);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    #world-iju-guide-app .wigu-map {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(100%, 380px);
+      height: 150px;
+      margin: 0 auto 17px;
+      overflow: hidden;
+      color: var(--wigu-navy);
+      background:
+        radial-gradient(ellipse at 20% 32%, rgba(94, 182, 206, .35) 0 19px, transparent 20px),
+        radial-gradient(ellipse at 72% 61%, rgba(94, 182, 206, .25) 0 33px, transparent 34px),
+        #e5f5f3;
+      border: 2px solid var(--wigu-navy);
+      border-radius: 48% 52% 44% 56% / 45% 43% 57% 55%;
+      transform: rotate(-2deg);
+      box-shadow: 5px 5px 0 var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-map::before,
+    #world-iju-guide-app .wigu-map::after {
+      content: "";
+      position: absolute;
+      border: 2px dashed rgba(23, 59, 89, .35);
+      border-radius: 50%;
+    }
+
+    #world-iju-guide-app .wigu-map::before {
+      width: 270px;
+      height: 90px;
+    }
+
+    #world-iju-guide-app .wigu-map::after {
+      width: 150px;
+      height: 230px;
+      transform: rotate(64deg);
+    }
+
+    #world-iju-guide-app .wigu-map-label {
+      position: relative;
+      z-index: 1;
+      padding: 9px 14px;
+      color: #fff;
+      background: var(--wigu-navy);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      transform: rotate(2deg);
+    }
+
+    #world-iju-guide-app .wigu-map-pin {
+      position: absolute;
+      z-index: 2;
+      color: var(--wigu-red);
+      font-size: 27px;
+      filter: drop-shadow(2px 2px 0 #fff);
+    }
+
+    #world-iju-guide-app .wigu-pin-a { top: 37px; left: 29%; }
+    #world-iju-guide-app .wigu-pin-b { top: 72px; left: 53%; }
+    #world-iju-guide-app .wigu-pin-c { top: 27px; right: 18%; }
+
+    #world-iju-guide-app .wigu-home h1 {
+      margin: 0;
+      color: var(--wigu-navy);
+      font-size: clamp(27px, 7vw, 46px);
+      line-height: 1.22;
+      letter-spacing: .03em;
+    }
+
+    #world-iju-guide-app .wigu-home h1 span {
+      display: block;
+      color: var(--wigu-red);
+      font-size: .68em;
+    }
+
+    #world-iju-guide-app .wigu-lead {
+      max-width: 570px;
+      margin: 17px auto 0;
+      color: #4f5e67;
+      font-size: 15px;
+      text-align: left;
+    }
+
+    #world-iju-guide-app .wigu-lead strong {
+      color: var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-note {
+      max-width: 570px;
+      margin: 17px auto;
+      padding: 12px 15px;
+      color: #695c4e;
+      background: var(--wigu-yellow-soft);
+      border: 1px dashed #d5ad32;
+      border-radius: 13px;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    #world-iju-guide-app .wigu-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 7px;
+      margin: 17px 0 23px;
+    }
+
+    #world-iju-guide-app .wigu-chip,
+    #world-iju-guide-app .wigu-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      color: var(--wigu-navy);
+      background: #e5f5f3;
+      border: 1px solid #b8dcda;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    #world-iju-guide-app .wigu-primary,
+    #world-iju-guide-app .wigu-secondary,
+    #world-iju-guide-app .wigu-danger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    #world-iju-guide-app .wigu-primary {
+      padding: 13px 23px;
+      color: #fff;
+      background: var(--wigu-red);
+      box-shadow: 0 6px 0 var(--wigu-red-dark);
+    }
+
+    #world-iju-guide-app .wigu-primary:hover {
+      background: #f15a46;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--wigu-red-dark);
+    }
+
+    #world-iju-guide-app .wigu-primary:active,
+    #world-iju-guide-app .wigu-answer.is-picked {
+      transform: translateY(3px);
+    }
+
+    #world-iju-guide-app .wigu-secondary {
+      padding: 11px 17px;
+      color: var(--wigu-navy);
+      background: #edf1ee;
+      border: 1px solid #ccd7d0;
+    }
+
+    #world-iju-guide-app .wigu-secondary:hover {
+      background: #dfe9e4;
+    }
+
+    #world-iju-guide-app .wigu-danger {
+      padding: 11px 17px;
+      color: #fff;
+      background: var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-danger:hover {
+      background: #27587b;
+    }
+
+    #world-iju-guide-app .wigu-resume {
+      max-width: 570px;
+      margin: 0 auto 19px;
+      padding: 14px 16px;
+      text-align: left;
+      background: #fff3c9;
+      border: 2px solid #e0b830;
+      border-radius: 15px;
+    }
+
+    #world-iju-guide-app .wigu-resume strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-resume p {
+      margin: 0 0 10px;
+      color: #655b4a;
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-resume-actions,
+    #world-iju-guide-app .wigu-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    #world-iju-guide-app .wigu-resume-actions button {
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid #d6b132;
+      color: var(--wigu-navy);
+      background: #fffdf3;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-resume-actions button:first-child {
+      color: #fff;
+      background: var(--wigu-red);
+      border-color: var(--wigu-red);
+    }
+
+    #world-iju-guide-app .wigu-question-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: var(--wigu-muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    #world-iju-guide-app .wigu-question-top strong {
+      color: var(--wigu-red-dark);
+      font-size: 14px;
+    }
+
+    #world-iju-guide-app .wigu-progress {
+      height: 10px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      background: #e8e5dd;
+      border: 1px solid #d5d0c4;
+      border-radius: 999px;
+    }
+
+    #world-iju-guide-app .wigu-progress span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--wigu-red), var(--wigu-yellow), var(--wigu-blue));
+      border-radius: inherit;
+      transition: width .35s ease;
+    }
+
+    #world-iju-guide-app .wigu-question h2 {
+      margin: 0 0 21px;
+      padding: 15px 18px;
+      color: #fff !important;
+      background: var(--wigu-navy) !important;
+      border-radius: 12px;
+      font-size: clamp(21px, 5vw, 31px);
+      line-height: 1.45;
+    }
+
+    /* 外部テーマの影響を受けないよう、見出しの背景を明示します。 */
+    #world-iju-guide-app h1,
+    #world-iju-guide-app h2,
+    #world-iju-guide-app h3 {
+      background: transparent !important;
+    }
+
+    #world-iju-guide-app .wigu-question h2 {
+      color: #fff !important;
+      background: var(--wigu-navy) !important;
+    }
+
+    #world-iju-guide-app .wigu-answers {
+      display: grid;
+      gap: 11px;
+    }
+
+    #world-iju-guide-app .wigu-answer {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      padding: 14px 15px;
+      color: var(--wigu-ink);
+      text-align: left;
+      background: #fff;
+      border: 2px solid #ded5c7;
+      border-radius: 16px;
+      box-shadow: 0 3px 0 #ded5c7;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    #world-iju-guide-app .wigu-answer:hover {
+      background: #fff7e4;
+      border-color: var(--wigu-red);
+      transform: translateX(3px);
+    }
+
+    #world-iju-guide-app .wigu-answer:disabled {
+      opacity: .75;
+      cursor: wait;
+    }
+
+    #world-iju-guide-app .wigu-letter {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 11px;
+      color: var(--wigu-red-dark);
+      background: #ffe6bd;
+      border: 1px solid #e8bd70;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-answer-copy {
+      padding-top: 2px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    #world-iju-guide-app .wigu-back {
+      display: inline-flex;
+      margin-top: 19px;
+      padding: 7px 0;
+      color: var(--wigu-muted);
+      background: transparent;
+      border: 0;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    #world-iju-guide-app .wigu-back:disabled {
+      color: #b5b0a7;
+      cursor: not-allowed;
+    }
+
+    #world-iju-guide-app .wigu-comment {
+      padding: 34px 21px;
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-comment-icon {
+      margin-bottom: 12px;
+      font-size: 52px;
+      line-height: 1;
+    }
+
+    #world-iju-guide-app .wigu-comment h2 {
+      margin: 0;
+      color: var(--wigu-navy);
+      font-size: 24px;
+    }
+
+    #world-iju-guide-app .wigu-comment p {
+      max-width: 450px;
+      margin: 9px auto 23px;
+      color: var(--wigu-muted);
+    }
+
+    #world-iju-guide-app .wigu-loading {
+      position: relative;
+      min-height: 340px;
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(circle at 10% 25%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 62%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+        linear-gradient(145deg, var(--wigu-navy), #2c718e);
+      border-color: var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-loading::before,
+    #world-iju-guide-app .wigu-loading::after {
+      content: "";
+      position: absolute;
+      border: 1px dashed rgba(255, 255, 255, .3);
+      border-radius: 50%;
+    }
+
+    #world-iju-guide-app .wigu-loading::before {
+      width: 360px;
+      height: 145px;
+      top: 34px;
+      left: -40px;
+      transform: rotate(-19deg);
+    }
+
+    #world-iju-guide-app .wigu-loading::after {
+      width: 230px;
+      height: 390px;
+      top: -65px;
+      right: 12px;
+      transform: rotate(54deg);
+    }
+
+    #world-iju-guide-app .wigu-loading-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 290px;
+    }
+
+    #world-iju-guide-app .wigu-radar {
+      display: grid;
+      place-items: center;
+      width: 105px;
+      height: 105px;
+      margin-bottom: 20px;
+      color: var(--wigu-yellow);
+      border: 2px solid rgba(255, 255, 255, .45);
+      border-radius: 50%;
+      box-shadow: 0 0 0 10px rgba(255,255,255,.06), 0 0 0 21px rgba(255,255,255,.04);
+      animation: wigu-pulse 1.25s ease-in-out infinite;
+    }
+
+    #world-iju-guide-app .wigu-radar b {
+      font-size: 36px;
+      transform: rotate(-10deg);
+    }
+
+    #world-iju-guide-app .wigu-loading h2 {
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: 22px;
+    }
+
+    #world-iju-guide-app .wigu-loading-message {
+      min-height: 28px;
+      color: var(--wigu-yellow);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-result {
+      display: grid;
+      gap: 17px;
+    }
+
+    #world-iju-guide-app .wigu-result-intro {
+      padding: 8px 4px 2px;
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-result-intro p {
+      margin: 0 0 6px;
+      color: var(--wigu-red-dark);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .15em;
+    }
+
+    #world-iju-guide-app .wigu-result-intro h1 {
+      margin: 0;
+      color: var(--wigu-navy);
+      font-size: clamp(25px, 6vw, 38px);
+      line-height: 1.3;
+    }
+
+    #world-iju-guide-app .wigu-summary-card {
+      position: relative;
+      padding: 21px 17px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 86% 15%, rgba(255, 211, 75, .22) 0 32px, transparent 33px),
+        linear-gradient(145deg, var(--wigu-red), #c83e39);
+      border: 3px solid var(--wigu-ink);
+      border-radius: 21px;
+      box-shadow: 7px 7px 0 var(--wigu-ink);
+    }
+
+    #world-iju-guide-app .wigu-summary-card::after {
+      content: "OVERSEAS FIRE";
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      padding: 3px 6px;
+      color: var(--wigu-ink);
+      background: var(--wigu-yellow);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      transform: rotate(4deg);
+    }
+
+    #world-iju-guide-app .wigu-summary-kicker {
+      margin: 0 0 9px;
+      color: var(--wigu-yellow);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    #world-iju-guide-app .wigu-summary-main {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    #world-iju-guide-app .wigu-summary-flag {
+      font-size: 46px;
+      line-height: 1;
+    }
+
+    #world-iju-guide-app .wigu-summary-main h2 {
+      margin: 0;
+      font-size: clamp(25px, 6vw, 38px);
+      line-height: 1.15;
+    }
+
+    #world-iju-guide-app .wigu-summary-main p {
+      margin: 3px 0 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-location-map {
+      margin: 15px 0;
+      padding: 15px;
+      color: var(--wigu-ink);
+      background: #fffef9;
+      border: 2px solid var(--wigu-navy);
+      border-radius: 17px;
+      box-shadow: 5px 5px 0 rgba(23, 59, 89, .14);
+    }
+
+    #world-iju-guide-app .wigu-location-map-head p {
+      margin: 0 0 4px;
+      color: var(--wigu-red-dark);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    #world-iju-guide-app .wigu-location-map-head h2 {
+      margin: 0;
+      color: var(--wigu-navy);
+      font-size: 21px;
+      line-height: 1.3;
+    }
+
+    #world-iju-guide-app .wigu-location-map-head span {
+      display: block;
+      margin-top: 4px;
+      color: var(--wigu-muted);
+      font-size: 12px;
+    }
+
+    #world-iju-guide-app .wigu-map-canvas {
+      position: relative;
+      aspect-ratio: 2 / 1;
+      margin-top: 13px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #d9edf1;
+      border: 1px solid #9bbdc8;
+      border-radius: 13px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.72), 0 10px 22px rgba(23,59,89,.12);
+    }
+
+    #world-iju-guide-app .wigu-map-image {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    #world-iju-guide-app .wigu-map-grid {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(90deg, transparent 24.9%, rgba(23,59,89,.35) 25%, transparent 25.1%, transparent 49.9%, rgba(23,59,89,.35) 50%, transparent 50.1%, transparent 74.9%, rgba(23,59,89,.35) 75%, transparent 75.1%),
+        linear-gradient(0deg, transparent 24.9%, rgba(23,59,89,.35) 25%, transparent 25.1%, transparent 49.9%, rgba(23,59,89,.35) 50%, transparent 50.1%, transparent 74.9%, rgba(23,59,89,.35) 75%, transparent 75.1%);
+    }
+
+    #world-iju-guide-app .wigu-map-pin {
+      position: absolute;
+      z-index: 4;
+      left: var(--x);
+      top: var(--y);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 3px 9px rgba(23, 59, 89, .38);
+      transform: translate(-50%, -50%);
+    }
+
+    #world-iju-guide-app .wigu-map-pin b {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    #world-iju-guide-app .wigu-map-pin-first {
+      background: var(--wigu-red);
+    }
+
+    #world-iju-guide-app .wigu-map-pin-second {
+      background: var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-map-legend {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 11px;
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 9px;
+      background: #f3f8f7;
+      border: 1px solid #d7e5df;
+      border-radius: 10px;
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item > b {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item > b.wigu-map-key-first {
+      background: var(--wigu-red);
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item > b.wigu-map-key-second {
+      background: var(--wigu-navy);
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item strong,
+    #world-iju-guide-app .wigu-map-legend-item span {
+      display: block;
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item strong {
+      color: var(--wigu-navy);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    #world-iju-guide-app .wigu-map-legend-item span {
+      margin-top: 2px;
+      color: var(--wigu-muted);
+      font-size: 10px;
+    }
+
+    #world-iju-guide-app .wigu-map-source {
+      margin: 6px 0 0;
+      color: var(--wigu-muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    #world-iju-guide-app .wigu-map-source a {
+      color: var(--wigu-navy);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-entry {
+      padding: 17px;
+      color: var(--wigu-ink);
+      background: #fffdf4;
+      border: 2px dashed #d5ad32;
+      border-radius: 17px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-entry h2 {
+      margin: 0 0 5px;
+      color: var(--wigu-navy);
+      font-size: 20px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-entry p {
+      margin: 0 0 12px;
+      color: var(--wigu-muted);
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-screen {
+      display: grid;
+      gap: 17px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-panel {
+      padding: clamp(15px, 4vw, 25px);
+    }
+
+    #world-iju-guide-app .wigu-all-map-panel > h2 {
+      margin: 0;
+      color: var(--wigu-navy);
+      font-size: 23px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-panel > p {
+      margin: 5px 0 0;
+      color: var(--wigu-muted);
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-canvas {
+      height: auto;
+    }
+
+    #world-iju-guide-app .wigu-all-map-pin {
+      position: absolute;
+      z-index: 5;
+      left: var(--x);
+      top: var(--y);
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      color: #fff;
+      background: var(--wigu-red);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(23, 59, 89, .38);
+      font-size: 7.5px;
+      font-weight: 900;
+      line-height: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    #world-iju-guide-app .wigu-all-map-pin:hover,
+    #world-iju-guide-app .wigu-all-map-pin:focus-visible,
+    #world-iju-guide-app .wigu-all-map-pin.is-active {
+      background: var(--wigu-navy);
+      transform: translate(-50%, -50%) scale(1.25);
+    }
+
+    #world-iju-guide-app .wigu-all-map-help {
+      margin: 10px 0 0;
+      color: var(--wigu-muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-all-map-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-group h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0 0 7px;
+      padding-bottom: 5px;
+      color: var(--wigu-navy);
+      border-bottom: 2px solid #d7e5df;
+      font-size: 16px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-group h3 span {
+      color: var(--wigu-muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    #world-iju-guide-app .wigu-all-map-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-item {
+      display: grid;
+      grid-template-columns: 27px 1fr;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      min-height: 49px;
+      padding: 6px 8px;
+      color: var(--wigu-ink);
+      text-align: left;
+      background: #f3f8f7;
+      border: 1px solid #d7e5df;
+      border-radius: 10px;
+    }
+
+    #world-iju-guide-app .wigu-all-map-item:hover,
+    #world-iju-guide-app .wigu-all-map-item:focus-visible,
+    #world-iju-guide-app .wigu-all-map-item.is-active {
+      background: #fff1d4;
+      border-color: var(--wigu-red);
+    }
+
+    #world-iju-guide-app .wigu-all-map-item-number {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      color: #fff;
+      background: var(--wigu-red);
+      border-radius: 50%;
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-all-map-item strong,
+    #world-iju-guide-app .wigu-all-map-item small {
+      display: block;
+    }
+
+    #world-iju-guide-app .wigu-all-map-item strong {
+      color: var(--wigu-navy);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    #world-iju-guide-app .wigu-all-map-item small {
+      margin-top: 2px;
+      color: var(--wigu-muted);
+      font-size: 10px;
+    }
+
+    #world-iju-guide-app .wigu-summary-score {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(255,255,255,.5);
+    }
+
+    #world-iju-guide-app .wigu-ring {
+      position: relative;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 92px;
+      height: 92px;
+      background: conic-gradient(var(--wigu-yellow) var(--score), rgba(255,255,255,.25) 0);
+      border-radius: 50%;
+    }
+
+    #world-iju-guide-app .wigu-ring::before {
+      content: "";
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      background: var(--wigu-red);
+      border-radius: 50%;
+    }
+
+    #world-iju-guide-app .wigu-ring span {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-summary-stat {
+      flex: 1;
+      display: grid;
+      gap: 6px;
+    }
+
+    #world-iju-guide-app .wigu-summary-stat div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(255,255,255,.84);
+      font-size: 12px;
+    }
+
+    #world-iju-guide-app .wigu-summary-stat b {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    #world-iju-guide-app .wigu-copy {
+      margin: 18px 0 0;
+      padding: 14px 13px;
+      color: var(--wigu-ink);
+      background: var(--wigu-yellow);
+      border: 2px solid var(--wigu-ink);
+      border-radius: 13px;
+      font-size: clamp(16px, 4vw, 21px);
+      font-weight: 900;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-section {
+      padding: clamp(18px, 4vw, 25px);
+    }
+
+    #world-iju-guide-app .wigu-section h2,
+    #world-iju-guide-app .wigu-section h3 {
+      margin: 0 0 12px;
+      color: var(--wigu-navy);
+      line-height: 1.35;
+    }
+
+    #world-iju-guide-app .wigu-section h2 {
+      font-size: 21px;
+    }
+
+    #world-iju-guide-app .wigu-section h3 {
+      font-size: 17px;
+    }
+
+    #world-iju-guide-app .wigu-section p {
+      margin: 0;
+      color: #56636b;
+      font-size: 14px;
+    }
+
+    #world-iju-guide-app .wigu-reasons {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #world-iju-guide-app .wigu-reasons li {
+      padding: 9px 11px;
+      color: #43535c;
+      background: #f0f8f5;
+      border-left: 4px solid var(--wigu-green);
+      border-radius: 7px;
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    #world-iju-guide-app .wigu-metric {
+      padding: 13px 12px;
+      background: #fff;
+      border: 1px solid var(--wigu-line);
+      border-radius: 13px;
+    }
+
+    #world-iju-guide-app .wigu-metric-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--wigu-muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    #world-iju-guide-app .wigu-metric strong {
+      color: var(--wigu-navy);
+      font-size: 20px;
+    }
+
+    #world-iju-guide-app .wigu-stars {
+      color: #db981d;
+      font-size: 18px;
+      letter-spacing: .03em;
+    }
+
+    #world-iju-guide-app .wigu-highlight {
+      padding: 17px;
+      background: #eaf6f6;
+      border: 1px solid #bddbda;
+      border-radius: 15px;
+    }
+
+    #world-iju-guide-app .wigu-highlight p {
+      color: #405761;
+    }
+
+    #world-iju-guide-app .wigu-timeline {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #world-iju-guide-app .wigu-timeline li {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #fff;
+      border-bottom: 1px dashed var(--wigu-line);
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-time {
+      color: var(--wigu-red-dark);
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-alert {
+      padding: 15px 16px;
+      background: #fff2df;
+      border: 2px solid #e7be71;
+      border-radius: 15px;
+    }
+
+    #world-iju-guide-app .wigu-alert h3 {
+      color: #9a4b27;
+    }
+
+    #world-iju-guide-app .wigu-alert ul,
+    #world-iju-guide-app .wigu-trivia {
+      margin: 0;
+      padding-left: 20px;
+      color: #675a4b;
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-alert li + li,
+    #world-iju-guide-app .wigu-trivia li + li {
+      margin-top: 5px;
+    }
+
+    #world-iju-guide-app .wigu-visa {
+      padding: 15px 16px;
+      background: #eef3fb;
+      border: 1px solid #cbd8eb;
+      border-radius: 15px;
+    }
+
+    #world-iju-guide-app .wigu-visa h3 {
+      color: #28547d;
+    }
+
+    #world-iju-guide-app .wigu-visa-note {
+      margin-top: 10px !important;
+      color: #52677a !important;
+      font-size: 12px !important;
+    }
+
+    #world-iju-guide-app .wigu-second {
+      background: #fffdf7;
+    }
+
+    #world-iju-guide-app .wigu-second-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    #world-iju-guide-app .wigu-second-flag {
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    #world-iju-guide-app .wigu-second h2 {
+      margin: 0;
+      font-size: 23px;
+    }
+
+    #world-iju-guide-app .wigu-second-country {
+      margin: 2px 0 0 !important;
+      color: var(--wigu-muted) !important;
+      font-size: 12px !important;
+    }
+
+    #world-iju-guide-app .wigu-second-score {
+      margin: 14px 0 11px;
+      color: var(--wigu-red-dark);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-second-score span {
+      color: var(--wigu-navy);
+      font-size: 24px;
+    }
+
+    #world-iju-guide-app .wigu-difference {
+      margin-top: 15px !important;
+      padding: 10px 12px;
+      color: #53656c !important;
+      background: #eaf6f6;
+      border-radius: 9px;
+      font-size: 13px !important;
+    }
+
+    #world-iju-guide-app .wigu-trivia-grid {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    #world-iju-guide-app .wigu-trivia-grid li {
+      padding: 10px 12px;
+      color: #5f5b52;
+      background: #fff;
+      border: 1px solid var(--wigu-line);
+      border-radius: 10px;
+      list-style: none;
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-profile-bars {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    #world-iju-guide-app .wigu-profile-row {
+      display: grid;
+      grid-template-columns: 126px 1fr 39px;
+      align-items: center;
+      gap: 8px;
+      color: #51616a;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    #world-iju-guide-app .wigu-bar {
+      height: 10px;
+      overflow: hidden;
+      background: #e4e7e2;
+      border-radius: 999px;
+    }
+
+    #world-iju-guide-app .wigu-bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--wigu-blue), var(--wigu-green));
+      border-radius: inherit;
+    }
+
+    #world-iju-guide-app .wigu-profile-row b {
+      color: var(--wigu-navy);
+      text-align: right;
+    }
+
+    #world-iju-guide-app .wigu-type {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: start;
+      padding: 16px;
+      color: #fff;
+      background: var(--wigu-navy);
+      border-radius: 15px;
+    }
+
+    #world-iju-guide-app .wigu-type-icon {
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    #world-iju-guide-app .wigu-type h2 {
+      margin: 0 0 6px;
+      color: var(--wigu-yellow);
+      font-size: 20px;
+    }
+
+    #world-iju-guide-app .wigu-type p {
+      color: rgba(255,255,255,.83);
+    }
+
+    #world-iju-guide-app .wigu-one-liner {
+      margin-top: 14px !important;
+      color: #fff !important;
+      font-size: 15px !important;
+      font-weight: 900;
+    }
+
+    #world-iju-guide-app .wigu-difficulty {
+      padding: 17px;
+      background: #f5efe0;
+      border: 1px solid #e1d2b3;
+      border-radius: 15px;
+    }
+
+    #world-iju-guide-app .wigu-difficulty-label {
+      display: inline-flex;
+      margin-bottom: 6px;
+      padding: 4px 9px;
+      color: #fff;
+      background: var(--wigu-red);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .1em;
+    }
+
+    #world-iju-guide-app .wigu-difficulty p {
+      color: #6a604f;
+      font-size: 13px;
+    }
+
+    #world-iju-guide-app .wigu-share {
+      padding: 17px;
+      color: #fff;
+      background: #17212b;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    #world-iju-guide-app .wigu-share h2 {
+      margin: 0 0 7px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    #world-iju-guide-app .wigu-share p {
+      color: rgba(255,255,255,.73);
+      font-size: 12px;
+    }
+
+    #world-iju-guide-app .wigu-share .wigu-actions {
+      margin-top: 12px;
+    }
+
+    #world-iju-guide-app .wigu-share button {
+      color: #17212b;
+      background: var(--wigu-yellow);
+    }
+
+    #world-iju-guide-app .wigu-final-message {
+      padding: 20px 18px;
+      color: #5c625d;
+      background: #fff;
+      border: 1px dashed #c9c5bb;
+      border-radius: 15px;
+      font-size: 14px;
+    }
+
+    #world-iju-guide-app .wigu-final-message strong {
+      color: var(--wigu-red-dark);
+    }
+
+    #world-iju-guide-app .wigu-debug {
+      overflow: auto;
+      padding: 15px;
+      color: #d9f2df;
+      background: #17211e;
+      border-radius: 13px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 11px;
+      white-space: pre-wrap;
+    }
+
+    #world-iju-guide-app .wigu-result .wigu-actions {
+      padding-top: 2px;
+    }
+
+    @keyframes wigu-fade-in {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes wigu-pulse {
+      0%, 100% { transform: scale(.96); opacity: .82; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+
+    @media (max-width: 520px) {
+      #world-iju-guide-app {
+        padding: 7px 3px 17px;
+      }
+
+      #world-iju-guide-app .wigu-shell {
+        border-radius: 20px;
+      }
+
+      #world-iju-guide-app .wigu-header {
+        padding: 10px 11px 11px;
+      }
+
+      #world-iju-guide-app .wigu-brand-row {
+        gap: 5px;
+      }
+
+      #world-iju-guide-app .wigu-route {
+        font-size: 9px;
+      }
+
+      #world-iju-guide-app .wigu-stamp {
+        padding: 2px 4px;
+        font-size: 8px;
+      }
+
+      #world-iju-guide-app .wigu-main {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+
+      #world-iju-guide-app .wigu-card {
+        border-radius: 17px;
+      }
+
+      #world-iju-guide-app .wigu-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      #world-iju-guide-app .wigu-profile-row {
+        grid-template-columns: 104px 1fr 36px;
+        font-size: 11px;
+      }
+
+      #world-iju-guide-app .wigu-summary-main h2 {
+        font-size: 25px;
+      }
+
+      #world-iju-guide-app .wigu-summary-flag {
+        font-size: 37px;
+      }
+
+      #world-iju-guide-app .wigu-ring {
+        width: 80px;
+        height: 80px;
+      }
+
+      #world-iju-guide-app .wigu-ring::before {
+        width: 63px;
+        height: 63px;
+      }
+
+      #world-iju-guide-app .wigu-ring span {
+        font-size: 17px;
+      }
+
+      #world-iju-guide-app .wigu-timeline li {
+        grid-template-columns: 52px 1fr;
+      }
+
+      #world-iju-guide-app .wigu-type {
+        grid-template-columns: 1fr;
+      }
+
+      #world-iju-guide-app .wigu-type-icon {
+        font-size: 32px;
+      }
+
+      #world-iju-guide-app .wigu-actions {
+        flex-direction: column;
+      }
+
+      #world-iju-guide-app .wigu-actions button {
+        width: 100%;
+      }
+
+      #world-iju-guide-app .wigu-location-map {
+        padding: 12px;
+      }
+
+      #world-iju-guide-app .wigu-map-canvas {
+        aspect-ratio: 2 / 1;
+      }
+
+      #world-iju-guide-app .wigu-all-map-canvas {
+        aspect-ratio: 2 / 1;
+      }
+
+      #world-iju-guide-app .wigu-map-legend {
+        grid-template-columns: 1fr;
+      }
+
+      #world-iju-guide-app .wigu-all-map-items {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #world-iju-guide-app *,
+      #world-iju-guide-app *::before,
+      #world-iju-guide-app *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
