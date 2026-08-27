@@ -704,19 +704,10 @@
 
     #iju-guide-app .iju-reason-list li {
       position: relative;
-      padding: 11px 12px 11px 37px;
+      padding: 11px 12px;
       background: var(--iju-yellow-soft);
       border-radius: 9px;
       font-weight: 800;
-    }
-
-    #iju-guide-app .iju-reason-list li::before {
-      content: "&#10003;";
-      position: absolute;
-      top: 9px;
-      left: 12px;
-      color: var(--iju-red);
-      font-weight: 1000;
     }
 
     #iju-guide-app .iju-lifestyle {
@@ -821,7 +812,7 @@
     }
 
     #iju-guide-app .iju-one-liner::before {
-      content: "&#8220;";
+      content: "“";
       position: absolute;
       top: -17px;
       left: 12px;
