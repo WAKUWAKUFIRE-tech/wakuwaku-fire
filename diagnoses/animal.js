@@ -37,8 +37,11 @@
   var root=document.getElementById("animal-fire-app");
   var main=document.getElementById("afire-main");
   var state={answers:[],questionIndex:0,resultKey:null,timer:null};
+  function decodeEntities(value){
+    return String(value).replace(/&#(\d+);/g,function(full,code){var number=Number(code);return number>=0&&number<=1114111?String.fromCodePoint(number):full;});
+  }
   function escapeHtml(value){
-    var text=String(value).replace(/&#(\d+);/g,function(full,code){var number=Number(code);return number>=0&&number<=1114111?String.fromCodePoint(number):full;});
+    var text=decodeEntities(value);
     return text.replace(/[&<>"']/g,function(ch){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch];});
   }
   function clearTimer(){if(state.timer){window.clearTimeout(state.timer);state.timer=null;}}
@@ -96,12 +99,12 @@
   }
   function shareResult(type){
     var url=AFIRE_CONFIG.siteUrl||window.location.href;
-    var text="私は&#12300;"+type.name+"&#12301;でした&#65281; #動物FIRE診断";
+    var text="私は「"+decodeEntities(type.name)+"」でした！ #動物FIRE診断";
     window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(text)+"&url="+encodeURIComponent(url),"_blank","noopener");
   }
   function saveResultImage(type){
     var canvas=document.createElement("canvas"),ctx=canvas.getContext("2d"),width=1200,height=760;
-    canvas.width=width;canvas.height=height;ctx.fillStyle="#fff8ee";ctx.fillRect(0,0,width,height);ctx.fillStyle="#263d3a";ctx.textAlign="center";ctx.font="bold 42px sans-serif";ctx.fillText("動物FIRE診断",width/2,100);ctx.font="120px sans-serif";ctx.fillText(type.emoji,width/2,285);ctx.fillStyle="#bb5027";ctx.font="bold 52px sans-serif";ctx.fillText(type.name,width/2,400);ctx.fillStyle="#56666b";ctx.font="28px sans-serif";ctx.fillText(type.catchphrase,width/2,470);ctx.font="22px sans-serif";ctx.fillText("12問でわかる&#12289;あなたのFIREスタイル",width/2,620);var link=document.createElement("a");link.download="animal-fire-result.png";link.href=canvas.toDataURL("image/png");link.click();
+    canvas.width=width;canvas.height=height;ctx.fillStyle="#fff8ee";ctx.fillRect(0,0,width,height);ctx.fillStyle="#263d3a";ctx.textAlign="center";ctx.font="bold 42px sans-serif";ctx.fillText("動物FIRE診断",width/2,100);ctx.font="120px sans-serif";ctx.fillText(decodeEntities(type.emoji),width/2,285);ctx.fillStyle="#bb5027";ctx.font="bold 52px sans-serif";ctx.fillText(decodeEntities(type.name),width/2,400);ctx.fillStyle="#56666b";ctx.font="28px sans-serif";ctx.fillText(decodeEntities(type.catchphrase),width/2,470);ctx.font="22px sans-serif";ctx.fillText("12問でわかる、あなたのFIREスタイル",width/2,620);var link=document.createElement("a");link.download="animal-fire-result.png";link.href=canvas.toDataURL("image/png");link.click();
   }
   window.AnimalFireDiagnosis={config:AFIRE_CONFIG,types:AFIRE_TYPES,questions:AFIRE_QUESTIONS,calculateScores:calculateScores,calculateResult:calculateResult,renderHome:renderHome};
   window.afireCalculateResultForAnswers=calculateResult;
