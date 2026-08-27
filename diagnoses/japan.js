@@ -430,10 +430,19 @@
       let currentResult = null;
 
       function decodeEntities(value) {
-        return String(value == null ? "" : value).replace(/&#(\d+);/g, function (full, code) {
-          var number = Number(code);
-          return number >= 0 && number <= 1114111 ? String.fromCodePoint(number) : full;
-        });
+        let text = String(value == null ? "" : value);
+        // データが二重にHTMLエスケープされていても、画面には文字として出さない。
+        for (let pass = 0; pass < 3; pass += 1) {
+          const decoded = text
+            .replace(/&amp;#(x?[0-9a-f]+);/gi, "&#$1;")
+            .replace(/&#(x?[0-9a-f]+);/gi, function (full, code) {
+              const number = /^x/i.test(code) ? parseInt(code.slice(1), 16) : parseInt(code, 10);
+              return number >= 0 && number <= 1114111 ? String.fromCodePoint(number) : full;
+            });
+          if (decoded === text) break;
+          text = decoded;
+        }
+        return text;
       }
 
       function escapeHtml(value) {
@@ -444,6 +453,16 @@
           .replace(/>/g, "&gt;")
           .replace(/\"/g, "&quot;")
           .replace(/'/g, "&#039;");
+      }
+
+      function normalizeRenderedText(root) {
+        if (!root || !document.createTreeWalker) return;
+        const walker = document.createTreeWalker(root, 4);
+        let node;
+        while ((node = walker.nextNode())) {
+          const decoded = decodeEntities(node.nodeValue);
+          if (decoded !== node.nodeValue) node.nodeValue = decoded;
+        }
       }
 
       function clamp(value, min, max) {
@@ -698,7 +717,7 @@
           return b.score - a.score;
         });
         const selected = reasons.slice(0, count || 3).map(function (item) {
-          return AXIS_ICONS[item.axis] + " " + REASON_COPY[item.axis];
+          return decodeEntities(AXIS_ICONS[item.axis] + " " + REASON_COPY[item.axis]);
         });
         if (selected.length < (count || 3)) {
           destination.goodPoints.slice(0, (count || 3) - selected.length).forEach(function (item) {
@@ -845,7 +864,7 @@
             '<p id="iju-result-status" class="iju-result-status" role="status"></p>',
             '<section class="iju-result-section" aria-labelledby="iju-why-title">',
               '<h2 id="iju-why-title" class="iju-section-heading">🧭 なぜあなたに合う？</h2>',
-              '<ul class="iju-reason-list">' + result.reasons.map(function (reason) { return '<li>' + escapeHtml(reason) + '</li>'; }).join("") + '</ul>',
+              '<ul class="iju-reason-list">' + result.reasons.map(function (reason) { return '<li>' + escapeHtml(decodeEntities(reason)) + '</li>'; }).join("") + '</ul>',
             '</section>',
             '<section class="iju-result-section" aria-labelledby="iju-lifestyle-title">',
               '<h2 id="iju-lifestyle-title" class="iju-section-heading">🌤 こんな毎日になりそう</h2>',
@@ -859,7 +878,7 @@
             '<section class="iju-result-section" aria-labelledby="iju-second-title">',
               '<h2 id="iju-second-title" class="iju-section-heading">🥈 第2候補をのぞく</h2>',
               '<p class="iju-second-intro">同じ価値観から導かれた、ちょっと違う人生です。</p>',
-              '<ul class="iju-small-reason-list">' + result.secondReasons.map(function (reason) { return '<li>' + escapeHtml(reason) + '</li>'; }).join("") + '</ul>',
+              '<ul class="iju-small-reason-list">' + result.secondReasons.map(function (reason) { return '<li>' + escapeHtml(decodeEntities(reason)) + '</li>'; }).join("") + '</ul>',
               '<p class="iju-difference-line">第1候補より「' + escapeHtml(result.difference) + '」を重視するなら、こっち。</p>',
             '</section>',
             '<section class="iju-result-section" aria-labelledby="iju-values-title">',
@@ -879,6 +898,7 @@
             '</div>',
           '</section>'
         ].join("");
+        normalizeRenderedText(main);
         scrollToTop();
       }
 
