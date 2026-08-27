@@ -429,12 +429,15 @@
       let investigationTimers = [];
       let currentResult = null;
 
+      function decodeEntities(value) {
+        return String(value == null ? "" : value).replace(/&#(\d+);/g, function (full, code) {
+          var number = Number(code);
+          return number >= 0 && number <= 1114111 ? String.fromCodePoint(number) : full;
+        });
+      }
+
       function escapeHtml(value) {
-        var text = String(value == null ? "" : value)
-          .replace(/&#(\d+);/g, function (full, code) {
-            var number = Number(code);
-            return number >= 0 && number <= 1114111 ? String.fromCodePoint(number) : full;
-          });
+        var text = decodeEntities(value);
         return text
           .replace(/&/g, "&amp;")
           .replace(/</g, "&lt;")
@@ -791,7 +794,7 @@
           investigationTimers.push(window.setTimeout(function () {
             const subtitle = document.getElementById("iju-investigation-subtitle");
             const title = document.getElementById("iju-investigation-title");
-            if (subtitle) subtitle.textContent = message;
+            if (subtitle) subtitle.textContent = decodeEntities(message);
             if (index === messages.length - 1 && title) title.innerHTML = "発見しました&#65281;";
           }, index * 400));
         });
@@ -890,7 +893,7 @@
         const toast = document.createElement("div");
         toast.className = "iju-guide-toast";
         toast.setAttribute("role", "status");
-        toast.textContent = comments[questionIndex];
+        toast.textContent = decodeEntities(comments[questionIndex]);
         app.appendChild(toast);
         toastTimer = window.setTimeout(function () {
           if (toast.parentNode) toast.parentNode.removeChild(toast);
@@ -953,7 +956,7 @@
       }
 
       function buildShareText(result) {
-        return "&#12300;" + APP_TITLE + "&#12301;で診断したら&#12289;\n🥇第1候補&#65306;" + result.first.destination.name + "&#65288;" + result.first.score + "%&#65289;\n🥈第2候補&#65306;" + result.second.destination.name + "&#65288;" + result.second.score + "%&#65289;\n\n会社辞めたら" + result.first.destination.name + "行けってことらしい😂\n#移住場所勝手に案内所";
+        return "「" + APP_TITLE + "」で診断したら、\n🥇第1候補：" + decodeEntities(result.first.destination.name) + "（" + result.first.score + "%）\n🥈第2候補：" + decodeEntities(result.second.destination.name) + "（" + result.second.score + "%）\n\n会社辞めたら" + decodeEntities(result.first.destination.name) + "行けってことらしい😂\n#移住場所勝手に案内所";
       }
 
       function shareResult() {
@@ -961,7 +964,7 @@
         const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(buildShareText(currentResult)) + "&url=" + encodeURIComponent(resolvedShareUrl());
         const popup = window.open(url, "_blank", "noopener,noreferrer");
         const status = document.getElementById("iju-result-status");
-        if (!popup && status) status.textContent = "シェア画面を開けませんでした&#12290;ブラウザのポップアップ設定をご確認ください&#12290;";
+        if (!popup && status) status.textContent = "シェア画面を開けませんでした。ブラウザのポップアップ設定をご確認ください。";
       }
 
       function canvasRoundRect(context, x, y, width, height, radius) {
@@ -978,7 +981,7 @@
       function canvasWrapText(context, text, x, y, maxWidth, lineHeight, maxLines) {
         const lines = [];
         let line = "";
-        Array.from(String(text)).forEach(function (character) {
+        Array.from(decodeEntities(text)).forEach(function (character) {
           const next = line + character;
           if (line && context.measureText(next).width > maxWidth) {
             lines.push(line);
@@ -1039,15 +1042,15 @@
           context.font = "900 26px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
           context.fillText("🥇 第1候補", 540, 258);
           context.font = "900 104px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
-          context.fillText(first.emoji, 540, 390);
+          context.fillText(decodeEntities(first.emoji), 540, 390);
           context.font = "1000 65px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
-          context.fillText(first.name, 540, 480);
+          context.fillText(decodeEntities(first.name), 540, 480);
           context.fillStyle = "#e84738";
           context.font = "1000 54px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
           context.fillText(currentResult.first.score + "%", 540, 555);
           context.fillStyle = "#242323";
           context.font = "800 27px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
-          canvasWrapText(context, first.catchCopy, 540, 625, 820, 40, 2);
+          canvasWrapText(context, decodeEntities(first.catchCopy), 540, 625, 820, 40, 2);
 
           canvasRoundRect(context, 115, 770, 850, 280, 24);
           context.fillStyle = "#ffffff";
@@ -1059,16 +1062,16 @@
           context.font = "900 24px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
           context.fillText("🥈 第2候補", 540, 820);
           context.font = "900 72px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
-          context.fillText(second.emoji, 540, 905);
+          context.fillText(decodeEntities(second.emoji), 540, 905);
           context.font = "1000 46px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
-          context.fillText(second.name, 540, 970);
+          context.fillText(decodeEntities(second.name), 540, 970);
           context.fillStyle = "#315f92";
           context.font = "900 32px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
           context.fillText(currentResult.second.score + "%  相性", 540, 1020);
 
           context.fillStyle = "#ffffff";
           context.font = "900 26px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
-          canvasWrapText(context, currentResult.oneLiner, 540, 1132, 820, 38, 2);
+          canvasWrapText(context, decodeEntities(currentResult.oneLiner), 540, 1132, 820, 38, 2);
           context.font = "800 23px -apple-system, BlinkMacSystemFont, 'Yu Gothic', sans-serif";
           context.fillText("#移住場所勝手に案内所", 540, 1255);
 
@@ -1080,7 +1083,7 @@
             link.click();
             link.remove();
             if (href.indexOf("blob:") === 0) window.setTimeout(function () { URL.revokeObjectURL(href); }, 1200);
-            if (status) status.textContent = "結果画像を保存しました&#12290;";
+            if (status) status.textContent = "結果画像を保存しました。";
           };
 
           if (canvas.toBlob) {
@@ -1092,7 +1095,7 @@
             download(canvas.toDataURL("image/png"));
           }
         } catch (error) {
-          if (status) status.textContent = "画像保存はこのブラウザでは利用できません&#12290;結果カードをスクリーンショットしてください&#12290;";
+          if (status) status.textContent = "画像保存はこのブラウザでは利用できません。結果カードをスクリーンショットしてください。";
         }
       }
 
