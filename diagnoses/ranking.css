@@ -17,10 +17,10 @@
 .wakuwaku-ranking__stat small{color:#6e6861;font-size:11px;font-weight:800}
 .wakuwaku-ranking__expand{display:block;width:100%;margin:10px 0 8px;padding:10px 14px;color:#b92d2b;background:#fff;border:1px solid #e84738;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer}
 .wakuwaku-ranking__expand:hover{background:#fff1e8}
+.wakuwaku-ranking [hidden]{display:none!important}
 .wakuwaku-ranking__list--all{margin-top:8px}
 .wakuwaku-ranking__outside{margin-top:13px;padding-top:12px;border-top:1px dashed rgba(36,35,35,.2)}
 .wakuwaku-ranking__outside>strong{display:block;margin-bottom:6px;color:#e84738;font-size:13px}
 .wakuwaku-ranking__same{margin:13px 0 0;padding:10px 12px;color:#b92d2b;background:#fff;border-radius:11px;font-size:13px;font-weight:900;text-align:center}
 @media (max-width:480px){.wakuwaku-ranking{padding:18px 12px}.wakuwaku-ranking__row{grid-template-columns:36px 26px minmax(0,1fr) auto;gap:5px;padding:7px 6px}.wakuwaku-ranking__name{font-size:13px}.wakuwaku-ranking__stat{font-size:13px}.wakuwaku-ranking__stat small{font-size:10px}}
-
 
