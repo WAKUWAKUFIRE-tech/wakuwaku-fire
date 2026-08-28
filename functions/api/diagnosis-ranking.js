@@ -39,7 +39,8 @@ export async function onRequestGet(context) {
     }, 0);
     resultIds.sort(function (left, right) {
       const countDifference = (counts[right] || 0) - (counts[left] || 0);
-      return countDifference || left.localeCompare(right);
+      if (countDifference) return countDifference;
+      return left < right ? -1 : left > right ? 1 : 0;
     });
 
     return json({
@@ -60,5 +61,4 @@ export async function onRequestGet(context) {
     return json({ available: false, error: "database_unavailable" }, 503);
   }
 }
-
 
