@@ -92,7 +92,22 @@
     var type=AFIRE_TYPES[key],partner=AFIRE_TYPES[type.compatible];
     var strengths=type.strengths.map(function(item){return '<span class="afire-pill">'+escapeHtml(item)+'</span>';}).join("");
     var cautions=type.cautions.map(function(item){return '<span class="afire-pill">'+escapeHtml(item)+'</span>';}).join("");
-    main.innerHTML='<section class="afire-card afire-result"><p class="afire-result-label">YOUR FIRE TYPE</p><div class="afire-result-emoji">'+type.emoji+'</div><h2>'+escapeHtml(type.name)+'</h2><p class="afire-catchphrase">&#12300;'+escapeHtml(type.catchphrase)+'&#12301;</p><div class="afire-result-section"><h3>生態</h3><p>'+escapeHtml(type.ecology)+'</p></div><div class="afire-result-section"><h3>あなたの強み</h3><div class="afire-pills">'+strengths+'</div></div><div class="afire-result-section"><h3>気をつけたいこと</h3><div class="afire-pills">'+cautions+'</div></div><div class="afire-result-section"><h3>相性のよい仲間</h3><p>'+partner.emoji+' '+escapeHtml(partner.name)+'<br>'+escapeHtml(type.companionLine)+'</p></div><div class="afire-actions"><button class="afire-secondary afire-share" type="button" data-action="share">𝕏 結果をシェア</button><button class="afire-secondary" type="button" data-action="save">画像として保存</button><button class="afire-secondary" type="button" data-action="restart">もう一度診断する</button></div></section>';
+    main.innerHTML='<section class="afire-card afire-result"><p class="afire-result-label">YOUR FIRE TYPE</p><div class="afire-result-emoji">'+type.emoji+'</div><h2>'+escapeHtml(type.name)+'</h2><p class="afire-catchphrase">&#12300;'+escapeHtml(type.catchphrase)+'&#12301;</p><div class="afire-result-section"><h3>生態</h3><p>'+escapeHtml(type.ecology)+'</p></div><div class="afire-result-section"><h3>あなたの強み</h3><div class="afire-pills">'+strengths+'</div></div><div class="afire-result-section"><h3>気をつけたいこと</h3><div class="afire-pills">'+cautions+'</div></div><div class="afire-result-section"><h3>相性のよい仲間</h3><p>'+partner.emoji+' '+escapeHtml(partner.name)+'<br>'+escapeHtml(type.companionLine)+'</p></div><div class="wakuwaku-ranking-slot" data-ranking-slot></div><div class="afire-actions"><button class="afire-secondary afire-share" type="button" data-action="share">𝕏 結果をシェア</button><button class="afire-secondary" type="button" data-action="save">画像として保存</button><button class="afire-secondary" type="button" data-action="restart">もう一度診断する</button></div></section>';
+    if (window.WakuwakuRanking) {
+      window.WakuwakuRanking.mount({
+        slot: main.querySelector('[data-ranking-slot]'),
+        type: "animal",
+        resultId: key,
+        title: "みんなの動物FIREランキング",
+        intro: "動物FIRE診断を受けたみんなの結果です。",
+        currentMessage: "あなたと同じ",
+        limit: 8,
+        labelForId: function (resultId) {
+          var item = AFIRE_TYPES[resultId];
+          return item ? { label: decodeEntities(item.name), icon: decodeEntities(item.emoji) } : { label: resultId };
+        }
+      });
+    }
     main.querySelector('[data-action="share"]').addEventListener("click",function(){shareResult(type);});
     main.querySelector('[data-action="save"]').addEventListener("click",function(){saveResultImage(type);});
     main.querySelector('[data-action="restart"]').addEventListener("click",function(){state.answers=[];state.questionIndex=0;state.resultKey=null;renderHome();});

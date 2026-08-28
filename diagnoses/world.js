@@ -1107,6 +1107,7 @@
             '<div class="wigu-copy">&#8220;' + escapeHtml(firstDestination.catchCopy) + '&#8221;</div>' +
           '</div>' +
           renderLocationMap(firstDestination, secondDestination) +
+          '<div class="wakuwaku-ranking-slot" data-ranking-slot></div>' +
           '<section class="wigu-card wigu-section"><h2>案内所が' + escapeHtml(firstDestination.city) + 'に飛ばした理由</h2>' + renderReasonList(result.reasons) + '</section>' +
           '<section class="wigu-card wigu-section"><h2>会社を辞めたあなたの一日</h2><p>' + escapeHtml(firstDestination.lifestyle) + '</p>' + renderTimeline(firstDestination) + '</section>' +
           '<section class="wigu-card wigu-section wigu-highlight"><h2>FIRE民的にはどう&#65311;</h2><p>' + escapeHtml(firstDestination.fireNote) + '</p></section>' +
@@ -1135,6 +1136,21 @@
         renderQuestion();
       });
       main.querySelector('[data-action="home"]').addEventListener("click", renderHome);
+      if (window.WakuwakuRanking) {
+        window.WakuwakuRanking.mount({
+          slot: main.querySelector('[data-ranking-slot]'),
+          type: "world",
+          resultId: firstDestination.id,
+          title: "みんなが選ばれた海外FIRE先",
+          intro: "海外移住診断の第1候補を、国と都市の単位で匿名集計しています。",
+          currentMessage: "あなたの第1候補は",
+          limit: 5,
+          labelForId: function (resultId) {
+            var item = destinations.filter(function (destination) { return destination.id === resultId; })[0];
+            return item ? { label: cleanDisplayText(item.country) + "・" + cleanDisplayText(item.city), icon: item.flag, subLabel: cleanDisplayText(item.region) } : { label: resultId };
+          }
+        });
+      }
     }
 
     function buildShareText(result) {

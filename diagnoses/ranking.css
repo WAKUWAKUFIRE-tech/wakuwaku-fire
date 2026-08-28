@@ -1,0 +1,26 @@
+.wakuwaku-ranking-slot:empty{display:none}
+.wakuwaku-ranking{margin:24px 0 0;padding:22px 18px;background:linear-gradient(135deg,#fff9df 0%,#fff 100%);border:2px solid rgba(36,35,35,.15);border-radius:18px;text-align:left;box-shadow:0 8px 0 rgba(232,71,56,.08)}
+.wakuwaku-ranking--loading{min-height:96px;display:grid;place-items:center}
+.wakuwaku-ranking__loading{margin:0;color:#6e6861;font-size:14px;font-weight:800;text-align:center}
+.wakuwaku-ranking__eyebrow{margin:0 0 4px;color:#e84738;font-size:12px;font-weight:900;letter-spacing:.08em}
+.wakuwaku-ranking__title{margin:0;color:#242323;font-size:clamp(19px,4vw,25px);line-height:1.35}
+.wakuwaku-ranking__intro{margin:7px 0 0;color:#6e6861;font-size:13px;line-height:1.6}
+.wakuwaku-ranking__total{display:inline-block;margin:14px 0 8px;padding:5px 11px;color:#242323;background:#ffd447;border-radius:999px;font-size:13px;font-weight:900}
+.wakuwaku-ranking__list{display:grid;gap:7px;margin:0;padding:0;list-style:none}
+.wakuwaku-ranking__row{display:grid;grid-template-columns:42px 30px minmax(0,1fr) auto;gap:7px;align-items:center;min-height:49px;padding:7px 9px;background:rgba(255,255,255,.8);border:1px solid rgba(36,35,35,.1);border-radius:12px;color:#242323}
+.wakuwaku-ranking__row.is-current{border-color:#e84738;background:#fff1e8;box-shadow:inset 4px 0 #e84738}
+.wakuwaku-ranking__rank{font-size:13px;font-weight:900;text-align:center;white-space:nowrap}
+.wakuwaku-ranking__icon{font-size:21px;line-height:1;text-align:center}
+.wakuwaku-ranking__name{min-width:0;font-size:14px;font-weight:900;line-height:1.35;overflow-wrap:anywhere}
+.wakuwaku-ranking__name small{display:block;color:#6e6861;font-size:11px;font-weight:700}
+.wakuwaku-ranking__stat{display:flex;align-items:flex-end;gap:4px;color:#242323;font-size:14px;font-weight:900;white-space:nowrap}
+.wakuwaku-ranking__stat small{color:#6e6861;font-size:11px;font-weight:800}
+.wakuwaku-ranking__expand{display:block;width:100%;margin:10px 0 8px;padding:10px 14px;color:#b92d2b;background:#fff;border:1px solid #e84738;border-radius:999px;font:inherit;font-size:13px;font-weight:900;cursor:pointer}
+.wakuwaku-ranking__expand:hover{background:#fff1e8}
+.wakuwaku-ranking__list--all{margin-top:8px}
+.wakuwaku-ranking__outside{margin-top:13px;padding-top:12px;border-top:1px dashed rgba(36,35,35,.2)}
+.wakuwaku-ranking__outside>strong{display:block;margin-bottom:6px;color:#e84738;font-size:13px}
+.wakuwaku-ranking__same{margin:13px 0 0;padding:10px 12px;color:#b92d2b;background:#fff;border-radius:11px;font-size:13px;font-weight:900;text-align:center}
+@media (max-width:480px){.wakuwaku-ranking{padding:18px 12px}.wakuwaku-ranking__row{grid-template-columns:36px 26px minmax(0,1fr) auto;gap:5px;padding:7px 6px}.wakuwaku-ranking__name{font-size:13px}.wakuwaku-ranking__stat{font-size:13px}.wakuwaku-ranking__stat small{font-size:10px}}
+
+

@@ -862,6 +862,7 @@
               '<button type="button" class="iju-ghost-button" data-iju-action="save-image">▣ 結果画像を保存</button>',
             '</div>',
             '<p id="iju-result-status" class="iju-result-status" role="status"></p>',
+            '<div class="wakuwaku-ranking-slot" data-ranking-slot></div>',
             '<section class="iju-result-section" aria-labelledby="iju-why-title">',
               '<h2 id="iju-why-title" class="iju-section-heading">🧭 なぜあなたに合う？</h2>',
               '<ul class="iju-reason-list">' + result.reasons.map(function (reason) { return '<li>' + escapeHtml(decodeEntities(reason)) + '</li>'; }).join("") + '</ul>',
@@ -899,6 +900,21 @@
           '</section>'
         ].join("");
         normalizeRenderedText(main);
+        if (window.WakuwakuRanking) {
+          window.WakuwakuRanking.mount({
+            slot: main.querySelector('[data-ranking-slot]'),
+            type: "japan",
+            resultId: first.key,
+            title: "みんなが選ばれたFIRE移住先",
+            intro: "国内移住診断の第1候補を匿名で集計しています。",
+            currentMessage: "あなたの第1候補は",
+            limit: 5,
+            labelForId: function (resultId) {
+              var item = destinations.filter(function (destination) { return destination.key === resultId; })[0];
+              return item ? { label: decodeEntities(item.name), subLabel: decodeEntities(item.region), icon: decodeEntities(item.emoji) } : { label: resultId };
+            }
+          });
+        }
         scrollToTop();
       }
 
