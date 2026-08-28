@@ -65,9 +65,9 @@ GitHub連携方式なら、GitHubへ変更を保存するたびにCloudflare Pag
 
 動物FIRE診断、国内FIRE移住診断、海外FIRE移住診断の結果画面に、匿名のランキングを表示できます。質問の回答途中は送信せず、最後に確定した結果IDだけを送信します。同じブラウザ・同じ診断の再診断は、1票を新しい結果へ更新します。
 
-この機能はCloudflare Pages FunctionsとD1を使います。D1をまだ設定していない状態でも、診断そのものは利用でき、ランキング部分だけが表示されません。
+この機能はCloudflare Pages FunctionsとD1を使います。現在公開中の `wakuwaku-fire-git` のProduction環境では、D1データベース `wakuwaku-fire-results` を `DB` という名前で接続済みです。公開直後はデータが0件ですが、診断結果が送信されるとランキングに反映されます。D1が設定されていない別環境でも、診断そのものは利用でき、ランキング部分だけが表示されません。
 
-### Cloudflare側で最初に1回だけ行うこと
+### Cloudflare側で新しい環境を設定する場合
 
 1. Cloudflareの「Workers & Pages」からD1データベースを新しく作成します。名前は例として `wakuwaku-fire-results` にします。
 2. Pagesプロジェクト `wakuwaku-fire-git` の **Settings → Bindings → Add → D1 database bindings** を開きます。
@@ -78,7 +78,7 @@ Cloudflareの公式案内：<https://developers.cloudflare.com/pages/functions/b
 
 ### D1テーブルを作るコマンド
 
-このプロジェクトのフォルダで、Wranglerにログインした状態で実行します。`wakuwaku-fire-results` は1で付けたD1名に置き換えてください。
+このプロジェクトのフォルダで、Wranglerにログインした状態で実行します。現在の公開環境では管理画面から適用済みです。別の環境で作る場合は、`wakuwaku-fire-results` を作成したD1名に置き換えてください。
 
 ```text
 npx wrangler d1 create wakuwaku-fire-results
@@ -146,7 +146,7 @@ Publisher IDを変更する場合は、架空のIDを作らず、Googleから発
 - [ ] Amazonアソシエイトの最新規約と表示文を確認する
 - [ ] Google Analyticsを使う場合は、測定IDを自分のアカウントのものに設定する
 - [ ] AdSenseコードが自分のPublisher IDと一致し、各ページで1回だけ読み込まれているか確認する
-- [ ] D1を作成し、Pagesのバインディング名を `DB` にして、匿名ランキングのテーブルを作成する
+- [x] D1を作成し、Pagesのバインディング名を `DB` にして、匿名ランキングのテーブルを作成する
 - [ ] 3つの診断を最後まで試し、D1設定後に結果画面へランキングが表示されるか確認する
 - [ ] Search Consoleの所有権確認metaタグを追加し、サイトマップを送信する
 - [ ] 公開URL、canonical、OGP、sitemap、robots.txtのURLが一致しているか確認する
