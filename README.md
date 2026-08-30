@@ -19,6 +19,9 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 - `privacy/index.html`：公開中のプライバシーポリシー
 - `contact/index.html`：指定メールアドレスへ送るお問い合わせフォーム
 - `404.html`：存在しないURLを開いたときの案内ページ
+- `manifest.webmanifest`：ワクワクFIREをホーム画面へ追加するための設定
+- `sw.js`：PWA用の軽量なService Worker（HTMLは常にネットワーク優先）
+- `pwa.js` / `pwa.css`：保存ボタン、端末別の保存案内、診断後の再訪導線
 - `sitemap.xml`：検索エンジン向けのページ一覧
 - `robots.txt`：検索エンジンへの案内
 - `risk-runner/`：ゲーム「RISK RUNNER」
@@ -60,6 +63,32 @@ GitHub連携方式なら、GitHubへ変更を保存するたびにCloudflare Pag
 - 出力先：このフォルダ（`index.html` がある場所）
 
 公開URLを変更した場合は、すべてのHTMLの `canonical`、OGPのURL、JSON-LD、`sitemap.xml`、このREADMEのURLを実際の公開URLに合わせてください。
+
+## ワクワクFIREをホーム画面へ保存する機能
+
+ヘッダーとページ下部に小さな「🔥 保存」ボタンを置いています。初回訪問直後に自動ポップアップは表示しません。ボタンを押したときだけ保存案内を開き、Android・Chrome・Edgeでは利用できる場合にブラウザの追加画面を呼び出します。iPhone・iPadではSafariの「共有」→「ホーム画面に追加」、その他のブラウザではブックマークの方法を案内します。
+
+動物FIRE診断、国内移住診断、海外移住診断は結果画面が表示されたときに、条件を満たす場合だけ保存案内を一度表示します。「あとで」や閉じる操作のあと7日間は自動表示しません。インストール済みと判定した場合は保存ボタンと自動案内を隠します。
+
+保存案内が使うlocalStorageのキーは、既存データと分けるため次の3つだけです。
+
+- `wakuwakuFire_installPromptDismissedAt`：自動案内を閉じた日時
+- `wakuwakuFire_installPromptLastShownAt`：自動案内を表示した日時
+- `wakuwakuFire_appInstalled`：インストール完了の記録
+
+今後ゲームやツールの完了画面から保存案内を出す場合は、完了処理の最後で次の共通関数を呼び出します。
+
+```js
+window.showSaveWakuwakuFirePrompt({ reason: "experience" });
+```
+
+同じ処理は、次のイベントを発火する方法でも呼び出せます。
+
+```js
+window.dispatchEvent(new CustomEvent("wakuwaku:experience-complete"));
+```
+
+自動案内ではなく、ユーザーが押したボタンから手動で案内する場合は、`reason`を付けずに呼び出します。保存機能は通知、位置情報、カメラ、マイクなどの権限を要求しません。
 
 ## みんなの診断結果ランキング（Cloudflare D1）
 

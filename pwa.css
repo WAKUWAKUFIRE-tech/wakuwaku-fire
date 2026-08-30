@@ -1,0 +1,270 @@
+.wakuwaku-save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 38px;
+  padding: 8px 12px;
+  color: var(--ink, #242323);
+  background: var(--yellow, #ffd34b);
+  border: 2px solid var(--ink, #242323);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--ink, #242323);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.wakuwaku-save-button__short {
+  display: none;
+}
+
+.wakuwaku-save-button:hover,
+.wakuwaku-save-button:focus-visible {
+  background: var(--yellow-deep, #f0b900);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink, #242323);
+}
+
+.wakuwaku-save-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink, #242323);
+}
+
+.site-header__inner > .wakuwaku-save-button {
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.site-footer__bottom .wakuwaku-save-button {
+  min-height: 30px;
+  padding: 6px 10px;
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.58);
+  box-shadow: none;
+  font-size: 11px;
+}
+
+.site-footer__bottom .wakuwaku-save-button:hover,
+.site-footer__bottom .wakuwaku-save-button:focus-visible {
+  color: var(--ink, #242323);
+  background: var(--yellow, #ffd34b);
+  border-color: var(--yellow, #ffd34b);
+  box-shadow: none;
+}
+
+.game-footer .wakuwaku-save-button {
+  margin: 10px auto 0;
+  color: #f7f8fb;
+  background: transparent;
+  border-color: rgba(247, 248, 251, 0.6);
+  box-shadow: none;
+}
+
+.game-footer .wakuwaku-save-button:hover,
+.game-footer .wakuwaku-save-button:focus-visible {
+  color: #111722;
+  background: #ffd34b;
+  border-color: #ffd34b;
+  box-shadow: none;
+}
+
+.wakuwaku-save-button--standalone {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: 12px;
+  z-index: 1200;
+}
+
+.wakuwaku-save-modal,
+.wakuwaku-save-modal[hidden] {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  padding: 14px;
+  background: rgba(36, 31, 40, 0.5);
+}
+
+.wakuwaku-save-modal[hidden] {
+  display: none;
+}
+
+.wakuwaku-save-dialog {
+  position: relative;
+  width: min(100%, 440px);
+  max-height: min(90vh, 580px);
+  overflow-y: auto;
+  padding: 28px 22px 22px;
+  color: var(--ink, #242323);
+  background: var(--paper, #fffdf8);
+  border: 2px solid var(--ink, #242323);
+  border-radius: 24px 24px 16px 16px;
+  box-shadow: 8px 8px 0 rgba(36, 31, 40, 0.2);
+}
+
+.wakuwaku-save-dialog__close {
+  position: absolute;
+  top: 12px;
+  right: 13px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  color: var(--ink, #242323);
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.wakuwaku-save-dialog__close:hover,
+.wakuwaku-save-dialog__close:focus-visible {
+  color: var(--red, #ea3e31);
+  border-color: var(--red, #ea3e31);
+}
+
+.wakuwaku-save-dialog__eyebrow {
+  margin: 0 38px 8px 0;
+  color: var(--red, #ea3e31);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.wakuwaku-save-dialog h2 {
+  margin: 0 38px 12px 0;
+  color: var(--ink, #242323);
+  font-size: clamp(1.35rem, 5vw, 1.75rem);
+  line-height: 1.35;
+}
+
+.wakuwaku-save-dialog__copy {
+  margin: 0;
+  color: var(--muted, #6f6a71);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.wakuwaku-save-guide {
+  margin-top: 16px;
+  padding: 14px 15px;
+  color: var(--ink, #242323);
+  background: var(--yellow-soft, #fff3bc);
+  border: 1px solid rgba(36, 31, 40, 0.16);
+  border-radius: 15px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.wakuwaku-save-guide[hidden] {
+  display: none;
+}
+
+.wakuwaku-save-guide p {
+  margin: 0;
+}
+
+.wakuwaku-save-guide ol {
+  margin: 8px 0 0;
+  padding-left: 1.4em;
+}
+
+.wakuwaku-save-dialog__note {
+  margin: 14px 0 0;
+  color: var(--muted, #6f6a71);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.wakuwaku-save-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.wakuwaku-save-dialog__actions button {
+  flex: 1 1 150px;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.wakuwaku-save-dialog__install {
+  color: #fff;
+  background: var(--red, #ea3e31);
+  border: 2px solid var(--red, #ea3e31);
+}
+
+.wakuwaku-save-dialog__install:hover,
+.wakuwaku-save-dialog__install:focus-visible {
+  background: var(--red-dark, #c9342b);
+  border-color: var(--red-dark, #c9342b);
+}
+
+.wakuwaku-save-dialog__later {
+  color: var(--ink, #242323);
+  background: transparent;
+  border: 2px solid rgba(36, 31, 40, 0.35);
+}
+
+.wakuwaku-save-dialog__later:hover,
+.wakuwaku-save-dialog__later:focus-visible {
+  border-color: var(--ink, #242323);
+  background: rgba(36, 31, 40, 0.06);
+}
+
+body.wakuwaku-save-is-open {
+  overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .wakuwaku-save-modal {
+    align-items: center;
+  }
+
+  .wakuwaku-save-dialog {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 699px) {
+  .site-header__inner > .wakuwaku-save-button {
+    min-height: 34px;
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .site-header__inner > .wakuwaku-save-button .wakuwaku-save-button__full {
+    display: none;
+  }
+
+  .site-header__inner > .wakuwaku-save-button .wakuwaku-save-button__short {
+    display: inline;
+  }
+
+  .wakuwaku-save-dialog {
+    padding: 26px 17px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wakuwaku-save-button {
+    transition: none;
+  }
+}
