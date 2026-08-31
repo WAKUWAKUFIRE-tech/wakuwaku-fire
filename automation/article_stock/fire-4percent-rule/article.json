@@ -1,0 +1,46 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREの4%ルールとは？日本でそのまま使っていいのか経験者目線で考える",
+  "meta_description": "FIREの4%ルールは、退職時の資産から毎年4%を使う考え方です。元の研究の前提、日本でそのまま使いにくい理由、暴落時の取り崩しを経験者目線で整理します。",
+  "category": "FIREのお金",
+  "lead": "FIREの4%ルールは便利な目安ですが、数字を当てはめれば安心できる魔法ではありません。元の研究が何を検証したのか、日本の生活とどう違うのか、資産の上下を経験した僕が「使うならどこに注意するか」を整理します。",
+  "tags": ["FIRE 4%ルール", "4パーセントルール", "FIRE 取り崩し率", "FIRE 資産計算"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese website article thumbnail. Input image: the supplied local PNG is the exact character reference for 「まる」; preserve his recognizable dark spiky hair, black-rim glasses, facial identity, and white FIRE T-shirt, but freely change the pose and expression. Create a visually distinct high-impact design for an article about the FIRE 4% rule. Use a cinematic top-down view of a giant circular balance dial marked by a single bold 4% segment, with a narrow bridge crossing a stormy red market below and a calm landing area beyond. The character is crouched on the bridge near the center, gripping a safety rope and looking serious but alert; do not place him on the right edge. Make the typography part of the circular dial and bridge signage, using a strong diagonal composition with no bottom banner. Render only these exact Japanese words in large, mobile-legible display type: 「4%で足りる？」 and 「そのまま使える？」. No speech bubbles, no repeated left-text/right-character layout, no extra readable text, no personal name, age, address, phone, email, personal asset amount, watermark, browser frame, or gray panel.",
+  "thumbnail_text": "4%で足りる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [
+    "自由過ぎると溺れる、自ら制約を課せ",
+    "未来ばかり見るな、今に熱中しろ"
+  ],
+  "external_sources": [
+    {
+      "title": "Determining Withdrawal Rates Using Historical Data",
+      "url": "https://www.financialplanningassociation.org/sites/default/files/2020-05/7%20Determining%20Withdrawal%20Rates%20Using%20Historical%20Data.pdf",
+      "why": "元の研究本文を参照するため"
+    },
+    {
+      "title": "The State of Retirement Income: 2025",
+      "url": "https://www.morningstar.com/content/cs-assets/v3/assets/blt9415ea4cc4157833/bltb73b87c5d0c70ead/692f43f57737a31596684522/working_file_11.19_FINAL_REVISE.pdf",
+      "why": "30年・成功確率90%などの前提が変わると取り崩し率も変わることを確認するため"
+    },
+    {
+      "title": "資産形成の基本：長期・積立・分散投資",
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "why": "日本の資産形成で長期・積立・分散とライフプランを考える公的資料として参照するため"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-stock-distance/", "anchor": "投資と距離を取る方法を読む" },
+    { "path": "/articles/sidefire-6000/", "anchor": "資産6000万円でサイドFIREした本人の話" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "4%ルールの定義・研究前提・日本での注意点を主役にする解説記事。資産額別の本人談や投資病の記事とは検索意図が異なる。",
+  "needs_review": false,
+  "review_reason": ""
+}

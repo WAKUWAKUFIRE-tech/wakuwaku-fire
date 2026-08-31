@@ -1,0 +1,34 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREして後悔したことはある？経験者が本音で答える",
+  "meta_description": "FIREして後悔したことはあるのか。30歳で会社を辞め、2年半だらけた経験や孤独、資産不安を経た本人が、後悔とFIREして良かったことを本音で整理します。",
+  "category": "FIRE後の現実",
+  "lead": "FIREして後悔したことはあります。2年半ゲームに偏って能力が落ちたこと、会社の会話や強制力を失ったこと、もっと早く発信すればよかったこと。それでも、家族との時間と選び直せる自由を考えると、FIRE自体は後悔していません。",
+  "tags": ["FIRE 後悔", "FIRE 失敗", "FIRE後 後悔", "FIRE 現実"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese website article thumbnail. Input image: the supplied local PNG is the exact character reference for 「まる」; use the same recognizable character with dark spiky hair, black-rim glasses, expressive face, and white FIRE T-shirt, while freely changing his pose and expression. Create a completely different, emotionally striking composition for an article about regret after FIRE. Show the character standing on a theater stage in front of a huge cracked mirror: one reflection is slumped and regretful, the real character faces the viewer with a wry smile and renewed resolve. Use a spotlight, torn calendar pages, a game controller on the floor, and a bright exit door in the background as visual symbols. Integrate Japanese typography across the mirror crack in a bold red-and-white treatment, not on the left side and not in a bottom banner. Render only these exact phrases, large and crisp: 「FIREして後悔した？」 and 「それでも、やって良かった」. No speech bubbles, no three top callouts, no generic substitute character, no personal name, age, address, phone, email, personal asset amount, watermark, browser frame, or extra readable text.",
+  "thumbnail_text": "後悔した？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-24_FIREした100人を調べたら「本当に幸せなのか」の答えが見えた.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [
+    "失敗したらネタにして笑い飛ばせ",
+    "自分が笑える日々を送れ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇と向き合う記事を読む" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだことを読む" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の後悔を本人の時間・孤独・強制力・発信の経験から整理し、FIRE自体の評価と分けて答える記事。暇対策やFIREの理由だけを扱う既存記事とは検索意図が異なる。",
+  "needs_review": false,
+  "review_reason": ""
+}

@@ -1,0 +1,30 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "5000万円でFIREできる？独身・夫婦・子持ちで変わる現実",
+  "meta_description": "5000万円でFIREできるかは、生活費・家族構成・働く選択肢で変わります。30歳で資産6000万円で会社を辞めた本人の経験と、独身・夫婦・子持ちの現実を分けて整理します。",
+  "category": "FIREの資産計画",
+  "lead": "5000万円でFIREできるかは、金額だけでは決まりません。独身か夫婦か、子どもがいるか、生活費はいくらか、足りない時に少し働けるか。30歳で資産6000万円を作って会社を辞めた僕の経験も交え、家族構成別に現実を考えます。",
+  "tags": ["FIRE 5000万円", "5000万円 FIRE", "サイドFIRE", "FIRE 家族構成"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese website article thumbnail. Input image: the supplied local PNG is the exact character reference for 「まる」; use this recognizable character, preserving his spiky dark hair, black-rim glasses, expressive face, and white FIRE T-shirt, while freely changing his pose and expression. Create a fresh composition for the article 「5000万円でFIREできる？独身・夫婦・子持ちで変わる現実」. Show the character standing at the center of a dramatic three-way life crossroads, with three visually distinct roads or doorways symbolizing solo life, a couple, and a family; use simple silhouettes or icons only, not additional human characters. The character looks intensely thoughtful while weighing the paths, then slightly determined. Use a bold circular perspective and colored road lines that converge toward the character, not a right-side character with left-side text. Integrate the typography into the artwork as a large central stamp or tilted road sign, not a bottom banner. Japanese display lettering must be crisp and exact: 「5000万円で？」 as the main hook and 「家族で変わる」 as the supporting line. No speech bubbles, no three top callouts, no blue bottom strip, no personal name, age, address, phone, email, or personal asset claim, no watermark, no browser frame, no extra readable text.",
+  "thumbnail_text": "5000万円で？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md"
+  ],
+  "used_personal_quotes": [
+    "FIREは人生上がりじゃない",
+    "自由過ぎると溺れる、自ら制約を課せ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族持ちFIREの暮らしを読む" },
+    { "path": "/articles/sidefire-6000/", "anchor": "資産6000万円でサイドFIREした本人の話" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "5000万円を一律の必要額とせず、独身・夫婦・子持ちとSide FIREの選択肢で考える比較記事。6000万円でFIREした本人談だけを主役にする既存記事とは検索意図が異なる。",
+  "needs_review": false,
+  "review_reason": ""
+}
