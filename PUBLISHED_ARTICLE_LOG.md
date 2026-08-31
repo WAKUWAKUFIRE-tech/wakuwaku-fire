@@ -65,3 +65,24 @@ thumbnail text: 6000万で足りる？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREとは？意味・種類・メリット・デメリットを経験者目線でわかりやすく解説
+
+article id: seo-002
+priority_order: 2
+公開日・時刻（JST）: 2026-08-31 18:00:00
+公開枠: 2026-08-31T18:00:00+09:00
+main keyword: FIREとは
+title: FIREとは？意味・種類・メリット・デメリットを経験者目線でわかりやすく解説
+slug: what-is-fire
+URL: https://wakuwaku-fire-git.pages.dev/articles/what-is-fire/
+thumbnail file: articles/what-is-fire/thumbnail.png
+thumbnail text: FIREって何？
+参照knowledge_base: content_sources/knowledge_base/fire_philosophy.md, content_sources/knowledge_base/seo_experience_map.md, content_sources/knowledge_base/contradictions_and_updates.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIRE＝経済的自立と嫌な仕事からの早期退職 / FIREは人生のゴールではなく、自分の人生を自分で作り始めるスタート
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
