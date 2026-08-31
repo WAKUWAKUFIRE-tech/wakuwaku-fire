@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-08-31",
+  "updated_at": "2026-09-01",
   "items": [
     {
       "id": "seo-001",
@@ -82,7 +82,7 @@
     {
       "id": "seo-003",
       "priority_order": 3,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE 6000万円",
       "secondary_keywords": [
         "6000万円 FIRE",
@@ -106,13 +106,17 @@
       ],
       "thumbnail_text_hint": "6000万で？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-6000man/",
+      "published_at": "2026-09-01",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-01T07:00:00+09:00",
       "stock_path": "automation/article_stock/fire-6000man",
-      "stocked_at": "2026-08-31"
+      "stocked_at": "2026-08-31",
+      "generated_title": "6000万円でFIREできる？30歳で会社を辞めた6年後のリアル",
+      "generated_meta_description": "6000万円でFIREできるのか。30歳で資産6000万円を作って会社を辞めた僕が、自由・堕落・資産の増減・家族との暮らしを経た6年後のリアルを、サイドFIREの視点で話します。",
+      "generated_category": "FIREの現実",
+      "generated_thumbnail_text": "FIRE後どうなる？"
     },
     {
       "id": "seo-004",

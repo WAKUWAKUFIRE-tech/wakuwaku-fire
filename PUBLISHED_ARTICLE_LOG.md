@@ -86,3 +86,24 @@ thumbnail text: FIREって何？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: 6000万円でFIREできる？30歳で会社を辞めた6年後のリアル
+
+article id: seo-003
+priority_order: 3
+公開日・時刻（JST）: 2026-09-01 07:00:00
+公開枠: 2026-09-01T07:00:00+09:00
+main keyword: FIRE 6000万円
+title: 6000万円でFIREできる？30歳で会社を辞めた6年後のリアル
+slug: fire-6000man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-6000man/
+thumbnail file: articles/fire-6000man/thumbnail.png
+thumbnail text: FIRE後どうなる？
+参照knowledge_base: content_sources/knowledge_base/seo_experience_map.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/contradictions_and_updates.md, content_sources/knowledge_base/side_fire_and_work.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIREは人生上がりじゃない / 自由時間が増えたら創作しまくれ
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
