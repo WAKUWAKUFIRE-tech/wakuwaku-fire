@@ -1,0 +1,32 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "サイドFIREとは？完全FIREとの違いと現実的な始め方",
+  "meta_description": "サイドFIREとは、資産を土台に好きな仕事や小さな収入を組み合わせる生き方です。完全FIREとの違い、月5万円の考え方、30歳で資産6000万円で会社を辞めた僕の現実的な始め方を紹介します。",
+  "category": "サイドFIRE",
+  "lead": "サイドFIREとは、資産収入だけで暮らす完全FIREではなく、資産を土台に好きな仕事や小さな収入を組み合わせる生き方です。30歳で資産6000万円で会社を辞めた僕が、配達・発信・家事育児まで含めて、完全FIREとの違いと始め方を話します。",
+  "tags": ["Side FIRE", "サイドFIRE", "FIRE種類", "セミリタイア"],
+  "thumbnail_prompt": "High-impact YouTube-style 1:1 square thumbnail for a Japanese beginner article about Side FIRE. Generate the finished illustration and Japanese typography together as one composition, inspired by the supplied reference thumbnails: bold integrated lettering, thick black and white outlines, angled colorful banners, and small speech-bubble callouts. Show an expressive anime character on the right with black hair, black-rim glasses, a white FIRE T-shirt, and a confident thoughtful smile, with a laptop or notebook and a bicycle nearby. Visually balance a glowing nest egg and coins with flexible work and a bright open road. Include only these general text elements: 「完全FIREとの違い」 「少し働く？」 「家族で変わる」 「サイドFIREとは？」 「自由＋収入」. Do not add any age, personal name, address, phone number, email, individual asset amount, personal identifier, personal anecdote, watermark, browser UI, screenshot frame, or gray full-screen panel.",
+  "thumbnail_text": "サイドFIREとは？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": [
+    "資産運用＋自由に好きな仕事をする",
+    "自由過ぎると溺れる、自ら制約を課せ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-6000/", "anchor": "資産6000万円でサイドFIREした本人の話" },
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日を知る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "サイドFIREの定義・完全FIREとの差・始め方を整理する入口記事。資産6000万円の本人談や日常記事とは検索意図が異なる。",
+  "needs_review": false,
+  "review_reason": ""
+}

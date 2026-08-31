@@ -1,0 +1,110 @@
+name: WAKUWAKU FIRE daily SEO publish
+
+on:
+  schedule:
+    # 07:00 JST = 22:00 UTC (前日)
+    - cron: "0 22 * * *"
+    # 18:00 JST = 09:00 UTC
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wakuwaku-fire-auto-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_STOCK_ONLY: "true"
+      CHECK_EXTERNAL_SOURCES: "false"
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Sync the latest main branch
+        run: git pull --rebase origin main
+
+      - name: Validate the site before publishing
+        run: npm run validate:site
+
+      - name: Publish one approved stock article
+        id: publish
+        continue-on-error: true
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            case "${{ github.event.schedule }}" in
+              "0 22 * * *") export PUBLISH_SLOT_JST="07:00" ;;
+              "0 9 * * *") export PUBLISH_SLOT_JST="18:00" ;;
+              *) echo "認識できないスケジュールです: ${{ github.event.schedule }}"; exit 1 ;;
+            esac
+            node scripts/auto_publish.mjs --publish --mode scheduled
+          else
+            node scripts/auto_publish.mjs --publish --mode manual
+          fi
+
+      - name: Commit generated site changes
+        if: always() && steps.publish.outcome != 'skipped'
+        run: |
+          git config user.name "wakuwaku-fire-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md index.html articles sitemap.xml content_sources/editorial_notes automation/article_stock
+          if git diff --cached --quiet; then
+            echo "No generated site changes to commit."
+          else
+            git commit -m "Publish daily SEO article"
+            git push origin HEAD:main
+          fi
+
+      - name: Verify the public article URL
+        id: verify
+        if: steps.publish.outcome == 'success'
+        continue-on-error: true
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [ ! -f .auto-publish-result.json ]; then
+            echo "No run result was produced; nothing new needs public verification."
+            exit 0
+          fi
+          status="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(".auto-publish-result.json","utf8")); process.stdout.write(r.status || "");')"
+          if [ "$status" != "published" ]; then
+            echo "Run status: $status; public URL verification is not required."
+            exit 0
+          fi
+          slug="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(".auto-publish-result.json","utf8")); process.stdout.write(r.slug || "");')"
+          node scripts/verify_public_site.mjs --slug "$slug" --attempts 8 --wait-seconds 15
+
+      - name: Record public verification failure
+        if: steps.verify.outcome == 'failure'
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          id="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(".auto-publish-result.json","utf8")); process.stdout.write(r.article_id || "");')"
+          node scripts/auto_publish.mjs --mark-failed --id "$id" --reason "公開URL確認失敗（GitHub Actions）"
+          git config user.name "wakuwaku-fire-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md
+          if git diff --cached --quiet; then
+            echo "No verification failure changes to commit."
+          else
+            git commit -m "Record public URL verification failure"
+            git push origin HEAD:main
+          fi
+          exit 1
+
+      - name: Fail the workflow when generation needs attention
+        if: steps.publish.outcome == 'failure'
+        run: exit 1

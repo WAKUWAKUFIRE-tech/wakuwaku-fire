@@ -1,0 +1,21 @@
+{
+  "site_url": "https://wakuwaku-fire-git.pages.dev",
+  "community_url": "https://community.camp-fire.jp/projects/view/778625",
+  "homepage_image": "ワクワクFIREトップ画像.png",
+  "community_image": "FIREコミュニティ.png",
+  "character_reference": "まる画像集__1_-removebg-preview.png",
+  "schedule": {
+    "timezone": "Asia/Tokyo",
+    "slots_jst": ["07:00", "18:00"],
+    "cron_utc": ["0 22 * * *", "0 9 * * *"],
+    "articles_per_run": 1,
+    "articles_per_day": 2
+  },
+  "paths": {
+    "queue": "SEO_ARTICLE_QUEUE.json",
+    "publish_log": "PUBLISHED_ARTICLE_LOG.md",
+    "template": "automation/article-template.html",
+    "editorial_notes": "content_sources/editorial_notes",
+    "article_stock": "automation/article_stock"
+  }
+}

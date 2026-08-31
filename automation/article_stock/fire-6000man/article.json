@@ -1,0 +1,32 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "6000万円でFIREできる？30歳で会社を辞めた6年後のリアル",
+  "meta_description": "6000万円でFIREできるのか。30歳で資産6000万円を作って会社を辞めた僕が、自由・堕落・資産の増減・家族との暮らしを経た6年後のリアルを、サイドFIREの視点で話します。",
+  "category": "FIREの現実",
+  "lead": "6000万円でFIREできるのか。30歳で資産6000万円を作って会社を辞めた僕は、最初は自由に浮かれ、ゲーム三昧でだらけ、資産の増減に揺れ、今は家族の時間と小さな仕事を含めたサイドFIREを考えています。",
+  "tags": ["FIRE 6000万円", "資産6000万円", "サイドFIRE", "FIREの現実"],
+  "thumbnail_prompt": "High-impact YouTube-style 1:1 square thumbnail for a Japanese personal FIRE article. Generate the finished illustration and Japanese typography together as one composition, inspired by the supplied reference thumbnails: bold integrated lettering, thick black and white outlines, angled colorful banners, and small speech-bubble callouts. Show an expressive anime character on the right with black hair, black-rim glasses, a white FIRE T-shirt, a calculator, and a determined but slightly worried expression. Use a split scene of a bright open road and a falling chart to convey the reality after FIRE. Include only these general, non-personal text elements: 「資産が減る？」 「自由は最高？」 「また働く？」 「FIRE後どうなる？」 「自由のその先」. Do not add any age, personal name, address, phone number, email, individual asset amount, personal identifier, personal anecdote, watermark, browser UI, screenshot frame, or gray full-screen panel.",
+  "thumbnail_text": "FIRE後どうなる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-07-27_30歳・資産6000万円でFIREした僕が、お金ではなく「仲間が集まる場所」を作った理由.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2024-11-18_今年マイナス5000万円出したけど資産1億円超えた話.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [
+    "FIREは人生上がりじゃない",
+    "自由時間が増えたら創作しまくれ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-6000/", "anchor": "資産6000万円でサイドFIREした本人の話" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだ6つのこと" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "6000万円でFIREした本人の資産変動と6年間の生活変化を主役にする体験記事。必要額の計算を主題にした記事とは検索意図が異なる。",
+  "needs_review": false,
+  "review_reason": ""
+}

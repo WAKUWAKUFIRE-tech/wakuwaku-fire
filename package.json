@@ -1,0 +1,13 @@
+{
+  "name": "wakuwaku-fire-static-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:site": "node scripts/auto_publish.mjs --validate",
+    "auto-publish:status": "node scripts/auto_publish.mjs --status",
+    "auto-publish:dry-run": "node scripts/auto_publish.mjs --dry-run",
+    "auto-publish:approve": "node scripts/auto_publish.mjs --approve-stock",
+    "auto-publish:manual": "node scripts/auto_publish.mjs --publish --mode manual",
+    "verify:public": "node scripts/verify_public_site.mjs"
+  }
+}

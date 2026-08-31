@@ -1,0 +1,3 @@
+.auto-publish.lock
+.auto-publish-result.json
+node_modules/

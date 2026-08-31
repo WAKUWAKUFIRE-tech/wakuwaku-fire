@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREとは？意味・種類・メリット・デメリットを経験者目線でわかりやすく解説",
+  "meta_description": "FIREとは、経済的自立と早期退職を目指す生き方です。完全FIREとサイドFIREの違い、メリット・デメリット、FIRE後の暮らしを初心者向けに説明します。",
+  "category": "FIREの基本",
+  "lead": "FIREとは、働かなくても生活できる土台を作り、働くかどうかを自分で選びやすくする考え方です。完全FIREだけでなく、少し働くサイドFIREも含めて、意味・種類・メリット・デメリットを見ていきます。",
+  "tags": ["FIREとは", "FIRE意味", "FIRE種類", "経済的自立"],
+  "thumbnail_prompt": "High-impact YouTube-style 1:1 square thumbnail for a Japanese beginner article explaining what FIRE means. Generate the finished illustration and Japanese typography together as one composition, inspired by the supplied reference thumbnails: bold integrated lettering, thick black and white outlines, angled colorful banners, and small speech-bubble callouts. Show an energetic anime character on the right with black hair, black-rim glasses, a white FIRE T-shirt, and an expressive inviting face. Use a dramatic blazing flame, an open door to a bright blue sky, a clock, floating coins, and a broken office chain to symbolize financial independence and freedom. Include only these general text elements: 「経済的自立」 「早期退職」 「好きに働く」 「FIREって何？」 「自由の正体」. Do not add any age, asset amount, real name, address, phone number, email, personal identifier, watermark, browser UI, screenshot frame, or gray full-screen panel.",
+  "thumbnail_text": "FIREって何？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [
+    "FIRE＝経済的自立と嫌な仕事からの早期退職",
+    "FIREは人生のゴールではなく、自分の人生を自分で作り始めるスタート"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/", "anchor": "FIREコラムを読む" },
+    { "path": "/fire-animal-test/", "anchor": "自分に合うFIREタイプを診断する" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの意味・種類・メリット・デメリットを初心者向けに説明する入口記事。既存記事の個別体験談とは検索意図が異なる。",
+  "needs_review": false,
+  "review_reason": ""
+}

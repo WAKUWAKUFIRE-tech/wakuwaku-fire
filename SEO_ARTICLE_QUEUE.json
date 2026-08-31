@@ -1,0 +1,2332 @@
+{
+  "version": 1,
+  "updated_at": "2026-08-31",
+  "items": [
+    {
+      "id": "seo-001",
+      "priority_order": 1,
+      "status": "published",
+      "main_keyword": "FIRE いくら必要",
+      "secondary_keywords": [
+        "FIRE 必要資産",
+        "FIRE 必要資金",
+        "FIRE 生活費"
+      ],
+      "article_title_plan": "FIREはいくら必要？生活費・年齢・家族構成別に考える現実的な目安",
+      "slug": "fire-ikura-hitsuyou",
+      "search_intent": "FIREに必要な資産額を知りたい",
+      "unique_angle": "必要資産の考え方＋支出ベース＋Side FIRE視点",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-6000/",
+        "/articles/fire-preparation/",
+        "/articles/fire-happiness-spending/"
+      ],
+      "thumbnail_text_hint": "いくら要る？",
+      "latest_fact_check_required": false,
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-ikura-hitsuyou/",
+      "published_at": "2026-08-31",
+      "failed_reason": "",
+      "published_time": "12:08:58",
+      "published_slot": "manual:2026-08-31T12:08:58+09:00",
+      "stock_path": "automation/article_stock/fire-ikura-hitsuyou",
+      "stocked_at": "2026-08-31",
+      "generated_title": "FIREはいくら必要？生活費・年齢・家族構成別に考える現実的な目安",
+      "generated_meta_description": "FIREはいくら必要なのか。30歳・資産6000万円で会社を辞めた僕が、FIRE直後のゲーム三昧、資産の増減、家族ができて変わった不安まで踏まえて、生活費から必要額を考えます。",
+      "generated_category": "FIREの必要資産",
+      "generated_thumbnail_text": "FIREはいくら？"
+    },
+    {
+      "id": "seo-002",
+      "priority_order": 2,
+      "status": "stocked",
+      "main_keyword": "FIREとは",
+      "secondary_keywords": [
+        "FIRE 意味",
+        "FIRE 種類",
+        "経済的自立"
+      ],
+      "article_title_plan": "FIREとは？意味・種類・メリット・デメリットを経験者目線でわかりやすく解説",
+      "slug": "what-is-fire",
+      "search_intent": "FIREの意味を初心者向けに知りたい",
+      "unique_angle": "初心者向け基礎＋実際にFIREするとどうなるか",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/",
+        "/fire-animal-test/",
+        "/articles/fire-reasons/"
+      ],
+      "thumbnail_text_hint": "FIREとは？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": "",
+      "stock_path": "automation/article_stock/what-is-fire",
+      "stocked_at": "2026-08-31"
+    },
+    {
+      "id": "seo-003",
+      "priority_order": 3,
+      "status": "stocked",
+      "main_keyword": "FIRE 6000万円",
+      "secondary_keywords": [
+        "6000万円 FIRE",
+        "資産6000万円",
+        "6000万円 サイドFIRE"
+      ],
+      "article_title_plan": "6000万円でFIREできる？30歳で会社を辞めた6年後のリアル",
+      "slug": "fire-6000man",
+      "search_intent": "6000万円でFIREできるのか知りたい",
+      "unique_angle": "本人の6000万円FIRE経験を主役にする",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-6000/",
+        "/articles/fire-6-lessons/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "6000万で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-6000man",
+      "stocked_at": "2026-08-31"
+    },
+    {
+      "id": "seo-004",
+      "priority_order": 4,
+      "status": "stocked",
+      "main_keyword": "サイドFIREとは",
+      "secondary_keywords": [
+        "Side FIRE",
+        "サイドFIRE 意味",
+        "セミリタイア"
+      ],
+      "article_title_plan": "サイドFIREとは？完全FIREとの違いと現実的な始め方",
+      "slug": "side-fire-toha",
+      "search_intent": "サイドFIREの意味と方法を知りたい",
+      "unique_angle": "完全FIRE一択ではない本人の現在の考え",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-6000/",
+        "/articles/sidefire-day/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "現実はコレ",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": "",
+      "stock_path": "automation/article_stock/side-fire-toha",
+      "stocked_at": "2026-08-31"
+    },
+  {
+    "id": "seo-005",
+    "priority_order": 5,
+    "status": "prepared_review",
+      "main_keyword": "FIRE 5000万円",
+      "secondary_keywords": [
+        "5000万円 FIRE",
+        "5000万円 サイドFIRE",
+        "FIRE 家族構成"
+      ],
+      "article_title_plan": "5000万円でFIREできる？独身・夫婦・子持ちで変わる現実",
+      "slug": "fire-5000man",
+      "search_intent": "5000万円でFIRE可能か知りたい",
+      "unique_angle": "支出・家族構成・Side FIRE別に考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-household/",
+        "/articles/sidefire-6000/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "5000万で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+    "published_at": "",
+    "failed_reason": "",
+    "published_time": "",
+    "published_slot": "",
+    "stock_path": "automation/article_stock/fire-5000man"
+  },
+  {
+    "id": "seo-006",
+    "priority_order": 6,
+    "status": "prepared_review",
+      "main_keyword": "FIRE 4%ルール",
+      "secondary_keywords": [
+        "4パーセントルール",
+        "FIRE 取り崩し率",
+        "FIRE 資産計算"
+      ],
+      "article_title_plan": "FIREの4%ルールとは？日本でそのまま使っていいのか経験者目線で考える",
+      "slug": "fire-4percent-rule",
+      "search_intent": "4%ルールの意味と実用性を知りたい",
+      "unique_angle": "理論とFIRE後の現実を比較",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-stock-distance/",
+        "/articles/sidefire-6000/",
+        "/articles/fire-6-lessons/"
+      ],
+      "thumbnail_text_hint": "4%で足りる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+    "published_at": "",
+    "failed_reason": "",
+    "published_time": "",
+    "published_slot": "",
+    "stock_path": "automation/article_stock/fire-4percent-rule"
+  },
+  {
+    "id": "seo-007",
+    "priority_order": 7,
+    "status": "prepared_review",
+      "main_keyword": "FIRE 後悔",
+      "secondary_keywords": [
+        "FIRE 失敗",
+        "FIRE後 後悔",
+        "FIRE 現実"
+      ],
+      "article_title_plan": "FIREして後悔したことはある？経験者が本音で答える",
+      "slug": "fire-koukai",
+      "search_intent": "FIREすると後悔するのか知りたい",
+      "unique_angle": "FIRE達成者のリアルな後悔",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/lessons_learned.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-boredom/",
+        "/articles/fire-6-lessons/",
+        "/articles/fire-reasons/"
+      ],
+      "thumbnail_text_hint": "後悔した？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+    "published_at": "",
+    "failed_reason": "",
+    "published_time": "",
+    "published_slot": "",
+    "stock_path": "automation/article_stock/fire-koukai"
+  },
+    {
+      "id": "seo-008",
+      "priority_order": 8,
+      "status": "planned",
+      "main_keyword": "FIRE 暇",
+      "secondary_keywords": [
+        "FIRE 退屈",
+        "FIRE 毎日何してる",
+        "毎日日曜日"
+      ],
+      "article_title_plan": "FIREすると暇になる？毎日日曜日問題を経験者が語る",
+      "slug": "fire-hima",
+      "search_intent": "FIREすると暇にならないか知りたい",
+      "unique_angle": "本人の毎日日曜日問題",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/recurring_stories.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-boredom/",
+        "/articles/sidefire-day/",
+        "/risk-runner/"
+      ],
+      "thumbnail_text_hint": "暇になる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-009",
+      "priority_order": 9,
+      "status": "planned",
+      "main_keyword": "FIRE 失敗",
+      "secondary_keywords": [
+        "FIRE 失敗談",
+        "FIRE 暴落",
+        "FIRE リスク"
+      ],
+      "article_title_plan": "FIREに失敗する人の特徴は？経験者の失敗談から学ぶ",
+      "slug": "fire-shippai",
+      "search_intent": "FIRE失敗の原因を知りたい",
+      "unique_angle": "本人の資産減少・投資失敗・生活面から考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/lessons_learned.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-stock-distance/",
+        "/articles/fire-6-lessons/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "失敗する人",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-010",
+      "priority_order": 10,
+      "status": "planned",
+      "main_keyword": "FIRE後 生活",
+      "secondary_keywords": [
+        "FIRE後の暮らし",
+        "FIRE後 1日",
+        "FIRE 生活実態"
+      ],
+      "article_title_plan": "FIRE後の生活はどう変わる？実際の1日と数年後の本音",
+      "slug": "life-after-fire",
+      "search_intent": "FIRE後の生活を知りたい",
+      "unique_angle": "FIRE後数年間の本人のリアル",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-day/",
+        "/articles/fire-after-10-days/",
+        "/fire-migration-japan/"
+      ],
+      "thumbnail_text_hint": "FIRE後の生活",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-011",
+      "priority_order": 11,
+      "status": "planned",
+      "main_keyword": "FIRE後 仕事",
+      "secondary_keywords": [
+        "FIRE後 働く",
+        "FIRE 再就職",
+        "サイドFIRE 仕事"
+      ],
+      "article_title_plan": "FIRE後も仕事は必要？働くことをやめた後に見えた現実",
+      "slug": "work-after-fire",
+      "search_intent": "FIRE後に仕事をするべきか知りたい",
+      "unique_angle": "FIRE後に働く意味を再考",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-youtube-live/",
+        "/articles/sidefire-day/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "仕事は必要？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-012",
+      "priority_order": 12,
+      "status": "planned",
+      "main_keyword": "FIRE後 収入",
+      "secondary_keywords": [
+        "FIRE 収入源",
+        "FIRE 配当",
+        "FIRE 副業"
+      ],
+      "article_title_plan": "FIRE後の収入源はどうする？配当・副業・Side FIREの考え方",
+      "slug": "income-after-fire",
+      "search_intent": "FIRE後の収入源を知りたい",
+      "unique_angle": "収入ゼロを絶対条件にしない",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/investment_history.md",
+        "content_sources/knowledge_base/money_philosophy.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-youtube-live/",
+        "/articles/fire-household/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "収入どうする？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-013",
+      "priority_order": 13,
+      "status": "planned",
+      "main_keyword": "FIRE 必要資産",
+      "secondary_keywords": [
+        "FIRE 必要額",
+        "FIRE 資産額",
+        "FIRE いくら"
+      ],
+      "article_title_plan": "FIREの必要資産はいくら？計算の基本をわかりやすく解説",
+      "slug": "fire-hitsuyou-shisan",
+      "search_intent": "FIRE必要資産を計算したい",
+      "unique_angle": "支出から逆算する",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-keisan/",
+        "/articles/fire-ikura-hitsuyou/"
+      ],
+      "thumbnail_text_hint": "必要資産",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-014",
+      "priority_order": 14,
+      "status": "planned",
+      "main_keyword": "FIRE 計算",
+      "secondary_keywords": [
+        "FIRE 計算方法",
+        "FIRE シミュレーション",
+        "FIRE 取り崩し計算"
+      ],
+      "article_title_plan": "FIREの計算方法を簡単に解説｜必要資産はどう求める？",
+      "slug": "fire-keisan",
+      "search_intent": "FIRE計算方法を知りたい",
+      "unique_angle": "FIRE研究室への導線",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-hitsuyou-shisan/",
+        "/articles/fire-4percent-rule/"
+      ],
+      "thumbnail_text_hint": "どう計算？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-015",
+      "priority_order": 15,
+      "status": "planned",
+      "main_keyword": "FIRE 何歳",
+      "secondary_keywords": [
+        "FIRE 年齢",
+        "何歳でFIRE",
+        "早期リタイア 年齢"
+      ],
+      "article_title_plan": "FIREは何歳で達成できる？年齢別に考える現実",
+      "slug": "fire-nansai",
+      "search_intent": "FIRE可能年齢を知りたい",
+      "unique_angle": "年齢・資産・人的資本で考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/profile_and_timeline.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/money_philosophy.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-6000/",
+        "/articles/fire-30s/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "何歳で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-016",
+      "priority_order": 16,
+      "status": "planned",
+      "main_keyword": "FIRE 何年かかる",
+      "secondary_keywords": [
+        "FIRE 達成年数",
+        "FIRE 何年",
+        "FIRE 貯蓄率"
+      ],
+      "article_title_plan": "FIREまで何年かかる？年収・貯蓄率・運用で変わる達成年数",
+      "slug": "fire-nannen",
+      "search_intent": "FIREまで何年必要か知りたい",
+      "unique_angle": "達成までの年数を具体化",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-chochikuritsu/",
+        "/articles/fire-nenshu/"
+      ],
+      "thumbnail_text_hint": "何年かかる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-017",
+      "priority_order": 17,
+      "status": "planned",
+      "main_keyword": "FIRE 貯蓄率",
+      "secondary_keywords": [
+        "FIRE 貯金率",
+        "FIRE 貯蓄",
+        "FIRE 年収"
+      ],
+      "article_title_plan": "FIREで本当に大事なのは貯蓄率？年収より重要な理由",
+      "slug": "fire-chochikuritsu",
+      "search_intent": "FIREに必要な貯蓄率を知りたい",
+      "unique_angle": "年収より支出と貯蓄率",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-seikatsuhi/",
+        "/articles/fire-nenshu/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "貯蓄率が命",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-018",
+      "priority_order": 18,
+      "status": "planned",
+      "main_keyword": "FIRE 年収",
+      "secondary_keywords": [
+        "FIRE 年収いくら",
+        "FIRE 収入",
+        "FIRE 資産形成"
+      ],
+      "article_title_plan": "FIREに必要な年収は？高年収でなくても近づける考え方",
+      "slug": "fire-nenshu",
+      "search_intent": "FIRE可能な年収を知りたい",
+      "unique_angle": "年収だけで決まらない",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-chochikuritsu/",
+        "/articles/fire-seikatsuhi/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "年収いくら？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-019",
+      "priority_order": 19,
+      "status": "planned",
+      "main_keyword": "FIRE 月20万円",
+      "secondary_keywords": [
+        "月20万円 FIRE",
+        "生活費20万円",
+        "FIRE 必要資産"
+      ],
+      "article_title_plan": "月20万円で暮らすならFIREにいくら必要？",
+      "slug": "fire-20man",
+      "search_intent": "月20万円生活の必要資産",
+      "unique_angle": "月20万円生活を具体計算",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-seikatsuhi/",
+        "/articles/fire-4percent-rule/"
+      ],
+      "thumbnail_text_hint": "月20万なら",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-020",
+      "priority_order": 20,
+      "status": "planned",
+      "main_keyword": "FIRE 月25万円",
+      "secondary_keywords": [
+        "月25万円 FIRE",
+        "生活費25万円",
+        "FIRE 必要資産"
+      ],
+      "article_title_plan": "月25万円生活のFIRE必要資産は？",
+      "slug": "fire-25man",
+      "search_intent": "月25万円生活の必要資産",
+      "unique_angle": "月25万円ケース",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-seikatsuhi/",
+        "/articles/fire-4percent-rule/"
+      ],
+      "thumbnail_text_hint": "月25万なら",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-021",
+      "priority_order": 21,
+      "status": "planned",
+      "main_keyword": "FIRE 月30万円",
+      "secondary_keywords": [
+        "月30万円 FIRE",
+        "生活費30万円",
+        "FIRE 必要資産"
+      ],
+      "article_title_plan": "月30万円で暮らすFIREは現実的？必要資産を考える",
+      "slug": "fire-30man",
+      "search_intent": "月30万円生活の必要資産",
+      "unique_angle": "月30万円ケース",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-seikatsuhi/",
+        "/articles/fire-4percent-rule/"
+      ],
+      "thumbnail_text_hint": "月30万なら",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-022",
+      "priority_order": 22,
+      "status": "planned",
+      "main_keyword": "FIRE 月40万円",
+      "secondary_keywords": [
+        "月40万円 FIRE",
+        "生活費40万円",
+        "FIRE 必要資産"
+      ],
+      "article_title_plan": "月40万円生活でFIREするにはいくら必要？",
+      "slug": "fire-40man",
+      "search_intent": "月40万円生活の必要資産",
+      "unique_angle": "月40万円ケース",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-seikatsuhi/",
+        "/articles/fire-4percent-rule/"
+      ],
+      "thumbnail_text_hint": "月40万なら",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-023",
+      "priority_order": 23,
+      "status": "planned",
+      "main_keyword": "FIRE 3000万円",
+      "secondary_keywords": [
+        "3000万円 FIRE",
+        "3000万円 サイドFIRE",
+        "Lean FIRE"
+      ],
+      "article_title_plan": "3000万円でFIREできる？かなり厳しい？それでも可能性はある？",
+      "slug": "fire-3000man",
+      "search_intent": "3000万円でFIRE可能か",
+      "unique_angle": "Lean FIRE・Side FIREも含める",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/fire-keisan/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "3000万で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-024",
+      "priority_order": 24,
+      "status": "planned",
+      "main_keyword": "FIRE 1億円",
+      "secondary_keywords": [
+        "1億円 FIRE",
+        "1億円 安心",
+        "FIRE 不安"
+      ],
+      "article_title_plan": "1億円あればFIREできる？安心できる人と不安が残る人の違い",
+      "slug": "fire-1oku",
+      "search_intent": "1億円ならFIRE可能か",
+      "unique_angle": "大金と心理的安心は別",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/fears_and_anxieties.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-anxiety/",
+        "/articles/fire-crash/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "1億で安心？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-025",
+      "priority_order": 25,
+      "status": "planned",
+      "main_keyword": "FIRE つまらない",
+      "secondary_keywords": [
+        "FIRE 楽しくない",
+        "FIRE後 退屈",
+        "FIRE 幸せ"
+      ],
+      "article_title_plan": "FIREするとつまらない？自由になっても満たされない理由",
+      "slug": "fire-tsumaranai",
+      "search_intent": "FIRE後につまらなくなるか",
+      "unique_angle": "自由と幸福は別",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-boredom/",
+        "/articles/fire-happiness/",
+        "/risk-runner/"
+      ],
+      "thumbnail_text_hint": "つまらない？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-026",
+      "priority_order": 26,
+      "status": "planned",
+      "main_keyword": "FIRE後 後悔",
+      "secondary_keywords": [
+        "FIRE後 失敗",
+        "FIRE 達成後",
+        "FIRE 現実"
+      ],
+      "article_title_plan": "FIRE後に後悔することは？達成して初めて見える落とし穴",
+      "slug": "after-fire-koukai",
+      "search_intent": "FIRE後の後悔を知りたい",
+      "unique_angle": "達成後ならではの後悔",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/lessons_learned.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-koukai/",
+        "/articles/fire-6-lessons/",
+        "/articles/fire-after-boredom/"
+      ],
+      "thumbnail_text_hint": "その後悔",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-027",
+      "priority_order": 27,
+      "status": "planned",
+      "main_keyword": "FIRE後 孤独",
+      "secondary_keywords": [
+        "FIRE 孤独",
+        "FIRE 社会との距離",
+        "FIRE 友達"
+      ],
+      "article_title_plan": "FIRE後は孤独になりやすい？会社を辞めると失いやすいもの",
+      "slug": "after-fire-kodoku",
+      "search_intent": "FIRE後の孤独が不安",
+      "unique_angle": "社会との接点",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-community/",
+        "/articles/fire-community-place/",
+        "/articles/fire-reasons/"
+      ],
+      "thumbnail_text_hint": "孤独になる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-028",
+      "priority_order": 28,
+      "status": "planned",
+      "main_keyword": "FIRE後 人間関係",
+      "secondary_keywords": [
+        "FIRE 友人",
+        "FIRE 家族",
+        "退職後 人間関係"
+      ],
+      "article_title_plan": "FIRE後の人間関係はどう変わる？友達・家族・社会との距離感",
+      "slug": "after-fire-relationships",
+      "search_intent": "FIRE後の人間関係",
+      "unique_angle": "会社退職後の関係性",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-community/",
+        "/articles/fire-household/",
+        "/articles/fire-community-place/"
+      ],
+      "thumbnail_text_hint": "人間関係",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-029",
+      "priority_order": 29,
+      "status": "planned",
+      "main_keyword": "FIRE後 趣味",
+      "secondary_keywords": [
+        "FIRE 趣味",
+        "FIRE 時間の使い方",
+        "FIRE やること"
+      ],
+      "article_title_plan": "FIRE後の趣味は何がいい？時間が増えてからこそ難しい理由",
+      "slug": "after-fire-hobby",
+      "search_intent": "FIRE後の趣味を探したい",
+      "unique_angle": "時間が増えても自動的に充実しない",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/recurring_stories.md"
+      ],
+      "internal_link_targets": [
+        "/risk-runner/",
+        "/articles/fire-after-boredom/",
+        "/articles/sidefire-day/"
+      ],
+      "thumbnail_text_hint": "趣味どうする？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-030",
+      "priority_order": 30,
+      "status": "planned",
+      "main_keyword": "FIRE後 やること",
+      "secondary_keywords": [
+        "FIRE後 何する",
+        "FIRE 暇",
+        "FIRE 生活"
+      ],
+      "article_title_plan": "FIRE後は何をする？やることがない問題への向き合い方",
+      "slug": "after-fire-yarukoto",
+      "search_intent": "FIRE後に何をするか知りたい",
+      "unique_angle": "本人の試行錯誤",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-10-days/",
+        "/articles/sidefire-day/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "何する？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-031",
+      "priority_order": 31,
+      "status": "planned",
+      "main_keyword": "FIRE 幸せ",
+      "secondary_keywords": [
+        "FIRE 幸福",
+        "FIRE 幸せになれる",
+        "お金 幸福"
+      ],
+      "article_title_plan": "FIREすれば幸せになれる？お金と幸福のズレを経験者が語る",
+      "slug": "fire-happiness",
+      "search_intent": "FIREと幸福の関係",
+      "unique_angle": "資産額と幸福のズレ",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-reasons/",
+        "/articles/fire-after-boredom/"
+      ],
+      "thumbnail_text_hint": "幸せになる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-032",
+      "priority_order": 32,
+      "status": "planned",
+      "main_keyword": "FIRE メリット",
+      "secondary_keywords": [
+        "FIRE 利点",
+        "FIRE 自由",
+        "FIRE 会社を辞める"
+      ],
+      "article_title_plan": "FIREのメリットは何？経験者が感じた本当の恩恵",
+      "slug": "fire-merit",
+      "search_intent": "FIREのメリット",
+      "unique_angle": "本人が実感したメリット",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/sidefire-day/",
+        "/articles/fire-household/"
+      ],
+      "thumbnail_text_hint": "メリット",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-033",
+      "priority_order": 33,
+      "status": "planned",
+      "main_keyword": "FIRE デメリット",
+      "secondary_keywords": [
+        "FIRE 欠点",
+        "FIRE リスク",
+        "FIRE 後悔"
+      ],
+      "article_title_plan": "FIREのデメリットは何？実際にやって分かった弱点",
+      "slug": "fire-demerit",
+      "search_intent": "FIREのデメリット",
+      "unique_angle": "FIRE経験者が感じた欠点",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-koukai/",
+        "/articles/fire-stock-distance/",
+        "/articles/fire-community/"
+      ],
+      "thumbnail_text_hint": "デメリット",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-034",
+      "priority_order": 34,
+      "status": "planned",
+      "main_keyword": "FIRE 向いている人",
+      "secondary_keywords": [
+        "FIRE 適性",
+        "FIRE 向いてる",
+        "FIRE 性格"
+      ],
+      "article_title_plan": "FIREに向いている人の特徴は？性格・価値観・生き方から考える",
+      "slug": "fire-muiteiru",
+      "search_intent": "自分がFIRE向きか",
+      "unique_angle": "お金より性格",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/fire-animal-test/",
+        "/articles/fire-demerit/",
+        "/articles/side-fire-toha/"
+      ],
+      "thumbnail_text_hint": "向いてる人",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-035",
+      "priority_order": 35,
+      "status": "planned",
+      "main_keyword": "FIRE 向いてない人",
+      "secondary_keywords": [
+        "FIRE 向いていない",
+        "FIRE 失敗",
+        "FIRE 適性"
+      ],
+      "article_title_plan": "FIREに向いていない人の特徴は？お金より大事な適性の話",
+      "slug": "fire-muitenai",
+      "search_intent": "FIREに向かない人",
+      "unique_angle": "FIRE後のミスマッチ",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/lessons_learned.md"
+      ],
+      "internal_link_targets": [
+        "/fire-animal-test/",
+        "/articles/fire-merit/",
+        "/articles/fire-koukai/"
+      ],
+      "thumbnail_text_hint": "向いてない？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-036",
+      "priority_order": 36,
+      "status": "planned",
+      "main_keyword": "FIRE やめとけ",
+      "secondary_keywords": [
+        "FIRE やめる",
+        "FIRE 批判",
+        "FIRE 危険"
+      ],
+      "article_title_plan": "FIREはやめとけと言われる理由は？その意見は本当に正しいのか",
+      "slug": "fire-yametoke",
+      "search_intent": "FIREやめとけ論を知りたい",
+      "unique_angle": "FIRE批判を経験者目線で検証",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-demerit/",
+        "/articles/fire-6-lessons/",
+        "/articles/fire-reasons/"
+      ],
+      "thumbnail_text_hint": "やめとけ？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-037",
+      "priority_order": 37,
+      "status": "planned",
+      "main_keyword": "FIRE 30代",
+      "secondary_keywords": [
+        "30代 FIRE",
+        "30歳 FIRE",
+        "若くしてFIRE"
+      ],
+      "article_title_plan": "30代でFIREは可能？若いうちに達成するメリットと落とし穴",
+      "slug": "fire-30s",
+      "search_intent": "30代FIRE",
+      "unique_angle": "30歳FIRE本人経験",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/profile_and_timeline.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-6000/",
+        "/articles/fire-nansai/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "30代で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-038",
+      "priority_order": 38,
+      "status": "planned",
+      "main_keyword": "FIRE 40代",
+      "secondary_keywords": [
+        "40代 FIRE",
+        "40代 早期退職",
+        "家族 FIRE"
+      ],
+      "article_title_plan": "40代でFIREは遅い？むしろ現実的？家族とお金から考える",
+      "slug": "fire-40s",
+      "search_intent": "40代FIRE",
+      "unique_angle": "家族と資産形成の現実",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-household/",
+        "/articles/fire-kodomo/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "40代で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-039",
+      "priority_order": 39,
+      "status": "planned",
+      "main_keyword": "FIRE 50代",
+      "secondary_keywords": [
+        "50代 FIRE",
+        "50代 早期退職",
+        "FIRE 年金"
+      ],
+      "article_title_plan": "50代のFIREはどう考える？年金前後も含めた現実的な設計",
+      "slug": "fire-50s",
+      "search_intent": "50代FIRE",
+      "unique_angle": "年金開始まで含める",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/profile_and_timeline.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-pension/",
+        "/articles/fire-hitsuyou-shisan/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "50代で？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-040",
+      "priority_order": 40,
+      "status": "planned",
+      "main_keyword": "FIRE 独身",
+      "secondary_keywords": [
+        "独身 FIRE",
+        "一人 FIRE",
+        "FIRE 孤独"
+      ],
+      "article_title_plan": "独身のFIREは有利？自由と不安の両面から考える",
+      "slug": "fire-single",
+      "search_intent": "独身FIRE",
+      "unique_angle": "資産面＋孤独",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/fears_and_anxieties.md"
+      ],
+      "internal_link_targets": [
+        "/articles/after-fire-kodoku/",
+        "/articles/fire-hitsuyou-shisan/",
+        "/fire-animal-test/"
+      ],
+      "thumbnail_text_hint": "独身FIRE",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-041",
+      "priority_order": 41,
+      "status": "planned",
+      "main_keyword": "FIRE 夫婦",
+      "secondary_keywords": [
+        "夫婦 FIRE",
+        "二人 FIRE",
+        "FIRE 価値観"
+      ],
+      "article_title_plan": "夫婦でFIREするには？一人では決められない現実",
+      "slug": "fire-couple",
+      "search_intent": "夫婦FIRE",
+      "unique_angle": "配偶者との価値観",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-household/",
+        "/articles/after-fire-relationships/",
+        "/articles/fire-happiness-spending/"
+      ],
+      "thumbnail_text_hint": "夫婦FIRE",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-042",
+      "priority_order": 42,
+      "status": "planned",
+      "main_keyword": "FIRE 子持ち",
+      "secondary_keywords": [
+        "子持ち FIRE",
+        "子育て FIRE",
+        "FIRE 教育費"
+      ],
+      "article_title_plan": "子持ちでFIREは可能？教育費と安心感をどう考えるか",
+      "slug": "fire-kodomo",
+      "search_intent": "子持ちFIRE",
+      "unique_angle": "子どもがいるFIRE",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-household/",
+        "/articles/fire-education-cost/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "子持ちFIRE",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-043",
+      "priority_order": 43,
+      "status": "planned",
+      "main_keyword": "FIRE 子供2人",
+      "secondary_keywords": [
+        "子供2人 FIRE",
+        "子ども2人 教育費",
+        "子育て FIRE"
+      ],
+      "article_title_plan": "子供2人でFIREはどれくらい厳しい？教育費を踏まえて考える",
+      "slug": "fire-two-kids",
+      "search_intent": "子供2人FIRE",
+      "unique_angle": "子供2人教育費",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-education-cost/",
+        "/articles/fire-kodomo/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "子2人で？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-044",
+      "priority_order": 44,
+      "status": "planned",
+      "main_keyword": "FIRE 共働き",
+      "secondary_keywords": [
+        "共働き FIRE",
+        "世帯 FIRE",
+        "夫婦 資産形成"
+      ],
+      "article_title_plan": "共働きFIREは最強？世帯で考えると見える選択肢",
+      "slug": "fire-dual-income",
+      "search_intent": "共働きFIRE",
+      "unique_angle": "世帯単位のFIRE",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-couple/",
+        "/articles/fire-kodomo/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "共働き最強？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-045",
+      "priority_order": 45,
+      "status": "planned",
+      "main_keyword": "FIRE 専業主夫",
+      "secondary_keywords": [
+        "専業主夫 FIRE",
+        "FIRE 家事育児",
+        "FIRE 家族"
+      ],
+      "article_title_plan": "専業主夫とFIREは相性がいい？家族・仕事・自由のバランスを考える",
+      "slug": "fire-househusband",
+      "search_intent": "専業主夫FIRE",
+      "unique_angle": "本人独自性が非常に高い",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-household/",
+        "/articles/sidefire-day/",
+        "/articles/fire-community-place/"
+      ],
+      "thumbnail_text_hint": "専業主夫FIRE",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-046",
+      "priority_order": 46,
+      "status": "planned",
+      "main_keyword": "FIRE 東京",
+      "secondary_keywords": [
+        "東京 FIRE",
+        "東京 生活費",
+        "都市 FIRE"
+      ],
+      "article_title_plan": "東京でFIREは難しい？生活費の高さと都市の魅力をどう考えるか",
+      "slug": "fire-tokyo",
+      "search_intent": "東京FIRE",
+      "unique_angle": "都市生活の価値も考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-seikatsuhi/",
+        "/fire-migration-japan/",
+        "/articles/fire-local-move/"
+      ],
+      "thumbnail_text_hint": "東京FIRE",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-047",
+      "priority_order": 47,
+      "status": "planned",
+      "main_keyword": "FIRE 地方移住",
+      "secondary_keywords": [
+        "地方移住 FIRE",
+        "FIRE 田舎暮らし",
+        "FIRE 生活費"
+      ],
+      "article_title_plan": "地方移住でFIREは楽になる？コストだけでは決められない理由",
+      "slug": "fire-local-move",
+      "search_intent": "FIRE地方移住",
+      "unique_angle": "国内移住診断へ接続",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/fire-migration-japan/",
+        "/articles/fire-seikatsuhi/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "地方移住",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-048",
+      "priority_order": 48,
+      "status": "planned",
+      "main_keyword": "FIRE 海外移住",
+      "secondary_keywords": [
+        "海外移住 FIRE",
+        "FIRE 海外生活",
+        "FIRE 移住先"
+      ],
+      "article_title_plan": "海外移住でFIREはあり？憧れだけでは危ないポイントを整理",
+      "slug": "fire-overseas-move",
+      "search_intent": "FIRE海外移住",
+      "unique_angle": "海外移住診断・ワールドツアー",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/fire-migration-world/",
+        "/ワールドツアー/",
+        "/articles/fire-seikatsuhi/"
+      ],
+      "thumbnail_text_hint": "海外移住",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-049",
+      "priority_order": 49,
+      "status": "planned",
+      "main_keyword": "FIRE 税金",
+      "secondary_keywords": [
+        "FIRE 税",
+        "FIRE後 税金",
+        "退職後 税金"
+      ],
+      "article_title_plan": "FIRE後の税金はどうなる？見落としがちなポイントを整理",
+      "slug": "fire-tax",
+      "search_intent": "FIRE後の税金",
+      "unique_angle": "退職後の変化",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-resident-tax/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "税金どうなる？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-050",
+      "priority_order": 50,
+      "status": "planned",
+      "main_keyword": "FIRE 住民税",
+      "secondary_keywords": [
+        "FIRE後 住民税",
+        "退職翌年 住民税",
+        "無職 住民税"
+      ],
+      "article_title_plan": "FIRE後の住民税は要注意？退職翌年に困りやすい理由",
+      "slug": "fire-resident-tax",
+      "search_intent": "FIRE住民税",
+      "unique_angle": "退職翌年問題",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-tax/",
+        "/articles/fire-health-insurance/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "住民税注意",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-051",
+      "priority_order": 51,
+      "status": "planned",
+      "main_keyword": "FIRE 国民健康保険",
+      "secondary_keywords": [
+        "FIRE 健康保険",
+        "退職後 国民健康保険",
+        "FIRE 社会保険"
+      ],
+      "article_title_plan": "FIRE後の国民健康保険はいくら？会社員時代との違い",
+      "slug": "fire-health-insurance",
+      "search_intent": "FIRE国民健康保険",
+      "unique_angle": "退職後の社会保険負担",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-social-insurance/",
+        "/articles/fire-tax/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "保険いくら？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-052",
+      "priority_order": 52,
+      "status": "planned",
+      "main_keyword": "FIRE 年金",
+      "secondary_keywords": [
+        "FIRE後 年金",
+        "早期退職 年金",
+        "国民年金 FIRE"
+      ],
+      "article_title_plan": "FIRE後の年金はどう考える？完全無視できない理由",
+      "slug": "fire-pension",
+      "search_intent": "FIRE年金",
+      "unique_angle": "FIREから年金まで",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/profile_and_timeline.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-50s/",
+        "/articles/fire-tax/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "年金どうする？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-053",
+      "priority_order": 53,
+      "status": "planned",
+      "main_keyword": "FIRE 社会保険",
+      "secondary_keywords": [
+        "FIRE 社会保険料",
+        "退職後 社会保険",
+        "FIRE 健康保険"
+      ],
+      "article_title_plan": "FIREと社会保険の基本｜知らないと損しやすい論点まとめ",
+      "slug": "fire-social-insurance",
+      "search_intent": "FIRE社会保険",
+      "unique_angle": "退職後の制度整理",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/family_and_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-health-insurance/",
+        "/articles/fire-pension/",
+        "/articles/fire-tax/"
+      ],
+      "thumbnail_text_hint": "社会保険",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-054",
+      "priority_order": 54,
+      "status": "planned",
+      "main_keyword": "FIRE マイクロ法人",
+      "secondary_keywords": [
+        "FIRE 法人",
+        "マイクロ法人 FIRE",
+        "FIRE 節税"
+      ],
+      "article_title_plan": "FIREにマイクロ法人は使える？節税だけで考えていいのか",
+      "slug": "fire-micro-corp",
+      "search_intent": "FIREマイクロ法人",
+      "unique_angle": "本人の実運用経験",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/work-after-fire/",
+        "/articles/income-after-fire/",
+        "/articles/fire-tax/"
+      ],
+      "thumbnail_text_hint": "法人は必要？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-055",
+      "priority_order": 55,
+      "status": "planned",
+      "main_keyword": "FIRE NISA",
+      "secondary_keywords": [
+        "NISA FIRE",
+        "FIRE 投資",
+        "新NISA FIRE"
+      ],
+      "article_title_plan": "FIREとNISAの相性は？達成前と達成後で考え方は変わる",
+      "slug": "fire-nisa",
+      "search_intent": "FIRE NISA",
+      "unique_angle": "FIRE前後の使い分け",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_history.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-asset-management/",
+        "/articles/fire-asset-allocation/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "NISAでFIRE",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-056",
+      "priority_order": 56,
+      "status": "planned",
+      "main_keyword": "FIRE iDeCo",
+      "secondary_keywords": [
+        "iDeCo FIRE",
+        "FIRE 老後資金",
+        "iDeCo 受け取り"
+      ],
+      "article_title_plan": "FIREとiDeCoは相性がいい？自由度とのバランスを考える",
+      "slug": "fire-ideco",
+      "search_intent": "FIRE iDeCo",
+      "unique_angle": "税メリット＋資金拘束",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_history.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-nisa/",
+        "/articles/fire-asset-allocation/",
+        "/articles/fire-pension/"
+      ],
+      "thumbnail_text_hint": "iDeCoいる？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-057",
+      "priority_order": 57,
+      "status": "planned",
+      "main_keyword": "FIRE 住宅ローン",
+      "secondary_keywords": [
+        "住宅ローン FIRE",
+        "FIRE 繰上返済",
+        "FIRE 持ち家"
+      ],
+      "article_title_plan": "FIREするなら住宅ローンはどう考える？繰上返済すべき？",
+      "slug": "fire-home-loan",
+      "search_intent": "FIRE住宅ローン",
+      "unique_angle": "固定費と流動性",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-own-vs-rent/",
+        "/articles/fire-seikatsuhi/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "住宅ローン",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-058",
+      "priority_order": 58,
+      "status": "planned",
+      "main_keyword": "FIRE 持ち家 賃貸",
+      "secondary_keywords": [
+        "FIRE 持ち家",
+        "FIRE 賃貸",
+        "住居費 FIRE"
+      ],
+      "article_title_plan": "FIREするなら持ち家と賃貸どっちが有利？自由度も含めて考える",
+      "slug": "fire-own-vs-rent",
+      "search_intent": "FIRE持ち家賃貸",
+      "unique_angle": "自由度・移住まで考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-home-loan/",
+        "/articles/fire-local-move/",
+        "/articles/fire-seikatsuhi/"
+      ],
+      "thumbnail_text_hint": "持ち家or賃貸",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-059",
+      "priority_order": 59,
+      "status": "planned",
+      "main_keyword": "FIRE 教育費",
+      "secondary_keywords": [
+        "FIRE 子ども 教育費",
+        "教育費 資産形成",
+        "子育て FIRE"
+      ],
+      "article_title_plan": "FIREと教育費は両立できる？子どもがいると難しくなる理由",
+      "slug": "fire-education-cost",
+      "search_intent": "FIRE教育費",
+      "unique_angle": "子育てFIRE",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-kodomo/",
+        "/articles/fire-two-kids/",
+        "/articles/fire-household/"
+      ],
+      "thumbnail_text_hint": "教育費が重い",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-060",
+      "priority_order": 60,
+      "status": "planned",
+      "main_keyword": "FIRE 生活費",
+      "secondary_keywords": [
+        "FIRE 支出",
+        "FIRE 月の生活費",
+        "FIRE 固定費"
+      ],
+      "article_title_plan": "FIREで一番大事なのは生活費？必要資産より先に考えるべきこと",
+      "slug": "fire-seikatsuhi",
+      "search_intent": "FIRE生活費",
+      "unique_angle": "支出がFIREの本体",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/FIRE研究室/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "生活費が本体",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-061",
+      "priority_order": 61,
+      "status": "planned",
+      "main_keyword": "FIRE 資産運用",
+      "secondary_keywords": [
+        "FIRE 投資",
+        "FIRE後 運用",
+        "資産を守る"
+      ],
+      "article_title_plan": "FIRE後の資産運用はどうする？増やすより守るが難しい理由",
+      "slug": "fire-asset-management",
+      "search_intent": "FIRE後資産運用",
+      "unique_angle": "FIRE後の投資経験",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_history.md",
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-stock-distance/",
+        "/articles/fire-asset-allocation/",
+        "/articles/fire-crash/"
+      ],
+      "thumbnail_text_hint": "運用どうする？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-062",
+      "priority_order": 62,
+      "status": "planned",
+      "main_keyword": "FIRE 資産配分",
+      "secondary_keywords": [
+        "FIRE ポートフォリオ",
+        "FIRE 現金比率",
+        "FIRE 投資配分"
+      ],
+      "article_title_plan": "FIRE後の資産配分はどう考える？現金比率に正解はあるのか",
+      "slug": "fire-asset-allocation",
+      "search_intent": "FIRE資産配分",
+      "unique_angle": "不安耐性も考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_history.md",
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/money_philosophy.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-asset-management/",
+        "/articles/fire-withdrawal/",
+        "/articles/fire-crash/"
+      ],
+      "thumbnail_text_hint": "資産配分",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-063",
+      "priority_order": 63,
+      "status": "planned",
+      "main_keyword": "FIRE 取り崩し",
+      "secondary_keywords": [
+        "FIRE 資産取り崩し",
+        "FIRE 生活費",
+        "FIRE 4%ルール"
+      ],
+      "article_title_plan": "FIRE後の取り崩しはどう考える？怖さと向き合う方法",
+      "slug": "fire-withdrawal",
+      "search_intent": "FIRE取り崩し",
+      "unique_angle": "お金を使う心理的難しさ",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/money_philosophy.md",
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/fears_and_anxieties.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-asset-allocation/",
+        "/FIRE研究室/"
+      ],
+      "thumbnail_text_hint": "取り崩し",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-064",
+      "priority_order": 64,
+      "status": "planned",
+      "main_keyword": "FIRE 暴落",
+      "secondary_keywords": [
+        "FIRE 株価暴落",
+        "FIRE 資産減少",
+        "FIRE リスク"
+      ],
+      "article_title_plan": "暴落が来たらFIREは終わる？資産が減る恐怖との向き合い方",
+      "slug": "fire-crash",
+      "search_intent": "FIRE暴落",
+      "unique_angle": "本人の大幅資産減少経験",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/fears_and_anxieties.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-stock-distance/",
+        "/articles/fire-asset-allocation/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "暴落したら？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-065",
+      "priority_order": 65,
+      "status": "planned",
+      "main_keyword": "FIRE リスク",
+      "secondary_keywords": [
+        "FIRE 危険",
+        "FIRE デメリット",
+        "FIRE 人的資本"
+      ],
+      "article_title_plan": "FIREのリスクは何？お金以外の見落としやすい危険も整理",
+      "slug": "fire-risk",
+      "search_intent": "FIREリスク",
+      "unique_angle": "金融＋人的資本＋孤独",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/fears_and_anxieties.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-demerit/",
+        "/articles/after-fire-kodoku/",
+        "/articles/fire-crash/"
+      ],
+      "thumbnail_text_hint": "本当のリスク",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-066",
+      "priority_order": 66,
+      "status": "planned",
+      "main_keyword": "FIRE 不安",
+      "secondary_keywords": [
+        "FIRE後 不安",
+        "FIRE 資産不安",
+        "FIRE 心理"
+      ],
+      "article_title_plan": "FIRE後の不安はなくなる？達成しても消えない理由",
+      "slug": "fire-anxiety",
+      "search_intent": "FIRE不安",
+      "unique_angle": "資産があっても不安が残る経験",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fears_and_anxieties.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/investment_failures.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-crash/",
+        "/articles/fire-1oku/",
+        "/articles/fire-6-lessons/"
+      ],
+      "thumbnail_text_hint": "不安は消える？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-067",
+      "priority_order": 67,
+      "status": "planned",
+      "main_keyword": "FIRE オワコン",
+      "secondary_keywords": [
+        "FIRE ブーム",
+        "FIRE 今",
+        "FIRE 生き方"
+      ],
+      "article_title_plan": "FIREはもうオワコン？ブーム後の今だからこそ考えたいこと",
+      "slug": "fire-owakon",
+      "search_intent": "FIREオワコン",
+      "unique_angle": "ブームではなく生き方として考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-yametoke/",
+        "/articles/fire-genjitsu/",
+        "/articles/fire-reasons/"
+      ],
+      "thumbnail_text_hint": "オワコン？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-068",
+      "priority_order": 68,
+      "status": "planned",
+      "main_keyword": "FIRE 意味ない",
+      "secondary_keywords": [
+        "FIRE 無意味",
+        "FIRE 批判",
+        "FIRE メリット"
+      ],
+      "article_title_plan": "FIREは意味ないと言われるのはなぜ？それでも目指す価値はあるのか",
+      "slug": "fire-iminai",
+      "search_intent": "FIRE意味ない",
+      "unique_angle": "欠点を認めつつ価値を語る",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-merit/",
+        "/articles/fire-demerit/",
+        "/articles/fire-yametoke/"
+      ],
+      "thumbnail_text_hint": "意味ない？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-069",
+      "priority_order": 69,
+      "status": "planned",
+      "main_keyword": "FIRE 現実",
+      "secondary_keywords": [
+        "FIRE 実態",
+        "FIRE 失敗",
+        "FIRE後 生活"
+      ],
+      "article_title_plan": "FIREの現実は甘くない？理想だけでは続かない理由",
+      "slug": "fire-genjitsu",
+      "search_intent": "FIRE現実",
+      "unique_angle": "本人のFIRE後生活を総括",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/investment_failures.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-6-lessons/",
+        "/articles/fire-after-boredom/",
+        "/articles/fire-crash/"
+      ],
+      "thumbnail_text_hint": "現実は甘くない",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-070",
+      "priority_order": 70,
+      "status": "planned",
+      "main_keyword": "FIRE 成功例",
+      "secondary_keywords": [
+        "FIRE 成功",
+        "FIRE 体験談",
+        "FIRE 幸せ"
+      ],
+      "article_title_plan": "FIREの成功例とは？資産額だけでは測れない成功の形",
+      "slug": "fire-success",
+      "search_intent": "FIRE成功例",
+      "unique_angle": "成功を資産額だけで定義しない",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/fire_philosophy.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-happiness/",
+        "/articles/fire-6-lessons/",
+        "/articles/fire-community-place/"
+      ],
+      "thumbnail_text_hint": "成功とは？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-071",
+      "priority_order": 71,
+      "status": "planned",
+      "main_keyword": "FIRE 副業",
+      "secondary_keywords": [
+        "FIRE サイドビジネス",
+        "FIRE 小さな仕事",
+        "Side FIRE 収入"
+      ],
+      "article_title_plan": "FIREと副業は相性がいい？自由を減らさず収入を作る考え方",
+      "slug": "fire-side-business",
+      "search_intent": "FIRE副業",
+      "unique_angle": "Side FIRE・小さな労働収入",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/money_philosophy.md"
+      ],
+      "internal_link_targets": [
+        "/articles/work-after-fire/",
+        "/articles/income-after-fire/",
+        "/articles/fire-youtube-live/"
+      ],
+      "thumbnail_text_hint": "副業は必要？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    },
+    {
+      "id": "seo-072",
+      "priority_order": 72,
+      "status": "planned",
+      "main_keyword": "FIRE 旅行",
+      "secondary_keywords": [
+        "FIRE 旅",
+        "FIRE後 旅行",
+        "FIRE 海外旅行"
+      ],
+      "article_title_plan": "FIREしたら旅行はもっと楽しい？自由時間と旅の相性を考える",
+      "slug": "fire-travel",
+      "search_intent": "FIRE旅行",
+      "unique_angle": "FIRE後の旅行＋ワールドツアー",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/ワールドツアー/",
+        "/fire-migration-world/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "FIREで旅する",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "failed_reason": "",
+      "published_time": "",
+      "published_slot": ""
+    }
+  ]
+}
