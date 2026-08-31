@@ -587,16 +587,11 @@ function buildTags(tags) {
   return unique.map((tag) => `<span>${htmlEscape(tag)}</span>`).join("");
 }
 
-function buildSourceBlock(generated, noteSources, item) {
-  const selected = new Set((generated.source_note_paths || []).map(normalizeSourcePath));
-  const notes = noteSources.filter((note) => selected.has(normalizeRepoPath(note.path)) && validateExternalUrl(note.url));
-  const noteLinks = notes.length
-    ? `<p>本人の公開noteを参照しています。記事本文の体験と意見は、公開時点の記述として扱っています。</p><ul>${notes.map((note) => `<li><a href="${htmlEscape(note.url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(note.title)}</a></li>`).join("")}</ul>`
-    : `<p>本人の個別体験を直接扱う箇所は、保存済みの公開資料で確認できた範囲に限っています。</p>`;
+function buildSourceBlock(generated) {
   const external = (generated.external_sources || []).length
     ? `<p>最新情報の確認先：</p><ul>${generated.external_sources.map((source) => `<li><a href="${htmlEscape(source.url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(source.title || source.url)}</a></li>`).join("")}</ul>`
     : "";
-  return `            <aside class="article-source"><strong>参考リンクと注意</strong>${noteLinks}${external}<p>この記事は個人の体験・考えと一般的な情報を整理したものです。投資・税金・制度の条件は変わるため、最新情報は公式情報も確認してください。</p></aside>`;
+  return `            <aside class="article-source">${external}<p>この記事は個人の体験・考えと一般的な情報を整理したものです。投資・税金・制度の条件は変わるため、最新情報は公式情報も確認してください。</p></aside>`;
 }
 
 function buildInternalLinkBlock(internalLinks, currentSlug) {
@@ -686,7 +681,7 @@ function renderArticleTemplate(item, generated, date, allArticles, noteSources, 
     LEAD: htmlEscape(generated.lead),
     BODY_HTML: generated.body_html,
     INTERNAL_LINKS: buildInternalLinkBlock(generated.internal_links, item.slug),
-    SOURCE_BLOCK: buildSourceBlock(generated, noteSources, item),
+    SOURCE_BLOCK: buildSourceBlock(generated),
     BOTTOM_LINK_CARDS: buildLinkCards(item, generated, allArticles),
     TAGS: buildTags(tags),
     PAGER: renderPager({ slug: item.slug, title: generated.title, date }, allArticles),
