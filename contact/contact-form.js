@@ -23,11 +23,14 @@ if (contactFormLink) {
     contactFormLink.rel = "noopener noreferrer";
     contactFormLink.removeAttribute("aria-disabled");
     contactFormLink.removeAttribute("tabindex");
-    if (contactFormNote) contactFormNote.textContent = "入力内容はGoogleフォーム上で送信されます。";
+    if (contactFormNote) {
+      contactFormNote.textContent = "入力内容はGoogleフォーム上で送信されます。";
+      contactFormNote.hidden = false;
+    }
   } else {
     contactFormLink.removeAttribute("href");
     contactFormLink.setAttribute("aria-disabled", "true");
     contactFormLink.tabIndex = -1;
-    if (contactFormNote) contactFormNote.textContent = "お問い合わせフォームは現在準備中です。";
+    if (contactFormNote) contactFormNote.hidden = true;
   }
 }
