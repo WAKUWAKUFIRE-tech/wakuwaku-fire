@@ -102,6 +102,7 @@ const dailyBookAuthor = document.querySelector("#daily-book-author");
 const dailyBookCatch = document.querySelector("#daily-book-catch");
 const dailyBookDescription = document.querySelector("#daily-book-description");
 const dailyBookTags = document.querySelector("#daily-book-tags");
+const dailyBookCardLink = document.querySelector("#daily-book-card-link");
 const dailyBookLink = document.querySelector("#daily-book-link");
 const registeredBooks = Array.isArray(window.wakuwakuBooks) ? window.wakuwakuBooks : [];
 
@@ -126,9 +127,13 @@ function getTokyoDayNumber(date = new Date()) {
 function clearDailyBook() {
   if (!dailyBookSection) return;
   dailyBookSection.hidden = true;
+  if (dailyBookCardLink) {
+    dailyBookCardLink.hidden = true;
+    dailyBookCardLink.removeAttribute("href");
+    dailyBookCardLink.removeAttribute("aria-label");
+  }
   if (dailyBookLink) {
     dailyBookLink.hidden = true;
-    dailyBookLink.removeAttribute("href");
   }
 }
 
@@ -171,8 +176,13 @@ function renderDailyBook() {
     }));
   }
 
+  if (dailyBookCardLink) {
+    dailyBookCardLink.href = book.affiliateUrl;
+    dailyBookCardLink.setAttribute("aria-label", `Amazonで「${book.title}」を見る`);
+    dailyBookCardLink.hidden = false;
+  }
+
   if (dailyBookLink) {
-    dailyBookLink.href = book.affiliateUrl;
     dailyBookLink.hidden = false;
   }
 

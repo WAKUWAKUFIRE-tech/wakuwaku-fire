@@ -759,6 +759,29 @@ button {
   border: 2px solid var(--yellow);
   border-radius: 28px;
   box-shadow: 8px 8px 0 rgba(255, 207, 69, 0.18);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.daily-book__card-link {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.daily-book__card-link:hover,
+.daily-book__card-link:focus-visible {
+  color: var(--ink);
+}
+
+.daily-book__card-link:hover .daily-book__card {
+  transform: translateY(-4px);
+  box-shadow: 10px 12px 0 rgba(255, 207, 69, 0.22);
+}
+
+.daily-book__card-link:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 6px;
+  border-radius: 30px;
 }
 
 .daily-book__cover {
