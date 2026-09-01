@@ -288,6 +288,13 @@ button {
   transform: translateX(0.08em) rotate(-3deg);
 }
 
+.hero h1 .hero__title-word {
+  color: var(--red);
+  -webkit-text-stroke: 0;
+  white-space: nowrap;
+  transform: none;
+}
+
 .hero__lead {
   margin: 30px 0 10px;
   font-size: clamp(1.35rem, 5vw, 2rem);
@@ -614,6 +621,15 @@ button {
   max-width: 530px;
   margin: 0;
   font-size: 14px;
+}
+
+.intro__title-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.section-heading h2 .intro__title-line--ink {
+  color: var(--ink);
 }
 
 .intro__points {
@@ -1625,6 +1641,11 @@ button {
   .hero__grid {
     grid-template-columns: minmax(0, 0.82fr) minmax(500px, 1.18fr);
     gap: 78px;
+  }
+
+  .intro__grid {
+    grid-template-columns: minmax(400px, 0.88fr) minmax(0, 1.12fr);
+    gap: 56px;
   }
 
   .hero h1 { font-size: clamp(5.8rem, 9vw, 8.9rem); }
