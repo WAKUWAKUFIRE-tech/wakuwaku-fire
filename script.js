@@ -76,6 +76,22 @@ filterButtons.forEach((button) => {
   });
 });
 
+// FIREコラムのサムネイルからも、対応する記事へ移動できるようにします。
+document.querySelectorAll(".article-preview-card").forEach((card) => {
+  const articleLink = card.querySelector(".article-preview-card__more[href], .button[href]");
+  const media = card.querySelector(".article-preview-card__media");
+  const image = media?.querySelector("img");
+
+  if (!articleLink || !media || !image || media.querySelector("a")) return;
+
+  const mediaLink = document.createElement("a");
+  mediaLink.className = "article-preview-card__media-link";
+  mediaLink.href = articleLink.getAttribute("href");
+  mediaLink.setAttribute("aria-label", `${card.querySelector("h2, h3")?.textContent.trim() || "この記事"}を読む`);
+  mediaLink.appendChild(image);
+  media.replaceChildren(mediaLink);
+});
+
 // リンクを登録した本だけを、日本時間の日付で1日1冊表示します。
 const dailyBookSection = document.querySelector("#daily-book");
 const dailyBookImage = document.querySelector("#daily-book-image");

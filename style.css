@@ -1755,6 +1755,17 @@ a.article-preview-card:focus-visible {
   object-fit: contain;
 }
 
+.article-preview-card__media-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.article-preview-card__media-link:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: -3px;
+}
+
 .article-preview-card__body {
   display: flex;
   flex: 1;
