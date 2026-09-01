@@ -8,6 +8,9 @@
     "auto-publish:dry-run": "node scripts/auto_publish.mjs --dry-run",
     "auto-publish:approve": "node scripts/auto_publish.mjs --approve-stock",
     "auto-publish:manual": "node scripts/auto_publish.mjs --publish --mode manual",
-    "verify:public": "node scripts/verify_public_site.mjs"
+    "generate:sitemap": "node scripts/generate_sitemap.mjs",
+    "set:search-console": "node scripts/set_search_console_verification.mjs",
+    "verify:public": "node scripts/verify_public_site.mjs",
+    "verify:seo": "node scripts/verify_public_seo.mjs"
   }
 }

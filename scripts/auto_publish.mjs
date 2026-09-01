@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { generateSitemap } from "./generate_sitemap.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONFIG_PATH = path.join(ROOT, "automation", "config.json");
@@ -727,16 +728,12 @@ async function updateArticleIndexes(allArticles) {
 }
 
 async function updateSitemap(allArticles, date) {
-  const sitemap = await readText("sitemap.xml");
-  const urls = [];
-  for (const match of sitemap.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>\s*<\/url>/g)) {
-    urls.push({ loc: match[1], lastmod: match[2] });
-  }
-  const known = new Map(urls.map((entry) => [entry.loc, entry]));
-  known.set(`${config.site_url}/articles/`, { loc: `${config.site_url}/articles/`, lastmod: date });
-  for (const article of allArticles) known.set(`${config.site_url}/articles/${article.slug}/`, { loc: `${config.site_url}/articles/${article.slug}/`, lastmod: article.date });
-  const body = [...known.values()].map((entry) => `  <url>\n    <loc>${xmlEscape(entry.loc)}</loc>\n    <lastmod>${xmlEscape(entry.lastmod)}</lastmod>\n  </url>`).join("\n");
-  await writeText("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`);
+  await generateSitemap({
+    root: ROOT,
+    siteUrl: config.site_url,
+    publishedArticles: allArticles,
+    fallbackLastmod: date
+  });
 }
 
 function logSources(noteSources, generated, item) {

@@ -14,7 +14,7 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 - `functions/_result-master.js`：サーバー側で検証する診断結果IDの一覧
 - `migrations/0001_create_diagnosis_results.sql`：匿名診断結果テーブルを作るSQL
 - `articles/index.html`：FIREコラム一覧
-- `articles/各スラッグ/index.html`：FIREコラムの個別ページ（現在13本）
+- `articles/各スラッグ/index.html`：FIREコラムの個別ページ（公開済みページ）
 - `about/index.html`：運営者情報
 - `privacy/index.html`：公開中のプライバシーポリシー
 - `contact/index.html`：指定メールアドレスへ送るお問い合わせフォーム
@@ -24,6 +24,10 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 - `pwa.js` / `pwa.css`：保存ボタン、端末別の保存案内、診断後の再訪導線
 - `sitemap.xml`：検索エンジン向けのページ一覧
 - `robots.txt`：検索エンジンへの案内
+- `_headers`：Cloudflare Pagesで開発用フォルダを検索対象外にする設定
+- `scripts/generate_sitemap.mjs`：公開HTMLからsitemap.xmlを作り直すスクリプト
+- `scripts/set_search_console_verification.mjs`：Search Console確認タグをトップページへ入れるスクリプト
+- `scripts/verify_public_seo.mjs`：本番のrobots.txt、sitemap.xml、主要ページ、404応答を確認するスクリプト
 - `risk-runner/`：ゲーム「RISK RUNNER」
 
 画像ファイルは、ファイル名を変えずにサイトのルートへ置いています。トップのFIREコラムカードには `FIREコラム.png`、noteカードには `note.png`、各記事には `ブログ13記事` フォルダ内の対応する画像を使用しています。
@@ -39,7 +43,7 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 1. `articles/` の中に、英数字のスラッグ名でフォルダを作ります。
 2. その中に `index.html` を置きます。既存の記事ページをコピーして、タイトル・説明・日付・本文・前後記事リンクを編集します。
 3. トップページのコンテンツ一覧にある `FIREコラム` カードと `articles/index.html` の一覧へ追加します。
-4. `sitemap.xml` に、個別記事のURLを1件追加します。
+4. `node scripts/generate_sitemap.mjs` または `npm run generate:sitemap` を実行します。公開HTMLのcanonicalを読み取り、noindexページや未公開キューの記事を除いてsitemap.xmlを更新します。毎日記事を公開する自動処理でも、この更新が実行されます。
 5. `title`、`description`、`canonical`、OGP、JSON-LDのURLが新しい記事に合っているか確認します。
 
 記事本文は、見出し（h2・h3）と段落を使い、読者がスマホで読みやすい長さにしてください。制度や投資の内容は、必ず最新の公的情報も確認します。
@@ -141,13 +145,24 @@ npx wrangler pages dev . --d1 DB=YOUR_D1_DATABASE_ID
 
 ## Google Search Consoleの設定
 
+トップページの `index.html` には、確認タグを入れる場所として `GOOGLE_SITE_VERIFICATION_SLOT` マーカーを用意しています。実際の確認値を受け取るまで、架空のタグは入れていません。
+
 1. Search Consoleでサイトを登録します。
-2. HTMLのmetaタグによる確認を選びます。
-3. Googleから表示された `google-site-verification` のmetaタグを、各HTMLの `<head>` 内へ追加します。
-4. GitHubへ保存し、Cloudflare Pagesの公開後に確認ボタンを押します。
-5. Search Consoleで `sitemap.xml` のURL（例：`https://公開URL/sitemap.xml`）を送信します。
+2. URLプレフィックスとして `https://wakuwaku-fire-git.pages.dev/` を追加し、HTMLのmetaタグによる確認を選びます。
+3. Googleから表示されたmetaタグの `content` の値だけを使い、プロジェクトのフォルダで次を実行します。
+
+```powershell
+$env:GOOGLE_SITE_VERIFICATION='Googleから発行されたcontent値'
+npm run set:search-console
+```
+
+4. `index.html` の `<head>` に実際の `google-site-verification` タグが1つ入ったことを確認し、GitHubへ保存します。
+5. Cloudflare Pagesの公開後、Search Consoleで確認ボタンを押します。
+6. 所有権確認後、Search Consoleの「サイトマップ」から `sitemap.xml` を送信します。
 
 所有権確認用のコードは、架空のものを入れていません。Googleから発行されたコードを使ってください。
+
+本番公開後にサイト側の確認をまとめて行う場合は、`npm run verify:seo` を実行します。Search Consoleへのログインや「確認」ボタンの操作は、Googleアカウント本人が行います。
 
 ## Google AdSenseの設定
 
@@ -177,7 +192,7 @@ Publisher IDを変更する場合は、架空のIDを作らず、Googleから発
 - [ ] AdSenseコードが自分のPublisher IDと一致し、各ページで1回だけ読み込まれているか確認する
 - [x] D1を作成し、Pagesのバインディング名を `DB` にして、匿名ランキングのテーブルを作成する
 - [ ] 3つの診断を最後まで試し、D1設定後に結果画面へランキングが表示されるか確認する
-- [ ] Search Consoleの所有権確認metaタグを追加し、サイトマップを送信する
+- [ ] Search Consoleの所有権確認metaタグを追加し、サイトマップを送信する（`npm run set:search-console` を利用）
 - [ ] 公開URL、canonical、OGP、sitemap、robots.txtのURLが一致しているか確認する
 - [ ] 主要ページをスマホで開き、画像、記事、診断、ゲーム、外部リンクが動くか確認する
 - [ ] 自分のサイトの内容と広告・アフィリエイト表示が、Googleと各サービスの最新ポリシーに合っているか最終確認する
