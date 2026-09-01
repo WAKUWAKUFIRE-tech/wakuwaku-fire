@@ -62,8 +62,8 @@
         </header>
         <section class="info-card contact-card" aria-labelledby="contact-title">
           <h2 id="contact-title">メールでお問い合わせ</h2>
-          <p>フォームに入力後、「メールアプリで送信」を押してください。</p>
-          <form class="contact-form" id="contact-form" action="mailto:marumaru.nanatatsu@gmail.com" method="post" enctype="text/plain">
+          <p>フォームに入力後、「メールアプリで送信」を押してください。入力内容をメール作成画面へ引き継ぎます。</p>
+          <form class="contact-form" id="contact-form" autocomplete="on">
             <label for="contact-name">お名前（任意）</label>
             <input id="contact-name" name="name" type="text" autocomplete="name" />
             <label for="contact-email">メールアドレス</label>
@@ -71,6 +71,7 @@
             <label for="contact-message">お問い合わせ内容</label>
             <textarea id="contact-message" name="message" rows="7" required></textarea>
             <button class="button button--primary" type="submit">メールアプリで送信 <span aria-hidden="true">↗</span></button>
+            <p class="form-note" id="contact-status" role="status" aria-live="polite">メールアプリが開いたら、内容を確認して送信を完了してください。</p>
           </form>
         </section>
       </div>
