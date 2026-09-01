@@ -121,7 +121,7 @@
     {
       "id": "seo-004",
       "priority_order": 4,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "サイドFIREとは",
       "secondary_keywords": [
         "Side FIRE",
@@ -144,13 +144,17 @@
       ],
       "thumbnail_text_hint": "現実はコレ",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/side-fire-toha/",
+      "published_at": "2026-09-01",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "18:00:00",
+      "published_slot": "2026-09-01T18:00:00+09:00",
       "stock_path": "automation/article_stock/side-fire-toha",
-      "stocked_at": "2026-08-31"
+      "stocked_at": "2026-08-31",
+      "generated_title": "サイドFIREとは？完全FIREとの違いと現実的な始め方",
+      "generated_meta_description": "サイドFIREとは、資産を土台に好きな仕事や小さな収入を組み合わせる生き方です。完全FIREとの違い、月5万円の考え方、30歳で資産6000万円で会社を辞めた僕の現実的な始め方を紹介します。",
+      "generated_category": "サイドFIRE",
+      "generated_thumbnail_text": "サイドFIREとは？"
     },
     {
       "id": "seo-005",
