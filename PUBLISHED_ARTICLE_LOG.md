@@ -128,3 +128,24 @@ thumbnail text: サイドFIREとは？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: 5000万円でFIREできる？独身・夫婦・子持ちで変わる現実
+
+article id: seo-005
+priority_order: 5
+公開日・時刻（JST）: 2026-09-02 07:00:00
+公開枠: 2026-09-02T07:00:00+09:00
+main keyword: FIRE 5000万円
+title: 5000万円でFIREできる？独身・夫婦・子持ちで変わる現実
+slug: fire-5000man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-5000man/
+thumbnail file: articles/fire-5000man/thumbnail.png
+thumbnail text: 5000万円で？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/family_and_fire.md, content_sources/knowledge_base/numbers_and_facts.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIREは人生上がりじゃない / 自由過ぎると溺れる、自ら制約を課せ
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
