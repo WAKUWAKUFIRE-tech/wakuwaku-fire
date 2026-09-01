@@ -864,7 +864,7 @@ async function listHtmlFiles(relativeDirectory = "") {
 
 function localTargetFromLink(pagePath, rawTarget) {
   let target = String(rawTarget || "").trim();
-  if (!target || target.includes("{{") || target.includes("}}") || target.startsWith("#") || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(target)) return "";
+  if (!target || target.includes("{{") || target.includes("}}") || target.startsWith("#") || /^(?:https?:|tel:|data:|javascript:|\/\/)/i.test(target)) return "";
   target = target.split(/[?#]/, 1)[0];
   if (!target) return "";
   try {

@@ -17,7 +17,8 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 - `articles/各スラッグ/index.html`：FIREコラムの個別ページ（公開済みページ）
 - `about/index.html`：運営者情報
 - `privacy/index.html`：公開中のプライバシーポリシー
-- `contact/index.html`：指定メールアドレスへ送るお問い合わせフォーム
+- `contact/index.html`：Googleフォームへのお問い合わせ入口
+- `contact/contact-form.js`：GoogleフォームURLを1か所だけ設定するファイル
 - `404.html`：存在しないURLを開いたときの案内ページ
 - `manifest.webmanifest`：ワクワクFIREをホーム画面へ追加するための設定
 - `sw.js`：PWA用の軽量なService Worker（HTMLは常にネットワーク優先）
@@ -172,11 +173,15 @@ Publisher IDを変更する場合は、架空のIDを作らず、Googleから発
 
 審査に通ったあと広告ユニットを追加する場合も、本文やボタンを押しのけない位置に置き、広告であることが分かる表示と、Googleの最新ポリシーを確認してください。
 
-## お問い合わせフォームの送信先
+## Googleフォームの設定
 
-`contact/index.html` のフォームは、`mailto:` で `marumaru.nanatatsu@gmail.com` を送信先に設定しています。訪問者が送信ボタンを押すと、端末に設定されたメールアプリが開きます。
+お問い合わせページはGoogleフォームへ移動するだけの構成です。Googleフォームを作成したあと、`contact/contact-form.js` の次の1行に共有URLを入力してください。
 
-将来、メールアプリを使わないフォーム送信に変更する場合は、Cloudflare Pages Functionsやフォームサービスを別途設定し、送信先とプライバシーポリシーの記載を確認してください。
+```js
+const CONTACT_FORM_URL = "";
+```
+
+`https://docs.google.com/forms/...` または `https://forms.gle/...` のURLを入力すると、サイトのボタンが新しいタブで開くリンクになります。空欄または形式が違う場合は、壊れたリンクを出さないためボタンを無効にします。
 
 ## Amazonアソシエイトについて
 
@@ -185,7 +190,7 @@ Publisher IDを変更する場合は、架空のIDを作らず、Googleから発
 ## AdSense申請前に私が手動でやること
 
 - [ ] `about/index.html` とトップページの運営者情報が、公開してよい内容・現在の状況と一致しているか確認する
-- [ ] お問い合わせフォームからメールアプリが開き、指定アドレスへ送れることをスマホとPCで確認する
+- [ ] GoogleフォームURLを `contact/contact-form.js` に入力し、スマホとPCでボタンが開くことを確認する
 - [ ] `privacy/index.html` のアクセス解析、広告、Cookie、保存期間の記載を実際の運用に合わせる
 - [ ] Amazonアソシエイトの最新規約と表示文を確認する
 - [ ] Google Analyticsを使う場合は、測定IDを自分のアカウントのものに設定する
