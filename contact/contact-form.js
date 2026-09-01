@@ -1,5 +1,5 @@
 // Googleフォームの共有URLは、この1か所だけに入力してください。
-const CONTACT_FORM_URL = "";
+const CONTACT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScEpmP_3DzroXRybFETGA5TXQ8hJ1geK54i6noE9I9F2CmyoQ/viewform?usp=publish-editor";
 
 const contactFormLink = document.querySelector("#contact-form-link");
 const contactFormNote = document.querySelector("#contact-form-note");
