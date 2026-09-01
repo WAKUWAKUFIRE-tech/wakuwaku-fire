@@ -226,3 +226,35 @@ if (messageButton && messageText) {
 
 const currentYear = document.querySelector("#current-year");
 if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+// HTTPSページから安全にメール作成画面へ内容を引き継ぎます。
+// mailto: をformのactionに直接指定すると、ブラウザが安全でない送信として警告するため、
+// 送信ボタンの処理でメールアプリを開く方式にしています。
+const contactForm = document.querySelector("#contact-form");
+const contactStatus = document.querySelector("#contact-status");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+
+    const formData = new FormData(contactForm);
+    const name = String(formData.get("name") || "").trim() || "未入力";
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const subject = `ワクワクFIREへのお問い合わせ：${name}`;
+    const body = [
+      "ワクワクFIREへのお問い合わせです。",
+      "",
+      `お名前：${name}`,
+      `返信先メールアドレス：${email}`,
+      "",
+      "お問い合わせ内容：",
+      message,
+    ].join("\n");
+
+    const mailtoUrl = `mailto:marumaru.nanatatsu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+    if (contactStatus) contactStatus.textContent = "メールアプリの画面を開きました。内容を確認して送信してください。";
+  });
+}
