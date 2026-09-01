@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=20260826" />
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="stylesheet" href="../pwa.css" />
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style.css?v=20260901-google-form" />
     <title>お問い合わせ｜ワクワクFIRE</title>
 
     <script type="application/ld+json">
@@ -61,18 +61,13 @@
           <p>サイトや記事、リンク、掲載内容についてのお問い合わせを受け付けるページです。</p>
         </header>
         <section class="info-card contact-card" aria-labelledby="contact-title">
-          <h2 id="contact-title">メールでお問い合わせ</h2>
-          <p>フォームに入力後、「メールアプリで送信」を押してください。入力内容をメール作成画面へ引き継ぎます。</p>
-          <form class="contact-form" id="contact-form" autocomplete="on">
-            <label for="contact-name">お名前（任意）</label>
-            <input id="contact-name" name="name" type="text" autocomplete="name" />
-            <label for="contact-email">メールアドレス</label>
-            <input id="contact-email" name="email" type="email" autocomplete="email" required />
-            <label for="contact-message">お問い合わせ内容</label>
-            <textarea id="contact-message" name="message" rows="7" required></textarea>
-            <button class="button button--primary" type="submit">メールアプリで送信 <span aria-hidden="true">↗</span></button>
-            <p class="form-note" id="contact-status" role="status" aria-live="polite">メールアプリが開いたら、内容を確認して送信を完了してください。</p>
-          </form>
+          <h2 id="contact-title">Googleフォームでお問い合わせ</h2>
+          <p>ワクワクFIREへのお問い合わせはこちらから。下のボタンからGoogleフォームへお進みください。</p>
+          <div class="contact-form-panel">
+            <p class="contact-form-panel__label">お問い合わせにはGoogleフォームを使用しています。</p>
+            <a class="button button--primary contact-form-link" id="contact-form-link" aria-disabled="true" aria-describedby="contact-form-note">Googleフォームから問い合わせる <span aria-hidden="true">↗</span></a>
+            <p class="form-note" id="contact-form-note" role="status" aria-live="polite">入力内容はGoogleフォーム上で送信されます。</p>
+          </div>
         </section>
       </div>
     </main>
@@ -88,5 +83,6 @@
     </footer>
     <script src="../script.js" defer></script>
     <script src="../pwa.js" defer></script>
+    <script src="contact-form.js" defer></script>
   </body>
 </html>
