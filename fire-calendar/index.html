@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="365日、毎日ひとつの記念日やテーマを入口に、FIRE・投資・人生の選び方を考えるワクワクFIREのカレンダーです。" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ea3e31" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ワクワクFIRE" />
+    <meta property="og:title" content="365日 FIREカレンダー｜ワクワクFIRE" />
+    <meta property="og:description" content="今日は何の日？毎日ひとつの発見から、FIRE・投資・人生の選び方を考える読み物です。" />
+    <meta property="og:url" content="https://wakuwaku-fire-git.pages.dev/fire-calendar/" />
+    <meta property="og:image" content="https://wakuwaku-fire-git.pages.dev/%E7%84%9A%E7%81%AB.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="365日 FIREカレンダー｜ワクワクFIRE" />
+    <meta name="twitter:description" content="今日は何の日？毎日ひとつの発見から、FIRE・投資・人生の選び方を考える読み物です。" />
+    <meta name="twitter:image" content="https://wakuwaku-fire-git.pages.dev/%E7%84%9A%E7%81%AB.png" />
+    <link rel="canonical" href="https://wakuwaku-fire-git.pages.dev/fire-calendar/" />
+    <link rel="icon" href="../favicon.ico?v=20260826" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=20260826" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png?v=20260826" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=20260826" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="stylesheet" href="../pwa.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>365日 FIREカレンダー｜ワクワクFIRE</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "365日 FIREカレンダー",
+        "description": "記念日や日付ごとのテーマを入口に、FIRE・投資・人生の選び方を考える読み物です。",
+        "url": "https://wakuwaku-fire-git.pages.dev/fire-calendar/",
+        "inLanguage": "ja-JP",
+        "isPartOf": {"@type": "WebSite", "name": "ワクワクFIRE", "url": "https://wakuwaku-fire-git.pages.dev/"}
+      }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9422971410274449" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a class="brand" href="../" aria-label="ワクワクFIRE ホームへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__line"></span><span class="nav-toggle__line"></span><span class="nav-toggle__label">メニュー</span></button>
+        <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+          <a href="../#contents">楽しいコンテンツ</a>
+          <a href="../articles/">FIREコラム</a>
+          <a href="../#about">ワクワクFIREとは</a>
+          <a class="site-nav__cta" href="../#contents">遊びにいく <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="fire-calendar-page">
+      <div class="container">
+        <nav class="fire-calendar-breadcrumb" aria-label="パンくず"><a href="../">ワクワクFIRE</a><span aria-hidden="true">/</span><span aria-current="page">365日 FIREカレンダー</span></nav>
+        <header class="fire-calendar-page__hero">
+          <p class="eyebrow eyebrow--red">365 DAYS OF FIRE</p>
+          <h1>365日 FIRE<br /><span>カレンダー。</span></h1>
+          <p>今日は何の日？記念日や季節の話題を入口に、FIRE・投資・人生について、毎日ひとつ新しい見方を見つけます。</p>
+          <p class="fire-calendar-page__hero-note">お金を増やす日も、休む日も、遊ぶ日も。人生最大化のための小さな読み物です。</p>
+        </header>
+
+        <p class="fire-calendar-error" id="fire-calendar-error" hidden>今日のFIREカレンダーを読み込めませんでした。少し時間をおいて、もう一度お試しください。</p>
+
+        <article class="fire-calendar-detail" id="fire-calendar-detail" hidden>
+          <header class="fire-calendar-detail__header">
+            <div>
+              <p class="fire-calendar-detail__date" id="fire-calendar-detail-date"></p>
+              <p class="fire-calendar-detail__category" id="fire-calendar-detail-category"></p>
+              <h2 id="fire-calendar-detail-title"></h2>
+              <p class="fire-calendar-detail__source" id="fire-calendar-detail-source"></p>
+            </div>
+            <span class="fire-calendar-detail__mark" aria-hidden="true">📅</span>
+          </header>
+
+          <div class="fire-calendar-detail__reading">
+            <section class="fire-calendar-reading-card" aria-labelledby="fire-calendar-day-title">
+              <p class="eyebrow eyebrow--red">01 / TODAY'S THEME</p>
+              <h3 id="fire-calendar-day-title">今日は何の日？</h3>
+              <p id="fire-calendar-day-context"></p>
+            </section>
+            <section class="fire-calendar-reading-card" aria-labelledby="fire-calendar-connection-title">
+              <p class="eyebrow eyebrow--red">02 / FIRE CONNECTION</p>
+              <h3 id="fire-calendar-connection-title">FIREとのつながり</h3>
+              <p id="fire-calendar-connection"></p>
+            </section>
+            <section class="fire-calendar-message-card" aria-labelledby="fire-calendar-message-title">
+              <p class="eyebrow eyebrow--yellow">03 / ONE LINE</p>
+              <h3 id="fire-calendar-message-title">今日のひと言</h3>
+              <p id="fire-calendar-detail-message"></p>
+            </section>
+            <section class="fire-calendar-reading-card" aria-labelledby="fire-calendar-knowledge-title">
+              <p class="eyebrow eyebrow--red">04 / ONE-MINUTE NOTE</p>
+              <h3 id="fire-calendar-knowledge-title">1分で読める豆知識</h3>
+              <p id="fire-calendar-knowledge"></p>
+            </section>
+            <section class="fire-calendar-action-card" aria-labelledby="fire-calendar-action-title">
+              <p class="eyebrow eyebrow--red">05 / SMALL FIRE TODAY</p>
+              <h3 id="fire-calendar-action-title">今日の小さなFIRE</h3>
+              <p id="fire-calendar-action"></p>
+            </section>
+          </div>
+
+          <section class="fire-calendar-related-block" aria-labelledby="fire-calendar-related-title">
+            <p class="eyebrow eyebrow--red">KEEP EXPLORING</p>
+            <h3 id="fire-calendar-related-title">関連コンテンツ</h3>
+            <ul id="fire-calendar-related"></ul>
+          </section>
+
+          <section class="fire-calendar-sources" aria-labelledby="fire-calendar-sources-title">
+            <h3 id="fire-calendar-sources-title">参考・出典</h3>
+            <ul id="fire-calendar-sources"></ul>
+          </section>
+
+          <nav class="fire-calendar-day-nav" aria-label="日付を移動">
+            <a id="fire-calendar-previous" class="fire-calendar-day-nav__link" href="?date=01-01"><span>← 昨日のFIRE</span><strong></strong></a>
+            <a id="fire-calendar-today" class="fire-calendar-day-nav__link fire-calendar-day-nav__link--today" href="?date=01-01"><span>今日のFIRE</span><strong>日本時間の今日へ</strong></a>
+            <a id="fire-calendar-next" class="fire-calendar-day-nav__link fire-calendar-day-nav__link--next" href="?date=01-02"><span>明日のFIRE →</span><strong></strong></a>
+          </nav>
+        </article>
+
+        <section class="fire-calendar-months" aria-labelledby="fire-calendar-page-heading">
+          <div class="fire-calendar-months__heading">
+            <p class="eyebrow eyebrow--yellow">LOOK BACK / LOOK AHEAD</p>
+            <h2 id="fire-calendar-page-heading">月別に見る</h2>
+            <p>過去の日付も、気になるテーマから自由にどうぞ。</p>
+          </div>
+          <div class="fire-calendar-month-list" id="fire-calendar-month-list"></div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container site-footer__top">
+        <a class="brand brand--footer" href="../" aria-label="ワクワクFIRE ホームへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a>
+        <p>会社を辞めたら、<br /><strong>人生もっと遊べる。</strong></p>
+        <nav class="footer-nav" aria-label="フッターメニュー"><a href="../">ホーム</a><a href="../#contents">楽しいコンテンツ</a><a href="../articles/">FIREコラム</a><a href="../fire-calendar/">365日FIREカレンダー</a><a href="../about/">運営者情報</a><a href="../privacy/">プライバシーポリシー</a><a href="../contact/">お問い合わせ</a></nav>
+      </div>
+      <div class="container site-footer__bottom"><small>© <span id="current-year">2026</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div>
+    </footer>
+    <script src="../script.js"></script>
+    <script src="../fire-calendar-page.js"></script>
+    <script src="../pwa.js"></script>
+  </body>
+</html>

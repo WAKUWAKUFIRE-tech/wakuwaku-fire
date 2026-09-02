@@ -2952,3 +2952,629 @@ body.fire-card-modal-open { overflow: hidden; }
   .otoku-hero__sticker { position: absolute; right: 31px; margin-top: -8px; }
   .otoku-hero__copy { padding-right: 72px; }
 }
+
+/* 365日 FIREカレンダー */
+.fire-calendar-preview {
+  padding: clamp(28px, 5vw, 56px) 0;
+  background: var(--cream);
+}
+
+.fire-calendar-preview[hidden],
+.fire-calendar-detail[hidden],
+.fire-calendar-error[hidden] {
+  display: none;
+}
+
+.fire-calendar-preview__card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(20px, 5vw, 58px);
+  align-items: center;
+  padding: clamp(22px, 4vw, 36px);
+  color: var(--paper);
+  background: var(--ink);
+  border: 2px solid var(--yellow);
+  border-radius: 26px;
+  box-shadow: 7px 7px 0 rgba(234, 62, 49, 0.18);
+}
+
+.fire-calendar-preview__intro,
+.fire-calendar-preview__content {
+  min-width: 0;
+}
+
+.fire-calendar-preview__intro .eyebrow {
+  color: var(--yellow);
+}
+
+.fire-calendar-preview__intro h2 {
+  margin: 2px 0 9px;
+  color: var(--paper);
+  font-size: clamp(1.45rem, 3.6vw, 2.45rem);
+  letter-spacing: -0.08em;
+  line-height: 1.15;
+}
+
+.fire-calendar-preview__progress {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+}
+
+.fire-calendar-preview__content {
+  padding-left: clamp(0px, 2vw, 22px);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fire-calendar-preview__category {
+  display: inline-flex;
+  margin: 0 0 7px;
+  padding: 4px 10px;
+  color: var(--ink);
+  background: var(--yellow);
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.fire-calendar-preview__content h3 {
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(1.1rem, 2.3vw, 1.55rem);
+  line-height: 1.45;
+}
+
+.fire-calendar-preview__content > p:not(.fire-calendar-preview__category):not(.fire-calendar-preview__message) {
+  margin: 5px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.fire-calendar-preview__message {
+  margin: 10px 0 0;
+  color: var(--yellow);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
+.fire-calendar-preview__link {
+  display: inline-flex;
+  margin-top: 13px;
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.fire-calendar-preview__link:hover,
+.fire-calendar-preview__link:focus-visible {
+  color: var(--yellow);
+}
+
+.fire-calendar-page {
+  padding: 42px 0 92px;
+}
+
+.fire-calendar-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fire-calendar-breadcrumb a {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.fire-calendar-page__hero {
+  max-width: 760px;
+  padding: 40px 0 32px;
+}
+
+.fire-calendar-page__hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 6.8rem);
+  letter-spacing: -0.1em;
+  line-height: 0.98;
+}
+
+.fire-calendar-page__hero h1 span {
+  color: var(--red);
+}
+
+.fire-calendar-page__hero > p:not(.eyebrow):not(.fire-calendar-page__hero-note) {
+  max-width: 690px;
+  margin: 25px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.fire-calendar-page__hero-note {
+  margin: 10px 0 0;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.fire-calendar-error {
+  margin: 0 0 22px;
+  padding: 18px 20px;
+  color: var(--red-dark);
+  background: var(--red-soft);
+  border-left: 4px solid var(--red);
+  border-radius: 0 14px 14px 0;
+}
+
+.fire-calendar-detail {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.fire-calendar-detail__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: clamp(24px, 5vw, 46px);
+  color: var(--paper);
+  background: var(--ink);
+  border: 2px solid var(--yellow);
+  border-radius: 28px;
+  box-shadow: 8px 8px 0 rgba(234, 62, 49, 0.16);
+}
+
+.fire-calendar-detail__date {
+  margin: 0;
+  color: var(--yellow);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.fire-calendar-detail__category {
+  display: inline-flex;
+  margin: 14px 0 8px;
+  padding: 4px 10px;
+  color: var(--ink);
+  background: var(--yellow);
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.fire-calendar-detail__header h2 {
+  margin: 0;
+  color: var(--paper);
+  font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+  letter-spacing: -0.08em;
+  line-height: 1.25;
+}
+
+.fire-calendar-detail__source {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.fire-calendar-detail__mark {
+  display: grid;
+  width: 78px;
+  height: 78px;
+  place-items: center;
+  color: var(--ink);
+  background: var(--yellow);
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  font-size: 2.1rem;
+  transform: rotate(6deg);
+}
+
+.fire-calendar-detail__reading {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.fire-calendar-reading-card,
+.fire-calendar-message-card,
+.fire-calendar-action-card,
+.fire-calendar-related-block,
+.fire-calendar-sources,
+.fire-calendar-months {
+  padding: clamp(22px, 4vw, 36px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-small);
+}
+
+.fire-calendar-reading-card h3,
+.fire-calendar-message-card h3,
+.fire-calendar-action-card h3,
+.fire-calendar-related-block h3,
+.fire-calendar-sources h3 {
+  margin: 3px 0 12px;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  letter-spacing: -0.05em;
+}
+
+.fire-calendar-reading-card p:last-child,
+.fire-calendar-message-card p:last-child,
+.fire-calendar-action-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.95;
+}
+
+.fire-calendar-message-card {
+  color: var(--paper);
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.fire-calendar-message-card h3,
+.fire-calendar-message-card p:last-child {
+  color: var(--paper);
+}
+
+.fire-calendar-message-card p:last-child {
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-weight: 800;
+}
+
+.fire-calendar-action-card {
+  background: var(--yellow-soft);
+  border-color: rgba(229, 169, 0, 0.45);
+}
+
+.fire-calendar-action-card h3 {
+  color: var(--red-dark);
+}
+
+.fire-calendar-action-card p:last-child {
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.fire-calendar-related-block {
+  margin-top: 24px;
+}
+
+.fire-calendar-related-block ul,
+.fire-calendar-sources ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.fire-calendar-related-block li + li,
+.fire-calendar-sources li + li {
+  margin-top: 8px;
+}
+
+.fire-calendar-related-block a,
+.fire-calendar-sources a {
+  color: var(--red);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fire-calendar-sources {
+  margin-top: 16px;
+  color: var(--muted);
+  background: var(--cream);
+  box-shadow: none;
+}
+
+.fire-calendar-sources h3 {
+  font-size: 1rem;
+}
+
+.fire-calendar-sources ul {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.fire-calendar-day-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.fire-calendar-day-nav__link {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 15px 16px;
+  color: var(--ink);
+  background: var(--yellow-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fire-calendar-day-nav__link--today {
+  color: var(--paper);
+  background: var(--red);
+  border-color: var(--red);
+  text-align: center;
+}
+
+.fire-calendar-day-nav__link--next {
+  background: var(--red-soft);
+  text-align: right;
+}
+
+.fire-calendar-day-nav__link:hover,
+.fire-calendar-day-nav__link:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-small);
+}
+
+.fire-calendar-day-nav__link span {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.fire-calendar-day-nav__link--today span {
+  color: var(--yellow);
+}
+
+.fire-calendar-day-nav__link strong {
+  margin-top: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fire-calendar-months {
+  max-width: 920px;
+  margin: 68px auto 0;
+  background: var(--cream);
+  box-shadow: none;
+}
+
+.fire-calendar-months__heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 20px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.fire-calendar-months__heading .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.fire-calendar-months__heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.08em;
+}
+
+.fire-calendar-months__heading p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fire-calendar-month-list {
+  display: grid;
+  gap: 9px;
+}
+
+.fire-calendar-month {
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.fire-calendar-month summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 900;
+  list-style: none;
+}
+
+.fire-calendar-month summary::-webkit-details-marker {
+  display: none;
+}
+
+.fire-calendar-month summary::after {
+  color: var(--red);
+  content: "＋";
+  font-size: 1.1rem;
+}
+
+.fire-calendar-month[open] summary::after {
+  content: "−";
+}
+
+.fire-calendar-month summary span {
+  margin-left: auto;
+  margin-right: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.fire-calendar-month ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 10px;
+  margin: 0;
+  padding: 0 12px 14px;
+  list-style: none;
+}
+
+.fire-calendar-month li {
+  min-width: 0;
+}
+
+.fire-calendar-month li a {
+  display: block;
+  overflow: hidden;
+  padding: 8px 10px;
+  color: var(--muted);
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fire-calendar-month li a:hover,
+.fire-calendar-month li a:focus-visible,
+.fire-calendar-month li.is-current a {
+  color: var(--ink);
+  background: var(--yellow-soft);
+}
+
+.fire-calendar-month li.is-current a {
+  box-shadow: inset 3px 0 0 var(--red);
+  font-weight: 900;
+}
+
+@media (max-width: 699px) {
+  .fire-calendar-preview {
+    padding: 20px 0;
+  }
+
+  .fire-calendar-preview__card {
+    display: block;
+    padding: 14px 16px;
+  }
+
+  .fire-calendar-preview__intro {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .fire-calendar-preview__intro .eyebrow {
+    flex: 0 0 auto;
+    margin: 0;
+    font-size: 9px;
+  }
+
+  .fire-calendar-preview__intro h2 {
+    min-width: 0;
+    margin: 0;
+    font-size: 1.16rem;
+    letter-spacing: -0.07em;
+    white-space: nowrap;
+  }
+
+  .fire-calendar-preview__progress {
+    display: none;
+  }
+
+  .fire-calendar-preview__content {
+    padding: 7px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-left: 0;
+  }
+
+  .fire-calendar-preview__category {
+    margin-bottom: 2px;
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+
+  .fire-calendar-preview__content h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.99rem;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .fire-calendar-preview__content > p:not(.fire-calendar-preview__category):not(.fire-calendar-preview__message),
+  .fire-calendar-preview__message {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.45;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .fire-calendar-preview__content > p:not(.fire-calendar-preview__category):not(.fire-calendar-preview__message) {
+    margin-top: 2px;
+  }
+
+  .fire-calendar-preview__message {
+    margin-top: 3px;
+  }
+
+  .fire-calendar-preview__link {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .fire-calendar-page {
+    padding-top: 27px;
+  }
+
+  .fire-calendar-page__hero {
+    padding-top: 28px;
+  }
+
+  .fire-calendar-page__hero h1 {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+  }
+
+  .fire-calendar-detail__header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 22px;
+  }
+
+  .fire-calendar-detail__mark {
+    width: 54px;
+    height: 54px;
+    font-size: 1.45rem;
+  }
+
+  .fire-calendar-detail__header h2 {
+    font-size: 1.55rem;
+  }
+
+  .fire-calendar-day-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .fire-calendar-day-nav__link--next,
+  .fire-calendar-day-nav__link--today {
+    text-align: left;
+  }
+
+  .fire-calendar-months__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .fire-calendar-month ul {
+    grid-template-columns: 1fr;
+  }
+}
