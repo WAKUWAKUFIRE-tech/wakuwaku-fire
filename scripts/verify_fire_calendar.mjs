@@ -6,7 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = path.join(ROOT, "data", "fire-calendar");
 const REQUIRED_FIELDS = [
   "id", "date", "title", "category", "originalEvent", "shortText",
-  "fireMessage", "body", "action", "relatedLinks", "sources"
+  "body", "action", "relatedLinks", "sources"
 ];
 const DAYS_PER_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const EXPECTED_DATES = [];
@@ -32,7 +32,7 @@ const unexpected = actualDates.filter((date) => !EXPECTED_DATES.includes(date));
 const duplicateDates = [...new Set(actualDates.filter((date, i) => actualDates.indexOf(date) !== i))];
 const duplicateTitles = [...new Set(allEntries.map((entry) => entry.title).filter((value, i, values) => values.indexOf(value) !== i))];
 const duplicateShortTexts = [...new Set(allEntries.map((entry) => entry.shortText).filter((value, i, values) => values.indexOf(value) !== i))];
-const duplicateMessages = [...new Set(allEntries.map((entry) => entry.fireMessage).filter((value, i, values) => values.indexOf(value) !== i))];
+const missingDateLabels = [];
 const missingFields = [];
 const invalidLinks = [];
 
@@ -40,6 +40,13 @@ for (const entry of allEntries) {
   for (const field of REQUIRED_FIELDS) {
     if (entry[field] === undefined || entry[field] === null || entry[field] === "") {
       missingFields.push(entry.date + ":" + field);
+    }
+  }
+  const [month, day] = entry.date.split("-").map(Number);
+  const dateLabel = month + "月" + day + "日";
+  for (const field of ["title", "shortText", "dayContext"]) {
+    if (typeof entry[field] !== "string" || !entry[field].includes(dateLabel)) {
+      missingDateLabels.push(entry.date + ":" + field + " (expected " + dateLabel + ")");
     }
   }
   for (const link of Array.isArray(entry.relatedLinks) ? entry.relatedLinks : []) {
@@ -70,7 +77,7 @@ const report = {
   duplicateDates,
   duplicateTitles,
   duplicateShortTexts,
-  duplicateMessages,
+  missingDateLabels,
   missingFields,
   invalidLinks,
   indexMismatch,
@@ -86,7 +93,7 @@ if (
   duplicateDates.length ||
   duplicateTitles.length ||
   duplicateShortTexts.length ||
-  duplicateMessages.length ||
+  missingDateLabels.length ||
   missingFields.length ||
   invalidLinks.length ||
   !report.leapDay

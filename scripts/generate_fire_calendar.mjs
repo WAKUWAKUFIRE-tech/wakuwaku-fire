@@ -108,7 +108,8 @@ const SPECIAL_DAYS = {
   "07-30": { title: "国際フレンドシップデー｜仲間と自由を分け合う", event: "国際フレンドシップデー", sourceType: "国際デー", description: "友情が平和や相互理解につながることを考える日です", sourceNote: "国連が定める国際デー。", category: "人間関係", source: { label: "国際連合「International Day of Friendship」", url: "https://www.un.org/en/observances/friendship-day" } },
   "08-11": { title: "山の日｜自然の中で暮らしを想像する", event: "山の日", sourceType: "国民の祝日", description: "山に親しむ機会を得て、山の恩恵に感謝する日です", sourceNote: "日本の国民の祝日。", category: "旅行", source: { label: "内閣府「国民の祝日について」", url: "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" } },
   "08-12": { title: "国際青少年デー｜未来の選択肢を増やす", event: "国際青少年デー", sourceType: "国際デー", description: "若者が社会で果たす役割を考える国際デーです", sourceNote: "国連が定める国際デー。", category: "挑戦", source: { label: "国際連合「International Youth Day」", url: "https://www.un.org/en/observances/international-youth-day" } },
-  "09-01": { title: "防災の日｜安心を小さく準備する", event: "防災の日", sourceType: "日本の記念日", description: "防災について考え、備えを確認する日です", sourceNote: "日本の防災を考える日。", category: "制度" },
+  "09-01": { title: "防災の日｜守りたい暮らしの備えを確認する", event: "防災の日", sourceType: "日本の記念日", description: "防災について考え、備えを確認する日です", sourceNote: "日本の防災を考える日。", category: "制度", focus: { title: "守りたい暮らしの備えを確認する", short: "災害が起きても守りたい日常を一つ決め、備えをそこから見直します。", quote: "安心は持ち物の多さではなく、困ったときの選択肢を知っていることから生まれる", action: "家族との連絡方法か、避難先を1つ確認する。", knowledge: "防災の備えは、食料や明かりだけではありません。連絡方法や避難先など、普段の暮らしを守る情報も大切です。" } },
+  "09-02": { title: "9月2日｜防災の翌日に、守りたい暮らしを選ぶ", event: "防災の日の翌日", sourceType: "季節のつながり／独自テーマ", description: "9月1日の防災の日で備えを見直した翌日です", sourceNote: "9月1日の防災の日に続く、ワクワクFIRE独自テーマです。", category: "制度", focus: { title: "守りたい暮らしを一つ選ぶ", short: "備えを確認したあと、守りたい日常を一つ具体的にします。", quote: "安心はお金の額だけでなく、守りたい暮らしが見えていることから始まる", action: "災害時にも守りたい日常を1つ書き、そのための備えを1つ確認する。", knowledge: "防災の備えは、食料や明かりだけではありません。連絡方法、避難先、家族との役割など、普段の暮らしを守る情報も大切です。" } },
   "09-08": { title: "国際識字デー｜知る力を味方にする", event: "国際識字デー", sourceType: "国際デー", description: "読み書きの大切さと学ぶ機会について考える日です", sourceNote: "ユネスコが掲げる国際デー。", category: "学び", source: { label: "UNESCO「International Literacy Day」", url: "https://www.unesco.org/en/days/literacy-day" } },
   "09-21": { title: "国際平和デー｜穏やかな時間を選ぶ", event: "国際平和デー", sourceType: "国際デー", description: "世界の平和について考える日です", sourceNote: "国連が定める国際デー。", category: "自由", source: { label: "国際連合「International Day of Peace」", url: "https://www.un.org/en/observances/international-day-peace" } },
   "10-10": { title: "世界メンタルヘルスデー｜心の余白を守る", event: "世界メンタルヘルスデー", sourceType: "国際デー", description: "心の健康への理解を深める日です", sourceNote: "世界保健機関（WHO）が掲げる日。", category: "幸福", source: { label: "WHO「World Mental Health Day」", url: "https://www.who.int/campaigns/world-mental-health-day" } },
@@ -138,32 +139,38 @@ function relatedLinks(category) {
   return [...new Set(links)];
 }
 
+function dayStage(day, lastDay) {
+  if (day === 1) return "始まり";
+  if (day === lastDay) return "締めくくり";
+  if (day <= 7) return "最初の一週間";
+  if (day <= 14) return "前半";
+  if (day <= 21) return "中盤";
+  return "後半";
+}
+
 function makeEntry(monthNumber, day, ordinal) {
   const key = dateKey(monthNumber, day);
   const month = MONTHS[monthNumber - 1];
-  const lens = LENSES[(day - 1) % LENSES.length];
   const special = SPECIAL_DAYS[key];
+  const lens = special?.focus || LENSES[(day - 1) % LENSES.length];
   const category = special?.category || CATEGORY_CYCLE[(ordinal - 1) % CATEGORY_CYCLE.length];
   const categoryMeta = CATEGORY_META[category];
-  const title = special?.title || [
-    month.name + "、" + lens.title + "を試す日",
-    month.name + "の「" + lens.title + "」",
-    month.name + "に「" + lens.title + "」を考える",
-    "FIREの視点で「" + month.name + "の" + lens.title + "」"
-  ][(day - 1) % 4];
-  const originalEvent = special?.event || "ワクワクFIRE独自テーマ";
-  const sourceType = special?.sourceType || "ワクワクFIRE独自テーマ";
-  const sourceNote = special?.sourceNote || "公式記念日ではなく、ワクワクFIREが日付ごとに提案する独自テーマです。";
+  const dateLabel = monthNumber + "月" + day + "日";
+  const stage = dayStage(day, daysPerMonth[monthNumber - 1]);
+  const title = special
+    ? (special.title.startsWith(dateLabel) ? special.title : dateLabel + "｜" + special.title)
+    : dateLabel + "｜" + lens.title;
+  const originalEvent = special?.event || dateLabel + "のワクワクFIRE独自テーマ";
+  const sourceType = special?.sourceType || "日付ごとの独自テーマ";
+  const sourceNote = special?.sourceNote || "公式記念日ではなく、" + dateLabel + "に合わせてワクワクFIREが提案する独自テーマです。";
   const shortText = special
-    ? "今日は" + special.event + "を入口に、" + lens.short
-    : month.name + "の空気に合わせて、" + lens.short;
-  const fireMessage = "今日は" + month.name + "。" + lens.quote + "。" + category + "の視点で、" + month.hint + "。";
+    ? dateLabel + "は" + special.event + "を入口に、" + lens.short
+    : dateLabel + "は" + stage + "。" + lens.short;
   const dayContext = special
-    ? "今日は" + special.event + "です。" + special.description + "。この話題をきっかけに、「" + lens.title + "」を自分の暮らしへ引き寄せて考えます。"
-    : "今日は" + month.name + "。" + month.season + "この日のテーマは「" + lens.title + "」です。公式の記念日を示すものではなく、ワクワクFIREが日付ごとに提案する独自テーマとして、今の自分に合う選択を探します。";
-  const fireConnection = "FIREは資産を増やすことだけでなく、自分の時間と選択肢をどう使うかを考える生き方です。" + lens.short + category + "という入口から眺めると、" + month.hint + "ためのヒントが見つかります。";
-  const knowledge = lens.knowledge + "大切なのは、他人の正解をそのまま持ち込まず、自分の暮らしに合う大きさで試すことです。";
-  const body = dayContext + "\n\n" + fireConnection + "\n\n" + knowledge;
+    ? dateLabel + "は" + special.event + "です。" + special.description + "。この日ならではの流れを受けて、「" + lens.title + "」を自分の暮らしへ引き寄せて考えます。"
+    : dateLabel + "は、" + month.name + "の" + stage + "です。" + month.season + "ワクワクFIREでは、" + dateLabel + "を「" + lens.title + "」に充てます。公式の記念日を示すものではなく、この日から自分の選択を少しだけ見直すための独自テーマです。";
+  const fireConnection = "FIREは資産を増やすことだけでなく、自分の時間と選択肢をどう使うかを考える生き方です。" + lens.short + "「" + lens.quote + "」という視点から、" + category + "の入口で" + month.hint + "ためのヒントを探します。";
+  const body = dayContext + "\n\n" + fireConnection + "\n\n" + lens.knowledge;
   return {
     id: key,
     date: key,
@@ -174,10 +181,8 @@ function makeEntry(monthNumber, day, ordinal) {
     originalEvent,
     sourceNote,
     shortText,
-    fireMessage,
     dayContext,
     fireConnection,
-    knowledge,
     body,
     action: lens.action,
     relatedLinks: relatedLinks(category),
