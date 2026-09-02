@@ -1364,59 +1364,6 @@ button {
   box-shadow: 0 9px 0 var(--red-dark), 0 15px 24px rgba(93, 22, 32, 0.2);
 }
 
-.message-card {
-  position: relative;
-  min-height: 245px;
-  padding: 48px 28px 28px;
-  color: var(--ink);
-  background: var(--yellow);
-  border: 3px solid var(--ink);
-  border-radius: 30px;
-  box-shadow: 8px 9px 0 var(--ink);
-  transform: rotate(2deg);
-}
-
-.message-card::after {
-  position: absolute;
-  right: 30px;
-  bottom: -19px;
-  width: 32px;
-  height: 32px;
-  background: var(--yellow);
-  border-right: 3px solid var(--ink);
-  border-bottom: 3px solid var(--ink);
-  content: "";
-  transform: rotate(45deg);
-}
-
-.message-card__quote {
-  position: absolute;
-  top: 11px;
-  left: 24px;
-  color: var(--red);
-  font-family: Georgia, serif;
-  font-size: 74px;
-  line-height: 1;
-}
-
-.message-card p {
-  margin: 0;
-  font-size: clamp(1.3rem, 5vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.08em;
-  line-height: 1.5;
-}
-
-.message-card p strong { color: var(--red); }
-
-.message-card__mark {
-  position: absolute;
-  right: 25px;
-  bottom: 15px;
-  color: var(--red);
-  font-size: 25px;
-}
-
 .next { background: var(--paper); }
 
 .next__inner {
@@ -1608,11 +1555,6 @@ button {
   .playground__grid {
     grid-template-columns: 0.9fr 1.1fr;
     gap: 70px;
-  }
-
-  .message-card {
-    min-height: 300px;
-    padding: 66px 44px 36px;
   }
 
   .next__inner {
@@ -3069,18 +3011,10 @@ body.fire-card-modal-open { overflow: hidden; }
   line-height: 1.45;
 }
 
-.fire-calendar-preview__content > p:not(.fire-calendar-preview__category):not(.fire-calendar-preview__message) {
+.fire-calendar-preview__content > p:not(.fire-calendar-preview__category) {
   margin: 5px 0 0;
   color: rgba(255, 255, 255, 0.72);
   font-size: 13px;
-  line-height: 1.65;
-}
-
-.fire-calendar-preview__message {
-  margin: 10px 0 0;
-  color: var(--yellow);
-  font-size: 13px;
-  font-weight: 800;
   line-height: 1.65;
 }
 
@@ -3231,7 +3165,6 @@ body.fire-card-modal-open { overflow: hidden; }
 }
 
 .fire-calendar-reading-card,
-.fire-calendar-message-card,
 .fire-calendar-action-card,
 .fire-calendar-related-block,
 .fire-calendar-sources,
@@ -3244,7 +3177,6 @@ body.fire-card-modal-open { overflow: hidden; }
 }
 
 .fire-calendar-reading-card h3,
-.fire-calendar-message-card h3,
 .fire-calendar-action-card h3,
 .fire-calendar-related-block h3,
 .fire-calendar-sources h3 {
@@ -3254,27 +3186,10 @@ body.fire-card-modal-open { overflow: hidden; }
 }
 
 .fire-calendar-reading-card p:last-child,
-.fire-calendar-message-card p:last-child,
 .fire-calendar-action-card p:last-child {
   margin: 0;
   color: var(--muted);
   line-height: 1.95;
-}
-
-.fire-calendar-message-card {
-  color: var(--paper);
-  background: var(--red);
-  border-color: var(--red);
-}
-
-.fire-calendar-message-card h3,
-.fire-calendar-message-card p:last-child {
-  color: var(--paper);
-}
-
-.fire-calendar-message-card p:last-child {
-  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-  font-weight: 800;
 }
 
 .fire-calendar-action-card {
@@ -3555,8 +3470,7 @@ body.fire-card-modal-open { overflow: hidden; }
     -webkit-line-clamp: 1;
   }
 
-  .fire-calendar-preview__content > p:not(.fire-calendar-preview__category):not(.fire-calendar-preview__message),
-  .fire-calendar-preview__message {
+  .fire-calendar-preview__content > p:not(.fire-calendar-preview__category) {
     display: -webkit-box;
     overflow: hidden;
     font-size: 11px;
@@ -3565,12 +3479,8 @@ body.fire-card-modal-open { overflow: hidden; }
     -webkit-line-clamp: 1;
   }
 
-  .fire-calendar-preview__content > p:not(.fire-calendar-preview__category):not(.fire-calendar-preview__message) {
+  .fire-calendar-preview__content > p:not(.fire-calendar-preview__category) {
     margin-top: 2px;
-  }
-
-  .fire-calendar-preview__message {
-    margin-top: 3px;
   }
 
   .fire-calendar-preview__link {

@@ -9,8 +9,6 @@
   const sourceNode = document.querySelector("#fire-calendar-detail-source");
   const dayContextNode = document.querySelector("#fire-calendar-day-context");
   const connectionNode = document.querySelector("#fire-calendar-connection");
-  const messageNode = document.querySelector("#fire-calendar-detail-message");
-  const knowledgeNode = document.querySelector("#fire-calendar-knowledge");
   const actionNode = document.querySelector("#fire-calendar-action");
   const relatedNode = document.querySelector("#fire-calendar-related");
   const sourcesNode = document.querySelector("#fire-calendar-sources");
@@ -172,8 +170,6 @@
     if (sourceNode) sourceNode.textContent = entry.sourceType + "｜" + entry.sourceNote;
     if (dayContextNode) dayContextNode.textContent = entry.dayContext;
     if (connectionNode) connectionNode.textContent = entry.fireConnection;
-    if (messageNode) messageNode.textContent = entry.fireMessage;
-    if (knowledgeNode) knowledgeNode.textContent = entry.knowledge;
     if (actionNode) actionNode.textContent = entry.action;
     document.title = title;
     setMeta('meta[name="description"]', description);

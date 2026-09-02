@@ -6,7 +6,6 @@
   const categoryNode = document.querySelector("#fire-calendar-category");
   const titleNode = document.querySelector("#fire-calendar-title");
   const shortTextNode = document.querySelector("#fire-calendar-short-text");
-  const messageNode = document.querySelector("#fire-calendar-message");
   const linkNode = document.querySelector("#fire-calendar-link");
   const progressNode = document.querySelector("#fire-calendar-progress");
 
@@ -29,7 +28,6 @@
     if (categoryNode) categoryNode.textContent = (entry.categoryIcon || "🔥") + " " + entry.category;
     if (titleNode) titleNode.textContent = entry.title;
     if (shortTextNode) shortTextNode.textContent = entry.shortText;
-    if (messageNode) messageNode.textContent = entry.fireMessage;
     if (linkNode) {
       linkNode.href = "/fire-calendar/?date=" + entry.date;
       linkNode.setAttribute("aria-label", entry.title + "の詳細を見る");
