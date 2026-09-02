@@ -2736,3 +2736,219 @@ body.fire-card-modal-open { overflow: hidden; }
   .link-card { grid-template-columns: 92px minmax(0, 1fr); }
   .info-list > div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+.otoku-shell { background: var(--cream); }
+.otoku-layout { max-width: 1000px; }
+
+.otoku-page {
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-small);
+}
+
+.otoku-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: clamp(28px, 6vw, 64px) clamp(22px, 6vw, 68px) 34px;
+  background: linear-gradient(122deg, var(--red) 0%, #ed5140 60%, var(--red-dark) 100%);
+  color: var(--paper);
+}
+
+.otoku-hero .eyebrow { color: var(--yellow); }
+.otoku-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 5.2rem);
+  letter-spacing: -0.09em;
+  line-height: 1.07;
+}
+
+.otoku-hero__lead {
+  max-width: 580px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+}
+
+.otoku-hero__lead strong { color: var(--yellow); }
+
+.otoku-hero__sticker {
+  display: grid;
+  width: 116px;
+  height: 116px;
+  place-content: center;
+  justify-items: center;
+  color: var(--ink);
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 7px 8px 0 rgba(36, 31, 40, 0.22);
+  transform: rotate(7deg);
+}
+
+.otoku-hero__sticker span { font-size: 12px; font-weight: 900; }
+.otoku-hero__sticker strong { font-family: Arial, sans-serif; font-size: 2.1rem; line-height: 1; }
+.otoku-hero__sticker small { font-family: Arial, sans-serif; font-size: 9px; font-weight: 900; letter-spacing: 0.08em; }
+
+.otoku-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 13px clamp(22px, 6vw, 68px);
+  color: var(--muted);
+  background: var(--yellow-soft);
+  font-size: 12px;
+}
+
+.otoku-meta time { color: var(--ink); font-weight: 800; }
+.otoku-meta__status { margin-left: auto; color: var(--red); font-weight: 900; }
+
+.otoku-intro {
+  max-width: 780px;
+  margin: 0;
+  padding: 30px clamp(22px, 6vw, 68px) 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.otoku-rules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px clamp(22px, 6vw, 68px) 0;
+  padding: 13px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.otoku-rules > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 9px;
+  align-items: center;
+  padding: 7px 10px;
+}
+
+.otoku-rules__number {
+  grid-row: span 2;
+  color: var(--red);
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.otoku-rules strong { font-size: 12px; }
+.otoku-rules small { color: var(--muted); font-size: 10px; }
+
+.otoku-section { padding: 52px clamp(22px, 6vw, 68px) 0; }
+.otoku-section--care { padding-bottom: 58px; }
+.otoku-section--closing { padding-top: 46px; }
+
+.otoku-section__heading { margin-bottom: 12px; }
+.otoku-section__heading h2 { margin: 0; font-size: clamp(2.1rem, 5vw, 3.8rem); letter-spacing: -0.08em; line-height: 1; }
+.otoku-section__heading h2 span { color: var(--red); }
+.otoku-section__intro { max-width: 690px; margin: 0 0 24px; color: var(--muted); font-size: 13px; }
+
+.deal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.deal-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 21px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--red);
+  border-radius: 19px;
+  box-shadow: 0 7px 18px rgba(103, 53, 42, 0.06);
+}
+
+.deal-card--point { border-top-color: var(--yellow-deep); }
+.deal-card--shopping { border-top-color: #53a984; }
+.deal-card--telecom { border-top-color: #6b5acb; }
+.deal-card--closing-soon { background: linear-gradient(180deg, #fff8f4 0%, var(--paper) 45%); }
+
+.deal-card__top, .deal-card__footer { display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.deal-card__category, .deal-card__closing {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 99px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.deal-card__category { color: var(--red); background: var(--red-soft); }
+.deal-card__closing { color: #8c4a00; background: var(--yellow-soft); }
+.deal-card h3 { margin: 14px 0 7px; font-size: clamp(1.08rem, 2vw, 1.35rem); line-height: 1.45; }
+.deal-card__benefit { margin: 0 0 14px; color: var(--red); font-size: 1.15rem; font-weight: 900; line-height: 1.45; }
+
+.deal-card__facts { margin: 0; border-top: 1px solid var(--line); }
+.deal-card__facts > div { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 9px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.deal-card__facts dt { color: var(--muted); font-size: 11px; font-weight: 800; }
+.deal-card__facts dd { min-width: 0; margin: 0; font-size: 12px; line-height: 1.65; }
+.deal-card__facts dd strong { display: block; color: var(--ink); font-size: 13px; }
+.deal-card__facts dd span { display: block; color: var(--red); font-size: 10px; font-weight: 800; }
+
+.deal-card__details { margin-top: 13px; color: var(--muted); font-size: 12px; }
+.deal-card__details summary { color: var(--ink); cursor: pointer; font-weight: 900; }
+.deal-card__details p { margin: 8px 0 0; line-height: 1.7; }
+.deal-card__details strong { color: var(--ink); }
+.deal-card__maru { margin: 14px 0 0; padding: 10px 12px; color: var(--ink); background: var(--yellow-soft); border-radius: 12px; font-size: 12px; line-height: 1.7; }
+.deal-card__maru span { display: block; margin-bottom: 3px; color: var(--red); font-size: 10px; font-weight: 900; }
+.deal-card__footer { flex-wrap: wrap; margin-top: auto; padding-top: 19px; }
+.deal-card__footer .button { margin: 0; padding: 11px 14px; font-size: 12px; }
+.deal-card__official-label { color: var(--muted); font-size: 10px; }
+
+.otoku-empty { padding: 26px; background: var(--cream); border-radius: var(--radius); }
+.otoku-empty strong { color: var(--red); }
+.otoku-empty p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+.otoku-section--closing { border-top: 1px solid var(--line); }
+.otoku-care-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.otoku-care-card { padding: 18px; background: var(--cream); border-radius: 18px; }
+.otoku-care-card > span { color: var(--red); font-family: Arial, sans-serif; font-size: 12px; font-weight: 900; }
+.otoku-care-card h3 { margin: 8px 0 6px; font-size: 1rem; }
+.otoku-care-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.otoku-disclaimer { margin-top: 19px; padding: 16px 18px; color: var(--muted); background: var(--red-soft); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; font-size: 11px; line-height: 1.75; }
+.otoku-disclaimer strong { color: var(--ink); }
+.otoku-disclaimer p { margin: 5px 0 0; }
+
+@media (max-width: 760px) {
+  .otoku-hero { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 28px 20px 25px; }
+  .otoku-hero h1 { font-size: clamp(1.9rem, 9.7vw, 3rem); }
+  .otoku-hero__lead { margin-top: 14px; font-size: 0.85rem; }
+  .otoku-hero__sticker { width: 80px; height: 80px; border-width: 2px; box-shadow: 4px 5px 0 rgba(36, 31, 40, 0.2); }
+  .otoku-hero__sticker strong { font-size: 1.45rem; }
+  .otoku-hero__sticker span { font-size: 9px; }
+  .otoku-hero__sticker small { font-size: 7px; }
+  .otoku-meta { padding: 11px 20px; }
+  .otoku-meta__status { margin-left: 0; }
+  .otoku-intro { padding: 23px 20px 3px; font-size: 13px; }
+  .otoku-rules { grid-template-columns: 1fr; gap: 0; margin: 18px 20px 0; padding: 8px; }
+  .otoku-rules > div { padding: 6px 8px; }
+  .otoku-section { padding: 39px 20px 0; }
+  .otoku-section--care { padding-bottom: 40px; }
+  .deal-grid, .otoku-care-grid { grid-template-columns: 1fr; }
+  .deal-card { padding: 18px; }
+  .deal-card__footer { align-items: flex-start; flex-direction: column; }
+  .deal-card__footer .button { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 420px) {
+  .otoku-hero { grid-template-columns: 1fr; }
+  .otoku-hero__sticker { position: absolute; right: 31px; margin-top: -8px; }
+  .otoku-hero__copy { padding-right: 72px; }
+}

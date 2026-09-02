@@ -1,0 +1,52 @@
+name: WAKUWAKU FIRE daily poi update
+
+on:
+  schedule:
+    # 06:00 JST = 21:00 UTC (前日)
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wakuwaku-fire-poi-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Sync the latest main branch
+        run: git pull --rebase origin main
+
+      - name: Update the fixed poi page
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          POI_MAX_DEALS: "10"
+        run: npm run poi:update
+
+      - name: Validate the updated poi page
+        run: npm run validate:poi
+
+      - name: Commit generated poi data and page
+        run: |
+          git config user.name "wakuwaku-fire-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/otoku/deals.json otoku/index.html sitemap.xml automation/otoku/run-log.json
+          if git diff --cached --quiet; then
+            echo "No generated poi changes to commit."
+          else
+            git commit -m "Update daily poi deals"
+            git push origin HEAD:main
+          fi

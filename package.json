@@ -10,6 +10,9 @@
     "auto-publish:manual": "node scripts/auto_publish.mjs --publish --mode manual",
     "generate:sitemap": "node scripts/generate_sitemap.mjs",
     "set:search-console": "node scripts/set_search_console_verification.mjs",
+    "poi:update": "node scripts/poi_update.mjs",
+    "poi:dry-run": "node scripts/poi_update.mjs --dry-run",
+    "validate:poi": "node scripts/poi_update.mjs --validate",
     "verify:public": "node scripts/verify_public_site.mjs",
     "verify:seo": "node scripts/verify_public_seo.mjs"
   }

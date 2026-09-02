@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "runAt": "2026-09-02T06:00:00+09:00",
+      "mode": "offline",
+      "dryRun": false,
+      "sourceCount": 2,
+      "maxDeals": 10,
+      "successfulSourceCount": 0,
+      "allSourcesFailed": false,
+      "fallbackUsed": false,
+      "sources": [
+        {
+          "id": "kojinabi",
+          "name": "ココトク",
+          "method": "offline",
+          "endpoint": "https://kojinabi.com/",
+          "status": "offline",
+          "httpStatus": null,
+          "bytes": 0,
+          "candidateCount": 0,
+          "reason": ""
+        },
+        {
+          "id": "dp-invest",
+          "name": "ポイント投資の攻略ブログ",
+          "method": "offline",
+          "endpoint": "https://dp-invest.hateblo.jp/entry/2021/05/17/133745",
+          "status": "offline",
+          "httpStatus": null,
+          "bytes": 0,
+          "candidateCount": 0,
+          "reason": ""
+        }
+      ],
+      "discoveredCandidateCount": 0,
+      "duplicateCandidateCount": 0,
+      "officialCheckCount": 7,
+      "officialSuccessCount": 7,
+      "officialFailureCount": 0,
+      "selectedDealCount": 7,
+      "selectedDealIds": [
+        "jal-pay-apple-pay-202609",
+        "dpay-charge-shopping-202609",
+        "aeon-public-utility-202609",
+        "smbc-visa-transit-202609",
+        "povo-honkivari-ongoing",
+        "furunavi-money-202609",
+        "mobile-suica-conan-202609"
+      ],
+      "excludedCount": 0,
+      "excluded": [],
+      "contentChanged": true,
+      "checkedAt": "2026-09-02T06:00:00+09:00",
+      "contentModifiedAt": "2026-09-02T06:00:00+09:00",
+      "errors": []
+    }
+  ]
+}
