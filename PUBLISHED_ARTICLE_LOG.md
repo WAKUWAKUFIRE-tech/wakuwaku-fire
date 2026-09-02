@@ -149,3 +149,26 @@ thumbnail text: 5000万円で？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREの4%ルールとは？日本でそのまま使っていいのか経験者目線で考える
+
+article id: seo-006
+priority_order: 6
+公開日・時刻（JST）: 2026-09-02 18:00:00
+公開枠: 2026-09-02T18:00:00+09:00
+main keyword: FIRE 4%ルール
+title: FIREの4%ルールとは？日本でそのまま使っていいのか経験者目線で考える
+slug: fire-4percent-rule
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-4percent-rule/
+thumbnail file: articles/fire-4percent-rule/thumbnail.png
+thumbnail text: 4%で足りる？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/seo_experience_map.md, content_sources/knowledge_base/contradictions_and_updates.md
+参照note原記事:
+- なし
+使用本人フレーズ: 自由過ぎると溺れる、自ら制約を課せ / 未来ばかり見るな、今に熱中しろ
+最新情報確認: なし
+external sources:
+- [Determining Withdrawal Rates Using Historical Data](https://www.financialplanningassociation.org/sites/default/files/2020-05/7%20Determining%20Withdrawal%20Rates%20Using%20Historical%20Data.pdf)
+- [The State of Retirement Income: 2025](https://www.morningstar.com/content/cs-assets/v3/assets/blt9415ea4cc4157833/bltb73b87c5d0c70ead/692f43f57737a31596684522/working_file_11.19_FINAL_REVISE.pdf)
+- [資産形成の基本：長期・積立・分散投資](https://www.fsa.go.jp/policy/nisa2/invest/)
+公開結果: PUBLISHED
