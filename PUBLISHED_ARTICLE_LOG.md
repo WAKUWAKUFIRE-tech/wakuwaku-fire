@@ -107,3 +107,45 @@ thumbnail text: FIRE後どうなる？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: サイドFIREとは？完全FIREとの違いと現実的な始め方
+
+article id: seo-004
+priority_order: 4
+公開日・時刻（JST）: 2026-09-01 18:00:00
+公開枠: 2026-09-01T18:00:00+09:00
+main keyword: サイドFIREとは
+title: サイドFIREとは？完全FIREとの違いと現実的な始め方
+slug: side-fire-toha
+URL: https://wakuwaku-fire-git.pages.dev/articles/side-fire-toha/
+thumbnail file: articles/side-fire-toha/thumbnail.png
+thumbnail text: サイドFIREとは？
+参照knowledge_base: content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/fire_philosophy.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: 資産運用＋自由に好きな仕事をする / 自由過ぎると溺れる、自ら制約を課せ
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
+
+## PUBLISHED: 5000万円でFIREできる？独身・夫婦・子持ちで変わる現実
+
+article id: seo-005
+priority_order: 5
+公開日・時刻（JST）: 2026-09-02 07:00:00
+公開枠: 2026-09-02T07:00:00+09:00
+main keyword: FIRE 5000万円
+title: 5000万円でFIREできる？独身・夫婦・子持ちで変わる現実
+slug: fire-5000man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-5000man/
+thumbnail file: articles/fire-5000man/thumbnail.png
+thumbnail text: 5000万円で？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/family_and_fire.md, content_sources/knowledge_base/numbers_and_facts.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIREは人生上がりじゃない / 自由過ぎると溺れる、自ら制約を課せ
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
