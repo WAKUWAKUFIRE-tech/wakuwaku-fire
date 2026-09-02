@@ -172,3 +172,24 @@ external sources:
 - [The State of Retirement Income: 2025](https://www.morningstar.com/content/cs-assets/v3/assets/blt9415ea4cc4157833/bltb73b87c5d0c70ead/692f43f57737a31596684522/working_file_11.19_FINAL_REVISE.pdf)
 - [資産形成の基本：長期・積立・分散投資](https://www.fsa.go.jp/policy/nisa2/invest/)
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREして後悔したことはある？経験者が本音で答える
+
+article id: seo-007
+priority_order: 7
+公開日・時刻（JST）: 2026-09-03 07:00:00
+公開枠: 2026-09-03T07:00:00+09:00
+main keyword: FIRE 後悔
+title: FIREして後悔したことはある？経験者が本音で答える
+slug: fire-koukai
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-koukai/
+thumbnail file: articles/fire-koukai/thumbnail.png
+thumbnail text: 後悔した？
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/lessons_learned.md, content_sources/knowledge_base/contradictions_and_updates.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: 失敗したらネタにして笑い飛ばせ / 自分が笑える日々を送れ
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

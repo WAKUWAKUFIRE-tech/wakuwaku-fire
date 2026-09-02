@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-02",
+  "updated_at": "2026-09-03",
   "items": [
     {
       "id": "seo-001",
@@ -236,7 +236,7 @@
     {
       "id": "seo-007",
       "priority_order": 7,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE 後悔",
       "secondary_keywords": [
         "FIRE 失敗",
@@ -260,13 +260,17 @@
       ],
       "thumbnail_text_hint": "後悔した？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-koukai/",
+      "published_at": "2026-09-03",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-03T07:00:00+09:00",
       "stock_path": "automation/article_stock/fire-koukai",
-      "stocked_at": "2026-08-31"
+      "stocked_at": "2026-08-31",
+      "generated_title": "FIREして後悔したことはある？経験者が本音で答える",
+      "generated_meta_description": "FIREして後悔したことはあるのか。30歳で会社を辞め、2年半だらけた経験や孤独、資産不安を経た本人が、後悔とFIREして良かったことを本音で整理します。",
+      "generated_category": "FIRE後の現実",
+      "generated_thumbnail_text": "後悔した？"
     },
     {
       "id": "seo-008",
