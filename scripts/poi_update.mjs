@@ -17,6 +17,8 @@ const TIME_ZONE = "Asia/Tokyo";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_RESPONSE_BYTES = 2_000_000;
 const MAX_SOURCE_CANDIDATES = 40;
+const DEFAULT_MAX_DEALS = 20;
+const FEATURED_DEAL_COUNT = 10;
 const TRACKING_PARAMETERS = /^(utm_[^=]+|fbclid|gclid|yclid|mc_cid|mc_eid|referrer|affiliate|aff)$/i;
 const OPPORTUNITY_WORDS = /キャンペーン|還元|ポイント|クーポン|割引|無料|特典|お得|セール|入会|チャージ/i;
 
@@ -446,7 +448,7 @@ function scoreTotal(deal) {
   return Object.values(deal.score || {}).reduce((sum, value) => sum + (Number(value) || 0), 0);
 }
 
-export function selectDeals(deals, { maxDeals = 10, now = new Date() } = {}) {
+export function selectDeals(deals, { maxDeals = DEFAULT_MAX_DEALS, now = new Date() } = {}) {
   return dedupeDeals(deals)
     .filter((deal) => isActiveDeal(deal, now))
     .sort((left, right) => {
@@ -637,6 +639,16 @@ function renderClosingSoon(deals, now, closingSoonDays) {
         </section>`;
 }
 
+function renderRankedDealSection(deals, now, closingSoonDays, { id, eyebrow, title, titleSpan, intro }) {
+  const regularDeals = deals.filter((deal) => {
+    const remaining = daysRemaining(deal.endDate, now);
+    return !(remaining !== null && remaining >= 0 && remaining <= closingSoonDays);
+  });
+  if (!regularDeals.length) return "";
+  return `
+          <section class="otoku-section" id="${escapeHtml(id)}" aria-labelledby="${escapeHtml(id)}-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--yellow">${escapeHtml(eyebrow)}</p><h2 id="${escapeHtml(id)}-title">${escapeHtml(title)}<br /><span>${escapeHtml(titleSpan)}</span></h2></div><p class="otoku-section__intro">${escapeHtml(intro)}</p><div class="deal-grid">${regularDeals.map((deal) => renderDealCard(deal, now, closingSoonDays)).join("\n")}</div></section>`;
+}
+
 function renderStructuredData(state, siteUrl) {
   const image = `${siteUrl}/ワクワクFIREトップ画像.png`;
   const article = {
@@ -680,14 +692,24 @@ export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date()
   const description = metaDescription(now);
   const lastChecked = japaneseDateTime(state.checkedAt);
   const pageDeals = state.deals || [];
-  const regularDeals = pageDeals.filter((deal) => {
-    const remaining = daysRemaining(deal.endDate, now);
-    return !(remaining !== null && remaining >= 0 && remaining <= closingSoonDays);
-  });
-  const mainSection = regularDeals.length ? `
-          <section class="otoku-section" id="check-now" aria-labelledby="check-now-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--yellow">CHECK NOW</p><h2 id="check-now-title">今チェックしたい<br /><span>お得情報。</span></h2></div><p class="otoku-section__intro">還元率だけでなく、条件のわかりやすさ・使いやすさ・期限の余裕も見て並べています。申し込む前に、必ず公式ページの最新条件を確認してください。</p><div class="deal-grid">${regularDeals.map((deal) => renderDealCard(deal, now, closingSoonDays)).join("\n")}</div></section>` : pageDeals.length ? `
-          <section class="otoku-section" id="check-now" aria-labelledby="check-now-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--yellow">CHECK NOW</p><h2 id="check-now-title">今チェックしたい<br /><span>お得情報。</span></h2></div><div class="otoku-empty"><strong>期限が近い案件は、下の「まもなく終了」へ。</strong><p>条件と期限を確認して、無理のないものだけ選んでください。</p></div></section>` : `
+  const featuredDeals = pageDeals.slice(0, FEATURED_DEAL_COUNT);
+  const additionalDeals = pageDeals.slice(FEATURED_DEAL_COUNT, FEATURED_DEAL_COUNT * 2);
+  const splitIntoTwoSections = pageDeals.length > FEATURED_DEAL_COUNT;
+  const featuredSection = pageDeals.length ? renderRankedDealSection(
+    featuredDeals,
+    now,
+    closingSoonDays,
+    splitIntoTwoSections
+      ? { id: "check-now", eyebrow: "TOP 10 PICKS", title: "まず見たい", titleSpan: "お得情報。", intro: "内部スコアの上位10件です。特典だけでなく、条件のわかりやすさ・対象者の広さ・期限の余裕も見て並べています。" }
+      : { id: "check-now", eyebrow: "CHECK NOW", title: "今チェックしたい", titleSpan: "お得情報。", intro: "還元率だけでなく、条件のわかりやすさ・使いやすさ・期限の余裕も見て並べています。申し込む前に、必ず公式ページの最新条件を確認してください。" }
+  ) : `
           <section class="otoku-section" id="check-now" aria-labelledby="check-now-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--yellow">CHECK NOW</p><h2 id="check-now-title">今チェックしたい<br /><span>お得情報。</span></h2></div><div class="otoku-empty"><strong>今日は掲載できる案件を確認中です。</strong><p>条件や期限を確認できない案件で、水増しはしていません。次回の確認をお待ちください。</p></div></section>`;
+  const additionalSection = splitIntoTwoSections ? renderRankedDealSection(
+    additionalDeals,
+    now,
+    closingSoonDays,
+    { id: "more-deals", eyebrow: "MORE TO CHECK", title: "ほかにもある", titleSpan: "お得情報。", intro: "上位10件以外から、条件が合う人には使いやすい案件を追加で掲載しています。" }
+  ) : "";
   return `<!doctype html>
 <html lang="ja">
   <head>
@@ -744,7 +766,8 @@ ${renderStructuredData(state, siteUrl)}
           </header>
           <div class="otoku-meta"><span>最終確認</span><time datetime="${escapeHtml(state.checkedAt)}">${escapeHtml(lastChecked)}（日本時間）</time><span class="otoku-meta__status">${pageDeals.length}件掲載</span></div>
 ${renderCategoryGuide(pageDeals)}
-${mainSection}
+${featuredSection}
+${additionalSection}
 ${renderClosingSoon(pageDeals, now, closingSoonDays)}
           <section class="otoku-section otoku-section--care" aria-labelledby="care-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--red">TAKE IT EASY</p><h2 id="care-title">ポイ活で無理しすぎない<br /><span>ために。</span></h2></div><div class="otoku-care-grid"><div class="otoku-care-card"><span aria-hidden="true">01</span><h3>使う予定のお金だけ</h3><p>ポイントのために、いらない買い物や契約を増やさない。先に使い道を決めると、ポイ活に振り回されにくいで。</p></div><div class="otoku-care-card"><span aria-hidden="true">02</span><h3>条件は最後まで読む</h3><p>エントリー、対象カード、最低利用額、付与時期、解約条件。お得そうな数字だけで判断せず、公式の注意事項まで確認しよ。</p></div><div class="otoku-care-card"><span aria-hidden="true">03</span><h3>投資案件は別もの</h3><p>元本が必要な金融・投資案件は、ポイント還元とは別にリスクがあります。ポイントのためだけに投資する必要はありません。</p></div></div><div class="otoku-disclaimer"><strong>掲載情報について</strong><p>このページは${escapeHtml(lastChecked)}時点の公式ページをもとに整理しています。キャンペーンは予告なく変更・終了する場合があります。最終的な条件・対象者・期限は、申込み前に必ず公式ページで確認してください。掲載内容は一般的な情報提供で、金融商品や契約の勧誘ではありません。</p></div></section>
         </article>
@@ -846,7 +869,7 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
       excluded.push({ id: deal.id, reason: verification.reason || "公式ページ未確認" });
     }
   }
-  const maxDeals = Math.max(1, Number(process.env.POI_MAX_DEALS || catalog.maxDeals || config.policy?.maxDeals || 10));
+  const maxDeals = Math.max(1, Number(process.env.POI_MAX_DEALS || catalog.maxDeals || config.policy?.maxDeals || DEFAULT_MAX_DEALS));
   const selected = selectDeals(effective, { maxDeals, now });
   const publicSelected = selected.map(publicDeal);
   const previousActiveDeals = (previous.deals || []).filter((deal) => isActiveDeal(deal, now));
@@ -894,7 +917,7 @@ async function validatePoi() {
   const siteUrl = String(process.env.SITE_URL || config.site_url || DEFAULT_SITE_URL).replace(/\/+$/, "");
   const canonical = `${siteUrl}/otoku/`;
   const issues = [];
-  const maxDeals = Math.max(1, Number(process.env.POI_MAX_DEALS || config.policy?.maxDeals || state.dealCount || 10));
+  const maxDeals = Math.max(1, Number(process.env.POI_MAX_DEALS || config.policy?.maxDeals || state.dealCount || DEFAULT_MAX_DEALS));
   if (config.policy?.prTimesEnabled) issues.push("PR TIMESが有効です");
   if ((config.sources || []).some((source) => source.id.toLowerCase().includes("pr-times") || String(source.url || "").toLowerCase().includes("prtimes"))) issues.push("PR TIMESがSource設定にあります");
   for (const source of config.sources || []) {

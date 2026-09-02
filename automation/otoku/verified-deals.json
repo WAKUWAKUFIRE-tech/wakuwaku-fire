@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "maxDeals": 10,
+  "maxDeals": 20,
   "minimumDaysRemaining": 3,
   "preferredDaysRemaining": 7,
   "closingSoonDays": 7,
