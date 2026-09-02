@@ -2809,45 +2809,6 @@ body.fire-card-modal-open { overflow: hidden; }
 .otoku-meta time { color: var(--ink); font-weight: 800; }
 .otoku-meta__status { margin-left: auto; color: var(--red); font-weight: 900; }
 
-.otoku-intro {
-  max-width: 780px;
-  margin: 0;
-  padding: 30px clamp(22px, 6vw, 68px) 8px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.otoku-rules {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin: 24px clamp(22px, 6vw, 68px) 0;
-  padding: 13px;
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.otoku-rules > div {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 9px;
-  align-items: center;
-  padding: 7px 10px;
-}
-
-.otoku-rules__number {
-  grid-row: span 2;
-  color: var(--red);
-  font-family: Arial, sans-serif;
-  font-size: 1.25rem;
-  font-weight: 900;
-}
-
-.otoku-rules strong { font-size: 12px; }
-.otoku-rules small { color: var(--muted); font-size: 10px; }
-
 .otoku-section { padding: 52px clamp(22px, 6vw, 68px) 0; }
 .otoku-section--care { padding-bottom: 58px; }
 .otoku-section--closing { padding-top: 46px; }
@@ -2936,9 +2897,6 @@ body.fire-card-modal-open { overflow: hidden; }
   .otoku-hero__sticker small { font-size: 7px; }
   .otoku-meta { padding: 11px 20px; }
   .otoku-meta__status { margin-left: 0; }
-  .otoku-intro { padding: 23px 20px 3px; font-size: 13px; }
-  .otoku-rules { grid-template-columns: 1fr; gap: 0; margin: 18px 20px 0; padding: 8px; }
-  .otoku-rules > div { padding: 6px 8px; }
   .otoku-section { padding: 39px 20px 0; }
   .otoku-section--care { padding-bottom: 40px; }
   .deal-grid, .otoku-care-grid { grid-template-columns: 1fr; }
@@ -2951,6 +2909,93 @@ body.fire-card-modal-open { overflow: hidden; }
   .otoku-hero { grid-template-columns: 1fr; }
   .otoku-hero__sticker { position: absolute; right: 31px; margin-top: -8px; }
   .otoku-hero__copy { padding-right: 72px; }
+}
+
+/* ポイ活ページ：見出しとジャンルを一目で把握できるように調整 */
+.otoku-hero h1 {
+  max-width: 700px;
+  font-size: clamp(2rem, 4.6vw, 4rem);
+  letter-spacing: -0.075em;
+}
+
+.otoku-hero__sticker strong {
+  font-size: 1.7rem;
+  letter-spacing: -0.04em;
+}
+
+.otoku-category-guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+  padding: 16px clamp(22px, 6vw, 68px);
+  background: #fffdf9;
+  border-bottom: 1px solid var(--line);
+}
+
+.otoku-category-guide__label {
+  margin-right: 3px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.otoku-category-chip,
+.deal-card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid currentColor;
+  font-weight: 900;
+}
+
+.otoku-category-chip {
+  padding: 7px 11px;
+  border-radius: 999px;
+  box-shadow: 0 2px 0 rgba(36, 31, 40, 0.08);
+  font-size: 12px;
+}
+
+.otoku-category-chip__icon,
+.deal-card__category-icon {
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.deal-card__category {
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 11px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.otoku-category-chip--cashless,
+.deal-card--cashless .deal-card__category { color: #b22e24; background: #fff0ed; border-color: #e99b8e; }
+.otoku-category-chip--point,
+.deal-card--point .deal-card__category { color: #856000; background: #fff8cf; border-color: #e9c75a; }
+.otoku-category-chip--shopping,
+.deal-card--shopping .deal-card__category { color: #1e7656; background: #edf9f2; border-color: #90caae; }
+.otoku-category-chip--telecom,
+.deal-card--telecom .deal-card__category { color: #5e4ea8; background: #f2efff; border-color: #bdb2ed; }
+.otoku-category-chip--food,
+.deal-card--food .deal-card__category { color: #a24f18; background: #fff2e5; border-color: #e5b17c; }
+.otoku-category-chip--travel,
+.deal-card--travel .deal-card__category { color: #12668d; background: #e9f7ff; border-color: #90c9e5; }
+.otoku-category-chip--finance,
+.deal-card--finance .deal-card__category { color: #0d7070; background: #e9f8f8; border-color: #8ec8c8; }
+.otoku-category-chip--coupon,
+.deal-card--coupon .deal-card__category { color: #8f3a73; background: #fff0fa; border-color: #da9cc2; }
+.otoku-category-chip--other,
+.deal-card--other .deal-card__category { color: #5d5962; background: #f2f1f3; border-color: #c9c6cc; }
+
+@media (max-width: 760px) {
+  .otoku-hero h1 { font-size: clamp(1.75rem, 8.2vw, 2.7rem); }
+  .otoku-hero__sticker { width: 80px; height: 80px; }
+  .otoku-hero__sticker strong { font-size: 1.25rem; }
+  .otoku-hero__sticker small { font-size: 8px; }
+  .otoku-category-guide { padding: 14px 20px; }
 }
 
 /* 365日 FIREカレンダー */

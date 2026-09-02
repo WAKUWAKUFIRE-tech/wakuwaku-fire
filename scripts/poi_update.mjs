@@ -578,28 +578,38 @@ function formatEndDate(deal, now) {
   return dateLabel;
 }
 
-function categoryLabel(category) {
+function categoryMeta(category) {
   return {
-    cashless: "キャッシュレス",
-    point: "ポイント",
-    shopping: "買い物・サービス",
-    food: "食費・外食",
-    travel: "旅行",
-    finance: "金融",
-    coupon: "クーポン",
-    telecom: "通信",
-    other: "その他"
-  }[category] || "その他";
+    cashless: { label: "キャッシュレス", icon: "💳" },
+    point: { label: "ポイント", icon: "🎁" },
+    shopping: { label: "買い物・サービス", icon: "🛍️" },
+    food: { label: "食費・外食", icon: "🍴" },
+    travel: { label: "旅行", icon: "✈️" },
+    finance: { label: "金融", icon: "📈" },
+    coupon: { label: "クーポン", icon: "🎟️" },
+    telecom: { label: "通信", icon: "📶" },
+    other: { label: "その他", icon: "•" }
+  }[category] || { label: "その他", icon: "•" };
+}
+
+function renderCategoryGuide(deals) {
+  const categories = [...new Set((deals || []).map((deal) => deal.category || "other"))];
+  if (!categories.length) return "";
+  return `
+          <div class="otoku-category-guide" aria-label="掲載ジャンル"><span class="otoku-category-guide__label">ジャンル</span>${categories.map((category) => {
+    const meta = categoryMeta(category);
+    return `<span class="otoku-category-chip otoku-category-chip--${escapeHtml(category)}"><span class="otoku-category-chip__icon" aria-hidden="true">${meta.icon}</span>${escapeHtml(meta.label)}</span>`;
+  }).join("")}</div>`;
 }
 
 function renderDealCard(deal, now, closingSoonDays = 7) {
   const remaining = daysRemaining(deal.endDate, now);
   const isClosingSoon = remaining !== null && remaining >= 0 && remaining <= closingSoonDays;
-  const category = categoryLabel(deal.category);
+  const category = categoryMeta(deal.category);
   const application = deal.applicationRequired ? "要エントリー" : "エントリー不要";
   return `
             <article class="deal-card deal-card--${escapeHtml(deal.category)}${isClosingSoon ? " deal-card--closing-soon" : ""}">
-              <div class="deal-card__top"><span class="deal-card__category">${escapeHtml(category)}</span>${isClosingSoon ? `<span class="deal-card__closing">まもなく終了</span>` : ""}</div>
+              <div class="deal-card__top"><span class="deal-card__category"><span class="deal-card__category-icon" aria-hidden="true">${category.icon}</span>${escapeHtml(category.label)}</span>${isClosingSoon ? `<span class="deal-card__closing">まもなく終了</span>` : ""}</div>
               <h3>${escapeHtml(deal.title)}</h3>
               <p class="deal-card__benefit">${escapeHtml(deal.benefitShort)}</p>
               <dl class="deal-card__facts">
@@ -730,11 +740,10 @@ ${renderStructuredData(state, siteUrl)}
         <article class="otoku-page">
           <header class="otoku-hero">
             <div class="otoku-hero__copy"><p class="eyebrow eyebrow--red">OTOKU / POI KATSU</p><h1>${escapeHtml(title)}</h1><p class="otoku-hero__lead">今日見つけても、まだ間に合う。<br /><strong>数日〜数週間使えるお得情報</strong>を、公式ページで確認してまとめています。</p></div>
-            <div class="otoku-hero__sticker" aria-hidden="true"><span>毎朝</span><strong>6:00</strong><small>JST CHECK</small></div>
+            <div class="otoku-hero__sticker" aria-hidden="true"><span>毎日</span><strong>朝6時</strong><small>更新</small></div>
           </header>
           <div class="otoku-meta"><span>最終確認</span><time datetime="${escapeHtml(state.checkedAt)}">${escapeHtml(lastChecked)}（日本時間）</time><span class="otoku-meta__status">${pageDeals.length}件掲載</span></div>
-          <p class="otoku-intro">まいど！ワクワクFIREのまるです。ポイ活は、追いかけ始めるとキリがない。1日だけの案件に張り付き続けるのもしんどい。ここでは、情報サイトをきっかけに見つけた案件を公式ページで確認して、今日から使えるものを短く整理しています。紹介コード・アフィリエイトリンク・他サイトの画像は載せてへんで。</p>
-          <aside class="otoku-rules" aria-label="このページの掲載ルール"><div><span class="otoku-rules__number">01</span><strong>公式ページ確認</strong><small>条件・期限を再確認</small></div><div><span class="otoku-rules__number">02</span><strong>原則3日以上</strong><small>急かされる案件は除外</small></div><div><span class="otoku-rules__number">03</span><strong>最大10件</strong><small>無理に水増ししない</small></div></aside>
+${renderCategoryGuide(pageDeals)}
 ${mainSection}
 ${renderClosingSoon(pageDeals, now, closingSoonDays)}
           <section class="otoku-section otoku-section--care" aria-labelledby="care-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--red">TAKE IT EASY</p><h2 id="care-title">ポイ活で無理しすぎない<br /><span>ために。</span></h2></div><div class="otoku-care-grid"><div class="otoku-care-card"><span aria-hidden="true">01</span><h3>使う予定のお金だけ</h3><p>ポイントのために、いらない買い物や契約を増やさない。先に使い道を決めると、ポイ活に振り回されにくいで。</p></div><div class="otoku-care-card"><span aria-hidden="true">02</span><h3>条件は最後まで読む</h3><p>エントリー、対象カード、最低利用額、付与時期、解約条件。お得そうな数字だけで判断せず、公式の注意事項まで確認しよ。</p></div><div class="otoku-care-card"><span aria-hidden="true">03</span><h3>投資案件は別もの</h3><p>元本が必要な金融・投資案件は、ポイント還元とは別にリスクがあります。ポイントのためだけに投資する必要はありません。</p></div></div><div class="otoku-disclaimer"><strong>掲載情報について</strong><p>このページは${escapeHtml(lastChecked)}時点の公式ページをもとに整理しています。キャンペーンは予告なく変更・終了する場合があります。最終的な条件・対象者・期限は、申込み前に必ず公式ページで確認してください。掲載内容は一般的な情報提供で、金融商品や契約の勧誘ではありません。</p></div></section>
