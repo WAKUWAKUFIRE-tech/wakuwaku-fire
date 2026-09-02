@@ -55,6 +55,142 @@
       "checkedAt": "2026-09-02T06:00:00+09:00",
       "contentModifiedAt": "2026-09-02T06:00:00+09:00",
       "errors": []
+    },
+    {
+      "runAt": "2026-09-03T06:03:37+09:00",
+      "mode": "scheduled",
+      "dryRun": false,
+      "sourceCount": 7,
+      "maxDeals": 20,
+      "successfulSourceCount": 6,
+      "allSourcesFailed": false,
+      "fallbackUsed": false,
+      "sources": [
+        {
+          "id": "kojinabi",
+          "name": "ココトク",
+          "method": "html",
+          "endpoint": "https://kojinabi.com/",
+          "status": "success",
+          "robotsStatus": 200,
+          "httpStatus": 200,
+          "bytes": 101512,
+          "candidateCount": 25,
+          "reason": ""
+        },
+        {
+          "id": "dp-invest",
+          "name": "ポイント投資の攻略ブログ",
+          "method": "html",
+          "endpoint": "https://dp-invest.hateblo.jp/entry/2021/05/17/133745",
+          "status": "success",
+          "robotsStatus": 200,
+          "httpStatus": 200,
+          "bytes": 140349,
+          "candidateCount": 40,
+          "reason": ""
+        },
+        {
+          "id": "point-radar",
+          "name": "ポイ活レーダー",
+          "method": "html",
+          "endpoint": "https://point-radar.com/",
+          "status": "success",
+          "robotsStatus": 200,
+          "httpStatus": 200,
+          "bytes": 5297074,
+          "candidateCount": 40,
+          "reason": ""
+        },
+        {
+          "id": "tinpanblog",
+          "name": "ちんぱんブログ",
+          "method": "html",
+          "endpoint": "https://tinpanblog.com/",
+          "status": "success",
+          "robotsStatus": 200,
+          "httpStatus": 200,
+          "bytes": 159510,
+          "candidateCount": 9,
+          "reason": ""
+        },
+        {
+          "id": "hazukipt",
+          "name": "専業主婦のお小遣い稼ぎはじめました。",
+          "method": "html",
+          "endpoint": "https://hazukipt.com/",
+          "status": "failed",
+          "robotsStatus": null,
+          "httpStatus": null,
+          "bytes": 0,
+          "candidateCount": 0,
+          "reason": "HTTP 403: https://hazukipt.com/robots.txt"
+        },
+        {
+          "id": "dpar72",
+          "name": "パーおじさん",
+          "method": "html",
+          "endpoint": "https://dpar72.com/",
+          "status": "success",
+          "robotsStatus": 200,
+          "httpStatus": 200,
+          "bytes": 236814,
+          "candidateCount": 8,
+          "reason": ""
+        },
+        {
+          "id": "setsuyaku-blog",
+          "name": "とくメモ",
+          "method": "html",
+          "endpoint": "https://setsuyaku-blog.com/",
+          "status": "success",
+          "robotsStatus": 200,
+          "httpStatus": 200,
+          "bytes": 163404,
+          "candidateCount": 33,
+          "reason": ""
+        }
+      ],
+      "discoveredCandidateCount": 155,
+      "duplicateCandidateCount": 0,
+      "officialCheckCount": 7,
+      "officialSuccessCount": 3,
+      "officialFailureCount": 4,
+      "selectedDealCount": 7,
+      "selectedDealIds": [
+        "jal-pay-apple-pay-202609",
+        "dpay-charge-shopping-202609",
+        "aeon-public-utility-202609",
+        "smbc-visa-transit-202609",
+        "povo-honkivari-ongoing",
+        "furunavi-money-202609",
+        "mobile-suica-conan-202609"
+      ],
+      "excludedCount": 4,
+      "excluded": [
+        {
+          "id": "jal-pay-apple-pay-202609",
+          "reason": "公式確認失敗のため前回データを維持: HTTP 403: https://www.jal.co.jp/jp/ja/jmb/jalpay/pay/campaign/2609-applepay/"
+        },
+        {
+          "id": "dpay-charge-shopping-202609",
+          "reason": "公式確認失敗のため前回データを維持: 取得失敗: fetch failed"
+        },
+        {
+          "id": "aeon-public-utility-202609",
+          "reason": "公式確認失敗のため前回データを維持: HTTP 403: https://www.aeon.co.jp/campaign/member/202609-22"
+        },
+        {
+          "id": "mobile-suica-conan-202609",
+          "reason": "公式確認失敗のため前回データを維持: HTTP 403: https://www.jreast.co.jp/ko/mobilesuica/autumn2026/"
+        }
+      ],
+      "contentChanged": false,
+      "checkedAt": "2026-09-03T06:03:37+09:00",
+      "contentModifiedAt": "2026-09-02T06:00:00+09:00",
+      "errors": [
+        "hazukipt: HTTP 403: https://hazukipt.com/robots.txt"
+      ]
     }
   ]
 }
