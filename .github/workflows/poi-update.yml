@@ -34,6 +34,10 @@ jobs:
         env:
           SITE_URL: ${{ vars.SITE_URL }}
           POI_MAX_DEALS: "30"
+          A8_LINK_MANAGER_SCRIPT: ${{ vars.A8_LINK_MANAGER_SCRIPT || secrets.A8_LINK_MANAGER_SCRIPT }}
+          A8_LINK_MANAGER_SCRIPT_TAG: ${{ vars.A8_LINK_MANAGER_SCRIPT_TAG || secrets.A8_LINK_MANAGER_SCRIPT_TAG }}
+          A8_LINK_MANAGER_SCRIPT_URL: ${{ vars.A8_LINK_MANAGER_SCRIPT_URL || secrets.A8_LINK_MANAGER_SCRIPT_URL }}
+          AMAZON_ASSOCIATE_URL: ${{ vars.AMAZON_ASSOCIATE_URL || secrets.AMAZON_ASSOCIATE_URL }}
         run: npm run poi:update
 
       - name: Validate the updated poi page
@@ -43,7 +47,7 @@ jobs:
         run: |
           git config user.name "wakuwaku-fire-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/otoku/deals.json otoku/index.html sitemap.xml automation/otoku/run-log.json
+          git add data/otoku/deals.json otoku/index.html sitemap.xml automation/otoku/run-log.json automation/otoku/affiliate-analysis.json
           if git diff --cached --quiet; then
             echo "No generated poi changes to commit."
           else

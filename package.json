@@ -15,6 +15,8 @@
     "poi:update": "node scripts/poi_update.mjs",
     "poi:dry-run": "node scripts/poi_update.mjs --dry-run",
     "validate:poi": "node scripts/poi_update.mjs --validate",
+    "test:affiliate": "node tests/affiliate_engine.test.mjs",
+    "test": "npm run test:affiliate",
     "verify:public": "node scripts/verify_public_site.mjs",
     "verify:seo": "node scripts/verify_public_seo.mjs"
   }

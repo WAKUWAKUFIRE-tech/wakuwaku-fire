@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "analyzedAt": "2026-09-03T06:00:00+09:00",
+  "source": "data/otoku/deals.json",
+  "dealCount": 22,
+  "displayCategoryCounts": {
+    "cashless": 5,
+    "food": 15,
+    "telecom": 1,
+    "shopping": 1
+  },
+  "monetizationCategoryCounts": {
+    "credit-card": 1,
+    "payment": 3,
+    "mobile": 1,
+    "bank": 0,
+    "investment": 0,
+    "travel": 0,
+    "shopping": 1,
+    "food": 15,
+    "insurance": 0,
+    "utility": 1,
+    "general": 0
+  },
+  "focusCategories": [
+    {
+      "category": "food",
+      "label": "飲食・デリバリー",
+      "count": 15
+    },
+    {
+      "category": "payment",
+      "label": "キャッシュレス決済",
+      "count": 3
+    },
+    {
+      "category": "credit-card",
+      "label": "クレジットカード",
+      "count": 1
+    },
+    {
+      "category": "mobile",
+      "label": "通信・SIM",
+      "count": 1
+    },
+    {
+      "category": "shopping",
+      "label": "EC・買い物",
+      "count": 1
+    },
+    {
+      "category": "utility",
+      "label": "固定費",
+      "count": 1
+    }
+  ],
+  "revenue": {
+    "a8LinkManagerConfigured": false,
+    "amazonAssociateConfigured": false,
+    "configuredOfferCount": 0,
+    "selectedContextOfferCount": 0
+  }
+}

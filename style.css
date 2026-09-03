@@ -3040,6 +3040,101 @@ body.fire-card-modal-open { overflow: hidden; }
   .otoku-category-guide { padding: 14px 20px; }
 }
 
+.otoku-affiliate-disclosure {
+  margin: 0;
+  padding: 10px clamp(22px, 6vw, 68px);
+  color: var(--muted);
+  background: #fffaf0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.otoku-revenue-card,
+.otoku-amazon-card {
+  margin: 28px clamp(22px, 6vw, 68px) 0;
+  border-radius: 18px;
+  box-shadow: 0 7px 18px rgba(103, 53, 42, 0.08);
+}
+
+.otoku-revenue-card {
+  padding: 20px 22px;
+  background: #fff8f4;
+  border: 1px solid #f0b6a9;
+  border-left: 5px solid var(--red);
+}
+
+.otoku-revenue-card__top,
+.otoku-amazon-card__action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.otoku-revenue-card__label,
+.otoku-amazon-card__pr {
+  display: inline-flex;
+  align-items: center;
+  min-height: 23px;
+  padding: 3px 8px;
+  color: #fff;
+  background: var(--red);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.otoku-revenue-card__category {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.otoku-revenue-card h2 {
+  margin: 14px 0 6px;
+  color: var(--ink);
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  line-height: 1.35;
+}
+
+.otoku-revenue-card p {
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.otoku-revenue-card__link { margin: 0; }
+
+.otoku-amazon-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 22px clamp(20px, 4vw, 30px);
+  color: #fff;
+  background: linear-gradient(116deg, var(--red) 0%, #d82e39 58%, #ad2341 100%);
+}
+
+.otoku-amazon-card .eyebrow { margin-bottom: 7px; color: var(--yellow); }
+.otoku-amazon-card h2 { margin: 0; font-size: clamp(1.25rem, 3vw, 1.8rem); line-height: 1.25; }
+.otoku-amazon-card p:not(.eyebrow) { margin: 8px 0 0; color: rgba(255, 255, 255, 0.86); font-size: 12px; line-height: 1.6; }
+.otoku-amazon-card__action { justify-content: flex-end; }
+.otoku-amazon-card__pr { color: var(--ink); background: var(--yellow); }
+.otoku-amazon-card .button { margin: 0; white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .otoku-revenue-card,
+  .otoku-amazon-card { margin-right: 20px; margin-left: 20px; }
+  .otoku-revenue-card { padding: 18px; }
+  .otoku-amazon-card { grid-template-columns: 1fr; gap: 15px; }
+  .otoku-amazon-card__action { align-items: stretch; justify-content: flex-start; }
+  .otoku-amazon-card .button { width: 100%; justify-content: center; }
+}
+
 /* 365日 FIREカレンダー */
 .fire-calendar-preview {
   padding: clamp(28px, 5vw, 56px) 0;

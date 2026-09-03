@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "a8": {
+    "script": "",
+    "scriptTag": "",
+    "scriptUrl": ""
+  },
+  "amazon": {
+    "enabled": true,
+    "associateUrl": "",
+    "fallbackUrl": "https://www.amazon.co.jp/gp/goldbox/",
+    "disclosure": "PR"
+  }
+}

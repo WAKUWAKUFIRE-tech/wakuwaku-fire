@@ -4,6 +4,14 @@ import crypto from "node:crypto";
 import dns from "node:dns/promises";
 import net from "node:net";
 import { fileURLToPath } from "node:url";
+import {
+  buildAffiliateRuntime,
+  classifyMonetizationCategory,
+  countMonetizationCategories,
+  MONETIZATION_CATEGORY_LABELS,
+  selectAffiliateOffers,
+  withMonetizationCategory
+} from "./affiliate_engine.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE_CONFIG_PATH = path.join(ROOT, "config", "poi-sources.json");
@@ -11,6 +19,9 @@ const CATALOG_PATH = path.join(ROOT, "automation", "otoku", "verified-deals.json
 const PUBLIC_DATA_PATH = path.join(ROOT, "data", "otoku", "deals.json");
 const PAGE_PATH = path.join(ROOT, "otoku", "index.html");
 const RUN_LOG_PATH = path.join(ROOT, "automation", "otoku", "run-log.json");
+const AFFILIATE_CONFIG_PATH = path.join(ROOT, "config", "affiliate.json");
+const AFFILIATE_OFFERS_PATH = path.join(ROOT, "config", "affiliate-offers.json");
+const AFFILIATE_ANALYSIS_PATH = path.join(ROOT, "automation", "otoku", "affiliate-analysis.json");
 const SITEMAP_PATH = path.join(ROOT, "sitemap.xml");
 const DEFAULT_SITE_URL = "https://wakuwaku-fire-git.pages.dev";
 const TIME_ZONE = "Asia/Tokyo";
@@ -962,32 +973,34 @@ function comparableLocalRecommendations(campaigns) {
 }
 
 function publicDeal(deal) {
-  const canonicalizedOfficialUrl = deal.canonicalizedOfficialUrl || canonicalizeUrl(deal.officialUrl);
-  const localRecommendations = Array.isArray(deal.localRecommendations) ? comparableLocalRecommendations(deal.localRecommendations) : null;
+  const categorizedDeal = withMonetizationCategory(deal);
+  const canonicalizedOfficialUrl = categorizedDeal.canonicalizedOfficialUrl || canonicalizeUrl(categorizedDeal.officialUrl);
+  const localRecommendations = Array.isArray(categorizedDeal.localRecommendations) ? comparableLocalRecommendations(categorizedDeal.localRecommendations) : null;
   return {
-    id: deal.id,
-    title: deal.campaignName,
-    merchant: deal.merchant,
-    service: deal.service,
-    benefitShort: deal.benefitShort,
-    benefit: deal.benefit,
-    condition: deal.condition,
-    target: deal.target,
-    action: deal.action,
-    startDate: deal.startDate,
-    endDate: deal.endDate || null,
-    endDateLabel: deal.endDateLabel || "",
-    applicationRequired: Boolean(deal.applicationRequired),
+    id: categorizedDeal.id,
+    title: categorizedDeal.campaignName,
+    merchant: categorizedDeal.merchant,
+    service: categorizedDeal.service,
+    benefitShort: categorizedDeal.benefitShort,
+    benefit: categorizedDeal.benefit,
+    condition: categorizedDeal.condition,
+    target: categorizedDeal.target,
+    action: categorizedDeal.action,
+    startDate: categorizedDeal.startDate,
+    endDate: categorizedDeal.endDate || null,
+    endDateLabel: categorizedDeal.endDateLabel || "",
+    applicationRequired: Boolean(categorizedDeal.applicationRequired),
     officialUrl: canonicalizedOfficialUrl,
     canonicalizedOfficialUrl,
-    category: deal.category || "other",
-    note: deal.note || "",
-    maruComment: deal.maruComment || "",
-    ...(deal.linkLabel ? { linkLabel: deal.linkLabel } : {}),
-    ...(deal.verificationLabel ? { verificationLabel: deal.verificationLabel } : {}),
-    ...(deal.dynamicType ? { dynamicType: deal.dynamicType } : {}),
-    ...(deal.dynamicSourceId ? { dynamicSourceId: deal.dynamicSourceId } : {}),
-    ...(Number.isFinite(deal.localCampaignTotal) ? { localCampaignTotal: deal.localCampaignTotal } : {}),
+    category: categorizedDeal.category || "other",
+    monetizationCategory: categorizedDeal.monetizationCategory,
+    note: categorizedDeal.note || "",
+    maruComment: categorizedDeal.maruComment || "",
+    ...(categorizedDeal.linkLabel ? { linkLabel: categorizedDeal.linkLabel } : {}),
+    ...(categorizedDeal.verificationLabel ? { verificationLabel: categorizedDeal.verificationLabel } : {}),
+    ...(categorizedDeal.dynamicType ? { dynamicType: categorizedDeal.dynamicType } : {}),
+    ...(categorizedDeal.dynamicSourceId ? { dynamicSourceId: categorizedDeal.dynamicSourceId } : {}),
+    ...(Number.isFinite(categorizedDeal.localCampaignTotal) ? { localCampaignTotal: categorizedDeal.localCampaignTotal } : {}),
     ...(localRecommendations ? { localRecommendations } : {})
   };
 }
@@ -1010,6 +1023,7 @@ function comparableDeals(deals) {
     officialUrl: deal.officialUrl,
     canonicalizedOfficialUrl: deal.canonicalizedOfficialUrl,
     category: deal.category,
+    monetizationCategory: deal.monetizationCategory || classifyMonetizationCategory(deal),
     note: deal.note,
     maruComment: deal.maruComment,
     linkLabel: deal.linkLabel,
@@ -1070,6 +1084,45 @@ function renderCategoryGuide(deals) {
     const meta = categoryMeta(category);
     return `<span class="otoku-category-chip otoku-category-chip--${escapeHtml(category)}"><span class="otoku-category-chip__icon" aria-hidden="true">${meta.icon}</span>${escapeHtml(meta.label)}</span>`;
   }).join("")}</div>`;
+}
+
+function renderAffiliateScript(runtime) {
+  if (!runtime?.a8?.enabled) return "";
+  if (runtime.a8.scriptTag) return `    ${runtime.a8.scriptTag}`;
+  if (runtime.a8.scriptUrl) return `    <script src="${escapeHtml(runtime.a8.scriptUrl)}"></script>`;
+  return "";
+}
+
+function renderAffiliateDisclosure(runtime) {
+  if (!runtime?.disclosureRequired) return "";
+  return `
+          <p class="otoku-affiliate-disclosure" role="note">当ページにはアフィリエイト広告を含む場合があります。掲載情報の条件・内容は、必ず各公式ページで確認してください。</p>`;
+}
+
+function renderAffiliateOfferCard(offer, placement) {
+  if (!offer?.url) return "";
+  const safeId = String(offer.id || "offer").replace(/[^a-z0-9_-]/gi, "-");
+  const categoryLabel = MONETIZATION_CATEGORY_LABELS[offer.category] || "関連情報";
+  return `
+          <aside class="otoku-revenue-card" aria-labelledby="affiliate-offer-${escapeHtml(safeId)}-title">
+            <div class="otoku-revenue-card__top"><span class="otoku-revenue-card__label">${escapeHtml(offer.disclosure || "PR")}</span><span class="otoku-revenue-card__category">${escapeHtml(categoryLabel)}に関連</span></div>
+            <h2 id="affiliate-offer-${escapeHtml(safeId)}-title">${escapeHtml(offer.title)}</h2>
+            <p>${escapeHtml(offer.description)}</p>
+            <a class="button button--primary otoku-revenue-card__link" href="${escapeHtml(offer.url)}" target="_blank" rel="noopener noreferrer sponsored" data-affiliate-offer-id="${escapeHtml(offer.id)}" data-affiliate-category="${escapeHtml(offer.category)}" data-affiliate-provider="${escapeHtml(offer.provider)}" data-affiliate-placement="${escapeHtml(placement)}">${escapeHtml(offer.buttonLabel)} <span aria-hidden="true">↗</span></a>
+          </aside>`;
+}
+
+function renderAmazonSaleCard(amazon) {
+  if (!amazon?.enabled || !amazon.url) return "";
+  const affiliateAttributes = amazon.isAffiliate
+    ? ` <span class="otoku-amazon-card__pr">${escapeHtml(amazon.disclosure || "PR")}</span>`
+    : "";
+  const affiliateRel = amazon.isAffiliate ? "noopener noreferrer sponsored" : "noopener noreferrer";
+  return `
+          <aside class="otoku-amazon-card" aria-labelledby="amazon-sale-title">
+            <div class="otoku-amazon-card__copy"><p class="eyebrow eyebrow--yellow">AMAZON SALE</p><h2 id="amazon-sale-title">Amazon 今日のセールをチェック</h2><p>タイムセール・キャンペーン開催中の商品をチェック</p></div>
+            <div class="otoku-amazon-card__action">${affiliateAttributes}<a class="button button--yellow" href="${escapeHtml(amazon.url)}" target="_blank" rel="${affiliateRel}" data-amazon-sale-click="true">Amazonで今日のお得を見る <span aria-hidden="true">→</span></a></div>
+          </aside>`;
 }
 
 function renderPayPayLocalRecommendations(recommendations, totalActive, officialListUrl) {
@@ -1179,22 +1232,36 @@ function renderStructuredData(state, siteUrl) {
   return [article, itemList, breadcrumb].map((value) => `<script type="application/ld+json">\n${escapeJsonForHtml(value)}\n    </script>`).join("\n");
 }
 
-export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date(), closingSoonDays = 7 } = {}) {
+export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date(), closingSoonDays = 7, affiliateRuntime = null } = {}) {
   const title = monthTitle(now);
   const description = metaDescription(now);
   const lastChecked = japaneseDateTime(state.checkedAt);
   const pageDeals = state.deals || [];
+  const runtime = affiliateRuntime || buildAffiliateRuntime();
+  const selectedAffiliateOffers = selectAffiliateOffers(pageDeals, runtime.offers || [], { now, maxOffers: 3 });
   const payPayDeals = pageDeals.filter((deal) => deal.dynamicType === PAYPAY_LOCAL_DYNAMIC_TYPE);
   const rankedDeals = pageDeals.filter((deal) => deal.dynamicType !== PAYPAY_LOCAL_DYNAMIC_TYPE);
   const featuredDeals = rankedDeals.slice(0, FEATURED_DEAL_COUNT);
   const additionalDeals = [...rankedDeals.slice(FEATURED_DEAL_COUNT), ...payPayDeals];
   const splitIntoTwoSections = additionalDeals.length > 0;
+  const affiliateAfterFeatured = selectedAffiliateOffers[0]
+    ? renderAffiliateOfferCard(selectedAffiliateOffers[0], "after-top-10")
+    : "";
+  const affiliateAfterMore = selectedAffiliateOffers[1]
+    ? renderAffiliateOfferCard(selectedAffiliateOffers[1], "after-more-deals")
+    : "";
+  const affiliateAfterAmazon = selectedAffiliateOffers[2]
+    ? renderAffiliateOfferCard(selectedAffiliateOffers[2], "after-amazon-sale")
+    : "";
+  const amazonCard = renderAmazonSaleCard(runtime.amazon);
+  const amazonAfterFeatured = !selectedAffiliateOffers.length || !splitIntoTwoSections ? amazonCard : "";
+  const amazonAfterMore = selectedAffiliateOffers.length && splitIntoTwoSections ? amazonCard : "";
   const featuredSection = pageDeals.length ? renderRankedDealSection(
     featuredDeals,
     now,
     closingSoonDays,
     splitIntoTwoSections
-      ? { id: "check-now", eyebrow: "TOP 10 PICKS", title: "まず見たい", titleSpan: "お得情報。", intro: "内部スコアの上位10件です。特典だけでなく、条件のわかりやすさ・対象者の広さ・期限の余裕も見て並べています。" }
+      ? { id: "check-now", eyebrow: "TOP 10 PICKS", title: "まず見たい", titleSpan: "お得情報。", intro: "条件のわかりやすさ・対象者の広さ・期限の余裕も見て、まず確認したい10件を並べています。" }
       : { id: "check-now", eyebrow: "CHECK NOW", title: "今チェックしたい", titleSpan: "お得情報。", intro: "還元率だけでなく、条件のわかりやすさ・使いやすさ・期限の余裕も見て並べています。申し込む前に、必ず公式ページの最新条件を確認してください。" }
   ) : `
           <section class="otoku-section" id="check-now" aria-labelledby="check-now-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--yellow">CHECK NOW</p><h2 id="check-now-title">今チェックしたい<br /><span>お得情報。</span></h2></div><div class="otoku-empty"><strong>今日は掲載できる案件を確認中です。</strong><p>条件や期限を確認できない案件で、水増しはしていません。次回の確認をお待ちください。</p></div></section>`;
@@ -1208,6 +1275,7 @@ export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date()
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+${renderAffiliateScript(runtime)}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="robots" content="index, follow" />
@@ -1259,15 +1327,22 @@ ${renderStructuredData(state, siteUrl)}
             <div class="otoku-hero__sticker" aria-hidden="true"><span>毎日</span><strong>朝6時</strong><small>更新</small></div>
           </header>
           <div class="otoku-meta"><span>最終確認</span><time datetime="${escapeHtml(state.checkedAt)}">${escapeHtml(lastChecked)}（日本時間）</time><span class="otoku-meta__status">${pageDeals.length}件掲載</span></div>
+${renderAffiliateDisclosure(runtime)}
 ${renderCategoryGuide(pageDeals)}
 ${featuredSection}
+${affiliateAfterFeatured}
+${amazonAfterFeatured}
 ${additionalSection}
+${affiliateAfterMore}
+${amazonAfterMore}
+${affiliateAfterAmazon}
 ${renderClosingSoon(pageDeals, now, closingSoonDays)}
           <section class="otoku-section otoku-section--care" aria-labelledby="care-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--red">TAKE IT EASY</p><h2 id="care-title">ポイ活で無理しすぎない<br /><span>ために。</span></h2></div><div class="otoku-care-grid"><div class="otoku-care-card"><span aria-hidden="true">01</span><h3>使う予定のお金だけ</h3><p>ポイントのために、いらない買い物や契約を増やさない。先に使い道を決めると、ポイ活に振り回されにくいで。</p></div><div class="otoku-care-card"><span aria-hidden="true">02</span><h3>条件は最後まで読む</h3><p>エントリー、対象カード、最低利用額、付与時期、解約条件。お得そうな数字だけで判断せず、公式の注意事項まで確認しよ。</p></div><div class="otoku-care-card"><span aria-hidden="true">03</span><h3>投資案件は別もの</h3><p>元本が必要な金融・投資案件は、ポイント還元とは別にリスクがあります。ポイントのためだけに投資する必要はありません。</p></div></div><div class="otoku-disclaimer"><strong>掲載情報について</strong><p>このページは${escapeHtml(lastChecked)}時点の公式ページをもとに整理しています。キャンペーンは予告なく変更・終了する場合があります。最終的な条件・対象者・期限は、申込み前に必ず公式ページで確認してください。掲載内容は一般的な情報提供で、金融商品や契約の勧誘ではありません。</p></div></section>
         </article>
       </div>
     </main>
     <footer class="site-footer"><div class="container site-footer__top"><a class="brand brand--footer" href="../" aria-label="ワクワクFIRE トップへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a><p>会社を辞めたら、<br /><strong>人生もっと遊べる。</strong></p><nav class="footer-nav" aria-label="フッターメニュー"><a href="../">ホーム</a><a href="../#contents">楽しいコンテンツ</a><a href="./">今日のお得</a><a href="../articles/">FIREコラム</a><a href="../about/">運営者情報</a><a href="../privacy/">プライバシーポリシー</a><a href="../contact/">お問い合わせ</a></nav></div><div class="container site-footer__bottom"><small>© <span id="current-year">${escapeHtml(String(jstParts(now).year))}</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div></footer>
+    <script src="./affiliate-tracking.js" defer></script>
     <script src="../script.js" defer></script>
   </body>
 </html>
@@ -1470,9 +1545,41 @@ function dynamicDealForRun(deal, sourceResults, previousDeal, now) {
   return null;
 }
 
+function buildAffiliateAnalysis(deals, now, runtime) {
+  const list = (deals || []).map(withMonetizationCategory);
+  const displayCategoryCounts = {};
+  for (const deal of list) {
+    const category = deal.category || "other";
+    displayCategoryCounts[category] = (displayCategoryCounts[category] || 0) + 1;
+  }
+  const monetizationCategoryCounts = countMonetizationCategories(list);
+  const focusCategories = Object.entries(monetizationCategoryCounts)
+    .filter(([, count]) => count > 0)
+    .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+    .map(([category, count]) => ({ category, label: MONETIZATION_CATEGORY_LABELS[category], count }));
+  return {
+    schemaVersion: 1,
+    analyzedAt: now.iso,
+    source: "data/otoku/deals.json",
+    dealCount: list.length,
+    displayCategoryCounts,
+    monetizationCategoryCounts,
+    focusCategories,
+    revenue: {
+      a8LinkManagerConfigured: Boolean(runtime?.a8?.enabled),
+      amazonAssociateConfigured: Boolean(runtime?.amazon?.isAffiliate),
+      configuredOfferCount: (runtime?.offers || []).filter((offer) => offer.enabled).length,
+      selectedContextOfferCount: selectAffiliateOffers(list, runtime?.offers || [], { now, maxOffers: 3 }).length
+    }
+  };
+}
+
 async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
   const config = await readJson(SOURCE_CONFIG_PATH);
   const catalog = await readJson(CATALOG_PATH);
+  const affiliateConfig = await readJson(AFFILIATE_CONFIG_PATH, {});
+  const affiliateRegistry = await readJson(AFFILIATE_OFFERS_PATH, { schemaVersion: 1, offers: [] });
+  const affiliateRuntime = buildAffiliateRuntime(affiliateConfig, affiliateRegistry, process.env);
   const previous = await readJson(PUBLIC_DATA_PATH, { schemaVersion: 1, deals: [] });
   const siteUrl = String(process.env.SITE_URL || config.site_url || DEFAULT_SITE_URL).replace(/\/+$/, "");
   const now = currentJst(nowInput);
@@ -1534,13 +1641,17 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
     }
   }
   const maxDeals = Math.max(1, Number(process.env.POI_MAX_DEALS || catalog.maxDeals || config.policy?.maxDeals || DEFAULT_MAX_DEALS));
-  const selected = selectDeals(effective, { maxDeals, now });
+  const selected = selectDeals(effective.map(withMonetizationCategory), { maxDeals, now });
   const publicSelected = selected.map(publicDeal);
-  const previousActiveDeals = (previous.deals || []).filter((deal) => isActiveDeal(deal, now));
+  const previousActiveDeals = (previous.deals || [])
+    .filter((deal) => isActiveDeal(deal, now))
+    .map(withMonetizationCategory);
   const fallbackUsed = sourceHealth.allSourcesFailed && previousActiveDeals.length > 0;
-  const finalDeals = fallbackUsed ? previousActiveDeals.slice(0, maxDeals) : publicSelected;
+  const finalDeals = (fallbackUsed ? previousActiveDeals.slice(0, maxDeals) : publicSelected).map(withMonetizationCategory);
   const contentChanged = stateDealsComparable({ deals: finalDeals }) !== stateDealsComparable(previous);
   const state = makePageState(previous, finalDeals.map((deal) => ({ ...deal, campaignName: deal.title, officialUrl: deal.officialUrl })), now, siteUrl, contentChanged);
+  const affiliateAnalysis = buildAffiliateAnalysis(state.deals, now, affiliateRuntime);
+  const selectedAffiliateOffers = selectAffiliateOffers(state.deals, affiliateRuntime.offers, { now, maxOffers: 3 });
   const summary = {
     runAt: now.iso,
     mode: offline ? "offline" : "scheduled",
@@ -1558,6 +1669,12 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
     officialFailureCount: officialResults.filter((result) => !result.ok).length,
     selectedDealCount: finalDeals.length,
     selectedDealIds: finalDeals.map((deal) => deal.id),
+    affiliate: {
+      a8LinkManagerConfigured: affiliateRuntime.a8.enabled,
+      amazonAssociateConfigured: affiliateRuntime.amazon.isAffiliate,
+      configuredOfferCount: affiliateRuntime.offers.filter((offer) => offer.enabled).length,
+      selectedContextOfferCount: selectedAffiliateOffers.length
+    },
     excludedCount: excluded.length,
     excluded: excluded.slice(0, 100),
     contentChanged,
@@ -1567,7 +1684,8 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
   };
   if (!dryRun) {
     await writeText(PUBLIC_DATA_PATH, `${JSON.stringify(state, null, 2)}\n`);
-    await writeText(PAGE_PATH, renderPage(state, { siteUrl, now, closingSoonDays: Number(catalog.closingSoonDays || config.policy?.closingSoonDays || 7) }));
+    await writeText(AFFILIATE_ANALYSIS_PATH, `${JSON.stringify(affiliateAnalysis, null, 2)}\n`);
+    await writeText(PAGE_PATH, renderPage(state, { siteUrl, now, closingSoonDays: Number(catalog.closingSoonDays || config.policy?.closingSoonDays || 7), affiliateRuntime }));
     await updateSitemap(state, siteUrl, contentChanged);
     await appendRunLog(summary);
   }
