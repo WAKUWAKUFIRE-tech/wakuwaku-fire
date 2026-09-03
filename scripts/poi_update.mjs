@@ -460,13 +460,14 @@ function parseKojinabiPeriod(title, publishedAt, now = new Date()) {
       ? `${formatDate(start)} 〜`
       : end
         ? `〜 ${formatDate(end)}`
-        : "掲載元で期間確認";
+        : "公式ページで期間確認";
   return {
     active,
+    recurring: recurringCue.test(normalized),
     startDate: start?.iso || null,
     endDate: end?.iso || null,
-    endDateLabel: end ? "" : "掲載元の記事で期限を確認",
-    periodLabel
+    endDateLabel: end ? "" : "公式ページで期限を確認",
+    periodLabel: recurringCue.test(normalized) && !end ? "毎月開催（公式ページで期間確認）" : periodLabel
   };
 }
 
@@ -486,11 +487,14 @@ export function parseKojinabiGourmetCampaigns(body, endpoint, now = new Date()) 
     const publishedAt = nearbyHtml.match(/<time\b[^>]*datetime\s*=\s*["']([^"']+)["']/i)?.[1] || "";
     const period = parseKojinabiPeriod(title, publishedAt, now);
     if (!period.active) continue;
+    const displayTitle = period.recurring
+      ? title.replace(/^【(?:20\d{2}年)?\d{1,2}月\d{1,2}日(?:～[^】]*)?】\s*/u, "")
+      : title;
     campaigns.push({
-      title: title.slice(0, 360),
+      title: displayTitle.slice(0, 360),
       articleUrl,
       publishedAt,
-      startDate: period.startDate,
+      startDate: period.recurring && !period.endDate ? null : period.startDate,
       endDate: period.endDate,
       endDateLabel: period.endDateLabel,
       periodLabel: period.periodLabel
@@ -1380,7 +1384,7 @@ function gourmetDealFromCampaign(campaign) {
     action: "公式ページで最新条件を確認してから利用する。",
     startDate: campaign.startDate,
     endDate: campaign.endDate,
-    endDateLabel: campaign.endDateLabel,
+    endDateLabel: campaign.endDateLabel === "掲載元の記事で期限を確認" ? "公式ページで期限を確認" : campaign.endDateLabel,
     applicationRequired: false,
     officialUrl: campaign.officialUrl,
     category: "food",
@@ -1411,7 +1415,7 @@ function dynamicGourmetDealsForRun(sourceResults, previousDeals, now) {
       startDate: deal.startDate,
       endDate: deal.endDate,
       endDateLabel: deal.endDateLabel,
-      periodLabel: deal.endDate ? `${deal.startDate || ""} 〜 ${deal.endDate}` : "掲載元で期間確認"
+      periodLabel: deal.endDate ? `${deal.startDate || ""} 〜 ${deal.endDate}` : "公式ページで期間確認"
     })).filter(Boolean);
 }
 
