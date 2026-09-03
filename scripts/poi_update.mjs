@@ -1184,9 +1184,11 @@ export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date()
   const description = metaDescription(now);
   const lastChecked = japaneseDateTime(state.checkedAt);
   const pageDeals = state.deals || [];
-  const featuredDeals = pageDeals.slice(0, FEATURED_DEAL_COUNT);
-  const additionalDeals = pageDeals.slice(FEATURED_DEAL_COUNT);
-  const splitIntoTwoSections = pageDeals.length > FEATURED_DEAL_COUNT;
+  const payPayDeals = pageDeals.filter((deal) => deal.dynamicType === PAYPAY_LOCAL_DYNAMIC_TYPE);
+  const rankedDeals = pageDeals.filter((deal) => deal.dynamicType !== PAYPAY_LOCAL_DYNAMIC_TYPE);
+  const featuredDeals = rankedDeals.slice(0, FEATURED_DEAL_COUNT);
+  const additionalDeals = [...rankedDeals.slice(FEATURED_DEAL_COUNT), ...payPayDeals];
+  const splitIntoTwoSections = additionalDeals.length > 0;
   const featuredSection = pageDeals.length ? renderRankedDealSection(
     featuredDeals,
     now,
