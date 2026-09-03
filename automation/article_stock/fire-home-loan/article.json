@@ -1,0 +1,33 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREするなら住宅ローンはどう考える？繰上返済すべき？",
+  "meta_description": "FIREと住宅ローンを考えるなら、金利だけでなく毎月の固定費、手元資金、家族の安心、住み替えの自由を比べる必要があります。繰上返済を急がない判断軸を整理します。",
+  "category": "住まいとFIRE",
+  "lead": "FIRE前後の住宅ローンは、繰上返済すれば正解という単純な話ではありません。利息を減らす効果と、手元の現金を失うリスク、住み替えの自由を家族の生活から考えます。",
+  "tags": ["FIRE 住宅ローン", "住宅ローン FIRE", "FIRE 繰上返済", "FIRE 持ち家"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a split-house composition: he stands at a crossroads between a sturdy home with a paid-down foundation and an open road with a liquid cash bridge, holding a plain key in one hand and a blank planning card in the other. Integrate exact Japanese typography 「住宅ローン」 and a bold banner 「繰上返済する？」. Vivid yellow, red, teal and navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "住宅ローン",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.flat35.com/",
+      "title": "長期固定金利住宅ローン フラット35",
+      "why": "住宅ローンの返済や一部繰上返済などの公式情報を確認する入口"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/fire-household/", "anchor": "家族の家計から考える" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREと住宅ローンの固定費・流動性・繰上返済の判断軸に焦点を置き、持ち家と賃貸の比較は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

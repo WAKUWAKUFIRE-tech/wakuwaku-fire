@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREの計算方法を簡単に解説｜必要資産はどう求める？",
+  "meta_description": "FIREの計算方法を、年間生活費から必要資産を出す手順で整理します。資産収入と小さな収入を分け、4%を目安に置く計算例と、家族や相場の変化を入れた確認方法を紹介します。",
+  "category": "FIREの計算",
+  "lead": "FIREの計算は、資産額から始めるより年間生活費から始めると整理しやすくなります。支出を年額にし、継続収入を引き、取り崩し率を仮置きする。30歳でFIREした本人の経験も踏まえ、数字だけで決めない手順を説明します。",
+  "tags": ["FIRE 計算", "FIRE 計算方法", "FIRE シミュレーション", "FIRE 取り崩し計算"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: premium 1:1 square Japanese website article thumbnail for a FIRE media site. Image 1 is the exact character reference for 「まる」: preserve his recognizable spiky black hair, black-rim glasses, expressive eyes, and white FIRE T-shirt. Image 2 is an approved thumbnail used only as a quality and finish reference: match its cinematic depth, sharp anime illustration, dramatic lighting, layered composition, rich textures, and bold integrated Japanese typography, but do not copy its composition or layout. Create the finished illustration and typography together, not a plain scene with text pasted on later. Redesign the visual completely for an article explaining how to calculate the FIRE amount of assets. Make it feel premium, energetic, and editorial, with a polished Japanese YouTube-thumbnail finish rather than a flat infographic or cheap clip-art. Composition: an unconventional three-quarter overhead planning scene. A large clean paper roadmap sweeps diagonally from the upper right toward the center, showing only a simple red line rising from a short monthly-expense bar to a clear finish flag; use visual marks and shapes only, with no writing on the paper. Around it are coherent, fully rendered physical props that make the calculation understandable: neatly stacked coins, one plain paper calendar with blank squares, one straight ruler, and one red marker on a dark wooden desk. The character appears in the lower-left foreground leaning over the roadmap with a focused aha expression. Show exactly two arms and exactly two hands: one hand draws the red line with the single marker, and the other hand firmly holds the edge of the paper. Keep both hands attached naturally; no hidden limbs, duplicated hands, extra arms, or extra characters. Use deep navy, vivid red, gold, and warm cream with hard rim light, strong shadows, sparks, paper texture, and depth. Integrate one huge crisp Japanese hook in a bold diagonal red-and-yellow badge across the center, exact text 「どう計算？」. Render the text verbatim in thick white and black outlined lettering with yellow highlights, highly legible on mobile, and do not cover the character's face. No calculator, calculator buttons, keyboard, digital keypad, maze, floating math symbols, random gadgets, surreal AI objects, flat icons, gray overlay, three top callouts, blue bottom banner, standard right-side-character/left-side-text layout, personal name, age, address, phone, email, individual asset amount, watermark, browser frame, screenshot UI, logo, or any other readable text.",
+  "thumbnail_text": "どう計算？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に確認したい準備" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREの必要額を考える" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産と距離を置く方法" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の考え方を説明する記事とは、生活費・継続収入・取り崩し率・ストレステストの実際の計算手順に焦点を置いて差別化する。",
+  "needs_review": false,
+  "review_reason": ""
+}

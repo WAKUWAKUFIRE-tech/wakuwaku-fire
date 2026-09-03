@@ -452,7 +452,8 @@ async function verifyUrlReachable(url) {
   }
 }
 
-async function validateGeneratedOutput(item, generated, noteSources, sourcePacket) {
+async function validateGeneratedOutput(item, generated, noteSources, sourcePacket, options = {}) {
+  const checkExternalSources = options.checkExternalSources ?? process.env.CHECK_EXTERNAL_SOURCES !== "false";
   if (generated.needs_review) throw new ArticleNeedsReview(generated.review_reason || "モデルが根拠不足と判断しました。");
   if (generated.cannibalization === "skip") return generated;
   validateBodyHtml(generated);
@@ -478,10 +479,12 @@ async function validateGeneratedOutput(item, generated, noteSources, sourcePacke
         throw new ArticleNeedsReview(`制度記事の出典が公的ドメインではありません: ${source.url}`);
       }
     }
-    try {
-      if (!(await verifyUrlReachable(source.url))) throw new Error("HTTPエラー");
-    } catch {
-      throw new ArticleNeedsReview(`外部出典へアクセスできません: ${source.url}`);
+    if (checkExternalSources) {
+      try {
+        if (!(await verifyUrlReachable(source.url))) throw new Error("HTTPエラー");
+      } catch {
+        throw new ArticleNeedsReview(`外部出典へアクセスできません: ${source.url}`);
+      }
     }
   }
   const allowedExternalUrls = new Set([
@@ -902,7 +905,9 @@ async function validatePreparedStock(queue) {
     const generated = await loadPreparedArticle(item);
     const noteSources = await loadPreparedNoteSources(generated);
     const sourcePacket = await buildSourcePacket(item, noteSources);
-    await validateGeneratedOutput(item, generated, noteSources, sourcePacket);
+    // 事前stock全体の検証では、外部サイトの一時障害を公開キュー全体へ波及させない。
+    // 公開対象の1記事は publishOne() で出典到達性を別途確認できる。
+    await validateGeneratedOutput(item, generated, noteSources, sourcePacket, { checkExternalSources: false });
     const thumbnailPath = `${stockDirectory(item)}/thumbnail.png`;
     const dimensions = pngDimensions(await fs.readFile(abs(thumbnailPath)));
     if (!dimensions || dimensions.width !== dimensions.height || dimensions.width < 512) {
@@ -1068,8 +1073,19 @@ async function publishOne(mode) {
     }
     item = nextPlanned(queue);
     if (!item) {
-      await writeRunResult({ status: "exhausted", date: now.date });
-      console.log("公開承認済みの事前作成ストックがありません。記事作成・承認後に公開されます。");
+      const unresolved = queue.items.filter((candidate) => !["published", "skipped"].includes(candidate.status));
+      const status = unresolved.length ? "blocked_no_stock" : "exhausted";
+      await writeRunResult({
+        status,
+        date: now.date,
+        published_slot: publication.key,
+        unresolved_count: unresolved.length,
+        unresolved_statuses: Object.fromEntries([...new Set(unresolved.map((candidate) => candidate.status))].map((candidateStatus) => [candidateStatus, unresolved.filter((candidate) => candidate.status === candidateStatus).length]))
+      });
+      if (unresolved.length) {
+        throw new FatalPublishError(`公開可能なstockがありません。未公開記事が${unresolved.length}本残っています。stockの公開元への反映を確認してください。`);
+      }
+      console.log("公開対象の記事はすべて公開済みです。");
       return;
     }
     const existing = await readPublishedArticles();

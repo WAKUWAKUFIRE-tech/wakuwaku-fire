@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREするとつまらない？自由になっても満たされない理由",
+  "meta_description": "FIREするとつまらない、暇になると感じる理由を、自由の使い方・生活リズム・人との接点から考えます。FIRE直後にゲームへ偏った本人の失敗と、その後の変化も紹介します。",
+  "category": "FIRE後の生活",
+  "lead": "FIREすると自由になるのに、なぜつまらなく感じるのか。FIRE直後にゲームへ偏り、生活の軸を失った経験から、時間・人・小さな挑戦を取り戻す方法を考えます。",
+  "tags": ["FIRE つまらない", "FIRE 楽しくない", "FIRE後 退屈", "FIRE 幸せ"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character in a bored-then-awakened split pose, exactly two arms and two hands. Show a dim room opening into a vivid active day with people, walking and creative work; rich blue, orange, red and yellow. Integrate bold typography: main 「FIRE後つまらん？」 in huge white-yellow letters with red-black outline, support banner 「自由だけでは足りない」. Dynamic premium finish, no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "FIRE後つまらん？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇と向き合う話" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "幸福度を下げないお金の使い方" },
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の暇そのものではなく、自由になっても満たされない理由を、本人のゲーム中心の時期と後年の生活軸の変化から掘り下げる。",
+  "needs_review": false,
+  "review_reason": ""
+}

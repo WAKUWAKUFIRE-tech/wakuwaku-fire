@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "月20万円で暮らすならFIREにいくら必要？",
+  "meta_description": "月20万円の生活費ならFIREにいくら必要かを、年間支出240万円と取り崩し率の例から計算します。税金・臨時費・家族・幸福予算まで含め、6000万円を保証額にしない考え方です。",
+  "category": "FIREの必要資産",
+  "lead": "月20万円で暮らせるなら、FIREに必要な資産はいくらになるのか。まず年間生活費を出し、取り崩し率の例で大まかな数字を置きます。ただ、月20万円に何を含めるかで答えは変わる。幸福予算や家族の変化まで含めて考えます。",
+  "tags": ["FIRE 月20万円", "月20万円 FIRE", "生活費20万円", "FIRE 必要資産"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese YouTube-style thumbnail with image and typography created together. Use the exact referenced character in a warm, confident apartment pose; exactly two arms and two hands. Show a believable lived-in home opening to a sunlit balcony, groceries, a budget envelope and calm daily-life details, with navy, cream, vivid red and gold. Main headline on a bold navy diagonal panel, huge yellow and white letters with red-black outline: 「月20万でFIRE？」. Add a bright red stamp with cream letters: 「必要資産を逆算」. Make the question mark prominent, keep face and scene visible, rich depth and mobile readability. No trailing 「なら」, no personal name, age, address, phone, email, watermark, browser UI, logo, calculator graphic, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "月20万でFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "生活費からFIRE必要額を考える" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "幸福度を落とさないお金の使い方" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に確認したい準備" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "月20万円という具体ケースの年間計算と、最低生活費・幸福予算・臨時費を含めた見積もりに集中し、FIRE必要額の一般論と差別化する。",
+  "needs_review": false,
+  "review_reason": ""
+}

@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREと社会保険の基本｜知らないと損しやすい論点まとめ",
+  "meta_description": "FIREと社会保険を考えるなら、健康保険、年金、退職後の切り替え、再就職や法人化による変化を分けて確認する必要があります。制度を見落とさない順番を整理します。",
+  "category": "FIREのお金",
+  "lead": "FIRE後の社会保険は、健康保険と年金を別々に見るだけでは足りません。退職直後の手続き、家族の加入、再び働くときの変化まで、生活の段階に合わせて確認することが大切です。",
+  "tags": ["FIRE 社会保険", "FIRE 社会保険料", "退職後 社会保険", "FIRE 健康保険"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a rotating systems-wheel composition: he stands in the center of a clean bridge linking a health shield, pension clock and work door, with each symbol distinct and no confusing fake documents. Integrate exact Japanese typography 「社会保険」 and a contrasting banner 「FIRE後にどう変わる？」. Vivid cyan, yellow, coral and navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "社会保険",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.nenkin.go.jp/service/mokutekibetsu/jigyosho/jigyosho/index.html",
+      "title": "事業所に関する手続きをする｜日本年金機構",
+      "why": "健康保険・厚生年金保険の適用事業所と手続きを確認する公的な案内"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/newpage_21539.html",
+      "title": "国民健康保険の加入資格｜厚生労働省",
+      "why": "退職後の国民健康保険の加入・脱退を確認する公的な案内"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "FIRE後の家計と保険を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "退職前の準備を確認する" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の働き方を見る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "退職・再就職・法人化で社会保険の確認がどう変わるかを俯瞰し、健康保険料や年金の細部は個別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

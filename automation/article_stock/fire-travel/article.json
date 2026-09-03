@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREしたら旅行はもっと楽しい？自由時間と旅の相性を考える",
+  "meta_description": "FIRE後の旅行は、長期滞在や平日の移動など自由が広がる一方、予算・家族・体力・帰る場所も考える必要があります。旅を人生の時間へ変える視点を整理します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後は旅行の予定を自分で決めやすくなります。ただ、自由時間が増えれば旅が自動で楽しくなるわけではありません。お金、家族、体力、帰宅後の暮らしまで含めて考えます。",
+  "tags": ["FIRE 旅行", "FIRE 旅", "FIRE後 旅行", "FIRE 海外旅行"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a sweeping travel-map composition: the character stands on a route that curves from a quiet hometown street to mountains, sea, and a distant city, holding a simple passport cover in one hand and pointing toward the next route with the other, no flags, no readable airport signs, no extra people. Integrate exact Japanese typography 「FIREで旅する」 and a bold banner 「自由時間を旅に変える」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "FIREで旅する",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-03-06_【FIRE】中年に残された時間は少ない。人生を取り戻せ【前編】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の時間の使い方を見る" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "体験にお金を使う考え方" },
+    { "path": "/articles/fire-community/", "anchor": "旅の後も人とつながる場所" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の旅行を時間・予算・家族・体力の設計として扱い、海外移住や日常生活の詳細は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

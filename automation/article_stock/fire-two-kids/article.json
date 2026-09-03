@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "子供2人でFIREはどれくらい厳しい？教育費を踏まえて考える",
+  "meta_description": "子供2人でFIREを考えるなら、教育費を単純に二倍するだけでは足りません。生活費の変化、進路の幅、家族の安心、働く選択肢まで含めて現実的に考えます。",
+  "category": "家族とFIRE",
+  "lead": "子供2人の家庭でFIREを目指すと、教育費と生活費の見通しが複雑になります。厳しさを煽るのではなく、何が増え、何を分けて考えればいいのかを、家族と資産の変化を経験した立場から整理します。",
+  "tags": ["FIRE 子供2人", "子供2人 FIRE", "子ども2人 教育費", "子育て FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a fresh overhead composition: the character sits at a round table with two clearly separate colorful paths leading toward two small glowing stars, one hand resting on a blank family budget sheet and the other pointing toward an open future, thoughtful expression. Integrate exact Japanese typography 「子2人で？」 and a bold supporting ribbon 「教育費をどう見る」. Strong coral, yellow, blue and green contrast, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "子2人で？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族の支出をまとめて見る" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産の考え方" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "子ども二人の教育費と家計シナリオに焦点を当て、子持ちFIRE全般や夫婦の合意形成を主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

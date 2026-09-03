@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後の生活はどう変わる？実際の1日と数年後の本音",
+  "meta_description": "FIRE後の生活は毎日が休日になるだけではありません。朝の子どもの準備、送迎、家事、創作、散歩、家族との時間まで、FIRE6年目に公開した実際の1日と数年後の本音を紹介します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後の生活は、南の島で毎日遊ぶようなものではありません。僕のある一日は、朝6時の子どもの準備から始まり、送迎、家事、創作、散歩、買い物、寝かしつけで終わります。FIRE直後との違いも含めて、普通の日のリアルを話します。",
+  "tags": ["FIRE後 生活", "FIRE後の暮らし", "FIRE後 1日", "FIRE 生活実態"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference for 「まる」; preserve the recognizable spiky dark hair, black-rim glasses, expressive eyes, and white FIRE T-shirt, while freely changing the pose and expression. Create finished illustration and Japanese typography together. Fresh composition: a dynamic top-down circular day-in-the-life layout around the character, with a breakfast plate, alarm clock, bicycle, notebook, shopping bag, and warm evening lamp arranged like a colorful clock face; the character is in the center stepping through the day with a relaxed, satisfied expression. Avoid the repeated right-side character / left-side text formula. Integrate the single main hook as large playful lettering wrapped around the circular clock path, exact text 「FIRE後の生活」, crisp Japanese characters with strong white and dark outline, highly legible on mobile. No extra readable text, no personal name, age, address, phone, email, asset amount, watermark, browser frame, screenshot UI, or identifiable additional people.",
+  "thumbnail_text": "FIRE後の生活",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["キラキラしてない日常"],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIRE6年目のリアルな一日" },
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の10日間を読む" },
+    { "path": "/fire-migration-japan/", "anchor": "FIRE後の暮らしを考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の生活全体を、FIRE直後の堕落・家族がいる現在の一日・普通の日の価値という時間軸で整理する。単日の詳細記事とは全体の変化に焦点を置いて差別化する。",
+  "needs_review": false,
+  "review_reason": ""
+}

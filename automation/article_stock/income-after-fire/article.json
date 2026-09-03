@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後の収入源はどうする？配当・副業・Side FIREの考え方",
+  "meta_description": "FIRE後の収入源を資産運用だけに絞る必要はありません。配当などの資産収入、小さな仕事、発信、家事育児を分け、会社を辞めたあとに複数の活動を試した経験から考えます。",
+  "category": "FIRE後のお金",
+  "lead": "FIRE後の収入源は、資産運用だけに固定する必要はありません。配当などの資産収入、小さな仕事、発信、家事育児。収入になるものと生活を支える役割を分けて考えると、完全FIREとSide FIREの間に現実的な選択肢が見えてきます。",
+  "tags": ["FIRE後 収入", "FIRE 収入源", "FIRE 配当", "FIRE 副業"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: premium 1:1 square Japanese website article thumbnail for a FIRE media site. Image 1 is the exact character reference for 「まる」: preserve his recognizable spiky black hair, black-rim glasses, expressive eyes, and white FIRE T-shirt. Image 2 is an approved thumbnail used only as a quality and finish reference: match its cinematic depth, sharp anime illustration, dramatic lighting, layered composition, rich textures, and bold integrated Japanese typography, but do not copy its composition or layout. Create the finished illustration and typography together, not a plain scene with added-looking text. Redesign the visual completely for an article about income sources after FIRE. Composition: a cinematic three-way route scene with the character standing in the foreground at a strong three-quarter angle, body leaning forward with confident energy. Show exactly two arms and exactly two hands: one hand grips a single red folder close to his chest, and the other hand is extended toward three clearly rendered paths behind him. The paths lead to three substantial, believable mini-scenes rather than floating clip-art icons: a warm dividend-income desk with neatly stacked coins, a bright laptop workspace for side work, and a small parcel on a real work table for flexible work. Blend the three scenes into the environment with perspective, glow, and depth; no extra characters. Use a bold red, gold, deep blue, and black palette with strong rim light, sparks, speed lines, and a polished YouTube-thumbnail level finish. Integrate one huge, crisp, highly legible Japanese hook across the lower diagonal foreground: exact text 「収入どうする？」. Render that text verbatim in bold red and yellow with thick white and black outlines, with dynamic perspective and mobile readability. Keep the character and key scenes visible; do not cover the face. No flat icons, no empty plain background, no generic stock art, no gray panel, no three top callouts, no blue bottom banner, no personal name, age, address, phone, email, individual asset amount, watermark, browser frame, screenshot UI, logo, extra text, extra limbs, duplicated hands, duplicated character, calculator, keyboard, maze, or surreal floating objects.",
+  "thumbnail_text": "収入どうする？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-06-25_FIREしたおっさんがYouTubeライブ配信をやったら稼げるのか？想像以上にカオスだったw.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-youtube-live/", "anchor": "FIRE後の発信を収入にできるか試した話" },
+    { "path": "/articles/fire-household/", "anchor": "家事育児を含めたFIRE後の暮らし" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額の考え方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の計算ではなく、FIRE後の収入を資産収入・小さな仕事・発信・家庭内の役割に分けて考える記事。収入源の一覧と本人の実験を中心にする。",
+  "needs_review": false,
+  "review_reason": ""
+}

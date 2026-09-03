@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の税金はどうなる？見落としがちなポイントを整理",
+  "meta_description": "FIRE後の税金は、退職後の給与、投資の利益、事業や副業、退職金など収入の種類で扱いが変わります。無職なら税金ゼロと決めつけず、確認の順番を整理します。",
+  "category": "FIREのお金",
+  "lead": "FIRE後は会社の給与がなくなるため、税金もなくなると思いがちです。実際には、退職金、投資、事業、配当など収入の種類で確認点が変わります。制度の最新情報を確認しながら、資金計画の順番を考えます。",
+  "tags": ["FIRE 税金", "FIRE 税", "FIRE後 税金", "退職後 税金"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a dramatic desk-free composition: he stands between a large glowing tax calendar and a protected emergency cash box, pointing at a blank checklist, alert but calm, strong diagonal light. Integrate exact Japanese typography 「税金どうなる？」 and a bold banner 「FIRE後に見落とすな」. Vivid red, yellow, teal and navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "税金どうなる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1910.htm",
+      "title": "No.1910 中途退職で年末調整を受けていないとき｜国税庁",
+      "why": "年の途中で退職した場合の所得税と年末調整・確定申告の確認先"
+    },
+    {
+      "url": "https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/gensen/annai/1648_37.htm",
+      "title": "退職所得の受給に関する申告｜国税庁",
+      "why": "退職手当を受け取るときの申告書の確認先"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に確認する準備" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の働き方と一日" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後に税金を見落とさないための収入区分と確認手順に焦点を置き、住民税・健康保険の詳細制度は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

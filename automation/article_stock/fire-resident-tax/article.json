@@ -1,0 +1,33 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の住民税は要注意？退職翌年に困りやすい理由",
+  "meta_description": "FIRE後の住民税は、退職して収入が減った直後でも前年の所得をもとに負担が発生することがあります。退職翌年に慌てないための見方と資金準備を整理します。",
+  "category": "FIREのお金",
+  "lead": "退職したら住民税もなくなる、と思っていると翌年に驚くことがあります。住民税は所得税と仕組みが違い、退職後の収入減と請求の時期がずれるからです。時点を分けて準備します。",
+  "tags": ["FIRE 住民税", "FIRE後 住民税", "退職翌年 住民税", "無職 住民税"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a punchy calendar-flip composition: he pulls a bright red tax notice from behind a large calendar while a shrinking paycheck icon fades behind him, surprised but composed, no readable document details. Integrate exact Japanese typography 「住民税注意」 and a bold yellow warning strip 「退職翌年に来る？」. Strong red, yellow, blue and white contrast, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "住民税注意",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.nta.go.jp/taxes/zeirishi/zeirishishiken/point2025/09.htm",
+      "title": "住民税｜国税庁",
+      "why": "個人住民税の課税時期や退職所得の扱いを確認する公的な案内"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "退職前に確認する準備" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "生活費から必要資産を考える" },
+    { "path": "/articles/fire-household/", "anchor": "家族の家計を世帯で見る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "退職翌年に住民税の請求が来る時期のずれと資金準備に焦点を置き、所得税や健康保険の詳細は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

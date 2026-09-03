@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の年金はどう考える？完全無視できない理由",
+  "meta_description": "FIRE後の年金は、退職後の国民年金の手続き、保険料、将来の受給、iDeCoとの違いまで分けて考える必要があります。完全無視せず確認する順番を整理します。",
+  "category": "FIREのお金",
+  "lead": "FIRE後の年金は、老後の話だからと後回しにしがちです。退職後の加入手続きと、資産から生活する期間、将来の受け取りを分けて考えると、今の自由と将来の安心を両立しやすくなります。",
+  "tags": ["FIRE 年金", "FIRE後 年金", "早期退職 年金", "国民年金 FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a time-bridge composition: he walks across a bridge from a bright FIRE sunrise toward a calm future horizon, with a large blank clock and pension umbrella behind him, reflective expression. Integrate exact Japanese typography 「年金どうする？」 and a bold banner 「FIRE後も無視できない」. Vivid gold, indigo, turquoise and coral, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "年金どうする？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.nenkin.go.jp/section/faq/scenebetsu/shushoku/taishoku/index.html",
+      "title": "年金Q&A（退職したとき）｜日本年金機構",
+      "why": "退職後の国民年金への切り替えや配偶者の手続きを確認する公的な案内"
+    },
+    {
+      "url": "https://www.nenkin.go.jp/service/scenebetsu/shushoku.html",
+      "title": "就職・転職・退職｜日本年金機構",
+      "why": "退職時の年金制度と必要な手続きを確認する入口"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に整える準備" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の働き方を見る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "退職後の年金加入手続きと将来資金の考え方に焦点を置き、住民税やiDeCoの制度詳細は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

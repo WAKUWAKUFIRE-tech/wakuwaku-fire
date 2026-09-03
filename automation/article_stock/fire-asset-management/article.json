@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の資産運用はどうする？増やすより守るが難しい理由",
+  "meta_description": "FIRE後の資産運用は、利回りを追うだけでは続きません。大きな資産変動を経験したからこそ分かった、守る資産・増やす資産・現金・小さな収入の考え方を整理します。",
+  "category": "FIREのお金",
+  "lead": "FIRE後の資産運用は、資産を増やす競争から、暮らしを守る設計へ変わります。相場の上げ下げに心まで持っていかれないために、資産の役割を分けて考えます。",
+  "tags": ["FIRE 資産運用", "FIRE 投資", "FIRE後 運用", "資産を守る"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a dramatic split-scene composition: the character stands at a forked control panel, shielding a warm home and calm family-life path with one arm while directing a smaller growth arrow with the other, no extra people or random financial symbols. Integrate exact Japanese typography 「運用どうする？」 and a bold banner 「増やすより守る」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "運用どうする？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-stock-distance/", "anchor": "株価との距離を見直す" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだことを振り返る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の運用全体を、守る資産と増やす資産の役割分担から整理する。具体的な資産配分や暴落対策の細部は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

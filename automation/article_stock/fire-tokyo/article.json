@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "東京でFIREは難しい？生活費の高さと都市の魅力をどう考えるか",
+  "meta_description": "東京でFIREを考えるなら、生活費の高さだけでなく、通勤時間の削減、医療や人とのつながり、住み替えの自由まで含めて判断することが大切です。都市FIREの考え方を整理します。",
+  "category": "住まいとFIRE",
+  "lead": "東京は生活費が高いからFIREに向かない、と単純には言えません。都市に住むことで得ている時間や便利さもあります。支出を削る前に、東京で何を買っているのかを言葉にして考えます。",
+  "tags": ["東京 FIRE", "東京 生活費", "都市 FIRE", "FIRE 住まい"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a fresh elevated city-crossing composition: the character stands between a glowing Tokyo skyline and a quiet rooftop garden, holding a blank rent-versus-time card and looking confident, cinematic sunset, no copied layout. Integrate exact bold Japanese typography 「東京FIRE」 and a contrasting phrase 「生活費だけで決めない」. Vivid red, gold, cyan and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "東京FIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の一日の使い方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "都市に住むコストと時間・便利さの交換に焦点を置き、地方移住や海外移住の具体策は主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

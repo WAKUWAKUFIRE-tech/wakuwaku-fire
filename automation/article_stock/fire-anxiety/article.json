@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の不安はなくなる？達成しても消えない理由",
+  "meta_description": "FIRE後の不安は、資産が増えれば完全になくなるとは限りません。大きな資産変動、暇や孤独、家族の安心を経験した視点から、不安と暮らす方法を考えます。",
+  "category": "FIREの考え方",
+  "lead": "FIREを達成すれば不安が消えると思いがちですが、実際には不安の形が変わることがあります。資産・時間・家族・人とのつながりを分けて、残る不安との付き合い方を整理します。",
+  "tags": ["FIRE 不安", "FIRE後 不安", "FIRE 資産不安", "FIRE 心理"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a split-light composition: the character stands in front of a huge question-shaped shadow on one side and a warm everyday home, coffee, and open window on the other, holding a small anchor-like safety card and touching his chest, no extra people or random text. Integrate exact Japanese typography 「不安は消える？」 and a bold banner 「FIRE後も残る？」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "不安は消える？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇を考える" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の一日を見てみる" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだことを読む" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後に残る不安の正体と扱い方に集中し、暴落の投資判断や暇の具体策は関連記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

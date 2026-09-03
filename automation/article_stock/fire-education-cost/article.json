@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREと教育費は両立できる？子どもがいると難しくなる理由",
+  "meta_description": "FIREと教育費を両立するには、教育費の総額だけでなく、支出の時期、進路の幅、生活費、家族の時間、働く選択肢を分けて考える必要があります。",
+  "category": "家族とFIRE",
+  "lead": "FIREと教育費は両立できない、と決めつける必要はありません。ただ、子どもの成長で支出と時間の使い方が変わるため、一人暮らしのFIRE計画をそのまま使えないのも事実です。家族の安心から考えます。",
+  "tags": ["FIRE 教育費", "FIRE 子ども 教育費", "教育費 資産形成", "子育て FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a dynamic staircase composition: he stands at the base of a bright school-and-family staircase, looking upward while a separate safe cash path runs beside it, hopeful and thoughtful. Integrate exact Japanese typography 「教育費が重い」 and a bold banner 「FIREと両立できる？」. Vivid yellow, coral, teal and navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "教育費が重い",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族の家計を世帯で見る" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "教育費の時期・不確実性とFIREの両立に焦点を置き、子持ちFIRE全般や子ども二人の比較は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "地方移住でFIREは楽になる？コストだけでは決められない理由",
+  "meta_description": "地方移住でFIREすると生活費を下げられる可能性がありますが、車、医療、交通、人間関係、家族の希望も確認が必要です。コストだけで移住を決めない考え方を整理します。",
+  "category": "住まいとFIRE",
+  "lead": "地方へ移住すればFIREが楽になる、と考えるのは少し早いです。家賃や物価だけでなく、移動、医療、家族の生活、地域とのつながりまで含めて、移住後の一日を想像する必要があります。",
+  "tags": ["地方移住 FIRE", "FIRE 田舎暮らし", "FIRE 生活費", "FIRE 移住"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a dynamic horizontal journey composition: the character steps from a crowded city train platform onto a bright rural path, carrying a plain backpack, one side busy and gray, the other side green and open, hopeful expression. Integrate exact Japanese typography 「地方移住」 and a bold supporting banner 「FIREは楽になる？」. Vivid green, orange, blue and navy, exactly two arms and two hands, no duplicate character, no private information, no watermark, no random text.",
+  "thumbnail_text": "地方移住",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-09_【FIRE4コマ漫画】FIRE民、移住しがち.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の一日の過ごし方" },
+    { "path": "/articles/fire-household/", "anchor": "家族の生活から考える" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "削らない支出を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "地方移住の費用以外の条件と試し方に焦点を置き、東京の都市生活や海外移住の制度論は主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

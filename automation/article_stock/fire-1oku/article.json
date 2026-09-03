@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "1億円あればFIREできる？安心できる人と不安が残る人の違い",
+  "meta_description": "1億円あればFIREできるのかを、年間生活費と資産変動への向き合い方から考えます。1億4000万円以上まで増えた後に大きく減らした本人の経験も時点を分けて整理します。",
+  "category": "FIREの必要資産",
+  "lead": "1億円あればFIREできるのか。計算上の生活費だけでなく、資産が減ったときの心理、家族の安心、働き方の選択まで含めて、安心できる人と不安が残る人の違いを考えます。",
+  "tags": ["1億円 FIRE", "1億円 安心", "FIRE 不安", "FIRE 必要資産"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail using the exact referenced character in a tense-but-determined pose, exactly two arms and two hands. Create a giant glowing vault on one side and a stormy market horizon on the other, with cinematic navy, crimson, gold and white. Integrate bold Japanese typography: main 「1億でFIRE？」 in huge red-yellow outlined letters, support label 「安心は買える？」. Dramatic depth, no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "1億でFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産の値動きと距離を置く考え方" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだこと" },
+    { "path": "/articles/fire-reasons/", "anchor": "なぜFIREしたいのかを考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "1億円という大きな金額でも安心が自動で完成しない心理と家族判断を主題にし、必要資産の計算そのものとは切り分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

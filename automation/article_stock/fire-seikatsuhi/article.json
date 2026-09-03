@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREで一番大事なのは生活費？必要資産より先に考えるべきこと",
+  "meta_description": "FIREで一番大事なのは、資産額より先に毎月と年間の生活費を把握することです。固定費、家族の支出、税金、使いたいお金を分けて必要資産を考えます。",
+  "category": "FIREのお金",
+  "lead": "FIREの必要資産を考えるとき、いきなり大きな金額を目標にすると生活の実態が見えなくなります。何にお金を使い、何を削らず、どんな一日を守りたいのか。生活費からFIREを組み立てます。",
+  "tags": ["FIRE 生活費", "FIRE 支出", "FIRE 月の生活費", "FIRE 固定費"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a striking giant-foundation composition: he stands on a bright foundation labeled with clean abstract coins, while a colorful home, family path and clock rise above it, looking determined, no fake calculator or random numbers. Integrate exact Japanese typography 「生活費が本体」 and a bold banner 「必要資産より先に見ろ」. Vivid yellow, coral, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "生活費が本体",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "削らない支出を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "生活費を固定費・変動費・年次支出・幸福度に分けてFIRE必要資産へつなぐことに焦点を置き、特定の資産額の正解は提示しない。",
+  "needs_review": false,
+  "review_reason": ""
+}

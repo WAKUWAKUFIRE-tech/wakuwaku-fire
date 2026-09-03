@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後の趣味は何がいい？時間が増えてからこそ難しい理由",
+  "meta_description": "FIRE後の趣味が自然に見つからない理由と、時間が増えた後に小さく試す方法を整理します。ゲーム中心になった時期やラーメン、散歩、発信へ広がった本人の経験も紹介します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後の趣味は何がいいのか。時間が増えれば自然に充実するわけではありません。ゲーム中心だった時期から、散歩・食事・発信・新しい挑戦へ広がった経験をもとに考えます。",
+  "tags": ["FIRE後 趣味", "FIRE 趣味", "FIRE 時間の使い方", "FIRE やること"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character choosing among believable hobbies—walking, writing, a meal and a small creative desk—in a colorful radial composition, exactly two arms and two hands. Rich orange, blue, red and yellow lighting. Integrate typography: main 「FIRE後の趣味」 in huge white-yellow outlined letters, support badge 「時間が増えたら何する？」. No personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "FIRE後の趣味",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇を乗り越える工夫" },
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "趣味や体験に使うお金" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の趣味選びと試し方に焦点を当て、暇の正体や一日の時間割を主題にした記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

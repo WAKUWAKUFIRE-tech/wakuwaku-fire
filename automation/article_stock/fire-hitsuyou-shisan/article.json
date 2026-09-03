@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREの必要資産はいくら？計算の基本をわかりやすく解説",
+  "meta_description": "FIREに必要な資産はいくらかを、年間生活費・家族構成・働く選択肢から考えます。年間支出に25を掛ける計算の意味と、6000万円でFIREした本人が後から感じた現実を整理します。",
+  "category": "FIREの資産計画",
+  "lead": "FIREの必要資産に唯一の正解はありません。まず年間生活費を出し、目安として年間支出の25倍を置く方法があります。ただし、4%での取り崩しを保証する数字ではありません。30歳で資産6000万円で会社を辞めた僕の経験も交えて考えます。",
+  "tags": ["FIRE 必要資産", "FIRE 必要額", "FIRE 資産額", "FIRE いくら"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference for 「まる」; preserve the recognizable spiky dark hair, black-rim glasses, expressive eyes, and white FIRE T-shirt, while freely changing pose and expression. Create finished illustration and Japanese typography together. Fresh composition: a giant bright balance scale fills the square; one side holds a stack of expense blocks and the other holds a glowing nest egg, while the character energetically pulls a large measuring lever in the center with a focused expression. Use a vivid orange, yellow, and deep blue palette. Integrate one huge crisp hook into the scale as a bold hanging sign: exact text 「必要資産」. No usual right-side character / left-side text layout, no gray overlay, no three top callouts, no extra readable text. No personal name, age, address, phone, email, individual asset amount, watermark, browser frame, screenshot UI, or additional characters.",
+  "thumbnail_text": "必要資産",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に確認したい準備" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産と距離を置く考え方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの計算手順そのものではなく、必要資産を生活費・家族・収入・リスク許容度から考える入口の記事。6000万円の本人経験は必要額の保証ではなく、条件が変わる例として使う。",
+  "needs_review": false,
+  "review_reason": ""
+}

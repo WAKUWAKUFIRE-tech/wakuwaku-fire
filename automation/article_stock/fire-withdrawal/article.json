@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の取り崩しはどう考える？怖さと向き合う方法",
+  "meta_description": "FIRE後の資産取り崩しは、数字の計算だけでなく、お金を使う怖さとの向き合い方が重要です。4％ルールを絶対視せず、生活費・収入・家族から考える方法を整理します。",
+  "category": "FIREのお金",
+  "lead": "FIREした後は、資産を増やすだけでなく、必要なときに使う判断が必要になります。取り崩しが怖くて生活を我慢し続けないために、資産を時間へ変える考え方をまとめます。",
+  "tags": ["FIRE 取り崩し", "FIRE 資産取り崩し", "FIRE 生活費", "FIRE 4%ルール"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a cinematic bridge scene: the character carefully moves glowing coins from a large reserve vault toward a warm everyday-life scene, with one hand on a small lever and the other protecting a plain envelope, no calculators or random numbers. Integrate exact Japanese typography 「取り崩し」 and a bold banner 「使うのが怖い？」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "取り崩し",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "削らない支出を考える" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産との距離を見直す" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "資産を使う心理と取り崩しの設計に焦点を置き、資産配分や暴落時の具体策は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

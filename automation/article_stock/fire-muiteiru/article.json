@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREに向いている人の特徴は？性格・価値観・生き方から考える",
+  "meta_description": "FIREに向いている人の特徴を、資産額だけでなく一人の時間、自分で予定を作る力、価値観に沿って働く姿勢から考えます。30歳でFIREした経験者の視点で整理します。",
+  "category": "FIREの考え方",
+  "lead": "FIREに向いている人は、単に高収入で節約が得意な人だけではありません。自分で時間を使い、役割を作り、家族や人とのつながりも大切にできるか。経験者の視点で特徴を考えます。",
+  "tags": ["FIRE 向いている人", "FIRE 適性", "FIRE 向いてる", "FIRE 性格"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character confidently choosing one of three bold doors labeled only by simple visual icons for time, people and challenge, exactly two arms and two hands. Compose the character in the lower-left foreground with the doors fanning out behind, using red, electric blue, gold and cream; avoid the standard upper-left text/right character layout. Integrate exact Japanese typography: huge main 「向いてる人」 in yellow-white with navy and red outlines, plus a bright blue tag 「お金より価値観」. Strong art-and-type integration, mobile-safe; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "向いてる人",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-24_FIREした100人を調べたら「本当に幸せなのか」の答えが見えた.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を整理する" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだこと" },
+    { "path": "/articles/sidefire-6000/", "anchor": "6000万円で始めたサイドFIRE" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE適性を資産額や年収の条件だけで決めず、時間の自己管理・価値観・人との接点・働き方から整理する。必要資産の記事とは検索意図を分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

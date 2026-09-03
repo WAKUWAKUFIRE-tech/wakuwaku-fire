@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREのメリットは何？経験者が感じた本当の恩恵",
+  "meta_description": "FIREのメリットを、通勤や会社から離れられることだけでなく、時間の使い方、家族との生活、仕事を選べる感覚から整理します。30歳で会社を辞めた経験も紹介します。",
+  "category": "FIREの考え方",
+  "lead": "FIREのメリットは、働かなくてもいいことだけではありません。30歳で会社を辞めた僕が、家族との時間、体調、仕事の選び方、やり直す余白として実感した恩恵を話します。",
+  "tags": ["FIRE メリット", "FIRE 利点", "FIRE 自由", "FIRE 会社を辞める"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character stepping out of a split office elevator into a bright open morning, exactly two arms and two hands. Use a bold circular clock motif behind the character, scattered red and gold light rays, and a small family breakfast silhouette in the distance; no generic stock-photo composition. Integrate exact Japanese typography: huge main 「FIREの恩恵」 in white and yellow with black and red outlines, plus a diagonal navy ribbon 「買えたのは時間」. High-impact art-and-text integration, mobile-safe; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "FIREの恩恵",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-03-06_【FIRE】中年に残された時間は少ない。人生を取り戻せ【前編】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に整える準備" },
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIRE後の一日" },
+    { "path": "/articles/fire-household/", "anchor": "家族とFIREを考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの一般的な利点を列挙するだけでなく、時間・家族・仕事の選択・体調回復という本人の実感に絞る。FIRE後の日課だけの記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

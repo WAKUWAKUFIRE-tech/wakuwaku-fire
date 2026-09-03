@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREにマイクロ法人は使える？節税だけで考えていいのか",
+  "meta_description": "FIRE後のマイクロ法人は、事業や働き方を整える選択肢になり得ますが、節税だけで決めると税務・会計・社会保険の負担を見落とします。経験者目線で考え方を整理します。",
+  "category": "FIREと仕事",
+  "lead": "FIRE後にマイクロ法人を作ると節税できる、という話だけが先行しがちです。法人化は、事業の実態、家族の時間、会計、税務、社会保険を引き受ける選択。使えるかどうかを順番に考えます。",
+  "tags": ["FIRE マイクロ法人", "FIRE 法人", "マイクロ法人 FIRE", "FIRE 節税"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a playful but premium blueprint composition: he stands beside a tiny glowing company building and a large balance scale holding time on one side and paperwork on the other, confident questioning expression. Integrate exact Japanese typography 「法人は必要？」 and a contrasting banner 「節税だけで決めるな」. Vivid yellow, coral, cyan and navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "法人は必要？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/1554_2.htm",
+      "title": "内国普通法人等の設立の届出｜国税庁",
+      "why": "法人設立時の税務上の届出を確認する公的な案内"
+    },
+    {
+      "url": "https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150518.html?referral=base",
+      "title": "適用事業所と被保険者｜日本年金機構",
+      "why": "法人事業所の健康保険・厚生年金の適用関係を確認する公的な案内"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の働き方と一日" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/sidefire-6000/", "anchor": "資産と収入を組み合わせる" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の法人化を節税だけで決めないための実態・手間・社会保険の確認に絞り、個別の税額計算や設立手続きの代行は扱わない。",
+  "needs_review": false,
+  "review_reason": ""
+}

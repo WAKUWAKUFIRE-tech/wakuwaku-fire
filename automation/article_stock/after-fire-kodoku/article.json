@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後は孤独になりやすい？会社を辞めると失いやすいもの",
+  "meta_description": "FIRE後に孤独を感じる理由を、会社がくれていた会話・役割・生活リズムの変化から考えます。コミュニティを作った本人の経験をもとに、一人の自由との違いを整理します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後は孤独になりやすいのか。会社を辞めたあとに減った会話や役割、そこからコミュニティや家族との時間へ接点を作り直した経験をもとに、孤独と一人時間の違いを考えます。",
+  "tags": ["FIRE後 孤独", "FIRE 孤独", "FIRE 社会との距離", "FIRE 友達"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character moving from a lonely dark room toward a warmly lit group conversation, exactly two arms and two hands. Cinematic deep blue, orange, red and gold, layered environment. Integrate bold typography: main 「FIRE後は孤独？」 in huge white-yellow letters with red-black outline, support banner 「会社を辞めて失うもの」. No personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "FIRE後は孤独？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2024-11-02_FIREコミュニティという大人の秘密基地.md",
+    "content_sources/note/articles/2024-12-02_FIREするなら早くサードプレイスを持つべし！.md",
+    "content_sources/note/articles/2026-07-30_20人以上が1年以上継続。ワクワクFIREコミュニティが長く続いている理由を考えてみた.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-community/", "anchor": "FIREコミュニティを作った理由" },
+    { "path": "/articles/fire-community-place/", "anchor": "会社以外の居場所を考える" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を見つめる" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の孤独を社会との接点という観点で扱い、退屈や暇の原因だけを説明する記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREまで何年かかる？年収・貯蓄率・運用で変わる達成年数",
+  "meta_description": "FIREまで何年かかるかは、年収だけでなく生活費、貯蓄率、今ある資産、運用、FIRE後の収入で変わります。30歳で会社を辞めた経験も一例として、距離の測り方を考えます。",
+  "category": "FIREの計画",
+  "lead": "FIREまで何年かかるかを、年齢や年収だけで決めることはできません。生活費、貯蓄率、今ある資産、運用、そして必要なら少し働けるか。30歳で会社を辞めた僕が、6年後に感じた「計算だけでは決まらない距離」の測り方を整理します。",
+  "tags": ["FIRE 何年かかる", "FIRE 達成年数", "FIRE 貯蓄率", "FIRE 資産形成"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese YouTube-style thumbnail with image and typography created together. Use the exact referenced character with freely changed pose, preserving his black spiky hair, glasses and white FIRE T-shirt; exactly two arms and two hands. Use a dramatic clock-and-calendar time tunnel leading to a sunrise road, with navy, crimson, gold and white cinematic lighting. Main headline, huge and diagonal with yellow letters, red fill/shadow and white-black outline: 「FIREまで何年？」. Add a red-orange brush banner with white letters: 「年収だけじゃない」. Rich layered composition, sharp mobile-safe typography, face visible. No personal name, age, address, phone, email, watermark, browser UI, logo, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "FIREまで何年？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額の考え方" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に整えておきたい準備" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産の値動きと距離を置く考え方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の計算そのものではなく、収入・貯蓄率・開始資産・運用・FIRE後の働き方によって達成年数が動くことを主題にする。",
+  "needs_review": false,
+  "review_reason": ""
+}

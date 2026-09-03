@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREは意味ないと言われるのはなぜ？それでも目指す価値はあるのか",
+  "meta_description": "FIREは意味ないと言われる理由を、資産・暇・孤独・家族・働く意味から整理します。FIRE後の失敗も認めたうえで、目指す価値を自分の生活から考えます。",
+  "category": "FIREの考え方",
+  "lead": "FIREは意味ないという意見にも、現実を突いた部分があります。会社を辞めても悩みは残るし、資産があっても不安は消えません。それでもFIREで得られる価値を、体験から考えます。",
+  "tags": ["FIRE 意味ない", "FIRE 無意味", "FIRE 批判", "FIRE メリット"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a strong weighing-scale composition: the character stands beside a scale balancing a giant money symbol on one side and a bright clock, family meal, and open path on the other, looking honestly uncertain but hopeful, no extra people or random text. Integrate exact Japanese typography 「意味ない？」 and a bold banner 「それでも目指す？」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "意味ない？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-reasons/", "anchor": "FIREを目指す理由を読む" },
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇を考える" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "お金を使う幸福を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE批判が当たっている部分と、それでも得られる選択肢を整理し、FIREの理由や暇の具体策は関連記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

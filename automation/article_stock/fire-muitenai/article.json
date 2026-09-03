@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREに向いていない人の特徴は？お金より大事な適性の話",
+  "meta_description": "FIREに向いていない人の特徴を、自由時間の使い方、生活リズム、人とのつながり、資産の値動きへの向き合い方から考えます。実際にFIREした経験者が正直に整理します。",
+  "category": "FIREの考え方",
+  "lead": "FIREに向いていない人は、収入が低い人や資産が少ない人だけではありません。会社を辞めたあとに必要な生活の型や人との接点を作れるか。経験者の失敗も含めて考えます。",
+  "tags": ["FIRE 向いてない人", "FIRE 向いていない", "FIRE 失敗", "FIRE 適性"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese YouTube-style thumbnail using the exact referenced character in a brand-new full-body crossroads scene: he stands upright at a sunlit fork in the road, with a crowded gray city path on one side and a quiet warm path on the other, viewed from a low slightly wide angle. His pose is completely different from the previous image: one arm hangs naturally holding a small plain blank card and the other hangs relaxed with an open hand, both arms fully separated and visible, exactly two arms and exactly two hands, natural anatomy. Integrate exact Japanese typography into the artwork: huge vertical or staggered 「向いてない？」 along the right edge and a contrasting banner reading 「自由がしんどい人」. Use vivid yellow, coral, teal and indigo contrast, mobile-safe, premium and expressive; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "向いてない？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだこと" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を見直す" },
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREに向いていない状態を、資産額ではなく自由時間・生活リズム・孤独・資産不安への適性から扱う。向いている人の記事とは反対側の具体例に絞る。",
+  "needs_review": false,
+  "review_reason": ""
+}

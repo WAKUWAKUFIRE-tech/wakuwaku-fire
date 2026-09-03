@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREはやめとけと言われる理由は？その意見は本当に正しいのか",
+  "meta_description": "FIREはやめとけと言われる理由を、暇・孤独・資産下落・家族の不安から考えます。実際に30歳で会社を辞め、FIRE後の変化も経験した本人が、賛成と反対の両面を話します。",
+  "category": "FIREの考え方",
+  "lead": "「FIREはやめとけ」という意見は本当に正しいのか。自由の裏側にある暇や資産不安を経験した僕が、FIREを美化せず、誰にでも勧めるわけでもない立場から考えます。",
+  "tags": ["FIRE やめとけ", "FIRE やめる", "FIRE 批判", "FIRE 危険"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character standing between a giant red STOP sign and a glowing open road, one hand raised in hesitation and the other holding a small compass, exactly two arms and two hands. Dynamic perspective from a low angle, explosive red-yellow rays, deep navy shadows, no usual right-side portrait layout. Integrate exact Japanese typography: huge main 「FIREやめとけ？」 in white and yellow with thick black and red outlines, plus a sharp blue banner 「その意見、正しい？」. High-impact art-and-type integration, mobile-safe; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "FIREやめとけ？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-06_【徹底考察】FIRE批判は正しいのか？それともFIREは日本の救世主なのか？【早期リタイア】.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだこと" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を考える" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を整える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE批判の言葉を入口に、やめとけと言われる理由と、本人が経験した現実的な対策を両面で扱う。デメリットの一覧記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

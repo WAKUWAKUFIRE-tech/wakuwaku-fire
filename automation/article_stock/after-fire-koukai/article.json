@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後に後悔することは？達成して初めて見える落とし穴",
+  "meta_description": "FIRE後に後悔しやすいことを、生活リズム・能力低下・人との接点・資産不安から整理します。2年半ゲーム中心だった本人の経験と、その後の変化を時点つきで紹介します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後に後悔することはあるのか。2年半ゲーム中心の生活で生活の軸を失った経験、資産の変動で考え直した家族との向き合い方から、達成後の落とし穴を整理します。",
+  "tags": ["FIRE後 後悔", "FIRE後 失敗", "FIRE 達成後", "FIRE 現実"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character in a regretful but forward-looking pose, exactly two arms and two hands. Show a cracked calendar and dim game-room doorway opening to a bright path with people and purpose; cinematic navy, red, gold and cream. Integrate typography: main 「その後悔」 in huge red-white outlined letters, support panel 「達成して初めて気づく」. Strong visual impact, mobile-safe, no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "その後悔",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-reasons/", "anchor": "FIREをした理由を見直す" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだこと" },
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇をどう扱うか" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の後悔を一つの失敗談に限定せず、自由の使い方・能力・家族・資産の時点変化から整理し、FIRE後の暇だけの記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

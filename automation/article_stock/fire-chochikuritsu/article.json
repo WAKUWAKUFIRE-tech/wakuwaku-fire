@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREで本当に大事なのは貯蓄率？年収より重要な理由",
+  "meta_description": "FIREで大事な貯蓄率は、年収の大きさだけでは決まりません。手取りと支出の差をどう残すか、幸福度の低い支出だけを見直す方法を、FIRE経験者の失敗も交えて解説します。",
+  "category": "FIREの資産形成",
+  "lead": "FIREを目指すと年収の高さばかり気になりますが、実際に資産形成へ回せるのは収入と支出の差です。貯蓄率の計算方法から、幸福度まで削ってしまったら本末転倒になる理由まで、僕のFIRE後の実感を交えて考えます。",
+  "tags": ["FIRE 貯蓄率", "FIRE 貯金率", "FIRE 年収", "FIRE 節約"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese YouTube-style thumbnail with image and typography created together. Use the exact referenced character with a changed determined pose; exactly two arms and two hands. Show a cinematic savings-flow and vault scene with a real leaking expense envelope being stopped, a savings jar, vivid red, gold and deep navy, sparks, metal and paper textures. Main headline, huge stacked white and yellow letters with thick red-black outline: 「貯蓄率が命」. Add a compact red framed label with cream letters: 「年収より大事？」. Rich layered depth, clear mobile typography, no calculator or keyboard. No personal name, age, address, phone, email, watermark, browser UI, logo, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "貯蓄率が命",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md",
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-happiness-spending/", "anchor": "幸福度を落とさない支出の見直し" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "生活費からFIRE必要額を考える" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産形成と投資との距離感" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE必要額の計算ではなく、収入の絶対額より手元に残る割合と、その割合を維持する支出設計を主題にする。",
+  "needs_review": false,
+  "review_reason": ""
+}

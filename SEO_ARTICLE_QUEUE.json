@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-03",
+  "updated_at": "2026-09-04",
   "items": [
     {
       "id": "seo-001",
@@ -275,7 +275,7 @@
     {
       "id": "seo-008",
       "priority_order": 8,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 暇",
       "secondary_keywords": [
         "FIRE 退屈",
@@ -302,12 +302,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-hima"
     },
     {
       "id": "seo-009",
       "priority_order": 9,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 失敗",
       "secondary_keywords": [
         "FIRE 失敗談",
@@ -335,12 +336,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-shippai"
     },
     {
       "id": "seo-010",
       "priority_order": 10,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 生活",
       "secondary_keywords": [
         "FIRE後の暮らし",
@@ -367,12 +369,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/life-after-fire"
     },
     {
       "id": "seo-011",
       "priority_order": 11,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 仕事",
       "secondary_keywords": [
         "FIRE後 働く",
@@ -399,12 +402,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/work-after-fire"
     },
     {
       "id": "seo-012",
       "priority_order": 12,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 収入",
       "secondary_keywords": [
         "FIRE 収入源",
@@ -423,7 +427,7 @@
       "internal_link_targets": [
         "/articles/fire-youtube-live/",
         "/articles/fire-household/",
-        "/FIRE研究室/"
+        "/articles/fire-ikura-hitsuyou/"
       ],
       "thumbnail_text_hint": "収入どうする？",
       "latest_fact_check_required": false,
@@ -431,12 +435,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/income-after-fire"
     },
     {
       "id": "seo-013",
       "priority_order": 13,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 必要資産",
       "secondary_keywords": [
         "FIRE 必要額",
@@ -453,9 +458,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-keisan/",
-        "/articles/fire-ikura-hitsuyou/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/fire-stock-distance/"
       ],
       "thumbnail_text_hint": "必要資産",
       "latest_fact_check_required": false,
@@ -463,12 +468,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-hitsuyou-shisan"
     },
     {
       "id": "seo-014",
       "priority_order": 14,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 計算",
       "secondary_keywords": [
         "FIRE 計算方法",
@@ -484,9 +490,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-hitsuyou-shisan/",
-        "/articles/fire-4percent-rule/"
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-stock-distance/"
       ],
       "thumbnail_text_hint": "どう計算？",
       "latest_fact_check_required": false,
@@ -494,12 +500,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-keisan"
     },
     {
       "id": "seo-015",
       "priority_order": 15,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 何歳",
       "secondary_keywords": [
         "FIRE 年齢",
@@ -517,8 +524,8 @@
       ],
       "internal_link_targets": [
         "/articles/sidefire-6000/",
-        "/articles/fire-30s/",
-        "/FIRE研究室/"
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/"
       ],
       "thumbnail_text_hint": "何歳で？",
       "latest_fact_check_required": false,
@@ -526,12 +533,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-nansai"
     },
     {
       "id": "seo-016",
       "priority_order": 16,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 何年かかる",
       "secondary_keywords": [
         "FIRE 達成年数",
@@ -548,9 +556,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-chochikuritsu/",
-        "/articles/fire-nenshu/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/fire-stock-distance/"
       ],
       "thumbnail_text_hint": "何年かかる？",
       "latest_fact_check_required": false,
@@ -558,12 +566,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-nannen"
     },
     {
       "id": "seo-017",
       "priority_order": 17,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 貯蓄率",
       "secondary_keywords": [
         "FIRE 貯金率",
@@ -580,9 +589,9 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-seikatsuhi/",
-        "/articles/fire-nenshu/",
-        "/FIRE研究室/"
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-stock-distance/"
       ],
       "thumbnail_text_hint": "貯蓄率が命",
       "latest_fact_check_required": false,
@@ -590,12 +599,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-chochikuritsu"
     },
     {
       "id": "seo-018",
       "priority_order": 18,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 年収",
       "secondary_keywords": [
         "FIRE 年収いくら",
@@ -612,9 +622,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-chochikuritsu/",
-        "/articles/fire-seikatsuhi/",
-        "/FIRE研究室/"
+        "/articles/sidefire-6000/",
+        "/articles/fire-youtube-live/",
+        "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "年収いくら？",
       "latest_fact_check_required": false,
@@ -622,12 +632,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-nenshu"
     },
     {
       "id": "seo-019",
       "priority_order": 19,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 月20万円",
       "secondary_keywords": [
         "月20万円 FIRE",
@@ -644,9 +655,9 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-seikatsuhi/",
-        "/articles/fire-4percent-rule/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "月20万なら",
       "latest_fact_check_required": false,
@@ -654,12 +665,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-20man"
     },
     {
       "id": "seo-020",
       "priority_order": 20,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 月25万円",
       "secondary_keywords": [
         "月25万円 FIRE",
@@ -676,9 +688,9 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-seikatsuhi/",
-        "/articles/fire-4percent-rule/"
+        "/articles/fire-household/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-happiness-spending/"
       ],
       "thumbnail_text_hint": "月25万なら",
       "latest_fact_check_required": false,
@@ -686,12 +698,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-25man"
     },
     {
       "id": "seo-021",
       "priority_order": 21,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 月30万円",
       "secondary_keywords": [
         "月30万円 FIRE",
@@ -708,22 +721,23 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-seikatsuhi/",
-        "/articles/fire-4percent-rule/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-household/",
+        "/articles/fire-preparation/"
       ],
-      "thumbnail_text_hint": "月30万なら",
+      "thumbnail_text_hint": "月30万FIRE？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-30man"
     },
     {
       "id": "seo-022",
       "priority_order": 22,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 月40万円",
       "secondary_keywords": [
         "月40万円 FIRE",
@@ -740,22 +754,23 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
-        "/articles/fire-seikatsuhi/",
-        "/articles/fire-4percent-rule/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-household/",
+        "/articles/fire-stock-distance/"
       ],
-      "thumbnail_text_hint": "月40万なら",
+      "thumbnail_text_hint": "月40万円で？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-40man"
     },
     {
       "id": "seo-023",
       "priority_order": 23,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 3000万円",
       "secondary_keywords": [
         "3000万円 FIRE",
@@ -772,22 +787,23 @@
         "content_sources/knowledge_base/numbers_and_facts.md"
       ],
       "internal_link_targets": [
-        "/articles/side-fire-toha/",
-        "/articles/fire-keisan/",
-        "/FIRE研究室/"
+        "/articles/fire-stock-distance/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/"
       ],
-      "thumbnail_text_hint": "3000万で？",
+      "thumbnail_text_hint": "3000万円で？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-3000man"
     },
     {
       "id": "seo-024",
       "priority_order": 24,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 1億円",
       "secondary_keywords": [
         "1億円 FIRE",
@@ -805,22 +821,23 @@
         "content_sources/knowledge_base/fears_and_anxieties.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-anxiety/",
-        "/articles/fire-crash/",
-        "/FIRE研究室/"
+        "/articles/fire-stock-distance/",
+        "/articles/fire-6-lessons/",
+        "/articles/fire-reasons/"
       ],
-      "thumbnail_text_hint": "1億で安心？",
+      "thumbnail_text_hint": "1億でFIRE？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-1oku"
     },
     {
       "id": "seo-025",
       "priority_order": 25,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE つまらない",
       "secondary_keywords": [
         "FIRE 楽しくない",
@@ -838,21 +855,22 @@
       ],
       "internal_link_targets": [
         "/articles/fire-after-boredom/",
-        "/articles/fire-happiness/",
-        "/risk-runner/"
+        "/articles/fire-happiness-spending/",
+        "/articles/sidefire-day/"
       ],
-      "thumbnail_text_hint": "つまらない？",
+      "thumbnail_text_hint": "FIRE後つまらん？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-tsumaranai"
     },
     {
       "id": "seo-026",
       "priority_order": 26,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 後悔",
       "secondary_keywords": [
         "FIRE後 失敗",
@@ -869,7 +887,7 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-koukai/",
+        "/articles/fire-reasons/",
         "/articles/fire-6-lessons/",
         "/articles/fire-after-boredom/"
       ],
@@ -879,12 +897,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/after-fire-koukai"
     },
     {
       "id": "seo-027",
       "priority_order": 27,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 孤独",
       "secondary_keywords": [
         "FIRE 孤独",
@@ -905,18 +924,19 @@
         "/articles/fire-community-place/",
         "/articles/fire-reasons/"
       ],
-      "thumbnail_text_hint": "孤独になる？",
+      "thumbnail_text_hint": "FIRE後は孤独？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/after-fire-kodoku"
     },
     {
       "id": "seo-028",
       "priority_order": 28,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 人間関係",
       "secondary_keywords": [
         "FIRE 友人",
@@ -937,18 +957,19 @@
         "/articles/fire-household/",
         "/articles/fire-community-place/"
       ],
-      "thumbnail_text_hint": "人間関係",
+      "thumbnail_text_hint": "人間関係どう？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/after-fire-relationships"
     },
     {
       "id": "seo-029",
       "priority_order": 29,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 趣味",
       "secondary_keywords": [
         "FIRE 趣味",
@@ -965,22 +986,23 @@
         "content_sources/knowledge_base/recurring_stories.md"
       ],
       "internal_link_targets": [
-        "/risk-runner/",
         "/articles/fire-after-boredom/",
-        "/articles/sidefire-day/"
+        "/articles/sidefire-day/",
+        "/articles/fire-happiness-spending/"
       ],
-      "thumbnail_text_hint": "趣味どうする？",
+      "thumbnail_text_hint": "FIRE後の趣味",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/after-fire-hobby"
     },
     {
       "id": "seo-030",
       "priority_order": 30,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE後 やること",
       "secondary_keywords": [
         "FIRE後 何する",
@@ -999,20 +1021,21 @@
       "internal_link_targets": [
         "/articles/fire-after-10-days/",
         "/articles/sidefire-day/",
-        "/FIRE研究室/"
+        "/articles/fire-youtube-live/"
       ],
-      "thumbnail_text_hint": "何する？",
+      "thumbnail_text_hint": "FIRE後何する？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/after-fire-yarukoto"
     },
     {
       "id": "seo-031",
       "priority_order": 31,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 幸せ",
       "secondary_keywords": [
         "FIRE 幸福",
@@ -1039,12 +1062,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-happiness"
     },
     {
       "id": "seo-032",
       "priority_order": 32,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE メリット",
       "secondary_keywords": [
         "FIRE 利点",
@@ -1065,18 +1089,19 @@
         "/articles/sidefire-day/",
         "/articles/fire-household/"
       ],
-      "thumbnail_text_hint": "メリット",
+      "thumbnail_text_hint": "FIREの恩恵",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-merit"
     },
     {
       "id": "seo-033",
       "priority_order": 33,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE デメリット",
       "secondary_keywords": [
         "FIRE 欠点",
@@ -1093,22 +1118,23 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-koukai/",
+        "/articles/fire-6-lessons/",
         "/articles/fire-stock-distance/",
         "/articles/fire-community/"
       ],
-      "thumbnail_text_hint": "デメリット",
+      "thumbnail_text_hint": "FIREの弱点",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-demerit"
     },
     {
       "id": "seo-034",
       "priority_order": 34,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 向いている人",
       "secondary_keywords": [
         "FIRE 適性",
@@ -1125,9 +1151,9 @@
         "content_sources/knowledge_base/happiness_and_life.md"
       ],
       "internal_link_targets": [
-        "/fire-animal-test/",
-        "/articles/fire-demerit/",
-        "/articles/side-fire-toha/"
+        "/articles/fire-reasons/",
+        "/articles/fire-6-lessons/",
+        "/articles/sidefire-6000/"
       ],
       "thumbnail_text_hint": "向いてる人",
       "latest_fact_check_required": false,
@@ -1135,12 +1161,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-muiteiru"
     },
     {
       "id": "seo-035",
       "priority_order": 35,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 向いてない人",
       "secondary_keywords": [
         "FIRE 向いていない",
@@ -1157,9 +1184,9 @@
         "content_sources/knowledge_base/lessons_learned.md"
       ],
       "internal_link_targets": [
-        "/fire-animal-test/",
-        "/articles/fire-merit/",
-        "/articles/fire-koukai/"
+        "/articles/fire-6-lessons/",
+        "/articles/fire-reasons/",
+        "/articles/fire-after-boredom/"
       ],
       "thumbnail_text_hint": "向いてない？",
       "latest_fact_check_required": false,
@@ -1167,12 +1194,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-muitenai"
     },
     {
       "id": "seo-036",
       "priority_order": 36,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE やめとけ",
       "secondary_keywords": [
         "FIRE やめる",
@@ -1189,22 +1217,23 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-demerit/",
         "/articles/fire-6-lessons/",
-        "/articles/fire-reasons/"
+        "/articles/fire-reasons/",
+        "/articles/fire-stock-distance/"
       ],
-      "thumbnail_text_hint": "やめとけ？",
+      "thumbnail_text_hint": "FIREやめとけ？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-yametoke"
     },
     {
       "id": "seo-037",
       "priority_order": 37,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 30代",
       "secondary_keywords": [
         "30代 FIRE",
@@ -1222,8 +1251,8 @@
       ],
       "internal_link_targets": [
         "/articles/sidefire-6000/",
-        "/articles/fire-nansai/",
-        "/articles/fire-preparation/"
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/"
       ],
       "thumbnail_text_hint": "30代で？",
       "latest_fact_check_required": false,
@@ -1231,12 +1260,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-30s"
     },
     {
       "id": "seo-038",
       "priority_order": 38,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 40代",
       "secondary_keywords": [
         "40代 FIRE",
@@ -1254,8 +1284,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-household/",
-        "/articles/fire-kodomo/",
-        "/FIRE研究室/"
+        "/articles/fire-community-place/",
+        "/articles/fire-after-10-days/"
       ],
       "thumbnail_text_hint": "40代で？",
       "latest_fact_check_required": false,
@@ -1263,12 +1293,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-40s"
     },
     {
       "id": "seo-039",
       "priority_order": 39,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 50代",
       "secondary_keywords": [
         "50代 FIRE",
@@ -1285,22 +1316,23 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-pension/",
-        "/articles/fire-hitsuyou-shisan/",
-        "/FIRE研究室/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/fire-stock-distance/"
       ],
-      "thumbnail_text_hint": "50代で？",
+      "thumbnail_text_hint": "FIREは50代？",
       "latest_fact_check_required": true,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-50s"
     },
     {
       "id": "seo-040",
       "priority_order": 40,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 独身",
       "secondary_keywords": [
         "独身 FIRE",
@@ -1317,22 +1349,23 @@
         "content_sources/knowledge_base/fears_and_anxieties.md"
       ],
       "internal_link_targets": [
-        "/articles/after-fire-kodoku/",
-        "/articles/fire-hitsuyou-shisan/",
-        "/fire-animal-test/"
+        "/articles/fire-community/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-reasons/"
       ],
-      "thumbnail_text_hint": "独身FIRE",
+      "thumbnail_text_hint": "独身FIRE？",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-single"
     },
     {
       "id": "seo-041",
       "priority_order": 41,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 夫婦",
       "secondary_keywords": [
         "夫婦 FIRE",
@@ -1350,8 +1383,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-household/",
-        "/articles/after-fire-relationships/",
-        "/articles/fire-happiness-spending/"
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-after-10-days/"
       ],
       "thumbnail_text_hint": "夫婦FIRE",
       "latest_fact_check_required": false,
@@ -1359,12 +1392,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-couple"
     },
     {
       "id": "seo-042",
       "priority_order": 42,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 子持ち",
       "secondary_keywords": [
         "子持ち FIRE",
@@ -1382,8 +1416,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-household/",
-        "/articles/fire-education-cost/",
-        "/articles/fire-preparation/"
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/"
       ],
       "thumbnail_text_hint": "子持ちFIRE",
       "latest_fact_check_required": false,
@@ -1391,12 +1425,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-kodomo"
     },
     {
       "id": "seo-043",
       "priority_order": 43,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 子供2人",
       "secondary_keywords": [
         "子供2人 FIRE",
@@ -1413,9 +1448,9 @@
         "content_sources/knowledge_base/numbers_and_facts.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-education-cost/",
-        "/articles/fire-kodomo/",
-        "/FIRE研究室/"
+        "/articles/fire-household/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "子2人で？",
       "latest_fact_check_required": false,
@@ -1423,12 +1458,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-two-kids"
     },
     {
       "id": "seo-044",
       "priority_order": 44,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 共働き",
       "secondary_keywords": [
         "共働き FIRE",
@@ -1445,22 +1481,23 @@
         "content_sources/knowledge_base/side_fire_and_work.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-couple/",
-        "/articles/fire-kodomo/",
-        "/FIRE研究室/"
+        "/articles/fire-household/",
+        "/articles/sidefire-6000/",
+        "/articles/fire-preparation/"
       ],
-      "thumbnail_text_hint": "共働き最強？",
+      "thumbnail_text_hint": "共働きFIRE",
       "latest_fact_check_required": false,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-dual-income"
     },
     {
       "id": "seo-045",
       "priority_order": 45,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 専業主夫",
       "secondary_keywords": [
         "専業主夫 FIRE",
@@ -1488,12 +1525,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-househusband"
     },
     {
       "id": "seo-046",
       "priority_order": 46,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 東京",
       "secondary_keywords": [
         "東京 FIRE",
@@ -1510,9 +1548,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-seikatsuhi/",
-        "/fire-migration-japan/",
-        "/articles/fire-local-move/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/sidefire-day/"
       ],
       "thumbnail_text_hint": "東京FIRE",
       "latest_fact_check_required": false,
@@ -1520,12 +1558,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-tokyo"
     },
     {
       "id": "seo-047",
       "priority_order": 47,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 地方移住",
       "secondary_keywords": [
         "地方移住 FIRE",
@@ -1542,9 +1581,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/fire-migration-japan/",
-        "/articles/fire-seikatsuhi/",
-        "/FIRE研究室/"
+        "/articles/sidefire-day/",
+        "/articles/fire-household/",
+        "/articles/fire-happiness-spending/"
       ],
       "thumbnail_text_hint": "地方移住",
       "latest_fact_check_required": false,
@@ -1552,12 +1591,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-local-move"
     },
     {
       "id": "seo-048",
       "priority_order": 48,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 海外移住",
       "secondary_keywords": [
         "海外移住 FIRE",
@@ -1574,22 +1614,23 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/fire-migration-world/",
-        "/ワールドツアー/",
-        "/articles/fire-seikatsuhi/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/fire-after-10-days/"
       ],
-      "thumbnail_text_hint": "海外移住",
+      "thumbnail_text_hint": "海外FIRE",
       "latest_fact_check_required": true,
       "published_url": "",
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-overseas-move"
     },
     {
       "id": "seo-049",
       "priority_order": 49,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 税金",
       "secondary_keywords": [
         "FIRE 税",
@@ -1607,8 +1648,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-preparation/",
-        "/articles/fire-resident-tax/",
-        "/FIRE研究室/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/sidefire-day/"
       ],
       "thumbnail_text_hint": "税金どうなる？",
       "latest_fact_check_required": true,
@@ -1616,12 +1657,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-tax"
     },
     {
       "id": "seo-050",
       "priority_order": 50,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 住民税",
       "secondary_keywords": [
         "FIRE後 住民税",
@@ -1637,9 +1679,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-tax/",
-        "/articles/fire-health-insurance/",
-        "/articles/fire-preparation/"
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-household/"
       ],
       "thumbnail_text_hint": "住民税注意",
       "latest_fact_check_required": true,
@@ -1647,12 +1689,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-resident-tax"
     },
     {
       "id": "seo-051",
       "priority_order": 51,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 国民健康保険",
       "secondary_keywords": [
         "FIRE 健康保険",
@@ -1669,9 +1712,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-social-insurance/",
-        "/articles/fire-tax/",
-        "/articles/fire-preparation/"
+        "/articles/fire-household/",
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/"
       ],
       "thumbnail_text_hint": "保険いくら？",
       "latest_fact_check_required": true,
@@ -1679,12 +1722,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-health-insurance"
     },
     {
       "id": "seo-052",
       "priority_order": 52,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 年金",
       "secondary_keywords": [
         "FIRE後 年金",
@@ -1701,9 +1745,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-50s/",
-        "/articles/fire-tax/",
-        "/FIRE研究室/"
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/sidefire-day/"
       ],
       "thumbnail_text_hint": "年金どうする？",
       "latest_fact_check_required": true,
@@ -1711,12 +1755,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-pension"
     },
     {
       "id": "seo-053",
       "priority_order": 53,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 社会保険",
       "secondary_keywords": [
         "FIRE 社会保険料",
@@ -1733,9 +1778,9 @@
         "content_sources/knowledge_base/family_and_fire.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-health-insurance/",
-        "/articles/fire-pension/",
-        "/articles/fire-tax/"
+        "/articles/fire-preparation/",
+        "/articles/fire-household/",
+        "/articles/sidefire-day/"
       ],
       "thumbnail_text_hint": "社会保険",
       "latest_fact_check_required": true,
@@ -1743,12 +1788,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-social-insurance"
     },
     {
       "id": "seo-054",
       "priority_order": 54,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE マイクロ法人",
       "secondary_keywords": [
         "FIRE 法人",
@@ -1765,9 +1811,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/work-after-fire/",
-        "/articles/income-after-fire/",
-        "/articles/fire-tax/"
+        "/articles/sidefire-day/",
+        "/articles/fire-preparation/",
+        "/articles/sidefire-6000/"
       ],
       "thumbnail_text_hint": "法人は必要？",
       "latest_fact_check_required": true,
@@ -1775,12 +1821,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-micro-corp"
     },
     {
       "id": "seo-055",
       "priority_order": 55,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE NISA",
       "secondary_keywords": [
         "NISA FIRE",
@@ -1797,8 +1844,8 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-asset-management/",
-        "/articles/fire-asset-allocation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/sidefire-6000/",
         "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "NISAでFIRE",
@@ -1807,12 +1854,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-nisa"
     },
     {
       "id": "seo-056",
       "priority_order": 56,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE iDeCo",
       "secondary_keywords": [
         "iDeCo FIRE",
@@ -1829,9 +1877,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-nisa/",
-        "/articles/fire-asset-allocation/",
-        "/articles/fire-pension/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/sidefire-6000/"
       ],
       "thumbnail_text_hint": "iDeCoいる？",
       "latest_fact_check_required": true,
@@ -1839,12 +1887,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-ideco"
     },
     {
       "id": "seo-057",
       "priority_order": 57,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 住宅ローン",
       "secondary_keywords": [
         "住宅ローン FIRE",
@@ -1861,9 +1910,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-own-vs-rent/",
-        "/articles/fire-seikatsuhi/",
-        "/articles/fire-preparation/"
+        "/articles/fire-preparation/",
+        "/articles/fire-household/",
+        "/articles/fire-ikura-hitsuyou/"
       ],
       "thumbnail_text_hint": "住宅ローン",
       "latest_fact_check_required": true,
@@ -1871,12 +1920,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-home-loan"
     },
     {
       "id": "seo-058",
       "priority_order": 58,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 持ち家 賃貸",
       "secondary_keywords": [
         "FIRE 持ち家",
@@ -1893,9 +1943,9 @@
         "content_sources/knowledge_base/life_after_fire.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-home-loan/",
-        "/articles/fire-local-move/",
-        "/articles/fire-seikatsuhi/"
+        "/articles/fire-preparation/",
+        "/articles/sidefire-day/",
+        "/articles/fire-household/"
       ],
       "thumbnail_text_hint": "持ち家or賃貸",
       "latest_fact_check_required": false,
@@ -1903,12 +1953,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-own-vs-rent"
     },
     {
       "id": "seo-059",
       "priority_order": 59,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 教育費",
       "secondary_keywords": [
         "FIRE 子ども 教育費",
@@ -1925,9 +1976,9 @@
         "content_sources/knowledge_base/numbers_and_facts.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-kodomo/",
-        "/articles/fire-two-kids/",
-        "/articles/fire-household/"
+        "/articles/fire-household/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "教育費が重い",
       "latest_fact_check_required": false,
@@ -1935,12 +1986,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-education-cost"
     },
     {
       "id": "seo-060",
       "priority_order": 60,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 生活費",
       "secondary_keywords": [
         "FIRE 支出",
@@ -1957,9 +2009,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/FIRE研究室/",
         "/articles/fire-ikura-hitsuyou/",
-        "/articles/fire-preparation/"
+        "/articles/fire-preparation/",
+        "/articles/fire-happiness-spending/"
       ],
       "thumbnail_text_hint": "生活費が本体",
       "latest_fact_check_required": false,
@@ -1967,12 +2019,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-seikatsuhi"
     },
     {
       "id": "seo-061",
       "priority_order": 61,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 資産運用",
       "secondary_keywords": [
         "FIRE 投資",
@@ -1990,8 +2043,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-stock-distance/",
-        "/articles/fire-asset-allocation/",
-        "/articles/fire-crash/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-6-lessons/"
       ],
       "thumbnail_text_hint": "運用どうする？",
       "latest_fact_check_required": false,
@@ -1999,12 +2052,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-asset-management"
     },
     {
       "id": "seo-062",
       "priority_order": 62,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 資産配分",
       "secondary_keywords": [
         "FIRE ポートフォリオ",
@@ -2021,9 +2075,9 @@
         "content_sources/knowledge_base/money_philosophy.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-asset-management/",
-        "/articles/fire-withdrawal/",
-        "/articles/fire-crash/"
+        "/articles/fire-stock-distance/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "資産配分",
       "latest_fact_check_required": false,
@@ -2031,12 +2085,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-asset-allocation"
     },
     {
       "id": "seo-063",
       "priority_order": 63,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 取り崩し",
       "secondary_keywords": [
         "FIRE 資産取り崩し",
@@ -2053,9 +2108,9 @@
         "content_sources/knowledge_base/fears_and_anxieties.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-4percent-rule/",
-        "/articles/fire-asset-allocation/",
-        "/FIRE研究室/"
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-stock-distance/"
       ],
       "thumbnail_text_hint": "取り崩し",
       "latest_fact_check_required": false,
@@ -2063,12 +2118,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-withdrawal"
     },
     {
       "id": "seo-064",
       "priority_order": 64,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 暴落",
       "secondary_keywords": [
         "FIRE 株価暴落",
@@ -2087,8 +2143,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-stock-distance/",
-        "/articles/fire-asset-allocation/",
-        "/articles/fire-preparation/"
+        "/articles/fire-preparation/",
+        "/articles/fire-6-lessons/"
       ],
       "thumbnail_text_hint": "暴落したら？",
       "latest_fact_check_required": false,
@@ -2096,12 +2152,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-crash"
     },
     {
       "id": "seo-065",
       "priority_order": 65,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE リスク",
       "secondary_keywords": [
         "FIRE 危険",
@@ -2119,9 +2176,9 @@
         "content_sources/knowledge_base/side_fire_and_work.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-demerit/",
-        "/articles/after-fire-kodoku/",
-        "/articles/fire-crash/"
+        "/articles/fire-after-boredom/",
+        "/articles/fire-reasons/",
+        "/articles/fire-preparation/"
       ],
       "thumbnail_text_hint": "本当のリスク",
       "latest_fact_check_required": false,
@@ -2129,12 +2186,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-risk"
     },
     {
       "id": "seo-066",
       "priority_order": 66,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 不安",
       "secondary_keywords": [
         "FIRE後 不安",
@@ -2151,8 +2209,8 @@
         "content_sources/knowledge_base/investment_failures.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-crash/",
-        "/articles/fire-1oku/",
+        "/articles/fire-after-boredom/",
+        "/articles/sidefire-day/",
         "/articles/fire-6-lessons/"
       ],
       "thumbnail_text_hint": "不安は消える？",
@@ -2161,12 +2219,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-anxiety"
     },
     {
       "id": "seo-067",
       "priority_order": 67,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE オワコン",
       "secondary_keywords": [
         "FIRE ブーム",
@@ -2183,9 +2242,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-yametoke/",
-        "/articles/fire-genjitsu/",
-        "/articles/fire-reasons/"
+        "/articles/fire-reasons/",
+        "/articles/fire-after-10-days/",
+        "/articles/fire-6-lessons/"
       ],
       "thumbnail_text_hint": "オワコン？",
       "latest_fact_check_required": true,
@@ -2193,12 +2252,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-owakon"
     },
     {
       "id": "seo-068",
       "priority_order": 68,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 意味ない",
       "secondary_keywords": [
         "FIRE 無意味",
@@ -2215,9 +2275,9 @@
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-merit/",
-        "/articles/fire-demerit/",
-        "/articles/fire-yametoke/"
+        "/articles/fire-reasons/",
+        "/articles/fire-after-boredom/",
+        "/articles/fire-happiness-spending/"
       ],
       "thumbnail_text_hint": "意味ない？",
       "latest_fact_check_required": false,
@@ -2225,12 +2285,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-iminai"
     },
     {
       "id": "seo-069",
       "priority_order": 69,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 現実",
       "secondary_keywords": [
         "FIRE 実態",
@@ -2248,8 +2309,8 @@
       ],
       "internal_link_targets": [
         "/articles/fire-6-lessons/",
-        "/articles/fire-after-boredom/",
-        "/articles/fire-crash/"
+        "/articles/fire-after-10-days/",
+        "/articles/fire-after-boredom/"
       ],
       "thumbnail_text_hint": "現実は甘くない",
       "latest_fact_check_required": false,
@@ -2257,12 +2318,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-genjitsu"
     },
     {
       "id": "seo-070",
       "priority_order": 70,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 成功例",
       "secondary_keywords": [
         "FIRE 成功",
@@ -2279,7 +2341,7 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/articles/fire-happiness/",
+        "/articles/fire-happiness-spending/",
         "/articles/fire-6-lessons/",
         "/articles/fire-community-place/"
       ],
@@ -2289,12 +2351,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-success"
     },
     {
       "id": "seo-071",
       "priority_order": 71,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 副業",
       "secondary_keywords": [
         "FIRE サイドビジネス",
@@ -2311,9 +2374,9 @@
         "content_sources/knowledge_base/money_philosophy.md"
       ],
       "internal_link_targets": [
-        "/articles/work-after-fire/",
-        "/articles/income-after-fire/",
-        "/articles/fire-youtube-live/"
+        "/articles/sidefire-day/",
+        "/articles/fire-youtube-live/",
+        "/articles/sidefire-6000/"
       ],
       "thumbnail_text_hint": "副業は必要？",
       "latest_fact_check_required": false,
@@ -2321,12 +2384,13 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-side-business"
     },
     {
       "id": "seo-072",
       "priority_order": 72,
-      "status": "planned",
+      "status": "stocked",
       "main_keyword": "FIRE 旅行",
       "secondary_keywords": [
         "FIRE 旅",
@@ -2343,9 +2407,9 @@
         "content_sources/knowledge_base/seo_experience_map.md"
       ],
       "internal_link_targets": [
-        "/ワールドツアー/",
-        "/fire-migration-world/",
-        "/articles/life-after-fire/"
+        "/articles/fire-after-10-days/",
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-community/"
       ],
       "thumbnail_text_hint": "FIREで旅する",
       "latest_fact_check_required": false,
@@ -2353,7 +2417,8 @@
       "published_at": "",
       "failed_reason": "",
       "published_time": "",
-      "published_slot": ""
+      "published_slot": "",
+      "stock_path": "automation/article_stock/fire-travel"
     }
   ]
 }

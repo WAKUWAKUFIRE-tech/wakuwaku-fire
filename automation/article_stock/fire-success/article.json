@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREの成功例とは？資産額だけでは測れない成功の形",
+  "meta_description": "FIREの成功例を資産額だけで判断しないために、時間、家族、健康、仲間、役割、幸福の分散から成功の形を考えます。公開事例を読んで感じた共通点も整理します。",
+  "category": "FIREの考え方",
+  "lead": "FIREの成功は、何歳でいくら持っているかだけでは決まりません。資産を時間や安心へ変えられているか、自分と家族が納得できる一日を作れているかから考えます。",
+  "tags": ["FIRE 成功例", "FIRE 成功", "FIRE 体験談", "FIRE 幸せ"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a celebratory but grounded composition: the character stands on a podium made of a clock, a warm meal, a friendship doorway, and a modest money block, holding a small flag with no words and looking genuinely relieved, no extra people or random text. Integrate exact Japanese typography 「成功とは？」 and a bold banner 「資産額だけじゃない」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "成功とは？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-24_FIREした100人を調べたら「本当に幸せなのか」の答えが見えた.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-happiness-spending/", "anchor": "幸福度を上げるお金の使い方" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後の学びを振り返る" },
+    { "path": "/articles/fire-community-place/", "anchor": "お金以外の居場所を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの成功を資産額以外の時間・関係・役割・幸福で定義し、幸福な支出やコミュニティの具体例は関連記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

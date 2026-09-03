@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後の人間関係はどう変わる？友達・家族・社会との距離感",
+  "meta_description": "FIRE後の人間関係がどう変わるかを、友達・家族・会社との距離感から整理します。会社を辞めた本人が、家事育児やコミュニティを通じて関係を作り直した経験も紹介します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後の人間関係は、友達・家族・社会との距離がどう変わるのか。会社がなくなった後の会話や役割、家事育児とコミュニティを通じた関係の作り直しを考えます。",
+  "tags": ["FIRE後 人間関係", "FIRE 友人", "FIRE 家族", "退職後 人間関係"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character between three believable scenes—family table, friend conversation and open community space—in a fresh triangular composition, exactly two arms and two hands. Rich cinematic blue, warm cream, red and gold. Integrate bold typography: main 「人間関係どう？」 in huge outlined letters, support ribbon 「友達・家族・社会」. No personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "人間関係どう？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2024-11-02_FIREコミュニティという大人の秘密基地.md",
+    "content_sources/note/articles/2026-07-30_20人以上が1年以上継続。ワクワクFIREコミュニティが長く続いている理由を考えてみた.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-community/", "anchor": "FIRE後の居場所を作る" },
+    { "path": "/articles/fire-household/", "anchor": "家族とFIREを考える" },
+    { "path": "/articles/fire-community-place/", "anchor": "会社以外のサードプレイス" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "人間関係全体の変化を、友人・家族・社会との距離感として整理し、孤独だけを主題にした記事やコミュニティ紹介とは役割を分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

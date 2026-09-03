@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "3000万円でFIREできる？かなり厳しい？それでも可能性はある？",
+  "meta_description": "3000万円でFIREできるのかを、生活費・取り崩し・Lean FIRE・Side FIREの違いから考えます。6000万円でサイドFIREを始めた経験も、読者の必要額と混同せず整理します。",
+  "category": "FIREの必要資産",
+  "lead": "3000万円でFIREできるのか。完全に働かない暮らしだけでなく、生活費を下げるLean FIREや小さな収入を組み合わせるSide FIREまで、厳しさと可能性を分けて考えます。",
+  "tags": ["3000万円 FIRE", "3000万円 サイドFIRE", "Lean FIRE", "FIRE 必要資産"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail using the exact referenced character in a bold experimental pose, exactly two arms and two hands. Show a long uphill road turning into a small but bright open path, believable modest living details, cinematic red, gold, navy and cream. Integrate large Japanese typography: main 「3000万円で？」 in yellow-white letters with thick red-black outline, support badge 「完全FIREは厳しい？」. Rich depth, clear mobile text, no personal name, age, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "3000万円で？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を考える" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "生活費から必要資産を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "会社を辞める前の準備" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "3000万円という限られた資産で完全FIREが可能かを、Lean FIRE・Side FIRE・収入の組み合わせへ展開する。大きな資産額の一般論とは切り分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

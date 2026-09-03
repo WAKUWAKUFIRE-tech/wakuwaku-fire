@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "暴落が来たらFIREは終わる？資産が減る恐怖との向き合い方",
+  "meta_description": "暴落が来たらFIREは終わるのか。大きな急落と資産減少を経験した視点から、生活防衛資金、家族との判断、働く選択肢、取り返そうとしない考え方を整理します。",
+  "category": "FIREのお金",
+  "lead": "暴落はFIREの計画を試す出来事です。資産が減ったとき、生活を守るお金まで売るのか、働くのか、支出を調整するのか。実際に大きな下落を経験したからこそ考えた順番をまとめます。",
+  "tags": ["FIRE 暴落", "FIRE 株価暴落", "FIRE 資産減少", "FIRE リスク"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a bold storm-and-shelter composition: the character braces a bright home-shaped shelter against a red market storm, holding a plain emergency envelope in one hand and lowering a risky lever with the other, no charts with random numbers. Integrate exact Japanese typography 「暴落したら？」 and a bold banner 「FIREは終わる？」. Vivid red, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "暴落したら？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2024-11-18_今年マイナス5000万円出したけど資産1億円超えた話.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-stock-distance/", "anchor": "株価との距離を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の備えを確認する" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだことを見る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "暴落時の心理と生活防衛の順番に焦点を置き、資産配分や取り崩しの一般論は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

@@ -1,0 +1,33 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREはもうオワコン？ブーム後の今だからこそ考えたいこと",
+  "meta_description": "FIREはもうオワコンなのか。流行や資産額の競争ではなく、働き方・時間・家族・お金以外の資産を選び直す生き方として、FIREを考えます。",
+  "category": "FIREの考え方",
+  "lead": "FIREが流行語として語られるかどうかと、働き方や人生を選び直す価値は別の話です。ブームという言葉から距離を置き、今の自分に必要な自由を考えます。",
+  "tags": ["FIRE オワコン", "FIRE ブーム", "FIRE 今", "FIRE 生き方"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a bold theater-curtain composition: the character pulls open a huge red curtain marked only by abstract fading trend lines, revealing a bright ordinary life with a home, family-time clock, and open work desk, no other people or random text. Integrate exact Japanese typography 「オワコン？」 and a bold banner 「FIREは終わった？」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "オワコン？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "金融庁 資産形成の基本",
+      "why": "FIREという呼び方の流行とは切り分け、生活設計に合わせて貯蓄と投資を使い分ける基礎確認のため"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-reasons/", "anchor": "FIREを目指す理由を見直す" },
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の現実を想像する" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだことを読む" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREという言葉の流行と、生き方としての意味を切り分ける。FIREのメリット・デメリットの詳細や実生活は関連記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

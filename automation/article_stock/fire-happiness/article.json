@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREすれば幸せになれる？お金と幸福のズレを経験者が語る",
+  "meta_description": "FIREすれば幸せになれるのかを、資産額と日々の満足が同じではなかった経験から考えます。100人のFIRE発信を読んだ整理も、調査の限界と合わせて紹介します。",
+  "category": "FIREの考え方",
+  "lead": "FIREすれば幸せになれるのか。資産を増やし、会社を離れ、自由な時間を手にしても悩みは残る。僕自身の資産の増減と、FIREした人たちの発信を読んで見えた幸福の形を重ねて考えます。",
+  "tags": ["FIRE 幸せ", "FIRE 幸福", "FIRE 幸せになれる", "お金 幸福"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character in a surprised, thoughtful pose at a crossroads between a giant glowing money vault and a warm family-and-friends table, exactly two arms and two hands. Break the composition with a diagonal burst of yellow and red, the character crossing the visual center, and a small heart-shaped light rather than a generic graph. Integrate exact Japanese typography: huge main 「幸せになる？」 in bright yellow and white with thick navy and red outlines, plus a contrasting red label 「お金だけじゃない」. Mobile-safe, high-impact, varied composition; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "幸せになる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-24_FIREした100人を調べたら「本当に幸せなのか」の答えが見えた.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-08-02_なぜFIREしたい？コミュニティ調査で判明した「本当の理由」が想像以上に切実だった件.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-happiness-spending/", "anchor": "幸福度を下げないお金の使い方" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を見つめる" },
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇と向き合う" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の幸福を、資産額・日常の小さな満足・人とのつながり・不安の併存から扱う。幸福度を上げる支出だけに絞った記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

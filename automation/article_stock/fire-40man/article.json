@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "月40万円生活でFIREするにはいくら必要？",
+  "meta_description": "月40万円生活を続けながらFIREする場合の必要資産を、年間支出と計算例から整理します。家族との時間や余白を削りすぎない設計を経験者目線で考えます。",
+  "category": "FIREの必要資産",
+  "lead": "月40万円の暮らしを続けながらFIREするにはいくら必要なのか。年480万円という支出から目安を計算しつつ、家族・住まい・体験に使うお金を削りすぎない考え方をまとめます。",
+  "tags": ["FIRE 月40万円", "月40万円 FIRE", "生活費40万円", "FIRE 必要資産"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character in a fresh thoughtful pose, exactly two arms and two hands. Show a spacious but believable family-home scene opening to outdoor light, rich blue, cream, red and gold. Integrate bold Japanese typography: main headline 「月40万円で？」 in a huge yellow-white outlined sign, plus a red-blue support banner 「家族ならどうする」. Premium cinematic depth, mobile legibility, no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "月40万円で？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "生活費から考えるFIRE必要額" },
+    { "path": "/articles/fire-household/", "anchor": "家族暮らしの家計を考える記事" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産の値動きと距離を置く考え方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "月40万円という高めの生活費を、ぜいたくの是非ではなく家族・体験・余白の予算として捉え、月30万円ケースとの差を説明する。",
+  "needs_review": false,
+  "review_reason": ""
+}

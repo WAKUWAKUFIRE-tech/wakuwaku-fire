@@ -1,0 +1,33 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREとNISAの相性は？達成前と達成後で考え方は変わる",
+  "meta_description": "FIREとNISAは相性がよい面がありますが、非課税だけでなく、使う時期、現金の確保、価格変動、FIRE前後の目的を分けて考える必要があります。制度と経験をもとに整理します。",
+  "category": "FIREと投資",
+  "lead": "NISAはFIREの資産形成に使える制度ですが、非課税だから全財産を入れればいいわけではありません。FIRE前は増やす力、FIRE後は使う・守る力も必要になります。制度と生活を一緒に見直します。",
+  "tags": ["FIRE NISA", "NISA FIRE", "FIRE 投資", "新NISA FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a split timeline composition: on the left, a seedling grows from a clean investment box; on the right, the same character opens a bright emergency cash drawer and enjoys a calm day, no duplicated character. Integrate exact Japanese typography 「NISAでFIRE」 and a bold banner 「達成前と後で変わる」. Vivid green, gold, coral and deep navy, exactly two arms and two hands, one character only, no private information, no watermark, no random text.",
+  "thumbnail_text": "NISAでFIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/know/index.html",
+      "title": "NISAを知る｜金融庁",
+      "why": "現行NISAの非課税、投資枠、対象者など制度の確認先"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/sidefire-6000/", "anchor": "資産と働き方を組み合わせる" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "NISAをFIRE前後でどう位置づけるかに焦点を置き、個別商品の推奨や運用利回りの予測は扱わない。",
+  "needs_review": false,
+  "review_reason": ""
+}

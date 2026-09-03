@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "専業主夫とFIREは相性がいい？家族・仕事・自由のバランスを考える",
+  "meta_description": "専業主夫FIREは、家事育児の時間を確保しながら家族の働き方を組み替える選択肢です。実際の一日の過ごし方、収入への向き合い方、孤立を防ぐ工夫を経験者が整理します。",
+  "category": "家族とFIRE",
+  "lead": "FIRE後に専業主夫になると、自由時間が増えるだけではありません。送迎、食事、家事、子どもの成長を担いながら、自分の活動と家族の安心を両立させる生活です。経験したからこそ分かる現実を話します。",
+  "tags": ["専業主夫 FIRE", "FIRE 家事育児", "FIRE 家族", "FIRE 生活"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a completely fresh kitchen-to-workroom diagonal composition: he stands confidently between a bright family table and a creative desk, one hand holding a plain lunch plate and the other holding a blank notebook, warm morning light, lively but realistic domestic energy. Integrate exact Japanese typography 「専業主夫FIRE」 and a contrasting banner 「家族・仕事・自由」. Exactly two arms and two hands, natural anatomy, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "専業主夫FIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族のお金と役割を考える" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の一日の実例" },
+    { "path": "/articles/fire-community-place/", "anchor": "会社以外の居場所を作る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "専業主夫として家事育児と発信を組み合わせる生活のリアルに絞り、一般的な夫婦FIREや教育費の計算は主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

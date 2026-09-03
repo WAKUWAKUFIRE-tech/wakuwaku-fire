@@ -1,0 +1,33 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "海外移住でFIREはあり？憧れだけでは危ないポイントを整理",
+  "meta_description": "海外移住でFIREを実現するなら、生活費だけでなく滞在資格、医療、税務、安全、家族の距離まで確認が必要です。憧れを現実の暮らしへ落とし込む考え方を整理します。",
+  "category": "住まいとFIRE",
+  "lead": "海外移住は、FIRE後の自由を広げる選択肢の一つです。ただし、物価が安いというイメージだけで決めると、制度や医療、家族との距離で苦しくなることがあります。移住前に見るべき順番をまとめます。",
+  "tags": ["海外移住 FIRE", "FIRE 海外生活", "FIRE 移住先", "海外FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a cinematic passport-to-sunrise composition: he stands at an airport departure board beside a bright foreign landscape, holding a plain blank passport cover and looking excited but cautious, no country flags or readable airport text. Integrate exact Japanese typography 「海外FIRE」 and a warning-style banner 「憧れだけでは危ない」. Bold coral, gold, turquoise and indigo, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "海外FIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-09_【FIRE4コマ漫画】FIRE民、移住しがち.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.anzen.mofa.go.jp/life",
+      "title": "外務省 海外安全ホームページ｜海外生活",
+      "why": "渡航先の安全情報、海外生活の手続きや医療情報を確認する入口として参照"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の日常を想像する" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "海外移住の制度・安全・医療・家族との距離を確認する順番に絞り、国内の地方移住や東京の住居費比較は主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

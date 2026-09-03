@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "夫婦でFIREするには？一人では決められない現実",
+  "meta_description": "夫婦でFIREを目指すなら、資産額だけでなく生活費、働き方、家事育児、投資リスクへの考え方をそろえる必要があります。家族と暮らすFIREの現実を経験者目線で整理します。",
+  "category": "家族とFIRE",
+  "lead": "夫婦でFIREする計画は、一人分の必要資産を二倍にすれば終わりではありません。どんな暮らしを守りたいのか、誰が何を担うのか、資産が減ったときにどうするのか。二人で決めるからこそ見える現実があります。",
+  "tags": ["夫婦 FIRE", "二人 FIRE", "FIRE 価値観", "家族 FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character, with a completely new composition: a couple's two different paths meet at a bright home doorway, while the character stands in the foreground holding two differently colored blank planning cards, warm family atmosphere, no extra people in the foreground. Integrate bold exact Japanese typography 「夫婦FIRE」 and a smaller banner 「一人では決められない」 with crisp outlines and vivid coral, yellow, teal and navy blocks. Exactly two arms and two hands on the character, natural anatomy, no duplicated character, no private information, no watermark, no browser UI, no random text.",
+  "thumbnail_text": "夫婦FIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家計を世帯で見直す話" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "削らない支出の考え方" },
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の暮らしの実例" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "夫婦でFIREを決めるときの価値観、役割分担、リスク判断に絞り、単身の必要資産や子どもの教育費そのものを主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

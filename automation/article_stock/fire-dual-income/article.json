@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "共働きFIREは最強？世帯で考えると見える選択肢",
+  "meta_description": "共働きFIREは収入を残しやすい一方、時間と家事の負担が偏ると続きません。世帯収入、生活費、投資リスク、家族の時間をまとめて考える方法を経験者目線で解説します。",
+  "category": "家族とFIRE",
+  "lead": "共働きFIREは、世帯収入を活かせる強い選択肢です。ただし、収入が二本あるから自動的に最強になるわけではありません。お金だけでなく、家事・育児・休む時間まで世帯単位で設計する必要があります。",
+  "tags": ["共働き FIRE", "世帯 FIRE", "夫婦 資産形成", "FIRE 働き方"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a bold split-screen composition: two glowing income streams flow into one balanced family bridge, with the character standing at the center holding a plain balance scale, one side showing time and the other money, energetic but grounded. Integrate exact Japanese typography 「共働きFIRE」 and a contrasting tag 「最強？の落とし穴」. Dynamic coral, gold, cyan and deep navy, exactly two arms and two hands, no duplicate character, no private information, no watermark, no random text.",
+  "thumbnail_text": "共働きFIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "世帯の家計を見直す" },
+    { "path": "/articles/sidefire-6000/", "anchor": "資産と働き方を組み合わせる" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に決めること" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "共働きによる世帯単位の強みと負担に焦点を置き、夫婦FIREの合意形成や子どもの教育費を中心テーマにしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

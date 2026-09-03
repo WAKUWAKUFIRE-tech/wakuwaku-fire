@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後も仕事は必要？働くことをやめた後に見えた現実",
+  "meta_description": "FIRE後も仕事は必要なのか。会社を辞めたあとに会社づくり、発信、コミュニティ、配達、家事育児まで試した本人が、収入・役割・自由の違いから働く意味を考えます。",
+  "category": "FIRE後の働き方",
+  "lead": "FIRE後も仕事が必要かは、資産額だけで決まりません。収入のために働く人もいれば、人と関わるため、面白そうだから働く人もいる。会社を辞めたあとに複数の活動と家事育児を経験した僕が、働くことをやめた後に見えた現実を話します。",
+  "tags": ["FIRE後 仕事", "FIRE後 働く", "FIRE 再就職", "サイドFIRE 仕事"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference for 「まる」; preserve the recognizable spiky dark hair, black-rim glasses, expressive eyes, and white FIRE T-shirt, but freely change pose and expression. Create finished illustration and Japanese typography together. Fresh composition: a bold three-way crossroads seen from above, with the character standing at the intersection and confidently pointing toward multiple colorful paths marked only by visual icons: an office door, a delivery bicycle, and a creative desk; no other people. Use a large central circular question mark and a bright yellow-red sign integrated into the scene, with exact Japanese hook 「仕事は必要？」 in huge crisp lettering with black outline. Do not use the usual right-side character / left-side text layout, no gray overlay, no three top callouts, no extra readable text. No personal name, age, address, phone, email, asset amount, watermark, browser frame, screenshot UI, or logos.",
+  "thumbnail_text": "仕事は必要？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["FIREは人生勝ち確じゃないんで。"],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-youtube-live/", "anchor": "FIRE後に発信を仕事にした話" },
+    { "path": "/articles/sidefire-day/", "anchor": "家事育児と活動を組み合わせる一日" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に働き方を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の仕事を収入だけでなく、役割・社会との接点・可逆性から考える記事。副業や収入源の一覧記事とは、本人が実際に試した活動の意味に焦点を置いて差別化する。",
+  "needs_review": false,
+  "review_reason": ""
+}

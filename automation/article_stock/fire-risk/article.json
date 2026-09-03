@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREのリスクは何？お金以外の見落としやすい危険も整理",
+  "meta_description": "FIREのリスクは、資産の値下がりだけではありません。自由になった後の暇、孤独、人的資本、家族との関係、生活リズムまで、実体験をもとに整理します。",
+  "category": "FIREの考え方",
+  "lead": "FIREのリスクを資産額だけで考えると、実際に起こる困りごとを見落とします。お金、時間、人とのつながり、役割、家族の安心をまとめて考える視点を紹介します。",
+  "tags": ["FIRE リスク", "FIRE 危険", "FIRE デメリット", "FIRE 人的資本"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a dramatic multi-bridge composition: the character stands between a cracked money bridge, a lonely empty chair, a broken clock, and a strong family path, pointing to the non-financial risks of freedom, no extra people or random symbols. Integrate exact Japanese typography 「本当のリスク」 and a bold banner 「お金だけじゃない」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "本当のリスク",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の暇と向き合う" },
+    { "path": "/articles/fire-reasons/", "anchor": "FIREを目指す理由を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREのリスクを資産・人的資本・社会との接点・家族・生活リズムまで横断して整理し、個別の不安や暴落対策は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

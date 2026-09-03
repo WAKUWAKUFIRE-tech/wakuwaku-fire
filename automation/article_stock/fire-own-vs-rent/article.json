@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREするなら持ち家と賃貸どっちが有利？自由度も含めて考える",
+  "meta_description": "FIREするなら持ち家と賃貸のどちらが有利かは、住居費だけでなく、住み替えの自由、修繕、家族の安心、資産の流動性で変わります。比較の軸を整理します。",
+  "category": "住まいとFIRE",
+  "lead": "持ち家と賃貸のどちらがFIREに有利かは、家賃とローンの比較だけでは決まりません。住む場所を変えられる自由、修繕や税金、家族の安心を、これからの一日と一緒に考えます。",
+  "tags": ["FIRE 持ち家 賃貸", "FIRE 持ち家", "FIRE 賃貸", "住居費 FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a clean seesaw composition: he stands on a rooftop between a colorful owned house and a bright open rental doorway, choosing with a calm smile, city and countryside hints in the background, no copied layout. Integrate exact Japanese typography 「持ち家or賃貸」 and a bold banner 「FIREの自由度は？」. Vivid orange, blue, green and navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "持ち家or賃貸",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-03-09_【FIRE4コマ漫画】FIRE民、移住しがち.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の一日の使い方" },
+    { "path": "/articles/fire-household/", "anchor": "家族の住まいと家計を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "持ち家と賃貸を住居費だけでなく自由度・流動性・家族の安心で比較し、住宅ローンの繰上返済の詳細は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

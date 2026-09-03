@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIRE後は何をする？やることがない問題への向き合い方",
+  "meta_description": "FIRE後にやることがないと感じた時の考え方と、予定・家事・発信・人との接点を作る方法を紹介します。ゲーム中心から生活の軸を作り直した本人の試行錯誤も整理します。",
+  "category": "FIRE後の生活",
+  "lead": "FIRE後は何をするのか、やることがない問題にどう向き合うのか。家事育児、発信、散歩、コミュニティ、新しい挑戦を生活へ置いた経験から、自由の使い方を考えます。",
+  "tags": ["FIRE後 やること", "FIRE後 何する", "FIRE 暇", "FIRE 生活"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character at a crossroads choosing household life, creative work, walking and conversation, exactly two arms and two hands. Dynamic perspective, rich orange, blue, red and gold. Integrate typography: main 「FIRE後何する？」 in huge white-yellow outlined letters, support ribbon 「予定は自分でつくる」. High-impact premium finish, no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "FIRE後何する？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md",
+    "content_sources/note/articles/2024-11-26_FIRE後に何するか迷ったら、自分のコンテンツを磨くべし！.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の10日間の過ごし方" },
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日" },
+    { "path": "/articles/fire-youtube-live/", "anchor": "FIRE後の発信を試す" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "やることの具体例と、予定を自分で作る試行錯誤を扱う。趣味選びや一日の実例だけを主題にする記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

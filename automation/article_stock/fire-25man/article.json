@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "月25万円生活のFIRE必要資産は？",
+  "meta_description": "月25万円の生活費ならFIREにいくら必要か。年間300万円をもとにした大まかな計算と、月20万円との差1500万円の意味、家族・幸福予算まで整理します。",
+  "category": "FIREの必要資産",
+  "lead": "月25万円の生活費でFIREを考えるなら、年間では300万円です。そこから大まかな必要資産を計算できますが、数字だけで会社を辞める判断はできません。月20万円との差、家族の支出、削ってはいけないお金まで、現実の暮らしに置き換えて考えます。",
+  "tags": ["FIRE 月25万円", "月25万円 FIRE", "生活費25万円", "FIRE 必要資産"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese YouTube-style thumbnail with image and typography created together. Use the exact referenced character in a fresh rooftop-at-sunrise pose; exactly two arms and two hands. Show a believable terrace, coffee mug, bright horizon and open path, with rich blue sky, warm gold light and deep red accents. Main headline as a huge red-and-white outlined burst with yellow emphasis: 「月25万でFIRE？」. Add a dark-blue ribbon with cream and yellow letters: 「必要資産は？」. Varied typography, cinematic layered depth and clear mobile readability. No trailing 「なら」, no personal name, age, address, phone, email, watermark, browser UI, logo, calculator graphic, duplicated character, extra limbs or unrelated readable text.",
+  "thumbnail_text": "月25万でFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族がいるFIREの生活費" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額の考え方" },
+    { "path": "/articles/fire-happiness-spending/", "anchor": "削ってはいけない支出を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "月25万円の具体ケースと月20万円との差額を主題にし、家族・体験・幸福予算を含む生活設計として説明する。",
+  "needs_review": false,
+  "review_reason": ""
+}

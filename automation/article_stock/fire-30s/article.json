@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "30代でFIREは可能？若いうちに達成するメリットと落とし穴",
+  "meta_description": "30代でFIREできるのかを、必要資産・働き方・若いうちに使える時間から考えます。30歳で会社を辞めた本人の経験と、その後に感じた落とし穴を分けて整理します。",
+  "category": "FIREの年齢別",
+  "lead": "30代でFIREは可能なのか。若いうちに会社を離れると得られる時間がある一方、資産を長く守る不安やFIRE後の空白もあります。30歳で辞めた僕の経験から考えます。",
+  "tags": ["FIRE 30代", "30代 FIRE", "30歳 FIRE", "若くしてFIRE"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character sprinting through a giant glowing calendar page toward a sunrise, with a forked trail showing work and family time, exactly two arms and two hands. Fresh youthful energy but mature premium finish, perspective lines radiating from the center, teal, red, gold and cream; avoid fixed character-right/text-left layout. Integrate exact Japanese typography: huge main 「30代で？」 in bright yellow-white with navy and red outlines, plus a red angled stamp 「若さは武器」. Mobile-safe, visually explosive, art and Japanese type together; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "30代で？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-03-06_【FIRE】中年に残された時間は少ない。人生を取り戻せ【前編】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-6000/", "anchor": "6000万円で始めたサイドFIRE" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に整える準備" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産の考え方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "30代FIREを、年齢だけの可否判定ではなく、若いうちに得られる時間・長期の資産不安・サイドFIREという選択から扱う。必要資産全般の記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

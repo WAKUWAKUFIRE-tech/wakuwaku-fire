@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREの現実は甘くない？理想だけでは続かない理由",
+  "meta_description": "FIREの現実は、毎日遊べる生活だけではありません。暇、孤独、家族の役割、資産の不安を経験した視点から、理想と現実をつなぐ暮らし方を考えます。",
+  "category": "FIREの考え方",
+  "lead": "FIREは自由である一方、会社が用意していた生活リズムや役割を自分で作る必要があります。実際の一日と失敗をもとに、FIRE後の現実を具体的に考えます。",
+  "tags": ["FIRE 現実", "FIRE 実態", "FIRE 失敗", "FIRE後 生活"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a cinematic split-screen day composition: the character stands between a glamorous vacation poster peeling away and a real home routine with dishes, a calendar, and a quiet desk, smiling honestly while holding a plain daily-plan card, no extra people or random text. Integrate exact Japanese typography 「現実は甘くない」 and a bold banner 「FIRE後も続く」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "現実は甘くない",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-10-days/", "anchor": "FIRE後の最初の現実を見る" },
+    { "path": "/articles/fire-after-boredom/", "anchor": "暇と向き合う方法を考える" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだことを読む" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の生活を理想と現実の差から総括し、暇や資産不安の具体策は関連記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

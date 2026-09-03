@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREのデメリットは何？実際にやって分かった弱点",
+  "meta_description": "FIREのデメリットを、暇・孤独・役割の喪失・資産を減らす不安から整理します。ゲーム中心の生活や資産の大きな下落を経験した僕が、自由の弱点を正直に話します。",
+  "category": "FIREの考え方",
+  "lead": "FIREには自由がある一方で、暇、孤独、生活リズムの崩れ、資産を減らす恐怖もあります。実際に会社を辞め、ゲーム中心の時期と大きな資産変動を経験した僕が、弱点を隠さず話します。",
+  "tags": ["FIRE デメリット", "FIRE 欠点", "FIRE リスク", "FIRE 後悔"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character sitting on the edge of a bright red warning sign, one side showing an empty silent room and the other side a jagged market storm, exactly two arms and two hands. Use an angular, diagonal composition with the character near the bottom center, not the usual right-side portrait. Integrate exact Japanese typography: huge main 「FIREの弱点」 in white-yellow letters with thick black and red outlines, plus a bold black-and-yellow warning strip 「自由には副作用」. Mobile-safe, cinematic, crisp; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "FIREの弱点",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだこと" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を考える" },
+    { "path": "/articles/fire-community/", "anchor": "会社以外のつながりを作る" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの欠点を暇だけに限定せず、役割・孤独・資産変動・投資への依存から扱う。後悔の体験談だけの記事とは分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

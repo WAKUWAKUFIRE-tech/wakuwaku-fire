@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREと副業は相性がいい？自由を減らさず収入を作る考え方",
+  "meta_description": "FIREと副業は、資産を補うだけでなく、社会との接点や役割にもなります。YouTube、文章、コミュニティ、配達を試した経験から、自由を減らさない仕事の選び方を考えます。",
+  "category": "FIREと仕事",
+  "lead": "FIRE後に副業や小さな仕事をすることは、FIREの失敗ではありません。収入だけでなく、役割・人との接点・資産を使うペースから、自分で選べる仕事を考えます。",
+  "tags": ["FIRE 副業", "FIRE サイドビジネス", "FIRE 小さな仕事", "Side FIRE 収入"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a lively three-station composition: the character moves between a small writing desk, a video microphone, and a delivery bicycle, carrying one plain work card and giving a confident thumbs-up with the other hand, no extra people or readable brand names. Integrate exact Japanese typography 「副業は必要？」 and a bold banner 「自由を減らさない」. Vivid coral, yellow, turquoise and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "副業は必要？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-day/", "anchor": "FIRE後の一日の使い方を見る" },
+    { "path": "/articles/fire-youtube-live/", "anchor": "発信を仕事にする前に考える" },
+    { "path": "/articles/sidefire-6000/", "anchor": "Side FIREの考え方を読む" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の副業を収入・役割・社会との接点として整理し、専業主夫やYouTubeの詳細は関連記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

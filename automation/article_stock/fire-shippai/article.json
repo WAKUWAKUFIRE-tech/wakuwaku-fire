@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREに失敗する人の特徴は？経験者の失敗談から学ぶ",
+  "meta_description": "FIREの失敗は資産不足だけではありません。2024年の約5000万円損失、2025年のデイトレ年間マイナス3776万円、2026年の大幅下落を経験した本人が、失敗の構造と備えを整理します。",
+  "category": "FIREの失敗",
+  "lead": "FIREに失敗する人の特徴は、資産が足りない人だけではありません。リスクを取りすぎる、損失を取り返そうとする、家族の安心を後回しにする。2024年から2026年に大きな資産減少を経験した僕が、数字を誇張せず失敗の中身を話します。",
+  "tags": ["FIRE 失敗", "FIRE 失敗談", "FIRE 暴落", "FIRE リスク"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference for 「まる」; preserve the recognizable spiky dark hair, black-rim glasses, expressive eyes, and white FIRE T-shirt while freely changing pose and expression. Create the finished illustration and Japanese typography together. Fresh composition unlike a standard side character layout: show the character kneeling at the center of a dramatic cracked red warning floor, with a giant falling asset graph behind him, scattered coins and a broken safety rope; the character looks shocked but alert, reaching toward the rope as if learning from the mistake. Use a strong diagonal red warning placard through the middle, with exact crisp Japanese hook 「失敗する人」 in huge white and yellow letters with thick black outline. No left gray panel, no three top callouts, no bottom blue banner, no extra readable text. No personal name, age, address, phone, email, personal asset amount, watermark, browser frame, screenshot UI, or additional characters.",
+  "thumbnail_text": "失敗する人",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-18_今年マイナス5000万円出したけど資産1億円超えた話.md",
+    "content_sources/note/articles/2026-02-25_【閲覧注意】仮想通貨のデイトレ1年間した結果.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": ["FIRE卒業", "一億円弱"],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産と距離を置くために考えたこと" },
+    { "path": "/articles/fire-6-lessons/", "anchor": "FIRE後に学んだ6つのこと" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に確認したい準備" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの必要額ではなく、資産減少・投資判断・家族の安心・生活の立て直しを失敗の構造として扱う体験記事。投資手法の再現性や売買推奨は扱わない。",
+  "needs_review": false,
+  "review_reason": ""
+}

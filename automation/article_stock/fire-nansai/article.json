@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREは何歳で達成できる？年齢別に考える現実",
+  "meta_description": "FIREは何歳で達成できるのか。年齢だけでなく、年間生活費、資産、家族、人的資本、少し働く選択肢で考えます。30歳でFIREした本人の経験を、再現性のある答えにせず整理します。",
+  "category": "FIREの考え方",
+  "lead": "FIREは何歳で達成できるのかに、決まった年齢はありません。若さは時間と人的資本、年齢を重ねることは資産や経験という強みになります。30歳で会社を辞めた僕の経験も、誰かの目標年齢ではなく一つの事例として考えます。",
+  "tags": ["FIRE 何歳", "FIRE 年齢", "何歳でFIRE", "早期リタイア 年齢"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference for 「まる」; preserve the recognizable spiky dark hair, black-rim glasses, expressive eyes, and white FIRE T-shirt, while freely changing the pose and expression. Create finished illustration and Japanese typography together. Fresh composition: a sweeping staircase shaped like a clock and life timeline rises through the square, with open doors, a backpack, a home key, and a small nest egg as visual milestones but no age numbers. The character is mid-stride at the center, looking upward with a confident yet questioning expression. Integrate one bold tilted yellow-red sign near the center with exact crisp Japanese hook 「何歳で？」. Use a dynamic perspective, not the usual right-side character / left-side text layout. No gray overlay, no three top callouts, no extra readable text, no personal name, age, address, phone, email, individual asset amount, watermark, browser frame, screenshot UI, or additional characters.",
+  "thumbnail_text": "何歳で？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/sidefire-6000/", "anchor": "30歳・資産6000万円でFIREした経験" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を考える" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額を考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の計算ではなく、年齢ごとの時間・資産・人的資本・家族・働く選択肢の違いを主題にする。30歳の本人経験は再現可能な年齢条件として扱わない。",
+  "needs_review": false,
+  "review_reason": ""
+}

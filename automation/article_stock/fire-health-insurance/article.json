@@ -1,0 +1,33 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIRE後の国民健康保険はいくら？会社員時代との違い",
+  "meta_description": "FIRE後の国民健康保険料は、前年の所得、自治体、年齢、世帯の人数などで変わるため一律には決まりません。退職後の保険の選択肢と確認手順を整理します。",
+  "category": "FIREのお金",
+  "lead": "FIRE後の国民健康保険はいくらか。答えは、前年の所得や住む自治体、世帯の条件で変わります。会社員時代の天引きだけを見て判断せず、退職後の選択肢と家族分の負担を先に確認します。",
+  "tags": ["FIRE 国民健康保険", "FIRE 健康保険", "退職後 国民健康保険", "FIRE 社会保険"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a bold medical shield composition: he stands behind a glowing family safety shield while a torn company insurance card transforms into a clean blank health checklist, serious but reassuring expression. Integrate exact Japanese typography 「保険いくら？」 and a contrasting banner 「FIRE後の落とし穴」. Vivid cyan, red, yellow and deep navy, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "保険いくら？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.mhlw.go.jp/stf/newpage_21539.html",
+      "title": "国民健康保険の加入資格｜厚生労働省",
+      "why": "退職後の国民健康保険の加入・脱退手続きと期限の確認先"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族の家計と保険を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "退職前の準備を確認する" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "国民健康保険料が一律でない理由と退職後の選択肢に焦点を置き、住民税や年金の詳細計算は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

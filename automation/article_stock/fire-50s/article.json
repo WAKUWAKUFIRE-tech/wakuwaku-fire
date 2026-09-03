@@ -1,0 +1,30 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "50代のFIREはどう考える？年金前後も含めた現実的な設計",
+  "meta_description": "50代のFIREを、年金を受け取る前後の生活費、資産の取り崩し、働き方から考えます。制度の条件は公的情報で確認し、本人の経験とは分けて現実的な設計を紹介します。",
+  "category": "FIREの年齢別",
+  "lead": "50代のFIREは、年金を受け取る時期の前後で家計がどう変わるかを分けて考える必要があります。制度を断定せず公式情報の確認先を示しながら、資産と働き方の設計を整理します。",
+  "tags": ["FIRE 50代", "50代 FIRE", "50代 早期退職", "FIRE 年金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese YouTube-style thumbnail with the exact referenced character walking across a dramatic bridge from a clock tower toward a calm sunrise home, exactly two arms and two hands. Use a large glowing timeline arc and subtle envelope-and-calendar shapes, no literal document text, with the character centered low in the frame and typography sweeping across the upper-right. Deep navy, orange, gold and cream with red accents. Integrate exact Japanese typography: huge main 「FIREは50代？」 in white-yellow with navy/red outlines, plus a clean red tag 「年金までをどうつなぐ」. High-impact mobile-safe art and type; no personal name, age, address, phone, email, watermark, browser UI, duplicated character, extra limbs, calculator, keyboard or unrelated readable text.",
+  "thumbnail_text": "FIREは50代？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-06_【FIRE】中年に残された時間は少ない。人生を取り戻せ【前編】.md",
+    "content_sources/note/articles/2026-03-07_【FIRE】中年に残された時間は少ない。人生を取り戻せ【後編】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    { "url": "https://www.nenkin.go.jp/denshibenri_kojin/n_net/introduction/summary.html", "title": "「ねんきんネット」とは？", "why": "年金記録や年金見込額を確認する公式サービスの案内" },
+    { "url": "https://www.nenkin.go.jp/denshibenri_kojin/n_net/introduction/estimatedamount.html", "title": "「ねんきんネット」による年金見込額試算", "why": "条件を設定して将来の年金見込額を試算する公式案内" }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な資産を考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "退職前に整えておきたい準備" },
+    { "path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を見直す" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "50代FIREを、年金制度の解説だけにせず、受給前後の資金の橋渡し・生活費・働き方の組み合わせとして扱う。必要資産の記事とは年齢と移行設計で分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}

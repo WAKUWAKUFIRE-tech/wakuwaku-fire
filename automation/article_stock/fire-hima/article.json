@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-08-31",
+  "body_file": "body.html",
+  "title": "FIREすると暇になる？毎日日曜日問題を経験者が語る",
+  "meta_description": "FIREすると暇になるのか。退職直後にゲーム三昧で生活が崩れた経験と、家族・家事・創作で日々のリズムを作り直した今の実感から、毎日日曜日問題を考えます。",
+  "category": "FIRE後の生活",
+  "lead": "FIREすると暇になるのか。答えは、暇な時間が増えるという意味ではイエスです。ただし、つらい退屈になるか、贅沢な余白になるかは、自分で予定と役割を作れるかで変わります。退職直後にゲーム三昧でだらけた僕の経験から話します。",
+  "tags": ["FIRE 暇", "FIRE 退屈", "毎日日曜日", "FIRE後の生活"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference for 「まる」; keep the recognizable spiky dark hair, black-rim glasses, expressive eyes, and white FIRE T-shirt, but freely change the pose and facial expression. Create the finished illustration and typography together. Fresh composition: the character is lounging diagonally on a sofa in the lower center, looking surprised and slightly bored, while an oversized wall calendar and clock in the background melt into a colorful Sunday-like cloud; the scene should feel humorous and instantly readable. Do not use the usual right-side character / left-side text layout, do not use three top labels, and do not cover the artwork with a gray panel. Integrate one huge, crisp Japanese hook as a bright comic-style sign crossing the center: exact text 「暇になる？」. The text must be rendered verbatim, bold white and yellow letters with thick black outline and red shadow. No other readable text, no personal name, age, address, phone, email, asset amount, watermark, browser frame, screenshot UI, or extra characters.",
+  "thumbnail_text": "暇になる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-06-03_後編【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md"
+  ],
+  "used_personal_quotes": ["FIREとか暇そうw", "その日暮らしのアリエッティ"],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-after-boredom/", "anchor": "FIRE後の退屈と向き合った話" },
+    { "path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日を読む" },
+    { "path": "/risk-runner/", "anchor": "自由時間とリスクの考え方" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの必要額や資産額ではなく、退職後の暇・予定・生活リズムを主題にした体験記事。FIRE後の生活紹介記事とは毎日日曜日問題に焦点を置いて差別化する。",
+  "needs_review": false,
+  "review_reason": ""
+}

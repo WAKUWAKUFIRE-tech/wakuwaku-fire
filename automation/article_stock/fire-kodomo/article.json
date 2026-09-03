@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "子持ちでFIREは可能？教育費と安心感をどう考えるか",
+  "meta_description": "子持ちでFIREを目指すときは、教育費だけでなく日々の生活費、家族の安心、働き方の選択肢まで含めて考える必要があります。子どもがいるFIREの現実を経験者目線で整理します。",
+  "category": "家族とFIRE",
+  "lead": "子どもがいるとFIREは不可能になる、と決めつける必要はありません。ただし、自分一人の自由を中心にした計画から、家族に余白を渡す計画へ変わります。教育費と安心感を別々にせず考えていきます。",
+  "tags": ["子持ち FIRE", "子育て FIRE", "FIRE 教育費", "家族 FIRE"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a totally different composition: he kneels beside a small family calendar and a bright growing tree, looking between a school path and a relaxed family path, optimistic but serious. Integrate exact bold Japanese typography 「子持ちFIRE」 and a contrasting banner 「教育費と安心感」. Vivid yellow, coral, green and indigo, crisp mobile-safe text, exactly two arms and two hands, one character only, no private information, no watermark, no random text.",
+  "thumbnail_text": "子持ちFIRE",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [],
+  "internal_links": [
+    { "path": "/articles/fire-household/", "anchor": "家族単位で家計を見る方法" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前に整えること" },
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "子どもがいる家庭のFIRE判断に絞り、夫婦間の合意形成や子ども二人の教育費比較は主題にしない。",
+  "needs_review": false,
+  "review_reason": ""
+}

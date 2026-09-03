@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-01",
+  "body_file": "body.html",
+  "title": "FIREとiDeCoは相性がいい？自由度とのバランスを考える",
+  "meta_description": "FIREとiDeCoは老後資金づくりに役立つ可能性がありますが、受け取りまで使いにくい資金になる点も重要です。NISAや現金との役割を分けて考えます。",
+  "category": "FIREと投資",
+  "lead": "iDeCoは税制上のメリットがある一方、FIRE後すぐに使えるお金とは限りません。老後資金を作る力と、今の生活を支える流動性をどう分けるか。自由を急いで得た経験から考えます。",
+  "tags": ["FIRE iDeCo", "iDeCo FIRE", "FIRE 老後資金", "iDeCo 受け取り"],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact referenced anime character in a split-lock composition: he stands between a glowing long-term vault with a small retirement clock and an open flexible cash door, carefully choosing, no confusing fake calculator or document. Integrate exact Japanese typography 「iDeCoいる？」 and a bold banner 「自由度と老後資金」. Vivid purple, gold, cyan and coral, exactly two arms and two hands, one character, no private information, no watermark, no random text.",
+  "thumbnail_text": "iDeCoいる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {
+      "url": "https://www.ideco-koushiki.jp/start/entry.html",
+      "title": "iDeCo加入手続きについて｜iDeCo公式",
+      "why": "加入手続き、掛金、手数料などを確認する公的な案内"
+    },
+    {
+      "url": "https://www.ideco-koushiki.jp/guide/structure.html",
+      "title": "iDeCoの加入資格・掛金・受取方法等｜iDeCo公式",
+      "why": "加入資格や受け取りの基本を確認する公的な案内"
+    }
+  ],
+  "internal_links": [
+    { "path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える" },
+    { "path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する" },
+    { "path": "/articles/sidefire-6000/", "anchor": "資産と働き方を組み合わせる" }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "iDeCoの資金拘束とFIREの流動性のバランスに焦点を置き、NISAの制度解説や個別商品の推奨は別記事へ分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}
