@@ -28,6 +28,7 @@ const KOJINABI_GOURMET_PARSER = "kojinabi-gourmet-category";
 const KOJINABI_GOURMET_DYNAMIC_TYPE = "kojinabi-gourmet-category";
 const KOJINABI_MAX_CATEGORY_PAGES = 30;
 const KOJINABI_UNDATED_STALE_DAYS = 60;
+const KOJINABI_BLOCKED_LINK_HOSTS = /(?:^|\.)(?:kojinabi\.com|fc2\.com|x\.com|twitter\.com|t\.co|instagram\.com|facebook\.com|youtube\.com|youtu\.be|a8\.net|afb\.jp|valuecommerce\.com|linkshare\.ne\.jp|moshimo\.com|accesstrade\.net|felmat\.net)$/i;
 
 function absolute(relativePath) {
   const resolved = path.resolve(ROOT, String(relativePath).replaceAll("/", path.sep));
@@ -539,6 +540,64 @@ function mergeKojinabiGourmetCampaigns(pages, now) {
   return [...campaignsByUrl.values()];
 }
 
+function isKojinabiSourceUrl(rawUrl) {
+  try {
+    const hostname = new URL(String(rawUrl)).hostname.toLowerCase();
+    return hostname === "kojinabi.com" || hostname.endsWith(".kojinabi.com");
+  } catch { return false; }
+}
+
+function pickKojinabiOfficialUrl(body, endpoint) {
+  const links = [];
+  const pattern = /<a\b[^>]*href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))[^>]*>([\s\S]*?)<\/a>/gi;
+  let index = 0;
+  for (const match of String(body || "").matchAll(pattern)) {
+    const rawUrl = match[1] || match[2] || match[3] || "";
+    let url;
+    try { url = canonicalizeUrl(new URL(decodeEntities(rawUrl), endpoint).toString()); } catch { index += 1; continue; }
+    const parsed = new URL(url);
+    if (!/^https?:$/i.test(parsed.protocol) || isKojinabiSourceUrl(url) || KOJINABI_BLOCKED_LINK_HOSTS.test(parsed.hostname)) {
+      index += 1;
+      continue;
+    }
+    const suspiciousParameter = [...parsed.searchParams.keys()].some((key) => /^(?:ref|referrer|affiliate|aff|click|redirect|source|utm_)/i.test(key));
+    if (suspiciousParameter) { index += 1; continue; }
+    const text = normalizeSpace(cleanText(match[4]));
+    const score = (/(?:公式(?:サイト|ページ|情報)?|公式はこちら|公式リンク)/i.test(text) ? 100 : 0) +
+      (/(?:キャンペーン|クーポン|ニュース|お知らせ|メニュー|店舗|特典|詳細)/i.test(text) ? 20 : 0);
+    links.push({ url, score, index });
+    index += 1;
+  }
+  links.sort((left, right) => right.score - left.score || left.index - right.index);
+  return links[0]?.url || "";
+}
+
+async function fetchKojinabiOfficialLinks(campaigns, robotsBody, maxBytes) {
+  const enriched = [];
+  let bytes = 0;
+  let fetchErrorCount = 0;
+  let missingLinkCount = 0;
+  for (const campaign of campaigns || []) {
+    if (robotsBody && !robotsAllows(robotsBody, campaign.articleUrl)) {
+      missingLinkCount += 1;
+      continue;
+    }
+    try {
+      const response = await fetchSafe(campaign.articleUrl, { maxBytes });
+      bytes += Buffer.byteLength(response.body, "utf8");
+      const officialUrl = pickKojinabiOfficialUrl(response.body, response.finalUrl);
+      if (!officialUrl) {
+        missingLinkCount += 1;
+        continue;
+      }
+      enriched.push({ ...campaign, officialUrl });
+    } catch {
+      fetchErrorCount += 1;
+    }
+  }
+  return { campaigns: enriched, bytes, fetchErrorCount, missingLinkCount };
+}
+
 function payPayDateToIso(year, month, day) {
   const numericYear = Number(year);
   const numericMonth = Number(month);
@@ -694,6 +753,8 @@ async function fetchSource(source, { now = new Date() } = {}) {
     let gourmetCampaigns = [];
     let gourmetPageCount = 0;
     let gourmetPageErrorCount = 0;
+    let gourmetOfficialLinkFetchErrorCount = 0;
+    let gourmetOfficialLinkMissingCount = 0;
     if (source.parser === KOJINABI_GOURMET_PARSER) {
       const gourmetPages = [{ body: response.body, endpoint: response.finalUrl }];
       const pageUrls = discoverKojinabiCategoryPages(response.body, response.finalUrl);
@@ -711,9 +772,18 @@ async function fetchSource(source, { now = new Date() } = {}) {
         }
       }
       gourmetPageCount = gourmetPages.length;
-      gourmetCampaigns = mergeKojinabiGourmetCampaigns(gourmetPages, now);
+      const discoveredGourmetCampaigns = mergeKojinabiGourmetCampaigns(gourmetPages, now);
+      const officialLinkResult = await fetchKojinabiOfficialLinks(discoveredGourmetCampaigns, robots.body, maxBytes);
+      gourmetCampaigns = officialLinkResult.campaigns;
+      result.bytes += officialLinkResult.bytes;
+      gourmetOfficialLinkFetchErrorCount = officialLinkResult.fetchErrorCount;
+      gourmetOfficialLinkMissingCount = officialLinkResult.missingLinkCount;
       result.gourmetPageCount = gourmetPageCount;
       result.gourmetPageErrorCount = gourmetPageErrorCount;
+      result.gourmetDiscoveredCount = discoveredGourmetCampaigns.length;
+      result.gourmetOfficialLinkCount = gourmetCampaigns.length;
+      result.gourmetOfficialLinkFetchErrorCount = gourmetOfficialLinkFetchErrorCount;
+      result.gourmetOfficialLinkMissingCount = gourmetOfficialLinkMissingCount;
     }
     const paypayRecommendationCandidates = source.parser === PAYPAY_LOCAL_PARSER
       ? await fetchPayPayRecommendationDetails(localCampaigns, robots.body)
@@ -723,7 +793,11 @@ async function fetchSource(source, { now = new Date() } = {}) {
     result.httpStatus = response.status;
     result.contentType = response.contentType;
     result.bytes += Buffer.byteLength(response.body, "utf8");
-    result.candidateCount = gourmetCampaigns.length || localCampaigns.length || candidates.length;
+    result.candidateCount = source.parser === KOJINABI_GOURMET_PARSER
+      ? gourmetCampaigns.length
+      : source.parser === PAYPAY_LOCAL_PARSER
+        ? localCampaigns.length
+        : candidates.length;
     result.paypayDetailCount = paypayRecommendationCandidates.filter((candidate) => candidate.detailStatus === "verified").length;
     return {
       ...result,
@@ -1234,6 +1308,10 @@ function conciseSourceResult(result) {
     paypayDetailCount: result.paypayDetailCount || 0,
     gourmetPageCount: result.gourmetPageCount || 0,
     gourmetPageErrorCount: result.gourmetPageErrorCount || 0,
+    gourmetDiscoveredCount: result.gourmetDiscoveredCount || 0,
+    gourmetOfficialLinkCount: result.gourmetOfficialLinkCount || 0,
+    gourmetOfficialLinkFetchErrorCount: result.gourmetOfficialLinkFetchErrorCount || 0,
+    gourmetOfficialLinkMissingCount: result.gourmetOfficialLinkMissingCount || 0,
     reason: result.reason || ""
   };
 }
@@ -1289,24 +1367,25 @@ function stableDynamicId(prefix, url) {
 }
 
 function gourmetDealFromCampaign(campaign) {
+  if (!campaign?.officialUrl || isKojinabiSourceUrl(campaign.officialUrl)) return null;
   return {
-    id: stableDynamicId("kojinabi-gourmet", campaign.articleUrl),
+    id: campaign.id || stableDynamicId("kojinabi-gourmet", campaign.articleUrl || campaign.officialUrl),
     campaignName: campaign.title,
-    merchant: "ココトク掲載グルメ",
-    service: "グルメ・外食",
+    merchant: "グルメ・外食",
+    service: "期間限定キャンペーン",
     benefitShort: "期間中のグルメキャンペーン",
-    benefit: "ココトクのグルメカテゴリで期間中と判断できる案件です。具体的な特典・対象商品・利用条件はリンク先の記事と公式情報で確認してください。",
-    condition: "掲載元の記事で期間・対象店舗・対象商品・クーポン条件を確認する。",
-    target: "記事に記載された対象店舗・サービスを利用できる人。",
-    action: "リンク先の記事で最新条件を確認し、可能なら店舗・サービスの公式情報も確認してから利用する。",
+    benefit: "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
+    condition: "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
+    target: "公式ページに記載された対象店舗・サービスを利用できる人。",
+    action: "公式ページで最新条件を確認してから利用する。",
     startDate: campaign.startDate,
     endDate: campaign.endDate,
     endDateLabel: campaign.endDateLabel,
     applicationRequired: false,
-    officialUrl: campaign.articleUrl,
+    officialUrl: campaign.officialUrl,
     category: "food",
     score: { benefit: 4, ease: 4, audience: 4, duration: campaign.endDate ? 4 : 3, trust: 3, fireFit: 5 },
-    note: `ココトクのグルメカテゴリから期間表示を判定して抽出（${campaign.periodLabel}）。詳細条件はリンク先と公式情報で確認してください。`,
+    note: `掲載元の期間表示を判定し、公式ページへ案内しています（${campaign.periodLabel}）。利用前に公式ページの最新条件を確認してください。`,
     maruComment: "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
     sourceIds: ["kojinabi"],
     discoveryTerms: ["グルメ"],
@@ -1315,25 +1394,25 @@ function gourmetDealFromCampaign(campaign) {
     allowShortWindow: true,
     dynamicType: KOJINABI_GOURMET_DYNAMIC_TYPE,
     dynamicSourceId: "kojinabi",
-    verificationMode: "source-listing",
-    linkLabel: "ココトクの記事を見る",
-    verificationLabel: "ココトク掲載（公式条件はリンク先で確認）"
+    linkLabel: "公式ページを見る",
+    verificationLabel: "公式ページを確認済み"
   };
 }
 
 function dynamicGourmetDealsForRun(sourceResults, previousDeals, now) {
   const source = sourceResults.find((result) => result.id === "kojinabi");
-  if (source?.status === "success") return (source.gourmetCampaigns || []).map(gourmetDealFromCampaign);
+  if (source?.status === "success") return (source.gourmetCampaigns || []).map(gourmetDealFromCampaign).filter(Boolean);
   return (previousDeals || [])
-    .filter((deal) => deal.dynamicType === KOJINABI_GOURMET_DYNAMIC_TYPE && isActiveDeal(deal, now))
+    .filter((deal) => deal.dynamicType === KOJINABI_GOURMET_DYNAMIC_TYPE && isActiveDeal(deal, now) && !isKojinabiSourceUrl(deal.officialUrl))
     .map((deal) => gourmetDealFromCampaign({
+      id: deal.id,
       title: deal.title,
-      articleUrl: deal.officialUrl,
+      officialUrl: deal.officialUrl,
       startDate: deal.startDate,
       endDate: deal.endDate,
       endDateLabel: deal.endDateLabel,
       periodLabel: deal.endDate ? `${deal.startDate || ""} 〜 ${deal.endDate}` : "掲載元で期間確認"
-    }));
+    })).filter(Boolean);
 }
 
 function dynamicDealForRun(deal, sourceResults, previousDeal, now) {
@@ -1441,7 +1520,7 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
     officialResults.push({ id: deal.id, ...verification });
     if (verification.ok) {
       effective.push({ ...deal, canonicalizedOfficialUrl: verification.canonicalizedOfficialUrl });
-    } else if (previousById.has(deal.id) && isActiveDeal(previousById.get(deal.id), now)) {
+    } else if (previousById.has(deal.id) && isActiveDeal(previousById.get(deal.id), now) && !(deal.dynamicType === KOJINABI_GOURMET_DYNAMIC_TYPE && isKojinabiSourceUrl(previousById.get(deal.id).officialUrl))) {
       effective.push({ ...deal, ...previousById.get(deal.id), canonicalizedOfficialUrl: verification.canonicalizedOfficialUrl || previousById.get(deal.id).canonicalizedOfficialUrl });
       excluded.push({ id: deal.id, reason: `公式確認失敗のため前回データを維持: ${verification.reason}` });
     } else {
@@ -1516,6 +1595,7 @@ async function validatePoi() {
     if (ids.has(deal.id)) issues.push(`案件IDが重複しています: ${deal.id}`);
     ids.add(deal.id);
     if (!deal.officialUrl || !/^https?:\/\//i.test(deal.officialUrl)) issues.push(`公式URLが不正です: ${deal.id}`);
+    if (deal.dynamicType === KOJINABI_GOURMET_DYNAMIC_TYPE && isKojinabiSourceUrl(deal.officialUrl)) issues.push(`ココトク直リンクが残っています: ${deal.id}`);
     if (deal.officialUrl) {
       try {
         await assertSafePublicUrl(deal.officialUrl, { resolveDns: false });
