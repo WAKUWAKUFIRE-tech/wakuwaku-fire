@@ -17,10 +17,17 @@ const TIME_ZONE = "Asia/Tokyo";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_RESPONSE_BYTES = 2_000_000;
 const MAX_SOURCE_CANDIDATES = 40;
-const DEFAULT_MAX_DEALS = 20;
+const DEFAULT_MAX_DEALS = 30;
 const FEATURED_DEAL_COUNT = 10;
 const TRACKING_PARAMETERS = /^(utm_[^=]+|fbclid|gclid|yclid|mc_cid|mc_eid|referrer|affiliate|aff)$/i;
 const OPPORTUNITY_WORDS = /キャンペーン|還元|ポイント|クーポン|割引|無料|特典|お得|セール|入会|チャージ/i;
+const PAYPAY_LOCAL_PARSER = "paypay-support-local";
+const PAYPAY_LOCAL_DYNAMIC_TYPE = "paypay-local-aggregate";
+const PAYPAY_LOCAL_MAX_RECOMMENDATIONS = 3;
+const KOJINABI_GOURMET_PARSER = "kojinabi-gourmet-category";
+const KOJINABI_GOURMET_DYNAMIC_TYPE = "kojinabi-gourmet-category";
+const KOJINABI_MAX_CATEGORY_PAGES = 30;
+const KOJINABI_UNDATED_STALE_DAYS = 60;
 
 function absolute(relativePath) {
   const resolved = path.resolve(ROOT, String(relativePath).replaceAll("/", path.sep));
@@ -45,7 +52,8 @@ async function readJson(filename, fallback) {
 
 async function writeText(filename, value) {
   await fs.mkdir(path.dirname(filename), { recursive: true });
-  await fs.writeFile(filename, value, "utf8");
+  const output = filename === PAGE_PATH ? String(value).replace(/[ \t]+$/gm, "") : value;
+  await fs.writeFile(filename, output, "utf8");
 }
 
 function escapeHtml(value) {
@@ -377,7 +385,293 @@ function sourceCandidates(body, endpoint, contentType) {
   return entries.filter((item) => OPPORTUNITY_WORDS.test(item.title)).slice(0, MAX_SOURCE_CANDIDATES);
 }
 
-async function fetchSource(source) {
+function resolveKojinabiDate(year, month, day, fallbackYear, fallbackMonth) {
+  const resolvedYear = Number(year) || Number(fallbackYear);
+  const resolvedMonth = Number(month) || Number(fallbackMonth);
+  const resolvedDay = Number(day);
+  const iso = payPayDateToIso(resolvedYear, resolvedMonth, resolvedDay);
+  return iso ? { iso, year: resolvedYear, month: resolvedMonth, day: resolvedDay } : null;
+}
+
+function parseKojinabiPeriod(title, publishedAt, now = new Date()) {
+  const nowParts = currentJst(now);
+  let publishedYear = nowParts.year;
+  try {
+    if (publishedAt) publishedYear = jstParts(publishedAt).year;
+  } catch { /* Use the current JST year when an archive timestamp is malformed. */ }
+  const normalized = normalizeSpace(title).replace(/[～〜]/g, "〜");
+  const dateMatches = [...normalized.matchAll(/(?:(20\d{2})年)?\s*([01]?\d)月\s*([0-3]?\d)日/g)];
+  const dates = dateMatches
+    .map((match) => resolveKojinabiDate(match[1], match[2], match[3], publishedYear, nowParts.month))
+    .filter(Boolean);
+  let start = dates[0] || null;
+  let end = null;
+
+  const explicitEndMatches = [...normalized.matchAll(/〜\s*(?:(20\d{2})年)?\s*(?:(\d{1,2})月\s*)?([0-3]?\d)日[\d:\s時分]*まで/g)];
+  const explicitEnd = explicitEndMatches.at(-1);
+  if (explicitEnd && dateMatches[0] && dateMatches[0].index > explicitEnd.index) start = null;
+  if (explicitEnd) {
+    end = resolveKojinabiDate(
+      explicitEnd[1],
+      explicitEnd[2] || start?.month,
+      explicitEnd[3],
+      start?.year || publishedYear,
+      start?.month || nowParts.month
+    );
+  }
+
+  if (!end) {
+    const rangeMatches = [...normalized.matchAll(/(?:(20\d{2})年)?\s*([01]?\d)月\s*([0-3]?\d)日[\d:\s時分]*〜\s*(?:(20\d{2})年)?\s*(?:(\d{1,2})月\s*)?([0-3]?\d)日/g)];
+    const range = rangeMatches.at(-1);
+    if (range) {
+      end = resolveKojinabiDate(
+        range[4],
+        range[5] || range[2],
+        range[6],
+        start?.year || publishedYear,
+        start?.month || nowParts.month
+      );
+    }
+  }
+
+  const ongoingCue = /開催中|実施中|配布中|販売中|提供中|配信中|毎月(?:配布|実施|開催)|毎週(?:配布|実施|開催)|週替わり|全国展開(?:開始|中)|(?:キャンペーン|セール)中|現在.*(?:実施|販売)/;
+  const recurringCue = /毎月|毎週|毎日|週替わり/;
+  const singleDayCue = /1日限定|一日限定|一日限り|当日限り/;
+  const publishedDate = (() => {
+    try { return publishedAt ? jstParts(publishedAt).date : ""; } catch { return ""; }
+  })();
+  if (!end && start && singleDayCue.test(normalized)) end = start;
+  if (!end && start && !ongoingCue.test(normalized)) end = start;
+  const today = nowParts.date;
+  let active = Boolean(
+    (start ? start.iso <= today : true) &&
+    (end ? end.iso >= today : Boolean(start || ongoingCue.test(normalized)))
+  );
+  if (active && !end && !recurringCue.test(normalized)) {
+    const referenceDate = start?.iso || publishedDate;
+    const staleCutoff = dateOnlyUtc(today) - (KOJINABI_UNDATED_STALE_DAYS * DAY_MS);
+    if (!referenceDate || dateOnlyUtc(referenceDate) < staleCutoff) active = false;
+  }
+  const formatDate = (value) => value ? `${value.month}/${value.day}` : "";
+  const periodLabel = start && end
+    ? `${formatDate(start)} 〜 ${formatDate(end)}`
+    : start
+      ? `${formatDate(start)} 〜`
+      : end
+        ? `〜 ${formatDate(end)}`
+        : "掲載元で期間確認";
+  return {
+    active,
+    startDate: start?.iso || null,
+    endDate: end?.iso || null,
+    endDateLabel: end ? "" : "掲載元の記事で期限を確認",
+    periodLabel
+  };
+}
+
+export function parseKojinabiGourmetCampaigns(body, endpoint, now = new Date()) {
+  const campaigns = [];
+  const seen = new Set();
+  const titlePattern = /<h2\b[^>]*class\s*=\s*["'][^"']*\bgrid-title\b[^"']*["'][^>]*>\s*<a\b[^>]*href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))[^>]*>([\s\S]*?)<\/a>[\s\S]*?<\/h2>/gi;
+  for (const match of String(body || "").matchAll(titlePattern)) {
+    const rawUrl = match[1] || match[2] || match[3] || "";
+    const title = normalizeSpace(cleanText(match[4]).replace(/\bNew!\s*$/i, ""));
+    if (!rawUrl || !title || title.length < 4) continue;
+    let articleUrl;
+    try { articleUrl = canonicalizeUrl(new URL(decodeEntities(rawUrl), endpoint).toString()); } catch { continue; }
+    if (seen.has(articleUrl)) continue;
+    seen.add(articleUrl);
+    const nearbyHtml = String(body || "").slice(match.index, match.index + 3500);
+    const publishedAt = nearbyHtml.match(/<time\b[^>]*datetime\s*=\s*["']([^"']+)["']/i)?.[1] || "";
+    const period = parseKojinabiPeriod(title, publishedAt, now);
+    if (!period.active) continue;
+    campaigns.push({
+      title: title.slice(0, 360),
+      articleUrl,
+      publishedAt,
+      startDate: period.startDate,
+      endDate: period.endDate,
+      endDateLabel: period.endDateLabel,
+      periodLabel: period.periodLabel
+    });
+  }
+  return campaigns;
+}
+
+function discoverKojinabiCategoryPages(body, endpoint) {
+  let endpointUrl;
+  try { endpointUrl = new URL(endpoint); } catch { return [endpoint]; }
+  const categoryPattern = /\/blog-category-21(?:-\d+)?\.html$/i;
+  if (!categoryPattern.test(endpointUrl.pathname)) return [canonicalizeUrl(endpoint)];
+  const urls = new Set([canonicalizeUrl(endpointUrl.toString())]);
+  const pageCounts = [...String(body || "").matchAll(/pages\s*:\s*(\d+)/gi)]
+    .map((match) => Number(match[1]))
+    .filter((value) => Number.isInteger(value) && value > 0);
+  const pageCount = Math.min(Math.max(1, ...pageCounts), KOJINABI_MAX_CATEGORY_PAGES);
+  const categoryRoot = endpointUrl.pathname.replace(/\.html$/i, "");
+  for (let page = 1; page < pageCount; page += 1) {
+    try { urls.add(canonicalizeUrl(new URL(`${categoryRoot}-${page}.html`, endpointUrl).toString())); } catch { /* 不正なページ番号は無視 */ }
+  }
+  const hrefPattern = /<a\b[^>]*href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/gi;
+  for (const match of String(body || "").matchAll(hrefPattern)) {
+    const rawUrl = match[1] || match[2] || match[3] || "";
+    try {
+      const pageUrl = new URL(decodeEntities(rawUrl), endpointUrl);
+      if (pageUrl.hostname !== endpointUrl.hostname || !categoryPattern.test(pageUrl.pathname)) continue;
+      urls.add(canonicalizeUrl(pageUrl.toString()));
+    } catch { /* ページ番号リンク以外は無視 */ }
+  }
+  return [...urls]
+    .sort((left, right) => {
+      const pageNumber = (value) => Number(value.match(/-(\d+)\.html$/i)?.[1] || 0);
+      return pageNumber(left) - pageNumber(right);
+    })
+    .slice(0, KOJINABI_MAX_CATEGORY_PAGES);
+}
+
+function mergeKojinabiGourmetCampaigns(pages, now) {
+  const campaignsByUrl = new Map();
+  for (const page of pages) {
+    for (const campaign of parseKojinabiGourmetCampaigns(page.body, page.endpoint, now)) {
+      if (!campaignsByUrl.has(campaign.articleUrl)) campaignsByUrl.set(campaign.articleUrl, campaign);
+    }
+  }
+  return [...campaignsByUrl.values()];
+}
+
+function payPayDateToIso(year, month, day) {
+  const numericYear = Number(year);
+  const numericMonth = Number(month);
+  const numericDay = Number(day);
+  if (!Number.isInteger(numericYear) || !Number.isInteger(numericMonth) || !Number.isInteger(numericDay)) return "";
+  if (numericMonth < 1 || numericMonth > 12 || numericDay < 1 || numericDay > 31) return "";
+  return `${String(numericYear).padStart(4, "0")}-${String(numericMonth).padStart(2, "0")}-${String(numericDay).padStart(2, "0")}`;
+}
+
+function payPayDateLabel(dateString, includeYear = true) {
+  if (!dateString) return "";
+  const [year, month, day] = String(dateString).split("-").map(Number);
+  return includeYear ? `${year}/${month}/${day}` : `${month}/${day}`;
+}
+
+function parsePayPayPeriod(text) {
+  const normalized = normalizeSpace(text).replace(/[.．]/g, "/").replace(/[～〜]/g, "〜");
+  const startMatch = normalized.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+  if (!startMatch) return { startDate: "", endDate: null, periodLabel: "", note: normalized };
+  const startYear = Number(startMatch[1]);
+  const startMonth = Number(startMatch[2]);
+  const startDay = Number(startMatch[3]);
+  const startDate = payPayDateToIso(startYear, startMonth, startDay);
+  const separatorIndex = normalized.indexOf("〜", startMatch.index + startMatch[0].length);
+  if (separatorIndex < 0) {
+    return { startDate, endDate: null, periodLabel: `${payPayDateLabel(startDate)} 〜`, note: "" };
+  }
+  const afterSeparator = normalized.slice(separatorIndex + 1).trim();
+  const endMatch = afterSeparator.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})|(\d{1,2})\/(\d{1,2})/);
+  if (!endMatch) {
+    return { startDate, endDate: null, periodLabel: `${payPayDateLabel(startDate)} 〜`, note: afterSeparator };
+  }
+  let endYear = endMatch[1] ? Number(endMatch[1]) : startYear;
+  const endMonth = Number(endMatch[2] || endMatch[4]);
+  const endDay = Number(endMatch[3] || endMatch[5]);
+  if (!endMatch[1] && (endMonth < startMonth || (endMonth === startMonth && endDay < startDay))) endYear += 1;
+  const endDate = payPayDateToIso(endYear, endMonth, endDay);
+  const note = normalizeSpace(afterSeparator.slice(endMatch.index + endMatch[0].length)).replace(/^[。、\s]+/, "");
+  return {
+    startDate,
+    endDate: endDate || null,
+    periodLabel: `${payPayDateLabel(startDate)} 〜 ${payPayDateLabel(endDate, endYear !== startYear)}`,
+    note
+  };
+}
+
+export function parsePayPayLocalCampaigns(body, endpoint, now = new Date()) {
+  const today = currentJst(now).date;
+  const campaigns = [];
+  let region = "";
+  let prefecture = "";
+  let campaignType = "";
+  const tokenPattern = /<(h[345]|table)\b[^>]*>[\s\S]*?<\/\1>/gi;
+  for (const token of String(body || "").matchAll(tokenPattern)) {
+    const tag = token[1].toLowerCase();
+    const html = token[0];
+    if (tag === "h3") { region = cleanText(html); prefecture = ""; campaignType = ""; continue; }
+    if (tag === "h4") { prefecture = cleanText(html); campaignType = ""; continue; }
+    if (tag === "h5") { campaignType = cleanText(html); continue; }
+    for (const rowMatch of html.matchAll(/<tr\b[^>]*>[\s\S]*?<\/tr>/gi)) {
+      const row = rowMatch[0];
+      const headingHtml = row.match(/<th\b[^>]*>[\s\S]*?<\/th>/i)?.[0] || "";
+      const cellHtml = row.match(/<td\b[^>]*>[\s\S]*?<\/td>/i)?.[0] || "";
+      const hrefMatch = headingHtml.match(/<a\b[^>]*href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/i);
+      const href = hrefMatch?.[1] || hrefMatch?.[2] || hrefMatch?.[3] || "";
+      if (!headingHtml || !cellHtml || !href) continue;
+      const name = cleanText(headingHtml);
+      const cellText = cleanText(cellHtml);
+      if (!name || !cellText.startsWith("開催中")) continue;
+      const period = parsePayPayPeriod(cellText.replace(/^開催中\s*/, ""));
+      if (!period.startDate || period.startDate > today || (period.endDate && period.endDate < today)) continue;
+      let officialUrl;
+      try { officialUrl = canonicalizeUrl(new URL(decodeEntities(href), endpoint).toString()); } catch { continue; }
+      campaigns.push({
+        region: region || "その他",
+        prefecture: prefecture || "その他",
+        campaignType: campaignType || "地域キャンペーン",
+        name,
+        periodLabel: period.periodLabel,
+        startDate: period.startDate,
+        endDate: period.endDate,
+        note: period.note,
+        officialUrl
+      });
+    }
+  }
+  return campaigns;
+}
+
+function parsePayPayOfficialDetail(body) {
+  const text = cleanText(body);
+  const rates = [...text.matchAll(/([0-9]+(?:\.[0-9]+)?)\s*(?:％|%)\s*(?:付与|還元|戻ってくる)/g)]
+    .map((match) => Number(match[1]))
+    .filter(Number.isFinite);
+  const perTransactionCaps = [...text.matchAll(/([0-9,]+)\s*ポイント／回/g)]
+    .map((match) => Number(match[1].replaceAll(",", "")))
+    .filter(Number.isFinite);
+  const periodCaps = [...text.matchAll(/([0-9,]+)\s*ポイント／期間/g)]
+    .map((match) => Number(match[1].replaceAll(",", "")))
+    .filter(Number.isFinite);
+  return {
+    ratePercent: rates.length ? Math.max(...rates) : null,
+    perTransactionCapPoints: perTransactionCaps.length ? Math.max(...perTransactionCaps) : null,
+    periodCapPoints: periodCaps.length ? Math.max(...periodCaps) : null
+  };
+}
+
+async function fetchPayPayRecommendationDetails(campaigns, robotsBody) {
+  const pointCampaigns = (campaigns || []).filter((campaign) => campaign.campaignType === "ポイント還元キャンペーン");
+  const details = [];
+  for (const campaign of pointCampaigns) {
+    if (robotsBody && !robotsAllows(robotsBody, campaign.officialUrl)) {
+      details.push({ ...campaign, detailStatus: "blocked-by-robots" });
+      continue;
+    }
+    try {
+      const response = await fetchSafe(campaign.officialUrl);
+      const parsed = parsePayPayOfficialDetail(response.body);
+      details.push({
+        ...campaign,
+        ...parsed,
+        detailStatus: "verified",
+        detailHttpStatus: response.status,
+        detailContentHash: crypto.createHash("sha256").update(response.body).digest("hex").slice(0, 16)
+      });
+    } catch (error) {
+      details.push({ ...campaign, detailStatus: "detail-fetch-failed", detailReason: error.message });
+    }
+  }
+  return details;
+}
+
+async function fetchSource(source, { now = new Date() } = {}) {
   const endpoint = source.endpoints?.[0] || source.url;
   const result = { id: source.id, name: source.name, endpoint, method: source.fetchMethod || "html", status: "failed", candidateCount: 0, bytes: 0 };
   try {
@@ -386,7 +680,7 @@ async function fetchSource(source) {
     if (robots.status !== 404 && !robotsAllows(robots.body, endpoint)) {
       result.reason = "robots.txtで対象一覧が拒否されています";
       result.status = "blocked-by-robots";
-      return { ...result, candidates: [], signalText: "" };
+      return { ...result, candidates: [], localCampaigns: [], gourmetCampaigns: [], paypayRecommendationCandidates: [], signalText: "" };
     }
     const requestedMaxBytes = Number(source.maxResponseBytes);
     const maxBytes = Number.isFinite(requestedMaxBytes) && requestedMaxBytes > 0
@@ -394,16 +688,56 @@ async function fetchSource(source) {
       : MAX_RESPONSE_BYTES;
     const response = await fetchSafe(endpoint, { maxBytes });
     const candidates = sourceCandidates(response.body, response.finalUrl, response.contentType);
+    const localCampaigns = source.parser === PAYPAY_LOCAL_PARSER
+      ? parsePayPayLocalCampaigns(response.body, response.finalUrl, now)
+      : [];
+    let gourmetCampaigns = [];
+    let gourmetPageCount = 0;
+    let gourmetPageErrorCount = 0;
+    if (source.parser === KOJINABI_GOURMET_PARSER) {
+      const gourmetPages = [{ body: response.body, endpoint: response.finalUrl }];
+      const pageUrls = discoverKojinabiCategoryPages(response.body, response.finalUrl);
+      for (const pageUrl of pageUrls.slice(1)) {
+        if (robots.body && !robotsAllows(robots.body, pageUrl)) {
+          gourmetPageErrorCount += 1;
+          continue;
+        }
+        try {
+          const pageResponse = await fetchSafe(pageUrl, { maxBytes });
+          gourmetPages.push({ body: pageResponse.body, endpoint: pageResponse.finalUrl });
+          result.bytes += Buffer.byteLength(pageResponse.body, "utf8");
+        } catch {
+          gourmetPageErrorCount += 1;
+        }
+      }
+      gourmetPageCount = gourmetPages.length;
+      gourmetCampaigns = mergeKojinabiGourmetCampaigns(gourmetPages, now);
+      result.gourmetPageCount = gourmetPageCount;
+      result.gourmetPageErrorCount = gourmetPageErrorCount;
+    }
+    const paypayRecommendationCandidates = source.parser === PAYPAY_LOCAL_PARSER
+      ? await fetchPayPayRecommendationDetails(localCampaigns, robots.body)
+      : [];
     result.status = "success";
     result.finalUrl = response.finalUrl;
     result.httpStatus = response.status;
     result.contentType = response.contentType;
-    result.bytes = Buffer.byteLength(response.body, "utf8");
-    result.candidateCount = candidates.length;
-    return { ...result, candidates, signalText: cleanText(response.body).slice(0, 500_000) };
+    result.bytes += Buffer.byteLength(response.body, "utf8");
+    result.candidateCount = gourmetCampaigns.length || localCampaigns.length || candidates.length;
+    result.paypayDetailCount = paypayRecommendationCandidates.filter((candidate) => candidate.detailStatus === "verified").length;
+    return {
+      ...result,
+      candidates,
+      localCampaigns,
+      gourmetCampaigns,
+      paypayRecommendationCandidates,
+      officialBody: source.parser === PAYPAY_LOCAL_PARSER ? response.body : null,
+      officialStatus: response.status,
+      signalText: cleanText(response.body).slice(0, 500_000)
+    };
   } catch (error) {
     result.reason = error.message;
-    return { ...result, candidates: [], signalText: "" };
+    return { ...result, candidates: [], localCampaigns: [], gourmetCampaigns: [], paypayRecommendationCandidates: [], signalText: "" };
   }
 }
 
@@ -461,7 +795,7 @@ export function selectDeals(deals, { maxDeals = DEFAULT_MAX_DEALS, now = new Dat
     .slice(0, maxDeals);
 }
 
-async function verifyOfficialDeal(deal, cache, { offline = false, now, previousDeal } = {}) {
+async function verifyOfficialDeal(deal, cache, { offline = false, now, previousDeal, preloadedBody = null, preloadedStatus = null } = {}) {
   const officialUrl = deal.officialUrl;
   let canonicalizedOfficialUrl;
   try {
@@ -471,8 +805,29 @@ async function verifyOfficialDeal(deal, cache, { offline = false, now, previousD
     return { ok: false, status: "unsafe-url", reason: error.message };
   }
   if (cache.has(canonicalizedOfficialUrl)) return cache.get(canonicalizedOfficialUrl);
+  if (deal.verificationMode === "source-listing") {
+    const result = { ok: true, status: "source-listing", canonicalizedOfficialUrl, checkedAt: now.iso };
+    cache.set(canonicalizedOfficialUrl, result);
+    return result;
+  }
   if (offline) {
     const result = { ok: true, status: "offline-approved", canonicalizedOfficialUrl, checkedAt: now.iso };
+    cache.set(canonicalizedOfficialUrl, result);
+    return result;
+  }
+  if (preloadedBody !== null && preloadedBody !== undefined) {
+    const body = cleanText(preloadedBody);
+    const required = deal.officialChecks?.requiredPhrases || [];
+    const missing = required.filter((phrase) => !body.includes(String(phrase)));
+    const result = {
+      ok: missing.length === 0,
+      status: missing.length === 0 ? "verified-from-source" : "missing-required-phrase",
+      reason: missing.length ? `公式ページで確認できない語句: ${missing.join("、")}` : "",
+      canonicalizedOfficialUrl,
+      checkedAt: now.iso,
+      httpStatus: preloadedStatus || 200,
+      contentHash: crypto.createHash("sha256").update(preloadedBody).digest("hex").slice(0, 16)
+    };
     cache.set(canonicalizedOfficialUrl, result);
     return result;
   }
@@ -506,8 +861,31 @@ async function verifyOfficialDeal(deal, cache, { offline = false, now, previousD
   }
 }
 
+function publicLocalRecommendation(campaign) {
+  return {
+    region: campaign.region || "その他",
+    prefecture: campaign.prefecture || "その他",
+    campaignType: campaign.campaignType || "地域キャンペーン",
+    name: campaign.name || "自治体キャンペーン",
+    periodLabel: campaign.periodLabel || "期間は公式ページで確認",
+    startDate: campaign.startDate || null,
+    endDate: campaign.endDate || null,
+    note: campaign.note || "",
+    officialUrl: campaign.officialUrl || "",
+    recommendationReason: campaign.recommendationReason || "",
+    ratePercent: Number.isFinite(campaign.ratePercent) ? campaign.ratePercent : null,
+    perTransactionCapPoints: Number.isFinite(campaign.perTransactionCapPoints) ? campaign.perTransactionCapPoints : null,
+    periodCapPoints: Number.isFinite(campaign.periodCapPoints) ? campaign.periodCapPoints : null
+  };
+}
+
+function comparableLocalRecommendations(campaigns) {
+  return (campaigns || []).map((campaign) => publicLocalRecommendation(campaign));
+}
+
 function publicDeal(deal) {
   const canonicalizedOfficialUrl = deal.canonicalizedOfficialUrl || canonicalizeUrl(deal.officialUrl);
+  const localRecommendations = Array.isArray(deal.localRecommendations) ? comparableLocalRecommendations(deal.localRecommendations) : null;
   return {
     id: deal.id,
     title: deal.campaignName,
@@ -526,7 +904,13 @@ function publicDeal(deal) {
     canonicalizedOfficialUrl,
     category: deal.category || "other",
     note: deal.note || "",
-    maruComment: deal.maruComment || ""
+    maruComment: deal.maruComment || "",
+    ...(deal.linkLabel ? { linkLabel: deal.linkLabel } : {}),
+    ...(deal.verificationLabel ? { verificationLabel: deal.verificationLabel } : {}),
+    ...(deal.dynamicType ? { dynamicType: deal.dynamicType } : {}),
+    ...(deal.dynamicSourceId ? { dynamicSourceId: deal.dynamicSourceId } : {}),
+    ...(Number.isFinite(deal.localCampaignTotal) ? { localCampaignTotal: deal.localCampaignTotal } : {}),
+    ...(localRecommendations ? { localRecommendations } : {})
   };
 }
 
@@ -549,7 +933,13 @@ function comparableDeals(deals) {
     canonicalizedOfficialUrl: deal.canonicalizedOfficialUrl,
     category: deal.category,
     note: deal.note,
-    maruComment: deal.maruComment
+    maruComment: deal.maruComment,
+    linkLabel: deal.linkLabel,
+    verificationLabel: deal.verificationLabel,
+    dynamicType: deal.dynamicType,
+    dynamicSourceId: deal.dynamicSourceId,
+    localCampaignTotal: deal.localCampaignTotal,
+    localRecommendations: comparableLocalRecommendations(deal.localRecommendations)
   }));
 }
 
@@ -604,13 +994,36 @@ function renderCategoryGuide(deals) {
   }).join("")}</div>`;
 }
 
+function renderPayPayLocalRecommendations(recommendations, totalActive, officialListUrl) {
+  const formatPoints = (value) => Number.isFinite(value) ? `${value.toLocaleString("ja-JP")}ポイント` : "公式詳細で確認";
+  return `
+              <section class="deal-card__local-campaigns" aria-labelledby="paypay-recommendations-title">
+                <div class="deal-card__local-heading"><span class="deal-card__local-kicker">おすすめ地域</span><strong id="paypay-recommendations-title">開催中${escapeHtml(totalActive)}自治体からイチオシ${escapeHtml(recommendations.length)}件</strong></div>
+                <p class="deal-card__local-intro">還元率・期間あたりの上限を公式詳細で比較して選んでいます。全自治体の開催状況と対象店舗は、PayPay公式一覧で確認してください。</p>
+                <ol class="paypay-local-list">
+                  ${(recommendations || []).map((campaign) => {
+                    const link = /^https?:\/\//i.test(campaign.officialUrl || "")
+                      ? `<a href="${escapeHtml(campaign.officialUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(campaign.name)}</a>`
+                      : escapeHtml(campaign.name);
+                    const facts = [
+                      Number.isFinite(campaign.ratePercent) ? `最大${campaign.ratePercent}%還元` : "還元率は公式詳細で確認",
+                      Number.isFinite(campaign.periodCapPoints) ? `期間上限${formatPoints(campaign.periodCapPoints)}` : "上限は公式詳細で確認"
+                    ];
+                    return `<li class="paypay-local-list__item"><div class="paypay-local-list__heading"><span>${link}</span><small>${escapeHtml(campaign.prefecture || campaign.region || "")}</small></div><div class="paypay-local-list__facts"><span>${escapeHtml(facts.join("／"))}</span><span>${escapeHtml(campaign.periodLabel || "期間は公式詳細で確認")}</span></div><p class="paypay-local-list__reason">${escapeHtml(campaign.recommendationReason || "公式詳細を確認できる開催中のポイント還元キャンペーン")}</p></li>`;
+                  }).join("")}
+                </ol>
+                <a class="paypay-local-list__all" href="${escapeHtml(officialListUrl)}" target="_blank" rel="noopener noreferrer">開催中の全自治体・詳しい条件を公式一覧で確認 <span aria-hidden="true">↗</span></a>
+              </section>`.replace(/[ \t]+$/gm, "");
+}
+
 function renderDealCard(deal, now, closingSoonDays = 7) {
   const remaining = daysRemaining(deal.endDate, now);
   const isClosingSoon = remaining !== null && remaining >= 0 && remaining <= closingSoonDays;
   const category = categoryMeta(deal.category);
   const application = deal.applicationRequired ? "要エントリー" : "エントリー不要";
+  const localRecommendations = Array.isArray(deal.localRecommendations) && deal.localRecommendations.length ? deal.localRecommendations : null;
   return `
-            <article class="deal-card deal-card--${escapeHtml(deal.category)}${isClosingSoon ? " deal-card--closing-soon" : ""}">
+            <article class="deal-card deal-card--${escapeHtml(deal.category)}${localRecommendations ? " deal-card--paypay-local" : ""}${isClosingSoon ? " deal-card--closing-soon" : ""}">
               <div class="deal-card__top"><span class="deal-card__category"><span class="deal-card__category-icon" aria-hidden="true">${category.icon}</span>${escapeHtml(category.label)}</span>${isClosingSoon ? `<span class="deal-card__closing">まもなく終了</span>` : ""}</div>
               <h3>${escapeHtml(deal.title)}</h3>
               <p class="deal-card__benefit">${escapeHtml(deal.benefitShort)}</p>
@@ -619,9 +1032,10 @@ function renderDealCard(deal, now, closingSoonDays = 7) {
                 <div><dt>やること</dt><dd>${escapeHtml(deal.action)}</dd></div>
                 <div><dt>期限</dt><dd><strong>${escapeHtml(formatEndDate(deal, now))}</strong><span>${escapeHtml(application)}</span></dd></div>
               </dl>
+              ${localRecommendations ? renderPayPayLocalRecommendations(localRecommendations, deal.localCampaignTotal || localRecommendations.length, deal.officialUrl) : ""}
               <details class="deal-card__details"><summary>条件・注意点を読む</summary><p><strong>条件：</strong>${escapeHtml(deal.condition)}</p>${deal.note ? `<p><strong>注意：</strong>${escapeHtml(deal.note)}</p>` : ""}</details>
               ${deal.maruComment ? `<p class="deal-card__maru"><span>まるのひとこと</span>${escapeHtml(deal.maruComment)}</p>` : ""}
-              <div class="deal-card__footer"><a class="button button--primary" href="${escapeHtml(deal.officialUrl)}" target="_blank" rel="noopener noreferrer">公式ページを見る <span aria-hidden="true">↗</span></a><span class="deal-card__official-label">公式情報を確認済み</span></div>
+              <div class="deal-card__footer"><a class="button button--primary" href="${escapeHtml(deal.officialUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(deal.linkLabel || "公式ページを見る")} <span aria-hidden="true">↗</span></a><span class="deal-card__official-label">${escapeHtml(deal.verificationLabel || "公式情報を確認済み")}</span></div>
             </article>`;
 }
 
@@ -693,7 +1107,7 @@ export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date()
   const lastChecked = japaneseDateTime(state.checkedAt);
   const pageDeals = state.deals || [];
   const featuredDeals = pageDeals.slice(0, FEATURED_DEAL_COUNT);
-  const additionalDeals = pageDeals.slice(FEATURED_DEAL_COUNT, FEATURED_DEAL_COUNT * 2);
+  const additionalDeals = pageDeals.slice(FEATURED_DEAL_COUNT);
   const splitIntoTwoSections = pageDeals.length > FEATURED_DEAL_COUNT;
   const featuredSection = pageDeals.length ? renderRankedDealSection(
     featuredDeals,
@@ -817,8 +1231,158 @@ function conciseSourceResult(result) {
     httpStatus: result.httpStatus || null,
     bytes: result.bytes || 0,
     candidateCount: result.candidateCount || 0,
+    paypayDetailCount: result.paypayDetailCount || 0,
+    gourmetPageCount: result.gourmetPageCount || 0,
+    gourmetPageErrorCount: result.gourmetPageErrorCount || 0,
     reason: result.reason || ""
   };
+}
+
+function payPayRecommendationScore(campaign) {
+  const rate = Number.isFinite(campaign.ratePercent) ? campaign.ratePercent : -1;
+  const periodCap = Number.isFinite(campaign.periodCapPoints) ? campaign.periodCapPoints : -1;
+  const verified = campaign.detailStatus === "verified" ? 1 : 0;
+  return [verified, rate, periodCap];
+}
+
+function comparePayPayRecommendations(left, right, now) {
+  const leftScore = payPayRecommendationScore(left);
+  const rightScore = payPayRecommendationScore(right);
+  for (let index = 0; index < leftScore.length; index += 1) {
+    if (rightScore[index] !== leftScore[index]) return rightScore[index] - leftScore[index];
+  }
+  const leftRemaining = daysRemaining(left.endDate, now) ?? 9999;
+  const rightRemaining = daysRemaining(right.endDate, now) ?? 9999;
+  return rightRemaining - leftRemaining || String(left.name).localeCompare(String(right.name), "ja");
+}
+
+function payPayRecommendationReason(campaign, candidates) {
+  const knownRates = candidates.map((candidate) => candidate.ratePercent).filter(Number.isFinite);
+  const knownCaps = candidates.map((candidate) => candidate.periodCapPoints).filter(Number.isFinite);
+  const reasons = [];
+  if (Number.isFinite(campaign.ratePercent) && campaign.ratePercent === Math.max(...knownRates)) {
+    reasons.push(`還元率が高い（最大${campaign.ratePercent}%）`);
+  }
+  if (Number.isFinite(campaign.periodCapPoints) && campaign.periodCapPoints === Math.max(...knownCaps)) {
+    reasons.push(`期間上限が高い（最大${campaign.periodCapPoints.toLocaleString("ja-JP")}ポイント）`);
+  }
+  if (!reasons.length && Number.isFinite(campaign.ratePercent) && Number.isFinite(campaign.periodCapPoints)) {
+    reasons.push(`最大${campaign.ratePercent}%還元・期間上限${campaign.periodCapPoints.toLocaleString("ja-JP")}ポイント`);
+  }
+  if (!reasons.length) reasons.push("還元内容を公式詳細で確認できる開催中の候補");
+  return reasons.join("／");
+}
+
+function buildPayPayRecommendations(source, now) {
+  const candidates = source?.paypayRecommendationCandidates?.length
+    ? source.paypayRecommendationCandidates
+    : (source?.localCampaigns || []).filter((campaign) => campaign.campaignType === "ポイント還元キャンペーン");
+  const sorted = [...candidates].sort((left, right) => comparePayPayRecommendations(left, right, now));
+  return sorted.slice(0, PAYPAY_LOCAL_MAX_RECOMMENDATIONS).map((campaign) => ({
+    ...campaign,
+    recommendationReason: payPayRecommendationReason(campaign, candidates)
+  }));
+}
+
+function stableDynamicId(prefix, url) {
+  return `${prefix}-${crypto.createHash("sha256").update(String(url)).digest("hex").slice(0, 12)}`;
+}
+
+function gourmetDealFromCampaign(campaign) {
+  return {
+    id: stableDynamicId("kojinabi-gourmet", campaign.articleUrl),
+    campaignName: campaign.title,
+    merchant: "ココトク掲載グルメ",
+    service: "グルメ・外食",
+    benefitShort: "期間中のグルメキャンペーン",
+    benefit: "ココトクのグルメカテゴリで期間中と判断できる案件です。具体的な特典・対象商品・利用条件はリンク先の記事と公式情報で確認してください。",
+    condition: "掲載元の記事で期間・対象店舗・対象商品・クーポン条件を確認する。",
+    target: "記事に記載された対象店舗・サービスを利用できる人。",
+    action: "リンク先の記事で最新条件を確認し、可能なら店舗・サービスの公式情報も確認してから利用する。",
+    startDate: campaign.startDate,
+    endDate: campaign.endDate,
+    endDateLabel: campaign.endDateLabel,
+    applicationRequired: false,
+    officialUrl: campaign.articleUrl,
+    category: "food",
+    score: { benefit: 4, ease: 4, audience: 4, duration: campaign.endDate ? 4 : 3, trust: 3, fireFit: 5 },
+    note: `ココトクのグルメカテゴリから期間表示を判定して抽出（${campaign.periodLabel}）。詳細条件はリンク先と公式情報で確認してください。`,
+    maruComment: "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
+    sourceIds: ["kojinabi"],
+    discoveryTerms: ["グルメ"],
+    officialChecks: { requiredPhrases: [] },
+    alwaysInclude: true,
+    allowShortWindow: true,
+    dynamicType: KOJINABI_GOURMET_DYNAMIC_TYPE,
+    dynamicSourceId: "kojinabi",
+    verificationMode: "source-listing",
+    linkLabel: "ココトクの記事を見る",
+    verificationLabel: "ココトク掲載（公式条件はリンク先で確認）"
+  };
+}
+
+function dynamicGourmetDealsForRun(sourceResults, previousDeals, now) {
+  const source = sourceResults.find((result) => result.id === "kojinabi");
+  if (source?.status === "success") return (source.gourmetCampaigns || []).map(gourmetDealFromCampaign);
+  return (previousDeals || [])
+    .filter((deal) => deal.dynamicType === KOJINABI_GOURMET_DYNAMIC_TYPE && isActiveDeal(deal, now))
+    .map((deal) => gourmetDealFromCampaign({
+      title: deal.title,
+      articleUrl: deal.officialUrl,
+      startDate: deal.startDate,
+      endDate: deal.endDate,
+      endDateLabel: deal.endDateLabel,
+      periodLabel: deal.endDate ? `${deal.startDate || ""} 〜 ${deal.endDate}` : "掲載元で期間確認"
+    }));
+}
+
+function dynamicDealForRun(deal, sourceResults, previousDeal, now) {
+  if (deal.dynamicType !== PAYPAY_LOCAL_DYNAMIC_TYPE) return deal;
+  const source = sourceResults.find((result) => result.id === deal.dynamicSourceId);
+  if (source?.status === "success") {
+    const localCampaigns = source.localCampaigns || [];
+    const localRecommendations = buildPayPayRecommendations(source, now);
+    if (!localCampaigns.length || !localRecommendations.length) return null;
+    const startDates = localCampaigns.map((campaign) => campaign.startDate).filter(Boolean).sort();
+    return {
+      ...deal,
+      campaignName: `${deal.campaignName}（${localCampaigns.length}自治体で開催中）`,
+      benefitShort: `開催中${localCampaigns.length}自治体からおすすめ${localRecommendations.length}件`,
+      benefit: "PayPay公式一覧の開催中自治体から、還元率と期間あたりの上限を公式詳細で比較し、最大3地域をおすすめとして掲載しています。",
+      condition: "PayPayのポイント還元やプレミアム商品券は自治体ごとに条件が異なります。対象店舗・還元率・住民限定かどうか・購入条件を公式一覧と各詳細ページで確認してください。",
+      target: "開催中の自治体キャンペーンの対象地域・対象店舗を利用できるPayPayユーザー。住民限定のキャンペーンもあります。",
+      action: "下のおすすめ地域を参考にしつつ、全自治体の開催状況と詳しい条件をPayPay公式一覧で確認する。",
+      startDate: startDates[0] || null,
+      endDate: null,
+      endDateLabel: "自治体ごとに異なる（公式一覧参照）",
+      localCampaignTotal: localCampaigns.length,
+      localRecommendations,
+      note: "PayPay公式一覧の開催中自治体から、還元率・期間上限の高い順を基本に最大3地域を抽出しています。予算上限などにより早期終了する場合があります。",
+      maruComment: "近くで使える地域があれば、買い物の予定と合わせて公式ページを見てみよ。"
+    };
+  }
+  const previousRecommendations = previousDeal?.localRecommendations?.length
+    ? previousDeal.localRecommendations
+    : (previousDeal?.localCampaigns || []).slice(0, PAYPAY_LOCAL_MAX_RECOMMENDATIONS);
+  if (previousRecommendations.length) {
+    return {
+      ...deal,
+      campaignName: previousDeal.title || deal.campaignName,
+      benefitShort: previousDeal.benefitShort || deal.benefitShort,
+      benefit: previousDeal.benefit || deal.benefit,
+      condition: previousDeal.condition || deal.condition,
+      target: previousDeal.target || deal.target,
+      action: previousDeal.action || deal.action,
+      startDate: previousDeal.startDate || deal.startDate,
+      endDate: null,
+      endDateLabel: previousDeal.endDateLabel || deal.endDateLabel,
+      localCampaignTotal: previousDeal.localCampaignTotal || previousRecommendations.length,
+      localRecommendations: previousRecommendations,
+      note: previousDeal.note || deal.note,
+      maruComment: previousDeal.maruComment || deal.maruComment
+    };
+  }
+  return null;
 }
 
 async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
@@ -834,7 +1398,7 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
 
   const sourceResults = offline
     ? sources.map((source) => ({ id: source.id, name: source.name, endpoint: source.endpoints?.[0] || source.url, method: "offline", status: "offline", candidateCount: 0, candidates: [], signalText: "" }))
-    : await Promise.all(sources.sort((left, right) => (left.priority || 9) - (right.priority || 9)).map(fetchSource));
+    : await Promise.all(sources.sort((left, right) => (left.priority || 9) - (right.priority || 9)).map((source) => fetchSource(source, { now })));
   const sourceCandidatesList = sourceResults.flatMap((result) => result.candidates.map((candidate) => ({ ...candidate, sourceId: result.id })));
   const uniqueCandidateKeys = new Set(sourceCandidatesList.map((candidate) => `${candidate.sourceId}\u0000${candidate.url}\u0000${candidate.title}`));
   const normalizedCandidateKeys = new Set(sourceCandidatesList.map((candidate) => `${canonicalizeUrl(candidate.url)}\u0000${normalizeSpace(candidate.title).toLowerCase()}`));
@@ -844,7 +1408,15 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
   const officialResults = [];
   const effective = [];
   const excluded = [];
-  for (const deal of catalog.deals || []) {
+  const dynamicGourmetDeals = dynamicGourmetDealsForRun(sourceResults, previous.deals || [], now);
+  const dealsForRun = [...(catalog.deals || []), ...dynamicGourmetDeals];
+  for (const catalogDeal of dealsForRun) {
+    const previousDeal = previousById.get(catalogDeal.id);
+    const deal = dynamicDealForRun(catalogDeal, sourceResults, previousDeal, now);
+    if (!deal) {
+      excluded.push({ id: catalogDeal.id, reason: catalogDeal.dynamicType === PAYPAY_LOCAL_DYNAMIC_TYPE ? "PayPay公式一覧で開催中の自治体がありません" : catalogDeal.dynamicType === KOJINABI_GOURMET_DYNAMIC_TYPE ? "ココトクのグルメ一覧で期間中の案件がありません" : "実行対象外" });
+      continue;
+    }
     if (!isActiveDeal(deal, now)) {
       excluded.push({ id: deal.id, reason: deal.endDate && deal.endDate < now.date ? "終了済み" : "開始前" });
       continue;
@@ -858,7 +1430,14 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
       excluded.push({ id: deal.id, reason: "有効Sourceで候補を確認できず" });
       continue;
     }
-    const verification = await verifyOfficialDeal(deal, cache, { offline, now, previousDeal: previousById.get(deal.id) });
+    const officialSource = deal.dynamicSourceId ? sourceResults.find((result) => result.id === deal.dynamicSourceId) : null;
+    const verification = await verifyOfficialDeal(deal, cache, {
+      offline,
+      now,
+      previousDeal,
+      preloadedBody: officialSource?.officialBody,
+      preloadedStatus: officialSource?.officialStatus
+    });
     officialResults.push({ id: deal.id, ...verification });
     if (verification.ok) {
       effective.push({ ...deal, canonicalizedOfficialUrl: verification.canonicalizedOfficialUrl });

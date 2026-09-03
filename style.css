@@ -2932,6 +2932,106 @@ body.fire-card-modal-open { overflow: hidden; }
 .otoku-category-chip--other,
 .deal-card--other .deal-card__category { color: #5d5962; background: #f2f1f3; border-color: #c9c6cc; }
 
+.deal-card--paypay-local {
+  grid-column: 1 / -1;
+  border-top-color: #00a884;
+  background: linear-gradient(180deg, #f2fffb 0%, var(--paper) 32%);
+}
+
+.deal-card--paypay-local .deal-card__benefit { color: #00866b; }
+
+.deal-card__local-campaigns {
+  margin-top: 15px;
+  padding: 13px 14px;
+  background: #f6fffc;
+  border: 1px solid #b5e9dc;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.deal-card__local-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 10px;
+  color: #006f59;
+  line-height: 1.45;
+}
+
+.deal-card__local-kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #00a884;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.deal-card__local-heading strong { font-size: 0.95rem; }
+
+.deal-card__local-intro {
+  margin: 10px 0 0;
+  line-height: 1.7;
+}
+
+.paypay-local-list {
+  display: grid;
+  gap: 8px;
+  margin: 13px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paypay-recommendation;
+}
+
+.paypay-local-list__item {
+  position: relative;
+  padding: 10px 10px 10px 35px;
+  background: #fbfffe;
+  border: 1px solid #d9f1eb;
+  border-radius: 10px;
+  counter-increment: paypay-recommendation;
+}
+
+.paypay-local-list__item::before {
+  content: counter(paypay-recommendation);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffe071;
+  color: #684f00;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.paypay-local-list__heading,
+.paypay-local-list__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 9px;
+  align-items: baseline;
+}
+
+.paypay-local-list__heading a { color: #006f59; font-weight: 900; }
+.paypay-local-list__heading small { color: var(--muted); font-size: 10px; }
+.paypay-local-list__facts { margin-top: 4px; color: var(--ink); font-size: 11px; font-weight: 800; }
+.paypay-local-list__reason { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.paypay-local-list__all { display: inline-flex; margin-top: 11px; color: #006f59; font-size: 11px; font-weight: 900; }
+
+.deal-card__local-campaigns summary {
+  color: #00745c;
+  cursor: pointer;
+  font-weight: 900;
+}
+
 @media (max-width: 760px) {
   .otoku-hero h1 { font-size: clamp(1.75rem, 8.2vw, 2.7rem); }
   .otoku-hero__sticker { width: 80px; height: 80px; }

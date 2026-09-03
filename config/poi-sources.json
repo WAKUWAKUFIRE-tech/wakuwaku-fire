@@ -9,7 +9,7 @@
     "timezone": "Asia/Tokyo",
     "maxContentRequestsPerSourcePerRun": 1,
     "robotsCheckIsPreflight": true,
-    "maxDeals": 20,
+    "maxDeals": 30,
     "minimumDaysRemaining": 3,
     "preferredDaysRemaining": 7,
     "closingSoonDays": 7,
@@ -21,14 +21,14 @@
   "sources": [
     {
       "id": "kojinabi",
-      "name": "ココトク",
-      "url": "https://kojinabi.com/",
+      "name": "ココトク（グルメ）",
+      "url": "https://kojinabi.com/blog-category-21.html",
       "enabled": true,
       "required": true,
       "priority": 1,
       "fetchMethod": "html",
-      "parser": "public-html-list",
-      "endpoints": ["https://kojinabi.com/"],
+      "parser": "kojinabi-gourmet-category",
+      "endpoints": ["https://kojinabi.com/blog-category-21.html"],
       "robotsUrl": "https://kojinabi.com/robots.txt",
       "robotsPolicy": "check-before-fetch",
       "robotsStatus": "not-confirmed-by-web-runtime",
@@ -40,8 +40,8 @@
       "sitemapStatus": "not-confirmed",
       "reusePermission": "not-granted",
       "complianceChecked": true,
-      "scope": "キャンペーン名・公開URLの発見だけ。本文・画像・紹介URLは保存しない。",
-      "notes": "公開トップの一覧を1回だけ確認する。掲載情報は必ず公式URLで再確認する。"
+      "scope": "ユーザー指定のグルメカテゴリから、期間中と判定できる記事タイトル・公開URL・期間表示だけを発見する。本文・画像・紹介コード・アフィリエイトURLは保存しない。",
+      "notes": "カテゴリのページネーションを確認し、期間中の案件を最大30件まで掲載する。未来開始・終了済みを除外し、詳細条件はリンク先と店舗・サービスの公式情報で確認する。"
     },
     {
       "id": "dp-invest",
@@ -192,6 +192,30 @@
       "userApproved": true,
       "scope": "ユーザー承認により採用。公開一覧から案件名・公開URLの発見だけを行い、本文・画像・紹介URLは保存しない。公式ページで再確認できた案件だけを掲載する。",
       "notes": "無料サンプル等はポイ活との適合性・公式ページ確認を個別に行う。robots事前確認を通過した公開一覧だけを1回確認する。"
+    },
+    {
+      "id": "paypay-local",
+      "name": "PayPay自治体キャンペーン（公式）",
+      "url": "https://paypay.ne.jp/event/support-local/",
+      "enabled": true,
+      "required": false,
+      "priority": 1,
+      "fetchMethod": "html",
+      "parser": "paypay-support-local",
+      "endpoints": ["https://paypay.ne.jp/event/support-local/"],
+      "robotsUrl": "https://paypay.ne.jp/robots.txt",
+      "robotsPolicy": "check-before-fetch",
+      "robotsStatus": "checked-at-run-time",
+      "termsUrl": "https://about.paypay.ne.jp/docs/terms/website/",
+      "termsStatus": "official-site-only",
+      "feedUrl": null,
+      "feedStatus": "not-required",
+      "sitemapUrl": null,
+      "sitemapStatus": "not-required",
+      "reusePermission": "official-public-listing",
+      "complianceChecked": true,
+      "scope": "PayPay公式ページの開催中自治体一覧を1回取得し、還元率・期間上限を公式詳細ページで比較したおすすめ地域を最大3件だけ採用する。本文・公式画像・紹介URLは保存しない。",
+      "notes": "開催中の全自治体数は表示するが、地域の転載一覧は作らない。おすすめ最大3件と公式一覧への導線を掲載し、対象店舗・住民限定条件・最新期限は公式ページで確認してもらう。"
     }
   ]
 }

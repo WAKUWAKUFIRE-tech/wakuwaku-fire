@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "maxDeals": 20,
+  "maxDeals": 30,
   "minimumDaysRemaining": 3,
   "preferredDaysRemaining": 7,
   "closingSoonDays": 7,
@@ -173,6 +173,33 @@
       "discoveryTerms": ["povo", "本気割", "50%", "au PAY"],
       "officialChecks": { "requiredPhrases": ["2026年9月1日", "50%", "7日以内", "au PAY"] },
       "alwaysInclude": true
+    },
+    {
+      "id": "paypay-local-aggregate",
+      "campaignName": "PayPay地域キャンペーン",
+      "merchant": "PayPay",
+      "service": "PayPay自治体キャンペーン",
+      "benefitShort": "開催中の自治体からおすすめを最大3件",
+      "benefit": "PayPay公式一覧の開催中自治体から、還元率と期間あたりの上限を公式詳細で比較し、おすすめ地域を最大3件だけ掲載します。",
+      "condition": "PayPayでの支払いによるポイント還元やプレミアム商品券など、キャンペーンごとに条件が異なります。対象店舗・還元率・住民限定かどうかを公式ページで確認してください。",
+      "target": "開催中の自治体キャンペーンの対象地域・対象店舗を利用できるPayPayユーザー。住民限定のキャンペーンもあります。",
+      "action": "おすすめ地域を参考にしつつ、PayPay公式一覧で全自治体の開催状況と対象店舗・還元率・申込や購入の条件を確認する。",
+      "startDate": "2026-01-01",
+      "endDate": null,
+      "endDateLabel": "自治体ごとに異なる（一覧参照）",
+      "applicationRequired": false,
+      "officialUrl": "https://paypay.ne.jp/event/support-local/",
+      "imageCandidate": null,
+      "category": "cashless",
+      "score": { "benefit": 5, "ease": 4, "audience": 5, "duration": 5, "trust": 5, "fireFit": 5 },
+      "note": "開催中の自治体数を公式一覧から取得し、還元率・期間上限の高い順を基本におすすめを最大3件抽出します。予算上限などにより早期終了する場合もあります。",
+      "maruComment": "近くで使える自治体があれば、買い物の予定と合わせて公式ページを見てみよ。",
+      "sourceIds": ["paypay-local"],
+      "discoveryTerms": ["PayPay", "自治体", "開催中"],
+      "officialChecks": { "requiredPhrases": ["PayPay", "開催中", "自治体"] },
+      "alwaysInclude": true,
+      "dynamicType": "paypay-local-aggregate",
+      "dynamicSourceId": "paypay-local"
     }
   ]
 }

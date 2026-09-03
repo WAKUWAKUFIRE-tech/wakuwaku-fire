@@ -33,7 +33,7 @@ jobs:
       - name: Update the fixed poi page
         env:
           SITE_URL: ${{ vars.SITE_URL }}
-          POI_MAX_DEALS: "20"
+          POI_MAX_DEALS: "30"
         run: npm run poi:update
 
       - name: Validate the updated poi page
