@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-04",
+  "updated_at": "2026-09-05",
   "items": [
     {
       "id": "seo-001",
@@ -350,7 +350,7 @@
     {
       "id": "seo-010",
       "priority_order": 10,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE後 生活",
       "secondary_keywords": [
         "FIRE後の暮らし",
@@ -373,12 +373,16 @@
       ],
       "thumbnail_text_hint": "FIRE後の生活",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/life-after-fire/",
+      "published_at": "2026-09-05",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
-      "stock_path": "automation/article_stock/life-after-fire"
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-05T07:00:00+09:00",
+      "stock_path": "automation/article_stock/life-after-fire",
+      "generated_title": "FIRE後の生活はどう変わる？実際の1日と数年後の本音",
+      "generated_meta_description": "FIRE後の生活は毎日が休日になるだけではありません。朝の子どもの準備、送迎、家事、創作、散歩、家族との時間まで、FIRE6年目に公開した実際の1日と数年後の本音を紹介します。",
+      "generated_category": "FIRE後の生活",
+      "generated_thumbnail_text": "FIRE後の生活"
     },
     {
       "id": "seo-011",

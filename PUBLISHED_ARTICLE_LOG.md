@@ -235,3 +235,24 @@ thumbnail text: 失敗する人
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後の生活はどう変わる？実際の1日と数年後の本音
+
+article id: seo-010
+priority_order: 10
+公開日・時刻（JST）: 2026-09-05 07:00:00
+公開枠: 2026-09-05T07:00:00+09:00
+main keyword: FIRE後 生活
+title: FIRE後の生活はどう変わる？実際の1日と数年後の本音
+slug: life-after-fire
+URL: https://wakuwaku-fire-git.pages.dev/articles/life-after-fire/
+thumbnail file: articles/life-after-fire/thumbnail.png
+thumbnail text: FIRE後の生活
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/family_and_fire.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: キラキラしてない日常
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
