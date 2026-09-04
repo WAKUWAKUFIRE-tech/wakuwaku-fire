@@ -193,3 +193,24 @@ thumbnail text: 後悔した？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREすると暇になる？毎日日曜日問題を経験者が語る
+
+article id: seo-008
+priority_order: 8
+公開日・時刻（JST）: 2026-09-04 07:00:00
+公開枠: 2026-09-04T07:00:00+09:00
+main keyword: FIRE 暇
+title: FIREすると暇になる？毎日日曜日問題を経験者が語る
+slug: fire-hima
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-hima/
+thumbnail file: articles/fire-hima/thumbnail.png
+thumbnail text: 暇になる？
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/seo_experience_map.md, content_sources/knowledge_base/recurring_stories.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIREとか暇そうw / その日暮らしのアリエッティ
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

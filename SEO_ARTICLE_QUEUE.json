@@ -275,7 +275,7 @@
     {
       "id": "seo-008",
       "priority_order": 8,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE 暇",
       "secondary_keywords": [
         "FIRE 退屈",
@@ -298,12 +298,16 @@
       ],
       "thumbnail_text_hint": "暇になる？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-hima/",
+      "published_at": "2026-09-04",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
-      "stock_path": "automation/article_stock/fire-hima"
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-04T07:00:00+09:00",
+      "stock_path": "automation/article_stock/fire-hima",
+      "generated_title": "FIREすると暇になる？毎日日曜日問題を経験者が語る",
+      "generated_meta_description": "FIREすると暇になるのか。退職直後にゲーム三昧で生活が崩れた経験と、家族・家事・創作で日々のリズムを作り直した今の実感から、毎日日曜日問題を考えます。",
+      "generated_category": "FIRE後の生活",
+      "generated_thumbnail_text": "暇になる？"
     },
     {
       "id": "seo-009",
