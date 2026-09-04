@@ -350,7 +350,7 @@
     {
       "id": "seo-010",
       "priority_order": 10,
-      "status": "published",
+      "status": "failed",
       "main_keyword": "FIRE後 生活",
       "secondary_keywords": [
         "FIRE後の暮らし",
@@ -375,7 +375,7 @@
       "latest_fact_check_required": false,
       "published_url": "https://wakuwaku-fire-git.pages.dev/articles/life-after-fire/",
       "published_at": "2026-09-05",
-      "failed_reason": "",
+      "failed_reason": "公開URL確認失敗（GitHub Actions）",
       "published_time": "07:00:00",
       "published_slot": "2026-09-05T07:00:00+09:00",
       "stock_path": "automation/article_stock/life-after-fire",
