@@ -3073,7 +3073,6 @@ body.fire-card-modal-open { overflow: hidden; }
   justify-content: space-between;
 }
 
-.otoku-revenue-card__label,
 .otoku-amazon-card__pr {
   display: inline-flex;
   align-items: center;
@@ -3120,7 +3119,22 @@ body.fire-card-modal-open { overflow: hidden; }
 .otoku-affiliate-section__heading { max-width: 650px; }
 .otoku-affiliate-section__heading h2 { margin: 0; color: var(--ink); font-size: clamp(1.6rem, 4vw, 2.35rem); line-height: 1.22; }
 .otoku-affiliate-section__heading h2 span { color: var(--red); }
-.otoku-affiliate-section__heading p:last-child { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.otoku-affiliate-section__description { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.otoku-affiliate-section__pr {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  margin-right: 5px;
+  padding: 2px 7px;
+  color: #fff;
+  background: var(--red);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  vertical-align: 1px;
+}
 .otoku-affiliate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
 .otoku-affiliate-grid .otoku-revenue-card { margin: 0; }
 
@@ -3745,3 +3759,4 @@ body.fire-card-modal-open { overflow: hidden; }
     grid-template-columns: 1fr;
   }
 }
+

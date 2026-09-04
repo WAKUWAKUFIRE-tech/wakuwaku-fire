@@ -1104,11 +1104,11 @@ function renderAffiliateOfferCard(offer, placement) {
   const safeId = String(offer.id || "offer").replace(/[^a-z0-9_-]/gi, "-");
   const categoryLabel = MONETIZATION_CATEGORY_LABELS[offer.category] || "関連情報";
   return `
-          <aside class="otoku-revenue-card" aria-labelledby="affiliate-offer-${escapeHtml(safeId)}-title">
-            <div class="otoku-revenue-card__top"><span class="otoku-revenue-card__label">${escapeHtml(offer.disclosure || "PR")}</span><span class="otoku-revenue-card__category">${escapeHtml(categoryLabel)}に関連</span></div>
-            <h2 id="affiliate-offer-${escapeHtml(safeId)}-title">${escapeHtml(offer.title)}</h2>
-            <p>${escapeHtml(offer.description)}</p>
-            <a class="button button--primary otoku-revenue-card__link" href="${escapeHtml(offer.url)}" target="_blank" rel="noopener noreferrer sponsored" data-affiliate-offer-id="${escapeHtml(offer.id)}" data-affiliate-category="${escapeHtml(offer.category)}" data-affiliate-provider="${escapeHtml(offer.provider)}" data-affiliate-placement="${escapeHtml(placement)}">${escapeHtml(offer.buttonLabel)} <span aria-hidden="true">↗</span></a>
+           <aside class="otoku-revenue-card" aria-labelledby="affiliate-offer-${escapeHtml(safeId)}-title">
+             <div class="otoku-revenue-card__top"><span class="otoku-revenue-card__category">${escapeHtml(categoryLabel)}に関連</span></div>
+             <h2 id="affiliate-offer-${escapeHtml(safeId)}-title">${escapeHtml(offer.title)}</h2>
+             <p>${escapeHtml(offer.description)}</p>
+             <a class="button button--primary otoku-revenue-card__link" href="${escapeHtml(offer.url)}" target="_blank" rel="noopener noreferrer sponsored" data-affiliate-offer-id="${escapeHtml(offer.id)}" data-affiliate-category="${escapeHtml(offer.category)}" data-affiliate-provider="${escapeHtml(offer.provider)}" data-affiliate-placement="${escapeHtml(placement)}">${escapeHtml(offer.buttonLabel)} <span aria-hidden="true">↗</span></a>
           </aside>`;
 }
 
@@ -1129,7 +1129,7 @@ function renderAffiliateOfferSection(offers) {
   if (!offers?.length) return "";
   return `
           <section class="otoku-affiliate-section" aria-labelledby="affiliate-offers-title">
-            <div class="otoku-affiliate-section__heading"><p class="eyebrow eyebrow--red">OFFICIAL SERVICES</p><h2 id="affiliate-offers-title">公式サービスも<br /><span>チェック。</span></h2><p>通信・買い物・飲食・旅行・暮らしに関するサービスを、公式ページで確認できます。条件や料金はリンク先で必ず確認してください。</p></div>
+            <div class="otoku-affiliate-section__heading"><p class="eyebrow eyebrow--red">OFFICIAL SERVICES</p><h2 id="affiliate-offers-title">公式サービスも<br /><span>チェック。</span></h2><p class="otoku-affiliate-section__description"><span class="otoku-affiliate-section__pr">PR</span> 通信・買い物・飲食・旅行・暮らしに関するサービスを、公式ページで確認できます。条件や料金はリンク先で必ず確認してください。</p></div>
             <div class="otoku-affiliate-grid">${offers.map((offer, index) => renderAffiliateOfferCard(offer, `official-service-${index + 1}`)).join("")}
             </div>
           </section>`;
@@ -1787,3 +1787,4 @@ if (isMain) {
     process.exitCode = 1;
   }
 }
+
