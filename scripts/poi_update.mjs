@@ -1125,6 +1125,16 @@ function renderAmazonSaleCard(amazon) {
           </aside>`;
 }
 
+function renderAffiliateOfferSection(offers) {
+  if (!offers?.length) return "";
+  return `
+          <section class="otoku-affiliate-section" aria-labelledby="affiliate-offers-title">
+            <div class="otoku-affiliate-section__heading"><p class="eyebrow eyebrow--red">OFFICIAL SERVICES</p><h2 id="affiliate-offers-title">公式サービスも<br /><span>チェック。</span></h2><p>通信・買い物・飲食・旅行・暮らしに関するサービスを、公式ページで確認できます。条件や料金はリンク先で必ず確認してください。</p></div>
+            <div class="otoku-affiliate-grid">${offers.map((offer, index) => renderAffiliateOfferCard(offer, `official-service-${index + 1}`)).join("")}
+            </div>
+          </section>`;
+}
+
 function renderPayPayLocalRecommendations(recommendations, totalActive, officialListUrl) {
   const formatPoints = (value) => Number.isFinite(value) ? `${value.toLocaleString("ja-JP")}ポイント` : "公式詳細で確認";
   return `
@@ -1238,24 +1248,19 @@ export function renderPage(state, { siteUrl = DEFAULT_SITE_URL, now = new Date()
   const lastChecked = japaneseDateTime(state.checkedAt);
   const pageDeals = state.deals || [];
   const runtime = affiliateRuntime || buildAffiliateRuntime();
-  const selectedAffiliateOffers = selectAffiliateOffers(pageDeals, runtime.offers || [], { now, maxOffers: 3 });
+  const selectedAffiliateOffers = selectAffiliateOffers(pageDeals, runtime.offers || [], {
+    now,
+    maxOffers: 7,
+    requireMatchingCategory: false,
+    onePerCategory: false
+  });
   const payPayDeals = pageDeals.filter((deal) => deal.dynamicType === PAYPAY_LOCAL_DYNAMIC_TYPE);
   const rankedDeals = pageDeals.filter((deal) => deal.dynamicType !== PAYPAY_LOCAL_DYNAMIC_TYPE);
   const featuredDeals = rankedDeals.slice(0, FEATURED_DEAL_COUNT);
   const additionalDeals = [...rankedDeals.slice(FEATURED_DEAL_COUNT), ...payPayDeals];
   const splitIntoTwoSections = additionalDeals.length > 0;
-  const affiliateAfterFeatured = selectedAffiliateOffers[0]
-    ? renderAffiliateOfferCard(selectedAffiliateOffers[0], "after-top-10")
-    : "";
-  const affiliateAfterMore = selectedAffiliateOffers[1]
-    ? renderAffiliateOfferCard(selectedAffiliateOffers[1], "after-more-deals")
-    : "";
-  const affiliateAfterAmazon = selectedAffiliateOffers[2]
-    ? renderAffiliateOfferCard(selectedAffiliateOffers[2], "after-amazon-sale")
-    : "";
   const amazonCard = renderAmazonSaleCard(runtime.amazon);
-  const amazonAfterFeatured = !selectedAffiliateOffers.length || !splitIntoTwoSections ? amazonCard : "";
-  const amazonAfterMore = selectedAffiliateOffers.length && splitIntoTwoSections ? amazonCard : "";
+  const affiliateOffersSection = renderAffiliateOfferSection(selectedAffiliateOffers);
   const featuredSection = pageDeals.length ? renderRankedDealSection(
     featuredDeals,
     now,
@@ -1330,12 +1335,9 @@ ${renderStructuredData(state, siteUrl)}
 ${renderAffiliateDisclosure(runtime)}
 ${renderCategoryGuide(pageDeals)}
 ${featuredSection}
-${affiliateAfterFeatured}
-${amazonAfterFeatured}
 ${additionalSection}
-${affiliateAfterMore}
-${amazonAfterMore}
-${affiliateAfterAmazon}
+${amazonCard}
+${affiliateOffersSection}
 ${renderClosingSoon(pageDeals, now, closingSoonDays)}
           <section class="otoku-section otoku-section--care" aria-labelledby="care-title"><div class="otoku-section__heading"><p class="eyebrow eyebrow--red">TAKE IT EASY</p><h2 id="care-title">ポイ活で無理しすぎない<br /><span>ために。</span></h2></div><div class="otoku-care-grid"><div class="otoku-care-card"><span aria-hidden="true">01</span><h3>使う予定のお金だけ</h3><p>ポイントのために、いらない買い物や契約を増やさない。先に使い道を決めると、ポイ活に振り回されにくいで。</p></div><div class="otoku-care-card"><span aria-hidden="true">02</span><h3>条件は最後まで読む</h3><p>エントリー、対象カード、最低利用額、付与時期、解約条件。お得そうな数字だけで判断せず、公式の注意事項まで確認しよ。</p></div><div class="otoku-care-card"><span aria-hidden="true">03</span><h3>投資案件は別もの</h3><p>元本が必要な金融・投資案件は、ポイント還元とは別にリスクがあります。ポイントのためだけに投資する必要はありません。</p></div></div><div class="otoku-disclaimer"><strong>掲載情報について</strong><p>このページは${escapeHtml(lastChecked)}時点の公式ページをもとに整理しています。キャンペーンは予告なく変更・終了する場合があります。最終的な条件・対象者・期限は、申込み前に必ず公式ページで確認してください。掲載内容は一般的な情報提供で、金融商品や契約の勧誘ではありません。</p></div></section>
         </article>
@@ -1569,7 +1571,12 @@ function buildAffiliateAnalysis(deals, now, runtime) {
       a8LinkManagerConfigured: Boolean(runtime?.a8?.enabled),
       amazonAssociateConfigured: Boolean(runtime?.amazon?.isAffiliate),
       configuredOfferCount: (runtime?.offers || []).filter((offer) => offer.enabled).length,
-      selectedContextOfferCount: selectAffiliateOffers(list, runtime?.offers || [], { now, maxOffers: 3 }).length
+      selectedContextOfferCount: selectAffiliateOffers(list, runtime?.offers || [], {
+        now,
+        maxOffers: 7,
+        requireMatchingCategory: false,
+        onePerCategory: false
+      }).length
     }
   };
 }
@@ -1651,7 +1658,12 @@ async function runUpdate({ dryRun = false, offline = false, nowInput } = {}) {
   const contentChanged = stateDealsComparable({ deals: finalDeals }) !== stateDealsComparable(previous);
   const state = makePageState(previous, finalDeals.map((deal) => ({ ...deal, campaignName: deal.title, officialUrl: deal.officialUrl })), now, siteUrl, contentChanged);
   const affiliateAnalysis = buildAffiliateAnalysis(state.deals, now, affiliateRuntime);
-  const selectedAffiliateOffers = selectAffiliateOffers(state.deals, affiliateRuntime.offers, { now, maxOffers: 3 });
+  const selectedAffiliateOffers = selectAffiliateOffers(state.deals, affiliateRuntime.offers, {
+    now,
+    maxOffers: 7,
+    requireMatchingCategory: false,
+    onePerCategory: false
+  });
   const summary = {
     runAt: now.iso,
     mode: offline ? "offline" : "scheduled",

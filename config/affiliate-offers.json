@@ -1,4 +1,96 @@
 {
   "schemaVersion": 1,
-  "offers": []
+  "offers": [
+    {
+      "id": "a8-ahamo-007",
+      "programId": "s00000022488001",
+      "provider": "a8",
+      "title": "ahamoの料金・キャンペーンを公式で確認する",
+      "description": "通信費を見直したい人向け。料金・対象条件・キャンペーン内容は公式ページで確認してください。",
+      "buttonLabel": "公式ページを見る",
+      "category": "mobile",
+      "priority": 100,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+DQ5XIA+4TIO+5ZEMP",
+      "enabled": true
+    },
+    {
+      "id": "a8-aupay-furusato-007",
+      "programId": "s00000023934001",
+      "provider": "a8",
+      "title": "au PAY ふるさと納税を公式で確認する",
+      "description": "返礼品やキャンペーンの条件を確認してから、無理のない範囲で利用できます。",
+      "buttonLabel": "公式ページを見る",
+      "category": "shopping",
+      "priority": 90,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+DG1K82+54OC+601S1",
+      "enabled": true
+    },
+    {
+      "id": "a8-deliz-007",
+      "programId": "s00000021364001",
+      "provider": "a8",
+      "title": "デリズのフードデリバリーを公式で確認する",
+      "description": "出前を頼む予定があるときに、配達エリア・メニュー・料金を公式ページで確認できます。",
+      "buttonLabel": "公式ページを見る",
+      "category": "food",
+      "priority": 80,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+EDZ8XM+4KUG+64Z8Y",
+      "enabled": true
+    },
+    {
+      "id": "a8-furusato-honpo-007",
+      "programId": "s00000025743001",
+      "provider": "a8",
+      "title": "ふるさと本舗を公式で確認する",
+      "description": "返礼品・寄付条件・キャンペーンの最新情報を公式ページで確認してください。",
+      "buttonLabel": "公式ページを見る",
+      "category": "shopping",
+      "priority": 75,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+DK7LGI+5IMU+60WN5",
+      "enabled": true
+    },
+    {
+      "id": "a8-retty-007",
+      "programId": "s00000020542002",
+      "provider": "a8",
+      "title": "Rettyでお店を公式検索する",
+      "description": "外食の予定があるときに、対象店舗や予約条件を公式ページで確認できます。",
+      "buttonLabel": "公式ページを見る",
+      "category": "food",
+      "priority": 70,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+E6U2G2+4EI4+BWVTE",
+      "enabled": true
+    },
+    {
+      "id": "a8-jalan-007",
+      "programId": "s00000005230001",
+      "provider": "a8",
+      "title": "じゃらんnetで宿泊プランを公式検索する",
+      "description": "旅行や宿泊の予定があるときに、プラン・料金・予約条件を公式ページで確認できます。",
+      "buttonLabel": "公式ページを見る",
+      "category": "travel",
+      "priority": 65,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+EO3MZM+14CS+6C9LD",
+      "enabled": true
+    },
+    {
+      "id": "a8-loop-laundry-007",
+      "programId": "s00000026065001",
+      "provider": "a8",
+      "title": "Loop Laundryを公式で確認する",
+      "description": "宅配クリーニングを検討するときに、料金・対象地域・利用条件を公式ページで確認できます。",
+      "buttonLabel": "公式ページを見る",
+      "category": "utility",
+      "priority": 60,
+      "disclosure": "PR",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4BC36J+FAQ37E+5L4A+5YJRM",
+      "enabled": true
+    }
+  ]
 }

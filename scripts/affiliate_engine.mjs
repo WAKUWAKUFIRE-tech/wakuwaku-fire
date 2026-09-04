@@ -174,7 +174,7 @@ function dateValue(rawValue) {
 
 export function isAffiliateOfferActive(offer, now = new Date()) {
   if (!offer?.enabled) return false;
-  const current = now instanceof Date ? now : new Date(now);
+  const current = now instanceof Date ? now : new Date(now?.iso || now);
   if (Number.isNaN(current.getTime())) return false;
   if (offer.startAt) {
     const start = dateValue(offer.startAt);
@@ -238,18 +238,23 @@ export function buildAffiliateRuntime(config = {}, registry = {}, env = {}) {
   };
 }
 
-export function selectAffiliateOffers(deals = [], offers = [], { now = new Date(), maxOffers = 3 } = {}) {
+export function selectAffiliateOffers(deals = [], offers = [], {
+  now = new Date(),
+  maxOffers = 3,
+  requireMatchingCategory = true,
+  onePerCategory = true
+} = {}) {
   const categories = new Set(deals.map((deal) => withMonetizationCategory(deal).monetizationCategory));
   const selectedCategories = new Set();
   const selectedOfferIds = new Set();
   const selectedOffers = [];
   const sortedOffers = offers
-    .filter((offer) => categories.has(offer.category) && isAffiliateOfferActive(offer, now))
+    .filter((offer) => (!requireMatchingCategory || categories.has(offer.category)) && isAffiliateOfferActive(offer, now))
     .sort((left, right) => right.priority - left.priority || String(left.id).localeCompare(String(right.id)));
   for (const offer of sortedOffers) {
     if (selectedOffers.length >= Math.max(0, Number(maxOffers) || 0)) break;
     if (selectedOfferIds.has(offer.id)) continue;
-    if (selectedCategories.has(offer.category)) continue;
+    if (onePerCategory && selectedCategories.has(offer.category)) continue;
     selectedOfferIds.add(offer.id);
     selectedCategories.add(offer.category);
     selectedOffers.push(offer);

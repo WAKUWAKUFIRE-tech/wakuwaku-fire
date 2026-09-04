@@ -7,7 +7,7 @@
   },
   "amazon": {
     "enabled": true,
-    "associateUrl": "",
+    "associateUrl": "https://www.amazon.co.jp/gp/goldbox/?tag=maru-sidefire-22",
     "fallbackUrl": "https://www.amazon.co.jp/gp/goldbox/",
     "disclosure": "PR"
   }
