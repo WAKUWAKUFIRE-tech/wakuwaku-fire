@@ -214,3 +214,24 @@ thumbnail text: 暇になる？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREに失敗する人の特徴は？経験者の失敗談から学ぶ
+
+article id: seo-009
+priority_order: 9
+公開日・時刻（JST）: 2026-09-04 18:00:00
+公開枠: 2026-09-04T18:00:00+09:00
+main keyword: FIRE 失敗
+title: FIREに失敗する人の特徴は？経験者の失敗談から学ぶ
+slug: fire-shippai
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-shippai/
+thumbnail file: articles/fire-shippai/thumbnail.png
+thumbnail text: 失敗する人
+参照knowledge_base: content_sources/knowledge_base/investment_failures.md, content_sources/knowledge_base/contradictions_and_updates.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/lessons_learned.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIRE卒業 / 一億円弱
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

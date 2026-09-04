@@ -312,7 +312,7 @@
     {
       "id": "seo-009",
       "priority_order": 9,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE 失敗",
       "secondary_keywords": [
         "FIRE 失敗談",
@@ -336,12 +336,16 @@
       ],
       "thumbnail_text_hint": "失敗する人",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-shippai/",
+      "published_at": "2026-09-04",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
-      "stock_path": "automation/article_stock/fire-shippai"
+      "published_time": "18:00:00",
+      "published_slot": "2026-09-04T18:00:00+09:00",
+      "stock_path": "automation/article_stock/fire-shippai",
+      "generated_title": "FIREに失敗する人の特徴は？経験者の失敗談から学ぶ",
+      "generated_meta_description": "FIREの失敗は資産不足だけではありません。2024年の約5000万円損失、2025年のデイトレ年間マイナス3776万円、2026年の大幅下落を経験した本人が、失敗の構造と備えを整理します。",
+      "generated_category": "FIREの失敗",
+      "generated_thumbnail_text": "失敗する人"
     },
     {
       "id": "seo-010",
