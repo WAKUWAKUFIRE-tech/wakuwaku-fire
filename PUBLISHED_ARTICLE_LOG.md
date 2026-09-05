@@ -278,3 +278,24 @@ external sources:
 - なし
 公開結果: FAILED
 理由: 公開URL確認失敗（GitHub Actions）
+
+## PUBLISHED: FIRE後も仕事は必要？働くことをやめた後に見えた現実
+
+article id: seo-011
+priority_order: 11
+公開日・時刻（JST）: 2026-09-05 18:00:00
+公開枠: 2026-09-05T18:00:00+09:00
+main keyword: FIRE後 仕事
+title: FIRE後も仕事は必要？働くことをやめた後に見えた現実
+slug: work-after-fire
+URL: https://wakuwaku-fire-git.pages.dev/articles/work-after-fire/
+thumbnail file: articles/work-after-fire/thumbnail.png
+thumbnail text: 仕事は必要？
+参照knowledge_base: content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/contradictions_and_updates.md
+参照note原記事:
+- なし
+使用本人フレーズ: FIREは人生勝ち確じゃないんで。
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
