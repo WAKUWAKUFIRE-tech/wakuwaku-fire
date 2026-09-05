@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-05",
+  "updated_at": "2026-09-06",
   "items": [
     {
       "id": "seo-001",
@@ -4403,6 +4403,194 @@
       "failed_reason": "",
       "stock_path": "automation/article_stock/sidefire-vs-early-retire",
       "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-126",
+      "priority_order": 126,
+      "status": "stocked",
+      "main_keyword": "早期退職とは",
+      "secondary_keywords": [
+        "早期退職 FIRE 違い",
+        "早期退職 セミリタイア",
+        "サイドFIRE 早期退職",
+        "早期退職 意味"
+      ],
+      "article_title_plan": "早期退職とは？FIRE・セミリタイアとの違いをわかりやすく解説",
+      "slug": "early-retirement-meaning",
+      "search_intent": "早期退職の意味とFIRE・サイドFIRE・セミリタイアとの違いを知りたい",
+      "unique_angle": "会社を早く辞める出来事と、資産収入や労働収入で自由を支える生活設計を切り分けて説明する入口記事",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/what-is-fire/",
+        "/articles/side-fire-toha/",
+        "/articles/fire-6000man/",
+        "/articles/fire-koukai/"
+      ],
+      "thumbnail_text_hint": "退職＝FIRE？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/early-retirement-meaning",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-127",
+      "priority_order": 127,
+      "status": "stocked",
+      "main_keyword": "早期退職 いくら 必要",
+      "secondary_keywords": [
+        "早期退職 必要資産",
+        "40代 早期退職",
+        "50代 早期退職",
+        "生活費 必要資産"
+      ],
+      "article_title_plan": "早期退職するにはいくら必要？年代・生活費別に必要資産をシミュレーション",
+      "slug": "early-retirement-assets",
+      "search_intent": "年代と生活費、退職後の収入から早期退職に必要な資産を試算したい",
+      "unique_angle": "月15万・20万・25万・30万円の生活費と年代、退職後収入を組み合わせ、年間不足額から必要資産を考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-6000man/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "いくら必要？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/early-retirement-assets",
+      "category": "FIRE準備・必要資産"
+    },
+    {
+      "id": "seo-128",
+      "priority_order": 128,
+      "status": "stocked",
+      "main_keyword": "早期退職 後悔",
+      "secondary_keywords": [
+        "早期退職 後悔 40代",
+        "早期退職 デメリット",
+        "退職後 暇",
+        "早期退職 失敗"
+      ],
+      "article_title_plan": "早期退職して後悔する人の特徴7選｜お金より怖い「退職後の現実」",
+      "slug": "early-retirement-regret",
+      "search_intent": "早期退職で後悔しやすい特徴と、退職前にできる予防策を知りたい",
+      "unique_angle": "早期退職の決断前後で起きる生活設計のズレを、暇・孤独・家族・肩書きなど7つの移行ミスとして整理する",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-koukai/",
+        "/articles/fire-hima/",
+        "/articles/fire-shippai/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "後悔する？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/early-retirement-regret",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-129",
+      "priority_order": 129,
+      "status": "stocked",
+      "main_keyword": "早期退職後 何をする",
+      "secondary_keywords": [
+        "早期退職後 過ごし方",
+        "早期退職 暇",
+        "退職後 仕事 趣味",
+        "FIRE後 何をする"
+      ],
+      "article_title_plan": "早期退職後は何をする？暇にならない仕事・趣味・過ごし方20選",
+      "slug": "early-retirement-after",
+      "search_intent": "早期退職後にできる仕事、趣味、家族との時間、学びや地域活動を具体的に知りたい",
+      "unique_angle": "退職後の生活を仕事・趣味・運動・家族・人との接点・学びの20項目に分け、実際に試す順番まで考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-10-days/",
+        "/articles/fire-hima/",
+        "/articles/work-after-fire/",
+        "/articles/sidefire-day/"
+      ],
+      "thumbnail_text_hint": "退職後なにする？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/early-retirement-after",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-130",
+      "priority_order": 130,
+      "status": "stocked",
+      "main_keyword": "会社を辞めたい お金 不安",
+      "secondary_keywords": [
+        "仕事を辞めたい お金",
+        "いくらあれば仕事を辞められる",
+        "会社辞めたい FIRE",
+        "生活防衛資金 退職"
+      ],
+      "article_title_plan": "会社を辞めたいけどお金が不安｜いくらあれば仕事を辞められる？",
+      "slug": "leave-job-money-anxiety",
+      "search_intent": "FIREをまだ知らない人が、生活防衛資金と退職後収入から仕事を辞められるラインを考えたい",
+      "unique_angle": "会社を辞めたい検索層に向け、生活防衛資金・長期資産・退職後収入・制度負担の4つから選択肢を作る",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/fire-6000man/",
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/"
+      ],
+      "thumbnail_text_hint": "辞められる？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/leave-job-money-anxiety",
+      "category": "FIRE準備・必要資産"
     }
   ]
 }

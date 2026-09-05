@@ -1,0 +1,40 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "早期退職するにはいくら必要？年代・生活費別に必要資産をシミュレーション",
+  "meta_description": "早期退職に必要な資産を、月15万・20万・25万・30万円の生活費と年代別に試算。年金までの期間や退職後の収入も含め、自分の不足額から考えます。",
+  "category": "FIRE準備・必要資産",
+  "lead": "早期退職に必要な金額は、年齢と生活費だけでなく、退職後にいくら稼ぐか、年金まで何年あるかでも変わります。月の不足額を出し、年代・生活費別の目安を試算します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail with the exact supplied character reference. Preserve his recognizable black spiky hair, black-rim glasses, white FIRE T-shirt and anime illustration identity, but create a fresh pose: he is crouching beside a giant transparent bridge made of colorful expense tiles, holding one large glowing number tile in both hands while looking up with a surprised, calculating expression. The bridge leads toward a sunrise pension symbol, and clean coins and calendar shapes show age and living-cost differences without random clutter. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create the illustration and typography together, not text added later. Use a bold top-down perspective with emerald, cobalt blue, orange, yellow and deep navy, with large text woven into the bridge and sky. Render only these exact Japanese text elements, large and mobile-readable: 「早期退職」 「いくら必要？」 「年代別で変わる」. Use thick white and black outlines, red-yellow emphasis, strong contrast, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "いくら必要？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "何事も長期目標を持て"],
+  "external_sources": [
+    {
+      "url": "https://www.nenkin.go.jp/service/mokuteki/kojin/kanyu/index.html",
+      "title": "年金に加入する｜日本年金機構",
+      "why": "退職後の年金加入や制度確認の公式情報を示すため"
+    },
+    {
+      "url": "https://wakuwaku-fire-lab.marumarufire.chatgpt.site/",
+      "title": "ワクワクFIRE研究室",
+      "why": "生活費・資産・収入の条件を動かして確認するシミュレーターへの導線として"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額の考え方を読む"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "4％ルールの注意点を確認する"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円でFIREした実例を読む"},
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の準備をチェックする"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "早期退職を年代・生活費・退職後収入の組み合わせで試算する記事。FIREの必要額の一般論や、特定の資産額でFIREした体験談とは、年齢と不足額のシミュレーションに焦点を分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

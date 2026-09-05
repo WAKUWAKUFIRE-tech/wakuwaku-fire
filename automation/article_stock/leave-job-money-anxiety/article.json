@@ -1,0 +1,41 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "会社を辞めたいけどお金が不安｜いくらあれば仕事を辞められる？",
+  "meta_description": "会社を辞めたいけれどお金が不安な人へ。生活防衛資金、資産、退職後の収入、税金・保険・年金から、仕事を辞められるラインを考える方法を整理します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "会社を辞めたいのに、お金の不安で動けない。そんなときは、必要資産の答えを一つに決めるのではなく、生活防衛資金・長期資産・退職後の収入・制度の負担に分けて、辞められるラインを作ります。",
+  "thumbnail_prompt": "Use case: precise-object-edit. Asset type: square Japanese article thumbnail. Use the supplied character PNG as the exact character reference and preserve the final thumbnail's entire composition, colors, lighting, typography and background. Keep the character seated on the open red suitcase in the dramatic office-to-sunrise doorway scene, with a worried-but-determined expression and the exact Japanese text 「会社辞めたい？」 「お金が不安」 「いくらあれば？」. The lower-left hand must remain a clearly visible open palm facing the viewer, held above the suitcase handle, with exactly five separate fingers and one thumb, all fingers clearly countable and naturally proportioned. The upper hand on the viewer-right must be a clear thumbs-up gesture: one raised thumb and four fingers folded into a compact fist, with no other visible fingers. Exactly two arms and exactly two hands total, no extra limbs or fingers, no duplicated or fused digits, no malformed wrists. Create the illustration and typography together, not text added later. Do not alter any other object or text. Use strong red, orange, electric blue, yellow and deep navy contrast with thick black-and-white outlines. Do not render any other readable text, letters, numbers, signs, labels, logos or watermarks. No gray overlay, no personal information, no names, no age, no address, no phone, no email, no browser UI, no random text.",
+  "thumbnail_text": "辞められる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "できない理由を探すより、できる方法を考えろ。"],
+  "external_sources": [
+    {
+      "url": "https://www.nenkin.go.jp/section/faq/scenebetsu/shushoku/taishoku/index.html",
+      "title": "年金Q&A（退職したとき）｜日本年金機構",
+      "why": "退職後の年金の切替えを確認する公式情報を示すため"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/content/11700000/001245647.pdf",
+      "title": "退職後の健康保険｜厚生労働省",
+      "why": "退職後の健康保険の選択肢を確認する公式情報を示すため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREという選択を知る"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円でFIREした実例を読む"},
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する"},
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な資産の考え方を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREをまだ意識していない「会社を辞めたい」層に向け、生活防衛資金と年間不足額から退職ラインを作る入口記事。FIRE必要額の一般論や、特定の資産額の体験談とは検索段階と判断フレームを分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

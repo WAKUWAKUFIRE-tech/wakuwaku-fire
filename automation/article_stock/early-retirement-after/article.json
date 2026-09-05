@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "早期退職後は何をする？暇にならない仕事・趣味・過ごし方20選",
+  "meta_description": "早期退職後の過ごし方を、仕事・趣味・運動・家族との時間・学びの20個に整理。FIRE後に実際に試してきた生活の組み立て方と、暇を空白にしないコツを紹介します。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "早期退職後は、旅行や趣味だけでなく、短時間の仕事、家事育児、発信、運動、人とのつながりも選べます。退職後の一日を空白にしない20の過ごし方を、実体験を交えて紹介します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail with the exact supplied character reference. Preserve his recognizable black spiky hair, black-rim glasses, white FIRE T-shirt and anime illustration identity, but create a playful new pose: he is mid-jump above a colorful circular day planner, one hand holding a paintbrush and the other hand reaching toward a bright outdoor path, with an energized, delighted expression. Around him are four clean, recognizable zones for work, hobbies, family and health, arranged like a board game rather than a repeated split layout. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create the illustration and typography together, not text added later. Use a lively radial composition with coral, mint green, sunny yellow, sky blue and deep navy, with text integrated across the planner and upper arc. Render only these exact Japanese text elements, large and mobile-readable: 「退職後なにする？」 「暇にならない20選」. Use thick white and black outlines, red-yellow emphasis, strong contrast, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "退職後なにする？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-12_これがFIREのガチ日常！暇なんて無い日々、何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["スキあらばスキなことをしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-after-10-days/", "anchor": "FIRE後のリアルな一日を見る"},
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後に暇になる理由を読む"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後も働く選択を考える"},
+    {"path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日の過ごし方を見る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "早期退職後に実行できる仕事・趣味・家族・学びの具体例を20個に整理する記事。FIRE後の暇の原因や、特定の一日の体験談だけを扱う記事とは、選択肢の一覧と試し方に焦点を分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

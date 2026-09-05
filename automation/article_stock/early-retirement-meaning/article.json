@@ -1,0 +1,29 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "早期退職とは？FIRE・セミリタイアとの違いをわかりやすく解説",
+  "meta_description": "早期退職の意味を、FIRE・サイドFIRE・セミリタイアとの違いから整理します。会社を早く辞めることと、資産収入で自由を作ることは同じではありません。",
+  "category": "FIRE入門・考え方",
+  "lead": "早期退職は、会社を定年前に辞めることです。ただし、退職しただけでFIREになるわけではありません。FIRE、サイドFIRE、セミリタイアとの違いを、働き方とお金の支え方から整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail with the exact supplied character reference. Preserve his recognizable black spiky hair, black-rim glasses, white FIRE T-shirt and anime illustration identity, but create a completely new pose: he is standing in the center of a colorful circular crossroads, leaning forward and holding a large plain signboard while his other hand points toward three clean paths marked by bold visual symbols for a retirement gate, a flame and a half-time work clock. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create the illustration and typography together, not text added later. Use a bold diagonal perspective with vivid orange, red, turquoise, yellow and deep navy, with the character integrated into the center rather than fixed to one side. Render only these exact Japanese text elements, large and mobile-readable: 「早期退職？」 「FIRE？」 「違いは？」. Use thick white and black outlines, red-yellow emphasis, strong contrast, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "退職＝FIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md"
+  ],
+  "used_personal_quotes": ["自分の腹からでた言葉で定義付けしろ", "自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/what-is-fire/", "anchor": "FIREの意味と種類を知る"},
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREとは何かを確認する"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円でFIREした実例を読む"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後の後悔を経験者の本音で読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "早期退職・FIRE・サイドFIRE・セミリタイアの用語と境界を整理する入口記事。サイドFIREと早期退職の比較記事や、FIRE後の体験談とは定義の説明に焦点を分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}
