@@ -25,6 +25,7 @@ const OFFICIAL_DOMAINS = [
   "ideco-koushiki.jp",
   "j-flec.go.jp",
   "flat35.com",
+  "kyoukaikenpo.or.jp",
   "gov-online.go.jp"
 ];
 

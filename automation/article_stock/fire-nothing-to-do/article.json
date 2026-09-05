@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後に何もしたくないのはなぜ？燃え尽きと休む期間",
+  "meta_description": "FIRE後に何もしたくないと感じる理由を、燃え尽き・暇・不安の3つに分けて整理します。休む期間の決め方と、無理なく生活へ戻る小さな手順を紹介します。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "FIREしたのに、やりたいことが出てこない。朝から何もしたくない。そんな時期は、怠けではなく、仕事を辞めた反動や自由の重さが出ているのかもしれません。休むことと、戻る準備を分けて考えます。",
+  "tags": ["FIRE後 何もしたくない", "FIRE 燃え尽き", "FIRE 暇", "FIRE 休む"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve the recognizable dark spiky hair, black-rim glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a huge colorful pause button floating above a soft cloud, with a sunrise, a small cup and a closed notebook as simple visual symbols; no random text. The character is lounging diagonally across the pause button with both legs relaxed, one hand covering a yawn and the other holding a tiny alarm clock, exactly two arms and two hands. Expression is tired but relieved, clearly different from other thumbnails. Integrated Japanese typography, exact words only: 何もしたくない and FIRE後. Use coral red, electric yellow, cyan, white and deep navy with thick black outlines, dynamic diagonal composition, no gray overlay, no personal information, no watermark, no extra limbs, no malformed hands, no illegible text.",
+  "thumbnail_text": "何もしたくない",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後の暇について考える"},
+    {"path": "/articles/fire-after-boredom/", "anchor": "暇になった後の過ごし方を見る"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後の後悔を先に知る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の暇や日常の記事がFIRE後の時間の使い方を扱うのに対し、この記事は何もしたくない時期を燃え尽き・暇・不安に分け、休み方と復帰の目安に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

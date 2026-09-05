@@ -1,0 +1,29 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後に月10万円稼ぐには？配当・副業・アルバイトを比較",
+  "meta_description": "FIRE後に月10万円を得る方法を、配当・副業・アルバイトの収入の安定性、時間、経費、自由度で比較します。サイドFIREの収入を生活に組み込むときの考え方を経験者目線で整理します。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "FIRE後に月10万円を稼ぐなら、収入源を一つに決める前に、安定性と自由時間の交換条件を見ます。配当・副業・アルバイトの違いを比べ、生活費を守りながら続ける組み合わせを考えます。",
+  "tags": ["FIRE後 月10万円", "FIRE 副収入", "FIRE アルバイト", "サイドFIRE 収入"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change pose and expression. Scene: a three-lane colorful mini city with a dividend fountain, a laptop workshop and a part-time café counter, no logos or random text. The character is riding a giant coin like a skateboard through the center lane, laughing with one eyebrow raised, one hand holding a small route flag and the other balancing on the coin, exactly two arms and two hands. Integrated crisp Japanese typography, exact words only: 月10万円稼ぐ and FIRE後. Bright coral, yellow, cyan, white and navy, bold outlines, asymmetric composition, no gray overlay, no personal information, no watermark, no extra limbs or illegible text.",
+  "thumbnail_text": "月10万円稼ぐ",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-06-25_FIREしたおっさんがYouTubeライブ配信をやったら稼げるのか？想像以上にカオスだったw.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの考え方を読む"},
+    {"path": "/articles/fire-youtube-live/", "anchor": "発信を収入にした経験を読む"},
+    {"path": "/articles/sidefire-day/", "anchor": "FIRE後の時間の使い方を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "月5万円の小さな収入づくり記事とは分け、月10万円を生活費の一部として組み込む場合の安定性・時間・経費の比較に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

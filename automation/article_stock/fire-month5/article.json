@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後に月5万円稼ぐには？時間を削りすぎない収入の作り方",
+  "meta_description": "FIRE後に月5万円を稼ぐ方法を、短時間の仕事・配達・発信・小さな事業に分けて考えます。収入の額面だけでなく、自由時間と続けやすさを含めたサイドFIREの設計を整理します。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "FIRE後に月5万円を稼ぐなら、金額だけでなく時間と疲れ方を先に決めます。配達や発信などを試した経験から、毎月の安定収入と一度きりの収入を混同せず、小さく続ける方法を考えます。",
+  "tags": ["FIRE後 月5万円", "FIRE 収入", "小さく働く", "サイドFIRE"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: dynamic 1:1 square Japanese article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change pose and expression. Scene: a playful five-coin relay race across a sunny neighborhood, with visual icons for a laptop, bicycle and creative notebook, no random text. The character is sprinting sideways while juggling exactly five bright coins, excited focused expression, one foot off the ground, exactly two arms and two hands. Integrate exact Japanese typography only: 月5万円を作る and FIRE後. Bright yellow, coral, cyan, white and deep navy, bold black outlines, fresh diagonal layout, no gray overlay, no personal information, no watermark, extra limbs or illegible text.",
+  "thumbnail_text": "月5万円を作る",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["消費側から供給側に回れ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの考え方を読む"},
+    {"path": "/articles/fire-youtube-live/", "anchor": "発信を仕事にした経験を読む"},
+    {"path": "/articles/sidefire-day/", "anchor": "FIRE後の一日を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE後の収入源記事が収入の選択肢を広く扱うのに対し、この記事は月5万円という小さな目標を、時間・疲れ・継続性から具体化する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

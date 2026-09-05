@@ -1,0 +1,29 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREの資金計画にインフレ率を入れる方法｜今の生活費だけで考えない",
+  "meta_description": "FIREの資金計画にインフレをどう入れるか、生活費を固定せず複数シナリオで考える方法を解説します。物価の見方、支出の分け方、資産と働き方の逃げ道を経験者目線で整理します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "FIREの必要資産を今の生活費だけで計算すると、数年後の物価変化を見落とします。未来の物価を当てるのではなく、固定費と変動費を分け、複数のインフレシナリオと戻り道を作ります。",
+  "tags": ["FIRE インフレ", "物価上昇", "必要資産 インフレ", "FIRE 資金計画"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square high-impact Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE shirt and face identity, but freely change pose and expression. Scene: a giant grocery basket and household price tags floating upward like colorful balloons, while a flexible road made of coins bends around them. The character is balancing on the bending road with one foot lifted, looking shocked at a rising price tag and gripping a small umbrella, exactly two arms and two hands. Integrate typography into the price tags and road, exact Japanese words only: 物価上昇に負けるな and FIRE資金計画. Vivid red, yellow, turquoise, white and navy, playful yet urgent, unusual diagonal composition, no gray overlay, no personal data, no random text, no watermark or extra limbs.",
+  "thumbnail_text": "物価上昇に負けるな",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-06-20_イーロン・マスク「お金の価値はなくなる」じゃあ資産運用って意味あるの？.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["未来ばかり見るな、今に熱中しろ"],
+  "external_sources": [
+    {"url": "https://www.stat.go.jp/data/cpi/index.htm", "title": "消費者物価指数（CPI）｜総務省統計局", "why": "家計の財やサービスの価格変動を確認する公的統計"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩し率の前提を見直す"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "投資との距離を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の金額そのものではなく、物価上昇で生活費の前提が変わる過程と、計画の作り直し方に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

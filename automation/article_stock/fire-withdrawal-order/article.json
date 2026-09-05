@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "NISA・課税口座・iDeCo、FIRE後はどの順番で取り崩す？",
+  "meta_description": "FIRE後の資産取り崩しを、現金・課税口座・NISA・iDeCoの役割と使う時期から整理します。万能の順番を断定せず、税金・制度・相場・家族の支出を確認する考え方を紹介します。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIRE後の取り崩し順に万能の正解はありません。近い支出は現金、制度の条件がある資産は時期を確認し、課税口座とNISAの税の扱いも分けて考えます。順番より先に、何年分を何に使うかを決めます。",
+  "tags": ["FIRE 取り崩し 順番", "NISA iDeCo", "課税口座", "FIRE 資産運用"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change pose and expression. Scene: an overhead circular race track with three colorful gates represented by clean icons for a tax box, a shielded NISA box and a locked future box, plus a cash wallet at the start; no random text. The character is running in the opposite direction while looking back at the gates, startled but clever expression, one hand holding a small flag and one hand pointing at the start, exactly two arms and two hands. Integrated typography, exact Japanese words only: 取り崩し順は？ and NISA・iDeCo. Vivid coral, yellow, cyan, white and navy, sharp black outlines, fresh circular composition, no gray overlay, no personal data, no watermark, extra limbs or illegible text.",
+  "thumbnail_text": "取り崩し順は？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [
+    {"url": "https://www.fsa.go.jp/policy/nisa2/know/", "title": "NISAを知る｜金融庁", "why": "NISAの現行制度と非課税の仕組みを確認する公的案内"},
+    {"url": "https://www.ideco-koushiki.jp/retirement/", "title": "iDeCo加入者で転職・退職された方へ｜iDeCo公式", "why": "退職後のiDeCoの資格や資産移換、受け取りを確認する公式案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩し率の前提を読む"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "投資との距離を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の取り崩し記事が不安との向き合い方を扱うのに対し、この記事は現金・課税口座・NISA・iDeCoを使う時期と確認項目の整理に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

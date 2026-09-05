@@ -1,0 +1,29 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE前に有給消化・退職日をどう決める？お金以外の準備",
+  "meta_description": "FIRE前の有給消化と退職日をどう決めるか、給与・保険・家族の予定・心の準備から整理します。勢いで会社を辞めた経験者が、退職日までに確認したい項目を紹介します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "FIRE前の退職日は、給与が最後に入る日だけで決めるものではありません。有給消化、保険や税金の切り替え、家族の予定、退職後の生活リズムを並べて、自分にとって無理のない日を選びます。",
+  "tags": ["FIRE 退職日", "有給消化", "FIRE前 準備", "退職タイミング"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change pose and expression. Scene: a giant calendar page floating between an office elevator and a sunny open door, with colorful paid-leave cards flying like confetti, no random text. The character is sprawled horizontally across the calendar, relaxed but intensely calculating, one hand holding a red pen and the other pulling a bright yellow lever, exactly two arms and two hands. Integrated crisp typography, exact Japanese words only: 退職日はいつ？ and 有給どうする. Vivid coral, yellow, cyan, white and navy, energetic diagonal composition, no gray overlay, no personal information, no watermark, no extra limbs or random readable text.",
+  "thumbnail_text": "退職日はいつ？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["少しでもワクワクしたら即始めろ"],
+  "external_sources": [
+    {"url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudouseisaku/chushoukigyou/joken_kankyou_rule.html", "title": "労働条件・職場環境に関するルール｜厚生労働省", "why": "年次有給休暇の基本的な扱いを確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前に用意してよかったものを読む"},
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "退職前の金融手続き記事が書類・保険・年金の実務を扱うのに対し、この記事は有給・退職日の決め方と、生活の切り替えに必要な時間の設計へ焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

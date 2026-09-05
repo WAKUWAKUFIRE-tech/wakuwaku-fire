@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後の確定申告は必要？配当・株売却・副業収入がある場合",
+  "meta_description": "FIRE後の確定申告が必要か、配当・株式売却・NISA・副業・退職金など収入の種類で分けて整理します。国税庁の最新案内を確認し、申告漏れを防ぐための準備を紹介します。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIRE後の確定申告は、収入があるかどうかだけでなく、配当・株売却・副業・退職金など所得の種類と口座の条件で変わります。申告が必要かを自分で決めつけず、書類を集めて確認します。",
+  "tags": ["FIRE 税金 確定申告", "FIRE 確定申告", "配当金 税金", "株売却 確定申告", "副業 税金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: premium 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change pose and expression. Scene: a dramatic paper-airplane storm around a large clean tax form, with separate visual lanes for dividend coins, a stock chart, a small side-work desk and a retirement envelope, no numbers or random text. The character is crouched on a spinning office chair, holding a stamp in one hand and pushing away flying papers with the other, eyes wide and mouth slightly open in comic panic, exactly two arms and two hands. Integrate exact Japanese typography only: 確定申告いる？ and FIRE後. Vivid coral, yellow, cyan, white and navy, bold black outline, fresh circular composition, no gray overlay, no personal data, no watermark, extra limbs or illegible text.",
+  "thumbnail_text": "確定申告いる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-02-25_【閲覧注意】仮想通貨のデイトレ1年間した結果.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["言語化を怠るな"],
+  "external_sources": [
+    {"url": "https://www.nta.go.jp/taxes/shiraberu/shinkoku/tebiki/2025/01/1_06.htm", "title": "確定申告が必要な方｜国税庁", "why": "確定申告が必要になる所得や条件を確認する公的案内"},
+    {"url": "https://www.nta.go.jp/publication/pamph/koho/kurashi/html/04_5.htm", "title": "株式・配当・利子と税｜国税庁", "why": "株式等の譲渡益、配当、口座ごとの税の扱いを確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩しと税金の前提を読む"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "投資との距離を考える"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産とFIREの現実を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE後の税金記事が全体の注意点を扱うのに対し、この記事は配当・株売却・NISA・副業・退職金を所得の種類で切り分け、確定申告の確認順に集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

@@ -1,0 +1,30 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREで退職したら失業保険はもらえる？受給条件を確認",
+  "meta_description": "FIREで会社を辞めた場合に失業保険を受け取れるのか、基本手当の目的と受給要件、求職する意思、退職前に確認する書類を整理します。退職すれば自動でもらえる制度ではありません。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIREで退職したら失業保険をもらえるとは限りません。雇用保険の基本手当は、再就職を目指す人向けの制度です。完全に働かないFIREと、仕事を探すサイドFIREでは確認する条件が変わります。",
+  "tags": ["FIRE 失業保険", "失業給付", "自己都合退職", "FIRE 退職"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a giant forked road with a glowing employment-office door on one side and a peaceful open FIRE road on the other, a blank document and a magnifying glass, no logos and no random text. The character is standing at the fork with a comically serious detective pose, one knee bent, one hand holding the document and the other hand pointing at the employment door, exactly two arms and two hands. Integrated crisp Japanese typography, exact text only: 失業保険は？ and FIRE退職. Coral red, yellow, cyan, white and deep navy, dynamic tilted composition, no gray overlay, no personal information, no watermark, extra limbs or illegible text.",
+  "thumbnail_text": "失業保険は？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["自分に期待しろ"],
+  "external_sources": [
+    {"url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000139508.html", "title": "Q＆A～労働者の皆様へ（基本手当、再就職手当）｜厚生労働省", "why": "基本手当の目的と受給要件を確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの働き方を読む"},
+    {"path": "/articles/fire-preparation/", "anchor": "退職前の準備を確認する"},
+    {"path": "/articles/fire-after-10-days/", "anchor": "FIRE直後の生活を振り返る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の収入源や仕事の選び方とは分け、この記事は失業保険の制度目的と、FIRE退職者が受給条件を確認する際の考え方に集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

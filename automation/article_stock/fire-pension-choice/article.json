@@ -1,0 +1,32 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後の国民年金は免除・任意加入どっち？",
+  "meta_description": "FIRE後の国民年金を、保険料を納める・免除や猶予を使う・60歳以降の任意加入という選択肢で整理します。退職後の資金計画と将来の受給額を分けて考える方法です。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIRE後の国民年金は、免除か任意加入かを一律に決めるものではありません。退職後の収入、保険料を払える現金、これまでの納付期間、将来の年金をどう考えるかを確認して選びます。",
+  "tags": ["FIRE 国民年金 免除", "国民年金 任意加入", "FIRE 年金", "退職後 年金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: premium 1:1 square Japanese article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE shirt and facial identity, but freely change pose and expression. Scene: a giant golden timeline wheel from working years to retirement, with two clean paths labeled only by icons: a soft shield for exemption and a plus sign for voluntary coverage; no random text. The character is riding the wheel like a bicycle, looking from one path to the other with a thoughtful furrowed brow, one hand on the handlebar and the other holding a small blank card, exactly two arms and two hands. Integrated Japanese typography, exact words only: 年金どうする？ and FIRE後. Vivid gold, coral, cyan, white and deep navy, strong outline, diagonal composition, no gray overlay, no personal data, no watermark, no extra limbs or illegible text.",
+  "thumbnail_text": "年金どうする？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ"],
+  "external_sources": [
+    {"url": "https://www.nenkin.go.jp/service/kokunen/kanyu/20140710-04.html", "title": "国民年金に加入するための手続き｜日本年金機構", "why": "退職後に国民年金へ切り替える手続きを確認する公的案内"},
+    {"url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150428-01.html", "title": "国民年金保険料の免除制度・納付猶予制度｜日本年金機構", "why": "免除・納付猶予の制度と申請を確認する公的案内"},
+    {"url": "https://www.nenkin.go.jp/tokusetsu/voluntary_coverage.html", "title": "あと少しで年金を受け取れる方へ｜日本年金機構", "why": "60歳以降の任意加入の条件を確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "退職前の準備を確認する"},
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"},
+    {"path": "/articles/fire-household/", "anchor": "家族とFIREのお金を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE後の年金記事が年金を無視できない理由を扱うのに対し、この記事は退職後に納める・免除・任意加入を比べる確認手順と資金計画に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

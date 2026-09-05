@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後の住居費はいくらまで？生活費に占める割合の考え方",
+  "meta_description": "FIRE後の住居費をいくらまでにするか、家賃や住宅ローンだけでなく管理費・税金・修繕・交通費まで含めて考えます。生活費との割合を例で示し、家計の余白を残す方法を整理します。",
+  "category": "住まい・移住",
+  "lead": "FIRE後の住居費は、家賃や住宅ローンの金額だけで決めると危険です。住まいにかかる総額と、投資を売らずに払える期間、家族が安心できる広さをまとめて見ます。割合は目安であり、家庭の収入と暮らし方で変わります。",
+  "tags": ["FIRE 住居費", "FIRE 家賃", "FIRE 住宅費", "FIRE 生活費"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black-rim glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a bright top-down apartment floor plan transforming into an open park, with a large housing-cost gauge, a house key and a small family table as simple icons; no random text. The character is sitting on an oversized house key while pulling a measuring tape across the floor plan, with a serious calculating face and one eyebrow raised, exactly two arms and two hands. Integrated Japanese typography, exact words only: 住居費いくら？ and FIRE後. Use red, golden yellow, cyan, white and navy, bold layered lettering, an overhead composition unlike the standard character-on-right layout, no gray overlay, no personal information, no watermark, no extra limbs, no malformed hands, no illegible text.",
+  "thumbnail_text": "住居費いくら？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-07-19_FIREしたい人が絶対に削ってはいけない支出【幸福度が上がるお金の使い方】.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["自分が笑える日々を送れ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な資産を生活費から考える"},
+    {"path": "/articles/fire-household/", "anchor": "家族の生活費とFIREを考える"},
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を確認する"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の必要資産記事が生活費全体からFIRE資金を考えるのに対し、この記事は住居費の総額・柔軟性・家族の納得を切り出して、住まいにかける上限の考え方に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-housing"
+}

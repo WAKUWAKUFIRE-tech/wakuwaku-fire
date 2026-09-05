@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREとセミリタイアの違い｜どちらが自分に合う？",
+  "meta_description": "FIREとセミリタイアの違いを、資産収入・働く量・生活費・自由度で比較します。30歳で会社を辞めた本人のサイドFIRE経験から、呼び方より大事な判断軸を整理します。",
+  "category": "FIRE入門・考え方",
+  "lead": "FIREとセミリタイアは似て見えますが、資産で生活費をどこまでまかなうか、仕事をどう残すかに違いがあります。完全に二択にせず、自分と家族の生活が続く形から考えます。",
+  "tags": ["FIRE セミリタイア 違い", "早期退職", "サイドFIRE", "半リタイア"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese article thumbnail. Input image 1 is the exact character reference; preserve his recognizable dark spiky hair, black glasses and white FIRE T-shirt, but freely change pose and expression. Create a fresh visual of a giant seesaw in a sunny city park: on one side a glowing office briefcase, on the other side a backpack and a small personal project desk; the character sits sideways on the seesaw, one hand up in a thoughtful gesture, half-smile and curious eyes, natural two-arm anatomy. Integrate crisp Japanese typography into the seesaw and a bold circular badge. Exact text only: FIREとセミリタイア and 違いは？. Strong coral, yellow, blue and white, thick black outline, not the standard left text/right character composition, no gray panel, no personal information, no extra readable text, no watermark.",
+  "thumbnail_text": "違いは？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["FIREはゴールではなく"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの意味を確認する"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6,000万円で会社を辞めた経験を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "サイドFIREの定義記事とは違い、FIREとセミリタイアを働く量・資産の役割・戻り道で比較し、読者の選択を助ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

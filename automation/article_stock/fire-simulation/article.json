@@ -1,0 +1,30 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREシミュレーションの作り方｜家計・利回り・暴落を一枚で見る",
+  "meta_description": "FIREシミュレーションを作るために必要な生活費・資産・収入・利回り・暴落ケースを整理します。将来を当てるためではなく、前提が崩れたときの行動を決める計算方法です。",
+  "category": "FIRE準備・必要資産",
+  "lead": "FIREシミュレーションは、資産がいつ尽きるかを断言する占いではありません。生活費、資産、収入、運用の仮定を一枚に置き、相場が下がったときに何を変えられるかを見るために使います。",
+  "tags": ["FIRE シミュレーション", "FIRE 計算表", "資産推移", "FIRE 暴落"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: premium 1:1 square Japanese article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black-rim glasses, white FIRE shirt and facial identity, but freely change pose and expression. Scene: a huge transparent pinball machine shaped like a financial timeline, with colorful paths for normal, inflation and crash scenarios, abstract icons only, no numbers. The character is lying on his stomach over the machine, peering through a magnifying glass with a serious detective expression while holding a lever, exactly two arms and two hands. Typography is integrated into the machine panels. Exact Japanese text only: FIREを試算 and 暴落も見る. Bright red, yellow, electric blue, white, deep navy, kinetic diagonal composition, no standard layout, no gray overlay, no personal information, no random text, watermark or extra limbs.",
+  "thumbnail_text": "FIREを試算",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": ["成功という毒には失敗というワクチンが効く"],
+  "external_sources": [
+    {"url": "https://www.fsa.go.jp/policy/nisa2/invest/", "title": "資産形成の基本｜金融庁", "why": "長期・積立・分散投資とライフプランを確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩し率の前提を読む"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "投資との距離を見直す"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE計算記事が必要額の求め方を扱うのに対し、この記事は複数の前提と暴落ケースを一枚のシミュレーションへ組み込む作り方に集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

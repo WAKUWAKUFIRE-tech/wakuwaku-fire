@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "パートナーがFIREに反対するときどう話す？お金と不安を分ける",
+  "meta_description": "パートナーがFIREに反対するときの話し合い方を整理します。反対を説得で押し切らず、収入・家事・住まい・暴落への不安を分けて、家族の判断基準を作る方法です。",
+  "category": "家族とFIRE",
+  "lead": "パートナーがFIREに反対するのは、FIREという言葉が嫌だからとは限りません。収入が消える怖さ、家事育児の偏り、住まいの不安などを一つに抱えている可能性があります。説得より先に、不安の中身を分けて話します。",
+  "tags": ["FIRE パートナー 反対", "FIRE 夫婦", "FIRE 家族 説得", "FIRE 話し合い"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black-rim glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a colorful conversation arena split into two puzzle-shaped halves with simple icons for money, home, family and time; no other people, no random text. The character stands in the center with both palms open, leaning forward in a careful listening pose, eyebrows raised with a worried but sincere expression, exactly two arms and two hands. Integrated Japanese typography, exact words only: 反対されたら？ and FIREの話し方. Use deep navy, red, yellow, cyan and white, bold outlined letters, a fresh horizontal composition unlike previous thumbnails, no gray overlay, no personal information, no watermark, no extra limbs, no malformed hands, no illegible text.",
+  "thumbnail_text": "反対されたら？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-28_FIREコミュニティは怪しい？2年間運営して分かったメリット・デメリットを正直に話します.md"
+  ],
+  "used_personal_quotes": ["仕事も家族も両取りしろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-household/", "anchor": "家族の家計とFIREを考える"},
+    {"path": "/articles/fire-community-place/", "anchor": "本音で話せる場所を作った理由"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後の後悔を先に知る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の家計記事が夫婦の収支や役割を整理するのに対し、この記事はパートナーが反対している段階の会話設計と、不安を項目別にほどく手順に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "family-fire"
+}

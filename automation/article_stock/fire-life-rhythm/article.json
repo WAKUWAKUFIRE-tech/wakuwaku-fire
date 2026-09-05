@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後の生活リズムをどう作る？朝寝坊と自由時間を崩さない方法",
+  "meta_description": "FIRE後の生活リズムを、起床・食事・運動・家事・創作・人との予定という生活の柱から作る方法を紹介します。自由になったあと夜型になった経験と、家族の生活に合わせた変化を整理します。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "FIRE後は、会社が決めていた起床時間や締め切りがなくなります。自由を守るには、自分で朝の合図、外へ出る予定、家族との約束、休む時間を作ること。完璧なルーティンではなく、戻れるリズムを考えます。",
+  "tags": ["FIRE後 生活リズム", "FIRE 朝", "FIRE 時間管理", "FIRE 習慣"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: colorful 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a giant alarm clock transformed into a colorful carousel with a sunrise, a walking shoe, a notebook and a coffee cup as simple icons, no random text. The character is hanging upside down from the clock's minute hand with a sleepy face and messy hair, one hand reaching for a ringing bell and one hand holding a small planner, exactly two arms and two hands. Integrated Japanese typography, exact words only: 生活リズム再設計 and FIRE後. Bright yellow, coral, cyan, white and deep navy, playful circular composition, no gray overlay, no personal information, no watermark, extra limbs or illegible text.",
+  "thumbnail_text": "生活リズム再設計",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md"
+  ],
+  "used_personal_quotes": ["自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の生活の変化を読む"},
+    {"path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日を見る"},
+    {"path": "/articles/fire-hima/", "anchor": "暇になる問題を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE後の一日記事が生活の実例を見せるのに対し、この記事は起床・外出・家事・創作などを自分で組み直す方法に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

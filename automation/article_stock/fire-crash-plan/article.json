@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE直後に暴落したらどうする？売らないための現金ルール",
+  "meta_description": "FIRE直後の暴落に備え、生活費の現金、支出の調整、収入の再開条件をどう決めるか整理します。大きな資産下落を経験した本人の視点から、相場を予測せずに作るルールを紹介します。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIRE直後の暴落は、資産の数字だけでなく生活の判断を揺らします。現金で守る支出、止められる支出、働き始める基準を平常時に決め、売却を急がないための余白を作ります。",
+  "tags": ["FIRE 暴落 対策", "FIRE直後 暴落", "取り崩し 暴落", "現金比率"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: bold 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change pose and expression. Scene: a huge red market wave crashes against a bright yellow emergency seawall made of cash envelopes and a small open door, no numbers or random text. The character is surfing the wave on a board shaped like a household budget, crouched low with a focused face, one hand gripping a rope and one hand holding a tiny umbrella, exactly two arms and two hands. Typography integrated into the seawall, exact Japanese text only: 暴落どうする？ and FIRE直後. Vivid red, yellow, cyan, white and navy, cinematic diagonal composition, no gray overlay, no personal data, no watermark, no extra limbs or illegible text.",
+  "thumbnail_text": "暴落どうする？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-02-17_【後編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ"],
+  "external_sources": [
+    {"url": "https://www.fsa.go.jp/policy/nisa2/invest/", "title": "資産形成の基本｜金融庁", "why": "長期・積立・分散投資とリスクの考え方を確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩し率の前提を確認する"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "投資との距離を見直す"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後の後悔を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の暴落記事が資産減少への恐怖を扱うのに対し、この記事はFIRE直後という時期に、現金・支出・収入の事前ルールを作ることに集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

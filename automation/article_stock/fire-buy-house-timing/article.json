@@ -1,0 +1,30 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE前に家を買う？FIRE後に買う？住宅購入のタイミング",
+  "meta_description": "FIRE前に家を買うか、FIRE後に買うかを、住宅ローンの審査だけでなく住む場所の柔軟性、返済余力、家族の予定から比較します。買う前に確認したい判断項目を整理します。",
+  "category": "住まい・移住",
+  "lead": "FIRE前に住宅を買えばローンを組みやすいかもしれませんが、それだけで急いで決めるのは危険です。FIRE後に買う選択肢と、賃貸を続ける選択肢も並べ、住む場所・返済・家族の予定を先に確認します。",
+  "tags": ["FIRE 住宅ローン", "FIRE 家を買う", "FIRE前 住宅購入", "FIRE後 持ち家"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black-rim glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a dramatic forked road shaped like a house blueprint, one route showing a stable home key and the other an open road with a suitcase; simple symbols only, no random text. The character stands at the fork holding one oversized house key with both hands, looking skeptical and serious toward the road, exactly two arms and two hands. Dynamic low-angle perspective with the character slightly left and the fork radiating outward, a clearly new composition. Integrated Japanese typography, exact words only: 家はいつ買う？ and FIRE前後. Bright red, yellow, cyan, white and deep navy, thick outlined letters, no gray overlay, no personal information, no watermark, no extra limbs, no malformed hands, no illegible text.",
+  "thumbnail_text": "家はいつ買う？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ"],
+  "external_sources": [
+    {"url": "https://www.flat35.com/loan/lineup/kinto/index.html", "title": "フラット35｜商品情報", "why": "住宅ローンの借入条件や返済計画を確認する公式案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-6000man/", "anchor": "資産6,000万円でFIREした経緯を見る"},
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の資金準備を確認する"},
+    {"path": "/articles/fire-household/", "anchor": "家族の家計とFIREを考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の住宅・家計記事がFIRE後の住まいや必要資金を扱うのに対し、この記事は購入時期をFIRE前・後・賃貸継続の3択で比べ、ローンの組みやすさ以外の判断材料に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-housing"
+}

@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE必要資産の計算に税金・社会保険料をどう入れる？",
+  "meta_description": "FIRE必要資産の計算で、税金・住民税・健康保険料・国民年金をどう組み込むか整理します。生活費だけで計算して後から慌てないための年間予算と確認手順を紹介します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "FIRE必要資産を計算するとき、生活費だけを12倍すると実際の支出が小さく見えます。税金・社会保険料・年金・家族の費用を、発生時期と世帯条件に分けて年間計画へ入れます。",
+  "tags": ["FIRE 必要資産 税金", "FIRE 社会保険料", "FIRE 計算", "退職後 お金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black glasses, white FIRE T-shirt and face identity, but freely change the pose and expression. Scene: a giant transparent household budget suitcase opened in perspective, with separate glowing compartments for tax, health insurance, pension and daily life, no numbers and no random text. The character is kneeling beside the suitcase, intensely counting colored tokens with a worried-but-determined face, one hand shielding the family budget and the other pointing at a clean checklist, exactly two arms and two hands. Typography integrated into the suitcase lid. Exact Japanese words only: 税金も入れる and FIRE資産計算. Vivid coral, yellow, cyan and deep navy, thick black outlines, unusual diagonal composition, no gray overlay, no personal name, address, phone, email, asset amount, watermark, extra limbs or random readable text.",
+  "thumbnail_text": "税金も入れる",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ"],
+  "external_sources": [
+    {"url": "https://www.nta.go.jp/taxes/shiraberu/shinkoku/tebiki/2025/01/1_06.htm", "title": "確定申告が必要な方｜国税庁", "why": "所得の種類や申告が必要になる場面を確認する公的案内"},
+    {"url": "https://www.kyoukaikenpo.or.jp/benefit/voluntary_continuation/index.html", "title": "任意継続｜全国健康保険協会", "why": "退職後の健康保険の選択肢と申請期限を確認する公的案内"},
+    {"url": "https://www.nenkin.go.jp/service/kokunen/kanyu/20140710-04.html", "title": "国民年金に加入するための手続き｜日本年金機構", "why": "退職後の年金切り替えを確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩し率の前提を確認する"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の必要資産記事が生活費や家族構成の目安を扱うのに対し、この記事は税金・社会保険料・年金を計算表へ入れる実務に集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

@@ -1,0 +1,28 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREしたいけど何から始める？失敗しない5段階ロードマップ",
+  "meta_description": "FIREしたい人が最初にやることを、理想の暮らし、生活費、資産計画、働き方の実験、退職判断の5段階で整理します。経験者が勢いだけで進めないための確認ポイントも紹介します。",
+  "category": "FIRE入門・考え方",
+  "lead": "FIREしたいと思ったら、いきなり投資商品を探すより先に、暮らしと支出を言葉にします。理想を描き、数字を測り、小さく試し、家族と確認する。5段階で進めると、勢いを失わずに無理も減らせます。",
+  "tags": ["FIRE 何から始める", "FIRE 始め方", "FIRE 手順", "FIRE ロードマップ"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: bold 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable black spiky hair, black-rim glasses, expressive face and white FIRE T-shirt, but freely change pose and expression. Create a winding roller-coaster road with five brightly colored checkpoints: dream, budget, assets, trial work, decision, represented by simple icons only. The character runs toward the viewer holding a large road map, determined grin and one eye narrowed in playful confidence, natural exactly two arms and two hands. Integrated typography with strong black outline, exact Japanese words only: FIREの始め方 and 5段階. Use coral red, yellow, electric blue, white and deep navy, dynamic perspective, no repeated stock composition, no gray overlay, no personal data, no random text, no watermark.",
+  "thumbnail_text": "FIREの始め方",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md"
+  ],
+  "used_personal_quotes": ["少しでもワクワクしたら即始めろ", "自分が笑える日々を送れ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前に用意してよかったものを読む"},
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE準備記事が準備物の考え方を扱うのに対し、この記事は初心者の最初の一歩から退職判断までを5段階の行動順に整理する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

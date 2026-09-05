@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREの生活防衛資金はいくら？退職後に現金で残す目安",
+  "meta_description": "FIREの生活防衛資金はいくら残すべきか、月の必須支出・収入の有無・家族構成・資産の値動きから考えます。万人共通の正解ではなく、現金の役割と見直し方を整理します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "FIREの生活防衛資金は、単に生活費何か月分と決めるものではありません。退職後の収入、家族の支出、税金や保険料、投資資産の値動きを見て、相場が荒れても売らずに暮らせる現金を考えます。",
+  "tags": ["FIRE 生活防衛資金", "退職後 貯金", "現金 何か月分", "FIRE 現金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: bold 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve dark spiky hair, black glasses, white FIRE shirt and facial identity, but freely change pose and expression. Scene: a giant bright-red emergency suitcase opened like a treasure chest, containing a calm blue island labeled only with a shield icon, while stormy market waves stay outside. The character is diving into the suitcase feet-first with a comically determined face, one hand holding a small umbrella and one hand pointing to the shield, exactly two arms and two hands. Integrated crisp Japanese typography, exact text only: 現金いくら？ and FIRE生活防衛. Vivid red, yellow, cyan, white and navy, dynamic perspective, no standard layout, no gray overlay, no personal info, no random text, no watermark or extra limbs.",
+  "thumbnail_text": "現金いくら？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前に用意してよかったものを読む"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩し率と現金の関係を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の総額を扱う既存記事とは分け、この記事は退職直後に売りたくないお金を現金でどのように確保するかに集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後の健康保険は国保・任意継続・扶養どれがいい？",
+  "meta_description": "FIRE後の健康保険を、国民健康保険・任意継続・家族の扶養で比較します。保険料だけで決めず、前年所得、世帯人数、申請期限、働き方を確認する手順を整理します。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIRE後の健康保険は、国民健康保険だけではありません。任意継続や家族の扶養も含め、世帯の条件と退職日の翌日からの期限で比べます。保険料の安さだけでなく、家族が安心して医療を受けられるかを見ます。",
+  "tags": ["FIRE 健康保険 比較", "FIRE 国民健康保険", "任意継続 国保", "退職後 扶養"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve dark spiky hair, black-rim glasses, white FIRE T-shirt and recognizable face, but freely change pose and expression. Scene: a glowing three-way medical crossroads with three oversized shield doors in cyan, coral and yellow, simple icons only for city, continuation and family; no random text. The character is sliding into the center crossroads on one knee, looking sharply from one door to another with a puzzled expression, one hand holding a magnifying glass and one hand bracing on the floor, exactly two arms and two hands. Integrated typography, exact Japanese text only: 健康保険どれ？ and FIRE後. Bright colors, strong black outlines, dynamic perspective, no gray overlay, no personal data, no watermark, no extra limbs or malformed hands.",
+  "thumbnail_text": "健康保険どれ？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md"
+  ],
+  "used_personal_quotes": ["仕事も家族も両取りしろ"],
+  "external_sources": [
+    {"url": "https://www.kyoukaikenpo.or.jp/benefit/voluntary_continuation/index.html", "title": "任意継続｜全国健康保険協会", "why": "任意継続の条件、保険料、申請期限を確認する公的案内"},
+    {"url": "https://www.kyoukaikenpo.or.jp/application_form/voluntary_continuation/001/index.html", "title": "任意継続被保険者資格取得申出書｜協会けんぽ", "why": "資格喪失日からの申出期限と提出方法を確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-household/", "anchor": "家族の家計とFIREを考える"},
+    {"path": "/articles/fire-preparation/", "anchor": "退職前の準備を確認する"},
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の国民健康保険記事が保険料の決まり方を中心に扱うのに対し、この記事は国保・任意継続・扶養の比較と、退職直後に確認する順番に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

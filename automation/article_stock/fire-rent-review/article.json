@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE後に賃貸を借りられる？収入が少ないときの審査と準備",
+  "meta_description": "FIRE後に賃貸を借りられるか不安な人へ、入居審査で確認されやすい収入・資産・保証の準備を整理します。物件ごとの差があるため、審査を通す工夫と無理な家賃を避ける考え方を解説します。",
+  "category": "住まい・移住",
+  "lead": "FIRE後でも賃貸を借りられる可能性はありますが、審査の基準や必要書類は物件・貸主・保証会社で変わります。資産があることだけで安心せず、継続して払える家賃、収入の説明、保証の準備を整えて探します。",
+  "tags": ["FIRE後 賃貸 審査", "FIRE 賃貸借りられない", "FIRE 収入なし 賃貸", "FIRE 保証会社"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: high-impact 1:1 square Japanese website article thumbnail. Input image 1 is the exact character reference; preserve recognizable dark spiky hair, black-rim glasses, white FIRE T-shirt and facial identity, but freely change pose and expression. Scene: a vivid rental doorway with a giant keyhole, a tidy transparent document folder, a small shield icon and a welcoming light beyond the door; no other people and no random text. The character is stepping through the doorway while holding the folder close to the chest with one hand and giving a surprised thumbs-up with the other, exactly two arms and two hands. Expression is surprised but hopeful, clearly varied. Integrated Japanese typography, exact words only: 賃貸借りられる？ and FIRE後. Use electric yellow, red, cyan, white and deep navy, strong perspective and chunky outlined lettering, no gray overlay, no personal information, no watermark, no extra limbs, no malformed hands, no illegible text.",
+  "thumbnail_text": "賃貸借りられる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-07-26_FIREを一人で目指すのに疲れた人へ｜お金・仕事・人生を本音で話せる場所を作りました.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな"],
+  "external_sources": [
+    {"url": "https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk3_000026.html?vm=r", "title": "国土交通省｜賃貸住宅に関する情報", "why": "賃貸借契約や入居時に確認したい公的な住まいの情報を確認する案内"},
+    {"url": "https://www.mlit.go.jp/common/001345718.pdf", "title": "国土交通省｜賃貸住宅標準契約書", "why": "賃貸借契約の基本的な項目を確認する公的な契約書式"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-household/", "anchor": "家族の住まいとFIREを考える"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6,000万円でFIREした経緯を見る"},
+    {"path": "/articles/sidefire-day/", "anchor": "FIRE後の一日の暮らしを見る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の住まい・家計記事がFIRE後の生活費や住環境を扱うのに対し、この記事は賃貸の入居審査に絞り、収入が少ない・給与がない場合の準備と、借りた後の家賃負担に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-housing"
+}
