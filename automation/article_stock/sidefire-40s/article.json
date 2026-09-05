@@ -1,0 +1,62 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "40代でサイドFIREするにはいくら必要？3000万・4000万・5000万円で比較",
+  "meta_description": "40代のサイドFIREを3000万・4000万・5000万円で比較。生活費25万円の試算、働く額、年金までの橋渡し、家族と資産の注意点を整理します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "40代のサイドFIREは、資産額だけでなく年金など将来の収入までの期間、生活費、家族、働く量で考えます。3,000万・4,000万・5,000万円を同じ前提で比較します。",
+  "tags": [
+    "40代 サイドFIRE いくら必要",
+    "4000万円 サイドFIRE",
+    "40代 FIRE",
+    "40代 早期退職",
+    "年金まで サイドFIRE"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable face, dark spiky hair, black glasses and white FIRE T-shirt, while freely changing pose and expression. Build a cinematic bridge through a giant hourglass landscape from a bright present to a calm future sunrise, with three large visual markers for 3000万円, 4000万円 and 5000万円 and no personal details. The character stands on the bridge gripping a railing with one hand and a bold yellow direction sign with the other, serious and focused. Integrate exact Japanese typography 「40代」, 「サイドFIRE」 and 「いくら必要？」 in strong navy, yellow, white and red type across the image, not a simple left-text/right-character layout. Exactly two arms and two hands, no extra limbs, no watermark, no random text, no gray panel and no browser frame.",
+  "thumbnail_text": "40代 サイドFIRE いくら必要？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-03-06_【FIRE】中年に残された時間は少ない。人生を取り戻せ【前編】.md",
+    "content_sources/note/articles/2026-03-07_【FIRE】中年に残された時間は少ない。人生を取り戻せ【後編】.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [
+    "何事も長期目標を持て",
+    "切り札を常に持て、余裕の根拠を潜ませろ"
+  ],
+  "external_sources": [
+    {
+      "title": "老齢厚生年金の受給要件・支給開始時期・年金額｜日本年金機構",
+      "url": "https://www.nenkin.go.jp/service/jukyu/seido/roureinenkin/jukyu-yoken/20140421-01.html",
+      "why": "年金の受給時期や条件を個人の記録と公式案内で確認するため"
+    },
+    {
+      "title": "「ねんきんネット」による年金見込額試算｜日本年金機構",
+      "url": "https://www.nenkin.go.jp/denshibenri_kojin/n_net/introduction/estimatedamount.html",
+      "why": "将来の年金見込額を自分の条件で確認する公式サービスとして参照するため"
+    }
+  ],
+  "internal_links": [
+    {
+      "path": "/articles/fire-6000man/",
+      "anchor": "6000万円でFIREした経験を見る"
+    },
+    {
+      "path": "/articles/fire-ikura-hitsuyou/",
+      "anchor": "FIREに必要な資産を生活費から考える"
+    },
+    {
+      "path": "/articles/fire-4percent-rule/",
+      "anchor": "4％ルールをそのまま使わない考え方"
+    },
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "40代に限定し、資産3,000万・4,000万・5,000万円を年金までの橋渡しと働く額に翻訳する。一般的な40代FIRE記事や年金制度記事とは、サイドFIREの比較設計で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

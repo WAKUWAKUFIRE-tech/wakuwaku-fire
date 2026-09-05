@@ -1,0 +1,49 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "2000万円でサイドFIREは可能？月5万・10万・15万円働く場合を比較",
+  "meta_description": "2000万円でサイドFIREできるかを、月5万・10万・15万円働くケースで比較。生活費15万・20万・25万円ごとに不足額を試算します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "2,000万円でサイドFIREできるかは、資産から出す額と働いて補う額の組み合わせで変わります。月5万・10万・15万円働く場合を、生活費別の仮定で比較します。",
+  "tags": [
+    "2000万円 サイドFIRE",
+    "2000万円 FIRE",
+    "月5万円 収入",
+    "月10万円 収入",
+    "月15万円 収入"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable dark spiky hair, black glasses, face and white FIRE T-shirt, but freely change the pose and expression. Show a glowing balance scale with a golden 2000万円 egg on one side and a checked weekly calendar with a small work bag on the other, with the character crouched beside the scale pulling the lever with one hand and giving a cautious thumbs-up with the other, hopeful but realistic. Integrate exact Japanese typography 「2000万円で」 and 「サイドFIRE？」 in huge red, gold, white and navy display lettering built into the scale base. Exactly two arms and two hands, no extra limbs, no private information, no watermark, no random text, no gray overlay and no browser frame.",
+  "thumbnail_text": "2000万円でサイドFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": [
+    "切り札を常に持て、余裕の根拠を潜ませろ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    {
+      "path": "/articles/fire-ikura-hitsuyou/",
+      "anchor": "FIREに必要な資産を生活費から考える"
+    },
+    {
+      "path": "/articles/fire-5000man/",
+      "anchor": "5000万円で変わる条件を見る"
+    },
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    },
+    {
+      "path": "/articles/fire-koukai/",
+      "anchor": "FIRE後に考えが変わる現実を読む"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "2,000万円に絞り、月5万・10万・15万円の労働収入で生活費の不足分がどう変わるかを主役にする。3,000万円や月5万円の記事とは金額と比較軸で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

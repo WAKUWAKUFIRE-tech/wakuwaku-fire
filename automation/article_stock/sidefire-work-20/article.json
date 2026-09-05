@@ -1,0 +1,51 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIRE後の仕事おすすめ20選｜週2・週3でゆるく働くなら何がいい？",
+  "meta_description": "サイドFIRE後におすすめの仕事を20種類紹介。週2・週3で働く場合の自由度、始めやすさ、人との接点、やめやすさを比較します。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "サイドFIRE後の仕事は、収入だけでなく自由度、拘束時間、始めやすさ、人との接点で選びます。週2・週3でゆるく働くための20の選択肢を経験者目線で比べます。",
+  "tags": [
+    "サイドFIRE 仕事 おすすめ",
+    "FIRE後 仕事",
+    "週2 仕事",
+    "週3 仕事",
+    "FIRE 副業"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable face, dark spiky hair, black glasses and white FIRE T-shirt, while freely changing the pose and expression. Create a colorful wheel of abstract work icons such as a laptop, microphone, bicycle, notebook and tools, with the character standing on a small moving platform, pointing at one option and holding a plain work card in the other hand, excited and playful. Integrate exact Japanese typography 「週2・週3」 and 「仕事20選」 as oversized layered display type across the lower diagonal, using yellow, white, red and deep navy outlines. Exactly two arms and two hands, no extra limbs, no brand names, no private information, no random readable text, no watermark, no gray panel and no browser frame.",
+  "thumbnail_text": "週2・週3 仕事20選",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-06-25_FIREしたおっさんがYouTubeライブ配信をやったら稼げるのか？想像以上にカオスだったw.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md"
+  ],
+  "used_personal_quotes": [
+    "スキあらばスキなことをしろ",
+    "諦める勇気を持て"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    },
+    {
+      "path": "/articles/life-after-fire/",
+      "anchor": "FIRE後の生活をイメージする"
+    },
+    {
+      "path": "/articles/fire-hima/",
+      "anchor": "FIRE後の時間の使い方を見る"
+    },
+    {
+      "path": "/articles/fire-shippai/",
+      "anchor": "FIRE後に働き方を選び直す考え方"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "サイドFIRE後の仕事を20種類の比較表で俯瞰し、週2・週3の選び方を扱う。副業や月5万円など個別の実践記事とは、選択肢の広さと比較軸で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

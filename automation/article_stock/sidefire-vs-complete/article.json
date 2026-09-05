@@ -1,0 +1,57 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREと完全FIREはどっちがいい？必要資産・仕事・幸福度を徹底比較",
+  "meta_description": "サイドFIREと完全FIREの違いを、必要資産・仕事・資産下落時の不安・自由時間・社会とのつながり・幸福度から比較します。",
+  "category": "FIRE入門・考え方",
+  "lead": "サイドFIREと完全FIREは、どちらが上という話ではありません。必要資産、働く量、自由時間、家族との生活、幸福度を同じ表に置き、選び方を考えます。",
+  "tags": [
+    "サイドFIRE 完全FIRE 比較",
+    "完全FIRE サイドFIRE 違い",
+    "FIRE 必要資産",
+    "FIRE 仕事",
+    "FIRE 幸福度"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable dark spiky hair, black glasses, face and white FIRE T-shirt, but freely change the pose and expression. Create two monumental gates on a bright mountain path: a red gate labeled 完全FIRE and a blue gate labeled サイドFIRE, with a compass and a colorful life landscape beyond. Place the character in the center foreground holding the compass in one hand and a two-way signpost in the other, raised eyebrow and thoughtful half-smile. Integrate exact Japanese typography 「完全FIRE？」 and 「サイドFIRE？」 into the gates using bold white, yellow, red and blue type. Exactly two arms and two hands, no extra limbs, no personal information, no random readable text, no watermark, no gray panel and no browser frame.",
+  "thumbnail_text": "完全FIRE？サイドFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-24_FIREした100人を調べたら「本当に幸せなのか」の答えが見えた.md"
+  ],
+  "used_personal_quotes": [
+    "自分が笑える日々を送れ",
+    "仕事も家族も両取りしろ"
+  ],
+  "external_sources": [
+    {
+      "title": "資産形成の基本：NISA特設ウェブサイト：金融庁",
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "why": "資産状況やライフプランに応じて投資と貯蓄を考える公的な案内として参照するため"
+    }
+  ],
+  "internal_links": [
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    },
+    {
+      "path": "/articles/what-is-fire/",
+      "anchor": "FIREの基本を読む"
+    },
+    {
+      "path": "/articles/life-after-fire/",
+      "anchor": "FIRE後の生活と幸福を考える"
+    },
+    {
+      "path": "/articles/fire-koukai/",
+      "anchor": "FIRE後の後悔を読む"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "サイドFIREと完全FIREを、資産額だけでなく仕事・時間・社会とのつながり・幸福度で比較する。サイドFIREの定義記事や幸福・後悔の個別記事とは、意思決定の比較表で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

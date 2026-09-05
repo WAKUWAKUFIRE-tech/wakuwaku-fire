@@ -1,0 +1,56 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "5000万円あればサイドFIREできる？生活費別に徹底シミュレーション",
+  "meta_description": "5000万円でサイドFIREできるか、生活費15万・20万・25万・30万円で試算。どの程度働くか、完全FIREとの境界も整理します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "5,000万円はサイドFIREの選択肢を広げる資産ですが、生活費や家族によって必要な労働収入は変わります。生活費別に仮定を置き、完全FIREとの違いも考えます。",
+  "tags": [
+    "5000万円 サイドFIRE",
+    "5000万円 FIRE",
+    "サイドFIRE 生活費",
+    "完全FIRE サイドFIRE",
+    "FIRE 必要資産"
+  ],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese website article thumbnail. Create a brand-new design using the exact supplied anime character reference; preserve his recognizable face, dark spiky hair, black glasses and white FIRE T-shirt, but freely change the pose and expression. Use a bright cinematic sunrise landscape with three distinct colorful paths and a large clean flat editorial signboard in the foreground; no vault, no door, no doorway or machinery. Place the character seated on a separate low round platform in the lower center-right, with one fully visible arm pointing toward the sign and the other resting openly on his knee; both arms, elbows, forearms, wrists and hands must be anatomically correct and separated from every object. Integrate only these exact Japanese phrases: 「5000万円で」 as the largest line, 「サイドFIRE？」 as the second line, and 「生活費別に比較」 as a smaller red accent label. Keep all lettering horizontal, front-facing, thick and mobile-legible, with high-contrast yellow/white type, navy outline and a red accent block. Exactly two arms and two hands, no extra limbs, no arm passing through any object, no private information, no random readable text, no watermark, no gray overlay and no browser frame.",
+  "thumbnail_text": "5000万円でサイドFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": [
+    "未来ばかり見るな、今に熱中しろ",
+    "諦める勇気を持て"
+  ],
+  "external_sources": [
+    {
+      "title": "資産形成の基本：NISA特設ウェブサイト：金融庁",
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "why": "資産状況やライフプランに応じて貯蓄と投資を使い分ける公的な案内として参照するため"
+    }
+  ],
+  "internal_links": [
+    {
+      "path": "/articles/fire-5000man/",
+      "anchor": "5000万円でFIREできるかを比べる"
+    },
+    {
+      "path": "/articles/fire-6000man/",
+      "anchor": "6000万円でFIREした本人の経験を見る"
+    },
+    {
+      "path": "/articles/fire-4percent-rule/",
+      "anchor": "4％ルールをそのまま使わない考え方"
+    },
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "5,000万円を生活費15万〜30万円の不足分に翻訳し、サイドFIREと完全FIREの境界を考える。独身・夫婦・子持ちの一般FIRE記事や資産6000万円の本人談とは生活費別の試算で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

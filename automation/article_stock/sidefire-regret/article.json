@@ -1,0 +1,51 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREで後悔する人の特徴10選｜実際にFIREして分かった理想と現実",
+  "meta_description": "サイドFIRE後に後悔しやすい特徴を10個に整理。暇、孤独、生活リズム、資産減少、家族との温度差など、実体験から対策を考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "サイドFIREの後悔は、必要資産の不足だけではありません。暇、孤独、強制力の消失、家族との温度差、資産減少への不安を、実際にFIREした経験から整理します。",
+  "tags": [
+    "サイドFIRE 後悔",
+    "サイドFIRE 失敗",
+    "FIRE後 暇",
+    "FIRE後 孤独",
+    "FIRE 資産減少"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable dark spiky hair, black glasses, face and white FIRE T-shirt, but freely change the pose and expression. Show a dramatic forked road splitting between a bright lively path and a stormy path with a broken calendar, empty chair and falling coins, while the character sits on the central signpost holding a lantern in one hand and touching his chin with the other, thoughtful and worried rather than cheerful. Integrate exact Japanese typography 「サイドFIRE」 and 「後悔する？」 into a bold wood-and-metal sign with red, white, yellow and navy outlines. Exactly two arms and two hands, no extra limbs, no private information, no random text, no watermark, no gray panel and no browser frame.",
+  "thumbnail_text": "サイドFIRE 後悔する？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-17_FIREして後悔したことけっこうあんねん～FIREは人をダメにする～.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-03-28_FIRE後の恐怖6選と対策法【セミリタイア】.md"
+  ],
+  "used_personal_quotes": [
+    "自由過ぎると溺れる、自ら制約を課せ",
+    "失敗したらネタにして笑い飛ばせ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    {
+      "path": "/articles/fire-koukai/",
+      "anchor": "FIREして後悔したことを読む"
+    },
+    {
+      "path": "/articles/fire-shippai/",
+      "anchor": "FIREの失敗パターンを見る"
+    },
+    {
+      "path": "/articles/fire-hima/",
+      "anchor": "FIRE後の暇と生活を考える"
+    },
+    {
+      "path": "/articles/life-after-fire/",
+      "anchor": "FIRE後の生活をイメージする"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "サイドFIRE後に起きる後悔を10項目の特徴と対策で整理する。既存の後悔・失敗・不安記事は個別テーマへ内部リンクで分け、総合的な確認記事にする。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

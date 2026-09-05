@@ -1,0 +1,51 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "30代でサイドFIREするにはいくら必要？早期退職を現実にする方法",
+  "meta_description": "30代のサイドFIREに必要な資産を、生活費と労働収入、取り崩し率の幅から考えます。早期退職後に戻れる力と家族の変化も整理します。",
+  "category": "FIRE準備・必要資産",
+  "lead": "30代のサイドFIREは、長い運用期間と生活の変化を前提に考えます。必要資産を一つに決めず、生活費・労働収入・取り崩し率と、会社に戻れる選択肢を整理します。",
+  "tags": [
+    "30代 サイドFIRE いくら必要",
+    "30代 FIRE",
+    "30代 セミリタイア",
+    "サイドFIRE 早期退職",
+    "FIRE リスク"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable dark spiky hair, black glasses, face and white FIRE T-shirt, but freely change the pose and expression. Show a high-speed train leaving a station and splitting into several sunlit life paths, with a backpack and a clearly generic FIRE ticket; the character runs toward the junction reaching forward with one hand and holding the ticket in the other, determined and energetic. Integrate exact Japanese typography 「30代」, 「サイドFIRE」 and 「いくら必要？」 as large red, white and yellow road-sign lettering across the lower diagonal. Exactly two arms and two hands, no extra limbs, no personal name, no personal asset claim, no random readable text, no watermark, no gray panel and no browser frame.",
+  "thumbnail_text": "30代 サイドFIRE いくら必要？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-03-06_【FIRE】中年に残された時間は少ない。人生を取り戻せ【前編】.md"
+  ],
+  "used_personal_quotes": [
+    "自分の人的資源を軽んじるな",
+    "何事も長期目標を持て"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    {
+      "path": "/articles/fire-6000man/",
+      "anchor": "30歳でFIREした経験を見る"
+    },
+    {
+      "path": "/articles/fire-ikura-hitsuyou/",
+      "anchor": "FIREに必要な資産を生活費から考える"
+    },
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの始め方を読む"
+    },
+    {
+      "path": "/articles/fire-hima/",
+      "anchor": "FIRE後の時間の使い方を見る"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "30代の長い運用期間と、早期退職後に戻れるキャリア・家族の変化を主役にする。30代FIREの一般論や本人の6000万円の経歴紹介とは、再選択の設計で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-preparation"
+}

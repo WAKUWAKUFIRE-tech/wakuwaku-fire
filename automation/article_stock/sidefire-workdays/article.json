@@ -1,0 +1,51 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREは週何日働くのが最強？週1・週2・週3勤務を比較",
+  "meta_description": "サイドFIREの週1・週2・週3勤務を、仮の月収と生活費別の必要資産で比較。収入だけでなく自由時間、家族、疲れ方から日数を決めます。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "サイドFIREで週何日働くかに正解はありません。週1・週2・週3の仮の収入を置き、生活費別の必要資産と、自由時間・家族・疲れ方の違いを比較します。",
+  "tags": [
+    "サイドFIRE 週何日働く",
+    "週1 サイドFIRE",
+    "週2 サイドFIRE",
+    "週3 サイドFIRE",
+    "働く日数"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable dark spiky hair, black glasses, face and white FIRE T-shirt, while freely changing pose and expression. Build a giant colorful calendar wheel divided into bold sections 1, 2 and 3, with beach, laptop and social activity symbols; the character stands on the wheel holding a small red FIRE flag in one hand and balancing with the other, playful confident grin. Integrate exact Japanese typography 「週何日働く？」 and 「週1・2・3」 as oversized white, yellow, turquoise and red display type embedded in the wheel. Exactly two arms and two hands, no extra limbs, no private information, no random readable text, no watermark, no gray panel and no browser frame.",
+  "thumbnail_text": "サイドFIRE 週何日？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-06-25_FIREしたおっさんがYouTubeライブ配信をやったら稼げるのか？想像以上にカオスだったw.md"
+  ],
+  "used_personal_quotes": [
+    "自由過ぎると溺れる、自ら制約を課せ",
+    "スキあらばスキなことをしろ"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    },
+    {
+      "path": "/articles/life-after-fire/",
+      "anchor": "FIRE後の生活をイメージする"
+    },
+    {
+      "path": "/articles/fire-hima/",
+      "anchor": "FIRE後の時間の使い方を見る"
+    },
+    {
+      "path": "/articles/fire-5000man/",
+      "anchor": "5000万円でFIREできる条件を見る"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "週1・週2・週3の勤務日数を、仮の月収と生活費別の必要資産に翻訳する。月5万・10万円の収入記事とは、勤務日数と自由時間の比較で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

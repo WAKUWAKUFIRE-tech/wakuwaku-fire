@@ -1,0 +1,51 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "3000万円でサイドFIREできる？独身・夫婦・子持ちで徹底シミュレーション",
+  "meta_description": "資産3000万円でサイドFIREできる条件を、独身・夫婦・子どもがいる世帯で比較。生活費と労働収入を置いた具体的な試算を紹介します。",
+  "category": "家族とFIRE",
+  "lead": "3,000万円でサイドFIREできるかは、世帯人数だけでなく生活費と労働収入で決まります。独身・夫婦・子どもがいる世帯の仮定を並べ、成立条件と注意点を整理します。",
+  "tags": [
+    "3000万円 サイドFIRE",
+    "3000万円 FIRE",
+    "独身 サイドFIRE",
+    "夫婦 サイドFIRE",
+    "子持ち サイドFIRE"
+  ],
+  "thumbnail_prompt": "Premium 1:1 square Japanese article thumbnail using the exact supplied anime character reference; preserve his recognizable identity, dark spiky hair, black glasses and white FIRE T-shirt, but freely change the pose and expression. Show a spectacular three-lane bridge with distinct visual silhouettes for single, couple and parent-and-child life paths, a large glowing 3000万円 sign above the bridge, and the character crouched at the junction, one hand shading his eyes and the other holding a route map, surprised but determined. Integrate exact Japanese typography 「3000万円で」 and 「サイドFIRE？」 as huge yellow and red outlined sign letters, with no personal information. Exactly two arms and two hands, no extra people, no extra limbs, no random readable text, no watermark, no gray overlay and no browser frame.",
+  "thumbnail_text": "3000万円でサイドFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md"
+  ],
+  "used_personal_quotes": [
+    "仕事も家族も両取りしろ",
+    "自分の人的資源を軽んじるな"
+  ],
+  "external_sources": [],
+  "internal_links": [
+    {
+      "path": "/articles/fire-5000man/",
+      "anchor": "5000万円でFIREできるかを比べる"
+    },
+    {
+      "path": "/articles/fire-ikura-hitsuyou/",
+      "anchor": "FIREに必要な資産を生活費から考える"
+    },
+    {
+      "path": "/articles/side-fire-toha/",
+      "anchor": "サイドFIREの基本を読む"
+    },
+    {
+      "path": "/articles/life-after-fire/",
+      "anchor": "FIRE後の生活をイメージする"
+    }
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "3,000万円という金額を、独身・夫婦・子どもがいる世帯の生活費と収入に分解する記事。一般的な3000万円FIRE記事とは、サイドFIREの労働収入と家族構成の比較で分ける。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "family-fire"
+}
