@@ -1,0 +1,35 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREとフリーランスの違いとは？どっちが自由で向いている？",
+  "meta_description": "サイドFIREとフリーランスの違いを、収入源・必要資産・働く時間・安定性・自由度から比較。資産収入と仕事を組み合わせた僕の経験も踏まえて、向いている人を考えます。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "サイドFIREとフリーランスは、どちらも会社員以外の働き方に見えますが、自由を支えるものが違います。収入源、必要資産、働く時間、安定性を比べながら、どちらが自分に合うかを考えます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail with the exact supplied character reference. Preserve his recognizable black spiky hair, black-rim glasses, white FIRE T-shirt and anime illustration identity, but create a completely new expressive pose: he is standing at a forked bridge, one arm pointing toward a laptop-and-client path and the other hand holding a plain glowing nest-egg symbol, with a curious but competitive expression. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Create the illustration and typography together, not text added later. Use a diagonal split composition with vivid coral, electric blue, gold and deep navy, character crossing the center. Render only these exact Japanese text elements, large and mobile-readable: 「フリーランス？」 「サイドFIRE？」 「自由なのはどっち」. Use thick white and black outlines, red-yellow emphasis, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "自由なのはどっち",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな", "自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [
+    {
+      "url": "https://www.gov-online.go.jp/article/202511/entry-10040.html",
+      "title": "フリーランス・事業者間取引適正化等法｜政府広報オンライン",
+      "why": "フリーランスの業務委託取引に関する現行制度を確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの意味と始め方を確認する"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後も働くという選択を読む"},
+    {"path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日の過ごし方を見る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "フリーランスとサイドFIREを、収入源と自由の支え方から比較する記事。FIRE後の仕事一覧や副業記事とは、フリーランスとの違いに検索意図を絞る。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

@@ -1,0 +1,30 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREと会社員はどっちが幸せ？収入・自由時間・安定性を比較",
+  "meta_description": "サイドFIREと会社員を、収入・自由時間・安定性・人とのつながり・家族との時間から比較。会社を辞めたあとに見えた仕事の価値も踏まえ、幸せの決め方を考えます。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "サイドFIREと会社員のどちらが幸せかは、収入の大きさだけでは決まりません。自由時間、安定性、生活リズム、人とのつながり、家族との時間を同じ表に置いて比較します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Preserve the black spiky hair, black-rim glasses, white FIRE T-shirt and recognizable anime identity, but freely change his pose and expression: he is sitting in the middle of a giant seesaw, one side a bright office elevator and the other side an open family morning road, throwing both shoulders up with a playful conflicted grin. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Generate polished illustration and Japanese typography together. Use an unexpected wide-angle low view, vivid red office lights versus warm gold and teal open sky, character centered across the pivot. Render only these exact Japanese text elements: 「会社員？」 「サイドFIRE？」 「幸せはどっち」. Oversized crisp display letters with white, yellow, red and navy outlines, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "幸せはどっち",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-11-24_FIREあるある③～結局みんなこうなる～.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md"
+  ],
+  "used_personal_quotes": ["仕事も家族も両取りしろ", "自分が笑える日々を送れ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの考え方を読む"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の生活をイメージする"},
+    {"path": "/articles/fire-household/", "anchor": "家族とFIREの現実を見る"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後も仕事が必要か考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREのメリット・デメリット記事とは違い、会社員を続ける選択肢を比較対象の中心に置き、幸福を収入以外の時間・役割・安定性で考える。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

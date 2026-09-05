@@ -28,6 +28,18 @@ const OFFICIAL_DOMAINS = [
   "kyoukaikenpo.or.jp",
   "gov-online.go.jp"
 ];
+const SIDEFIRE_COMPARISON_SLUGS = new Set([
+  "sidefire-vs-freelance",
+  "sidefire-vs-semi-retire",
+  "sidefire-vs-fire",
+  "sidefire-vs-barista",
+  "sidefire-vs-company",
+  "sidefire-vs-sidejob",
+  "sidefire-vs-sole-proprietor",
+  "sidefire-vs-week3",
+  "sidefire-vs-early-retire",
+  "sidefire-vs-complete"
+]);
 
 class ArticleNeedsReview extends Error {}
 class FatalPublishError extends Error {}
@@ -777,6 +789,20 @@ async function updateArticleIndexes(allArticles) {
   await writeText("articles/index.html", updated);
 }
 
+async function updateSideFireComparisonHub(allArticles) {
+  const parentPath = "articles/side-fire-toha/index.html";
+  if (!(await exists(parentPath))) return;
+  const html = await readText(parentPath);
+  const startMarker = "<!-- AUTO-PUBLISH:SIDEFIRE-COMPARISONS-START -->";
+  const endMarker = "<!-- AUTO-PUBLISH:SIDEFIRE-COMPARISONS-END -->";
+  if (!html.includes(startMarker) || !html.includes(endMarker)) return;
+  const comparisons = allArticles.filter((article) => SIDEFIRE_COMPARISON_SLUGS.has(article.slug));
+  const content = comparisons.length
+    ? `              <ul class="article-comparison-links">\n${comparisons.map((article) => `                <li><a href="../${htmlEscape(article.slug)}/">${htmlEscape(article.title)}</a></li>`).join("\n")}\n              </ul>`
+    : "              <p>比較記事は公開後、ここに順番に追加します。</p>";
+  await writeText(parentPath, replaceMarkedSection(html, startMarker, endMarker, content));
+}
+
 async function updateSitemap(allArticles, date) {
   await generateSitemap({
     root: ROOT,
@@ -1180,6 +1206,7 @@ async function publishOne(mode) {
     await writeText(`articles/${item.slug}/index.html`, articleHtml);
     await validateGeneratedArticleFile(`articles/${item.slug}/index.html`, item, generated, now.date, allArticles);
     await updateArticleIndexes(allArticles);
+    await updateSideFireComparisonHub(allArticles);
     await updateSitemap(allArticles, now.date);
     await writeEditorialNote(item, generated, noteSources, now.date);
     item.status = "published";
@@ -1207,6 +1234,7 @@ async function publishOne(mode) {
         try {
           const rollbackArticles = await readPublishedArticles();
           await updateArticleIndexes(rollbackArticles);
+          await updateSideFireComparisonHub(rollbackArticles);
           await updateSitemap(rollbackArticles, currentJst().date);
         } catch (rollbackError) {
           item.failed_reason += ` / ロールバック失敗: ${rollbackError.message}`;

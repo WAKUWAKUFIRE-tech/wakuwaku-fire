@@ -1,0 +1,36 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREと週3勤務はどっちがおすすめ？必要資産と自由時間を比較",
+  "meta_description": "サイドFIREと週3勤務の違いを、必要資産・収入・自由時間・安定性から比較。会社員から週3勤務を経てサイドFIREへ進む段階的な方法と、経験者が感じた注意点を紹介します。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "サイドFIREと週3勤務は、どちらも働く時間を減らす選択肢です。資産を土台にするか、給与を残すかで必要資産と自由時間の形が変わるため、段階的な移行も含めて比べます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Preserve his black spiky hair, black-rim glasses, white FIRE T-shirt and anime identity, but freely change the pose and expression: he is leaping over a huge calendar with three vivid highlighted day blocks toward a bright open road, arms naturally spread in a balanced landing pose, confident joyful expression. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Create art and typography together as one polished composition. Use a diagonal perspective with calendar, open road and warm morning light, character near center-right but not a fixed layout, red, yellow, teal and navy. Render only these exact Japanese text elements: 「週3勤務？」 「サイドFIRE？」 「段階移行」. Oversized high-contrast mobile-readable typography with white, yellow, red and black outlines, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "段階移行",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-07-15_FIREした人は毎日何してる？早期リタイア後のリアルな10日間を全部公開【FIRE100日チャレンジ③】.md"
+  ],
+  "used_personal_quotes": ["自由過ぎると溺れる、自ら制約を課せ", "自分に期待しろ"],
+  "external_sources": [
+    {
+      "url": "https://www.mhlw.go.jp/tekiyoukakudai/qa/",
+      "title": "適用拡大 Q&A｜厚生労働省",
+      "why": "週3勤務など短時間就労の社会保険を確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの基本を読む"},
+    {"path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日の過ごし方を見る"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後も働く意味を考える"},
+    {"path": "/articles/fire-hima/", "anchor": "自由時間と暇の問題を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "週1・週2・週3勤務の比較記事とは違い、週3勤務を会社員からサイドFIREへ移る中間段階として扱い、給与の安定と資産の自由をどう組み合わせるかに集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

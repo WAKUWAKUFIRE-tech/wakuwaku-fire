@@ -1,0 +1,29 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREとセミリタイアの違いとは？意味・必要資産・働き方を比較",
+  "meta_description": "サイドFIREとセミリタイアの違いを、意味・必要資産・働く量・生活の実例から比較します。呼び方の違いだけでなく、資産と仕事をどう組み合わせるかを経験者目線で整理します。",
+  "category": "FIRE入門・考え方",
+  "lead": "サイドFIREとセミリタイアは似た意味で使われますが、言葉が強調するポイントが少し違います。必要資産や働き方を比べながら、結局どんな生活になるのかを具体的に考えます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Preserve his black spiky hair, black-rim glasses, white FIRE T-shirt and recognizable anime identity, but freely change the pose and expression: he is seated sideways on a large balance scale, leaning forward with one hand shielding his eyes and the other hand holding a small blank compass, an amused questioning face. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Generate illustration and typography together in one finished design. Use a bold circular timeline behind him, warm sunset orange on one side and cool teal-blue on the other, with an off-center composition and strong depth. Render only these exact Japanese text elements: 「サイドFIRE？」 「セミリタイア？」 「違いは？」. Oversized mobile-readable type with yellow, white, red and navy outlines, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "違いは？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-23_後編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": ["資産運用＋自由に好きな仕事をする", "自分の腹からでた言葉で定義付けしろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの意味を確認する"},
+    {"path": "/articles/what-is-fire/", "anchor": "FIREの基本を読む"},
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後の時間の使い方を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREとセミリタイアの比較記事とは異なり、サイドFIREとセミリタイアの言葉の重なり、必要資産、生活イメージに焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

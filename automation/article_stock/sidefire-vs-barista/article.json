@@ -1,0 +1,35 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREとバリスタFIREの違いとは？日本で現実的なのはどっち？",
+  "meta_description": "サイドFIREとバリスタFIREの違いを、必要資産・働く時間・社会保険・自由度から比較。海外発の言葉を日本の暮らしに置き換え、どちらが現実的かを経験者目線で考えます。",
+  "category": "FIRE入門・考え方",
+  "lead": "サイドFIREとバリスタFIREは、どちらも資産と仕事を組み合わせる生き方です。働く理由や制度との関係に違いが出るため、日本で考えるときの比較ポイントを整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Keep the recognizable black spiky hair, black-rim glasses, white FIRE T-shirt and anime identity, but freely change his pose and expression: he is dramatically sliding a giant coffee cup across a counter while turning toward a glowing flexible-work road, laughing with one raised eyebrow. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Create art and typography together as one finished composition. Use a coffee-shop counter transformed into a forked life map, warm coffee brown and cream against electric turquoise and red, with the character crossing the center and strong diagonal energy. Render only these exact Japanese text elements: 「バリスタFIRE？」 「サイドFIRE？」 「日本ならどっち」. Huge clean mobile-readable lettering, white-yellow letters with navy, red and black outlines, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "日本ならどっち",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": ["働かなくても生きられる状態で、働くかどうかを選べる", "自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [
+    {
+      "url": "https://www.mhlw.go.jp/tekiyoukakudai/qa/",
+      "title": "適用拡大 Q&A｜厚生労働省",
+      "why": "短時間で働く場合の社会保険の確認先を示すため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの基本を読む"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後も働く現実を見る"},
+    {"path": "/articles/sidefire-day/", "anchor": "サイドFIREの一日を知る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIREの種類記事が4分類の全体像を扱うのに対し、この記事はバリスタFIREとサイドFIREの日本での使い分け、短時間就労と制度確認に絞る。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

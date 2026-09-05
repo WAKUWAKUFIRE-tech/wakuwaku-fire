@@ -1,0 +1,36 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREと早期退職の違いとは？会社を辞めればFIREなのか？",
+  "meta_description": "サイドFIREと早期退職の違いを、資産・収入源・会社を辞めた後の働き方から整理。退職＝FIREではない理由と、会社員から選択肢を増やす準備を経験者目線で解説します。",
+  "category": "FIRE入門・考え方",
+  "lead": "早期退職は会社を早く辞める出来事、サイドFIREは資産と仕事を組み合わせる生活設計です。会社を辞めただけでFIREになるのか、資産・収入源・戻る道から違いを整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Preserve his black spiky hair, black-rim glasses, white FIRE T-shirt and anime identity, but freely change the pose and expression: he is stopping a giant clock with one hand while stepping through a bright exit from an office, the other hand holding a plain travel bag, expression half-surprised and half-determined. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Create illustration and Japanese typography together. Use an unusual circular composition with the clock and open sky, character breaking through the center, vivid crimson, gold, cyan and deep navy. Render only these exact Japanese text elements: 「早期退職？」 「サイドFIRE？」 「辞めればFIRE？」. Large crisp mobile-safe text with thick black, white, red and yellow outlines, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "辞めればFIRE？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md"
+  ],
+  "used_personal_quotes": ["働かなくても生きられる状態で、働くかどうかを選べる", "諦める勇気を持て"],
+  "external_sources": [
+    {
+      "url": "https://www.nenkin.go.jp/section/faq/kokunen/seido/kanyu/taishoku/index.html",
+      "title": "年金Q&A（会社を退職・転職した方）｜日本年金機構",
+      "why": "会社を辞めた後の年金手続きの確認先を示すため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの意味を確認する"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後に後悔したことを読む"},
+    {"path": "/articles/fire-shippai/", "anchor": "FIREに失敗しやすい理由を見る"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の生活をイメージする"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREとセミリタイアの比較記事とは異なり、会社を辞める出来事としての早期退職と、資産・仕事・戻る道を含むサイドFIREの違いに集中する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

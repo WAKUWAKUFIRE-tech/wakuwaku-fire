@@ -3698,7 +3698,12 @@
       "priority_order": 107,
       "status": "stocked",
       "main_keyword": "サイドFIRE 必要資産",
-      "secondary_keywords": ["サイドFIRE いくら必要", "サイドFIRE 生活費", "サイドFIRE シミュレーション", "サイドFIRE 年齢"],
+      "secondary_keywords": [
+        "サイドFIRE いくら必要",
+        "サイドFIRE 生活費",
+        "サイドFIRE シミュレーション",
+        "サイドFIRE 年齢"
+      ],
       "article_title_plan": "サイドFIREにはいくら必要？必要資産を生活費・年齢別に徹底シミュレーション",
       "slug": "sidefire-need-assets",
       "search_intent": "サイドFIREに必要な資産を生活費・年齢・労働収入別に試算したい",
@@ -3709,7 +3714,11 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/side-fire-toha/", "/articles/fire-ikura-hitsuyou/", "/articles/fire-4percent-rule/"],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-4percent-rule/"
+      ],
       "thumbnail_text_hint": "サイドFIRE いくら必要？",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -3725,7 +3734,12 @@
       "priority_order": 108,
       "status": "stocked",
       "main_keyword": "3000万円 サイドFIRE",
-      "secondary_keywords": ["3000万円 FIRE", "独身 サイドFIRE", "夫婦 サイドFIRE", "子持ち サイドFIRE"],
+      "secondary_keywords": [
+        "3000万円 FIRE",
+        "独身 サイドFIRE",
+        "夫婦 サイドFIRE",
+        "子持ち サイドFIRE"
+      ],
       "article_title_plan": "3000万円でサイドFIREできる？独身・夫婦・子持ちで徹底シミュレーション",
       "slug": "sidefire-3000man",
       "search_intent": "資産3000万円でサイドFIREできる条件を独身・夫婦・子持ちで比較したい",
@@ -3736,7 +3750,12 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/family_and_fire.md"
       ],
-      "internal_link_targets": ["/articles/fire-5000man/", "/articles/fire-ikura-hitsuyou/", "/articles/side-fire-toha/", "/articles/life-after-fire/"],
+      "internal_link_targets": [
+        "/articles/fire-5000man/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/side-fire-toha/",
+        "/articles/life-after-fire/"
+      ],
       "thumbnail_text_hint": "3000万円でサイドFIRE？",
       "latest_fact_check_required": false,
       "published_url": "",
@@ -3752,7 +3771,12 @@
       "priority_order": 109,
       "status": "stocked",
       "main_keyword": "サイドFIRE 仕事 おすすめ",
-      "secondary_keywords": ["FIRE後 仕事", "週2 仕事", "週3 仕事", "FIRE 副業"],
+      "secondary_keywords": [
+        "FIRE後 仕事",
+        "週2 仕事",
+        "週3 仕事",
+        "FIRE 副業"
+      ],
       "article_title_plan": "サイドFIRE後の仕事おすすめ20選｜週2・週3でゆるく働くなら何がいい？",
       "slug": "sidefire-work-20",
       "search_intent": "サイドFIRE後に週2・週3で働ける仕事の選択肢と比較軸を知りたい",
@@ -3763,7 +3787,12 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/life_after_fire.md"
       ],
-      "internal_link_targets": ["/articles/side-fire-toha/", "/articles/life-after-fire/", "/articles/fire-hima/", "/articles/fire-shippai/"],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/life-after-fire/",
+        "/articles/fire-hima/",
+        "/articles/fire-shippai/"
+      ],
       "thumbnail_text_hint": "週2・週3 仕事20選",
       "latest_fact_check_required": false,
       "published_url": "",
@@ -3779,7 +3808,12 @@
       "priority_order": 110,
       "status": "stocked",
       "main_keyword": "サイドFIRE 後悔",
-      "secondary_keywords": ["サイドFIRE 失敗", "FIRE後 暇", "FIRE後 孤独", "FIRE 資産減少"],
+      "secondary_keywords": [
+        "サイドFIRE 失敗",
+        "FIRE後 暇",
+        "FIRE後 孤独",
+        "FIRE 資産減少"
+      ],
       "article_title_plan": "サイドFIREで後悔する人の特徴10選｜実際にFIREして分かった理想と現実",
       "slug": "sidefire-regret",
       "search_intent": "サイドFIRE後に後悔しやすい原因と退職前の対策を知りたい",
@@ -3791,7 +3825,12 @@
         "content_sources/knowledge_base/happiness_and_life.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-koukai/", "/articles/fire-shippai/", "/articles/fire-hima/", "/articles/life-after-fire/"],
+      "internal_link_targets": [
+        "/articles/fire-koukai/",
+        "/articles/fire-shippai/",
+        "/articles/fire-hima/",
+        "/articles/life-after-fire/"
+      ],
       "thumbnail_text_hint": "サイドFIRE 後悔する？",
       "latest_fact_check_required": false,
       "published_url": "",
@@ -3807,7 +3846,12 @@
       "priority_order": 111,
       "status": "stocked",
       "main_keyword": "40代 サイドFIRE いくら必要",
-      "secondary_keywords": ["4000万円 サイドFIRE", "40代 FIRE", "40代 早期退職", "年金まで サイドFIRE"],
+      "secondary_keywords": [
+        "4000万円 サイドFIRE",
+        "40代 FIRE",
+        "40代 早期退職",
+        "年金まで サイドFIRE"
+      ],
       "article_title_plan": "40代でサイドFIREするにはいくら必要？3000万・4000万・5000万円で比較",
       "slug": "sidefire-40s",
       "search_intent": "40代のサイドFIREを資産3000万・4000万・5000万円と年金までの期間で比較したい",
@@ -3818,7 +3862,12 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-6000man/", "/articles/fire-ikura-hitsuyou/", "/articles/fire-4percent-rule/", "/articles/side-fire-toha/"],
+      "internal_link_targets": [
+        "/articles/fire-6000man/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-4percent-rule/",
+        "/articles/side-fire-toha/"
+      ],
       "thumbnail_text_hint": "40代 サイドFIRE いくら必要？",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -3834,7 +3883,12 @@
       "priority_order": 112,
       "status": "stocked",
       "main_keyword": "2000万円 サイドFIRE",
-      "secondary_keywords": ["2000万円 FIRE", "月5万円 収入", "月10万円 収入", "月15万円 収入"],
+      "secondary_keywords": [
+        "2000万円 FIRE",
+        "月5万円 収入",
+        "月10万円 収入",
+        "月15万円 収入"
+      ],
       "article_title_plan": "2000万円でサイドFIREは可能？月5万・10万・15万円働く場合を比較",
       "slug": "sidefire-2000man",
       "search_intent": "資産2000万円で、月5万・10万・15万円働くとサイドFIREできるか知りたい",
@@ -3844,7 +3898,12 @@
         "content_sources/knowledge_base/seo_experience_map.md",
         "content_sources/knowledge_base/numbers_and_facts.md"
       ],
-      "internal_link_targets": ["/articles/fire-ikura-hitsuyou/", "/articles/fire-5000man/", "/articles/side-fire-toha/", "/articles/fire-koukai/"],
+      "internal_link_targets": [
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-5000man/",
+        "/articles/side-fire-toha/",
+        "/articles/fire-koukai/"
+      ],
       "thumbnail_text_hint": "2000万円でサイドFIRE？",
       "latest_fact_check_required": false,
       "published_url": "",
@@ -3860,7 +3919,12 @@
       "priority_order": 113,
       "status": "stocked",
       "main_keyword": "5000万円 サイドFIRE",
-      "secondary_keywords": ["5000万円 FIRE", "サイドFIRE 生活費", "完全FIRE サイドFIRE", "FIRE 必要資産"],
+      "secondary_keywords": [
+        "5000万円 FIRE",
+        "サイドFIRE 生活費",
+        "完全FIRE サイドFIRE",
+        "FIRE 必要資産"
+      ],
       "article_title_plan": "5000万円あればサイドFIREできる？生活費別に徹底シミュレーション",
       "slug": "sidefire-5000man",
       "search_intent": "資産5000万円で生活費別にどの程度働けばサイドFIREできるか知りたい",
@@ -3871,7 +3935,12 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-5000man/", "/articles/fire-6000man/", "/articles/fire-4percent-rule/", "/articles/side-fire-toha/"],
+      "internal_link_targets": [
+        "/articles/fire-5000man/",
+        "/articles/fire-6000man/",
+        "/articles/fire-4percent-rule/",
+        "/articles/side-fire-toha/"
+      ],
       "thumbnail_text_hint": "5000万円でサイドFIRE？",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -3887,7 +3956,12 @@
       "priority_order": 114,
       "status": "stocked",
       "main_keyword": "30代 サイドFIRE いくら必要",
-      "secondary_keywords": ["30代 FIRE", "30代 セミリタイア", "サイドFIRE 早期退職", "FIRE リスク"],
+      "secondary_keywords": [
+        "30代 FIRE",
+        "30代 セミリタイア",
+        "サイドFIRE 早期退職",
+        "FIRE リスク"
+      ],
       "article_title_plan": "30代でサイドFIREするにはいくら必要？早期退職を現実にする方法",
       "slug": "sidefire-30s",
       "search_intent": "30代でサイドFIREするための必要資産、生活費、労働収入、早期退職リスクを知りたい",
@@ -3898,7 +3972,12 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-6000man/", "/articles/fire-ikura-hitsuyou/", "/articles/side-fire-toha/", "/articles/fire-hima/"],
+      "internal_link_targets": [
+        "/articles/fire-6000man/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/side-fire-toha/",
+        "/articles/fire-hima/"
+      ],
       "thumbnail_text_hint": "30代 サイドFIRE いくら必要？",
       "latest_fact_check_required": false,
       "published_url": "",
@@ -3914,7 +3993,12 @@
       "priority_order": 115,
       "status": "stocked",
       "main_keyword": "サイドFIRE 週何日働く",
-      "secondary_keywords": ["週1 サイドFIRE", "週2 サイドFIRE", "週3 サイドFIRE", "働く日数"],
+      "secondary_keywords": [
+        "週1 サイドFIRE",
+        "週2 サイドFIRE",
+        "週3 サイドFIRE",
+        "働く日数"
+      ],
       "article_title_plan": "サイドFIREは週何日働くのが最強？週1・週2・週3勤務を比較",
       "slug": "sidefire-workdays",
       "search_intent": "サイドFIREで週1・週2・週3のどれが生活費と自由時間に合うか比較したい",
@@ -3925,7 +4009,12 @@
         "content_sources/knowledge_base/numbers_and_facts.md",
         "content_sources/knowledge_base/life_after_fire.md"
       ],
-      "internal_link_targets": ["/articles/side-fire-toha/", "/articles/life-after-fire/", "/articles/fire-hima/", "/articles/fire-5000man/"],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/life-after-fire/",
+        "/articles/fire-hima/",
+        "/articles/fire-5000man/"
+      ],
       "thumbnail_text_hint": "サイドFIRE 週何日？",
       "latest_fact_check_required": false,
       "published_url": "",
@@ -3941,7 +4030,12 @@
       "priority_order": 116,
       "status": "stocked",
       "main_keyword": "サイドFIRE 完全FIRE 比較",
-      "secondary_keywords": ["完全FIRE サイドFIRE 違い", "FIRE 必要資産", "FIRE 仕事", "FIRE 幸福度"],
+      "secondary_keywords": [
+        "完全FIRE サイドFIRE 違い",
+        "FIRE 必要資産",
+        "FIRE 仕事",
+        "FIRE 幸福度"
+      ],
       "article_title_plan": "サイドFIREと完全FIREはどっちがいい？必要資産・仕事・幸福度を徹底比較",
       "slug": "sidefire-vs-complete",
       "search_intent": "サイドFIREと完全FIREの必要資産、仕事、自由時間、幸福度の違いを比較したい",
@@ -3953,7 +4047,12 @@
         "content_sources/knowledge_base/happiness_and_life.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/side-fire-toha/", "/articles/what-is-fire/", "/articles/life-after-fire/", "/articles/fire-koukai/"],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/what-is-fire/",
+        "/articles/life-after-fire/",
+        "/articles/fire-koukai/"
+      ],
       "thumbnail_text_hint": "完全FIRE？サイドFIRE？",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -3962,6 +4061,347 @@
       "published_time": "",
       "published_slot": "",
       "stock_path": "automation/article_stock/sidefire-vs-complete",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-117",
+      "priority_order": 117,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE フリーランス 違い",
+      "secondary_keywords": [
+        "サイドFIRE フリーランス",
+        "フリーランス 必要資産",
+        "サイドFIRE 自由",
+        "フリーランス 向いている人"
+      ],
+      "article_title_plan": "サイドFIREとフリーランスの違いとは？どっちが自由で向いている？",
+      "slug": "sidefire-vs-freelance",
+      "search_intent": "サイドFIREとフリーランスの収入源、必要資産、働く時間、安定性、自由度の違いを比較したい",
+      "unique_angle": "仕事だけで稼ぐフリーランスと、資産収入を土台に仕事を選ぶサイドFIREを、自由を支える仕組みから比較する",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/work-after-fire/",
+        "/articles/sidefire-day/"
+      ],
+      "thumbnail_text_hint": "自由なのはどっち",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-freelance",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-118",
+      "priority_order": 118,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE セミリタイア 違い",
+      "secondary_keywords": [
+        "サイドFIRE セミリタイア",
+        "セミリタイア 必要資産",
+        "セミリタイア 働き方",
+        "FIRE 意味"
+      ],
+      "article_title_plan": "サイドFIREとセミリタイアの違いとは？意味・必要資産・働き方を比較",
+      "slug": "sidefire-vs-semi-retire",
+      "search_intent": "サイドFIREとセミリタイアの意味、必要資産、働く量、実際の生活の違いを知りたい",
+      "unique_angle": "似た言葉の定義だけで終わらせず、資産と仕事の組み合わせが毎日の生活にどう表れるかを具体例で比べる",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/what-is-fire/",
+        "/articles/fire-hima/"
+      ],
+      "thumbnail_text_hint": "違いは？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-semi-retire",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-119",
+      "priority_order": 119,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE FIRE 違い",
+      "secondary_keywords": [
+        "サイドFIRE 完全FIRE 違い",
+        "FIRE 必要資産",
+        "月5万円 サイドFIRE",
+        "月10万円 サイドFIRE"
+      ],
+      "article_title_plan": "サイドFIREとFIREの違いとは？必要資産はいくら変わる？",
+      "slug": "sidefire-vs-fire",
+      "search_intent": "サイドFIREと完全FIREの必要資産、働く収入、自由時間の違いを具体的に比較したい",
+      "unique_angle": "月5万・10万・15万円の労働収入を置いた単純計算で必要資産の差を見える化し、資産下落や生活の変化まで考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-6000man/"
+      ],
+      "thumbnail_text_hint": "必要資産は激変",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-fire",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-120",
+      "priority_order": 120,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE バリスタFIRE 違い",
+      "secondary_keywords": [
+        "バリスタFIRE 日本",
+        "サイドFIRE 社会保険",
+        "バリスタFIRE 必要資産",
+        "サイドFIRE 働き方"
+      ],
+      "article_title_plan": "サイドFIREとバリスタFIREの違いとは？日本で現実的なのはどっち？",
+      "slug": "sidefire-vs-barista",
+      "search_intent": "サイドFIREとバリスタFIREの必要資産、働く理由、社会保険、自由度の違いを日本の事情で比較したい",
+      "unique_angle": "海外発の呼び方をそのまま当てはめず、短時間雇用・社会保険・好きな仕事という日本での現実的な選択肢に置き換える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/work-after-fire/",
+        "/articles/sidefire-day/"
+      ],
+      "thumbnail_text_hint": "日本ならどっち",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-barista",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-121",
+      "priority_order": 121,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE 会社員 比較",
+      "secondary_keywords": [
+        "サイドFIRE 会社員 どっち",
+        "会社員 安定性",
+        "サイドFIRE 自由時間",
+        "幸せ 働き方"
+      ],
+      "article_title_plan": "サイドFIREと会社員はどっちが幸せ？収入・自由時間・安定性を比較",
+      "slug": "sidefire-vs-company",
+      "search_intent": "サイドFIREと会社員を収入、自由時間、安定性、人とのつながり、家族との時間で比較したい",
+      "unique_angle": "会社員を続けるか辞めるかを年収だけで決めず、生活リズム・役割・家族との時間を含めて幸せの条件を比べる",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/family_and_fire.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/life-after-fire/",
+        "/articles/fire-household/",
+        "/articles/work-after-fire/"
+      ],
+      "thumbnail_text_hint": "幸せはどっち",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-company",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-122",
+      "priority_order": 122,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE 副業会社員 違い",
+      "secondary_keywords": [
+        "副業会社員 サイドFIRE",
+        "複数収入 違い",
+        "資産収入 労働収入",
+        "FIRE 副業"
+      ],
+      "article_title_plan": "サイドFIREと副業会社員の違いとは？同じ複数収入でも全然違う理由",
+      "slug": "sidefire-vs-sidejob",
+      "search_intent": "サイドFIREと給与と副業を持つ会社員の収入源、時間の制約、資産の役割の違いを比較したい",
+      "unique_angle": "収入源が複数ある共通点ではなく、資産が生活費を支える割合と「働かなくてもいい度」に焦点を当てる",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/work-after-fire/",
+        "/articles/fire-youtube-live/",
+        "/articles/sidefire-day/"
+      ],
+      "thumbnail_text_hint": "同じ複数収入？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-sidejob",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-123",
+      "priority_order": 123,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE 個人事業主 違い",
+      "secondary_keywords": [
+        "個人事業主 サイドFIRE",
+        "サイドFIRE 税金",
+        "個人事業主 自由度",
+        "FIRE後 仕事"
+      ],
+      "article_title_plan": "サイドFIREと個人事業主の違いとは？収入・税金・自由度を比較",
+      "slug": "sidefire-vs-sole-proprietor",
+      "search_intent": "サイドFIREと個人事業主の立場、収入、税金、社会保険、自由度の違いを整理したい",
+      "unique_angle": "個人事業主は仕事や事業の形、サイドFIREは資産と生活の設計というレイヤーの違いを先に分けて説明する",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/fire-preparation/",
+        "/articles/fire-household/",
+        "/articles/work-after-fire/"
+      ],
+      "thumbnail_text_hint": "違いを整理",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-sole-proprietor",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-124",
+      "priority_order": 124,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE 週3勤務 比較",
+      "secondary_keywords": [
+        "週3勤務 サイドFIRE",
+        "週3勤務 必要資産",
+        "会社員 週3",
+        "サイドFIRE 自由時間"
+      ],
+      "article_title_plan": "サイドFIREと週3勤務はどっちがおすすめ？必要資産と自由時間を比較",
+      "slug": "sidefire-vs-week3",
+      "search_intent": "サイドFIREと週3勤務の必要資産、収入、自由時間、安定性の違いを比較し、段階移行の方法を知りたい",
+      "unique_angle": "週3勤務を単なる勤務日数比較ではなく、会社員からサイドFIREへ進む途中の段階として扱い、給与と資産の組み合わせを考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/sidefire-day/",
+        "/articles/work-after-fire/",
+        "/articles/fire-hima/"
+      ],
+      "thumbnail_text_hint": "段階移行",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-week3",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-125",
+      "priority_order": 125,
+      "status": "stocked",
+      "main_keyword": "サイドFIRE 早期退職 違い",
+      "secondary_keywords": [
+        "早期退職 FIRE 違い",
+        "退職 サイドFIRE",
+        "会社を辞める 資産",
+        "FIRE 再就職"
+      ],
+      "article_title_plan": "サイドFIREと早期退職の違いとは？会社を辞めればFIREなのか？",
+      "slug": "sidefire-vs-early-retire",
+      "search_intent": "サイドFIREと早期退職の資産、収入源、退職後の働き方、再就職の必要性の違いを知りたい",
+      "unique_angle": "会社を辞める出来事と、資産・仕事・戻る道を含む生活設計を切り分け、退職後に困らない判断軸を示す",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md"
+      ],
+      "internal_link_targets": [
+        "/articles/side-fire-toha/",
+        "/articles/fire-koukai/",
+        "/articles/fire-shippai/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "辞めればFIRE？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/sidefire-vs-early-retire",
       "category": "FIRE入門・考え方"
     }
   ]

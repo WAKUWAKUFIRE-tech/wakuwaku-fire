@@ -1,0 +1,41 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "サイドFIREと個人事業主の違いとは？収入・税金・自由度を比較",
+  "meta_description": "サイドFIREと個人事業主の違いを、収入・税金・社会保険・自由度から比較。個人事業主は働き方の形、サイドFIREは資産と生活の設計という違いを経験者目線で整理します。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "サイドFIREと個人事業主は同じものではありません。個人事業主は仕事をする立場や事業の形、サイドFIREは資産と労働収入を組み合わせる生活設計です。収入・税金・制度・自由度を分けて比べます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Preserve his black spiky hair, black-rim glasses, white FIRE T-shirt and anime identity, but freely change pose and expression: he is standing behind a creative workshop table, dramatically sorting a blank business folder toward one side and a glowing nest-egg toward the other, with a sharp thinking expression and raised chin. Exactly two arms and exactly two hands, natural anatomy, no extra limbs. Generate finished illustration and Japanese typography together. Use an overhead-diagonal composition with warm paper textures, cobalt blue, red, gold and cream, character near the lower-left crossing the frame. Render only these exact Japanese text elements: 「個人事業主？」 「サイドFIRE？」 「違いを整理」. Huge crisp display typography, thick white, black, red and yellow outlines, no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "違いを整理",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-07-04_FIRE100日チャレンジ第二話！FIREおじさんが何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな", "言語化を怠るな"],
+  "external_sources": [
+    {
+      "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2070.htm",
+      "title": "青色申告制度｜国税庁",
+      "why": "個人事業の所得申告や帳簿に関する確認先を示すため"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/tekiyoukakudai/qa/",
+      "title": "適用拡大 Q&A｜厚生労働省",
+      "why": "短時間の雇用を組み合わせる場合の社会保険確認先を示すため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの基本を読む"},
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前に用意したものを見る"},
+    {"path": "/articles/fire-household/", "anchor": "FIRE後の家庭と役割を考える"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後も仕事を選ぶ現実を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "マイクロ法人やFIRE後の税金の記事とは違い、個人事業主という仕事・事業の立場と、サイドFIREという生活設計の違いを中心に整理する。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}
