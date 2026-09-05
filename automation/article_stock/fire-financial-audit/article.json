@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIRE前にやるべきこと10選｜クレカ・ローン・保険・口座を総点検",
+  "meta_description": "FIRE前にやっておきたい10項目を、クレカ・ローン・保険・銀行口座・信用の順に総点検。30歳・資産6,000万円で会社を辞めた経験と、資産の増減を経て考えた、支払いが止まらない仕組みを整理します。",
+  "category": "FIREのお金",
+  "lead": "クレカを何枚作るかより、退職後も支払いが止まらず、家族が見ても迷わない仕組みを作ることが先です。ローン・保険・口座・信用を、残す・見直す・確認するの3つに分けて点検します。",
+  "tags": ["FIRE クレカ", "FIRE ローン", "FIRE 保険", "FIRE 口座", "退職前 お金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese article thumbnail for a FIRE credit-and-contract audit article. Input Image 1 is the exact anime character reference. Preserve the character's black hair, black-frame glasses, white FIRE shirt, face identity and clean anime illustration style, but freely change the pose and facial expression. Scene: a large three-dimensional control board with four clearly separated zones for a plain credit card, a loan balance gauge, an insurance shield and three blank bank-account tiles; include check marks, a magnifier and a route arrow, but no card numbers or personal data. Character performance: skeptical but composed, one eyebrow raised, narrowed eyes, lips slightly pursed, no smile. Pose: standing in a wide three-quarter stance, one hand holding a magnifying glass toward the contracts and the other hand moving a red keep/review marker across the board, exactly two arms and two hands, natural anatomy. Integrate these exact large Japanese headline texts with crisp legible typography and strong outlines: 「10項目を総点検」 and 「FIRE前の信用」. Relevant smaller category labels may appear on the four zones, but no random text. Vivid yellow, red, teal, white and deep navy. Use a bold radial/diagonal composition distinct from the first article; the text should be integrated into the illustration, not pasted on later. One character only. No real name, address, phone number, email, personal data, brand logo, watermark, extra limbs, extra hands, malformed fingers, or illegible main text.",
+  "thumbnail_text": "10項目を総点検",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {"url": "https://www.cic.co.jp/credit-guidance/index.html", "title": "クレジット・ガイダンス｜CIC", "why": "信用情報とクレジット・ガイダンスの見方を確認する公式案内"},
+    {"url": "https://www.cic.co.jp/mydata/index.html", "title": "情報開示とは｜CIC", "why": "本人が自分の信用情報を確認する方法を確認する公式案内"},
+    {"url": "https://www.jicc.co.jp/aboutus/credit-info/registration", "title": "信用情報の内容と登録期間｜JICC", "why": "ローン・クレジットの契約や返済状況など信用情報の範囲を確認する公式案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を土台から確認する"},
+    {"path": "/articles/fire-household/", "anchor": "家族の家計とFIREを考える"},
+    {"path": "/articles/fire-happiness-spending/", "anchor": "削ってはいけない支出を確認する"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "73本目に集約した記事が退職日から退職直後の手続きと期限を扱うのに対し、こちらはクレカ・ローン・保険・口座・信用を、支払いが止まらない設計として監査する。商品ランキングや住宅ローンの詳細には踏み込まず、契約の役割と家族共有に集中する。",
+  "needs_review": false,
+  "review_reason": ""
+}

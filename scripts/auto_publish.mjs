@@ -867,7 +867,7 @@ async function listHtmlFiles(relativeDirectory = "") {
 
 function localTargetFromLink(pagePath, rawTarget) {
   let target = String(rawTarget || "").trim();
-  if (!target || target.includes("{{") || target.includes("}}") || target.startsWith("#") || /^(?:https?:|tel:|data:|javascript:|\/\/)/i.test(target)) return "";
+  if (!target || target.includes("{{") || target.includes("}}") || target.startsWith("#") || /^(?:https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(target)) return "";
   target = target.split(/[?#]/, 1)[0];
   if (!target) return "";
   try {
@@ -942,8 +942,9 @@ async function validateSite() {
     for (const source of item.knowledge_base_topics) if (!(await exists(source))) throw new FatalPublishError(`参照ファイルがありません: ${source}`);
   }
   }
-  if (queue.items.length !== 72) throw new FatalPublishError(`初期キュー件数が72ではありません: ${queue.items.length}`);
-  if (![...priorities].every((priority) => Number.isInteger(priority) && priority >= 1 && priority <= 72) || priorities.size !== 72) throw new FatalPublishError("priority_orderは1〜72を1回ずつ使用してください。");
+  const expectedQueueCount = queue.items.length;
+  if (expectedQueueCount < 72) throw new FatalPublishError(`キュー件数が初期想定の72本未満です: ${expectedQueueCount}`);
+  if (![...priorities].every((priority) => Number.isInteger(priority) && priority >= 1 && priority <= expectedQueueCount) || priorities.size !== expectedQueueCount) throw new FatalPublishError(`priority_orderは1〜${expectedQueueCount}を1回ずつ使用してください。`);
   const noteCount = PUBLIC_STOCK_ONLY
     ? 0
     : (await fs.readdir(abs("content_sources/note/articles"))).filter((filename) => filename.endsWith(".md")).length;

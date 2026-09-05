@@ -1,0 +1,31 @@
+{
+  "prepared_at": "2026-09-05",
+  "body_file": "body.html",
+  "title": "FIREする前に絶対やること7選｜退職後に後悔しない金融手続き",
+  "meta_description": "FIRE前に確認したい7つの金融手続きを、退職90日前から退職後までの順番で整理します。30歳・資産6,000万円で会社を辞めた経験と、家族の生活を守るために見ておきたい書類・保険・年金・税金・支払いをまとめます。",
+  "category": "FIREの準備",
+  "lead": "FIRE前に見るべきなのは資産額だけやない。退職日から最初の90日までに起きるお金の流れを先に並べ、書類・保険・年金・税金・支払いを家族と共有できる形に整えます。",
+  "tags": ["FIRE 退職前 手続き", "FIRE 金融手続き", "退職前 チェックリスト", "FIRE 家族 お金"],
+  "thumbnail_prompt": "Use case: ads-marketing. Asset type: 1:1 square Japanese article thumbnail for a FIRE pre-retirement financial-procedures article. Input Image 1 is the exact anime character reference. Preserve the character's black hair, black-frame glasses, white FIRE shirt, face identity and clean anime illustration style, but freely change the pose and facial expression. Scene: a dramatic top-down desk with a retirement timeline running from 「90日前」 toward an open door, separated icons for documents, health insurance, pension and tax, a calendar and a checklist. Character performance: intensely focused and slightly overwhelmed, brows knit, lips pressed, eyes moving between the timeline and documents; no cheerful smile. Pose: seated sideways at the desk with torso twisted, one hand holding a calendar page and the other hand pinning a route card to the timeline, exactly two arms and two hands, natural anatomy. Integrate only these exact large Japanese texts, with crisp legible typography and strong outlines: 「退職前7選」 and 「FIRE手続きを整理」. Vivid cobalt blue, yellow, coral red, cyan, white and deep navy. Use an asymmetrical diagonal composition distinct from a standard left-text layout; the text should be integrated into the illustration, not pasted on later. One character only. No real name, address, phone number, email, personal data, brand logo, watermark, random readable text, extra limbs, extra hands, malformed fingers, or illegible main text.",
+  "thumbnail_text": "退職前7選",
+  "source_note_paths": [
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": [],
+  "external_sources": [
+    {"url": "https://www.nenkin.go.jp/service/kokunen/kanyu/20140710-04.html", "title": "国民年金に加入するための手続き｜日本年金機構", "why": "退職後に国民年金へ切り替える場合の手続きと提出期限を確認する公的案内"},
+    {"url": "https://www.kyoukaikenpo.or.jp/benefit/voluntary_continuation/index.html", "title": "任意継続｜全国健康保険協会", "why": "退職後の健康保険の選択肢と任意継続の条件を確認する公的案内"},
+    {"url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hotei/7421.htm", "title": "退職所得の源泉徴収票の提出範囲と提出枚数等｜国税庁", "why": "退職所得に関する書類の扱いと交付時期を確認する公的案内"}
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の準備を全体から見直す"},
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "必要資産を生活費から考える"},
+    {"path": "/articles/fire-household/", "anchor": "家族の家計とFIREを考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存のFIRE準備記事が全体の考え方を扱うのに対し、こちらは退職90日前から退職直後までの金融手続きを時系列で並べる実務記事に限定する。税金や社会保険の細部は公式案内を確認し、74本目に集約した契約監査とは扱う範囲を分ける。",
+  "needs_review": false,
+  "review_reason": ""
+}
