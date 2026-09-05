@@ -6,8 +6,14 @@
   "character_reference": "まる画像集__1_-removebg-preview.png",
   "schedule": {
     "timezone": "Asia/Tokyo",
-    "slots_jst": ["07:00", "18:00"],
-    "cron_utc": ["0 22 * * *", "0 9 * * *"],
+    "slots_jst": [
+      "07:00",
+      "18:00"
+    ],
+    "cron_utc": [
+      "0 22 * * *",
+      "0 9 * * *"
+    ],
     "articles_per_run": 1,
     "articles_per_day": 2
   },
@@ -17,5 +23,6 @@
     "template": "automation/article-template.html",
     "editorial_notes": "content_sources/editorial_notes",
     "article_stock": "automation/article_stock"
-  }
+  },
+  "category_config": "automation/article_categories.json"
 }

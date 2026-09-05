@@ -38,8 +38,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "FIREはいくら必要？生活費・年齢・家族構成別に考える現実的な目安",
       "generated_meta_description": "FIREはいくら必要なのか。30歳・資産6000万円で会社を辞めた僕が、FIRE直後のゲーム三昧、資産の増減、家族ができて変わった不安まで踏まえて、生活費から必要額を考えます。",
-      "generated_category": "FIREの必要資産",
-      "generated_thumbnail_text": "FIREはいくら？"
+      "generated_category": "FIRE準備・必要資産",
+      "generated_thumbnail_text": "FIREはいくら？",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-002",
@@ -76,8 +77,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "FIREとは？意味・種類・メリット・デメリットを経験者目線でわかりやすく解説",
       "generated_meta_description": "FIREとは、経済的自立と早期退職を目指す生き方です。完全FIREとサイドFIREの違い、メリット・デメリット、FIRE後の暮らしを初心者向けに説明します。",
-      "generated_category": "FIREの基本",
-      "generated_thumbnail_text": "FIREって何？"
+      "generated_category": "FIRE入門・考え方",
+      "generated_thumbnail_text": "FIREって何？",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-003",
@@ -115,8 +117,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "6000万円でFIREできる？30歳で会社を辞めた6年後のリアル",
       "generated_meta_description": "6000万円でFIREできるのか。30歳で資産6000万円を作って会社を辞めた僕が、自由・堕落・資産の増減・家族との暮らしを経た6年後のリアルを、サイドFIREの視点で話します。",
-      "generated_category": "FIREの現実",
-      "generated_thumbnail_text": "FIRE後どうなる？"
+      "generated_category": "FIRE準備・必要資産",
+      "generated_thumbnail_text": "FIRE後どうなる？",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-004",
@@ -153,8 +156,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "サイドFIREとは？完全FIREとの違いと現実的な始め方",
       "generated_meta_description": "サイドFIREとは、資産を土台に好きな仕事や小さな収入を組み合わせる生き方です。完全FIREとの違い、月5万円の考え方、30歳で資産6000万円で会社を辞めた僕の現実的な始め方を紹介します。",
-      "generated_category": "サイドFIRE",
-      "generated_thumbnail_text": "サイドFIREとは？"
+      "generated_category": "FIRE後の仕事・収入",
+      "generated_thumbnail_text": "サイドFIREとは？",
+      "category": "FIRE後の仕事・収入"
     },
     {
       "id": "seo-005",
@@ -192,8 +196,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "5000万円でFIREできる？独身・夫婦・子持ちで変わる現実",
       "generated_meta_description": "5000万円でFIREできるかは、生活費・家族構成・働く選択肢で変わります。30歳で資産6000万円で会社を辞めた本人の経験と、独身・夫婦・子持ちの現実を分けて整理します。",
-      "generated_category": "FIREの資産計画",
-      "generated_thumbnail_text": "5000万円で？"
+      "generated_category": "FIRE準備・必要資産",
+      "generated_thumbnail_text": "5000万円で？",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-006",
@@ -230,8 +235,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "FIREの4%ルールとは？日本でそのまま使っていいのか経験者目線で考える",
       "generated_meta_description": "FIREの4%ルールは、退職時の資産から毎年4%を使う考え方です。元の研究の前提、日本でそのまま使いにくい理由、暴落時の取り崩しを経験者目線で整理します。",
-      "generated_category": "FIREのお金",
-      "generated_thumbnail_text": "4%で足りる？"
+      "generated_category": "FIRE後のお金・投資・制度",
+      "generated_thumbnail_text": "4%で足りる？",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-007",
@@ -269,8 +275,9 @@
       "stocked_at": "2026-08-31",
       "generated_title": "FIREして後悔したことはある？経験者が本音で答える",
       "generated_meta_description": "FIREして後悔したことはあるのか。30歳で会社を辞め、2年半だらけた経験や孤独、資産不安を経た本人が、後悔とFIREして良かったことを本音で整理します。",
-      "generated_category": "FIRE後の現実",
-      "generated_thumbnail_text": "後悔した？"
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "後悔した？",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-008",
@@ -306,8 +313,9 @@
       "stock_path": "automation/article_stock/fire-hima",
       "generated_title": "FIREすると暇になる？毎日日曜日問題を経験者が語る",
       "generated_meta_description": "FIREすると暇になるのか。退職直後にゲーム三昧で生活が崩れた経験と、家族・家事・創作で日々のリズムを作り直した今の実感から、毎日日曜日問題を考えます。",
-      "generated_category": "FIRE後の生活",
-      "generated_thumbnail_text": "暇になる？"
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "暇になる？",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-009",
@@ -344,8 +352,9 @@
       "stock_path": "automation/article_stock/fire-shippai",
       "generated_title": "FIREに失敗する人の特徴は？経験者の失敗談から学ぶ",
       "generated_meta_description": "FIREの失敗は資産不足だけではありません。2024年の約5000万円損失、2025年のデイトレ年間マイナス3776万円、2026年の大幅下落を経験した本人が、失敗の構造と備えを整理します。",
-      "generated_category": "FIREの失敗",
-      "generated_thumbnail_text": "失敗する人"
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "失敗する人",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-010",
@@ -381,8 +390,9 @@
       "stock_path": "automation/article_stock/life-after-fire",
       "generated_title": "FIRE後の生活はどう変わる？実際の1日と数年後の本音",
       "generated_meta_description": "FIRE後の生活は毎日が休日になるだけではありません。朝の子どもの準備、送迎、家事、創作、散歩、家族との時間まで、FIRE6年目に公開した実際の1日と数年後の本音を紹介します。",
-      "generated_category": "FIRE後の生活",
-      "generated_thumbnail_text": "FIRE後の生活"
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "FIRE後の生活",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-011",
@@ -415,7 +425,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/work-after-fire"
+      "stock_path": "automation/article_stock/work-after-fire",
+      "category": "FIRE後の仕事・収入"
     },
     {
       "id": "seo-012",
@@ -448,7 +459,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/income-after-fire"
+      "stock_path": "automation/article_stock/income-after-fire",
+      "category": "FIRE後の仕事・収入"
     },
     {
       "id": "seo-013",
@@ -481,7 +493,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-hitsuyou-shisan"
+      "stock_path": "automation/article_stock/fire-hitsuyou-shisan",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-014",
@@ -513,7 +526,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-keisan"
+      "stock_path": "automation/article_stock/fire-keisan",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-015",
@@ -546,7 +560,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-nansai"
+      "stock_path": "automation/article_stock/fire-nansai",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-016",
@@ -579,7 +594,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-nannen"
+      "stock_path": "automation/article_stock/fire-nannen",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-017",
@@ -612,7 +628,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-chochikuritsu"
+      "stock_path": "automation/article_stock/fire-chochikuritsu",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-018",
@@ -645,7 +662,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-nenshu"
+      "stock_path": "automation/article_stock/fire-nenshu",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-019",
@@ -678,7 +696,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-20man"
+      "stock_path": "automation/article_stock/fire-20man",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-020",
@@ -711,7 +730,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-25man"
+      "stock_path": "automation/article_stock/fire-25man",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-021",
@@ -744,7 +764,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-30man"
+      "stock_path": "automation/article_stock/fire-30man",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-022",
@@ -777,7 +798,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-40man"
+      "stock_path": "automation/article_stock/fire-40man",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-023",
@@ -810,7 +832,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-3000man"
+      "stock_path": "automation/article_stock/fire-3000man",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-024",
@@ -844,7 +867,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-1oku"
+      "stock_path": "automation/article_stock/fire-1oku",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-025",
@@ -877,7 +901,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-tsumaranai"
+      "stock_path": "automation/article_stock/fire-tsumaranai",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-026",
@@ -910,7 +935,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/after-fire-koukai"
+      "stock_path": "automation/article_stock/after-fire-koukai",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-027",
@@ -943,7 +969,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/after-fire-kodoku"
+      "stock_path": "automation/article_stock/after-fire-kodoku",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-028",
@@ -976,7 +1003,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/after-fire-relationships"
+      "stock_path": "automation/article_stock/after-fire-relationships",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-029",
@@ -1009,7 +1037,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/after-fire-hobby"
+      "stock_path": "automation/article_stock/after-fire-hobby",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-030",
@@ -1042,7 +1071,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/after-fire-yarukoto"
+      "stock_path": "automation/article_stock/after-fire-yarukoto",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-031",
@@ -1075,7 +1105,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-happiness"
+      "stock_path": "automation/article_stock/fire-happiness",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-032",
@@ -1108,7 +1139,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-merit"
+      "stock_path": "automation/article_stock/fire-merit",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-033",
@@ -1141,7 +1173,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-demerit"
+      "stock_path": "automation/article_stock/fire-demerit",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-034",
@@ -1174,7 +1207,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-muiteiru"
+      "stock_path": "automation/article_stock/fire-muiteiru",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-035",
@@ -1207,7 +1241,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-muitenai"
+      "stock_path": "automation/article_stock/fire-muitenai",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-036",
@@ -1240,7 +1275,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-yametoke"
+      "stock_path": "automation/article_stock/fire-yametoke",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-037",
@@ -1273,7 +1309,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-30s"
+      "stock_path": "automation/article_stock/fire-30s",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-038",
@@ -1306,7 +1343,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-40s"
+      "stock_path": "automation/article_stock/fire-40s",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-039",
@@ -1339,7 +1377,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-50s"
+      "stock_path": "automation/article_stock/fire-50s",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-040",
@@ -1372,7 +1411,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-single"
+      "stock_path": "automation/article_stock/fire-single",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-041",
@@ -1405,7 +1445,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-couple"
+      "stock_path": "automation/article_stock/fire-couple",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-042",
@@ -1438,7 +1479,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-kodomo"
+      "stock_path": "automation/article_stock/fire-kodomo",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-043",
@@ -1471,7 +1513,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-two-kids"
+      "stock_path": "automation/article_stock/fire-two-kids",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-044",
@@ -1504,7 +1547,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-dual-income"
+      "stock_path": "automation/article_stock/fire-dual-income",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-045",
@@ -1538,7 +1582,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-househusband"
+      "stock_path": "automation/article_stock/fire-househusband",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-046",
@@ -1571,7 +1616,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-tokyo"
+      "stock_path": "automation/article_stock/fire-tokyo",
+      "category": "住まい・移住"
     },
     {
       "id": "seo-047",
@@ -1604,7 +1650,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-local-move"
+      "stock_path": "automation/article_stock/fire-local-move",
+      "category": "住まい・移住"
     },
     {
       "id": "seo-048",
@@ -1637,7 +1684,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-overseas-move"
+      "stock_path": "automation/article_stock/fire-overseas-move",
+      "category": "住まい・移住"
     },
     {
       "id": "seo-049",
@@ -1670,7 +1718,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-tax"
+      "stock_path": "automation/article_stock/fire-tax",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-050",
@@ -1702,7 +1751,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-resident-tax"
+      "stock_path": "automation/article_stock/fire-resident-tax",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-051",
@@ -1735,7 +1785,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-health-insurance"
+      "stock_path": "automation/article_stock/fire-health-insurance",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-052",
@@ -1768,7 +1819,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-pension"
+      "stock_path": "automation/article_stock/fire-pension",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-053",
@@ -1801,7 +1853,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-social-insurance"
+      "stock_path": "automation/article_stock/fire-social-insurance",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-054",
@@ -1834,7 +1887,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-micro-corp"
+      "stock_path": "automation/article_stock/fire-micro-corp",
+      "category": "FIRE後の仕事・収入"
     },
     {
       "id": "seo-055",
@@ -1867,7 +1921,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-nisa"
+      "stock_path": "automation/article_stock/fire-nisa",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-056",
@@ -1900,7 +1955,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-ideco"
+      "stock_path": "automation/article_stock/fire-ideco",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-057",
@@ -1933,7 +1989,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-home-loan"
+      "stock_path": "automation/article_stock/fire-home-loan",
+      "category": "住まい・移住"
     },
     {
       "id": "seo-058",
@@ -1966,7 +2023,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-own-vs-rent"
+      "stock_path": "automation/article_stock/fire-own-vs-rent",
+      "category": "住まい・移住"
     },
     {
       "id": "seo-059",
@@ -1999,7 +2057,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-education-cost"
+      "stock_path": "automation/article_stock/fire-education-cost",
+      "category": "家族とFIRE"
     },
     {
       "id": "seo-060",
@@ -2032,7 +2091,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-seikatsuhi"
+      "stock_path": "automation/article_stock/fire-seikatsuhi",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-061",
@@ -2065,7 +2125,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-asset-management"
+      "stock_path": "automation/article_stock/fire-asset-management",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-062",
@@ -2098,7 +2159,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-asset-allocation"
+      "stock_path": "automation/article_stock/fire-asset-allocation",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-063",
@@ -2131,7 +2193,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-withdrawal"
+      "stock_path": "automation/article_stock/fire-withdrawal",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-064",
@@ -2165,7 +2228,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-crash"
+      "stock_path": "automation/article_stock/fire-crash",
+      "category": "FIRE後のお金・投資・制度"
     },
     {
       "id": "seo-065",
@@ -2199,7 +2263,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-risk"
+      "stock_path": "automation/article_stock/fire-risk",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-066",
@@ -2232,7 +2297,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-anxiety"
+      "stock_path": "automation/article_stock/fire-anxiety",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-067",
@@ -2265,7 +2331,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-owakon"
+      "stock_path": "automation/article_stock/fire-owakon",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-068",
@@ -2298,7 +2365,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-iminai"
+      "stock_path": "automation/article_stock/fire-iminai",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-069",
@@ -2331,7 +2399,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-genjitsu"
+      "stock_path": "automation/article_stock/fire-genjitsu",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-070",
@@ -2364,7 +2433,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-success"
+      "stock_path": "automation/article_stock/fire-success",
+      "category": "FIRE入門・考え方"
     },
     {
       "id": "seo-071",
@@ -2397,7 +2467,8 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-side-business"
+      "stock_path": "automation/article_stock/fire-side-business",
+      "category": "FIRE後の仕事・収入"
     },
     {
       "id": "seo-072",
@@ -2430,14 +2501,20 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-travel"
+      "stock_path": "automation/article_stock/fire-travel",
+      "category": "FIRE後の暮らし・心"
     },
     {
       "id": "seo-073",
       "priority_order": 73,
       "status": "stocked",
       "main_keyword": "FIRE 退職前 手続き",
-      "secondary_keywords": ["FIRE 金融手続き", "退職前 手続き", "FIRE 退職準備", "FIRE 家族 お金"],
+      "secondary_keywords": [
+        "FIRE 金融手続き",
+        "退職前 手続き",
+        "FIRE 退職準備",
+        "FIRE 家族 お金"
+      ],
       "article_title_plan": "FIREする前に絶対やること7選｜退職後に後悔しない金融手続き",
       "slug": "fire-before-financial-procedures",
       "search_intent": "FIRE前に退職後の金融手続きを漏れなく確認したい",
@@ -2448,7 +2525,11 @@
         "content_sources/knowledge_base/contradictions_and_updates.md",
         "content_sources/knowledge_base/family_and_fire.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-ikura-hitsuyou/", "/articles/fire-household/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-household/"
+      ],
       "thumbnail_text_hint": "退職前7選",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2456,14 +2537,19 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-before-financial-procedures"
+      "stock_path": "automation/article_stock/fire-before-financial-procedures",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-074",
       "priority_order": 74,
       "status": "stocked",
       "main_keyword": "FIRE クレカ ローン 口座 信用",
-      "secondary_keywords": ["FIRE クレジットカード", "退職前 保険", "FIRE 口座 管理"],
+      "secondary_keywords": [
+        "FIRE クレジットカード",
+        "退職前 保険",
+        "FIRE 口座 管理"
+      ],
       "article_title_plan": "FIRE前にやるべきこと10選｜クレカ・ローン・保険・口座を総点検",
       "slug": "fire-financial-audit",
       "search_intent": "FIRE前にクレカ・ローン・保険・銀行口座を契約数ではなく役割で見直したい",
@@ -2474,7 +2560,11 @@
         "content_sources/knowledge_base/family_and_fire.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-household/", "/articles/fire-happiness-spending/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-household/",
+        "/articles/fire-happiness-spending/"
+      ],
       "thumbnail_text_hint": "10項目を総点検",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2482,14 +2572,19 @@
       "failed_reason": "",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-financial-audit"
+      "stock_path": "automation/article_stock/fire-financial-audit",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-075",
       "priority_order": 75,
       "status": "skipped",
       "main_keyword": "会社を辞める前 やること FIRE",
-      "secondary_keywords": ["FIRE 退職前 チェックリスト", "会社員 退職 手続き", "FIRE 退職日"],
+      "secondary_keywords": [
+        "FIRE 退職前 チェックリスト",
+        "会社員 退職 手続き",
+        "FIRE 退職日"
+      ],
       "article_title_plan": "会社を辞める前に絶対やること7選｜FIRE民の退職前チェックリスト",
       "slug": "fire-resignation-checklist",
       "search_intent": "会社を辞める直前に確認することを知りたい",
@@ -2500,7 +2595,11 @@
         "content_sources/knowledge_base/family_and_fire.md",
         "content_sources/knowledge_base/side_fire_and_work.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-after-10-days/", "/articles/fire-household/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-after-10-days/",
+        "/articles/fire-household/"
+      ],
       "thumbnail_text_hint": "辞める前7項目",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2508,14 +2607,19 @@
       "failed_reason": "seo-073へ集約（退職前の金融手続き・チェックリストの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-resignation-checklist"
+      "stock_path": "automation/article_stock/fire-resignation-checklist",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-076",
       "priority_order": 76,
       "status": "skipped",
       "main_keyword": "FIRE クレジットカード",
-      "secondary_keywords": ["退職後 クレカ", "FIRE カード 審査", "クレカ 何枚"],
+      "secondary_keywords": [
+        "退職後 クレカ",
+        "FIRE カード 審査",
+        "クレカ 何枚"
+      ],
       "article_title_plan": "FIRE前に作るべきクレジットカード3選｜退職後だと審査は不利？",
       "slug": "fire-credit-cards",
       "search_intent": "FIRE前に必要なクレジットカードの役割と申込時期を知りたい",
@@ -2526,7 +2630,11 @@
         "content_sources/knowledge_base/contradictions_and_updates.md",
         "content_sources/knowledge_base/side_fire_and_work.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-6-lessons/", "/articles/sidefire-6000/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-6-lessons/",
+        "/articles/sidefire-6000/"
+      ],
       "thumbnail_text_hint": "カード3枚",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2534,14 +2642,19 @@
       "failed_reason": "seo-074へ集約（クレカ・ローン・保険・口座・信用テーマの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-credit-cards"
+      "stock_path": "automation/article_stock/fire-credit-cards",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-077",
       "priority_order": 77,
       "status": "skipped",
       "main_keyword": "FIRE 住宅ローン",
-      "secondary_keywords": ["退職前 住宅ローン", "FIRE 家を買う", "住宅ローン 審査 退職"],
+      "secondary_keywords": [
+        "退職前 住宅ローン",
+        "FIRE 家を買う",
+        "住宅ローン 審査 退職"
+      ],
       "article_title_plan": "FIREする前に住宅ローンは組むべき？退職前に済ませたいお金の手続き",
       "slug": "fire-before-mortgage",
       "search_intent": "FIRE前に住宅ローンを組むべきか判断したい",
@@ -2552,7 +2665,11 @@
         "content_sources/knowledge_base/family_and_fire.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-ikura-hitsuyou/", "/articles/fire-household/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-household/"
+      ],
       "thumbnail_text_hint": "FIRE前に組む？",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2560,14 +2677,19 @@
       "failed_reason": "既存の住宅ローン記事と重複するため作成中止",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-before-mortgage"
+      "stock_path": "automation/article_stock/fire-before-mortgage",
+      "category": "住まい・移住"
     },
     {
       "id": "seo-078",
       "priority_order": 78,
       "status": "skipped",
       "main_keyword": "FIRE 金融手続き",
-      "secondary_keywords": ["退職前 金融手続き", "FIRE やらないと損", "FIRE 手続き いつ"],
+      "secondary_keywords": [
+        "退職前 金融手続き",
+        "FIRE やらないと損",
+        "FIRE 手続き いつ"
+      ],
       "article_title_plan": "FIRE前の金融手続き完全ガイド｜退職前にやらないと損すること",
       "slug": "fire-financial-guide",
       "search_intent": "FIRE前の金融手続きをいつ何から行うか知りたい",
@@ -2578,7 +2700,11 @@
         "content_sources/knowledge_base/contradictions_and_updates.md",
         "content_sources/knowledge_base/family_and_fire.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-ikura-hitsuyou/", "/articles/fire-6-lessons/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-6-lessons/"
+      ],
       "thumbnail_text_hint": "FIRE前の手続き",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2586,14 +2712,19 @@
       "failed_reason": "seo-073へ集約（退職前の金融手続き・チェックリストの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-financial-guide"
+      "stock_path": "automation/article_stock/fire-financial-guide",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-079",
       "priority_order": 79,
       "status": "skipped",
       "main_keyword": "FIRE 直前 やること",
-      "secondary_keywords": ["会社員 信用", "FIRE 最終チェック", "退職直前 手続き"],
+      "secondary_keywords": [
+        "会社員 信用",
+        "FIRE 最終チェック",
+        "退職直前 手続き"
+      ],
       "article_title_plan": "FIRE直前にやること一覧｜会社員の信用があるうちに済ませたい7項目",
       "slug": "fire-last-minute-checklist",
       "search_intent": "FIRE直前に会社員のうち確認することを知りたい",
@@ -2604,7 +2735,11 @@
         "content_sources/knowledge_base/contradictions_and_updates.md",
         "content_sources/knowledge_base/side_fire_and_work.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-after-10-days/", "/articles/fire-household/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-after-10-days/",
+        "/articles/fire-household/"
+      ],
       "thumbnail_text_hint": "直前7項目",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2612,14 +2747,19 @@
       "failed_reason": "seo-073へ集約（退職前の金融手続き・チェックリストの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-last-minute-checklist"
+      "stock_path": "automation/article_stock/fire-last-minute-checklist",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-080",
       "priority_order": 80,
       "status": "skipped",
       "main_keyword": "FIRE クレカ ローン 口座",
-      "secondary_keywords": ["退職前 銀行口座", "FIRE 口座 管理", "FIRE 信用"],
+      "secondary_keywords": [
+        "退職前 銀行口座",
+        "FIRE 口座 管理",
+        "FIRE 信用"
+      ],
       "article_title_plan": "退職前にクレカ・ローン・銀行口座を作るべき理由｜FIRE準備の盲点",
       "slug": "fire-credit-and-accounts",
       "search_intent": "退職前にカード・ローン・口座をどう準備するか知りたい",
@@ -2630,7 +2770,11 @@
         "content_sources/knowledge_base/family_and_fire.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-preparation/", "/articles/fire-happiness-spending/", "/articles/sidefire-6000/"],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-happiness-spending/",
+        "/articles/sidefire-6000/"
+      ],
       "thumbnail_text_hint": "信用を作る",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2638,14 +2782,19 @@
       "failed_reason": "seo-074へ集約（クレカ・ローン・保険・口座・信用テーマの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-credit-and-accounts"
+      "stock_path": "automation/article_stock/fire-credit-and-accounts",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-081",
       "priority_order": 81,
       "status": "skipped",
       "main_keyword": "FIRE 信用",
-      "secondary_keywords": ["FIREしたら困る", "退職前 信用", "FIRE クレカ 審査"],
+      "secondary_keywords": [
+        "FIREしたら困る",
+        "退職前 信用",
+        "FIRE クレカ 審査"
+      ],
       "article_title_plan": "FIREしたら困る？退職前に確保しておきたい「信用」7選",
       "slug": "fire-credit-confidence",
       "search_intent": "FIRE後に困らないために信用をどう守るか知りたい",
@@ -2656,7 +2805,11 @@
         "content_sources/knowledge_base/family_and_fire.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-6-lessons/", "/articles/fire-community-place/", "/articles/fire-preparation/"],
+      "internal_link_targets": [
+        "/articles/fire-6-lessons/",
+        "/articles/fire-community-place/",
+        "/articles/fire-preparation/"
+      ],
       "thumbnail_text_hint": "信用7選",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2664,14 +2817,19 @@
       "failed_reason": "seo-074へ集約（クレカ・ローン・保険・口座・信用テーマの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-credit-confidence"
+      "stock_path": "automation/article_stock/fire-credit-confidence",
+      "category": "FIRE準備・必要資産"
     },
     {
       "id": "seo-082",
       "priority_order": 82,
       "status": "skipped",
       "main_keyword": "FIRE前 チェックリスト",
-      "secondary_keywords": ["会社を辞める お金", "FIRE 退職準備", "FIRE 家計"],
+      "secondary_keywords": [
+        "会社を辞める お金",
+        "FIRE 退職準備",
+        "FIRE 家計"
+      ],
       "article_title_plan": "FIRE前チェックリスト｜会社員を辞める前に絶対確認したいお金のこと",
       "slug": "fire-before-money-checklist",
       "search_intent": "会社員を辞める前のお金を最後に一枚で確認したい",
@@ -2682,7 +2840,11 @@
         "content_sources/knowledge_base/family_and_fire.md",
         "content_sources/knowledge_base/contradictions_and_updates.md"
       ],
-      "internal_link_targets": ["/articles/fire-ikura-hitsuyou/", "/articles/fire-household/", "/articles/fire-6-lessons/"],
+      "internal_link_targets": [
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-household/",
+        "/articles/fire-6-lessons/"
+      ],
       "thumbnail_text_hint": "FIRE前チェック",
       "latest_fact_check_required": true,
       "published_url": "",
@@ -2690,7 +2852,8 @@
       "failed_reason": "seo-073へ集約（退職前の金融手続き・チェックリストの重複整理）",
       "published_time": "",
       "published_slot": "",
-      "stock_path": "automation/article_stock/fire-before-money-checklist"
+      "stock_path": "automation/article_stock/fire-before-money-checklist",
+      "category": "FIRE準備・必要資産"
     }
   ]
 }

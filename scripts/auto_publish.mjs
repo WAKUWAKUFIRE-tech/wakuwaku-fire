@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateSitemap } from "./generate_sitemap.mjs";
+import { ARTICLE_CATEGORIES, categoryForArticle, categoryFromValue, isCanonicalCategoryName } from "./article_categories.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONFIG_PATH = path.join(ROOT, "automation", "config.json");
@@ -233,7 +234,8 @@ async function readPublishedArticles() {
     const publishedIso = matchGroup(html, 'article:published_time"\\s+content="([^"]+)');
     const modifiedIso = matchGroup(html, 'article:modified_time"\\s+content="([^"]+)');
     const heroImage = matchGroup(html, '<figure class="article-page__hero[^>]*>\\s*<img\\s+src="([^"]+)');
-    const category = decodeHtml(matchGroup(html, '<div class="article-page__meta">[\\s\\S]*?<span>(.*?)</span>')) || "FIREコラム";
+    const rawCategory = decodeHtml(matchGroup(html, '<div class="article-page__meta">[\\s\\S]*?<span>(.*?)</span>'));
+    const category = categoryForArticle({ category: rawCategory, article_title_plan: title, main_keyword: title }, {}).name;
     const canonical = matchGroup(html, '<link\\s+rel="canonical"\\s+href="([^"]+)');
     const contentPreview = stripTags(matchGroup(html, '<div class="article-page__body">([\\s\\S]*?)</article>')).slice(0, 900);
     if (!title || !publishedIso || !canonical) continue;
@@ -269,7 +271,7 @@ function articleFromQueueItem(item, date, siteUrl, publishedTime = "18:00:00") {
     slug: item.slug,
     title: item.generated_title || item.article_title_plan,
     description: item.generated_meta_description || item.article_title_plan,
-    category: item.generated_category || "FIREコラム",
+    category: categoryForArticle(item, {}).name,
     date,
     publishedIso,
     modifiedIso: publishedIso,
@@ -456,6 +458,9 @@ async function validateGeneratedOutput(item, generated, noteSources, sourcePacke
   const checkExternalSources = options.checkExternalSources ?? process.env.CHECK_EXTERNAL_SOURCES !== "false";
   if (generated.needs_review) throw new ArticleNeedsReview(generated.review_reason || "モデルが根拠不足と判断しました。");
   if (generated.cannibalization === "skip") return generated;
+  const category = categoryForArticle(item, generated);
+  generated.category = category.name;
+  generated.category_id = category.id;
   validateBodyHtml(generated);
   if (!generated.title || !generated.meta_description || !generated.lead) throw new ArticleNeedsReview("タイトル、説明、リードのいずれかが空です。");
   if ([...String(generated.title)].length < 12 || [...String(generated.title)].length > 90) throw new ArticleNeedsReview("タイトルの長さがSEO編集基準外です。");
@@ -608,7 +613,7 @@ function buildInternalLinkBlock(internalLinks, currentSlug) {
   return `            <section class="article-inline-links" aria-label="関連するワクワクFIREの情報"><h2>関連するワクワクFIREの情報</h2><ul>\n${list}\n            </ul></section>`;
 }
 
-function buildStructuredData(title, description, imageUrl, canonical, publishedIso, modifiedIso, tags) {
+function buildStructuredData(title, description, imageUrl, canonical, publishedIso, modifiedIso, tags, category) {
   const article = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -619,7 +624,7 @@ function buildStructuredData(title, description, imageUrl, canonical, publishedI
     dateModified: modifiedIso,
     author: { "@type": "Organization", name: "ワクワクFIRE" },
     publisher: { "@type": "Organization", name: "ワクワクFIRE" },
-    articleSection: "FIREコラム",
+    articleSection: category.name,
     keywords: tags,
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical }
   };
@@ -629,7 +634,8 @@ function buildStructuredData(title, description, imageUrl, canonical, publishedI
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "ホーム", item: `${config.site_url}/` },
       { "@type": "ListItem", position: 2, name: "FIREコラム", item: `${config.site_url}/articles/` },
-      { "@type": "ListItem", position: 3, name: title, item: canonical }
+      { "@type": "ListItem", position: 3, name: category.name, item: config.site_url + "/articles/#category-" + category.id },
+      { "@type": "ListItem", position: 4, name: title, item: canonical }
     ]
   };
   const stringify = (value) => JSON.stringify(value, null, 2).replaceAll("<", "\\u003c");
@@ -658,6 +664,7 @@ function renderRelated(current, allArticles) {
 
 function renderArticleTemplate(item, generated, date, allArticles, noteSources, publishedTime = "18:00:00") {
   const siteUrl = config.site_url.replace(/\/$/, "");
+  const category = categoryForArticle(item, generated);
   const canonical = `${siteUrl}/articles/${item.slug}/`;
   const publishedIso = `${date}T${publishedTime}+09:00`;
   const modifiedIso = publishedIso;
@@ -673,13 +680,14 @@ function renderArticleTemplate(item, generated, date, allArticles, noteSources, 
     MODIFIED_ISO: modifiedIso,
     ARTICLE_TAG_META: tags.map((tag) => `    <meta property="article:tag" content="${htmlEscape(tag)}" />`).join("\n"),
     HTML_TITLE: htmlEscape(`${generated.title}｜FIREコラム｜ワクワクFIRE`),
-    STRUCTURED_DATA: buildStructuredData(generated.title, generated.meta_description, thumbnailUrl, canonical, publishedIso, modifiedIso, tags),
+    STRUCTURED_DATA: buildStructuredData(generated.title, generated.meta_description, thumbnailUrl, canonical, publishedIso, modifiedIso, tags, category),
     TITLE: htmlEscape(generated.title),
     PUBLISHED_DATE: date,
     MODIFIED_DATE: date,
     PUBLISHED_DISPLAY: japaneseDate(date),
     MODIFIED_DISPLAY: japaneseDate(date),
-    CATEGORY: htmlEscape(generated.category || "FIREコラム"),
+    CATEGORY: htmlEscape(category.name),
+    CATEGORY_ID: htmlEscape(category.id),
     THUMBNAIL_RELATIVE: "thumbnail.png",
     TOP_LINK_CARDS: buildLinkCards(item, generated, allArticles),
     LEAD: htmlEscape(generated.lead),
@@ -710,13 +718,51 @@ function renderArticleListCard(article) {
   return `        <article class="article-preview-card"><div class="article-preview-card__media"><img src="${htmlEscape(image)}" alt="${htmlEscape(article.title)}のサムネイル" ${dimensions} loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">${htmlEscape(japaneseDate(article.date))}</p><p class="article-preview-card__category">${htmlEscape(article.category)}</p><h2>${htmlEscape(article.title)}</h2><p>${htmlEscape(article.description)}</p><a class="button button--outline" href="./${htmlEscape(article.slug)}/">記事を読む <span aria-hidden="true">↗</span></a></div></article>`;
 }
 
+function renderArticleList(allArticles) {
+  const grouped = new Map(ARTICLE_CATEGORIES.map((category) => [category.id, []]));
+  for (const article of allArticles) {
+    const category = categoryFromValue(article.category) || categoryForArticle({ category: article.category, article_title_plan: article.title, main_keyword: article.title }, {});
+    grouped.get(category.id).push({ ...article, category: category.name });
+  }
+
+  const navigation = ARTICLE_CATEGORIES.map((category) => {
+    const count = grouped.get(category.id).length;
+    return `              <a class="article-category-nav__item" href="#category-${category.id}"><span>${htmlEscape(category.name)}</span><strong>${count}記事</strong></a>`;
+  }).join("\n");
+  const sections = ARTICLE_CATEGORIES.map((category) => {
+    const articles = grouped.get(category.id);
+    const cards = articles.length
+      ? articles.map(renderArticleListCard).join("\n")
+      : `            <p class="article-category-section__empty">このジャンルの記事は、これから追加していきます。</p>`;
+    return `          <section class="article-category-section" id="category-${category.id}" aria-labelledby="category-${category.id}-title">
+            <div class="article-category-section__header">
+              <div>
+                <p class="eyebrow eyebrow--red">${htmlEscape(category.eyebrow)}</p>
+                <h2 id="category-${category.id}-title">${htmlEscape(category.name)}</h2>
+                <p>${htmlEscape(category.description)}</p>
+              </div>
+              <span class="article-category-section__count">${articles.length}記事</span>
+            </div>
+            <div class="article-list-grid">
+${cards}
+            </div>
+          </section>`;
+  }).join("\n");
+
+  return `          <nav class="article-category-nav" aria-label="コラムのカテゴリ">
+            <a class="article-category-nav__item article-category-nav__item--all" href="#article-category-groups"><span>すべて</span><strong>${allArticles.length}記事</strong></a>
+${navigation}
+          </nav>
+${sections}`;
+}
+
 async function updateArticleIndexes(allArticles) {
   const latest = allArticles.slice(0, 3).map(renderHomeCard).join("\n");
   const rootIndex = await readText("index.html");
   await writeText("index.html", replaceMarkedSection(rootIndex, "<!-- AUTO-PUBLISH:HOME-LATEST-START -->", "<!-- AUTO-PUBLISH:HOME-LATEST-END -->", latest));
 
   const articleIndex = await readText("articles/index.html");
-  const list = allArticles.map(renderArticleListCard).join("\n");
+  const list = renderArticleList(allArticles);
   let updated = replaceMarkedSection(articleIndex, "<!-- AUTO-PUBLISH:ARTICLE-LIST-START -->", "<!-- AUTO-PUBLISH:ARTICLE-LIST-END -->", list);
   const itemList = {
     "@context": "https://schema.org",
@@ -837,9 +883,12 @@ async function copyPreparedThumbnail(item) {
 
 async function validateGeneratedArticleFile(relativePath, item, generated, date, allArticles) {
   const html = await readText(relativePath);
+  const category = categoryForArticle(item, generated);
   const canonical = `${config.site_url}/articles/${item.slug}/`;
   const homeUrl = `${config.site_url}/`;
   if (/{{[A-Z_]+}}/.test(html)) throw new Error("記事テンプレートの未置換プレースホルダーが残っています。");
+  if (!html.includes('<meta property="article:section" content="' + category.name + '"')) throw new Error("記事カテゴリのメタ情報が一致しません。");
+  if (!html.includes('href="../#category-' + category.id + '">' + category.name + "</a>")) throw new Error("記事カテゴリのパンくずリンクがありません。");
   if (!html.includes(`<link rel="canonical" href="${canonical}"`)) throw new Error("canonicalが一致しません。");
   if (!html.includes(`property="og:image" content="${canonical}thumbnail.png"`)) throw new Error("OGP画像が記事サムネイルを指していません。");
   if ((html.match(new RegExp(`href="${homeUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`, "g")) || []).length > 0) throw new Error("コラムトップへのリンクカードは関連記事へ置き換えてください。");
@@ -921,12 +970,13 @@ async function validatePreparedStock(queue) {
 
 async function validateSite() {
   if (!/^https:\/\//i.test(config.site_url) || !/^https:\/\//i.test(config.community_url)) throw new FatalPublishError("site_urlまたはcommunity_urlはHTTPS URLで設定してください。");
+  if (ARTICLE_CATEGORIES.length !== 7 || new Set(ARTICLE_CATEGORIES.map((category) => category.name)).size !== 7) throw new FatalPublishError("記事カテゴリは7つの一意な定義が必要です。");
   const slots = scheduleSlotsJst();
   if (slots.length !== 2 || slots[0] !== "07:00" || slots[1] !== "18:00" || config.schedule?.articles_per_run !== 1 || config.schedule?.articles_per_day !== 2) {
     throw new FatalPublishError("公開スケジュールは07:00・18:00（JST）に各1本、1日2本で設定してください。");
   }
   const queue = await readQueue();
-  const required = ["id", "priority_order", "status", "main_keyword", "secondary_keywords", "article_title_plan", "slug", "search_intent", "unique_angle", "knowledge_base_topics", "internal_link_targets", "thumbnail_text_hint", "latest_fact_check_required", "published_url", "published_at", "published_time", "published_slot", "failed_reason"];
+  const required = ["id", "priority_order", "status", "main_keyword", "secondary_keywords", "article_title_plan", "slug", "search_intent", "unique_angle", "category", "knowledge_base_topics", "internal_link_targets", "thumbnail_text_hint", "latest_fact_check_required", "published_url", "published_at", "published_time", "published_slot", "failed_reason"];
   const ids = new Set();
   const slugs = new Set();
   const priorities = new Set();
@@ -937,6 +987,7 @@ async function validateSite() {
     if (slugs.has(item.slug)) throw new FatalPublishError(`キューslugが重複しています: ${item.slug}`);
     if (priorities.has(item.priority_order)) throw new FatalPublishError(`priority_orderが重複しています: ${item.priority_order}`);
     if (!ALLOWED_STATUSES.has(item.status)) throw new FatalPublishError(`statusが不正です: ${item.status}`);
+    if (!isCanonicalCategoryName(item.category)) throw new FatalPublishError("キュー項目のカテゴリが7カテゴリの定義外です: " + item.id);
     ids.add(item.id); slugs.add(item.slug); priorities.add(item.priority_order);
     if (!PUBLIC_STOCK_ONLY) {
     for (const source of item.knowledge_base_topics) if (!(await exists(source))) throw new FatalPublishError(`参照ファイルがありません: ${source}`);
@@ -1115,13 +1166,14 @@ async function publishOne(mode) {
     item.generated_title = generated.title;
     item.generated_meta_description = generated.meta_description;
     item.generated_category = generated.category;
+    item.category = generated.category;
     item.generated_thumbnail_text = generated.thumbnail_text || item.thumbnail_text_hint;
     const thumbnailFile = await copyPreparedThumbnail(item);
     generatedOutput = true;
     const newArticle = articleFromQueueItem(item, now.date, config.site_url, publication.time);
     newArticle.title = generated.title;
     newArticle.description = generated.meta_description;
-    newArticle.category = generated.category || "FIREコラム";
+    newArticle.category = generated.category;
     const allArticles = [...existing, newArticle].sort(sortArticles);
     const articleHtml = renderArticleTemplate(item, generated, now.date, allArticles, noteSources, publication.time);
     await writeText(`articles/${item.slug}/index.html`, articleHtml);
@@ -1199,3 +1251,4 @@ try {
   console.error(error.message || error);
   process.exitCode = error instanceof FatalPublishError ? 2 : 1;
 }
+
