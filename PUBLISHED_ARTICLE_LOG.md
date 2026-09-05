@@ -299,3 +299,24 @@ thumbnail text: 仕事は必要？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後の収入源はどうする？配当・副業・Side FIREの考え方
+
+article id: seo-012
+priority_order: 12
+公開日・時刻（JST）: 2026-09-06 07:00:00
+公開枠: 2026-09-06T07:00:00+09:00
+main keyword: FIRE後 収入
+title: FIRE後の収入源はどうする？配当・副業・Side FIREの考え方
+slug: income-after-fire
+URL: https://wakuwaku-fire-git.pages.dev/articles/income-after-fire/
+thumbnail file: articles/income-after-fire/thumbnail.png
+thumbnail text: 収入どうする？
+参照knowledge_base: content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/investment_history.md, content_sources/knowledge_base/money_philosophy.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
