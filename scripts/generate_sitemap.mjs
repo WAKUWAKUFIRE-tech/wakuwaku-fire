@@ -49,6 +49,7 @@ function extract(html, pattern) {
 function pagePathFromFile(relativeFile) {
   const normalized = relativeFile.replaceAll("\\", "/");
   if (normalized === "index.html") return "/";
+  if (normalized === "fire-strengths/stats.html") return "/fire-strengths/stats.html";
   if (!normalized.endsWith("/index.html")) return "";
   return `/${normalized.slice(0, -"/index.html".length)}/`;
 }
@@ -58,6 +59,7 @@ function canonicalPath(canonical, siteUrl) {
     const url = new URL(canonical);
     const site = new URL(`${siteUrl}/`);
     if (url.origin !== site.origin || url.search || url.hash) return "";
+    if (url.pathname.endsWith(".html")) return url.pathname;
     return url.pathname.endsWith("/") ? url.pathname : `${url.pathname}/`;
   } catch {
     return "";
@@ -73,7 +75,7 @@ async function listHtmlFiles(directory, relativeDirectory = "") {
     const absolutePath = path.join(directory, entry.name);
     if (entry.isDirectory()) {
       files.push(...await listHtmlFiles(absolutePath, relativePath));
-    } else if (entry.isFile() && entry.name.toLowerCase() === "index.html") {
+    } else if (entry.isFile() && (entry.name.toLowerCase() === "index.html" || relativePath === "fire-strengths/stats.html")) {
       files.push(relativePath);
     }
   }

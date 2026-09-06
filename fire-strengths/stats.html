@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FIREストレングス診断の結果を匿名で集計。12タイプの人数・割合と、みんなのFIRE資質ランキングを見られます。" />
+    <meta name="keywords" content="FIREストレングス,みんなの結果,FIREタイプランキング,ワクワクFIRE" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ea3e31" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ワクワクFIRE" />
+    <meta property="og:title" content="みんなのFIREストレングス｜ワクワクFIRE" />
+    <meta property="og:description" content="FIREストレングス診断の結果を匿名で集計した、12タイプのランキングと資質ランキングです。" />
+    <meta property="og:url" content="https://wakuwaku-fire-git.pages.dev/fire-strengths/stats.html" />
+    <meta property="og:image" content="https://wakuwaku-fire-git.pages.dev/%E7%84%9A%E7%81%AB.png" />
+    <link rel="canonical" href="https://wakuwaku-fire-git.pages.dev/fire-strengths/stats.html" />
+    <link rel="icon" href="../favicon.ico?v=20260826" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=20260826" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./fire-strengths.css" />
+    <title>みんなのFIREストレングス｜ワクワクFIRE</title>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"WebPage","name":"みんなのFIREストレングス","description":"FIREストレングス診断の結果を匿名で集計した統計ページです。","url":"https://wakuwaku-fire-git.pages.dev/fire-strengths/stats.html","inLanguage":"ja-JP"}
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9422971410274449" crossorigin="anonymous"></script>
+  </head>
+  <body class="fire-strengths-body">
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a class="brand" href="../" aria-label="ワクワクFIRE ホームへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__line"></span><span class="nav-toggle__line"></span><span class="nav-toggle__label">メニュー</span></button>
+        <nav class="site-nav" id="site-nav" aria-label="メインメニュー"><a href="../#contents">楽しいコンテンツ</a><a href="../articles/">FIREコラム</a><a href="../#about">ワクワクFIREとは</a><a class="site-nav__cta" href="./">診断をはじめる <span aria-hidden="true">↗</span></a></nav>
+      </div>
+    </header>
+    <main id="main-content" class="diagnosis-page__main fire-strengths-main">
+      <div class="container">
+        <nav class="diagnosis-breadcrumb" aria-label="パンくず"><a href="../">ワクワクFIRE</a><span aria-hidden="true">/</span><a href="./">FIREストレングス診断</a><span aria-hidden="true">/</span><span aria-current="page">みんなの結果</span></nav>
+        <div id="fire-strengths-app" class="fire-strengths-app" data-page="stats">
+          <div class="fs-live" id="fs-live" aria-live="polite" aria-atomic="true"></div>
+          <section class="fs-stats-hero" aria-labelledby="fs-stats-title"><div><p class="fs-kicker">WAKUWAKU FIRE / COMMUNITY DATA</p><h1 id="fs-stats-title">みんなのFIREストレングス</h1><p>診断を終えた人たちの結果を、匿名の集計データとして紹介します。個人の名前や回答内容は公開していません。</p></div><a class="fs-button fs-button--primary" href="./">自分も診断する <span aria-hidden="true">→</span></a></section>
+          <section class="fs-stats-summary" aria-label="診断者数の概要"><div class="fs-stat-number-card"><span>COMPLETED RESULTS</span><strong id="fs-stats-total">—</strong><em>人が診断</em></div><div class="fs-stat-number-card"><span>MOST COMMON TYPE</span><strong id="fs-stats-most">—</strong><em id="fs-stats-most-count">集計中</em></div><div class="fs-stat-number-card"><span>LEAST COMMON TYPE</span><strong id="fs-stats-least">—</strong><em id="fs-stats-least-count">集計中</em></div><div class="fs-stat-number-card"><span>TRAIT LEADERS</span><strong id="fs-stats-trait-leader">—</strong><em>1位になった資質</em></div></section>
+          <section class="fs-stats-section" aria-labelledby="fs-stats-types-title"><div class="fs-section-heading"><p class="fs-section-kicker">12 FIRE TYPES</p><h2 id="fs-stats-types-title">FIREタイプランキング</h2><p>人数の多さは優劣ではなく、今集まっている価値観の傾向です。</p></div><div id="fs-stats-type-list" class="fs-stats-type-list"><p class="fs-loading-copy">みんなの結果を集計中…</p></div></section>
+          <section class="fs-stats-section" aria-labelledby="fs-stats-traits-title"><div class="fs-section-heading"><p class="fs-section-kicker">TOP TRAITS</p><h2 id="fs-stats-traits-title">1位になったFIRE資質</h2><p>それぞれの診断で、最も上位になった資質の集計です。</p></div><div id="fs-stats-trait-list" class="fs-stats-trait-list"><p class="fs-loading-copy">みんなの結果を集計中…</p></div></section>
+          <div id="fs-stats-message" class="fs-stats-message" hidden></div>
+          <section class="fs-stats-footer"><p>あなたも45問の二択で、自分のFIRE資質を見つけてみませんか？</p><a class="fs-button fs-button--primary" href="./">FIREストレングス診断をはじめる <span aria-hidden="true">→</span></a></section>
+          <p class="fs-disclaimer">この集計は、FIREに関する価値観を楽しみながら可視化するワクワクFIRE独自の診断結果を匿名で集計したものです。医学・心理学上の診断や、将来の幸福を保証するものではありません。</p>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="container site-footer__top"><a class="brand brand--footer" href="../" aria-label="ワクワクFIRE ホームへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a><p>会社を辞めたら、<br /><strong>人生もっと遊べる。</strong></p><nav class="footer-nav" aria-label="フッターメニュー"><a href="../">ホーム</a><a href="../#contents">楽しいコンテンツ</a><a href="../articles/">FIREコラム</a><a href="../about/">運営者情報</a><a href="../privacy/">プライバシーポリシー</a><a href="../contact/">お問い合わせ</a><a href="../business/">企業・メディアの皆さまへ</a></nav></div><div class="container site-footer__bottom"><small>© <span id="current-year">2026</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div></footer>
+    <script src="../script.js"></script>
+    <script type="module" src="./fire-strengths.js"></script>
+  </body>
+</html>

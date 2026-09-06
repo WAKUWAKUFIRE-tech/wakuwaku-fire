@@ -9,6 +9,8 @@ FIREを楽しく知るための、HTML・CSS・JavaScriptだけで作った静�
 - `script.js`：スマホメニュー、カテゴリー絞り込み、日替わり本、メッセージ表示
 - `data/books.js`：今日のおすすめFIRE本、50冊分の情報とAmazonリンク
 - `data/ranking-client.js`：3つの診断で使う匿名IDの作成、結果送信、ランキング表示
+- `data/fire-strengths-data.js`：FIREストレングス診断の45問・15資質・12タイプ・採点ロジック
+- `fire-strengths/`：FIREストレングス診断と匿名集計ページ
 - `functions/api/diagnosis-result.js`：診断結果をD1へ保存するAPI
 - `functions/api/diagnosis-ranking.js`：診断ごとのランキングを返すAPI
 - `functions/_result-master.js`：サーバー側で検証する診断結果IDの一覧
@@ -152,6 +154,18 @@ npx wrangler pages dev . --d1 DB=YOUR_D1_DATABASE_ID
 
 公式のローカル開発案内：<https://developers.cloudflare.com/d1/best-practices/local-development/>
 
+### FIREストレングス診断の匿名集計
+
+`/fire-strengths/` は、45問の二択から15資質・5領域・12タイプを決める診断です。回答途中はブラウザ内だけで処理し、完了時に `POST /api/fire-strengths/results` へ結果を送ります。サーバー側でも回答からタイプとTOP5を再計算して整合性を確認してからD1へ保存します。統計ページ `/fire-strengths/stats.html` は `GET /api/fire-strengths/stats` から、総診断者数・12タイプ・1位資質の集計値だけを取得します。
+
+新しいテーブルは `migrations/0002_create_fire_strength_results.sql` です。既存のD1バインディング名 `DB` をそのまま使い、公開環境へ初回だけ適用してください。
+
+```text
+npx wrangler d1 execute wakuwaku-fire-results --remote --file=./migrations/0002_create_fire_strength_results.sql
+```
+
+D1未適用の環境でも、診断の回答と結果表示は利用できます。保存と「みんなの結果」の集計だけが利用できないため、公開前にMigrationを適用してください。
+
 ## Google Search Consoleの設定
 
 トップページの `index.html` には、確認タグを入れる場所として `GOOGLE_SITE_VERIFICATION_SLOT` マーカーを用意しています。実際の確認値を受け取るまで、架空のタグは入れていません。
@@ -204,6 +218,7 @@ const CONTACT_FORM_URL = "";
 - [ ] Google Analyticsを使う場合は、測定IDを自分のアカウントのものに設定する
 - [ ] AdSenseコードが自分のPublisher IDと一致し、各ページで1回だけ読み込まれているか確認する
 - [x] D1を作成し、Pagesのバインディング名を `DB` にして、匿名ランキングのテーブルを作成する
+- [ ] `migrations/0002_create_fire_strength_results.sql` を公開D1へ適用し、FIREストレングス診断の保存・集計を確認する
 - [ ] 3つの診断を最後まで試し、D1設定後に結果画面へランキングが表示されるか確認する
 - [ ] Search Consoleの所有権確認metaタグを追加し、サイトマップを送信する（`npm run set:search-console` を利用）
 - [ ] 公開URL、canonical、OGP、sitemap、robots.txtのURLが一致しているか確認する
