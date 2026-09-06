@@ -320,3 +320,24 @@ thumbnail text: 収入どうする？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREの必要資産はいくら？計算の基本をわかりやすく解説
+
+article id: seo-013
+priority_order: 13
+公開日・時刻（JST）: 2026-09-06 18:00:00
+公開枠: 2026-09-06T18:00:00+09:00
+main keyword: FIRE 必要資産
+title: FIREの必要資産はいくら？計算の基本をわかりやすく解説
+slug: fire-hitsuyou-shisan
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-hitsuyou-shisan/
+thumbnail file: articles/fire-hitsuyou-shisan/thumbnail.png
+thumbnail text: 必要資産
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
