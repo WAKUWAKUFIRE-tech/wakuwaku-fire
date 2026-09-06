@@ -473,7 +473,7 @@
     {
       "id": "seo-013",
       "priority_order": 13,
-      "status": "published",
+      "status": "failed",
       "main_keyword": "FIRE 必要資産",
       "secondary_keywords": [
         "FIRE 必要額",
@@ -498,7 +498,7 @@
       "latest_fact_check_required": false,
       "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-hitsuyou-shisan/",
       "published_at": "2026-09-06",
-      "failed_reason": "",
+      "failed_reason": "公開URL確認失敗（GitHub Actions）",
       "published_time": "18:00:00",
       "published_slot": "2026-09-06T18:00:00+09:00",
       "stock_path": "automation/article_stock/fire-hitsuyou-shisan",
