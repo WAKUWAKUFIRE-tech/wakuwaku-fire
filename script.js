@@ -211,3 +211,33 @@ scheduleDailyBookRefresh();
 
 const currentYear = document.querySelector("#current-year");
 if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+// 既存の解析環境がある場合だけ、企業向けページの主要リンクを記録します。
+// 解析タグがない環境では何も送信せず、ページの動作にも影響しません。
+const analyticsPage = document.body?.dataset.analyticsPage;
+if (analyticsPage) {
+  const pageEvent = `${analyticsPage}_page_view`;
+  if (typeof window.gtag === "function") {
+    window.gtag("event", pageEvent, { event_category: "business", page_path: window.location.pathname });
+  }
+
+  if (Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: pageEvent, event_category: "business", page_path: window.location.pathname });
+  }
+}
+
+document.querySelectorAll("[data-analytics-event]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const eventName = link.dataset.analyticsEvent;
+    const eventLabel = link.dataset.analyticsLabel || "";
+    if (!eventName) return;
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, { event_category: "business", event_label: eventLabel });
+    }
+
+    if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: eventName, event_category: "business", event_label: eventLabel });
+    }
+  });
+});
