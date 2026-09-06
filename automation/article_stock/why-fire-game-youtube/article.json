@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREするとゲームやYouTubeばかり見てしまうのか",
+  "meta_description": "FIRE後にゲームやYouTubeばかり見てしまう理由を、自由時間、短期的な快楽、生活の区切り、画面以外の楽しみの作り方から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "FIRE後にゲームやYouTubeへ時間が流れるのは、意志が弱いだけではありません。強制力が消えた生活で、短期的な快楽とどう付き合うかを考えます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Build a playful split scene: on one side a giant game controller with glowing buttons, on the other side a bright outdoor path with a camera and notebook. The character is seated cross-legged at the center, holding a controller in one hand while using the other hand to pull open a curtain toward the outdoor path, expression surprised and tempted. Use saturated purple, lime, orange and sky blue, with dynamic light beams rather than a fixed side layout. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「ゲーム・動画」 「ばかり？」. Bold yellow-white-red typography with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "ゲーム・動画ばかり？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-12_これがFIREのガチ日常！暇なんて無い日々、何をやってるか暴露します【早期リタイア】.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["自由過ぎると溺れる、自ら制約を課せ", "失敗したらネタにして笑い飛ばせ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-youtube-live/", "anchor": "FIRE後の発信と動画のリアルを読む"},
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後の暇をどう使うか考える"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の一日の作り方を知る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "ゲームや動画がある日常を紹介する記事とは分け、自由になった後に短期的な快楽へ流れやすい仕組みと、画面以外の選択肢を残す方法に絞る。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

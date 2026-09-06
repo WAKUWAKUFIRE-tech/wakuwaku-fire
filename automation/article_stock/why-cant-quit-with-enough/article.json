@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜ人は「一生分のお金」があっても会社を辞められないのか",
+  "meta_description": "一生分のお金があっても会社を辞められない理由を、現状維持バイアスや損失回避だけでなく、退職後の生活を想像する難しさから考えます。",
+  "category": "FIRE入門・考え方",
+  "lead": "資産が十分でも会社を辞められないのは、意志が弱いからとは限りません。失うものを大きく感じる心理と、辞めた後の暮らしを具体化する方法を整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference, preserving the recognizable black spiky hair, black-rim glasses and white FIRE T-shirt. Create a dramatic golden exit gate locked by a huge oversized padlock; the character is crouching at the lower center, holding a key in one hand and reaching toward the lock with the other, looking frustrated but determined. Use an upward perspective, bursting orange light behind the gate, deep navy shadows and red accents. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「お金があっても」 「辞められない？」. Use thick white/black outlines and bright yellow-red emphasis; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "お金があっても辞められない？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["自分の腹からでた言葉で定義付けしろ", "自由過ぎると溺れる、自ら制約を課せ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/what-is-fire/", "anchor": "FIREの意味と考え方を確認する"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円で会社を辞めた経験を読む"},
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前に考えたい準備を整理する"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREに必要な金額や退職後の後悔ではなく、十分な資産があるのに決断できない心理と、退職後を具体化する方法に絞る。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると健康が気になり始めるのか",
+  "meta_description": "FIRE後に健康が気になり始める理由を、時間の余裕、会社員時代に後回しにした体のサイン、使える体の価値、続く習慣から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "自由な時間が増えると、お金だけでなく元気に動ける時間が気になります。FIRE後の健康を不安ではなく、暮らしの土台として考えます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a vivid glowing heartbeat path that curves through a sunrise landscape, with walking shoes, a bicycle and fresh food shapes integrated as visual objects, no labels. The character is jogging toward the sunrise at the lower center, holding a small water bottle in one hand and a compass in the other, face bright and determined. Use energetic red, green, orange and deep navy with a sweeping diagonal path. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「健康が」 「気になる？」. Large white-yellow-red type with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "健康が気になる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["自分に期待しろ", "何事も長期目標を持て"],
+  "external_sources": [
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/undou/index.html",
+      "title": "身体活動・運動の推進｜厚生労働省",
+      "why": "身体活動・運動に関する最新の公的な推奨情報を確認するため"
+    },
+    {
+      "url": "https://kennet.mhlw.go.jp/information/information/heart/k-01-004.html",
+      "title": "快眠と生活習慣｜e-ヘルスネット",
+      "why": "睡眠と運動・生活習慣の関係を公的情報で確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の暮らしの土台を考える"},
+    {"path": "/articles/fire-after-10-days/", "anchor": "FIRE後の日常を見てみる"},
+    {"path": "/articles/sidefire-day/", "anchor": "自由になった一日の使い方を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の生活リズム記事とは分け、退職後に体力や寿命の価値が意識へ上がる理由と、医療判断ではなく続く生活習慣へ落とす視点を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

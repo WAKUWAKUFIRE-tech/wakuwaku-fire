@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると「人生の正解」がわからなくなるのか",
+  "meta_description": "FIRE後に人生の正解がわからなくなる理由を、学校から就職までのレール、選択肢の多さ、自由の責任、小さな実験から考えます。",
+  "category": "FIRE入門・考え方",
+  "lead": "会社員というレールを降りると、自由と引き換えに正解のない選択が増えます。人生の答えを急いで決めず、自分で試しながら方角を作る方法です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a dramatic railroad splitting open into a wide colorful field with many possible paths, while the character stands at the switch point holding a hand-drawn compass in one hand and opening a gate with the other, expression curious and confident. Use a strong vanishing-point composition with sunrise, red, gold, teal and deep navy, no track signs or readable labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「人生の」 「正解がない？」. Large white-yellow-red lettering with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "人生の正解がない？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["自分の腹からでた言葉で定義付けしろ", "何事も長期目標を持て"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/what-is-fire/", "anchor": "FIREの意味を自分の言葉で考える"},
+    {"path": "/articles/side-fire-toha/", "anchor": "FIREの形を比較する"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後に考えが変わった経験を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIREの向き不向きや後悔を列挙する記事とは分け、レールを降りた後に正解が消える心理と、人生を小さな実験として選び直す姿勢を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

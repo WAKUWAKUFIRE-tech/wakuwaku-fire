@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜ人は「もう十分」を決められないのか",
+  "meta_description": "FIREの目標額が5000万円、7000万円、1億円と増えていく理由を、安心の基準点、損失回避、未来への不安、十分の決め方から考えます。",
+  "category": "FIRE入門・考え方",
+  "lead": "資産目標を達成しても、次の金額が気になって「もう十分」と決められないことがあります。必要額と安心感を分けて、終点を自分で作る方法です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Show a glowing horizon with a finish line that keeps shifting forward on a mechanical rail; the character stands at the foreground holding a red goal flag in one hand and a measuring tape in the other, looking astonished as the goal moves. Use a wide panoramic perspective within the square, layered mountains, bright yellow sun and strong red-navy contrast. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「もう十分？」 「目標額が増えるワケ」. Big yellow-white-red letters with black outlines; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "もう十分？目標額が増えるワケ",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "自分の腹からでた言葉で定義付けしろ"],
+  "external_sources": [
+    {
+      "url": "https://www.j-flec.go.jp/links/jikan/lesson2/",
+      "title": "資産運用とは？｜投資の時間｜J-FLEC",
+      "why": "生活に必要なお金と運用に回すお金を分ける基本を確認するため"
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "資産形成の基本｜NISA特設ウェブサイト｜金融庁",
+      "why": "資産形成のリスクと長期・積立・分散の考え方を確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-ikura-hitsuyou/", "anchor": "FIREに必要な金額の考え方を読む"},
+    {"path": "/articles/fire-preparation/", "anchor": "資産目標の立て方を確認する"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産額が変わった実例を見る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "必要資産の計算記事とは役割を分け、金額を達成しても次の目標へ逃げてしまう心理と、自分にとっての『十分』を決める基準に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

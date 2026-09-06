@@ -4595,6 +4595,1056 @@
       "failed_reason": "",
       "stock_path": "automation/article_stock/leave-job-money-anxiety",
       "category": "FIRE準備・必要資産"
+    },
+    {
+      "id": "seo-131",
+      "priority_order": 131,
+      "status": "stocked",
+      "main_keyword": "一生分 お金 会社 辞められない",
+      "secondary_keywords": [
+        "会社辞めたい お金",
+        "FIRE 会社辞められない",
+        "現状維持バイアス",
+        "損失回避"
+      ],
+      "article_title_plan": "なぜ人は「一生分のお金」があっても会社を辞められないのか",
+      "slug": "why-cant-quit-with-enough",
+      "search_intent": "資産が十分でも会社を辞められない心理と、決断を具体化する方法を知りたい",
+      "unique_angle": "現状維持バイアスや損失回避を、退職後の生活を想像できない問題と本人のFIRE経験に結びつける",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/articles/what-is-fire/",
+        "/articles/fire-6000man/",
+        "/articles/fire-preparation/"
+      ],
+      "thumbnail_text_hint": "お金があっても辞められない？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-cant-quit-with-enough",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-132",
+      "priority_order": 132,
+      "status": "stocked",
+      "main_keyword": "FIRE 毎日日曜日 退屈",
+      "secondary_keywords": [
+        "FIRE 暇",
+        "毎日日曜日 つまらない",
+        "自由時間 退屈",
+        "FIRE後 何する"
+      ],
+      "article_title_plan": "なぜFIREすると「毎日日曜日」なのに退屈するのか",
+      "slug": "why-fire-sunday-bored",
+      "search_intent": "毎日が休日でも退屈する理由と、自由時間を楽しむ方法を知りたい",
+      "unique_angle": "FIRE後の退屈を、快楽への慣れと時間の境目が消える問題から捉える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-hima/",
+        "/articles/fire-after-10-days/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "毎日日曜なのに退屈？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-sunday-bored",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-133",
+      "priority_order": 133,
+      "status": "stocked",
+      "main_keyword": "1億円 お金 不安",
+      "secondary_keywords": [
+        "資産1億円 FIRE",
+        "1億円 不安",
+        "FIRE 資産減少",
+        "お金の不安 消えない"
+      ],
+      "article_title_plan": "なぜ資産1億円あってもお金の不安は消えないのか",
+      "slug": "why-one-billion-anxiety",
+      "search_intent": "資産1億円でも不安が残る理由と、資産との距離感を知りたい",
+      "unique_angle": "1億円という金額の判定ではなく、資産の増減と安心の基準点が変わる心理を本人の損失経験とともに扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-6000man/",
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-stock-distance/"
+      ],
+      "thumbnail_text_hint": "1億あっても不安？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-one-billion-anxiety",
+      "category": "FIRE後のお金・投資・制度"
+    },
+    {
+      "id": "seo-134",
+      "priority_order": 134,
+      "status": "stocked",
+      "main_keyword": "FIRE後 また働きたい",
+      "secondary_keywords": [
+        "FIRE後 仕事",
+        "FIRE 働きたくなる",
+        "サイドFIRE 仕事",
+        "FIRE 役割"
+      ],
+      "article_title_plan": "なぜFIREした後、また働きたくなるのか",
+      "slug": "why-fire-work-again",
+      "search_intent": "FIRE後に働きたくなる理由と、自分に合う働き方を知りたい",
+      "unique_angle": "収入ではなく、役割・成長・人とのつながりが仕事へ戻る動機になる点を経験者目線で整理する",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/work-after-fire/",
+        "/articles/side-fire-toha/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "FIRE後また働きたい？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-work-again",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-135",
+      "priority_order": 135,
+      "status": "stocked",
+      "main_keyword": "FIRE 何者かわからない",
+      "secondary_keywords": [
+        "FIRE後 肩書き",
+        "FIRE アイデンティティ",
+        "会社辞めた 何者",
+        "FIRE 自分探し"
+      ],
+      "article_title_plan": "なぜFIREすると「自分が何者かわからなくなる」のか",
+      "slug": "why-fire-identity",
+      "search_intent": "会社員の肩書きを失った後の自己認識と役割の作り方を知りたい",
+      "unique_angle": "会社員という肩書きの消失を、FIRE後の役割を試しながら再定義する過程として描く",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/articles/what-is-fire/",
+        "/articles/fire-koukai/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "FIRE後、自分は何者？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-identity",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-136",
+      "priority_order": 136,
+      "status": "stocked",
+      "main_keyword": "FIRE お金 使えない",
+      "secondary_keywords": [
+        "FIRE民 お金使えない",
+        "FIRE 達成後 使う",
+        "節約 罪悪感",
+        "FIRE 生活費"
+      ],
+      "article_title_plan": "なぜFIRE民はお金を使えないのか",
+      "slug": "why-fire-cant-spend",
+      "search_intent": "FIRE後もお金を使えない心理と、使っていい予算の作り方を知りたい",
+      "unique_angle": "貯める能力が高い人ほど使えなくなる罪悪感と、資産全体を守りながら使う枠を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-6000man/"
+      ],
+      "thumbnail_text_hint": "使えない？FIRE後のお金",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-cant-spend",
+      "category": "FIRE後のお金・投資・制度"
+    },
+    {
+      "id": "seo-137",
+      "priority_order": 137,
+      "status": "stocked",
+      "main_keyword": "自由時間 増える 悩み",
+      "secondary_keywords": [
+        "FIRE 暇 不安",
+        "自由時間 悩み",
+        "FIRE後 不安",
+        "忙しい 悩み"
+      ],
+      "article_title_plan": "なぜ自由時間が増えるほど人は悩み始めるのか",
+      "slug": "why-more-free-time-worry",
+      "search_intent": "自由時間が増えて悩みが浮かぶ理由と、考えすぎを行動へ変える方法を知りたい",
+      "unique_angle": "忙しさが隠していた人生の疑問が、自由時間の増加で見えるようになる構造を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-hima/",
+        "/articles/fire-after-boredom/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "暇なのに悩む？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-more-free-time-worry",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-138",
+      "priority_order": 138,
+      "status": "stocked",
+      "main_keyword": "FIRE 友達 減る",
+      "secondary_keywords": [
+        "FIRE後 友達",
+        "FIRE 人間関係",
+        "会社辞めた 友達",
+        "FIRE 孤独"
+      ],
+      "article_title_plan": "なぜFIREすると友達が減るのか",
+      "slug": "why-fire-friends-decrease",
+      "search_intent": "FIRE後に友達が減ったように感じる理由と、人との接点の作り方を知りたい",
+      "unique_angle": "生活リズムと所属集団の変化で自然な接点が消える仕組みを、コミュニティの再設計へつなげる",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-community/",
+        "/articles/fire-community-place/",
+        "/articles/fire-after-10-days/"
+      ],
+      "thumbnail_text_hint": "友達が減る？FIRE後の人間関係",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-friends-decrease",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-139",
+      "priority_order": 139,
+      "status": "stocked",
+      "main_keyword": "他人 資産額 比較 不幸",
+      "secondary_keywords": [
+        "FIRE 資産比較",
+        "資産額 比べる",
+        "FIRE界隈 比較",
+        "SNS 資産 不安"
+      ],
+      "article_title_plan": "なぜ他人の資産額を見ると不幸になるのか",
+      "slug": "why-asset-comparison-unhappy",
+      "search_intent": "FIRE界隈やSNSで他人の資産額と比較して不安になる理由を知りたい",
+      "unique_angle": "比較の基準点が動き続ける問題を、資産額ではなく自分の生活費と選択肢へ視点を戻す話にする",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/numbers_and_facts.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-stock-distance/",
+        "/articles/side-fire-toha/",
+        "/articles/fire-6000man/"
+      ],
+      "thumbnail_text_hint": "比べるほど不幸？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-asset-comparison-unhappy",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-140",
+      "priority_order": 140,
+      "status": "stocked",
+      "main_keyword": "あと1年働く 5年 FIRE",
+      "secondary_keywords": [
+        "FIRE あと1年",
+        "会社 辞める 先延ばし",
+        "現状維持バイアス FIRE",
+        "FIRE いつ辞める"
+      ],
+      "article_title_plan": "なぜ「あと1年働こう」が5年続くのか",
+      "slug": "why-one-more-year",
+      "search_intent": "FIREの退職時期を先延ばししてしまう理由と、試運転の方法を知りたい",
+      "unique_angle": "あと1年の先送りを、損失回避と未来の自分への先送りとして描き、退職後の選択肢を残す",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-koukai/",
+        "/articles/what-is-fire/"
+      ],
+      "thumbnail_text_hint": "あと1年が5年続く？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-one-more-year",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-141",
+      "priority_order": 141,
+      "status": "stocked",
+      "main_keyword": "FIRE ゲーム YouTube ばかり",
+      "secondary_keywords": [
+        "FIRE後 ゲーム",
+        "FIRE後 YouTube",
+        "自由時間 画面",
+        "FIRE 暇つぶし"
+      ],
+      "article_title_plan": "なぜFIREするとゲームやYouTubeばかり見てしまうのか",
+      "slug": "why-fire-game-youtube",
+      "search_intent": "FIRE後にゲームや動画へ時間が流れる理由と、画面以外の過ごし方を知りたい",
+      "unique_angle": "意志の弱さではなく、強制力が消えた生活で短期的な快楽へ流れる仕組みを経験者の実感で扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-youtube-live/",
+        "/articles/fire-hima/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "ゲーム・動画ばかり？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-game-youtube",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-142",
+      "priority_order": 142,
+      "status": "stocked",
+      "main_keyword": "FIRE 達成 幸せ その後",
+      "secondary_keywords": [
+        "FIRE達成 幸せ",
+        "FIRE後 幸せ",
+        "快楽順応 FIRE",
+        "FIRE 目標達成"
+      ],
+      "article_title_plan": "なぜFIRE達成直後が人生で一番幸せとは限らないのか",
+      "slug": "why-fire-achievement-not-happiest",
+      "search_intent": "FIRE達成後の高揚が続かない理由と、日常の満足を育てる方法を知りたい",
+      "unique_angle": "達成直後の高揚と普通の日へ戻る過程を、後悔ではなく快楽への慣れと日常の満足で捉える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-10-days/",
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-koukai/"
+      ],
+      "thumbnail_text_hint": "FIRE達成＝最高？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-achievement-not-happiest",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-143",
+      "priority_order": 143,
+      "status": "stocked",
+      "main_keyword": "年収 上がっても 会社辞めたい",
+      "secondary_keywords": [
+        "年収アップ 仕事辞めたい",
+        "お金 幸せ 会社",
+        "FIRE 会社 辞めたい",
+        "仕事 ストレス 収入"
+      ],
+      "article_title_plan": "なぜ年収が上がっても会社を辞めたい気持ちは消えないのか",
+      "slug": "why-income-up-still-quit",
+      "search_intent": "年収アップでも会社を辞めたい理由と、お金以外の仕事の負担を知りたい",
+      "unique_angle": "年収では埋まらない裁量・時間・意味・ストレスの関係をFIREの入口として整理する",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-reasons/",
+        "/articles/what-is-fire/",
+        "/articles/side-fire-toha/"
+      ],
+      "thumbnail_text_hint": "年収UPでも辞めたい？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-income-up-still-quit",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-144",
+      "priority_order": 144,
+      "status": "stocked",
+      "main_keyword": "FIRE もう十分 決められない",
+      "secondary_keywords": [
+        "FIRE 目標額 上がる",
+        "FIRE 5000万 1億",
+        "必要資産 不安",
+        "いつFIREする"
+      ],
+      "article_title_plan": "なぜ人は「もう十分」を決められないのか",
+      "slug": "why-cant-decide-enough",
+      "search_intent": "FIREの目標額が上がり続ける理由と、自分にとっての十分を決める方法を知りたい",
+      "unique_angle": "必要資産の計算ではなく、目標達成後も次の金額へ逃げる心理と終点の作り方に焦点を置く",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-ikura-hitsuyou/",
+        "/articles/fire-preparation/",
+        "/articles/fire-6000man/"
+      ],
+      "thumbnail_text_hint": "もう十分？目標額が増えるワケ",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-cant-decide-enough",
+      "category": "FIRE入門・考え方"
+    },
+    {
+      "id": "seo-145",
+      "priority_order": 145,
+      "status": "stocked",
+      "main_keyword": "FIRE 生活リズム 崩れる",
+      "secondary_keywords": [
+        "FIRE後 睡眠",
+        "FIRE 朝起きられない",
+        "FIRE 生活習慣",
+        "退職後 生活リズム"
+      ],
+      "article_title_plan": "なぜFIREすると生活リズムが崩れるのか",
+      "slug": "why-fire-life-rhythm",
+      "search_intent": "FIRE後に睡眠や食事、運動が乱れる理由と生活を整える方法を知りたい",
+      "unique_angle": "会社の時刻表が消えたことで生活の境目が崩れる仕組みと、気合いに頼らない小さな制約を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-hima/",
+        "/articles/sidefire-day/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "生活リズム崩壊？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-life-rhythm",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-146",
+      "priority_order": 146,
+      "status": "stocked",
+      "main_keyword": "FIRE 曜日感覚 なくなる",
+      "secondary_keywords": [
+        "FIRE 今日何曜日",
+        "FIRE 毎日休み",
+        "退職 曜日感覚",
+        "FIRE 時間の区切り"
+      ],
+      "article_title_plan": "なぜFIREすると曜日感覚がなくなるのか",
+      "slug": "why-fire-weekday",
+      "search_intent": "FIRE後に曜日感覚がなくなる理由と、生活の区切りを作る方法を知りたい",
+      "unique_angle": "曜日を作っていた仕事の境目が消える現象を、日課・人との予定・自分のリズムへ置き換える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md",
+        "content_sources/knowledge_base/happiness_and_life.md"
+      ],
+      "internal_link_targets": [
+        "/articles/sidefire-day/",
+        "/articles/fire-after-10-days/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "今日何曜日？FIRE後の時間",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-weekday",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-147",
+      "priority_order": 147,
+      "status": "stocked",
+      "main_keyword": "FIRE 旅行 飽きる",
+      "secondary_keywords": [
+        "FIRE後 旅行",
+        "旅行 快楽順応",
+        "FIRE 旅行 満足",
+        "早期退職 旅行"
+      ],
+      "article_title_plan": "なぜFIREすると旅行しても満足できなくなることがあるのか",
+      "slug": "why-fire-travel-bored",
+      "search_intent": "FIRE後の旅行が日常化して満足できない理由と、旅の楽しみ方を知りたい",
+      "unique_angle": "旅行の回数や行き先ではなく、非日常の習慣化と期待の膨張を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-hima/",
+        "/articles/life-after-fire/",
+        "/articles/fire-after-boredom/"
+      ],
+      "thumbnail_text_hint": "旅行も飽きる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-travel-bored",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-148",
+      "priority_order": 148,
+      "status": "stocked",
+      "main_keyword": "FIRE 暴落 怖い",
+      "secondary_keywords": [
+        "FIRE後 暴落",
+        "FIRE 資産減少 不安",
+        "給料なし 投資",
+        "FIRE 取り崩し"
+      ],
+      "article_title_plan": "なぜFIRE民は暴落すると働いていた頃より怖くなるのか",
+      "slug": "why-fire-crash-scary",
+      "search_intent": "FIRE後の暴落が重く感じる理由と、生活を守る備えを知りたい",
+      "unique_angle": "給与収入がなくなった後の資産減少を、生活費・現金・働く選択肢の3つに分けて心理面から扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/contradictions_and_updates.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-stock-distance/",
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-6000man/"
+      ],
+      "thumbnail_text_hint": "暴落が怖い理由",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-crash-scary",
+      "category": "FIRE後のお金・投資・制度"
+    },
+    {
+      "id": "seo-149",
+      "priority_order": 149,
+      "status": "stocked",
+      "main_keyword": "FIRE 節約 やめられない",
+      "secondary_keywords": [
+        "FIRE達成後 節約",
+        "FIRE民 使えない",
+        "節約 習慣",
+        "FIRE お金 使う"
+      ],
+      "article_title_plan": "なぜFIREすると節約をやめられなくなるのか",
+      "slug": "why-fire-frugal",
+      "search_intent": "FIRE後も節約を続けてしまう理由と、安心を残しながら使う方法を知りたい",
+      "unique_angle": "FIRE達成の武器だった節約がアイデンティティとして残る心理を、使うための枠作りへつなげる",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/numbers_and_facts.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-4percent-rule/",
+        "/articles/fire-6000man/"
+      ],
+      "thumbnail_text_hint": "節約が止まらない？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-frugal",
+      "category": "FIRE後のお金・投資・制度"
+    },
+    {
+      "id": "seo-150",
+      "priority_order": 150,
+      "status": "stocked",
+      "main_keyword": "FIRE 何かしなきゃ 焦る",
+      "secondary_keywords": [
+        "FIRE後 焦り",
+        "FIRE 生産性",
+        "何もしない 罪悪感",
+        "FIRE 休む"
+      ],
+      "article_title_plan": "なぜFIREすると「何かしなきゃ」と焦るのか",
+      "slug": "why-fire-must-do",
+      "search_intent": "FIRE後に休めず焦る心理と、自由な一日を設計する方法を知りたい",
+      "unique_angle": "会社員時代の生産性の物差しが残り、休むことへ罪悪感が出る仕組みを扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-hima/",
+        "/articles/fire-after-boredom/",
+        "/articles/work-after-fire/"
+      ],
+      "thumbnail_text_hint": "何かしなきゃ？FIRE後の焦り",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-must-do",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-151",
+      "priority_order": 151,
+      "status": "stocked",
+      "main_keyword": "FIRE 趣味 飽きる",
+      "secondary_keywords": [
+        "FIRE後 趣味",
+        "好きなこと 飽きる",
+        "FIRE ゲーム 飽きる",
+        "趣味 毎日"
+      ],
+      "article_title_plan": "なぜFIREすると趣味に飽きるのか",
+      "slug": "why-fire-hobby-bored",
+      "search_intent": "FIRE後に趣味へ毎日使えるのに飽きる理由と、長く楽しむ方法を知りたい",
+      "unique_angle": "趣味の頻度が上がって義務化する過程と、複数の楽しみに余白を戻す方法を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-youtube-live/",
+        "/articles/life-after-fire/",
+        "/articles/fire-hima/"
+      ],
+      "thumbnail_text_hint": "好きなのに飽きる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-hobby-bored",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-152",
+      "priority_order": 152,
+      "status": "stocked",
+      "main_keyword": "FIRE 孤独 感じる",
+      "secondary_keywords": [
+        "FIRE後 孤独",
+        "FIRE 友達 減る",
+        "退職 人間関係",
+        "FIRE 社会とのつながり"
+      ],
+      "article_title_plan": "なぜFIREすると孤独を感じやすくなるのか",
+      "slug": "why-fire-lonely",
+      "search_intent": "FIRE後に孤独を感じやすい理由と、無理なく人とつながる方法を知りたい",
+      "unique_angle": "職場という半強制的な接点が消えた後の孤独を、コミュニティと一人時間の設計として扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-community/",
+        "/articles/fire-community-place/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "孤独になる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-lonely",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-153",
+      "priority_order": 153,
+      "status": "stocked",
+      "main_keyword": "FIRE 承認欲求 強くなる",
+      "secondary_keywords": [
+        "FIRE後 承認欲求",
+        "FIRE SNS",
+        "FIRE 資産 自慢",
+        "会社 評価 なくなる"
+      ],
+      "article_title_plan": "なぜFIREすると承認欲求が強くなることがあるのか",
+      "slug": "why-fire-approval",
+      "search_intent": "FIRE後にSNSや資産額で認められたくなる心理を知りたい",
+      "unique_angle": "会社の評価が消えた後にSNSや資産額へ承認を求める流れと、別の手応えを作る方法を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-community/",
+        "/articles/fire-stock-distance/",
+        "/articles/fire-hima/"
+      ],
+      "thumbnail_text_hint": "認められたい？FIRE後の承認欲求",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-approval",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-154",
+      "priority_order": 154,
+      "status": "stocked",
+      "main_keyword": "FIRE 起業したくなる",
+      "secondary_keywords": [
+        "FIRE後 起業",
+        "FIRE 事業",
+        "FIRE 仕事 ゲーム性",
+        "サイドFIRE 起業"
+      ],
+      "article_title_plan": "なぜFIREすると起業したくなる人が多いのか",
+      "slug": "why-fire-start-business",
+      "search_intent": "FIRE後に起業したくなる理由と、生活を守りながら試す方法を知りたい",
+      "unique_angle": "お金以外のゲーム性・成長・裁量・社会との接点を求める心理を小さな実験へ落とす",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/side_fire_and_work.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/work-after-fire/",
+        "/articles/side-fire-toha/",
+        "/articles/fire-community/"
+      ],
+      "thumbnail_text_hint": "FIRE後起業したくなる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-start-business",
+      "category": "FIRE後の仕事・収入"
+    },
+    {
+      "id": "seo-155",
+      "priority_order": 155,
+      "status": "stocked",
+      "main_keyword": "FIRE 家事 育児 見え方",
+      "secondary_keywords": [
+        "FIRE後 家事",
+        "FIRE 専業主夫",
+        "FIRE 子育て",
+        "退職 家事分担"
+      ],
+      "article_title_plan": "なぜFIREすると子育てや家事の見え方が変わるのか",
+      "slug": "why-fire-housework-parenting",
+      "search_intent": "FIRE後に家事や育児の役割がどう変わるか、家族と調整する方法を知りたい",
+      "unique_angle": "時間が増えて見えない家事の段取りが見えるようになる変化を、専業主夫・家族の実体験につなげる",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/side_fire_and_work.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-household/",
+        "/articles/life-after-fire/",
+        "/articles/work-after-fire/"
+      ],
+      "thumbnail_text_hint": "家事・育児見え方が変わる？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-housework-parenting",
+      "category": "家族とFIRE"
+    },
+    {
+      "id": "seo-156",
+      "priority_order": 156,
+      "status": "stocked",
+      "main_keyword": "FIRE 健康 気になる",
+      "secondary_keywords": [
+        "FIRE後 健康",
+        "早期退職 運動",
+        "FIRE 寿命",
+        "FIRE 体力"
+      ],
+      "article_title_plan": "なぜFIREすると健康が気になり始めるのか",
+      "slug": "why-fire-health",
+      "search_intent": "FIRE後に健康や体力が気になり始める理由と、暮らしの土台として整える方法を知りたい",
+      "unique_angle": "お金よりも元気に使える時間の価値が大きくなる変化を、医療アドバイスではなく生活習慣の視点で扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/life-after-fire/",
+        "/articles/fire-after-10-days/",
+        "/articles/sidefire-day/"
+      ],
+      "thumbnail_text_hint": "健康が気になる？",
+      "latest_fact_check_required": true,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-health",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-157",
+      "priority_order": 157,
+      "status": "stocked",
+      "main_keyword": "FIRE 人生 残り時間 意識",
+      "secondary_keywords": [
+        "FIRE 時間の使い方",
+        "退職後 人生",
+        "FIRE 何歳まで",
+        "FIRE 時間 資産"
+      ],
+      "article_title_plan": "なぜFIREすると人生の残り時間を意識するのか",
+      "slug": "why-fire-remaining-time",
+      "search_intent": "FIRE後に時間の有限さを意識する理由と、使いたい時間へ配分する方法を知りたい",
+      "unique_angle": "仕事が作っていた時間の区切りが消え、体力と一日を自分の予算として見る変化を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-after-10-days/",
+        "/articles/sidefire-day/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "残り時間を意識する理由",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-remaining-time",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-158",
+      "priority_order": 158,
+      "status": "stocked",
+      "main_keyword": "FIRE 住む場所 変えたい",
+      "secondary_keywords": [
+        "FIRE後 移住",
+        "FIRE 地方移住",
+        "通勤 なくなる 住まい",
+        "FIRE 住む場所"
+      ],
+      "article_title_plan": "なぜFIREすると「住む場所」を変えたくなるのか",
+      "slug": "why-fire-move",
+      "search_intent": "FIRE後に住まいを変えたくなる理由と、家賃・移動・家族条件を比べる方法を知りたい",
+      "unique_angle": "通勤の消失で住まいの評価軸が変わる一方、勢いの移住を避けて試す手順を扱う",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-preparation/",
+        "/articles/fire-household/",
+        "/articles/life-after-fire/"
+      ],
+      "thumbnail_text_hint": "住む場所変える？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-move",
+      "category": "住まい・移住"
+    },
+    {
+      "id": "seo-159",
+      "priority_order": 159,
+      "status": "stocked",
+      "main_keyword": "FIRE 物欲 減る 増える",
+      "secondary_keywords": [
+        "FIRE後 物欲",
+        "FIRE 買い物",
+        "ストレス消費",
+        "暇 消費"
+      ],
+      "article_title_plan": "なぜFIREすると物欲が減る人と増える人に分かれるのか",
+      "slug": "why-fire-material-desire",
+      "search_intent": "FIRE後に物欲が減る人と増える人の違い、消費の理由を知りたい",
+      "unique_angle": "ストレス消費が減る場合と、暇や刺激から消費が増える場合を対比して考える",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/happiness_and_life.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/fire-happiness-spending/",
+        "/articles/fire-6000man/",
+        "/articles/fire-after-boredom/"
+      ],
+      "thumbnail_text_hint": "物欲が二極化？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-material-desire",
+      "category": "FIRE後の暮らし・心"
+    },
+    {
+      "id": "seo-160",
+      "priority_order": 160,
+      "status": "stocked",
+      "main_keyword": "FIRE 人生 正解 わからない",
+      "secondary_keywords": [
+        "FIRE後 迷い",
+        "FIRE 自由 不安",
+        "会社辞めた 迷い",
+        "FIRE 選択"
+      ],
+      "article_title_plan": "なぜFIREすると「人生の正解」がわからなくなるのか",
+      "slug": "why-fire-no-right-answer",
+      "search_intent": "レールを降りた後に人生の正解がわからなくなる理由と、自分で選び直す方法を知りたい",
+      "unique_angle": "FIREを人生の答えではなく、問いを持って小さく試せる状態として本人の経験から描く",
+      "knowledge_base_topics": [
+        "content_sources/knowledge_base/content_topics.md",
+        "content_sources/knowledge_base/life_after_fire.md",
+        "content_sources/knowledge_base/seo_experience_map.md"
+      ],
+      "internal_link_targets": [
+        "/articles/what-is-fire/",
+        "/articles/side-fire-toha/",
+        "/articles/fire-koukai/"
+      ],
+      "thumbnail_text_hint": "人生の正解がない？",
+      "latest_fact_check_required": false,
+      "published_url": "",
+      "published_at": "",
+      "published_time": "",
+      "published_slot": "",
+      "failed_reason": "",
+      "stock_path": "automation/article_stock/why-fire-no-right-answer",
+      "category": "FIRE入門・考え方"
     }
   ]
 }

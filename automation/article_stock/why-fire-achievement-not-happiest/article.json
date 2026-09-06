@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIRE達成直後が人生で一番幸せとは限らないのか",
+  "meta_description": "FIRE達成直後が人生で一番幸せとは限らない理由を、期待の反動、快楽への慣れ、目標達成後の空白、日常の満足から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "FIRE達成は大きな喜びですが、その高揚感がずっと続くわけではありません。達成後の普通の日に、満足を育てる視点を経験者が話します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Place a huge golden trophy on a stage at the left-rear, while the character sits in the foreground at sunrise with a warm cup and a small blank daily planner, wearing a quiet contented smile rather than a victory pose. Add a path continuing beyond the stage into a colorful landscape, creating depth and a fresh composition. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「FIRE達成」 「＝最高？」. Use bright yellow, coral, white and navy with thick black outlines; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "FIRE達成＝最高？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["スキあらばスキなことをしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-after-10-days/", "anchor": "FIRE達成後の毎日を見る"},
+    {"path": "/articles/fire-happiness-spending/", "anchor": "FIRE後の幸福とお金を考える"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後の本音を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE達成後の後悔を列挙する記事ではなく、達成前の期待と達成直後の高揚が日常へ戻る過程、普通の日の満足を育てる考え方を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると孤独を感じやすくなるのか",
+  "meta_description": "FIRE後に孤独を感じやすくなる理由を、職場という半強制的な人間関係の消失、会話の減少、コミュニティと一人時間の作り方から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "FIRE後は人間関係のストレスが減る一方で、自然に人と会う機会も減ります。孤独を避けるために、無理なく接点を設計する方法を考えます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a quiet train station at night with one warm lantern and several empty benches, but a bright bridge of small glowing speech bubbles leading toward a lively community garden. The character stands by the lantern holding it in one hand and a small open door sign in the other, expression gentle and hopeful. Use cinematic navy, warm orange, mint and red, with a diagonal bridge composition. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「孤独に」 「なる？」. Bold yellow-white-red type with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "孤独になる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["スキあらばスキなことをしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-community/", "anchor": "FIREのコミュニティを知る"},
+    {"path": "/articles/fire-community-place/", "anchor": "本音で話せる場所を読む"},
+    {"path": "/articles/life-after-fire/", "anchor": "一人時間と人との接点を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "友達が減る現象を扱う記事とは分け、職場という自然発生する接点が消えた後に孤独を感じやすい構造と、コミュニティ・一人時間の配分を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

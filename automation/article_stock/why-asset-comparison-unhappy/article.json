@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜ他人の資産額を見ると不幸になるのか",
+  "meta_description": "他人の資産額を見て不幸になる理由を、比較の基準が動く仕組み、SNSの見え方、FIREの自分軸を取り戻す方法から考えます。",
+  "category": "FIRE入門・考え方",
+  "lead": "資産額は参考になりますが、見続けるほど安心が遠のくことがあります。他人の数字を自分の生活設計へ持ち込み過ぎないための見方を整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a giant mirrored scoreboard made of blank glowing panels, with abstract coin icons and upward arrows but no readable numbers. The character stands in the exact center between the reflections, holding a small personal compass in one hand and covering one mirror with the other, expression relieved and thoughtful. Use a sharp split-screen composition with neon red, electric blue, gold and white, with the character’s own path glowing under his feet. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「比べるほど」 「不幸？」. Thick yellow-white-red letters with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "比べるほど不幸？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["自分の腹からでた言葉で定義付けしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を考える"},
+    {"path": "/articles/side-fire-toha/", "anchor": "自分に合うFIREの形を知る"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円でFIREした実例を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "資産との距離感を扱う記事を補完し、SNSやFIRE界隈で他人の数字を基準にすると不幸になる比較心理と、自分の生活費へ視点を戻す方法を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

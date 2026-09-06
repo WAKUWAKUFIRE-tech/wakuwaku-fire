@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREした後、また働きたくなるのか",
+  "meta_description": "FIREした後にまた働きたくなる理由を、収入以外の役割、成長、人とのつながり、選べる仕事という視点から経験者が考えます。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "FIRE後に働きたくなるのは、FIREに失敗したからとは限りません。お金以外に仕事がくれていた役割や手応えを、無理なく取り戻す方法を整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a vibrant forked path shaped like a compass: one path leads to a quiet hammock, the other to a lively small workshop. The character stands at the exact center holding a compass in one hand and a small toolbox in the other, smiling with curious eyes as if choosing freely. Use a fresh mint, orange, cobalt and yellow palette, with strong radial composition and no fixed left/right text layout. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「FIRE後」 「また働きたい？」. Large white and yellow lettering with red shadow and black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "FIRE後また働きたい？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな", "スキあらばスキなことをしろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後の仕事の選び方を読む"},
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの働き方を確認する"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の暮らしを組み立てる"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の具体的な仕事紹介ではなく、再び働きたくなる心理を役割・成長・つながりに分解し、働く選択を敗北扱いしない視点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

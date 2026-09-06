@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜ年収が上がっても会社を辞めたい気持ちは消えないのか",
+  "meta_description": "年収が上がっても会社を辞めたい気持ちが消えない理由を、お金と幸福、裁量、意味、ストレス、時間の使い方から考えます。",
+  "category": "FIRE入門・考え方",
+  "lead": "年収アップはうれしいのに、会社を辞めたい気持ちが残ることがあります。収入だけで埋まらない仕事の負担と、自分が欲しい自由を切り分けます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a towering golden salary staircase that transforms into a shiny cage at the top, while the character stands halfway on a side platform, holding a bright key in one hand and loosening a necktie with the other, expression relieved and defiant. Use an exaggerated low-angle composition with red, gold, white and deep blue, a bright open sky beyond the cage. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「年収UPでも」 「辞めたい？」. Thick white-yellow-red letters with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "年収UPでも辞めたい？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-08-11_勢いで会社を辞めてFIREした結果…6年後も生きています【セミリタイア】.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな", "自分の腹からでた言葉で定義付けしろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-reasons/", "anchor": "FIREしたい理由を整理する"},
+    {"path": "/articles/what-is-fire/", "anchor": "FIREの考え方を確認する"},
+    {"path": "/articles/side-fire-toha/", "anchor": "働きながら自由を作る方法を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "会社を辞めたい理由の列挙ではなく、年収という一つの報酬が裁量・時間・意味・ストレスを埋めきれない構造を中心に扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-basics"
+}

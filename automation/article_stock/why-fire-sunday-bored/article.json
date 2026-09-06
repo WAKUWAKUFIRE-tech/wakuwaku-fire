@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると「毎日日曜日」なのに退屈するのか",
+  "meta_description": "FIREして毎日が日曜日になったのに退屈する理由を、自由時間の増加、快楽への慣れ、予定の境目が消える問題から経験者目線で考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "毎日休みなら楽しいはずなのに、退屈になることがあります。自由時間を減らすのではなく、時間に区切りと手応えを戻す考え方を紹介します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. The character is reclining diagonally in a colorful hammock suspended between two giant calendar pages with all dates intentionally blank, holding a small fan and staring at the sky with an exaggerated bored expression. Add a vivid turquoise sky, orange sun, playful confetti and a small empty stage in the background. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「毎日日曜」 「なのに退屈？」. Bold red, yellow and white lettering with thick black outline, dynamic curved placement; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "毎日日曜なのに退屈？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-06-12_これがFIREのガチ日常！暇なんて無い日々、何をやってるか暴露します【早期リタイア】.md"
+  ],
+  "used_personal_quotes": ["自由過ぎると溺れる、自ら制約を課せ", "スキあらばスキなことをしろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後に暇になる理由を読む"},
+    {"path": "/articles/fire-after-10-days/", "anchor": "FIRE後の10日間の過ごし方を見る"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の暮らし全体を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "既存の『暇になるか』の記事が現象と日常の実態を扱うのに対し、毎日が休日でも退屈する時間構造と快楽への慣れに焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

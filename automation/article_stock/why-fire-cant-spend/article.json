@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIRE民はお金を使えないのか",
+  "meta_description": "FIREを達成してもお金を使えない理由を、節約習慣、資産が減る怖さ、罪悪感、使っていい予算の作り方から考えます。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "貯めるのが得意な人ほど、FIRE後に使うのが苦手になることがあります。資産全体を守りながら、使うための小さなルールを作る考え方です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Place a bright open wallet on a seesaw: one side has a glowing safety vault, the other side has colorful travel tickets and a meal. The character is standing on the pivot, holding a giant coin in one hand and an inviting open palm toward the enjoyable side with the other, expression torn between caution and excitement. Use a bold diagonal seesaw composition, emerald, orange, yellow and navy. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「使えない？」 「FIRE後のお金」. Large red-yellow-white letters with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "使えない？FIRE後のお金",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "失敗したらネタにして笑い飛ばせ"],
+  "external_sources": [
+    {
+      "url": "https://www.j-flec.go.jp/links/jikan/lesson2/",
+      "title": "資産運用とは？｜投資の時間｜J-FLEC",
+      "why": "生活費・近く使うお金・当面使わないお金を分ける考え方を確認するため"
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "資産形成の基本｜NISA特設ウェブサイト｜金融庁",
+      "why": "資産運用には元本割れの可能性があることを確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-happiness-spending/", "anchor": "FIRE後のお金の使い方を考える"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩しの基本を確認する"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円でFIREした後の変化を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の幸福なお金の使い方を提案する記事とは分け、貯める能力が高い人が使えなくなる心理と、資産減少への恐怖を中心に扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIRE民は暴落すると働いていた頃より怖くなるのか",
+  "meta_description": "FIRE後の暴落が働いていた頃より怖く感じる理由を、給与収入の消失、資産の取り崩し、回復を待てる期間、生活費の設計から考えます。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "暴落は誰にとっても不安ですが、FIRE後は給与という回復の土台がないぶん、資産減少が重く見えます。数字と生活を分けて備える方法です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a dramatic red stock-chart storm with large falling abstract arrows and coins, while the character stands on a small safe island under a bright yellow umbrella, holding a sturdy rope in one hand and a sealed emergency box in the other, expression tense but calm. Use a strong diagonal storm composition, crimson, electric blue, gold and white, no extra graph labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「暴落が」 「怖い理由」. Large yellow-white-red lettering with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "暴落が怖い理由",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "失敗したらネタにして笑い飛ばせ"],
+  "external_sources": [
+    {
+      "url": "https://www.fsa.go.jp/news/r6/sonota/20250414/yousei.html",
+      "title": "安定的な資産形成に向けた顧客対応について｜金融庁",
+      "why": "市場が変動する局面でも長期・積立・分散を考える公的情報を確認するため"
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "資産形成の基本｜NISA特設ウェブサイト｜金融庁",
+      "why": "元本割れの可能性と分散投資の基本を確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を考える"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "取り崩しの考え方を読む"},
+    {"path": "/articles/fire-6000man/", "anchor": "資産が増減したFIRE後の実例を見る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "暴落時の具体的な行動計画を扱う記事とは分け、給与収入がなくなったことで暴落が心理的に重くなる理由と、生活費・現金・働く選択肢を残す視点に絞る。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

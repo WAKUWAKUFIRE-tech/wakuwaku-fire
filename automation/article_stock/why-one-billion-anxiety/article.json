@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜ資産1億円あってもお金の不安は消えないのか",
+  "meta_description": "資産1億円あってもお金の不安が消えない理由を、生活費、資産の増減、失う怖さ、基準点が変わる心理から考えます。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "資産1億円は大きな金額ですが、それだけで不安が消えるとは限りません。生活費の設計と、増えた後に変わる安心の基準を分けて見ていきます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Show a gigantic treasure chest labeled only with the exact text 「1億円」, overflowing with glowing coins, while the character stands in front of it holding a tiny umbrella against a dramatic rain cloud and looking worried. Compose the chest low and central, the character in a three-quarter turn, with red warning light on one side and calm blue light on the other. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「1億あっても」 「不安？」. Thick high-contrast white, yellow and red letters with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "1億あっても不安？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-24_前編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-02-16_【前編】1億円弱失ってFIRE卒業。仮想通貨の暴落と「アリエッティ」な決断.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "自分に期待しろ"],
+  "external_sources": [
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "資産形成の基本｜NISA特設ウェブサイト｜金融庁",
+      "why": "資産形成における長期・積立・分散と元本割れの可能性を確認するため"
+    },
+    {
+      "url": "https://www.j-flec.go.jp/links/jikan/lesson2/",
+      "title": "資産運用とは？｜投資の時間｜J-FLEC",
+      "why": "生活に必要なお金と運用に回すお金を分ける基本を確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-6000man/", "anchor": "資産6000万円でFIREした後の現実を読む"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "資産を取り崩す考え方を確認する"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "資産との距離感を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "1億円でFIREできるかという金額判定ではなく、資産が増えても安心感が比例しない心理と、減少局面に備える生活設計を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると承認欲求が強くなることがあるのか",
+  "meta_description": "FIRE後に承認欲求が強くなる理由を、会社の評価が消えること、SNSや資産額への依存、誰に何を届けたいかを見直す方法から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "会社で得ていた評価がなくなると、自由なのに誰かに認められたくなることがあります。SNSや資産額以外にも手応えを置く方法を整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a theatrical spotlight shining on the character in the center, surrounded by floating colorful heart and speech-bubble shapes without any numbers or words. He is holding a small mirror in one hand and lowering a bright spotlight switch with the other, expression self-aware and slightly embarrassed. Use a bold stage perspective, hot pink, orange, cyan and deep navy, with light rays forming a starburst. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「認められたい？」 「FIRE後の承認欲求」. Large white-yellow-red lettering with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "認められたい？FIRE後の承認欲求",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["自分の腹からでた言葉で定義付けしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-community/", "anchor": "FIREの仲間と交流する場を知る"},
+    {"path": "/articles/fire-stock-distance/", "anchor": "資産額との距離を考える"},
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後の時間の使い方を読む"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "孤独や人間関係の変化ではなく、会社の肩書きや評価が消えた後にSNS・資産額・発信へ承認を求める心理に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

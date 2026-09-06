@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると起業したくなる人が多いのか",
+  "meta_description": "FIRE後に起業したくなる理由を、お金ではなくゲーム性、成長、役割、社会との接点を求める心理と、小さく試す方法から考えます。",
+  "category": "FIRE後の仕事・収入",
+  "lead": "FIREして働かなくてもいい状態になると、逆に事業を始めたくなる人がいます。収入以外の動機を分解し、生活を壊さず試す視点を整理します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a tiny colorful rocket launching from a cozy workshop filled with blank tools and idea shapes, with a wide open sky beyond. The character stands at the workshop doorway holding a small blueprint in one hand and a wrench in the other, expression excited and mischievous, body angled toward the launch. Use an upward diagonal composition, orange, turquoise, red and navy, no readable labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「FIRE後」 「起業したくなる？」. Bold white-yellow-red lettering with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "FIRE後起業したくなる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["自分の人的資源を軽んじるな", "できない理由を探すより、できる方法を考えろ。"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後の仕事と収入を考える"},
+    {"path": "/articles/side-fire-toha/", "anchor": "サイドFIREの働き方を確認する"},
+    {"path": "/articles/fire-community/", "anchor": "人との接点を作る方法を知る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の仕事選びではなく、起業という不確実なゲームへ惹かれる理由を成長・裁量・つながりに分解し、生活を守りながら試す視点に絞る。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-work"
+}

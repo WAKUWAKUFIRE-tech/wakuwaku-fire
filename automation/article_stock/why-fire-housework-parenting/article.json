@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると子育てや家事の見え方が変わるのか",
+  "meta_description": "FIRE後に子育てや家事の見え方が変わる理由を、時間の余裕、見えない段取り、家庭内の役割、家族の自由から実体験を交えて考えます。",
+  "category": "家族とFIRE",
+  "lead": "仕事を辞めて家にいる時間が増えると、家事や子育ての量と意味が見えやすくなります。FIRE後の家庭内役割を、家族と一緒に組み直す考え方です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a bright home floorplan viewed from above, with colorful chore icons, a school bag, meal tray and family silhouettes arranged as a flowing path. The character kneels at the center holding a laundry basket in one hand and a small calendar board in the other, expression surprised then warm, with a family scene in the background. Use a lively coral, mint, yellow and navy composition, no readable labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「家事・育児」 「見え方が変わる？」. Thick white-yellow-red typography with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "家事・育児見え方が変わる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md",
+    "content_sources/note/articles/2026-06-27_サイドFIRE6年目、中年おっさんのリアルな一日を全部さらけ出します.md"
+  ],
+  "used_personal_quotes": ["スキあらばスキなことをしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-household/", "anchor": "家事とFIREの関係を読む"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の暮らしを家族で考える"},
+    {"path": "/articles/work-after-fire/", "anchor": "FIRE後の役割と仕事を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "専業主夫としての家事育児の実例とは分け、FIREで時間が増えたことで見えない家事や家庭内役割の意味が変わる仕組みに焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "family-fire"
+}

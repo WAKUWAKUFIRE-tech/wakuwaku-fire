@@ -1,0 +1,38 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると節約をやめられなくなるのか",
+  "meta_description": "FIRE達成後も節約をやめられない理由を、習慣、資産が減る恐怖、生活防衛、使うための予算、貯めた目的から考えます。",
+  "category": "FIRE後のお金・投資・制度",
+  "lead": "FIREの武器だった節約が、達成後も心を縛ることがあります。支出を増やすかどうかではなく、安心を残したうえで使える枠を作る方法です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Show three colorful savings jars on a rotating pedestal, with one jar locked and another pouring coins into a bright life-experience box. The character kneels in front, holding a small key in one hand and a pair of scissors cutting a tiny price-tag string with the other, expression relieved and amused. Use a fresh radial composition, emerald, orange, yellow and navy, no readable jar labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「節約が」 「止まらない？」. Bold white-yellow-red text with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "節約が止まらない？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "自分に期待しろ"],
+  "external_sources": [
+    {
+      "url": "https://www.j-flec.go.jp/links/jikan/lesson2/",
+      "title": "資産運用とは？｜投資の時間｜J-FLEC",
+      "why": "生活に必要なお金と運用に回すお金を分ける家計管理の基本を確認するため"
+    },
+    {
+      "url": "https://www.fsa.go.jp/policy/nisa2/invest/",
+      "title": "資産形成の基本｜NISA特設ウェブサイト｜金融庁",
+      "why": "資産運用のリスクと長期・積立・分散の考え方を確認するため"
+    }
+  ],
+  "internal_links": [
+    {"path": "/articles/fire-happiness-spending/", "anchor": "FIRE後にお金を使う考え方を読む"},
+    {"path": "/articles/fire-4percent-rule/", "anchor": "生活費と取り崩しを考える"},
+    {"path": "/articles/fire-6000man/", "anchor": "FIRE後の資産の現実を見る"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "幸福のための支出を提案する記事とは分け、節約が達成後もアイデンティティとして残り、使うことへ罪悪感が生まれる心理を扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-money"
+}

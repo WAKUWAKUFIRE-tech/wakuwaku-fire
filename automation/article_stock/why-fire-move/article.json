@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると「住む場所」を変えたくなるのか",
+  "meta_description": "FIRE後に住む場所を変えたくなる理由を、通勤の消失、家賃と移動費、地方移住、家族の条件、今の場所で自由を増やす方法から考えます。",
+  "category": "住まい・移住",
+  "lead": "通勤がなくなると、駅近や職場へのアクセスが住まいの最優先ではなくなります。引っ越しの勢いだけで決めず、暮らし全体を比べる方法です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a colorful crossroads map shaped like a house floorplan, with one route toward a city skyline and another toward mountains and sea, plus a third route staying in the familiar neighborhood. The character stands at the crossroads holding a small house model in one hand and a compass in the other, looking excited and thoughtful. Use a wide overhead perspective, coral, turquoise, yellow and navy, with no readable map labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「住む場所」 「変える？」. Bold white-yellow-red lettering with thick black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "住む場所変える？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-18_FIRE後に専業主夫になるとどうなる？家事育児とお金のリアルを実体験で話します！.md"
+  ],
+  "used_personal_quotes": ["できない理由を探すより、できる方法を考えろ。", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-preparation/", "anchor": "FIRE前の暮らしの準備を確認する"},
+    {"path": "/articles/fire-household/", "anchor": "家族と住まいの条件を考える"},
+    {"path": "/articles/life-after-fire/", "anchor": "FIRE後の暮らしを設計する"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "住宅ローンや移住費用の制度解説ではなく、通勤がなくなって住まいの評価軸が変わる理由と、家族を含めて試しながら決めるプロセスを扱う。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-housing"
+}

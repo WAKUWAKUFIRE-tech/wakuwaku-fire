@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると物欲が減る人と増える人に分かれるのか",
+  "meta_description": "FIRE後に物欲が減る人と増える人に分かれる理由を、ストレス消費、暇による消費、節約習慣、自由に使う予算から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "FIRE後に買い物が減る人もいれば、暇や刺激を埋めるために増える人もいます。物欲の量ではなく、消費の理由を見分ける考え方です。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create a split-room scene with a calm minimalist room on one side and a colorful shopping storm on the other, connected by a central doorway. The character stands in the doorway holding a small shopping bag in one hand and a growing plant in the other, expression surprised as he chooses what to keep. Use a bold central symmetry with emerald, hot orange, cyan and deep navy, no product labels. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「物欲が」 「二極化？」. Thick yellow-white-red type with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "物欲が二極化？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-22_前編【ぶっちゃけ】30歳でFIREしてもう5年！今の心境と現実【サイドFIRE・セミリタイア】.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["切り札を常に持て、余裕の根拠を潜ませろ", "失敗したらネタにして笑い飛ばせ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-happiness-spending/", "anchor": "FIRE後のお金の使い方を読む"},
+    {"path": "/articles/fire-6000man/", "anchor": "FIRE後の資産と暮らしを見る"},
+    {"path": "/articles/fire-after-boredom/", "anchor": "暇と消費の関係を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "お金を使えない心理を扱う記事とは分け、ストレス消費が減るケースと、暇・刺激から消費が増えるケースを対比し、消費の動機を見直す方法に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

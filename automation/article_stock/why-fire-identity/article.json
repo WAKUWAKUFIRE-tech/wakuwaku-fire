@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると「自分が何者かわからなくなる」のか",
+  "meta_description": "FIRE後に自分が何者かわからなくなる理由を、会社員の肩書き、日常の役割、他人からの見られ方、自由な自己定義から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "会社員という肩書きが消えると、自由なのに自分の説明が難しくなることがあります。FIRE後の役割を一つに固定せず、試しながら作る方法を話します。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Arrange three large theatrical masks floating around the character: a plain blank mask, a work mask and a colorful hobby mask. The character is seated at the center on a rotating round stage, holding the blank mask away from his face with one hand and touching his chin with the other, expression thoughtful and slightly surprised. Use deep violet, electric blue, coral and gold, with spotlight beams and a strong circular composition. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「FIRE後」 「自分は何者？」. Bold white and yellow type with red-black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "FIRE後、自分は何者？",
+  "source_note_paths": [
+    "content_sources/note/articles/2024-10-28_おふざけと真面目の狭間でFIRE論を叫ぶ男の自己紹介.md",
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md"
+  ],
+  "used_personal_quotes": ["自分の腹からでた言葉で定義付けしろ", "自分に期待しろ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/what-is-fire/", "anchor": "FIREの考え方を知る"},
+    {"path": "/articles/fire-koukai/", "anchor": "FIRE後の本音と後悔を読む"},
+    {"path": "/articles/life-after-fire/", "anchor": "退職後の役割を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "FIRE後の後悔や孤独の一般論ではなく、会社員という肩書きが自己認識を支えていたことと、役割を再構築する過程に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}

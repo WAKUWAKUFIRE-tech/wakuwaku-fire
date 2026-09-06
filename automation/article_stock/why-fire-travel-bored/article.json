@@ -1,0 +1,27 @@
+{
+  "prepared_at": "2026-09-06",
+  "body_file": "body.html",
+  "title": "なぜFIREすると旅行しても満足できなくなることがあるのか",
+  "meta_description": "FIRE後に旅行しても満足できないことがある理由を、非日常の習慣化、期待の膨張、移動の疲れ、旅を日常へ戻す工夫から考えます。",
+  "category": "FIRE後の暮らし・心",
+  "lead": "自由になったら旅行し放題でも、毎回大きな満足が得られるとは限りません。旅が日常化する仕組みと、満足を取り戻す視点を考えます。",
+  "thumbnail_prompt": "Use case: ads-marketing. Premium 1:1 square Japanese article thumbnail using the exact supplied character reference. Create an endless spiral of colorful suitcases, postcards and travel stamps forming a giant loop. The character is sitting on one suitcase at the center, holding a postcard in one hand and a small map in the other, expression surprised that the road keeps repeating. Add one vivid quiet local scene opening beyond the loop, with orange, teal, yellow and navy contrast. Exactly two arms and exactly two hands, natural anatomy, no extra limbs or fingers. Create illustration and typography together, never add text later. Render only these exact Japanese text elements: 「旅行も」 「飽きる？」. Bold white-yellow-red type with black outline; no gray overlay, no personal information, no names, no age, no address, no phone, no email, no watermark, no browser UI, no random readable text, no logos.",
+  "thumbnail_text": "旅行も飽きる？",
+  "source_note_paths": [
+    "content_sources/note/articles/2025-03-25_後編【FIRE5年目のリアル】後悔や不安などあるのか？【セミリタイア・サイドFIRE】.md",
+    "content_sources/note/articles/2026-06-02_【FIREの闇】早期リタイアは暇だしお金が足りなくなるって真実なのか？.md",
+    "content_sources/note/articles/2026-08-04_FIRE達成者は日々何をしてる？30歳で会社を辞めた僕の、キラキラしてない日常.md"
+  ],
+  "used_personal_quotes": ["スキあらばスキなことをしろ", "失敗したらネタにして笑い飛ばせ"],
+  "external_sources": [],
+  "internal_links": [
+    {"path": "/articles/fire-hima/", "anchor": "FIRE後の時間の使い方を読む"},
+    {"path": "/articles/life-after-fire/", "anchor": "旅行以外のFIRE後の暮らしを見る"},
+    {"path": "/articles/fire-after-boredom/", "anchor": "飽きとの向き合い方を考える"}
+  ],
+  "cannibalization": "clear",
+  "cannibalization_note": "旅行先や費用の紹介ではなく、非日常が日常化して刺激が薄れる心理と、旅行を回数競争にしない過ごし方に焦点を置く。",
+  "needs_review": false,
+  "review_reason": "",
+  "category_id": "fire-life"
+}
