@@ -429,7 +429,7 @@
 .fs-stats-footer .fs-button { color: var(--fs-ink); background: var(--fs-yellow); box-shadow: 0 6px 0 #9d6d21; }
 .fs-stats-footer .fs-button:hover,
 .fs-stats-footer .fs-button:focus-visible { background: #ffdb64; }
-.fs-seo-info { margin-top: 30px; }
+.fs-seo-info { --fs-ink: #2b2530; --fs-muted: #716975; --fs-red-dark: #b92835; --fs-yellow: #ffcf45; --fs-shadow: 0 20px 55px rgba(103, 53, 42, .12); --fs-shadow-small: 0 10px 26px rgba(103, 53, 42, .08); margin-top: 30px; }
 
 @media (min-width: 820px) {
   .fs-hero-card { grid-template-columns: minmax(0, 1.2fr) minmax(310px, .8fr); }
