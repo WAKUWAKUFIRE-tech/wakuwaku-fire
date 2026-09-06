@@ -92,6 +92,87 @@ document.querySelectorAll(".article-preview-card").forEach((card) => {
   media.replaceChildren(mediaLink);
 });
 
+// コラム記事では、本文と一緒に読めるおすすめ記事をPCの右側に表示します。
+// 元の関連記事カードを使うため、記事が追加されても自動的に内容が更新されます。
+function renderArticleRecommendations() {
+  const layout = document.querySelector(".article-layout");
+  const articlePage = layout?.querySelector(".article-page");
+  const relatedSection = layout?.querySelector(".related-articles");
+
+  if (!layout || !articlePage || !relatedSection || layout.querySelector(".article-recommendations")) return;
+
+  const cards = [...relatedSection.querySelectorAll(".article-preview-card")].slice(0, 5);
+  if (cards.length === 0) return;
+
+  const aside = document.createElement("aside");
+  aside.className = "article-recommendations";
+  aside.setAttribute("aria-labelledby", "article-recommendations-title");
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "eyebrow eyebrow--yellow article-recommendations__eyebrow";
+  eyebrow.textContent = "READ NEXT";
+
+  const heading = document.createElement("h2");
+  heading.className = "article-recommendations__title";
+  heading.id = "article-recommendations-title";
+  heading.textContent = "おすすめ記事";
+
+  const intro = document.createElement("p");
+  intro.className = "article-recommendations__intro";
+  intro.textContent = "気になるFIREコラムを、もう1本。";
+
+  const list = document.createElement("ol");
+  list.className = "article-recommendations__list";
+
+  cards.forEach((card, index) => {
+    const href = card.matches("a[href]")
+      ? card.getAttribute("href")
+      : card.querySelector("a[href]")?.getAttribute("href");
+    const title = card.querySelector("h2, h3")?.textContent.trim();
+
+    if (!href || !title) return;
+
+    const item = document.createElement("li");
+    item.className = "article-recommendations__item";
+
+    const link = document.createElement("a");
+    link.className = "article-recommendations__link";
+    link.href = href;
+
+    const number = document.createElement("span");
+    number.className = "article-recommendations__number";
+    number.setAttribute("aria-hidden", "true");
+    number.textContent = String(index + 1).padStart(2, "0");
+
+    const body = document.createElement("span");
+    body.className = "article-recommendations__body";
+
+    const category = document.createElement("span");
+    category.className = "article-recommendations__category";
+    category.textContent = card.querySelector(".article-preview-card__category")?.textContent.trim() || "FIREコラム";
+
+    const titleElement = document.createElement("strong");
+    titleElement.className = "article-recommendations__article-title";
+    titleElement.textContent = title;
+
+    const date = document.createElement("span");
+    date.className = "article-recommendations__date";
+    date.textContent = card.querySelector(".article-preview-card__date")?.textContent.trim() || "";
+
+    body.append(category, titleElement, date);
+    link.append(number, body);
+    item.append(link);
+    list.append(item);
+  });
+
+  if (list.children.length === 0) return;
+
+  aside.append(eyebrow, heading, intro, list);
+  articlePage.insertAdjacentElement("afterend", aside);
+}
+
+renderArticleRecommendations();
+
 // リンクを登録した本だけを、日本時間の日付で1日1冊表示します。
 const dailyBookSection = document.querySelector("#daily-book");
 const dailyBookImage = document.querySelector("#daily-book-image");
