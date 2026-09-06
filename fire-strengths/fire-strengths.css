@@ -341,6 +341,15 @@
 
 .fs-community-section { padding: 25px; background: var(--fs-blue); border-radius: 28px; }
 .fs-community-section .fs-section-heading { margin-bottom: 15px; }
+.fs-community-poster { display: grid; grid-template-columns: minmax(150px, 230px) minmax(0, 1fr); gap: 20px; align-items: center; margin: 18px 0 16px; padding: 10px; color: var(--fs-ink); background: rgba(255,255,255,.88); border: 1px solid rgba(255,255,255,.9); border-radius: 22px; box-shadow: var(--fs-shadow-small); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.fs-community-poster:hover { transform: translateY(-2px); box-shadow: var(--fs-shadow); }
+.fs-community-poster:focus-visible { outline: 3px solid var(--fs-red); outline-offset: 3px; }
+.fs-community-poster img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 15px; }
+.fs-community-poster__body { display: grid; gap: 10px; padding: 10px 16px 10px 0; }
+.fs-community-poster__eyebrow { color: var(--fs-red-dark); font-family: Arial, sans-serif; font-size: .68rem; font-weight: 900; letter-spacing: .14em; }
+.fs-community-poster__body strong { font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 950; letter-spacing: -.06em; line-height: 1.15; }
+.fs-community-poster__description { color: var(--fs-muted); font-size: .82rem; line-height: 1.7; }
+.fs-community-poster__cta { display: inline-flex; width: max-content; align-items: center; gap: 8px; padding: 10px 14px; color: var(--fs-ink); background: var(--fs-yellow); border-radius: 999px; font-size: .76rem; font-weight: 950; }
 .fs-comparison-card { display: grid; grid-template-columns: minmax(0, 1fr) repeat(2, minmax(100px, .42fr)); gap: 12px; align-items: stretch; }
 .fs-comparison-main,
 .fs-comparison-metric { padding: 19px; background: rgba(255,255,255,.75); border-radius: 18px; }
@@ -488,6 +497,10 @@
   .fs-two-column-sections { grid-template-columns: 1fr; gap: 0; }
   .fs-two-column-sections .fs-result-section + .fs-result-section { margin-top: 48px; }
   .fs-community-section { padding: 19px 14px; border-radius: 23px; }
+  .fs-community-poster { grid-template-columns: 1fr; gap: 12px; padding: 8px; }
+  .fs-community-poster img { max-width: 300px; margin: 0 auto; }
+  .fs-community-poster__body { padding: 7px 12px 12px; }
+  .fs-community-poster__cta { width: 100%; justify-content: center; }
   .fs-comparison-card { grid-template-columns: 1fr 1fr; }
   .fs-comparison-main { grid-column: 1 / -1; }
   .fs-rank-row { grid-template-columns: 37px minmax(0, 1fr) 67px; gap: 7px; padding: 11px 10px; }
