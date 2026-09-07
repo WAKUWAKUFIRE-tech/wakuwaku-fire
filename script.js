@@ -407,3 +407,64 @@ document.querySelectorAll("[data-analytics-event]").forEach((link) => {
     }
   });
 });
+
+// トップページのデザイン刷新用。スクロール演出は軽量な transform/opacity だけで行います。
+const designRefresh = document.body?.classList.contains("design-refresh");
+
+if (designRefresh) {
+  const revealTargets = document.querySelectorAll(
+    ".design-refresh .intro, .design-refresh .column-preview, .design-refresh .contents, " +
+    ".design-refresh .daily-book, .design-refresh .fire-card-section, .design-refresh .operator-preview, " +
+    ".design-refresh .article-preview-card, .design-refresh .content-card",
+  );
+
+  document.body.classList.add("design-motion-ready");
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach((target) => target.classList.add("design-reveal", "is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -10%", threshold: 0.08 });
+
+    revealTargets.forEach((target, index) => {
+      target.classList.add("design-reveal");
+      if (target.classList.contains("article-preview-card") || target.classList.contains("content-card")) {
+        target.style.setProperty("--design-reveal-delay", `${Math.min(index % 6, 5) * 55}ms`);
+      }
+      revealObserver.observe(target);
+    });
+  }
+
+  const cinematicHero = document.querySelector(".design-refresh .hero--cinematic");
+  const cinematicFrame = cinematicHero?.querySelector(".hero__visual-frame");
+
+  if (cinematicHero && cinematicFrame && !prefersReducedMotion) {
+    let parallaxFrame = 0;
+    let parallaxQueued = false;
+
+    const updateHeroParallax = () => {
+      parallaxQueued = false;
+      const rect = cinematicHero.getBoundingClientRect();
+      const viewportCenter = window.innerHeight * 0.5;
+      const heroCenter = rect.top + rect.height * 0.5;
+      const shift = Math.max(-16, Math.min(16, (viewportCenter - heroCenter) * 0.035));
+      cinematicFrame.style.setProperty("--hero-parallax", `${shift.toFixed(2)}px`);
+    };
+
+    const queueHeroParallax = () => {
+      if (parallaxQueued) return;
+      parallaxQueued = true;
+      parallaxFrame = window.requestAnimationFrame(updateHeroParallax);
+    };
+
+    updateHeroParallax();
+    window.addEventListener("scroll", queueHeroParallax, { passive: true });
+    window.addEventListener("resize", queueHeroParallax, { passive: true });
+    window.addEventListener("pagehide", () => window.cancelAnimationFrame(parallaxFrame), { once: true });
+  }
+}
