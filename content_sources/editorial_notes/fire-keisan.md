@@ -2,29 +2,32 @@
 
 - 記事ID: seo-014
 - main keyword: FIRE 計算
-- 公開日: 2026-08-31
+- 公開日: 2026-09-07
 
 ## 参照ファイル
 
-- content_sources/knowledge_base/money_philosophy.md
+- content_sources/CONTENT_WRITING_RULES.md
+- content_sources/knowledge_base/personal_quotes_and_credo.md
 - content_sources/knowledge_base/seo_experience_map.md
+- content_sources/knowledge_base/numbers_and_facts.md
+- content_sources/knowledge_base/contradictions_and_updates.md
+- content_sources/note/index.md
+- content_sources/knowledge_base/money_philosophy.md
 
 ## 参照note（公開部分のみ）
 
-- content_sources/note/articles/2026-08-07_FIRE民が2年間話し合って分かったこと30選｜お金を増やすだけでは自由になれなかった.md
-- content_sources/note/articles/2026-07-05_資産6000万円でサイドFIREした率直な10の感想.md
-- content_sources/note/articles/2026-07-25_スマホを開いて最初に株価を見る人は危険です｜FIREしても自由になれない「投資病」の治し方.md
-- content_sources/note/articles/2026-08-30_なぜ人生はうまくいかないのか？FIREして1.4億円まで増やし、失ったから分かった人生の落とし穴.md
+- なし
 
-## 計算・編集メモ
+## 本人提供フレーズ
 
-- 手順は年間生活費を出す、継続収入を引く、取り崩し率を仮置きする、下落年を想像する、前提を更新するという流れ。
-- 4%は過去データ由来の目安として説明し、現実の資産寿命や日本の制度を保証しない。
-- RocketNow初回プラス22,000円は継続収入に換算しない。
-- 6000万円でFIREした本人経験は、数字の再現条件ではなく前提が変わる例として使う。
+- なし
+
+## 最新情報ソース
+
+- なし
 
 ## 編集時の注意
 
-- 個別の投資判断・売買推奨に変換しない。
-- 本人の氏名、住所、連絡先などの個人情報を入れない。
-- 本人の公開noteを参照した旨を読者向けに表示しない。
+- 本人の事実はnote原文とknowledge_baseの時点を併記する。
+- 有料部分、非公開部分、確認できない現在値を推測しない。
+- 制度・税金・投資の説明は記事公開時点の公式情報を再確認する。

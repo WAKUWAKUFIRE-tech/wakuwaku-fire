@@ -363,3 +363,24 @@ external sources:
 - なし
 公開結果: FAILED
 理由: 公開URL確認失敗（GitHub Actions）
+
+## PUBLISHED: FIREの計算方法を簡単に解説｜必要資産はどう求める？
+
+article id: seo-014
+priority_order: 14
+公開日・時刻（JST）: 2026-09-07 07:00:00
+公開枠: 2026-09-07T07:00:00+09:00
+main keyword: FIRE 計算
+title: FIREの計算方法を簡単に解説｜必要資産はどう求める？
+slug: fire-keisan
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-keisan/
+thumbnail file: articles/fire-keisan/thumbnail.png
+thumbnail text: どう計算？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
