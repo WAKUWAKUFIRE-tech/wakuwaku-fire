@@ -1124,11 +1124,28 @@ async function markFailed(id, reason) {
   const queue = await readQueue();
   const item = id ? queue.items.find((candidate) => candidate.id === id) : queue.items.find((candidate) => candidate.status === "published" && candidate.published_at === currentJst().date);
   if (!item) throw new FatalPublishError("公開確認失敗として記録する記事が見つかりません。");
+  const failedDate = item.published_at || currentJst().date;
+  const failedTime = item.published_time || currentJst().time;
+  const failedSlot = item.published_slot || "";
   item.status = "failed";
   item.failed_reason = reason || "公開URL確認に失敗しました。";
+  item.published_url = "";
+  item.published_at = "";
+  item.published_time = "";
+  item.published_slot = "";
+  try {
+    await removeIfExists(`articles/${item.slug}`);
+    await removeIfExists(`${config.paths.editorial_notes}/${item.slug}.md`);
+    const remainingArticles = await readPublishedArticles();
+    await updateArticleIndexes(remainingArticles);
+    await updateSideFireComparisonHub(remainingArticles);
+    await updateSitemap(remainingArticles, currentJst().date);
+  } catch (error) {
+    item.failed_reason += ` / 公開生成物のロールバック失敗: ${error.message}`;
+  }
   await saveQueue(queue);
   const generated = { title: item.generated_title || item.article_title_plan, thumbnail_text: item.thumbnail_text_hint, external_sources: [], used_personal_quotes: [] };
-  await appendPublishLog(item, generated, [], item.published_at || currentJst().date, "FAILED", item.failed_reason);
+  await appendPublishLog(item, generated, [], failedDate, "FAILED", item.failed_reason, failedTime, failedSlot);
   console.log(`failedとして記録しました: ${item.id}`);
 }
 

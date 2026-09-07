@@ -85,7 +85,7 @@ jobs:
             exit 0
           fi
           slug="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(".auto-publish-result.json","utf8")); process.stdout.write(r.slug || "");')"
-          node scripts/verify_public_site.mjs --slug "$slug" --attempts 8 --wait-seconds 15
+          node scripts/verify_public_site.mjs --slug "$slug" --attempts 24 --wait-seconds 15
 
       - name: Record public verification failure
         if: steps.verify.outcome == 'failure'
@@ -96,7 +96,7 @@ jobs:
           node scripts/auto_publish.mjs --mark-failed --id "$id" --reason "公開URL確認失敗（GitHub Actions）"
           git config user.name "wakuwaku-fire-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md
+          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md index.html articles sitemap.xml content_sources/editorial_notes automation/article_stock
           if git diff --cached --quiet; then
             echo "No verification failure changes to commit."
           else
