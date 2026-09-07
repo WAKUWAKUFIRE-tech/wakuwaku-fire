@@ -92,16 +92,93 @@ document.querySelectorAll(".article-preview-card").forEach((card) => {
   media.replaceChildren(mediaLink);
 });
 
-// コラム記事では、本文と一緒に読めるおすすめ記事をPCの右側に表示します。
-// 元の関連記事カードを使うため、記事が追加されても自動的に内容が更新されます。
-function renderArticleRecommendations() {
+// コラム記事では、本文と一緒に読める「編集部のおすすめ」をPCの右側に表示します。
+// 下部の関連記事とは別に、記事一覧から候補を取り出して重複を避けます。
+function normalizeRecommendationPath(href, baseUrl = window.location.href) {
+  try {
+    const url = new URL(href, baseUrl);
+    let pathname = url.pathname.replace(/index\.html$/, "");
+    if (!pathname.endsWith("/")) pathname += "/";
+    return pathname;
+  } catch {
+    return "";
+  }
+}
+
+function parseRecommendationCatalog(documentObject, baseUrl) {
+  return [...documentObject.querySelectorAll(".article-preview-card")].map((card) => {
+    const link = card.querySelector(".article-preview-card__more[href], .button[href]");
+    const image = card.querySelector(".article-preview-card__media img");
+    const href = link ? new URL(link.getAttribute("href"), baseUrl).href : "";
+    const title = card.querySelector("h2, h3")?.textContent.trim() || "";
+
+    if (!href || !title) return null;
+
+    return {
+      href,
+      path: normalizeRecommendationPath(href),
+      title,
+      category: card.querySelector(".article-preview-card__category")?.textContent.trim() || "FIREコラム",
+      date: card.querySelector(".article-preview-card__date")?.textContent.trim() || "",
+      image: image ? new URL(image.getAttribute("src"), baseUrl).href : "",
+    };
+  }).filter(Boolean);
+}
+
+async function loadRecommendationCatalog() {
+  const catalogUrl = new URL("../../articles/", window.location.href);
+  const response = await fetch(catalogUrl.href, { credentials: "same-origin" });
+  if (!response.ok) throw new Error(`記事一覧を読み込めませんでした: ${response.status}`);
+  const html = await response.text();
+  const catalogDocument = new DOMParser().parseFromString(html, "text/html");
+  return parseRecommendationCatalog(catalogDocument, catalogUrl.href);
+}
+
+function chooseRecommendationArticles(catalog, currentPath, excludedPaths, currentCategory) {
+  const candidates = catalog.filter((article) => (
+    article.path
+    && article.path !== currentPath
+    && !excludedPaths.has(article.path)
+  ));
+  const selected = [];
+  const remaining = [...candidates];
+
+  while (selected.length < 3 && remaining.length) {
+    const differentCategory = remaining.find((article) => (
+      article.category !== currentCategory
+      && !selected.some((picked) => picked.category === article.category)
+    ));
+    const unusedCategory = remaining.find((article) => (
+      !selected.some((picked) => picked.category === article.category)
+    ));
+    const article = differentCategory || unusedCategory || remaining[0];
+    selected.push(article);
+    remaining.splice(remaining.indexOf(article), 1);
+  }
+
+  return selected;
+}
+
+async function renderArticleRecommendations() {
   const layout = document.querySelector(".article-layout");
   const articlePage = layout?.querySelector(".article-page");
   const relatedSection = layout?.querySelector(".related-articles");
 
   if (!layout || !articlePage || !relatedSection || layout.querySelector(".article-recommendations")) return;
 
-  const cards = [...relatedSection.querySelectorAll(".article-preview-card")].slice(0, 5);
+  let catalog;
+  try {
+    catalog = await loadRecommendationCatalog();
+  } catch {
+    return;
+  }
+
+  const currentPath = normalizeRecommendationPath(window.location.pathname);
+  const excludedPaths = new Set([...relatedSection.querySelectorAll("a[href]")]
+    .map((link) => normalizeRecommendationPath(link.getAttribute("href")))
+    .filter(Boolean));
+  const currentCategory = articlePage.querySelector(".article-page__meta span")?.textContent.trim() || "";
+  const cards = chooseRecommendationArticles(catalog, currentPath, excludedPaths, currentCategory);
   if (cards.length === 0) return;
 
   const aside = document.createElement("aside");
@@ -115,29 +192,37 @@ function renderArticleRecommendations() {
   const heading = document.createElement("h2");
   heading.className = "article-recommendations__title";
   heading.id = "article-recommendations-title";
-  heading.textContent = "おすすめ記事";
+  heading.textContent = "編集部のおすすめ";
 
   const intro = document.createElement("p");
   intro.className = "article-recommendations__intro";
-  intro.textContent = "気になるFIREコラムを、もう1本。";
+  intro.textContent = "下の関連記事とは別に、次に読みたい3本。";
 
   const list = document.createElement("ol");
   list.className = "article-recommendations__list";
 
   cards.forEach((card, index) => {
-    const href = card.matches("a[href]")
-      ? card.getAttribute("href")
-      : card.querySelector("a[href]")?.getAttribute("href");
-    const title = card.querySelector("h2, h3")?.textContent.trim();
-
-    if (!href || !title) return;
-
     const item = document.createElement("li");
     item.className = "article-recommendations__item";
 
     const link = document.createElement("a");
     link.className = "article-recommendations__link";
-    link.href = href;
+    link.href = card.href;
+
+    const thumbnail = document.createElement("span");
+    thumbnail.className = "article-recommendations__thumb";
+    thumbnail.setAttribute("aria-hidden", "true");
+    if (card.image) {
+      const image = document.createElement("img");
+      image.src = card.image;
+      image.alt = "";
+      image.loading = "lazy";
+      image.decoding = "async";
+      image.addEventListener("error", () => thumbnail.remove(), { once: true });
+      thumbnail.append(image);
+    } else {
+      thumbnail.textContent = "FIRE";
+    }
 
     const number = document.createElement("span");
     number.className = "article-recommendations__number";
@@ -149,18 +234,18 @@ function renderArticleRecommendations() {
 
     const category = document.createElement("span");
     category.className = "article-recommendations__category";
-    category.textContent = card.querySelector(".article-preview-card__category")?.textContent.trim() || "FIREコラム";
+    category.textContent = card.category;
 
     const titleElement = document.createElement("strong");
     titleElement.className = "article-recommendations__article-title";
-    titleElement.textContent = title;
+    titleElement.textContent = card.title;
 
     const date = document.createElement("span");
     date.className = "article-recommendations__date";
-    date.textContent = card.querySelector(".article-preview-card__date")?.textContent.trim() || "";
+    date.textContent = card.date;
 
     body.append(category, titleElement, date);
-    link.append(number, body);
+    link.append(thumbnail, number, body);
     item.append(link);
     list.append(item);
   });
@@ -171,7 +256,7 @@ function renderArticleRecommendations() {
   articlePage.insertAdjacentElement("afterend", aside);
 }
 
-renderArticleRecommendations();
+void renderArticleRecommendations();
 
 // リンクを登録した本だけを、日本時間の日付で1日1冊表示します。
 const dailyBookSection = document.querySelector("#daily-book");
