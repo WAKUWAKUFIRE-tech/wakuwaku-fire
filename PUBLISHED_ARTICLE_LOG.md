@@ -405,3 +405,24 @@ thumbnail text: 何歳で？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREまで何年かかる？年収・貯蓄率・運用で変わる達成年数
+
+article id: seo-016
+priority_order: 16
+公開日・時刻（JST）: 2026-09-08 07:00:00
+公開枠: 2026-09-08T07:00:00+09:00
+main keyword: FIRE 何年かかる
+title: FIREまで何年かかる？年収・貯蓄率・運用で変わる達成年数
+slug: fire-nannen
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-nannen/
+thumbnail file: articles/fire-nannen/thumbnail.png
+thumbnail text: FIREまで何年？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
