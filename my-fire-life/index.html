@@ -34,31 +34,35 @@
 
     <main id="main-content">
       <section class="my-life-hero" aria-labelledby="my-life-title">
-        <div class="container">
-          <nav class="breadcrumbs my-life-breadcrumbs" aria-label="パンくずリスト"><a href="../">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">FIRE QUEST</span></nav>
-          <div class="my-life-hero__grid">
-            <div class="my-life-hero__copy">
-              <p class="eyebrow eyebrow--yellow">FIRE QUEST</p>
-              <h1 id="my-life-title">FIRE<br /><span>QUEST</span><small>― 冒険の書 ―</small></h1>
-              <p class="my-life-hero__lead">読むほど、遊ぶほど、あなたのFIRE QUESTが育っていく。</p>
-              <p class="my-life-hero__note">お金だけでは測れない、自由・時間・遊び・学びの積み重ね。</p>
-              <div class="my-life-hero__actions">
-                <a class="button button--yellow" href="../articles/">FIREコラムを読む <span aria-hidden="true">→</span></a>
-                <a class="button button--text my-life-hero__jump" href="#badges">獲得バッジを見る <span aria-hidden="true">↓</span></a>
+        <div class="my-life-hero__visual">
+          <img class="my-life-hero__image" src="../FIREクエスト3.png" alt="FIRE QUESTの冒険世界" width="1672" height="941" fetchpriority="high" />
+          <div class="my-life-hero__content">
+            <div class="container">
+              <nav class="breadcrumbs my-life-breadcrumbs" aria-label="パンくずリスト"><a href="../">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">FIRE QUEST</span></nav>
+              <div class="my-life-hero__grid">
+                <div class="my-life-hero__copy">
+                  <h1 id="my-life-title">FIRE<br /><span>QUEST</span><small>― 冒険の書 ―</small></h1>
+                  <p class="my-life-hero__lead">読むほど、遊ぶほど、あなたのFIRE QUESTが育っていく。</p>
+                  <p class="my-life-hero__note">お金だけでは測れない、自由・時間・遊び・学びの積み重ね。</p>
+                  <div class="my-life-hero__actions">
+                    <a class="button button--yellow" href="../articles/">FIREコラムを読む <span aria-hidden="true">→</span></a>
+                    <a class="button button--text my-life-hero__jump" href="#badges">獲得バッジを見る <span aria-hidden="true">↓</span></a>
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       <section class="my-life-profile-section" aria-labelledby="life-profile-section-title">
         <div class="container">
-          <div class="my-life-profile-section__heading">
-            <p class="eyebrow eyebrow--red">YOUR QUEST STATUS</p>
-            <h2 id="life-profile-section-title">冒険の現在地</h2>
-          </div>
-          <article class="life-profile-card" aria-label="あなたのFIRE QUESTプロフィール">
+          <div class="my-life-profile-section__layout">
+            <div class="my-life-profile-section__heading">
+              <p class="eyebrow eyebrow--red">YOUR QUEST STATUS</p>
+              <h2 id="life-profile-section-title">冒険の現在地</h2>
+            </div>
+            <article class="life-profile-card" aria-label="あなたのFIRE QUESTプロフィール">
             <div class="life-profile-card__topline"><span>WAKUWAKU FIRE / MVP</span><span class="life-profile-card__local-chip">この端末に保存</span></div>
             <div class="life-profile-card__identity">
               <div class="life-profile-card__avatar" aria-hidden="true">W</div>
@@ -84,27 +88,7 @@
               </div>
               <p class="life-nickname-form__hint" data-nickname-status aria-live="polite">いつでも変更できます。</p>
             </form>
-          </article>
-        </div>
-      </section>
-
-      <section class="section fire-card-section" id="fire-card-section" aria-labelledby="fire-card-title">
-        <div class="container">
-          <div class="fire-card-panel">
-            <div class="fire-card-panel__copy">
-              <p class="eyebrow eyebrow--yellow">DAILY FIRE CARD</p>
-              <h2 id="fire-card-title">🔥 FIREカード<br /><span>毎日1枚GET。</span></h2>
-              <p>今日のあなたに届く、FIREの小さなヒント。<br />10枚集めて、第1弾をコンプリートしよう。</p>
-            </div>
-            <div class="fire-card-panel__action">
-              <div class="fire-card-count" aria-live="polite"><strong id="fire-card-count">0 / 10</strong><span>COLLECTED</span></div>
-              <p class="fire-card-status" id="fire-card-status">本日のカードを受け取ろう！</p>
-              <p class="fire-card-next" id="fire-card-next" aria-live="polite"></p>
-              <div class="fire-card-actions">
-                <button class="button button--primary fire-card-draw-button" id="fire-card-draw-button" type="button">今日のカードをGET！ <span aria-hidden="true">✦</span></button>
-                <button class="button button--outline fire-card-collection-button" id="fire-card-collection-button" type="button">🔥 FIREカード 0 / 10</button>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -185,6 +169,27 @@
             <summary>開発用の設定</summary>
             <div class="life-dev-tools__body"><p>プレビュー確認用。通常利用では触る必要はありません。</p><div class="life-dev-tools__actions"><div class="life-dev-tools__level"><span>レベル表示テスト</span><div role="group" aria-label="レベル表示テスト"><button type="button" data-dev-level="1">Lv.1</button><button type="button" data-dev-level="5">Lv.5</button><button type="button" data-dev-level="10">Lv.10</button><button type="button" data-dev-level="50">Lv.50</button><button type="button" data-dev-level="100">Lv.100</button></div></div><button class="button button--outline" type="button" data-reset-fire-life>FIRE人生データを初期化</button></div></div>
           </details>
+        </div>
+      </section>
+
+      <section class="section fire-card-section" id="fire-card-section" aria-labelledby="fire-card-title">
+        <div class="container">
+          <div class="fire-card-panel">
+            <div class="fire-card-panel__copy">
+              <p class="eyebrow eyebrow--yellow">DAILY FIRE CARD</p>
+              <h2 id="fire-card-title">🔥 FIREカード<br /><span>毎日1枚GET。</span></h2>
+              <p>今日のあなたに届く、FIREの小さなヒント。<br />10枚集めて、第1弾をコンプリートしよう。</p>
+            </div>
+            <div class="fire-card-panel__action">
+              <div class="fire-card-count" aria-live="polite"><strong id="fire-card-count">0 / 10</strong><span>COLLECTED</span></div>
+              <p class="fire-card-status" id="fire-card-status">本日のカードを受け取ろう！</p>
+              <p class="fire-card-next" id="fire-card-next" aria-live="polite"></p>
+              <div class="fire-card-actions">
+                <button class="button button--primary fire-card-draw-button" id="fire-card-draw-button" type="button">今日のカードをGET！ <span aria-hidden="true">✦</span></button>
+                <button class="button button--outline fire-card-collection-button" id="fire-card-collection-button" type="button">🔥 FIREカード 0 / 10</button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

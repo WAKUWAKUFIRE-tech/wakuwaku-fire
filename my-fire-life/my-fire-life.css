@@ -6,37 +6,40 @@
 
 .my-life-hero {
   position: relative;
-  isolation: isolate;
-  min-height: clamp(38rem, 75vh, 52rem);
-  padding: 1.25rem 0 clamp(2rem, 5vw, 4rem);
   overflow: hidden;
   color: var(--paper);
-  background-color: #2d2532;
-  background-image:
-    linear-gradient(90deg, rgba(35, 28, 38, 0.62) 0%, rgba(35, 28, 38, 0.34) 34%, rgba(35, 28, 38, 0.06) 70%, rgba(35, 28, 38, 0.14) 100%),
-    linear-gradient(0deg, rgba(35, 28, 38, 0.52) 0%, rgba(35, 28, 38, 0.03) 60%, rgba(35, 28, 38, 0.08) 100%),
-    url("../FIREクエスト3.png");
-  background-position: center, center, center 28%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--ink);
 }
 
-.my-life-hero::after {
+.my-life-hero__visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.my-life-hero__image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
+.my-life-hero__content {
   position: absolute;
-  z-index: -1;
-  right: -10rem;
-  bottom: -16rem;
-  width: 35rem;
-  height: 35rem;
-  content: "";
-  border: 1px solid rgba(255, 207, 69, 0.2);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3rem rgba(255, 207, 69, 0.04), 0 0 0 6rem rgba(255, 207, 69, 0.03);
+  inset: 0;
+  color: var(--paper);
+}
+
+.my-life-hero__content > .container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .my-life-breadcrumbs {
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
   color: rgba(255, 255, 255, 0.62);
+  text-shadow: 0 0.15rem 0.7rem rgba(20, 14, 25, 0.42);
 }
 
 .my-life-breadcrumbs a:hover,
@@ -46,7 +49,8 @@
 
 .my-life-hero__grid {
   display: flex;
-  min-height: clamp(30rem, 62vh, 39rem);
+  flex: 1;
+  min-height: 0;
   gap: clamp(2rem, 6vw, 5.5rem);
   align-items: flex-end;
 }
@@ -56,10 +60,6 @@
   z-index: 1;
   max-width: 36rem;
   padding-bottom: clamp(1rem, 3vw, 2.5rem);
-}
-
-.my-life-hero__copy .eyebrow {
-  color: var(--yellow);
 }
 
 .my-life-hero__copy h1 {
@@ -92,6 +92,7 @@
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 700;
   line-height: 1.75;
+  text-shadow: 0 0.2rem 0.9rem rgba(20, 14, 25, 0.48);
 }
 
 .my-life-hero__note {
@@ -100,6 +101,7 @@
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.83rem;
   line-height: 1.75;
+  text-shadow: 0 0.15rem 0.7rem rgba(20, 14, 25, 0.45);
 }
 
 .my-life-hero__actions {
@@ -137,10 +139,16 @@
     var(--cream);
 }
 
+.my-life-profile-section__layout {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
 .my-life-profile-section__heading {
-  max-width: 48rem;
-  margin: 0 auto 1.4rem;
-  text-align: center;
+  margin: 1rem 0 0;
+  text-align: left;
 }
 
 .my-life-profile-section__heading .eyebrow {
@@ -158,8 +166,8 @@
 .life-profile-card {
   position: relative;
   width: 100%;
-  max-width: 48rem;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: clamp(1.1rem, 3vw, 1.65rem);
   color: var(--ink);
   background: var(--paper);
@@ -1250,13 +1258,17 @@ button.badge-card:focus-visible {
 
 @media (max-width: 699px) {
   .my-life-hero {
-    min-height: 0;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-    background-image:
-      linear-gradient(180deg, rgba(35, 28, 38, 0.58) 0%, rgba(35, 28, 38, 0.18) 45%, rgba(35, 28, 38, 0.62) 100%),
-      url("../FIREクエスト3.png");
-    background-position: center, 54% center;
+    background: var(--ink);
+  }
+
+  .my-life-hero__content {
+    position: static;
+    padding: 1rem 0 2.5rem;
+    background: var(--ink);
+  }
+
+  .my-life-hero__content > .container {
+    height: auto;
   }
 
   .my-life-hero__grid {
@@ -1265,7 +1277,7 @@ button.badge-card:focus-visible {
   }
 
   .my-life-hero__copy {
-    padding-bottom: 1rem;
+    padding-bottom: 0;
   }
 
   .my-life-breadcrumbs {
@@ -1274,6 +1286,15 @@ button.badge-card:focus-visible {
 
   .my-life-hero__copy h1 {
     font-size: clamp(3.3rem, 17vw, 5.3rem);
+  }
+
+  .my-life-profile-section__layout {
+    display: block;
+  }
+
+  .my-life-profile-section__heading {
+    margin: 0 0 1.4rem;
+    text-align: center;
   }
 
   .life-profile-card {
