@@ -447,3 +447,24 @@ thumbnail text: 貯蓄率が命
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREに必要な年収は？高年収でなくても近づける考え方
+
+article id: seo-018
+priority_order: 18
+公開日・時刻（JST）: 2026-09-09 07:00:00
+公開枠: 2026-09-09T07:00:00+09:00
+main keyword: FIRE 年収
+title: FIREに必要な年収は？高年収でなくても近づける考え方
+slug: fire-nenshu
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-nenshu/
+thumbnail file: articles/fire-nenshu/thumbnail.png
+thumbnail text: 年収いくら？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
