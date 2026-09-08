@@ -384,11 +384,9 @@ const analyticsPage = document.body?.dataset.analyticsPage;
 if (analyticsPage) {
   const pageEvent = `${analyticsPage}_page_view`;
   if (typeof window.gtag === "function") {
-    window.gtag("event", pageEvent, { event_category: "business", page_path: window.location.pathname });
-  }
-
-  if (Array.isArray(window.dataLayer)) {
-    window.dataLayer.push({ event: pageEvent, event_category: "business", page_path: window.location.pathname });
+    window.gtag("event", pageEvent, { event_category: document.body?.dataset.analyticsCategory || "business", page_path: window.location.pathname });
+  } else if (Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: pageEvent, event_category: document.body?.dataset.analyticsCategory || "business", page_path: window.location.pathname });
   }
 }
 
@@ -399,11 +397,9 @@ document.querySelectorAll("[data-analytics-event]").forEach((link) => {
     if (!eventName) return;
 
     if (typeof window.gtag === "function") {
-      window.gtag("event", eventName, { event_category: "business", event_label: eventLabel });
-    }
-
-    if (Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({ event: eventName, event_category: "business", event_label: eventLabel });
+      window.gtag("event", eventName, { event_category: link.dataset.analyticsCategory || document.body?.dataset.analyticsCategory || "business", event_label: eventLabel });
+    } else if (Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: eventName, event_category: link.dataset.analyticsCategory || document.body?.dataset.analyticsCategory || "business", event_label: eventLabel });
     }
   });
 });
