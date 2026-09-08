@@ -7,8 +7,8 @@
 .my-life-hero {
   position: relative;
   overflow: hidden;
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--cream);
 }
 
 .my-life-hero__visual {
@@ -24,22 +24,25 @@
   height: auto;
 }
 
-.my-life-hero__content {
+.my-life-hero__actions-overlay {
   position: absolute;
-  inset: 0;
-  color: var(--paper);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding-bottom: clamp(1rem, 4vw, 2.5rem);
+  pointer-events: none;
 }
 
-.my-life-hero__content > .container {
+.my-life-hero__actions-overlay > .container {
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  justify-content: flex-start;
 }
 
 .my-life-breadcrumbs {
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  color: rgba(255, 255, 255, 0.62);
-  text-shadow: 0 0.15rem 0.7rem rgba(20, 14, 25, 0.42);
+  margin: 0;
+  padding: 1rem 0;
+  color: var(--muted);
 }
 
 .my-life-breadcrumbs a:hover,
@@ -47,28 +50,19 @@
   color: var(--yellow);
 }
 
-.my-life-hero__grid {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-  gap: clamp(2rem, 6vw, 5.5rem);
-  align-items: flex-end;
-}
-
 .my-life-hero__copy {
-  position: relative;
   z-index: 1;
   max-width: 36rem;
-  padding-bottom: clamp(1rem, 3vw, 2.5rem);
+  padding-top: clamp(0.5rem, 2vw, 1.5rem);
+  color: var(--ink);
 }
 
 .my-life-hero__copy h1 {
   margin: 0;
-  color: var(--paper);
+  color: var(--ink);
   font-size: clamp(3.2rem, 10vw, 6.6rem);
   letter-spacing: -0.08em;
   line-height: 0.98;
-  text-shadow: 0 0.3rem 1.4rem rgba(20, 14, 25, 0.36);
 }
 
 .my-life-hero__copy h1 span {
@@ -78,7 +72,7 @@
 .my-life-hero__copy h1 small {
   display: block;
   margin-top: 1rem;
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--muted);
   font-family: Arial, sans-serif;
   font-size: clamp(0.72rem, 1.7vw, 1.05rem);
   font-weight: 800;
@@ -92,16 +86,14 @@
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 700;
   line-height: 1.75;
-  text-shadow: 0 0.2rem 0.9rem rgba(20, 14, 25, 0.48);
 }
 
 .my-life-hero__note {
   max-width: 27rem;
   margin: 0.8rem 0 0;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--muted);
   font-size: 0.83rem;
   line-height: 1.75;
-  text-shadow: 0 0.15rem 0.7rem rgba(20, 14, 25, 0.45);
 }
 
 .my-life-hero__actions {
@@ -109,7 +101,8 @@
   flex-wrap: wrap;
   gap: 0.85rem 1.2rem;
   align-items: center;
-  margin-top: 2rem;
+  margin: 0;
+  pointer-events: auto;
 }
 
 .my-life-hero__actions .button--yellow {
@@ -125,6 +118,7 @@
 
 .my-life-hero__jump {
   color: var(--paper);
+  text-shadow: 0 0.15rem 0.7rem rgba(20, 14, 25, 0.58);
 }
 
 .my-life-hero__jump:hover,
@@ -132,16 +126,24 @@
   color: var(--yellow);
 }
 
-.my-life-profile-section {
+.my-life-overview {
   padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5.5rem);
   background:
     radial-gradient(circle at 10% 0%, rgba(255, 207, 69, 0.16), transparent 20rem),
     var(--cream);
 }
 
+.my-life-overview__layout {
+  display: block;
+}
+
+.my-life-overview__layout > .my-life-hero__copy {
+  margin-bottom: 2rem;
+}
+
 .my-life-profile-section__layout {
   display: grid;
-  grid-template-columns: minmax(10rem, 0.42fr) minmax(0, 1.58fr);
+  grid-template-columns: minmax(8rem, 0.42fr) minmax(0, 1.58fr);
   gap: clamp(1.5rem, 5vw, 4rem);
   align-items: start;
 }
@@ -161,6 +163,19 @@
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   letter-spacing: -0.06em;
   line-height: 1.1;
+}
+
+@media (min-width: 1000px) {
+  .my-life-overview__layout {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 2.22fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .my-life-overview__layout > .my-life-hero__copy {
+    margin-bottom: 0;
+  }
 }
 
 .life-profile-card {
@@ -1257,39 +1272,29 @@ button.badge-card:focus-visible {
 }
 
 @media (max-width: 699px) {
-  .my-life-hero {
-    background: var(--ink);
-  }
-
-  .my-life-hero__content {
-    position: static;
-    padding: 1rem 0 2.5rem;
-    background: var(--ink);
-  }
-
-  .my-life-hero__content > .container {
-    height: auto;
-  }
-
-  .my-life-hero__grid {
-    min-height: 0;
-    align-items: initial;
+  .my-life-hero__actions-overlay {
+    padding-bottom: 1rem;
   }
 
   .my-life-hero__copy {
-    padding-bottom: 0;
+    padding-top: 0;
   }
 
   .my-life-breadcrumbs {
-    margin-bottom: 2.5rem;
+    padding: 0.8rem 0;
   }
 
   .my-life-hero__copy h1 {
     font-size: clamp(3.3rem, 17vw, 5.3rem);
   }
 
+  .my-life-overview__layout,
   .my-life-profile-section__layout {
     display: block;
+  }
+
+  .my-life-overview__layout > .my-life-hero__copy {
+    margin-bottom: 2rem;
   }
 
   .my-life-profile-section__heading {

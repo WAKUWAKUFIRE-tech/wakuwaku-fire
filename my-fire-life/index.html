@@ -33,36 +33,39 @@
     </header>
 
     <main id="main-content">
-      <section class="my-life-hero" aria-labelledby="my-life-title">
+      <section class="my-life-hero" aria-label="FIRE QUESTの冒険ビジュアル">
+        <div class="my-life-hero__breadcrumbs">
+          <div class="container">
+            <nav class="breadcrumbs my-life-breadcrumbs" aria-label="パンくずリスト"><a href="../">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">FIRE QUEST</span></nav>
+          </div>
+        </div>
         <div class="my-life-hero__visual">
           <img class="my-life-hero__image" src="../FIREクエスト3.png" alt="FIRE QUESTの冒険世界" width="1672" height="941" fetchpriority="high" />
-          <div class="my-life-hero__content">
+          <div class="my-life-hero__actions-overlay">
             <div class="container">
-              <nav class="breadcrumbs my-life-breadcrumbs" aria-label="パンくずリスト"><a href="../">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">FIRE QUEST</span></nav>
-              <div class="my-life-hero__grid">
-                <div class="my-life-hero__copy">
-                  <h1 id="my-life-title">FIRE<br /><span>QUEST</span><small>― 冒険の書 ―</small></h1>
-                  <p class="my-life-hero__lead">読むほど、遊ぶほど、あなたのFIRE QUESTが育っていく。</p>
-                  <p class="my-life-hero__note">お金だけでは測れない、自由・時間・遊び・学びの積み重ね。</p>
-                  <div class="my-life-hero__actions">
-                    <a class="button button--yellow" href="../articles/">FIREコラムを読む <span aria-hidden="true">→</span></a>
-                    <a class="button button--text my-life-hero__jump" href="#badges">獲得バッジを見る <span aria-hidden="true">↓</span></a>
-                  </div>
-                </div>
+              <div class="my-life-hero__actions">
+                <a class="button button--yellow" href="../articles/">FIREコラムを読む <span aria-hidden="true">→</span></a>
+                <a class="button button--text my-life-hero__jump" href="#badges">獲得バッジを見る <span aria-hidden="true">↓</span></a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="my-life-profile-section" aria-labelledby="life-profile-section-title">
+      <section class="my-life-overview" aria-labelledby="my-life-title">
         <div class="container">
-          <div class="my-life-profile-section__layout">
-            <div class="my-life-profile-section__heading">
-              <p class="eyebrow eyebrow--red">YOUR QUEST STATUS</p>
-              <h2 id="life-profile-section-title">冒険の現在地</h2>
+          <div class="my-life-overview__layout">
+            <div class="my-life-hero__copy">
+              <h1 id="my-life-title">FIRE<br /><span>QUEST</span><small>― 冒険の書 ―</small></h1>
+              <p class="my-life-hero__lead">読むほど、遊ぶほど、あなたのFIRE QUESTが育っていく。</p>
+              <p class="my-life-hero__note">お金だけでは測れない、自由・時間・遊び・学びの積み重ね。</p>
             </div>
-            <article class="life-profile-card" aria-label="あなたのFIRE QUESTプロフィール">
+            <div class="my-life-profile-section__layout" aria-labelledby="life-profile-section-title">
+              <div class="my-life-profile-section__heading">
+                <p class="eyebrow eyebrow--red">YOUR QUEST STATUS</p>
+                <h2 id="life-profile-section-title">冒険の現在地</h2>
+              </div>
+              <article class="life-profile-card" aria-label="あなたのFIRE QUESTプロフィール">
             <div class="life-profile-card__topline"><span>WAKUWAKU FIRE / MVP</span><span class="life-profile-card__local-chip">この端末に保存</span></div>
             <div class="life-profile-card__identity">
               <div class="life-profile-card__avatar" aria-hidden="true">W</div>
@@ -88,7 +91,8 @@
               </div>
               <p class="life-nickname-form__hint" data-nickname-status aria-live="polite">いつでも変更できます。</p>
             </form>
-            </article>
+              </article>
+            </div>
           </div>
         </div>
       </section>
