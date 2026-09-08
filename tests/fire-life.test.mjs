@@ -53,8 +53,12 @@ test("LEVELバッジは指定された21の節目と称号を持つ", () => {
   assert.deepEqual(actual, requestedLevelTitles);
 });
 
-test("同じ記事は一度だけEXPになり、読了でLEVELバッジも判定する", () => {
+test("Lv.1バッジは始めた時に灯り、同じ記事は一度だけEXPになる", () => {
   const state = getDefaultState();
+  recordVisit(state, new Date("2026-01-01T00:00:00Z"));
+  const startResult = syncEligibleBadges(state, new Date("2026-01-01T00:00:00Z"));
+  assert.equal(startResult.newlyEarnedBadges.some((badge) => badge.id === "level-1-free-fire"), true);
+
   for (let index = 0; index < 10; index += 1) {
     const result = recordArticleRead(state, `article-${index}`, new Date("2026-01-01T00:00:00Z"));
     assert.equal(result.awarded, true);
@@ -67,14 +71,15 @@ test("同じ記事は一度だけEXPになり、読了でLEVELバッジも判定
   assert.equal(state.articleReadHistory.length, 10);
 });
 
-test("初回訪問だけでは空状態を保ち、最初の記事でLv.1バッジが灯る", () => {
+test("初回訪問でLv.1バッジが灯り、最初の記事の足あとも残る", () => {
   const state = getDefaultState();
   recordVisit(state, new Date("2026-01-01T00:00:00Z"));
-  syncEligibleBadges(state, new Date("2026-01-01T00:00:00Z"));
-  assert.equal(state.badges.length, 0);
+  const startResult = syncEligibleBadges(state, new Date("2026-01-01T00:00:00Z"));
+  assert.equal(startResult.newlyEarnedBadges.some((badge) => badge.id === "level-1-free-fire"), true);
+  assert.equal(state.badges.length, 1);
 
   const result = recordArticleRead(state, "first-article", new Date("2026-01-01T00:00:00Z"), { title: "最初のFIREコラム" });
-  assert.equal(result.newlyEarnedBadges.some((badge) => badge.id === "level-1-free-fire"), true);
+  assert.equal(result.newlyEarnedBadges.some((badge) => badge.id === "level-1-free-fire"), false);
   assert.deepEqual(state.articleReadHistory[0], {
     id: "first-article",
     title: "最初のFIREコラム",

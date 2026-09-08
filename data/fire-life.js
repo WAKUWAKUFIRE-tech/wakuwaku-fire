@@ -273,8 +273,6 @@ function awardThresholdBadges(state, category, value, now = new Date()) {
   return badgeDefinitions
     .filter((badge) => {
       if (badge.category !== category || !badge.enabled || badge.legacy || !Number.isFinite(badge.threshold) || value < badge.threshold) return false;
-      // Lv.1は初回訪問の自動付与ではなく、最初の記事を読んだ時に灯る始まりのバッジです。
-      if (category === "level" && badge.threshold === 1 && state.totalExp === 0) return false;
       return true;
     })
     .sort((a, b) => a.threshold - b.threshold)
