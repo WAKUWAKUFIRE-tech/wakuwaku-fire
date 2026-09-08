@@ -19,6 +19,8 @@
 
 .my-life-hero__image {
   display: block;
+  position: relative;
+  z-index: 0;
   width: 100%;
   max-width: none;
   height: auto;
