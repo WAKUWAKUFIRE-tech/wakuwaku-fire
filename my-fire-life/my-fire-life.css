@@ -290,6 +290,13 @@
   transition: width 280ms ease;
 }
 
+.life-profile-card__exp-note {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
 .life-visit-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

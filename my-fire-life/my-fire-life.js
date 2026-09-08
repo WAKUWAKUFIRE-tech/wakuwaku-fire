@@ -8,7 +8,6 @@ const lifeElements = {
   expProgress: document.querySelector(".life-exp-bar"),
   streak: document.querySelector("#life-streak"),
   visits: document.querySelector("#life-visits"),
-  phrase: document.querySelector("#life-phrase"),
   displayName: document.querySelector("#life-display-name"),
   avatar: document.querySelector(".life-profile-card__avatar"),
   nicknameForm: document.querySelector("[data-nickname-form]"),
@@ -38,14 +37,6 @@ const lifeElements = {
   devTools: document.querySelector("[data-dev-tools]"),
   devLevels: document.querySelectorAll("[data-dev-level]"),
 };
-
-function getLifePhrase(level) {
-  if (level <= 1) return "まだ何も決めなくていい。";
-  if (level <= 10) return "気になるを、今日の一歩に。";
-  if (level <= 25) return "問いを連れて、寄り道中。";
-  if (level <= 50) return "好きなことへ、時間を配当中。";
-  return "ここまでの道を、次の地図へ。";
-}
 
 function getNicknameInitial(nickname) {
   return nickname ? Array.from(nickname)[0] : "W";
@@ -223,7 +214,6 @@ function renderLifePage(api) {
   if (lifeElements.level) lifeElements.level.textContent = String(level);
   if (lifeElements.exp) lifeElements.exp.textContent = `${state.totalExp.toLocaleString("ja-JP")} EXP`;
   if (lifeElements.next) lifeElements.next.textContent = `Lv.${level + 1}まであと${api.getExpToNextLevel(state.totalExp)} EXP`;
-  if (lifeElements.phrase) lifeElements.phrase.textContent = getLifePhrase(level);
   if (lifeElements.displayName) lifeElements.displayName.textContent = displayName;
   if (lifeElements.avatar) lifeElements.avatar.textContent = getNicknameInitial(state.nickname);
   if (lifeElements.nicknameInput && document.activeElement !== lifeElements.nicknameInput) lifeElements.nicknameInput.value = state.nickname;

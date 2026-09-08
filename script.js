@@ -641,9 +641,45 @@ function showFireLifeWelcome(api, state) {
   window.requestAnimationFrame(() => startButton.focus());
 }
 
+function addFireLifeArticleHint(article, alreadyRead) {
+  if (!article?.body || article.body.parentElement?.querySelector("[data-fire-life-article-hint]")) return;
+
+  const note = document.createElement("aside");
+  note.className = "fire-life-article-hint";
+  note.dataset.fireLifeArticleHint = "true";
+  note.setAttribute("aria-label", "FIRE QUESTのEXP");
+
+  const mark = document.createElement("span");
+  mark.className = "fire-life-article-hint__mark";
+  mark.setAttribute("aria-hidden", "true");
+  mark.textContent = "🔥";
+
+  const copy = document.createElement("span");
+  copy.className = "fire-life-article-hint__copy";
+
+  const label = document.createElement("strong");
+  label.textContent = "FIRE QUEST";
+
+  const message = document.createElement("span");
+  message.textContent = alreadyRead
+    ? "このコラムのEXPは獲得済みです。"
+    : "コラムをしっかり読むと、1記事につき＋10 EXP。";
+
+  const detail = document.createElement("small");
+  detail.textContent = "同じコラムでEXPが貯まるのは最初の1回だけです。";
+
+  copy.append(label, message, detail);
+  note.append(mark, copy);
+  article.body.insertAdjacentElement("beforebegin", note);
+}
+
 function setupFireLifeArticleTracker(api, state) {
   const article = api.getArticleContext(window.location.pathname, document);
-  if (!article || state.readArticles.includes(article.id)) return;
+  if (!article) return;
+
+  const alreadyRead = state.readArticles.includes(article.id);
+  addFireLifeArticleHint(article, alreadyRead);
+  if (alreadyRead) return;
 
   const startedAt = Date.now();
   let reachedReadingTarget = false;
