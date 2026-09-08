@@ -116,13 +116,19 @@ function normalizeArticleRead(item) {
   return { id: item.id, title, readAt };
 }
 
+function normalizeNickname(value) {
+  const nickname = typeof value === "string" ? value.trim().slice(0, 24) : "";
+  // 以前の仮デフォルト名は、任意のニックネームではなく未設定として扱います。
+  return nickname === "FIRE QUEST" ? "" : nickname;
+}
+
 function normalizeState(raw) {
   const base = getDefaultState();
   const source = raw && typeof raw === "object" ? raw : {};
   const state = { ...base, ...source };
   const sourceVersion = Number(source.version) || 1;
   state.version = DATA_VERSION;
-  state.nickname = typeof state.nickname === "string" ? state.nickname.trim().slice(0, 24) : "";
+  state.nickname = normalizeNickname(state.nickname);
   state.totalExp = Number.isFinite(Number(state.totalExp)) ? Math.max(0, Math.floor(Number(state.totalExp))) : 0;
   state.readArticles = [...new Set(Array.isArray(state.readArticles) ? state.readArticles.filter((item) => typeof item === "string" && item.trim() !== "") : [])];
   const articleReadHistory = new Map(

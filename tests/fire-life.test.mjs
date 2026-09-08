@@ -45,6 +45,11 @@ test("FIRE人生のLEVELはEXPから上限なしで計算する", () => {
   assert.equal(getLevelFromExp(10_000), 101);
 });
 
+test("以前の仮デフォルト名は未設定として名無しの冒険者に戻せる", () => {
+  const restored = parseBackup({ nickname: "FIRE QUEST", totalExp: 0 });
+  assert.equal(restored.nickname, "");
+});
+
 test("LEVELバッジは指定された21の節目と称号を持つ", () => {
   const actual = badgeDefinitions
     .filter((badge) => badge.category === "level")
