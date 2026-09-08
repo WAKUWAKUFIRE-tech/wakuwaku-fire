@@ -133,6 +133,97 @@
   stroke-width: 4;
 }
 
+/* 紋章の中身は、背景紋様→補助意匠→主役の順で3層に重ねます。 */
+.badge-emblem__tier-ornament {
+  fill: none;
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.4;
+  opacity: 0.54;
+}
+
+.badge-emblem.badge-tier-relic .badge-emblem__rim {
+  stroke-width: 3.5;
+}
+
+.badge-emblem.badge-tier-relic .badge-emblem__crest {
+  stroke-width: 1.8;
+}
+
+.badge-emblem.badge-tier-legend {
+  filter: drop-shadow(0 0.52rem 0.5rem rgba(6, 8, 13, 0.42));
+}
+
+.badge-emblem.badge-tier-legend .badge-emblem__rim {
+  stroke-width: 4.2;
+}
+
+.badge-emblem.badge-tier-legend .badge-emblem__inner-line {
+  stroke-width: 1.7;
+  stroke-dasharray: 2 4;
+  opacity: 0.68;
+}
+
+.badge-emblem.badge-tier-legend .badge-emblem__crest {
+  stroke-width: 2;
+}
+
+.badge-emblem__art-bg {
+  fill: none;
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.3;
+  opacity: 0.28;
+}
+
+.badge-emblem__art-bg-fill {
+  fill: var(--badge-accent, #e56b4d);
+  opacity: 0.48;
+}
+
+.badge-emblem__art-secondary {
+  fill: none;
+  stroke: var(--badge-accent, #e56b4d);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+  opacity: 0.84;
+}
+
+.badge-emblem__art-secondary-fill {
+  fill: var(--badge-accent, #e56b4d);
+  stroke: var(--badge-symbol-edge, #9a392e);
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+  opacity: 0.86;
+}
+
+.badge-emblem__art-primary {
+  fill: none;
+  stroke: var(--badge-symbol, #ffd166);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.4;
+}
+
+.badge-emblem__art-primary-fill {
+  fill: var(--badge-symbol, #ffd166);
+  stroke: var(--badge-symbol-edge, #9a392e);
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.badge-emblem__art-highlight {
+  fill: var(--badge-metal-bright, #ffe8a5);
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+  opacity: 0.9;
+}
+
 .badge-emblem__art-fill {
   fill: var(--badge-symbol, #ffd166);
   stroke: var(--badge-symbol-edge, #9a392e);
@@ -195,7 +286,8 @@
 }
 
 .badge-emblem--locked .badge-emblem__inner-line,
-.badge-emblem--locked .badge-emblem__rune {
+.badge-emblem--locked .badge-emblem__rune,
+.badge-emblem--locked .badge-emblem__tier-ornament {
   stroke: #938a82;
 }
 

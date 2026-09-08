@@ -55,7 +55,376 @@ const BADGE_FRAME_PATHS = Object.freeze({
   hex: "M32 8h56l24 25v54l-24 25H32L8 87V33L32 8Z",
 });
 
+/*
+ * レベル称号は「枠の中にアイコンを置く」のではなく、
+ * 主役・補助・背景紋様の3層でひとつの物語になるように描きます。
+ * SVG文字列をここへ集約しているため、後から紋章だけ差し替えられます。
+ */
+const LEVEL_BADGE_ARTWORK = Object.freeze({
+  "level-1-ember": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="60" r="31" />
+      <path d="M31 84a37 37 0 0 1 58 0M36 41l-7-5M84 41l7-5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M39 86h42M45 86l5-8h20l5 8" />
+      <path d="M43 48h8M69 48h8M48 40h5M67 40h5" opacity=".7" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M60 78c-13 0-21-8-21-18 0-8 5-14 13-21-1 8 3 12 8 15-1-10 3-18 10-25 1 12 12 17 12 30 0 11-8 19-22 19Z" />
+      <path class="badge-emblem__art-highlight" d="M59 69c-5 0-8-3-8-7 0-3 2-6 5-9 0 4 2 6 5 7-1-4 1-8 4-11 0 6 5 8 5 13 0 4-4 7-11 7Z" />
+    </g>
+  `,
+  "level-5-shield-trail": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="60" r="35" stroke-dasharray="1 5" />
+      <path d="M30 88c12-10 23-13 32-8 8 4 16 2 28-7" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M32 86c10-8 19-10 27-6" />
+      <circle cx="32" cy="86" r="3" /><circle cx="46" cy="79" r="2.5" />
+      <path d="M60 29l24 9v18c0 15-10 24-24 30-14-6-24-15-24-30V38z" class="badge-emblem__art-secondary-fill" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path d="M60 29l24 9v18c0 15-10 24-24 30-14-6-24-15-24-30V38z" />
+      <path class="badge-emblem__art-primary-fill" d="M60 40l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" />
+    </g>
+  `,
+  "level-10-wayfinder": `
+    <g class="badge-emblem__art-bg">
+      <path d="M60 21v12M60 87v12M21 60h12M87 60h12M33 33l8 8M79 79l8 8M87 33l-8 8M41 79l-8 8" />
+      <circle cx="60" cy="60" r="37" stroke-dasharray="2 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M60 76c7-12 14-18 22-23 4-2 8-3 12-3" />
+      <path d="M88 45h7v8" />
+      <path class="badge-emblem__art-secondary-fill" d="M88 43l10 3-10 7z" />
+      <path d="M60 76c4-5 8-8 13-11" stroke-dasharray="1 4" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <circle cx="60" cy="56" r="25" class="badge-emblem__art-primary-fill" />
+      <path d="M60 34v44M38 56h44" />
+      <path class="badge-emblem__art-highlight" d="M60 34l7 22-7 22-7-22z" />
+      <circle cx="60" cy="56" r="4" class="badge-emblem__art-primary-fill" />
+    </g>
+  `,
+  "level-15-dawn-seeker": `
+    <g class="badge-emblem__art-bg">
+      <path d="M27 62a34 34 0 0 1 66 0" />
+      <path d="M37 37a31 31 0 0 1 46 0" stroke-dasharray="1 5" />
+      <circle cx="84" cy="31" r="3" class="badge-emblem__art-bg-fill" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <circle cx="60" cy="48" r="12" class="badge-emblem__art-secondary-fill" />
+      <path d="M60 27v7M43 34l5 5M77 34l-5 5M35 48h8M85 48h-8" />
+      <path d="M30 87h60" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M25 86l20-25 10 12 13-20 27 33z" />
+      <path d="M25 86l20-25 10 12 13-20 27 33" />
+      <path d="M45 61l10 12M68 53l8 11" class="badge-emblem__art-highlight" />
+      <path class="badge-emblem__art-primary-fill" d="M60 27l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
+    </g>
+  `,
+  "level-20-open-road": `
+    <g class="badge-emblem__art-bg">
+      <path d="M29 36c17 13 31 13 45 0 7-6 12-5 17 0" stroke-dasharray="2 5" />
+      <path d="M27 91h66" />
+      <circle cx="60" cy="60" r="34" stroke-dasharray="3 6" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M60 82V58M60 58L39 39M60 58l22-19" opacity=".42" />
+      <path d="M39 39c-5 8-5 17 1 23" stroke-dasharray="2 4" opacity=".48" />
+      <path d="M60 82c0-11 7-20 21-30" stroke-width="5" />
+      <circle cx="39" cy="39" r="3" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path d="M60 82V58M60 58l22-19" />
+      <path class="badge-emblem__art-primary-fill" d="M82 34l10 5-10 7z" />
+      <path class="badge-emblem__art-highlight" d="M60 82c0-11 7-20 21-30" />
+      <circle cx="60" cy="58" r="5" class="badge-emblem__art-primary-fill" />
+    </g>
+  `,
+  "level-25-off-the-rails": `
+    <g class="badge-emblem__art-bg">
+      <path d="M31 28v62M45 28v62M75 28v62M89 28v62M25 42h70M25 58h70M25 74h70" opacity=".75" />
+      <path d="M30 32h60M30 88h60" stroke-dasharray="1 4" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M40 28v38c0 12 6 20 20 26" />
+      <path d="M80 28v25c0 12-8 19-20 23" opacity=".35" />
+      <circle cx="49" cy="72" r="3" /><circle cx="57" cy="81" r="3" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path d="M60 90c-9-12-14-23-10-34 4-10 12-15 20-23" />
+      <path class="badge-emblem__art-primary-fill" d="M70 30l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" />
+      <path d="M60 90c-2-10-1-18 5-25" class="badge-emblem__art-highlight" />
+    </g>
+  `,
+  "level-30-true-north": `
+    <g class="badge-emblem__art-bg">
+      <path d="M27 60a33 33 0 0 1 66 0M33 42a33 33 0 0 1 54 0" />
+      <path d="M60 21v78M21 60h78" stroke-dasharray="1 6" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M60 82c8-14 18-23 31-27" />
+      <path d="M88 50h7v7" />
+      <path class="badge-emblem__art-secondary-fill" d="M88 48l10 4-10 7z" />
+      <circle cx="94" cy="42" r="2" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <circle cx="60" cy="57" r="25" class="badge-emblem__art-primary-fill" />
+      <path d="M60 34v46M37 57h46" />
+      <path class="badge-emblem__art-highlight" d="M60 34l9 23-9 23-9-23z" />
+      <circle cx="60" cy="57" r="4" class="badge-emblem__art-primary-fill" />
+    </g>
+  `,
+  "level-35-lift-off": `
+    <g class="badge-emblem__art-bg">
+      <path d="M28 49c11-22 25-29 32-22M92 49C81 27 67 20 60 27" />
+      <path d="M34 84c13 7 26 7 38 0" stroke-dasharray="2 5" />
+      <circle cx="60" cy="25" r="4" class="badge-emblem__art-bg-fill" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M26 59c10-8 18-9 26-5M94 59c-10-8-18-9-26-5" />
+      <path d="M31 69c9-4 15-4 21 0M89 69c-9-4-15-4-21 0" opacity=".65" />
+      <path d="M60 40v44" stroke-width="5" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M57 56C47 40 35 34 24 36c8 9 11 20 11 31 8-4 15-3 22 3z" />
+      <path class="badge-emblem__art-primary-fill" d="M63 56c10-16 22-22 33-20-8 9-11 20-11 31-8-4-15-3-22 3z" />
+      <path d="M60 43v42" />
+      <path class="badge-emblem__art-highlight" d="M60 46l4 9-4 10-4-10z" />
+    </g>
+  `,
+  "level-40-life-blueprint": `
+    <g class="badge-emblem__art-bg">
+      <path d="M28 31h64M28 46h64M28 61h64M28 76h64M43 24v68M58 24v68M73 24v68" />
+      <circle cx="60" cy="60" r="34" stroke-dasharray="1 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M31 84h56M37 86l-6 5M83 86l6 5" />
+      <path d="M41 76h38" stroke-dasharray="3 3" />
+      <path class="badge-emblem__art-secondary-fill" d="M34 38l8-5 34 45-8 5z" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M36 35c13 2 23 8 31 18l16 22-7 8-18-20c-8-9-14-17-22-28z" />
+      <path d="M36 35c13 2 23 8 31 18l16 22-7 8-18-20c-8-9-14-17-22-28z" />
+      <path d="M70 76l-13 12M82 76l-6 13" />
+      <path class="badge-emblem__art-highlight" d="M38 37l12 7-7 7z" />
+    </g>
+  `,
+  "level-45-hourglass-crown": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="60" r="35" stroke-dasharray="2 5" />
+      <path d="M30 86a39 39 0 0 1 13-10M90 86A39 39 0 0 0 77 76" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M33 55c-6 8-6 18 0 26M87 55c6 8 6 18 0 26" />
+      <path d="M39 81l5 5 5-5M81 81l-5 5-5-5" />
+      <path class="badge-emblem__art-secondary-fill" d="M60 35l8 9-8 8-8-8z" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M44 32h32v7l-10 18 10 18v7H44v-7l10-18-10-18z" />
+      <path d="M44 32h32M44 82h32M54 57h12" />
+      <path class="badge-emblem__art-highlight" d="M53 41h14l-7 14zM53 73h14l-7-12z" />
+      <path class="badge-emblem__art-primary-fill" d="M60 24l3 5 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z" />
+    </g>
+  `,
+  "level-50-reclaimed-time": `
+    <g class="badge-emblem__art-bg">
+      <path d="M26 54a35 35 0 0 1 61-19M94 67a35 35 0 0 1-61 19" />
+      <path d="M33 31a41 41 0 0 1 54 0M33 89a41 41 0 0 0 54 0" stroke-dasharray="2 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M32 86h56" />
+      <path d="M38 72c6-5 11-6 16-2M48 84c5-5 10-6 15-2" />
+      <path class="badge-emblem__art-secondary-fill" d="M40 68c-5 0-8-3-8-7 0-4 3-7 8-10 0 4 2 6 5 8 0 5-2 9-5 9zM57 82c-5 0-8-3-8-7 0-4 3-7 8-10 0 4 2 6 5 8 0 5-2 9-5 9z" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <circle cx="71" cy="46" r="18" class="badge-emblem__art-primary-fill" />
+      <path d="M71 32v15l10 7M71 24v5M91 46h-5" />
+      <path class="badge-emblem__art-highlight" d="M71 34v12l8 5" />
+      <path d="M37 42c5 5 7 10 7 16" stroke-width="5" />
+    </g>
+  `,
+  "level-55-open-gate": `
+    <g class="badge-emblem__art-bg">
+      <path d="M26 85h68M37 72a34 34 0 0 1 46 0" />
+      <path d="M60 22v18M43 29l9 11M77 29l-9 11" stroke-dasharray="2 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M37 79c-8-3-11-9-7-15 3-4 8-5 12-2M83 79c8-3 11-9 7-15-3-4-8-5-12-2" />
+      <path d="M31 85h58" stroke-width="5" />
+      <path d="M46 78l-5 7M74 78l5 7" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M31 84V47c0-17 12-29 29-29s29 12 29 29v37H77V48c0-10-7-17-17-17S43 38 43 48v36z" />
+      <path d="M31 84V47c0-17 12-29 29-29s29 12 29 29v37M43 84V48c0-10 7-17 17-17s17 7 17 17v36" />
+      <path class="badge-emblem__art-highlight" d="M60 47L45 84h30z" />
+      <path d="M60 47v37M45 84h30" />
+    </g>
+  `,
+  "level-60-slow-sun": `
+    <g class="badge-emblem__art-bg">
+      <path d="M27 43a35 35 0 0 1 66 0M31 52a31 31 0 0 1 58 0" />
+      <path d="M28 89h64" stroke-dasharray="2 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M31 89c10-17 20-19 29-9 7 8 14 5 28-9" />
+      <path d="M37 87c-1-7 2-11 8-13M79 87c1-7-2-11-8-13" />
+      <path d="M37 88l-5-8M79 88l5-8" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <circle cx="60" cy="42" r="15" class="badge-emblem__art-primary-fill" />
+      <path d="M60 20v7M60 57v7M38 42h7M75 42h7M44 26l5 5M76 26l-5 5" />
+      <path class="badge-emblem__art-highlight" d="M31 88c10-17 20-19 29-9 7 8 14 5 28-9" />
+      <circle cx="34" cy="79" r="3" class="badge-emblem__art-primary-fill" />
+    </g>
+  `,
+  "level-65-quiet-courage": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="60" r="36" stroke-dasharray="1 6" />
+      <path d="M78 32a18 18 0 0 0-14 30 18 18 0 0 0 14-30z" />
+      <circle cx="82" cy="31" r="2" class="badge-emblem__art-bg-fill" />
+      <circle cx="91" cy="42" r="2" class="badge-emblem__art-bg-fill" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M46 34c-6-7-2-11 3-15M60 34c-4-8 1-11 5-15M74 35c-2-6 2-9 6-12" />
+      <path d="M36 84h48" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M38 48h39v17c0 11-8 18-20 18s-19-7-19-18z" />
+      <path d="M77 54h7c6 0 9 4 9 9s-3 10-9 10h-7M47 84h26" />
+      <path class="badge-emblem__art-highlight" d="M44 62h27c-2 9-7 13-14 13s-11-4-13-13z" />
+    </g>
+  `,
+  "level-70-hideout": `
+    <g class="badge-emblem__art-bg">
+      <path d="M27 42c10-13 19-15 29-6 10-9 19-7 37 6" />
+      <path d="M31 88c10-9 19-12 29-8 10-4 19-1 29 8" stroke-dasharray="2 5" />
+      <circle cx="37" cy="28" r="3" class="badge-emblem__art-bg-fill" />
+      <circle cx="84" cy="29" r="3" class="badge-emblem__art-bg-fill" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M82 49v25M77 54h10M78 74h8" />
+      <path class="badge-emblem__art-secondary-fill" d="M82 38c-4 5-5 9 0 13 5-4 4-8 0-13z" />
+      <path d="M31 83h58" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M31 78l29-30 29 30z" />
+      <path d="M40 78V59h40v19M52 78V67h16v11" />
+      <path class="badge-emblem__art-highlight" d="M60 33l4 7 8 1-6 5 2 8-8-4-8 4 2-8-6-5 8-1z" />
+      <path d="M31 84h58" />
+    </g>
+  `,
+  "level-75-celebration": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="60" r="37" stroke-dasharray="1 6" />
+      <path d="M60 21v16M60 83v16M21 60h16M83 60h16M32 32l11 11M77 77l11 11M88 32L77 43M43 77L32 88" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M36 42l5 5M84 42l-5 5M37 77l5-5M83 77l-5-5" />
+      <path class="badge-emblem__art-secondary-fill" d="M30 62h9M81 62h9M60 30v9M60 81v9" />
+      <path d="M40 87c12 7 28 7 40 0" stroke-dasharray="2 4" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M60 27l6 22 22 11-22 11-6 22-6-22-22-11 22-11z" />
+      <path d="M60 39v42M39 60h42" />
+      <path class="badge-emblem__art-highlight" d="M60 44l4 16-4 16-4-16z" />
+      <circle cx="60" cy="60" r="5" class="badge-emblem__art-primary-fill" />
+    </g>
+  `,
+  "level-80-play-crown": `
+    <g class="badge-emblem__art-bg">
+      <path d="M29 42a42 42 0 0 1 62 0M25 60a37 37 0 0 1 70 0" />
+      <path d="M30 87h60" stroke-dasharray="2 5" />
+      <circle cx="28" cy="33" r="2" class="badge-emblem__art-bg-fill" />
+      <circle cx="92" cy="33" r="2" class="badge-emblem__art-bg-fill" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M60 77v11M45 88h30" />
+      <path class="badge-emblem__art-secondary-fill" d="M60 78c-7 0-10-4-10-9 0-4 3-7 6-10 0 4 2 6 4 7 0-5 3-8 5-11 0 6 6 8 6 14 0 5-3 9-11 9Z" />
+      <circle cx="60" cy="88" r="4" class="badge-emblem__art-secondary-fill" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M34 39l13 10 13-17 13 17 13-10-4 35H38z" />
+      <path d="M34 39l13 10 13-17 13 17 13-10-4 35H38zM39 75h42" />
+      <circle cx="47" cy="49" r="3" class="badge-emblem__art-highlight" /><circle cx="60" cy="32" r="3" class="badge-emblem__art-highlight" /><circle cx="73" cy="49" r="3" class="badge-emblem__art-highlight" />
+    </g>
+  `,
+  "level-85-now-strike": `
+    <g class="badge-emblem__art-bg">
+      <path d="M28 32l20 7M24 48l22 3M25 67l22-2M31 84l19-7" opacity=".7" />
+      <path d="M75 29a35 35 0 0 1 20 31M78 91a38 38 0 0 1-20 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M38 87c4-8 8-11 13-9 4 2 7 0 10-5" />
+      <path class="badge-emblem__art-secondary-fill" d="M38 87c-4 0-7-3-7-7 0-3 2-5 5-8 0 3 1 5 3 6 0-3 2-5 4-7 0 5 4 7 4 11 0 3-3 5-9 5Z" />
+      <path d="M73 33l8 5M77 43l9 1" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M69 20L39 59h20l-7 41 30-51H61z" />
+      <path d="M69 20L39 59h20l-7 41 30-51H61z" />
+      <path class="badge-emblem__art-highlight" d="M62 31l-17 23h15l-3 18 15-27H59z" />
+    </g>
+  `,
+  "level-90-spark-return": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="60" r="36" stroke-dasharray="2 6" />
+      <path d="M60 23c-21 6-30 18-27 33 2 13 12 22 28 27M60 23c20 4 30 15 30 29" />
+      <circle cx="30" cy="39" r="3" class="badge-emblem__art-bg-fill" /><circle cx="90" cy="45" r="3" class="badge-emblem__art-bg-fill" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M35 76l5 5M85 76l-5 5M37 48l6-2M83 48l-6-2" />
+      <path d="M60 87c8-5 14-11 17-19" stroke-width="5" />
+      <circle cx="60" cy="87" r="3" class="badge-emblem__art-secondary-fill" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M60 25l7 25 25 10-25 10-7 25-7-25-25-10 25-10z" />
+      <path d="M60 40v40M40 60h40" />
+      <path class="badge-emblem__art-highlight" d="M60 43l5 17-5 17-5-17z" />
+      <circle cx="60" cy="60" r="5" class="badge-emblem__art-primary-fill" />
+    </g>
+  `,
+  "level-95-uncharted-map": `
+    <g class="badge-emblem__art-bg">
+      <path d="M25 37c14-10 25-8 35 1 10 9 21 10 35-1M25 52c13-8 24-7 35 2 11 9 22 9 35 1M25 68c12-8 24-8 35 0 10 8 22 8 35-1" />
+      <path d="M28 88h64" stroke-dasharray="2 5" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M60 83c-10-15-16-24-13-32 3-8 10-13 21-19" />
+      <path class="badge-emblem__art-secondary-fill" d="M74 31l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" />
+      <circle cx="48" cy="51" r="3" /><circle cx="53" cy="60" r="2" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M28 35l23-9 18 9 23-9v55l-23 9-18-9-23 9z" />
+      <path d="M51 26v55M69 35v55" />
+      <path d="M35 72c7-9 13-13 20-12 7 1 13-3 18-12" stroke-width="5" />
+      <circle cx="73" cy="48" r="5" class="badge-emblem__art-highlight" />
+    </g>
+  `,
+  "level-100-legend-banner": `
+    <g class="badge-emblem__art-bg">
+      <circle cx="60" cy="59" r="38" />
+      <circle cx="60" cy="59" r="31" stroke-dasharray="2 5" />
+      <path d="M60 18v10M60 90v10M19 59h10M91 59h10M31 30l7 7M82 81l7 7M89 30l-7 7M38 81l-7 7" />
+    </g>
+    <g class="badge-emblem__art-secondary">
+      <path d="M35 71c-8 4-11 11-8 18 4-5 8-6 14-5M85 71c8 4 11 11 8 18-4-5-8-6-14-5" />
+      <path class="badge-emblem__art-secondary-fill" d="M37 84c7-5 15-5 23 2 8-7 16-7 23-2-7 7-15 8-23 2-8 6-16 5-23-2z" />
+      <path d="M60 82c-8-9-12-16-12-22 0-5 3-9 7-13 0 5 2 8 5 10 0-7 4-12 9-17 0 10 8 14 8 22 0 9-7 16-17 20Z" class="badge-emblem__art-secondary-fill" />
+    </g>
+    <g class="badge-emblem__art-primary">
+      <path class="badge-emblem__art-primary-fill" d="M39 35c8 5 14 3 21-7 7 10 13 12 21 7v34c-8 5-14 3-21-7-7 10-13 12-21 7z" />
+      <path d="M39 35c8 5 14 3 21-7 7 10 13 12 21 7M39 69c8-5 14-3 21 7 7-10 13-12 21-7M60 28v48" />
+      <path class="badge-emblem__art-highlight" d="M60 21l4 7 8 1-6 5 2 8-8-4-8 4 2-8-6-5 8-1z" />
+    </g>
+  `,
+});
+
 const BADGE_ARTWORK = Object.freeze({
+  ...LEVEL_BADGE_ARTWORK,
   ember: '<path class="badge-emblem__art-fill" d="M60 89c-16 0-27-10-27-25 0-11 7-20 17-29-1 12 5 18 12 22-2-13 4-25 13-35 1 18 19 23 19 42 0 14-11 25-34 25Z"/><path class="badge-emblem__cutout" d="M60 80c-6 0-11-4-11-10 0-5 3-9 8-14 0 6 3 9 6 11 0-5 2-9 5-13 1 8 8 11 8 17 0 5-5 9-16 9Z"/>',
   spark: '<path class="badge-emblem__art-fill" d="M60 22l7 29 31 9-31 9-7 29-7-29-31-9 31-9z"/><circle class="badge-emblem__art-dot" cx="31" cy="42" r="3"/><circle class="badge-emblem__art-dot" cx="89" cy="79" r="3"/>',
   compass: '<circle class="badge-emblem__art-ring" cx="60" cy="60" r="29"/><path class="badge-emblem__art-fill" d="M60 31l8 29-8 29-8-29z"/><path class="badge-emblem__art" d="M60 37v46M37 60h46"/><circle class="badge-emblem__art-dot" cx="60" cy="60" r="4"/>',
@@ -98,16 +467,25 @@ const DEFAULT_BADGE_ART = Object.freeze({
   legacy: "spark",
 });
 
+const BADGE_TIER_ORNAMENTS = Object.freeze({
+  origin: '<path d="M39 23l5 5M81 23l-5 5" /><circle cx="35" cy="20" r="2" /><circle cx="85" cy="20" r="2" />',
+  relic: '<path d="M28 30a42 42 0 0 1 64 0M28 90a42 42 0 0 0 64 0" /><path d="M31 26l4 7 8 1-6 5M89 26l-4 7-8 1 6 5" />',
+  legend: '<path d="M24 36c8-11 18-16 29-14M96 36c-8-11-18-16-29-14M24 84c8 11 18 16 29 14M96 84c-8 11-18 16-29 14" /><path d="M27 45l-5-4M93 45l5-4M27 75l-5 4M93 75l5 4" /><circle cx="21" cy="40" r="2" /><circle cx="99" cy="40" r="2" /><circle cx="21" cy="80" r="2" /><circle cx="99" cy="80" r="2" />',
+  side: '<circle cx="30" cy="25" r="2" /><circle cx="90" cy="25" r="2" />',
+});
+
 function createBadgeEmblem(badge, { locked = false } = {}) {
   const svg = document.createElementNS(SVG_NS, "svg");
   const shape = badge.shape || "circle";
   const frame = BADGE_FRAME_PATHS[shape] || BADGE_FRAME_PATHS.circle;
   const artKey = badge.artKey || DEFAULT_BADGE_ART[badge.category] || "spark";
+  const tier = badge.tier || "side";
   const artwork = locked
     ? '<text class="badge-emblem__question" x="60" y="77">?</text>'
     : BADGE_ARTWORK[artKey] || BADGE_ARTWORK.spark;
 
   svg.classList.add("badge-emblem", `my-badge--${shape}`, `badge-tone-${badge.tone || "gray"}`);
+  svg.classList.add(`badge-tier-${tier}`);
   svg.classList.add(locked ? "badge-emblem--locked" : "badge-emblem--earned");
   svg.setAttribute("viewBox", "0 0 120 120");
   svg.setAttribute("role", "img");
@@ -117,6 +495,7 @@ function createBadgeEmblem(badge, { locked = false } = {}) {
     <path class="badge-emblem__rim" d="${frame}" />
     <path class="badge-emblem__face" d="${frame}" transform="translate(4 4) scale(.9333)" />
     <path class="badge-emblem__inner-line" d="${frame}" transform="translate(9 9) scale(.85)" />
+    <g class="badge-emblem__tier-ornament">${BADGE_TIER_ORNAMENTS[tier] || BADGE_TIER_ORNAMENTS.side}</g>
     <path class="badge-emblem__crest" d="M60 4l5 7-5 7-5-7z" />
     <path class="badge-emblem__rune" d="M27 98h17M76 98h17" />
     <g class="badge-emblem__art">${artwork}</g>
@@ -127,7 +506,7 @@ function createBadgeEmblem(badge, { locked = false } = {}) {
 function createBadgeCard(api, badge) {
   const card = document.createElement("button");
   card.type = "button";
-  card.className = `badge-card badge-card--${badge.category} badge-tone-${badge.tone || "gray"}`;
+  card.className = `badge-card badge-card--${badge.category} badge-tone-${badge.tone || "gray"} badge-tier-${badge.tier || "side"}`;
   card.setAttribute("aria-label", `${badge.name}の詳細を見る`);
 
   const visual = document.createElement("span");

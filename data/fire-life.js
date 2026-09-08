@@ -10,27 +10,27 @@ const categoryLabels = Object.freeze({
 
 // バッジの見た目は絵文字ではなく、FIRE QUEST専用の紋章として描画します。
 const badgeArtKeys = Object.freeze({
-  "level-1-free-fire": "ember",
-  "level-5-rookie": "spark",
-  "level-10-adventurer": "compass",
-  "level-15-searcher": "horizon",
-  "level-20-end-of-cage": "cut",
-  "level-25-own-answer": "orbit",
-  "level-30-own-destination": "arrow",
-  "level-35-wings": "wings",
-  "level-40-life-designer": "blueprint",
-  "level-45-time-asset": "clock",
-  "level-50-time-traveler": "rewind",
-  "level-55-beginning-of-journey": "ticket",
-  "level-60-life-stroller": "sun",
-  "level-65-boredom-brave": "cup",
-  "level-70-secret-base": "camp",
-  "level-75-play-life": "play",
-  "level-80-serious-play": "spark",
-  "level-85-now-courage": "bolt",
-  "level-90-wakuwaku-return": "ember",
-  "level-95-unmapped-journey": "map",
-  "level-100-fire-legend": "flag",
+  "level-1-free-fire": "level-1-ember",
+  "level-5-rookie": "level-5-shield-trail",
+  "level-10-adventurer": "level-10-wayfinder",
+  "level-15-searcher": "level-15-dawn-seeker",
+  "level-20-end-of-cage": "level-20-open-road",
+  "level-25-own-answer": "level-25-off-the-rails",
+  "level-30-own-destination": "level-30-true-north",
+  "level-35-wings": "level-35-lift-off",
+  "level-40-life-designer": "level-40-life-blueprint",
+  "level-45-time-asset": "level-45-hourglass-crown",
+  "level-50-time-traveler": "level-50-reclaimed-time",
+  "level-55-beginning-of-journey": "level-55-open-gate",
+  "level-60-life-stroller": "level-60-slow-sun",
+  "level-65-boredom-brave": "level-65-quiet-courage",
+  "level-70-secret-base": "level-70-hideout",
+  "level-75-play-life": "level-75-celebration",
+  "level-80-serious-play": "level-80-play-crown",
+  "level-85-now-courage": "level-85-now-strike",
+  "level-90-wakuwaku-return": "level-90-spark-return",
+  "level-95-unmapped-journey": "level-95-uncharted-map",
+  "level-100-fire-legend": "level-100-legend-banner",
   "discovery-fire-strengths": "lens",
   "discovery-world-tour": "compass",
   "discovery-fire-lab": "flask",
@@ -131,6 +131,9 @@ export const badgeDefinitions = Object.freeze([
 ].map((badge) => ({
   ...badge,
   artKey: badgeArtKeys[badge.id] || `${badge.category}-default`,
+  tier: badge.category === "level"
+    ? badge.threshold >= 65 ? "legend" : badge.threshold >= 30 ? "relic" : "origin"
+    : "side",
 })));
 
 export { categoryLabels, DATA_VERSION, STORAGE_KEY };
