@@ -2,54 +2,40 @@
 
 ## 公開ページ
 
-- `/community/`：コンセプト、対象者、今週の話題、活動紹介、主催者、開放DAY、FAQ、参加ボタン。
-- `/community/weekly/`：日付を明示した週別アーカイブ。最初の週は2026-09-01〜09-07。
-- トップはおすすめ書籍の後、FIREコラムの前に小型カード。既存コミュニティカードもLPに接続。
-- 暇、サイドFIRE、退職後の暮らし、コミュニティ関連記事7ページは既存のCAMPFIRE大型カード2個を文脈に合う小さなリンク1個へ置換。FIREストレングスは診断結果の後に追加。
-- シミュレーター本体は別ドメインで、このリポジトリにコードがないため未変更。
+- `/community/`：コミュニティの紹介、対象者、今週の話題、活動紹介、主催者、開放DAY、FAQ、参加ボタン。
+- `/community/weekly/`：既存のDiscord週報を週ごとに掲載するアーカイブ。最新週報の本文・見出し・箇条書きをそのまま表示する。
+- トップページには最新週報の「今週の要約」だけを小型カードで表示する。
+- 既存記事のコミュニティ導線、CAMPFIREバックアップ、SEO、計測は従来どおり維持する。
 
-## 正本と再利用
+## 正本と週1回の公開
 
-Discordの正本は既存プロジェクトの `data/discord_archive.db`。既定のプロジェクトはユーザーホーム配下の `Documents/ChatGPT/DISCORD`。変更時は `DISCORD_ARCHIVE_ROOT` で指定する。
+Discord側の正本は、既存プロジェクト `C:\Users\syuns\Documents\ChatGPT\DISCORD` の `reports/weekly/YYYY/YYYY-MM-DD.md` です。保存場所を変える場合は `DISCORD_ARCHIVE_ROOT` で指定します。
 
-1. 既存 `tools/discord-archive/src/cli.js sync` による差分同期。収集・接続処理を新しく作らない。Discordへのメッセージ送信はしない。
-2. `npm run community:extract`：既存 `weekly-report.js` の `getWeeklyPeriod`・`matchedTopics` を再利用。前日までの直近7暦日（JST）をSQLiteから読み取り専用で抽出。
-3. 候補をOSのTEMP配下 `wakuwaku-community-weekly` に保存。原文・候補・レビュー情報はGitにもWebにも置かない。取得結果に候補ファイルのパスとSHA256が出る。
-4. Codexが候補を読み、公開して問題ない話題だけを日本語でAI再作文。単一の投稿を「皆で盛り上がった」と拡大しない。自分や職場での飲み会をコミュニティ主催イベントと誤認しない。個人的な場所・家族・資産・健康・勤務先・銘柄は一切含めない。確証がなければ除外。最大5件、1件1〜3文、一文65文字以内を上限とし40〜60文字程度を目安にする。イベント開催・予定は本文に明確な根拠がなければ掲載しない。
-5. 非公開ドラフトを作成し `npm run community:import -- PRIVATE_DRAFT PRIVATE_CANDIDATES`。AI再作文・プライバシーレビュー・根拠・候補SHA256・同期鮮度・期間・氏名・長い原文一致・出力形式を検証し、公開用フィールドだけを取り出す。
-6. `data/community-weekly.json` とLP・weekly・トップの静的HTMLを生成。公開済み週を自動で上書きしない。同一週・同一内容の再実行は変更なし。
-7. `npm run test:community`、`npm run validate:site`。差分をレビューし、今回の公開ファイルだけをGitにコミットして既存mainへ通常push。Cloudflare Pages Git連携により公開。
-8. 公開JSONとローカルJSONが一致すること、LP・weekly・画像・トップ導線が200であること、`/docs/backups/...` が404であることを確認して成功扱い。
+1. Discordプロジェクトで `npm run discord:weekly` を実行し、既存の差分同期と週報生成を行う。新しい収集処理やDiscordへの投稿は追加しない。
+2. このサイトのプロジェクトで `npm run community:import-report` を実行する。引数を省略すると既存週報フォルダの最新Markdownを使う。
+3. 取り込み時に除去するのはDiscord投稿リンクの行だけ。週報の文章、順番、見出し、箇条書きは変更しない。リンクを除いたMarkdownは `data/community-reports/YYYY-MM-DD.md` に保存する。
+4. `npm run community:build`、`npm run test:community`、`npm run validate:site` を実行する。
+5. 新しい週の公開ファイルだけをコミットして既存mainへ通常pushする。Cloudflare PagesのGit連携で公開される。
 
-候補が無い週は `items: []` で記録できる。開催回数・活動人数・レビューを作って埋めない。同期失敗・古いSQLite・QA失敗の場合は公開を止め、既存の公開アーカイブを保つ。最新週の枠は期限を過ぎると準備中になる。
+同じ週報を再実行した場合は、内容が同じなら変更なしで終了する。公開済みの同じ日付を別内容で上書きしない。週報が見つからない、生成・検証に失敗した場合は既存の公開アーカイブを保つ。
 
-## ドラフト形式（TEMPにのみ置く）
+Codexの自動更新は毎週火曜09:00（日本時間）に実行し、最新の既存週報がまだ取り込まれていれば公開する。Discord側の週報生成が先に完了していない週は、架空の内容を補わず変更なしで終了する。週報のサイト更新からDiscordへ投稿することはない。
 
-```json
-{
-  "week": {"startDate": "YYYY-MM-DD", "endDate": "YYYY-MM-DD", "items": []},
-  "review": {"aiRewritten": true, "privacyReviewed": true, "noUnverifiedClaims": true, "sourceDigest": "候補ファイルのSHA256"},
-  "evidence": []
-}
-```
+## リンクと公開データ
 
-itemsは `{ "category": "topics|calls|insights|chat|upcoming", "title": "短い見出し", "body": "再作文した文。" }`。evidenceは各itemsと同じ順の候補key配列。reviewはAIが実際に確認した場合のみtrueにする。機械的な検査だけでプライバシー確認が完了したと判断しない。
-
-## 自動更新
-
-Codexのこのタスクの定期実行を毎週火曜09:00（日本時間）に設定。前週火曜〜月曜を対象にする。ローカルSQLiteにアクセスするため、このPCとCodexが利用でき、ログイン・通信・利用枠があることが前提。新しい有料APIキーは不要。未実行の週を架空の内容で補完しない。
-
-定期実行は、最新mainを専用作業コピーに取り込み、上記1〜8を実行する。通常の手作業は不要。データが変わらない再実行は通知不要。新しい週の公開完了、失敗、利用者の操作が必要な場合だけ通知する。
+- `/community/weekly/` とトップの週報表示にはDiscord投稿URLを掲載しない。
+- `community-report.mjs` はDiscordのMarkdownリンクと裸URLを除去し、HTMLとして安全にエスケープしてから静的ページへ埋め込む。
+- SQLite、Discordの原文、候補、レビュー用ファイル、認証情報はGitにも公開サイトにも置かない。
+- `data/community-weekly.json` は旧来の匿名トピック表示との後方互換用。正本週報が存在する場合、公開週報ページとトップ要約は `data/community-reports` を優先する。
 
 ## イベント・メンバーの声
 
-- `data/community-open-day.json`：enabledをtrueにして、title、startsAt、endsAt（ISO8601、タイムゾーン必須）、description、participation、HTTPSのurl、ctaを設定。終了したイベントは非表示に戻る。
-- `data/community-voices.json`：voices配列にlabel（公開用匿名表記）、body、published、consentを追加。実在する声と掲載許諾を確認したものだけを登録。未登録ならセクション自体を表示しない。
-- 変更後は `npm run community:build` で再生成し、テスト・公開。情報をこのCodexタスクに伝えれば編集から公開まで対応できる。
+- `data/community-open-day.json`：`enabled` を true にして、title、startsAt、endsAt（ISO8601、タイムゾーン必須）、description、participation、HTTPSのurl、ctaを設定する。終了したイベントは非表示に戻る。
+- `data/community-voices.json`：label、body、published、consentを設定する。実在する声と掲載許諾を確認したものだけを登録し、未登録ならセクション自体を表示しない。
 
 ## 計測
 
-既存script.jsのgtag / dataLayer連携を再利用。両方存在する場合も二重送信しない。新規外部サービス・解析タグは追加していない。
+既存 `script.js` の gtag / dataLayer 連携を再利用する。両方存在する場合も二重送信しない。新規外部サービス・解析タグは追加していない。
 
 | イベント | 対象 |
 |---|---|
@@ -58,14 +44,12 @@ Codexのこのタスクの定期実行を毎週火曜09:00（日本時間）に�
 | community_campfire_click | 最終参加CTA |
 | community_home_to_weekly_click | トップ→weekly |
 | community_weekly_to_lp_click | weekly→LP |
-| community_context_click | 対象記事・診断→LP（ラベルで区別） |
+| community_context_click | 対象記事・診断→LP |
 | community_to_weekly_click | LP→weekly |
 | community_open_day_click | 開放DAY CTA |
 
-確認できたサイトコードにはgtag本体・dataLayerの初期化はないため、計測イベントは既存解析タグが提供される環境でのみ送信される。Cloudflare標準の閲覧数分析とは別で、カスタムイベントの収集先は未接続。この制約を公開完了報告でも明示する。
+## バックアップと確認
 
-## バックアップ
+`docs/backups/campfire-community-2026-09-08*` に、LP変更前のCAMPFIREページと関連記録を保存している。CAMPFIRE本体には書き込んでいない。Pages Functionsの `functions/docs/[[path]].js` はバックアップ文書へのアクセスを404（noindex）にする。
 
-`docs/backups/campfire-community-2026-09-08*` の7ファイルを変更前に専用コミットで保存。元HTML、本文HTML、Markdown、公開APIのプロジェクト情報、料金プラン、URL一覧、画像URL一覧。復元時は本文HTMLとAPI記録を正本に照合する。CAMPFIRE本体には一切書き込んでいない。外部画像配信の存続は保証しない。
-
-Pages Functionsの `functions/docs/[[path]].js` がdocsへのWebアクセスを404にする。非公開Discordデータはこのフォルダにも置かない。
+変更後は、LP・weekly・トップ・JSON・画像が200で取得できること、`/docs/backups/...` が404であること、公開JSONとローカルJSONが一致することを確認する。外部ソース検証はネットワークが利用できる環境で実行し、利用できない場合はローカル検証の結果と制約を記録する。

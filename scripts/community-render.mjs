@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validatePublicData, validateSettings } from './community-schema.mjs';
+import { currentReport, readPublicReports, reportMarkdownToHtml, reportSummary } from './community-report.mjs';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://wakuwaku-fire-git.pages.dev';
 const CAMPFIRE = 'https://community.camp-fire.jp/projects/view/778625';
@@ -38,17 +39,36 @@ const faq = [
 const audience = [['🧭','FIREを目指している','同じ目標を持つ人と、リアルな話をしたい。'],['☕','FIREしたけど少し暇','自由になった後の生活も、一緒に楽しみたい。'],['🌱','投資の話を気軽にしたい','普段の友人には話しづらいお金の話もしたい。'],['🤝','同じ価値観の仲間が欲しい','会社・年齢・肩書とは違うつながりを作りたい。'],['🎒','人生をもっと楽しみたい','お金だけでなく、趣味・旅行・挑戦も共有したい。']];
 const rooms = [['💬','雑談','FIREに関係ない話も、普通にOK。何気ない日常から会話が始まります。'],['🌱','投資・お金','投資や資産形成を気軽に話せる場所。考え方や経験を持ち寄ります。'],['☕','FIRE生活','仕事を辞めた後のリアルな生活。暇や時間の使い方も、一緒に考えます。'],['🎲','趣味・遊び','自由な時間をどう楽しむか。ゲーム、旅行、読書などの好きなことも。'],['🎙️','通話イベント','週1回ペースでオンラインの通話会。最初は聞くだけでも大丈夫です。'],['🪑','オフ会','画面の向こうから、実際に会える仲間へ。集まって話す時間も大切に。']];
 const cards = items => `<div class="community-grid">${items.map(([icon,title,body])=>`<article class="community-card"><span class="community-card-icon" aria-hidden="true">${icon}</span><h3>${title}</h3><p>${body}</p></article>`).join('')}</div>`;
-export function weeklyPanel(data, {compact=false, now=new Date()}={}) {
+export function weeklyPanel(data, {compact=false, now=new Date(), report=null}={}) {
+ const current=currentReport(report?[report]:[],now);
+ if(current){
+  const summary=reportSummary(current.markdown);
+  const content=`<p class="community-note">${period(current)}</p>${summary.length?`<ul>${summary.slice(0,compact?3:5).map(item=>`<li>${escape(item)}</li>`).join('')}</ul>`:'<p>今週のお便りは準備中です。</p>'}`;
+  return `<div data-weekly-current data-weekly-report data-week-ends="${current.endDate}T23:59:59+09:00">${content}</div>`;
+ }
  const w=recentWeek(data,now);
  const content=w ? `<p class="community-note">${period(w)}</p><ul>${w.items.slice(0,compact?3:5).map(i=>compact?`<li>${escape(i.title)}</li>`:`<li><h3>${escape(i.title)}</h3><p>${escape(i.body)}</p></li>`).join('')}</ul>` : '<p>今週のお便りは準備中です。</p>';
  return `<div data-weekly-current${w?` data-week-ends="${w.endDate}T23:59:59+09:00"`:''}>${content}</div>`;
 }
-export function renderCommunity({data=read('community-weekly.json'),voices=read('community-voices.json'),event=read('community-open-day.json'),now=new Date()}={}) {
+function reportArticle(report) {
+ return `<article id="week-${report.endDate}" class="community-report"><div class="community-report-body">${reportMarkdownToHtml(report.markdown)}</div></article>`;
+}
+function archiveMarkup(reports,weeks) {
+ if(reports.length){
+  return `<nav class="community-archive-links" aria-label="週ごとのお便り">${reports.map(report=>`<a class="community-text-link" href="#week-${report.endDate}">${period(report)}</a>`).join('')}</nav>${reports.map(reportArticle).join('')}`;
+ }
+ return weeks.length?`<nav class="community-archive-links" aria-label="週ごとのお便り">${weeks.map(w=>`<a class="community-text-link" href="#week-${w.endDate}">${period(w)}</a>`).join('')}</nav>${weeks.map(w=>`<article id="week-${w.endDate}"><h2>${period(w)}</h2>${w.items.length?w.items.map(i=>`<section class="community-topic"><span class="community-label">${category[i.category]}</span><h3>${escape(i.title)}</h3><p>${escape(i.body)}</p></section>`).join(''):'<p>この期間に公開できる話題はありませんでした。</p>'}</article>`).join('')}`:'<div class="community-weekly-panel"><p>最初のお便りは準備中です。</p><p>コミュニティの過ごし方は、下の紹介ページからご覧いただけます。</p></div>';
+}
+export function renderCommunity({data,voices,event,now=new Date()}={}) {
+ const useReportArchive=data===undefined&&voices===undefined&&event===undefined;
+ data=data??read('community-weekly.json'); voices=voices??read('community-voices.json'); event=event??read('community-open-day.json');
+ const reports=useReportArchive?readPublicReports():[];
+ const latestReport=currentReport(reports,now);
  validatePublicData(data); validateSettings(voices,event);
  const eventActive=event.enabled && new Date(event.endsAt)>now;
  const body=`<div class="community-shell"><section class="community-hero"><div><p class="community-eyebrow">WAKUWAKU FIRE COMMUNITY</p><h1>FIREはゴールじゃない。<br><span>自由になった人生を、<br>もっと面白く。</span></h1><p class="community-lead">FIREを目指す人も、FIREした人も。<br>お金・働き方・遊び・人生について<br>気軽に話せる、大人の秘密基地。</p><a class="community-button" href="#inside">秘密基地をのぞいてみる ↓</a><p class="community-note">チャットでも、通話を聞くだけでも。自分のペースで。</p></div><figure class="community-art"><img src="/community/basecamp.webp" alt="焚き火を囲み、くつろぎながら語り合う仲間たちのイラスト" width="720" height="720" fetchpriority="high"><figcaption>お金の話から、明日の遊びの話まで。</figcaption></figure></section><div class="community-strip"><span>✦ FIRE前も、FIRE後も</span><span>✦ 顔出しなしでもOK</span><span>✦ 営業・勧誘なし</span></div></div>
 <section class="community-section" id="inside"><div class="community-shell"><p class="community-eyebrow">FIND YOUR PLACE</p><h2>こんな気持ち、ありませんか？</h2><p class="community-section-intro">身近な人には少し話しにくいことも、ここでは気軽に。今いる場所や肩書を離れて、自分のこれからを話せる場所です。</p>${cards(audience)}</div></section>
-<section class="community-section community-section--warm"><div class="community-shell"><p class="community-eyebrow">A LETTER FROM THE BASECAMP</p><h2>今週の秘密基地</h2><p class="community-section-intro">今週、コミュニティではこんな話がありました。</p><div class="community-weekly-panel">${weeklyPanel(data,{now})}${link('/community/weekly/','今週のコミュニティをもっと見る →','community_to_weekly_click','lp')}</div></div></section>
+<section class="community-section community-section--warm"><div class="community-shell"><p class="community-eyebrow">A LETTER FROM THE BASECAMP</p><h2>今週の秘密基地</h2><p class="community-section-intro">今週、コミュニティではこんな話がありました。</p><div class="community-weekly-panel">${weeklyPanel(data,{now,report:latestReport})}${link('/community/weekly/','今週のコミュニティをもっと見る →','community_to_weekly_click','lp')}</div></div></section>
 <section class="community-section"><div class="community-shell"><p class="community-eyebrow">LIFE INSIDE</p><h2>まじめな話も。<br>どうでもいい話も。</h2><p class="community-section-intro">FIREは、人生の選択肢を増やすきっかけ。その先で何を楽しむかも、同じくらい大事にしています。</p>${cards(rooms)}</div></section>
 <section class="community-section"><div class="community-shell community-host"><img src="/community/maru.webp" alt="主催者・ワクワクFIREのまるのイラスト" width="240" height="285" loading="lazy"><div><p class="community-eyebrow">YOUR HOST</p><h2>主催：ワクワクFIREのまる</h2><p>30歳でFIRE。自由な時間を持て余したり、投資で失敗したり。会社を辞めたら、悩みが全部なくなったわけではありませんでした。</p><p>だからこそ、うまくいった話だけでなく、迷いや失敗も含めて話せる場所を作っています。</p><p class="community-quote">FIREそのものよりも、<br>その後の人生をどう楽しむか。</p><a class="community-text-link" href="/about/">まるについて →</a>　<a class="community-text-link" href="https://www.youtube.com/@MARU.SIDEFIRE">YouTubeを見る ↗</a></div></div></section>
 ${voices.voices.filter(v=>v.published && v.consent).length?`<section class="community-section"><div class="community-shell"><h2>メンバーの声</h2><div class="community-grid">${voices.voices.filter(v=>v.published&&v.consent).map(v=>`<figure class="community-card"><blockquote><p>${escape(v.body)}</p></blockquote><figcaption>${escape(v.label)}</figcaption></figure>`).join('')}</div></div></section>`:''}
@@ -57,8 +77,8 @@ ${voices.voices.filter(v=>v.published && v.consent).length?`<section class="comm
 <div class="community-shell"><section class="community-invite"><p class="community-eyebrow" style="color:#ffe19c">SEE YOU AT THE BASECAMP</p><h2>人生の自由について話せる仲間を。</h2><p>FIREを目指す途中でも、FIREした後でも。<br>お金のことも、遊びのことも、<br>これからどう生きたいかも。<br>同じようなことを考えている人と話せる場所です。</p><a class="community-button" href="${CAMPFIRE}" data-analytics-event="community_campfire_click" data-analytics-label="lp_final" data-analytics-category="community">ワクワクFIREコミュニティに参加する ↗</a><p class="community-note">CAMPFIREで料金・プラン・参加条件を確認できます。<br>お申し込み後、案内メールからDiscordへ。</p></section></div>`;
  const lp=page('FIREコミュニティ｜自由な人生を楽しむ大人の秘密基地｜ワクワクFIRE','FIREを目指す人も、FIREした人も。投資・働き方・趣味・FIRE後の生活を気軽に話せる大人の秘密基地。今週の話題や通話・オフ会の雰囲気をご紹介。','/community/',body,'community');
  const weeks=data.weeks;
- const weekly=page('今週のコミュニティ｜ワクワクFIREの秘密基地だより','ワクワクFIREコミュニティで話題になったことを、個人が特定されない形でお届けします。FIRE後の暮らしや雑談を週ごとに紹介。','/community/weekly/',`<div class="community-shell"><header class="community-week-head"><p class="community-eyebrow">BASECAMP LETTERS</p><h1>今週のコミュニティ</h1><p class="community-lead">秘密基地から、ちょっとお便り。<br>どんなことを話しているのか、のぞいてみてください。</p><p class="community-note">話題を匿名でまとめています。発言の引用や個人の情報は掲載していません。</p></header><div class="community-week-archive">${weeks.length?`<nav class="community-archive-links" aria-label="週ごとのお便り">${weeks.map(w=>`<a class="community-text-link" href="#week-${w.endDate}">${period(w)}</a>`).join('')}</nav>${weeks.map(w=>`<article id="week-${w.endDate}"><h2>${period(w)}</h2>${w.items.length?w.items.map(i=>`<section class="community-topic"><span class="community-label">${category[i.category]}</span><h3>${escape(i.title)}</h3><p>${escape(i.body)}</p></section>`).join(''):'<p>この期間に公開できる話題はありませんでした。</p>'}</article>`).join('')}`:'<div class="community-weekly-panel"><p>最初のお便りは準備中です。</p><p>コミュニティの過ごし方は、下の紹介ページからご覧いただけます。</p></div>'}</div><section class="community-invite"><h2>この空気、ちょっといいかも。</h2><p>FIREのことも、その先の人生のことも。<br>どんな場所なのか、もう少し見てみませんか。</p><a class="community-button" href="/community/" data-analytics-event="community_weekly_to_lp_click" data-analytics-category="community">コミュニティを見てみる →</a></section></div>`,'community_weekly');
- return {lp,weekly,teaser:`<!-- community-teaser:start --><section class="community-teaser" aria-labelledby="community-teaser-title"><div><h2 id="community-teaser-title">🔥 今週の秘密基地</h2><p>秘密基地から、ちょっとお便り。</p>${link('/community/weekly/','今週のコミュニティを見る →','community_home_to_weekly_click','homepage')}</div>${weeklyPanel(data,{compact:true,now})}</section><!-- community-teaser:end -->`};
+ const weekly=page('今週のコミュニティ｜ワクワクFIREの秘密基地だより','ワクワクFIREコミュニティで作成した週報を、Discord投稿へのリンクなしでそのままお届けします。FIRE後の暮らしや雑談を週ごとに紹介。','/community/weekly/',`<div class="community-shell"><header class="community-week-head"><p class="community-eyebrow">BASECAMP LETTERS</p><h1>今週のコミュニティ</h1><p class="community-lead">秘密基地から、ちょっとお便り。<br>どんなことを話しているのか、のぞいてみてください。</p><p class="community-note">既存の週報をそのまま掲載しています。Discord投稿へのリンクは掲載していません。</p></header><div class="community-week-archive">${archiveMarkup(reports,weeks)}</div><section class="community-invite"><h2>この空気、ちょっといいかも。</h2><p>FIREのことも、その先の人生のことも。<br>どんな場所なのか、もう少し見てみませんか。</p><a class="community-button" href="/community/" data-analytics-event="community_weekly_to_lp_click" data-analytics-category="community">コミュニティを見てみる →</a></section></div>`,'community_weekly');
+ return {lp,weekly,teaser:`<!-- community-teaser:start --><section class="community-teaser" aria-labelledby="community-teaser-title"><div><h2 id="community-teaser-title">🔥 今週の秘密基地</h2><p>秘密基地から、ちょっとお便り。</p>${link('/community/weekly/','今週のコミュニティを見る →','community_home_to_weekly_click','homepage')}</div>${weeklyPanel(data,{compact:true,now,report:latestReport})}</section><!-- community-teaser:end -->`};
 }
 export function build() {
  const {lp,weekly,teaser}=renderCommunity();

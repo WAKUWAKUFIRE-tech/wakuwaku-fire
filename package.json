@@ -22,6 +22,7 @@
     "community:build": "node scripts/community-render.mjs",
     "community:extract": "node scripts/community-extract.mjs",
     "community:import": "node scripts/community-import.mjs",
+    "community:import-report": "node scripts/community-import-report.mjs",
     "test:community": "node --test tests/community.test.mjs"
   }
 }

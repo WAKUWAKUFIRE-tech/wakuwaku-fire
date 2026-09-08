@@ -1,8 +1,8 @@
 // Expired cached content must not be presented as this week's activity, even offline.
-for(const holder of document.querySelectorAll('[data-week-ends]')) if(Date.parse(holder.dataset.weekEnds)<Date.now()-7*86400000){holder.replaceChildren();const p=document.createElement('p');p.textContent='今週のお便りは準備中です。';holder.append(p);}
+for(const holder of document.querySelectorAll('[data-week-ends]:not([data-weekly-report])')) if(Date.parse(holder.dataset.weekEnds)<Date.now()-7*86400000){holder.replaceChildren();const p=document.createElement('p');p.textContent='今週のお便りは準備中です。';holder.append(p);}
 fetch('/data/community-weekly.json', {cache:'no-cache'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{
  const week=Array.isArray(data.weeks)&&data.weeks.find(w=>new Date(`${w.endDate}T23:59:59+09:00`).getTime()>=Date.now()-7*86400000&&new Date(`${w.startDate}T00:00:00+09:00`).getTime()<=Date.now());
- for(const holder of document.querySelectorAll('[data-weekly-current]')){
+ for(const holder of document.querySelectorAll('[data-weekly-current]:not([data-weekly-report])')){
   const compact=!!holder.closest('.community-teaser');holder.replaceChildren();
   const paragraph=document.createElement('p');
   if(!week){paragraph.textContent='今週のお便りは準備中です。';holder.append(paragraph);continue;}
