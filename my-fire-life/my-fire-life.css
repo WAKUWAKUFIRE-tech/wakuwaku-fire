@@ -1464,4 +1464,252 @@ button.badge-card:focus-visible {
   }
 }
 
+/* RPG quest status panel */
+.my-life-profile-section__layout {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: clamp(1rem, 2.5vw, 1.55rem);
+  background-color: #1d2a3b;
+  background-image: url("../FIREクエスト3.png");
+  background-position: center bottom;
+  background-size: auto 145%;
+  border: 1px solid rgba(226, 174, 76, 0.72);
+  border-radius: 1.3rem;
+  box-shadow: 0 1.6rem 3rem rgba(22, 18, 25, 0.22), inset 0 0 0 1px rgba(255, 236, 167, 0.2);
+  isolation: isolate;
+}
+
+.my-life-profile-section__layout::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: rgba(17, 27, 40, 0.58);
+}
+
+.my-life-profile-section__layout > * {
+  position: relative;
+  z-index: 1;
+}
+
+.my-life-profile-section__heading {
+  position: relative;
+  max-width: 34rem;
+  margin: 0 auto 1.25rem;
+  padding: 0.9rem 1.5rem 0.8rem;
+  color: #fff0c5;
+  text-align: center;
+  background: #604127;
+  border: 2px solid #dda844;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 0 3px rgba(43, 28, 24, 0.72), 0 0.7rem 1.4rem rgba(11, 15, 22, 0.32), inset 0 0 0 1px rgba(255, 225, 133, 0.5);
+}
+
+.my-life-profile-section__heading::before,
+.my-life-profile-section__heading::after {
+  position: absolute;
+  top: 50%;
+  width: 0.65rem;
+  height: 0.65rem;
+  content: "";
+  background: #f4c65b;
+  border: 2px solid #8d5b2e;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.my-life-profile-section__heading::before {
+  left: -0.35rem;
+}
+
+.my-life-profile-section__heading::after {
+  right: -0.35rem;
+}
+
+.my-life-profile-section__heading .eyebrow {
+  margin: 0 0 0.35rem;
+  color: #f8d77b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+}
+
+.my-life-profile-section__heading h2 {
+  color: #fff3cf;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.9rem, 4.8vw, 2.8rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  text-shadow: 0 2px 0 #3b261f, 0 0 1rem rgba(255, 208, 93, 0.2);
+}
+
+.my-life-profile-section__subtitle {
+  margin: 0.5rem 0 0;
+  color: #f5dca0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.life-profile-card {
+  box-sizing: border-box;
+  padding: clamp(1.05rem, 2.6vw, 1.65rem);
+  background: #f5e5bd;
+  border: 2px solid #d19a3e;
+  border-radius: 0.55rem;
+  box-shadow: 0 0 0 5px rgba(237, 202, 123, 0.28), 0 1.2rem 2rem rgba(10, 16, 24, 0.3), inset 0 0 0 1px rgba(255, 249, 218, 0.86);
+}
+
+.life-profile-card::before {
+  top: 0.42rem;
+  right: 1.2rem;
+  width: 2.25rem;
+  height: 0.55rem;
+  background: #d59d3e;
+  border: 1px solid #f4d481;
+  border-radius: 999px;
+  box-shadow: 0 1px 0 #8d5b2e;
+  transform: rotate(3deg);
+}
+
+.life-profile-card::after {
+  position: absolute;
+  inset: 0.55rem;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  border: 1px solid rgba(166, 111, 42, 0.38);
+  border-radius: 0.25rem;
+}
+
+.life-profile-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.life-profile-card__topline {
+  padding-bottom: 0.85rem;
+  color: #67492f;
+  border-bottom-color: rgba(166, 111, 42, 0.42);
+}
+
+.life-profile-card__local-chip {
+  padding: 0.25rem 0.55rem;
+  color: #70411f;
+  background: rgba(255, 246, 214, 0.72);
+  border: 1px solid rgba(174, 122, 43, 0.45);
+  border-radius: 0.3rem;
+}
+
+.life-profile-card__identity {
+  padding: 1.25rem 0 1.05rem;
+}
+
+.life-profile-card__avatar {
+  color: #ffeaa3;
+  background: #af2c28;
+  border-color: #dca542;
+  border-radius: 42% 42% 48% 48% / 35% 35% 62% 62%;
+  box-shadow: 0 3px 0 #743027, 0 0 0 2px rgba(255, 237, 165, 0.72);
+}
+
+.life-profile-card__identity-copy > span,
+.life-stat-label {
+  color: #74452d;
+}
+
+.life-profile-card__identity-copy h2,
+.life-profile-card__exp-row strong,
+.life-visit-stat strong {
+  color: #182838;
+}
+
+.life-level-orb {
+  color: #fff3d0;
+  background: #b52d29;
+  border-color: #e5b345;
+  box-shadow: 0 0 0 4px #f3dfaa, 0 0 0 6px rgba(169, 111, 37, 0.46), 0 4px 0 #762d27;
+  transform: none;
+}
+
+.life-profile-card__exp-row {
+  border-top-color: rgba(166, 111, 42, 0.42);
+}
+
+.life-profile-card__next strong {
+  color: #a52225;
+}
+
+.life-exp-bar {
+  height: 0.78rem;
+  background: #272a2f;
+  border: 2px solid #c58c36;
+  border-radius: 999px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.34), 0 1px 0 rgba(255, 242, 190, 0.72);
+}
+
+.life-exp-bar span {
+  background: var(--yellow);
+}
+
+.life-profile-card__exp-note,
+.life-profile-card__local-note,
+.life-nickname-form__hint {
+  color: #765a43;
+}
+
+.life-visit-stat {
+  padding: 0.85rem;
+  background: rgba(255, 248, 222, 0.72);
+  border: 2px solid #d2a257;
+  border-radius: 0.55rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 253, 235, 0.74), 0 2px 0 rgba(131, 84, 30, 0.18);
+}
+
+.life-visit-stat small {
+  color: #765a43;
+}
+
+.life-nickname-form {
+  border-top-color: rgba(166, 111, 42, 0.52);
+}
+
+.life-nickname-form label {
+  color: #67492f;
+}
+
+.life-nickname-form input {
+  background: #fff9e8;
+  border-color: #d2a257;
+}
+
+.life-nickname-form__row .button {
+  color: #fff3d0;
+  background: #a92727;
+  border-color: #d5a13e;
+  box-shadow: 0 2px 0 #702825;
+}
+
+@media (max-width: 699px) {
+  .my-life-profile-section__layout {
+    padding: 0.9rem;
+    border-radius: 1rem;
+  }
+
+  .my-life-profile-section__heading {
+    margin-bottom: 1.1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .my-life-profile-section__heading h2 {
+    font-size: clamp(1.65rem, 9vw, 2.2rem);
+  }
+
+  .my-life-profile-section__subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+  }
+}
+
 
