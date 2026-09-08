@@ -5651,3 +5651,355 @@ body.fire-card-modal-open { overflow: hidden; }
     transition: none;
   }
 }
+/* 参照デザイン：トップページのファーストビュー */
+.reference-home {
+  --reference-navy: #063a78;
+  --reference-navy-deep: #032650;
+  --reference-yellow: #ffd14d;
+  --reference-red: #f34a35;
+  background: var(--reference-navy-deep);
+}
+
+.reference-home .site-header--reference {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--paper);
+  background: rgba(4, 48, 101, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(8px);
+}
+
+.reference-home .site-header--reference.is-scrolled {
+  background: rgba(3, 34, 76, 0.97);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 10, 30, 0.2);
+}
+
+.reference-home .site-header--reference .site-header__inner {
+  width: min(calc(100% - 144px), 1528px);
+  min-height: 78px;
+}
+
+.reference-home .site-header--reference .brand {
+  gap: 12px;
+  color: var(--paper);
+  letter-spacing: -0.06em;
+}
+
+.reference-home .site-header--reference .brand__mark {
+  width: 40px;
+  height: 40px;
+  color: var(--reference-red);
+  background: var(--reference-yellow);
+  border-color: rgba(255, 255, 255, 0.35);
+  border-radius: 11px;
+  font-size: 23px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.reference-home .site-header--reference .brand__text {
+  color: var(--paper);
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+}
+
+.reference-home .site-header--reference .brand__text span {
+  color: var(--reference-red);
+}
+
+.reference-home .site-header--reference .brand__tagline {
+  margin: 0 auto 0 26px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
+.reference-home .site-header--reference .nav-toggle__line {
+  background: var(--paper);
+}
+
+.reference-home .site-header--reference .nav-toggle__label {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.reference-home .site-header--reference .site-nav a {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 15px;
+  letter-spacing: -0.04em;
+}
+
+.reference-home .site-header--reference .site-nav a:hover,
+.reference-home .site-header--reference .site-nav a:focus-visible {
+  color: var(--reference-yellow);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reference-home .site-header--reference .site-nav__cta {
+  min-width: 232px;
+  margin-left: 12px;
+  padding: 14px 27px !important;
+  color: #071f45 !important;
+  background: var(--reference-yellow) !important;
+  border-radius: 11px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
+  font-size: 17px !important;
+  text-align: center;
+}
+
+.reference-home .site-header--reference .site-nav__cta:hover,
+.reference-home .site-header--reference .site-nav__cta:focus-visible {
+  color: #071f45 !important;
+  background: #ffe27e !important;
+  transform: translateY(-2px);
+}
+
+.reference-home .hero--reference {
+  position: relative;
+  min-height: max(760px, 100svh);
+  padding: 78px 0 30px;
+  overflow: hidden;
+  color: var(--paper);
+  background: var(--reference-navy-deep);
+}
+
+.reference-home .reference-hero__backdrop,
+.reference-home .reference-hero__wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.reference-home .reference-hero__backdrop {
+  background: url("./hero-fire-sunset.png") center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.reference-home .reference-hero__wash {
+  background: rgba(3, 35, 78, 0.18);
+}
+
+.reference-home .reference-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(calc(100% - 144px), 1528px);
+  min-height: calc(100svh - 108px);
+}
+
+.reference-home .reference-hero__copy {
+  position: relative;
+  z-index: 3;
+  width: min(760px, 54vw);
+  padding: 154px 0 52px;
+  text-shadow: 0 2px 18px rgba(0, 10, 32, 0.3);
+}
+
+.reference-home .reference-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 23px;
+  color: var(--reference-yellow);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: clamp(0.9rem, 1.25vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  white-space: nowrap;
+}
+
+.reference-home .reference-hero__eyebrow::after {
+  width: min(280px, 18vw);
+  height: 2px;
+  background: var(--reference-yellow);
+  content: "";
+  opacity: 0.95;
+}
+
+.reference-home .reference-hero__copy h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0;
+  margin: 0;
+  color: var(--paper);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  font-size: clamp(4.5rem, 6.4vw, 6.9rem);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.83;
+  white-space: nowrap;
+}
+
+.reference-home .reference-hero__copy h1 span:first-child {
+  white-space: nowrap;
+  color: var(--paper);
+}
+
+.reference-home .reference-hero__copy h1 span:last-child {
+  white-space: nowrap;
+  color: var(--reference-red);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.04em;
+  letter-spacing: -0.08em;
+  text-shadow: 0 5px 0 rgba(108, 19, 28, 0.38), 0 7px 25px rgba(0, 0, 0, 0.28);
+}
+
+.reference-home .reference-hero__lead {
+  margin: 38px 0 16px;
+  color: var(--paper);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: clamp(2rem, 3.25vw, 3.65rem);
+  font-weight: 700;
+  letter-spacing: -0.1em;
+  line-height: 1.15;
+}
+
+.reference-home .reference-hero__lead strong {
+  font-weight: 900;
+}
+
+.reference-home .reference-hero__description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.94);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: clamp(0.96rem, 1.35vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.85;
+}
+
+.reference-home .reference-hero__manifesto {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 25px 0 0;
+  padding: 8px 0 8px 19px;
+  border-left: 3px solid var(--reference-yellow);
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.reference-home .reference-hero__manifesto strong {
+  color: var(--reference-yellow);
+  font-size: 1.1em;
+}
+
+.reference-home .reference-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.reference-home .reference-hero__button {
+  min-height: 62px;
+  padding: 14px 25px;
+  border: 1px solid var(--reference-yellow);
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.reference-home .reference-hero__button--primary {
+  min-width: 295px;
+  color: #071f45;
+  background: var(--reference-yellow);
+  box-shadow: 0 5px 0 rgba(117, 77, 7, 0.34);
+}
+
+.reference-home .reference-hero__button--primary:hover,
+.reference-home .reference-hero__button--primary:focus-visible {
+  color: #071f45;
+  background: #ffe27e;
+  box-shadow: 0 8px 0 rgba(117, 77, 7, 0.34);
+}
+
+.reference-home .reference-hero__button--outline {
+  min-width: 274px;
+  color: var(--paper);
+  background: rgba(4, 37, 85, 0.42);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.22);
+}
+
+.reference-home .reference-hero__button--outline:hover,
+.reference-home .reference-hero__button--outline:focus-visible {
+  color: var(--reference-yellow);
+  background: rgba(4, 37, 85, 0.78);
+}
+
+.reference-home .ticker,
+.reference-home .section,
+.reference-home .site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 980px) {
+  .reference-home .site-header--reference .nav-toggle { display: none; }
+
+  .reference-home .site-header--reference .site-nav {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 980px) {
+  .reference-home .site-header--reference .site-header__inner,
+  .reference-home .reference-hero__inner { width: min(calc(100% - 64px), 1160px); }
+
+  .reference-home .site-header--reference .brand__tagline { display: none; }
+  .reference-home .site-header--reference .site-nav a { padding-inline: 8px; font-size: 12px; }
+  .reference-home .site-header--reference .site-nav__cta { min-width: 172px; font-size: 14px !important; }
+  .reference-home .reference-hero__copy h1 { font-size: clamp(3.8rem, 5.3vw, 4.4rem); }
+  .reference-home .reference-hero__lead { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
+}
+
+@media (max-width: 979px) {
+  .reference-home .site-header--reference .site-header__inner,
+  .reference-home .reference-hero__inner { width: min(calc(100% - 36px), 720px); }
+
+  .reference-home .site-header--reference .brand__tagline { display: none; }
+  .reference-home .site-header--reference .site-nav {
+    color: var(--paper);
+    background: rgba(3, 34, 76, 0.98);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+  .reference-home .site-header--reference .site-nav a { color: var(--paper); }
+  .reference-home .site-header--reference .site-nav__cta { color: #071f45 !important; }
+  .reference-home .hero--reference { min-height: auto; padding-top: 106px; padding-bottom: 75px; }
+  .reference-home .reference-hero__inner { display: block; min-height: 0; }
+  .reference-home .reference-hero__copy { width: 100%; padding: 36px 0 0; }
+  .reference-home .reference-hero__eyebrow::after { width: min(180px, 23vw); }
+  .reference-home .reference-hero__copy h1 { flex-direction: column; font-size: clamp(4.2rem, 14vw, 7.5rem); }
+}
+
+@media (max-width: 600px) {
+  .reference-home .site-header--reference .site-header__inner { min-height: 70px; }
+  .reference-home .site-header--reference .brand__mark { width: 34px; height: 34px; font-size: 20px; }
+  .reference-home .site-header--reference .brand__text { font-size: 19px; }
+  .reference-home .reference-hero__eyebrow { gap: 10px; font-size: 0.78rem; letter-spacing: 0.14em; }
+  .reference-home .reference-hero__copy h1 { flex-direction: column; font-size: clamp(3.7rem, 18vw, 5.4rem); }
+  .reference-home .reference-hero__lead { margin-top: 29px; font-size: clamp(1.65rem, 8.2vw, 2.2rem); }
+  .reference-home .reference-hero__description { font-size: 0.87rem; }
+  .reference-home .reference-hero__manifesto { margin-top: 21px; font-size: 0.8rem; }
+  .reference-home .reference-hero__actions { flex-direction: column; gap: 12px; margin-top: 24px; }
+  .reference-home .reference-hero__button,
+  .reference-home .reference-hero__button--primary,
+  .reference-home .reference-hero__button--outline { width: 100%; min-width: 0; min-height: 55px; font-size: 14px; }
+}
