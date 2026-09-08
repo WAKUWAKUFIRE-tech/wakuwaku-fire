@@ -48,34 +48,43 @@
               </div>
             </div>
 
-            <article class="life-profile-card" aria-label="あなたのFIRE QUESTプロフィール">
-              <div class="life-profile-card__topline"><span>WAKUWAKU FIRE / MVP</span><span class="life-profile-card__local-chip">この端末に保存</span></div>
-              <div class="life-profile-card__identity">
-                <div class="life-profile-card__avatar" aria-hidden="true">W</div>
-                <div class="life-profile-card__identity-copy"><span>FIRE QUEST</span><h2 id="life-display-name">FIRE QUEST</h2></div>
-                <div class="life-level-orb"><span>LEVEL</span><strong id="life-level">1</strong></div>
-              </div>
-              <div class="life-profile-card__exp-row">
-                <div><span class="life-stat-label">TOTAL EXP</span><strong id="life-exp">0 EXP</strong></div>
-                <div class="life-profile-card__next"><span class="life-stat-label">次のLEVELまで</span><strong id="life-next">Lv.2まであと100 EXP</strong></div>
-              </div>
-              <div class="life-exp-bar" role="progressbar" aria-label="次のレベルまでのEXP" aria-valuemin="0" aria-valuemax="99" aria-valuenow="0"><span id="life-exp-bar"></span></div>
-              <p class="life-profile-card__exp-note">コラムをしっかり読むと、1記事につき＋10 EXP。<br />同じコラムでEXPが貯まるのは最初の1回だけです。</p>
-              <div class="life-visit-stats">
-                <div class="life-visit-stat"><span class="life-visit-stat__icon" aria-hidden="true">🔥</span><span><small>連続訪問</small><strong id="life-streak">0日</strong></span></div>
-                <div class="life-visit-stat"><span class="life-visit-stat__icon" aria-hidden="true">📅</span><span><small>累計訪問</small><strong id="life-visits">0日</strong></span></div>
-              </div>
-              <p class="life-profile-card__local-note">現在のFIRE人生データは、この端末に保存されています。ブラウザデータを削除すると消える場合があります。</p>
-              <form class="life-nickname-form" data-nickname-form>
-                <label for="life-nickname-input">ニックネーム（任意）</label>
-                <div class="life-nickname-form__row">
-                  <input id="life-nickname-input" name="nickname" type="text" maxlength="24" autocomplete="nickname" placeholder="例：まる" />
-                  <button class="button button--outline" type="submit">保存</button>
-                </div>
-                <p class="life-nickname-form__hint" data-nickname-status aria-live="polite">いつでも変更できます。</p>
-              </form>
-            </article>
           </div>
+        </div>
+      </section>
+
+      <section class="my-life-profile-section" aria-labelledby="life-profile-section-title">
+        <div class="container">
+          <div class="my-life-profile-section__heading">
+            <p class="eyebrow eyebrow--red">YOUR QUEST STATUS</p>
+            <h2 id="life-profile-section-title">冒険の現在地</h2>
+          </div>
+          <article class="life-profile-card" aria-label="あなたのFIRE QUESTプロフィール">
+            <div class="life-profile-card__topline"><span>WAKUWAKU FIRE / MVP</span><span class="life-profile-card__local-chip">この端末に保存</span></div>
+            <div class="life-profile-card__identity">
+              <div class="life-profile-card__avatar" aria-hidden="true">W</div>
+              <div class="life-profile-card__identity-copy"><span>FIRE QUEST</span><h2 id="life-display-name">FIRE QUEST</h2></div>
+              <div class="life-level-orb"><span>LEVEL</span><strong id="life-level">1</strong></div>
+            </div>
+            <div class="life-profile-card__exp-row">
+              <div><span class="life-stat-label">TOTAL EXP</span><strong id="life-exp">0 EXP</strong></div>
+              <div class="life-profile-card__next"><span class="life-stat-label">次のLEVELまで</span><strong id="life-next">Lv.2まであと100 EXP</strong></div>
+            </div>
+            <div class="life-exp-bar" role="progressbar" aria-label="次のレベルまでのEXP" aria-valuemin="0" aria-valuemax="99" aria-valuenow="0"><span id="life-exp-bar"></span></div>
+            <p class="life-profile-card__exp-note">コラムをしっかり読むと、1記事につき＋10 EXP。<br />同じコラムでEXPが貯まるのは最初の1回だけです。</p>
+            <div class="life-visit-stats">
+              <div class="life-visit-stat"><span class="life-visit-stat__icon" aria-hidden="true">🔥</span><span><small>連続訪問</small><strong id="life-streak">0日</strong></span></div>
+              <div class="life-visit-stat"><span class="life-visit-stat__icon" aria-hidden="true">📅</span><span><small>累計訪問</small><strong id="life-visits">0日</strong></span></div>
+            </div>
+            <p class="life-profile-card__local-note">現在のFIRE人生データは、この端末に保存されています。ブラウザデータを削除すると消える場合があります。</p>
+            <form class="life-nickname-form" data-nickname-form>
+              <label for="life-nickname-input">ニックネーム（任意）</label>
+              <div class="life-nickname-form__row">
+                <input id="life-nickname-input" name="nickname" type="text" maxlength="24" autocomplete="nickname" placeholder="例：まる" />
+                <button class="button button--outline" type="submit">保存</button>
+              </div>
+              <p class="life-nickname-form__hint" data-nickname-status aria-live="polite">いつでも変更できます。</p>
+            </form>
+          </article>
         </div>
       </section>
 
