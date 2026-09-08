@@ -479,7 +479,7 @@ const fireLifeAssetRoot = new URL(
 if (!document.querySelector('link[data-fire-life-style="true"]')) {
   const fireLifeStylesheet = document.createElement("link");
   fireLifeStylesheet.rel = "stylesheet";
-  fireLifeStylesheet.href = new URL("fire-life.css", fireLifeAssetRoot).href;
+  fireLifeStylesheet.href = new URL("fire-life.css?v=2", fireLifeAssetRoot).href;
   fireLifeStylesheet.dataset.fireLifeStyle = "true";
   document.head.appendChild(fireLifeStylesheet);
 }
