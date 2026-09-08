@@ -13,6 +13,7 @@ import {
   getLevelProgress,
   parseBackup,
   recordArticleRead,
+  recordFireQuestVisit,
   recordVisit,
   restoreBackup,
   syncEligibleBadges,
@@ -196,8 +197,33 @@ test("FIRE人生の足あとを時系列で組み立て、バックアップか�
   const restored = parseBackup(backup);
   assert.equal(restored.nickname, "まる");
   assert.equal(restored.articleReadHistory[0].title, "足あとになる記事");
-  assert.equal(restored.version, 3);
+  assert.equal(restored.version, 4);
   assert.equal(restoreBackup(backup).totalExp, state.totalExp);
+});
+
+test("FIRE QUEST訪問EXPはJSTの1日1回で、10日ごとと30日ごとのボーナスを積み上げる", () => {
+  const state = getDefaultState();
+  const results = [];
+
+  for (let day = 0; day < 30; day += 1) {
+    const now = new Date(Date.UTC(2026, 0, day + 1));
+    recordVisit(state, now);
+    results.push(recordFireQuestVisit(state, now));
+  }
+
+  assert.equal(results[0].expGained, 10);
+  assert.equal(results[9].streakBonusExp, 100);
+  assert.equal(results[9].longStreakBonusExp, 0);
+  assert.equal(results[19].streakBonusExp, 100);
+  assert.equal(results[29].streakBonusExp, 100);
+  assert.equal(results[29].longStreakBonusExp, 100);
+  assert.equal(state.fireQuestVisitDates.length, 30);
+  assert.equal(state.totalExp, 700);
+
+  const duplicate = recordFireQuestVisit(state, new Date(Date.UTC(2026, 0, 30, 12)));
+  assert.equal(duplicate.isNewDay, false);
+  assert.equal(duplicate.expGained, 0);
+  assert.equal(state.totalExp, 700);
 });
 
 

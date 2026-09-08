@@ -1,5 +1,10 @@
 const STORAGE_KEY = "wakuwaku-fire-life";
-const DATA_VERSION = 3;
+const DATA_VERSION = 4;
+const FIRE_QUEST_DAILY_EXP = 10;
+const FIRE_QUEST_STREAK_INTERVAL = 10;
+const FIRE_QUEST_STREAK_BONUS_EXP = 100;
+const FIRE_QUEST_LONG_STREAK_INTERVAL = 30;
+const FIRE_QUEST_LONG_STREAK_BONUS_EXP = 100;
 const LEVEL_EARLY_MAX = 5;
 const LEVEL_EARLY_STEP_EXP = 30;
 const LEVEL_MID_MAX = 10;
@@ -184,6 +189,7 @@ export function getDefaultState() {
     longestStreak: 0,
     totalVisitDays: 0,
     visitDates: [],
+    fireQuestVisitDates: [],
     lastVisitDate: null,
     firstVisitDate: null,
     welcomeSeen: false,
@@ -230,6 +236,7 @@ function normalizeState(raw) {
   state.articleReadHistory = [...articleReadHistory.values()];
   state.readArticles = [...new Set([...state.readArticles, ...state.articleReadHistory.map((item) => item.id)])];
   state.visitDates = [...new Set(Array.isArray(state.visitDates) ? state.visitDates.filter((item) => /^\d{4}-\d{2}-\d{2}$/.test(item)) : [])].sort();
+  state.fireQuestVisitDates = [...new Set(Array.isArray(state.fireQuestVisitDates) ? state.fireQuestVisitDates.filter((item) => /^\d{4}-\d{2}-\d{2}$/.test(item)) : [])].sort();
   state.totalVisitDays = Math.max(state.visitDates.length, Number.isFinite(Number(state.totalVisitDays)) ? Math.floor(Number(state.totalVisitDays)) : 0);
   state.currentStreak = Number.isFinite(Number(state.currentStreak)) ? Math.max(0, Math.floor(Number(state.currentStreak))) : 0;
   state.longestStreak = Number.isFinite(Number(state.longestStreak)) ? Math.max(state.currentStreak, Math.floor(Number(state.longestStreak))) : state.currentStreak;
@@ -285,7 +292,7 @@ export function parseBackup(raw) {
   const candidate = payload && typeof payload === "object" && payload.state && typeof payload.state === "object"
     ? payload.state
     : payload;
-  const recognizedKeys = ["nickname", "totalExp", "readArticles", "articleReadHistory", "badges", "visitDates", "currentStreak", "totalVisitDays"];
+  const recognizedKeys = ["nickname", "totalExp", "readArticles", "articleReadHistory", "badges", "visitDates", "fireQuestVisitDates", "currentStreak", "totalVisitDays"];
   if (!candidate || typeof candidate !== "object" || Array.isArray(candidate) || !recognizedKeys.some((key) => Object.prototype.hasOwnProperty.call(candidate, key))) {
     throw new Error("FIRE人生データとして復元できるファイルではありません。");
   }
@@ -413,6 +420,54 @@ export function recordVisit(state, now = new Date()) {
   }
 
   return { isNewDay, today, newlyEarnedBadges };
+}
+
+export function recordFireQuestVisit(state, now = new Date()) {
+  const today = getTokyoDateKey(now);
+  if (!Array.isArray(state.fireQuestVisitDates)) state.fireQuestVisitDates = [];
+  const isNewDay = !state.fireQuestVisitDates.includes(today);
+  const beforeLevel = getLevelFromExp(state.totalExp);
+
+  if (!isNewDay) {
+    return {
+      isNewDay: false,
+      today,
+      dailyExpGained: 0,
+      streakBonusExp: 0,
+      longStreakBonusExp: 0,
+      expGained: 0,
+      levelUp: false,
+      beforeLevel,
+      level: beforeLevel,
+      newlyEarnedBadges: [],
+    };
+  }
+
+  state.fireQuestVisitDates = [...state.fireQuestVisitDates, today].sort();
+  const dailyExpGained = FIRE_QUEST_DAILY_EXP;
+  const streakBonusExp = state.currentStreak > 0 && state.currentStreak % FIRE_QUEST_STREAK_INTERVAL === 0
+    ? FIRE_QUEST_STREAK_BONUS_EXP
+    : 0;
+  const longStreakBonusExp = state.currentStreak > 0 && state.currentStreak % FIRE_QUEST_LONG_STREAK_INTERVAL === 0
+    ? FIRE_QUEST_LONG_STREAK_BONUS_EXP
+    : 0;
+  const expGained = dailyExpGained + streakBonusExp + longStreakBonusExp;
+  state.totalExp += expGained;
+  const level = getLevelFromExp(state.totalExp);
+  const newlyEarnedBadges = awardThresholdBadges(state, "level", level, now);
+
+  return {
+    isNewDay: true,
+    today,
+    dailyExpGained,
+    streakBonusExp,
+    longStreakBonusExp,
+    expGained,
+    levelUp: level > beforeLevel,
+    beforeLevel,
+    level,
+    newlyEarnedBadges,
+  };
 }
 
 export function recordDiscovery(state, sourceContentId, now = new Date()) {

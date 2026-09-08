@@ -1,4 +1,4 @@
-const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=7");
+const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=8");
 
 const lifeElements = {
   level: document.querySelector("#life-level"),

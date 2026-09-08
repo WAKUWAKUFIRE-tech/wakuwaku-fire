@@ -482,7 +482,7 @@ if (!document.querySelector('link[data-fire-life-style="true"]')) {
   document.head.appendChild(fireLifeStylesheet);
 }
 
-const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=6", fireLifeAssetRoot).href);
+const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=8", fireLifeAssetRoot).href);
 window.__wakuwakuFireLifeReady = fireLifeReady;
 
 const fireLifeToastQueue = [];
@@ -826,14 +826,58 @@ function startFireLifeMvp(api) {
   const state = api.loadState();
   const hadBadgesBeforeSync = state.badges.length > 0;
   const visitResult = api.recordVisit(state);
-  const notifications = visitResult.newlyEarnedBadges.map((badge) => ({
+  const isFireQuestPage = /\/my-fire-life(?:\/|$)/.test(window.location.pathname);
+  const questVisitResult = isFireQuestPage ? api.recordFireQuestVisit(state) : null;
+  const notifications = [];
+
+  if (questVisitResult?.dailyExpGained) {
+    notifications.push({
+      type: "exp",
+      icon: "🔥",
+      kicker: "FIRE QUESTに帰還！",
+      title: `+${questVisitResult.dailyExpGained} EXP`,
+      detail: `Lv.${questVisitResult.level}まであと${api.getExpToNextLevel(state.totalExp)} EXP`,
+    });
+  }
+
+  if (questVisitResult?.streakBonusExp) {
+    notifications.push({
+      type: "exp",
+      icon: "🔥",
+      kicker: "連続訪問ボーナス！",
+      title: `+${questVisitResult.streakBonusExp} EXP`,
+      detail: `${state.currentStreak}日連続で、火をつなぎました。`,
+    });
+  }
+
+  if (questVisitResult?.longStreakBonusExp) {
+    notifications.push({
+      type: "exp",
+      icon: "✦",
+      kicker: "30日ボーナス！",
+      title: `+${questVisitResult.longStreakBonusExp} EXP`,
+      detail: `${state.currentStreak}日連続の、特別な積み重ねです。`,
+    });
+  }
+
+  if (questVisitResult?.levelUp) {
+    notifications.push({
+      type: "level-up",
+      icon: "✦",
+      kicker: "LEVEL UP!",
+      title: `Lv.${questVisitResult.level}`,
+      detail: "FIRE人生が一段、育ちました。",
+    });
+  }
+
+  notifications.push(...visitResult.newlyEarnedBadges.map((badge) => ({
     type: "badge",
     icon: badge.icon,
     category: badge.category,
     kicker: "NEW BADGE",
     title: `「${badge.name}」`,
     detail: badge.description,
-  }));
+  })));
 
   const discovery = api.getDiscoveryForPath(window.location.pathname);
   if (discovery) {
