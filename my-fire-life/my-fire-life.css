@@ -87,21 +87,85 @@
   filter: drop-shadow(0 0.45rem 0.4rem rgba(6, 8, 13, 0.32));
 }
 
+.badge-emblem--image {
+  position: relative;
+  overflow: visible;
+}
+
+.badge-emblem__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 0.45rem 0.42rem rgba(5, 8, 16, 0.38));
+  user-select: none;
+}
+
+.badge-card--level .badge-card__visual {
+  padding: 0.15rem;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 213, 94, 0.2), transparent 42%),
+    linear-gradient(145deg, #101d32 0%, #162d4c 52%, #0d1728 100%);
+}
+
+.badge-card--level .badge-card__visual::before {
+  inset: 0.4rem;
+  border-color: rgba(255, 220, 132, 0.28);
+}
+
+.badge-card--level .badge-card__seal {
+  width: 8.4rem;
+  height: 8.4rem;
+}
+
+.badge-detail-dialog__badge > .badge-emblem--image {
+  width: 100%;
+  height: 100%;
+}
+
+.badge-emblem__halo {
+  fill: var(--badge-accent, #e56b4d);
+  opacity: 0.13;
+  filter: blur(2px);
+}
+
 .badge-emblem__shadow {
   fill: #080b12;
   opacity: 0.62;
 }
 
 .badge-emblem__rim {
-  fill: var(--badge-shell, #171926);
+  fill: var(--badge-rim-gradient, var(--badge-shell, #171926));
   stroke: var(--badge-metal, #cfa454);
   stroke-width: 3;
 }
 
 .badge-emblem__face {
-  fill: var(--badge-face, #302239);
+  fill: var(--badge-face-gradient, var(--badge-face, #302239));
   stroke: var(--badge-accent, #e56b4d);
   stroke-width: 2;
+}
+
+.badge-emblem__face-pattern {
+  fill: var(--badge-pattern-fill, transparent);
+  opacity: 0.23;
+}
+
+.badge-emblem__pattern-line {
+  fill: none;
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-width: 0.7;
+  opacity: 0.28;
+}
+
+.badge-emblem__frame-ornament {
+  fill: none;
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1;
+  opacity: 0.62;
 }
 
 .badge-emblem__inner-line {
@@ -275,6 +339,16 @@
   opacity: 0.2;
 }
 
+.badge-emblem--locked .badge-emblem__halo,
+.badge-emblem--locked .badge-emblem__face-pattern {
+  opacity: 0;
+}
+
+.badge-emblem--locked .badge-emblem__frame-ornament {
+  stroke: #b8aea3;
+  opacity: 0.38;
+}
+
 .badge-emblem--locked .badge-emblem__rim {
   fill: #a39b92;
   stroke: #cfc5b8;
@@ -303,6 +377,7 @@
 .badge-tone-red {
   --badge-accent: #ed684d;
   --badge-accent-deep: #762533;
+  --badge-face-light: #6f3542;
   --badge-face: #3d1f2d;
   --badge-shell: #191622;
   --badge-symbol: #ffd166;
@@ -316,6 +391,7 @@
 .badge-tone-blue {
   --badge-accent: #70afd0;
   --badge-accent-deep: #315b7b;
+  --badge-face-light: #34536a;
   --badge-face: #182b3d;
   --badge-shell: #131b28;
   --badge-symbol: #ffda72;
@@ -329,6 +405,7 @@
 .badge-tone-purple {
   --badge-accent: #b08bcf;
   --badge-accent-deep: #60417c;
+  --badge-face-light: #564170;
   --badge-face: #2e2143;
   --badge-shell: #171522;
   --badge-symbol: #ffd978;
@@ -342,6 +419,7 @@
 .badge-tone-orange {
   --badge-accent: #edaa59;
   --badge-accent-deep: #89512b;
+  --badge-face-light: #6d4a2e;
   --badge-face: #3e281e;
   --badge-shell: #1d1818;
   --badge-symbol: #ffe08a;
@@ -355,6 +433,7 @@
 .badge-tone-mint {
   --badge-accent: #70b8a8;
   --badge-accent-deep: #326f6d;
+  --badge-face-light: #356a68;
   --badge-face: #1d3c41;
   --badge-shell: #141d24;
   --badge-symbol: #ffda72;
@@ -368,6 +447,7 @@
 .badge-tone-yellow {
   --badge-accent: #e9bf49;
   --badge-accent-deep: #806124;
+  --badge-face-light: #6b5728;
   --badge-face: #3c3219;
   --badge-shell: #1d1a18;
   --badge-symbol: #ffe08a;
@@ -381,6 +461,7 @@
 .badge-tone-green {
   --badge-accent: #82ad74;
   --badge-accent-deep: #426746;
+  --badge-face-light: #46684d;
   --badge-face: #20362d;
   --badge-shell: #151d1b;
   --badge-symbol: #ffda72;
@@ -394,6 +475,7 @@
 .badge-tone-gray {
   --badge-accent: #958b86;
   --badge-accent-deep: #645c5a;
+  --badge-face-light: #504b4d;
   --badge-face: #302e31;
   --badge-shell: #1c1c22;
   --badge-symbol: #d6c7a2;
@@ -456,6 +538,11 @@
   .badge-card__seal {
     width: 5.35rem;
     height: 5.35rem;
+  }
+
+  .badge-card--level .badge-card__seal {
+    width: 6.1rem;
+    height: 6.1rem;
   }
 
   .next-badge__seal {
@@ -2260,6 +2347,26 @@ button.badge-card:focus-visible {
   height: 100%;
 }
 
+/* 制作済みのLEVEL画像を主役にする。横長の黒い余白を減らし、縦方向へ逃がします。 */
+.my-fire-life-page .badge-card--level .badge-card__visual {
+  min-height: 0;
+  aspect-ratio: 1 / 1.14;
+  padding: 0.2rem;
+}
+
+.my-fire-life-page .badge-card--level .badge-card__seal {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0;
+}
+
+.my-fire-life-page .badge-card--level .badge-card__seal .badge-emblem--image,
+.my-fire-life-page .badge-card--level .badge-card__seal .badge-emblem__image {
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 699px) {
   .my-fire-life-page .badge-card__visual {
     min-height: 6.9rem;
@@ -2268,6 +2375,15 @@ button.badge-card:focus-visible {
   .my-fire-life-page .badge-card__seal {
     width: 5.35rem;
     height: 5.35rem;
+  }
+
+  .my-fire-life-page .badge-card--level .badge-card__visual {
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .my-fire-life-page .badge-card--level .badge-card__seal {
+    width: 100%;
+    height: auto;
   }
 
   .my-fire-life-page .next-badge__seal {
@@ -2292,5 +2408,92 @@ button.badge-card:focus-visible {
   width: 100%;
   height: 100%;
   filter: drop-shadow(0 0.16rem 0.16rem rgba(6, 8, 13, 0.24));
+}
+
+/* 獲得バッジはカテゴリーごとに章立てし、LEVELを最初の章に固定します。 */
+.my-fire-life-page .earned-badges {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.4rem, 5vw, 4rem);
+  margin-top: 2rem;
+}
+
+.my-fire-life-page .earned-badges__group {
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.my-fire-life-page .earned-badges__group-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.my-fire-life-page .earned-badges__group-eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--red-dark);
+  font-family: Arial, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.my-fire-life-page .earned-badges__group h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2.3vw, 1.55rem);
+  letter-spacing: -0.04em;
+}
+
+.my-fire-life-page .earned-badges__group-note {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.my-fire-life-page .earned-badges__group-count {
+  flex: 0 0 auto;
+  color: var(--red-dark);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.my-fire-life-page .earned-badges__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 700px) and (max-width: 1090px) {
+  .my-fire-life-page .earned-badges__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 699px) {
+  .my-fire-life-page .earned-badges {
+    gap: 2.6rem;
+  }
+
+  .my-fire-life-page .earned-badges__group-heading {
+    align-items: start;
+  }
+
+  .my-fire-life-page .earned-badges__group-note {
+    max-width: 20rem;
+    font-size: 0.7rem;
+  }
+
+  .my-fire-life-page .earned-badges__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
 }
 

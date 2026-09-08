@@ -480,7 +480,7 @@ if (!document.querySelector('link[data-fire-life-style="true"]')) {
   document.head.appendChild(fireLifeStylesheet);
 }
 
-const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=4", fireLifeAssetRoot).href);
+const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=6", fireLifeAssetRoot).href);
 window.__wakuwakuFireLifeReady = fireLifeReady;
 
 const fireLifeToastQueue = [];

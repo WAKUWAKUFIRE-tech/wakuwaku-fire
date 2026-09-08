@@ -55,6 +55,32 @@ const badgeArtKeys = Object.freeze({
   "visit-500-home": "home",
 });
 
+// LEVELバッジは、FIRE QUEST専用に制作した完成画像を使います。
+// 画像パスを定義データへ持たせ、表示側から一元的に参照できるようにします。
+const levelBadgeImagePaths = Object.freeze({
+  "level-1-free-fire": "/badge-images/levels/lv-001-free-fire.png",
+  "level-5-rookie": "/badge-images/levels/lv-005-fire-rookie.png",
+  "level-10-adventurer": "/badge-images/levels/lv-010-fire-adventurer.png",
+  "level-15-searcher": "/badge-images/levels/lv-015-searcher.png",
+  "level-20-end-of-cage": "/badge-images/levels/lv-020-end-of-cage.png",
+  "level-25-own-answer": "/badge-images/levels/lv-025-own-answer.png",
+  "level-30-own-destination": "/badge-images/levels/lv-030-own-destination.png",
+  "level-35-wings": "/badge-images/levels/lv-035-wings.png",
+  "level-40-life-designer": "/badge-images/levels/lv-040-life-designer.png",
+  "level-45-time-asset": "/badge-images/levels/lv-045-time-asset.png",
+  "level-50-time-traveler": "/badge-images/levels/lv-050-time-traveler.png",
+  "level-55-beginning-of-journey": "/badge-images/levels/lv-055-beginning-of-journey.png",
+  "level-60-life-stroller": "/badge-images/levels/lv-060-life-stroller.png",
+  "level-65-boredom-brave": "/badge-images/levels/lv-065-boredom-brave.png",
+  "level-70-secret-base": "/badge-images/levels/lv-070-secret-base.png",
+  "level-75-play-life": "/badge-images/levels/lv-075-play-life.png",
+  "level-80-serious-play": "/badge-images/levels/lv-080-serious-play.png",
+  "level-85-now-courage": "/badge-images/levels/lv-085-now-courage.png",
+  "level-90-wakuwaku-return": "/badge-images/levels/lv-090-wakuwaku-return.png",
+  "level-95-unmapped-journey": "/badge-images/levels/lv-095-unmapped-journey.png",
+  "level-100-fire-legend": "/badge-images/levels/lv-100-fire-legend.png",
+});
+
 const levelBadges = [
   { id: "level-1-free-fire", name: "自由の火を灯す者", threshold: 1, icon: "🔥", tone: "red", shape: "circle", description: "自由を考え始めた瞬間に、自分のFIRE人生へ最初の火を灯した証です。", condition: "Lv.1に到達する" },
   { id: "level-5-rookie", name: "FIREルーキー", threshold: 5, icon: "✦", tone: "blue", shape: "medal", description: "まだ知らない自由へ向かって、最初のページをめくった人です。", condition: "Lv.5に到達する" },
@@ -131,6 +157,7 @@ export const badgeDefinitions = Object.freeze([
 ].map((badge) => ({
   ...badge,
   artKey: badgeArtKeys[badge.id] || `${badge.category}-default`,
+  imagePath: levelBadgeImagePaths[badge.id] || null,
   tier: badge.category === "level"
     ? badge.threshold >= 65 ? "legend" : badge.threshold >= 30 ? "relic" : "origin"
     : "side",

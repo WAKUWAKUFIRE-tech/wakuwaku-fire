@@ -1,4 +1,4 @@
-const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=4");
+const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=6");
 
 const lifeElements = {
   level: document.querySelector("#life-level"),
@@ -474,12 +474,44 @@ const BADGE_TIER_ORNAMENTS = Object.freeze({
   side: '<circle cx="30" cy="25" r="2" /><circle cx="90" cy="25" r="2" />',
 });
 
+const BADGE_SHAPE_ORNAMENTS = Object.freeze({
+  circle: '<path d="M30 42a34 34 0 0 1 60 0M30 78a34 34 0 0 0 60 0" /><path d="M25 60h8M87 60h8" />',
+  medal: '<path d="M35 25c7-7 15-10 25-10s18 3 25 10M32 84c8 8 17 12 28 12s20-4 28-12" /><path d="M27 51h7M86 51h7" />',
+  shield: '<path d="M31 31l10-8M89 31L79 23M35 88c7 7 15 11 25 14 10-3 18-7 25-14" /><path d="M25 55h8M87 55h8" />',
+  hex: '<path d="M36 18h16M68 18h16M20 48l8-7M100 48l-8-7M20 72l8 7M100 72l-8 7" /><path d="M36 102h16M68 102h16" />',
+});
+
+let badgeEmblemSequence = 0;
+
 function createBadgeEmblem(badge, { locked = false } = {}) {
+  if (!locked && badge.category === "level" && badge.imagePath) {
+    const imageEmblem = document.createElement("span");
+    imageEmblem.className = `badge-emblem badge-emblem--image badge-tone-${badge.tone || "gray"}`;
+    imageEmblem.classList.add(`badge-tier-${badge.tier || "side"}`, "badge-emblem--earned");
+    imageEmblem.setAttribute("role", "img");
+    imageEmblem.setAttribute("aria-label", badge.name || "獲得バッジ");
+
+    const image = document.createElement("img");
+    image.className = "badge-emblem__image";
+    image.src = badge.imagePath;
+    image.alt = "";
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.draggable = false;
+    image.addEventListener("error", () => {
+      imageEmblem.replaceWith(createBadgeEmblem({ ...badge, imagePath: null }, { locked }));
+    }, { once: true });
+    imageEmblem.appendChild(image);
+
+    return imageEmblem;
+  }
+
   const svg = document.createElementNS(SVG_NS, "svg");
   const shape = badge.shape || "circle";
   const frame = BADGE_FRAME_PATHS[shape] || BADGE_FRAME_PATHS.circle;
   const artKey = badge.artKey || DEFAULT_BADGE_ART[badge.category] || "spark";
   const tier = badge.tier || "side";
+  const emblemId = `fire-quest-emblem-${++badgeEmblemSequence}`;
   const artwork = locked
     ? '<text class="badge-emblem__question" x="60" y="77">?</text>'
     : BADGE_ARTWORK[artKey] || BADGE_ARTWORK.spark;
@@ -487,14 +519,36 @@ function createBadgeEmblem(badge, { locked = false } = {}) {
   svg.classList.add("badge-emblem", `my-badge--${shape}`, `badge-tone-${badge.tone || "gray"}`);
   svg.classList.add(`badge-tier-${tier}`);
   svg.classList.add(locked ? "badge-emblem--locked" : "badge-emblem--earned");
+  svg.style.setProperty("--badge-rim-gradient", `url(#${emblemId}-rim)`);
+  svg.style.setProperty("--badge-face-gradient", `url(#${emblemId}-face)`);
+  svg.style.setProperty("--badge-pattern-fill", `url(#${emblemId}-pattern)`);
   svg.setAttribute("viewBox", "0 0 120 120");
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", locked ? "未取得バッジ" : badge.name || "獲得バッジ");
   svg.innerHTML = `
+    <defs>
+      <linearGradient id="${emblemId}-rim" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="var(--badge-metal-bright, #ffe8a5)" />
+        <stop offset=".28" stop-color="var(--badge-metal, #d6a555)" />
+        <stop offset=".58" stop-color="var(--badge-metal-bright, #ffe8a5)" />
+        <stop offset="1" stop-color="var(--badge-metal, #a87935)" />
+      </linearGradient>
+      <radialGradient id="${emblemId}-face" cx="45%" cy="35%" r="72%">
+        <stop offset="0" stop-color="var(--badge-face-light, #57405a)" />
+        <stop offset=".62" stop-color="var(--badge-face, #302239)" />
+        <stop offset="1" stop-color="var(--badge-shell, #171926)" />
+      </radialGradient>
+      <pattern id="${emblemId}-pattern" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+        <path class="badge-emblem__pattern-line" d="M0 0v12M6 0v12" />
+      </pattern>
+    </defs>
+    <path class="badge-emblem__halo" d="${frame}" transform="translate(0 1)" />
     <path class="badge-emblem__shadow" d="${frame}" transform="translate(0 3)" />
     <path class="badge-emblem__rim" d="${frame}" />
     <path class="badge-emblem__face" d="${frame}" transform="translate(4 4) scale(.9333)" />
+    <path class="badge-emblem__face-pattern" d="${frame}" transform="translate(9 9) scale(.85)" />
     <path class="badge-emblem__inner-line" d="${frame}" transform="translate(9 9) scale(.85)" />
+    <g class="badge-emblem__frame-ornament">${BADGE_SHAPE_ORNAMENTS[shape] || BADGE_SHAPE_ORNAMENTS.circle}</g>
     <g class="badge-emblem__tier-ornament">${BADGE_TIER_ORNAMENTS[tier] || BADGE_TIER_ORNAMENTS.side}</g>
     <path class="badge-emblem__crest" d="M60 4l5 7-5 7-5-7z" />
     <path class="badge-emblem__rune" d="M27 98h17M76 98h17" />
@@ -580,6 +634,78 @@ function createNextBadge(api, state, badge) {
   body.append(category, name, distance, condition);
   item.append(seal, body);
   return item;
+}
+
+const EARNED_BADGE_GROUPS = Object.freeze([
+  { category: "level", label: "LEVEL", title: "積み重ねたレベル", note: "記事を読むほど、ここに新しい景色が増えていきます。" },
+  { category: "discovery", label: "DISCOVERY", title: "見つけた景色", note: "FIRE QUESTを探検して、出会ったコンテンツの記録です。" },
+  { category: "streak", label: "STREAK", title: "つないだ火", note: "連続して遊びに来た日々が、あなたの習慣になっています。" },
+  { category: "visit", label: "VISIT", title: "帰ってきた日々", note: "離れても、またここへ戻ってきた時間の記録です。" },
+  { category: "legacy", label: "LEGACY", title: "受け継いだ足あと", note: "現在は新しく獲得できない、過去から残るバッジです。" },
+]);
+
+function getEarnedBadgeGroups(earnedBadges) {
+  const badgesByCategory = new Map();
+  earnedBadges.forEach((badge) => {
+    const badges = badgesByCategory.get(badge.category) || [];
+    badges.push(badge);
+    badgesByCategory.set(badge.category, badges);
+  });
+
+  const knownCategories = new Set(EARNED_BADGE_GROUPS.map((group) => group.category));
+  const groups = EARNED_BADGE_GROUPS
+    .map((group) => {
+      const badges = [...(badgesByCategory.get(group.category) || [])];
+      if (group.category === "level") {
+        badges.sort((a, b) => Number(a.threshold) - Number(b.threshold));
+      }
+      return { ...group, badges };
+    })
+    .filter((group) => group.badges.length > 0);
+
+  // 定義が将来増えても、未知カテゴリの取得記録を画面から隠しません。
+  badgesByCategory.forEach((badges, category) => {
+    if (!knownCategories.has(category)) {
+      groups.push({ category, label: String(category).toUpperCase(), title: "受け継いだ足あと", note: "過去の定義から残っているバッジです。", badges });
+    }
+  });
+
+  return groups;
+}
+
+function createEarnedBadgeGroup(api, group) {
+  const section = document.createElement("section");
+  section.className = `earned-badges__group earned-badges__group--${group.category}`;
+  const titleId = `earned-badges-${group.category}-title`;
+  section.setAttribute("aria-labelledby", titleId);
+
+  const heading = document.createElement("div");
+  heading.className = "earned-badges__group-heading";
+
+  const headingCopy = document.createElement("div");
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "earned-badges__group-eyebrow";
+  eyebrow.textContent = group.label;
+
+  const title = document.createElement("h3");
+  title.id = titleId;
+  title.textContent = group.title;
+
+  const note = document.createElement("p");
+  note.className = "earned-badges__group-note";
+  note.textContent = group.note;
+  headingCopy.append(eyebrow, title, note);
+
+  const count = document.createElement("span");
+  count.className = "earned-badges__group-count";
+  count.textContent = `${group.badges.length}個`;
+  heading.append(headingCopy, count);
+
+  const grid = document.createElement("div");
+  grid.className = "earned-badges__grid";
+  grid.append(...group.badges.map((badge) => createBadgeCard(api, badge)));
+  section.append(heading, grid);
+  return section;
 }
 
 const footprintCategoryLabels = Object.freeze({
@@ -678,7 +804,7 @@ function renderLifePage(api) {
   if (lifeElements.badgeCount) lifeElements.badgeCount.textContent = `${earnedBadges.length}個`;
 
   if (lifeElements.earnedBadges) {
-    lifeElements.earnedBadges.replaceChildren(...earnedBadges.map((badge) => createBadgeCard(api, badge)));
+    lifeElements.earnedBadges.replaceChildren(...getEarnedBadgeGroups(earnedBadges).map((group) => createEarnedBadgeGroup(api, group)));
   }
   if (lifeElements.badgeEmpty) lifeElements.badgeEmpty.toggleAttribute("hidden", earnedBadges.length > 0);
 
