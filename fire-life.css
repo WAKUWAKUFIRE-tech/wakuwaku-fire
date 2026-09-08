@@ -508,3 +508,63 @@ body.fire-life-welcome-open {
 }
 
 
+/* 通知トーストも絵文字ではなく、FIRE QUESTの小さな紋章で統一します。 */
+.fire-life-toast__mark {
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.22rem;
+  font-size: 0;
+  background: rgba(255, 207, 69, 0.18);
+  border: 1px solid rgba(255, 221, 123, 0.46);
+  border-radius: 50%;
+}
+
+.fire-life-toast--level-up .fire-life-toast__mark,
+.fire-life-toast--badge .fire-life-toast__mark {
+  background: rgba(255, 207, 69, 0.2);
+}
+
+.fire-life-toast__emblem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0.16rem 0.16rem rgba(0, 0, 0, 0.24));
+}
+
+.fire-life-toast__emblem-rim {
+  fill: #161825;
+  stroke: #d6a555;
+  stroke-width: 1.4;
+}
+
+.fire-life-toast__emblem-face {
+  fill: #302239;
+  stroke: #ed684d;
+  stroke-width: 1;
+}
+
+.fire-life-toast__emblem .fire-life-toast__art {
+  fill: none;
+  stroke: #ffd166;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.fire-life-toast__emblem .fire-life-toast__art-fill {
+  fill: #ffd166;
+  stroke: #a33235;
+  stroke-width: 0.65;
+}
+
+.fire-life-toast__emblem .fire-life-toast__art-ring {
+  fill: none;
+  stroke: #ffd166;
+  stroke-width: 1.8;
+}
+
+.fire-life-toast__emblem .fire-life-toast__art-dot {
+  fill: #ffd166;
+}
+
+

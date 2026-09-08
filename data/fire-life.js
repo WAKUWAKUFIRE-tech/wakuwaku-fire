@@ -8,6 +8,53 @@ const categoryLabels = Object.freeze({
   visit: "VISIT",
 });
 
+// バッジの見た目は絵文字ではなく、FIRE QUEST専用の紋章として描画します。
+const badgeArtKeys = Object.freeze({
+  "level-1-free-fire": "ember",
+  "level-5-rookie": "spark",
+  "level-10-adventurer": "compass",
+  "level-15-searcher": "horizon",
+  "level-20-end-of-cage": "cut",
+  "level-25-own-answer": "orbit",
+  "level-30-own-destination": "arrow",
+  "level-35-wings": "wings",
+  "level-40-life-designer": "blueprint",
+  "level-45-time-asset": "clock",
+  "level-50-time-traveler": "rewind",
+  "level-55-beginning-of-journey": "ticket",
+  "level-60-life-stroller": "sun",
+  "level-65-boredom-brave": "cup",
+  "level-70-secret-base": "camp",
+  "level-75-play-life": "play",
+  "level-80-serious-play": "spark",
+  "level-85-now-courage": "bolt",
+  "level-90-wakuwaku-return": "ember",
+  "level-95-unmapped-journey": "map",
+  "level-100-fire-legend": "flag",
+  "discovery-fire-strengths": "lens",
+  "discovery-world-tour": "compass",
+  "discovery-fire-lab": "flask",
+  "discovery-fire-animal": "paw",
+  "discovery-migration-japan": "map",
+  "discovery-migration-world": "wings",
+  "discovery-risk-runner": "risk",
+  "discovery-otoku": "flower",
+  "streak-3": "ember",
+  "streak-7": "trail",
+  "streak-14": "sprout",
+  "streak-30": "sun",
+  "streak-50": "trail",
+  "streak-100": "home-flame",
+  "streak-365": "calendar",
+  "visit-3-regular": "cup",
+  "visit-10-wakuwaku-regular": "spark",
+  "visit-30-usual-seat": "seat",
+  "visit-50-quite-living": "home",
+  "visit-100-almost-resident": "village",
+  "visit-300-long-relationship": "tree",
+  "visit-500-home": "home",
+});
+
 const levelBadges = [
   { id: "level-1-free-fire", name: "自由の火を灯す者", threshold: 1, icon: "🔥", tone: "red", shape: "circle", description: "自由を考え始めた瞬間に、自分のFIRE人生へ最初の火を灯した証です。", condition: "Lv.1に到達する" },
   { id: "level-5-rookie", name: "FIREルーキー", threshold: 5, icon: "✦", tone: "blue", shape: "medal", description: "まだ知らない自由へ向かって、最初のページをめくった人です。", condition: "Lv.5に到達する" },
@@ -81,7 +128,10 @@ export const badgeDefinitions = Object.freeze([
   ...streakBadges,
   ...visitBadges,
   ...legacyVisitBadges,
-]);
+].map((badge) => ({
+  ...badge,
+  artKey: badgeArtKeys[badge.id] || `${badge.category}-default`,
+})));
 
 export { categoryLabels, DATA_VERSION, STORAGE_KEY };
 
@@ -453,6 +503,9 @@ export function getFootprints(state, limit = 8) {
       id: `badge-${record.id}`,
       category: "BADGE",
       icon: definition?.icon || "🏅",
+      artKey: definition?.artKey || "spark",
+      tone: definition?.tone || "gray",
+      shape: definition?.shape || "circle",
       title: definition?.name || "過去のバッジ",
       detail: definition?.legacy || !definition?.enabled ? "現在は獲得できないバッジです。" : "歩いてきた時間が、ひとつの称号になりました。",
       dateValue: typeof record.earnedAt === "string" && /^\d{4}-\d{2}-\d{2}/.test(record.earnedAt) ? record.earnedAt.slice(0, 10) : null,

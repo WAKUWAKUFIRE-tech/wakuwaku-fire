@@ -11,6 +11,372 @@
   background: var(--cream);
 }
 
+
+/* FIRE QUESTの冒険の紋章。絵文字に頼らず、カテゴリごとの専用SVGで描きます。 */
+.badge-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9rem;
+  background: linear-gradient(160deg, #fffdf8 0%, #f7eee0 100%);
+  border-color: rgba(106, 77, 53, 0.26);
+  border-top-width: 1px;
+  box-shadow: 0 0.8rem 1.5rem rgba(43, 32, 38, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.badge-card::after {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.75rem;
+  left: 0.85rem;
+  color: rgba(89, 67, 57, 0.42);
+  content: "FIRE QUEST  ·  RELIC";
+  font-family: Arial, sans-serif;
+  font-size: 0.49rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.badge-card__visual {
+  position: relative;
+  min-height: 9.25rem;
+  padding: 0.6rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 44%, color-mix(in srgb, var(--badge-accent) 34%, transparent), transparent 40%),
+    linear-gradient(145deg, #151826 0%, #2b2339 56%, #11151f 100%);
+  border: 1px solid rgba(255, 226, 154, 0.36);
+  border-radius: 0.8rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 -1.2rem 2rem rgba(0, 0, 0, 0.16);
+}
+
+.badge-card__visual::before {
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(255, 225, 150, 0.2);
+  border-radius: 0.55rem;
+  content: "";
+  pointer-events: none;
+}
+
+.badge-card__seal,
+.next-badge__seal {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+}
+
+.badge-card__seal {
+  width: 7.35rem;
+  height: 7.35rem;
+  margin: 0 auto;
+}
+
+.badge-emblem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0.45rem 0.4rem rgba(6, 8, 13, 0.32));
+}
+
+.badge-emblem__shadow {
+  fill: #080b12;
+  opacity: 0.62;
+}
+
+.badge-emblem__rim {
+  fill: var(--badge-shell, #171926);
+  stroke: var(--badge-metal, #cfa454);
+  stroke-width: 3;
+}
+
+.badge-emblem__face {
+  fill: var(--badge-face, #302239);
+  stroke: var(--badge-accent, #e56b4d);
+  stroke-width: 2;
+}
+
+.badge-emblem__inner-line {
+  fill: none;
+  stroke: rgba(255, 229, 166, 0.42);
+  stroke-dasharray: 1.5 4;
+  stroke-width: 1.3;
+}
+
+.badge-emblem__crest {
+  fill: var(--badge-symbol, #ffd166);
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-width: 1.5;
+}
+
+.badge-emblem__rune {
+  fill: none;
+  stroke: var(--badge-accent, #e56b4d);
+  stroke-linecap: round;
+  stroke-width: 2;
+  opacity: 0.72;
+}
+
+.badge-emblem__art {
+  fill: none;
+  stroke: var(--badge-symbol, #ffd166);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.badge-emblem__art-fill {
+  fill: var(--badge-symbol, #ffd166);
+  stroke: var(--badge-symbol-edge, #9a392e);
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.badge-emblem__art-ring {
+  fill: none;
+  stroke: var(--badge-symbol, #ffd166);
+  stroke-width: 3;
+}
+
+.badge-emblem__art-muted {
+  fill: none;
+  stroke: var(--badge-accent, #e56b4d);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
+.badge-emblem__art-dot {
+  fill: var(--badge-symbol, #ffd166);
+  stroke: var(--badge-metal-bright, #ffe8a5);
+  stroke-width: 1;
+}
+
+.badge-emblem__cutout {
+  fill: var(--badge-face, #302239);
+  stroke: var(--badge-symbol-edge, #9a392e);
+  stroke-width: 1;
+}
+
+.badge-emblem__question {
+  fill: #5e595b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.25rem;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.badge-emblem--locked {
+  filter: drop-shadow(0 0.2rem 0.2rem rgba(45, 37, 35, 0.12));
+  opacity: 0.82;
+}
+
+.badge-emblem--locked .badge-emblem__shadow {
+  opacity: 0.2;
+}
+
+.badge-emblem--locked .badge-emblem__rim {
+  fill: #a39b92;
+  stroke: #cfc5b8;
+}
+
+.badge-emblem--locked .badge-emblem__face {
+  fill: #e8e0d5;
+  stroke: #b5aa9f;
+}
+
+.badge-emblem--locked .badge-emblem__inner-line,
+.badge-emblem--locked .badge-emblem__rune {
+  stroke: #938a82;
+}
+
+.badge-emblem--locked .badge-emblem__crest {
+  fill: #aaa096;
+  stroke: #ded3c6;
+}
+
+.badge-emblem--locked .badge-emblem__question {
+  fill: #6c6663;
+}
+
+.badge-tone-red {
+  --badge-accent: #ed684d;
+  --badge-accent-deep: #762533;
+  --badge-face: #3d1f2d;
+  --badge-shell: #191622;
+  --badge-symbol: #ffd166;
+  --badge-symbol-edge: #a33235;
+  --badge-metal: #d6a555;
+  --badge-metal-bright: #ffe49b;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-blue {
+  --badge-accent: #70afd0;
+  --badge-accent-deep: #315b7b;
+  --badge-face: #182b3d;
+  --badge-shell: #131b28;
+  --badge-symbol: #ffda72;
+  --badge-symbol-edge: #3c6888;
+  --badge-metal: #cba95e;
+  --badge-metal-bright: #e9d39b;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-purple {
+  --badge-accent: #b08bcf;
+  --badge-accent-deep: #60417c;
+  --badge-face: #2e2143;
+  --badge-shell: #171522;
+  --badge-symbol: #ffd978;
+  --badge-symbol-edge: #684a8d;
+  --badge-metal: #c9a661;
+  --badge-metal-bright: #f0dba0;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-orange {
+  --badge-accent: #edaa59;
+  --badge-accent-deep: #89512b;
+  --badge-face: #3e281e;
+  --badge-shell: #1d1818;
+  --badge-symbol: #ffe08a;
+  --badge-symbol-edge: #9b5d2c;
+  --badge-metal: #d5a354;
+  --badge-metal-bright: #ffe39a;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-mint {
+  --badge-accent: #70b8a8;
+  --badge-accent-deep: #326f6d;
+  --badge-face: #1d3c41;
+  --badge-shell: #141d24;
+  --badge-symbol: #ffda72;
+  --badge-symbol-edge: #387b76;
+  --badge-metal: #c7a45b;
+  --badge-metal-bright: #e8d59a;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-yellow {
+  --badge-accent: #e9bf49;
+  --badge-accent-deep: #806124;
+  --badge-face: #3c3219;
+  --badge-shell: #1d1a18;
+  --badge-symbol: #ffe08a;
+  --badge-symbol-edge: #9a7624;
+  --badge-metal: #d7a94f;
+  --badge-metal-bright: #ffedaf;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-green {
+  --badge-accent: #82ad74;
+  --badge-accent-deep: #426746;
+  --badge-face: #20362d;
+  --badge-shell: #151d1b;
+  --badge-symbol: #ffda72;
+  --badge-symbol-edge: #4f7a4e;
+  --badge-metal: #c7a45b;
+  --badge-metal-bright: #e8d59a;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-tone-gray {
+  --badge-accent: #958b86;
+  --badge-accent-deep: #645c5a;
+  --badge-face: #302e31;
+  --badge-shell: #1c1c22;
+  --badge-symbol: #d6c7a2;
+  --badge-symbol-edge: #736b66;
+  --badge-metal: #aa9a7a;
+  --badge-metal-bright: #ded0aa;
+  --badge-color: var(--badge-accent);
+  --badge-color-dark: var(--badge-accent-deep);
+}
+
+.badge-card__category {
+  color: var(--badge-accent-deep, var(--red-dark));
+}
+
+.next-badge {
+  border-color: color-mix(in srgb, var(--badge-accent, #8b838b) 36%, #b9afb0);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.52), 0 0.45rem 1rem rgba(43, 32, 38, 0.06);
+}
+
+.next-badge__seal {
+  width: 3.55rem;
+  height: 3.55rem;
+}
+
+.next-badge--locked .next-badge__seal {
+  color: inherit;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.next-badge__category,
+.next-badge__distance {
+  color: var(--badge-accent-deep, var(--red-dark));
+}
+
+.badge-detail-dialog__badge {
+  display: grid;
+  place-items: center;
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 0.25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+}
+
+.badge-detail-dialog__badge > .badge-emblem {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 699px) {
+  .badge-card__visual {
+    min-height: 6.9rem;
+  }
+
+  .badge-card__seal {
+    width: 5.35rem;
+    height: 5.35rem;
+  }
+
+  .next-badge__seal {
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+
+  .badge-detail-dialog__badge {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
 .my-life-hero__visual {
   position: relative;
   overflow: hidden;
@@ -1712,4 +2078,127 @@ button.badge-card:focus-visible {
   }
 }
 
+
+/* 既存のレスポンシブ定義より後に、冒険の紋章の表示を確定させます。 */
+.my-fire-life-page .badge-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0.9rem;
+  background: linear-gradient(160deg, #fffdf8 0%, #f7eee0 100%);
+  border-color: rgba(106, 77, 53, 0.26);
+  border-top-width: 1px;
+  box-shadow: 0 0.8rem 1.5rem rgba(43, 32, 38, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.my-fire-life-page .badge-card::after {
+  content: none;
+}
+
+.my-fire-life-page .badge-card__visual {
+  position: relative;
+  min-height: 9.25rem;
+  padding: 0.6rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 44%, color-mix(in srgb, var(--badge-accent, #e8b72d) 34%, transparent), transparent 40%),
+    linear-gradient(145deg, #151826 0%, #2b2339 56%, #11151f 100%);
+  border: 1px solid rgba(255, 226, 154, 0.36);
+  border-radius: 0.8rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 -1.2rem 2rem rgba(0, 0, 0, 0.16);
+}
+
+.my-fire-life-page .badge-card__seal,
+.my-fire-life-page .next-badge__seal {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+}
+
+.my-fire-life-page .badge-card__seal {
+  width: 7.35rem;
+  height: 7.35rem;
+  margin: 0 auto;
+}
+
+.my-fire-life-page .badge-card__category {
+  color: var(--badge-accent-deep, var(--red-dark));
+}
+
+.my-fire-life-page .next-badge {
+  border-color: color-mix(in srgb, var(--badge-accent, #8b838b) 36%, #b9afb0);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.52), 0 0.45rem 1rem rgba(43, 32, 38, 0.06);
+}
+
+.my-fire-life-page .next-badge__seal {
+  width: 3.55rem;
+  height: 3.55rem;
+}
+
+.my-fire-life-page .next-badge--locked .next-badge__seal {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.my-fire-life-page .next-badge__category,
+.my-fire-life-page .next-badge__distance {
+  color: var(--badge-accent-deep, var(--red-dark));
+}
+
+.my-fire-life-page .badge-detail-dialog__badge {
+  display: grid;
+  place-items: center;
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 0.25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+}
+
+.my-fire-life-page .badge-detail-dialog__badge > .badge-emblem {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 699px) {
+  .my-fire-life-page .badge-card__visual {
+    min-height: 6.9rem;
+  }
+
+  .my-fire-life-page .badge-card__seal {
+    width: 5.35rem;
+    height: 5.35rem;
+  }
+
+  .my-fire-life-page .next-badge__seal {
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+
+  .my-fire-life-page .badge-detail-dialog__badge {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+.my-fire-life-page .life-footprint__marker--badge {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.my-fire-life-page .life-footprint__marker--badge .badge-emblem {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0.16rem 0.16rem rgba(6, 8, 13, 0.24));
+}
 

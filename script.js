@@ -475,12 +475,12 @@ const fireLifeAssetRoot = new URL(
 if (!document.querySelector('link[data-fire-life-style="true"]')) {
   const fireLifeStylesheet = document.createElement("link");
   fireLifeStylesheet.rel = "stylesheet";
-  fireLifeStylesheet.href = new URL("fire-life.css?v=2", fireLifeAssetRoot).href;
+  fireLifeStylesheet.href = new URL("fire-life.css?v=3", fireLifeAssetRoot).href;
   fireLifeStylesheet.dataset.fireLifeStyle = "true";
   document.head.appendChild(fireLifeStylesheet);
 }
 
-const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=3", fireLifeAssetRoot).href);
+const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=4", fireLifeAssetRoot).href);
 window.__wakuwakuFireLifeReady = fireLifeReady;
 
 const fireLifeToastQueue = [];
@@ -498,14 +498,43 @@ function getFireLifeToastLayer() {
   return layer;
 }
 
+const FIRE_LIFE_TOAST_SVG_NS = "http://www.w3.org/2000/svg";
+const FIRE_LIFE_TOAST_ART = Object.freeze({
+  exp: '<path class="fire-life-toast__art-fill" d="M18 30c-5 0-9-3-9-8 0-4 2-6 5-9 0 4 2 5 4 6-1-4 1-7 4-11 0 6 5 8 5 14 0 5-3 8-9 8Z"/>',
+  "level-up": '<path class="fire-life-toast__art-fill" d="M18 6l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/><circle class="fire-life-toast__art-dot" cx="8" cy="27" r="1.5"/><circle class="fire-life-toast__art-dot" cx="29" cy="8" r="1.5"/>',
+  level: '<path class="fire-life-toast__art-fill" d="M18 30c-5 0-9-3-9-8 0-4 2-6 5-9 0 4 2 5 4 6-1-4 1-7 4-11 0 6 5 8 5 14 0 5-3 8-9 8Z"/>',
+  discovery: '<circle class="fire-life-toast__art-ring" cx="18" cy="18" r="8"/><path class="fire-life-toast__art-fill" d="M18 10l2 8-2 8-2-8z"/><circle class="fire-life-toast__art-dot" cx="18" cy="18" r="1.5"/>',
+  streak: '<path class="fire-life-toast__art" d="M7 26c5-9 9-12 14-10 3 1 5 0 8-4M10 31c4-5 7-6 11-5 3 1 5 0 7-2"/><circle class="fire-life-toast__art-dot" cx="7" cy="26" r="1.5"/><circle class="fire-life-toast__art-dot" cx="29" cy="12" r="1.5"/>',
+  visit: '<path class="fire-life-toast__art" d="M8 17l10-8 10 8v10H8zM14 27v-7h8v7"/>',
+  badge: '<path class="fire-life-toast__art-fill" d="M18 6l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/>',
+});
+
+function createFireLifeToastMark(notification) {
+  const mark = document.createElement("span");
+  mark.className = "fire-life-toast__mark";
+  mark.setAttribute("aria-hidden", "true");
+
+  const svg = document.createElementNS(FIRE_LIFE_TOAST_SVG_NS, "svg");
+  const artKey = notification.type === "badge"
+    ? notification.category || "badge"
+    : notification.type || "badge";
+  svg.classList.add("fire-life-toast__emblem");
+  svg.setAttribute("viewBox", "0 0 36 36");
+  svg.setAttribute("aria-hidden", "true");
+  svg.innerHTML = `
+    <circle class="fire-life-toast__emblem-rim" cx="18" cy="18" r="16" />
+    <circle class="fire-life-toast__emblem-face" cx="18" cy="18" r="12" />
+    <g>${FIRE_LIFE_TOAST_ART[artKey] || FIRE_LIFE_TOAST_ART.badge}</g>
+  `;
+  mark.appendChild(svg);
+  return mark;
+}
+
 function createFireLifeToast(notification) {
   const toast = document.createElement("article");
   toast.className = `fire-life-toast fire-life-toast--${notification.type || "exp"}`;
 
-  const mark = document.createElement("span");
-  mark.className = "fire-life-toast__mark";
-  mark.setAttribute("aria-hidden", "true");
-  mark.textContent = notification.icon || "🔥";
+  const mark = createFireLifeToastMark(notification);
 
   const body = document.createElement("span");
   body.className = "fire-life-toast__body";
@@ -729,6 +758,7 @@ function setupFireLifeArticleTracker(api, state) {
       notifications.push({
         type: "badge",
         icon: badge.icon,
+        category: badge.category,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
@@ -772,6 +802,7 @@ function handleFireLifeContentClick(event) {
       enqueueFireLifeToasts(result.newlyEarnedBadges.map((badge) => ({
         type: "badge",
         icon: badge.icon,
+        category: badge.category,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
@@ -796,6 +827,7 @@ function startFireLifeMvp(api) {
   const notifications = visitResult.newlyEarnedBadges.map((badge) => ({
     type: "badge",
     icon: badge.icon,
+    category: badge.category,
     kicker: "NEW BADGE",
     title: `「${badge.name}」`,
     detail: badge.description,
@@ -808,6 +840,7 @@ function startFireLifeMvp(api) {
       notifications.push({
         type: "badge",
         icon: badge.icon,
+        category: badge.category,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
@@ -821,6 +854,7 @@ function startFireLifeMvp(api) {
       notifications.push({
         type: "badge",
         icon: badge.icon,
+        category: badge.category,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
