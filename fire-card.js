@@ -4,6 +4,15 @@
 
   if (!section || cards.length === 0) return;
 
+  const fireCardScript = document.currentScript || [...document.scripts].find((script) => {
+    try {
+      return new URL(script.src, document.baseURI).pathname.endsWith("/fire-card.js");
+    } catch {
+      return false;
+    }
+  });
+  const fireCardAssetRoot = new URL("./", fireCardScript?.src || new URL("fire-card.js", document.baseURI).href);
+
   const STORAGE_KEYS = {
     collection: "wakuwakuFireCardCollectionV1",
     lastDraw: "wakuwakuFireCardLastDrawDateV1",
@@ -152,7 +161,7 @@
 
   function setImageSource(image, path, alt) {
     if (!image) return;
-    image.src = new URL(path, document.baseURI).href;
+    image.src = new URL(path, fireCardAssetRoot).href;
     image.alt = alt;
   }
 

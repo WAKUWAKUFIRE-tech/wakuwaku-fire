@@ -1,4 +1,4 @@
-const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js");
+const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=3");
 
 const lifeElements = {
   level: document.querySelector("#life-level"),
@@ -218,7 +218,7 @@ function renderLifePage(api) {
   const earnedBadges = api.getEarnedBadges(state);
   const nextBadges = api.getNextBadges(state, 3);
   const footprints = api.getFootprints(state, 8);
-  const displayName = state.nickname || "自分のFIRE人生";
+  const displayName = state.nickname || "FIRE QUEST";
 
   if (lifeElements.level) lifeElements.level.textContent = String(level);
   if (lifeElements.exp) lifeElements.exp.textContent = `${state.totalExp.toLocaleString("ja-JP")} EXP`;

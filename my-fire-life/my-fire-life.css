@@ -65,6 +65,17 @@
   color: var(--yellow);
 }
 
+.my-life-hero__copy h1 small {
+  display: block;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.72rem, 1.7vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+}
+
 .my-life-hero__lead {
   max-width: 28rem;
   margin: 1.7rem 0 0;

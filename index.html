@@ -65,7 +65,7 @@
           <a href="articles/">FIREコラム</a>
           <a href="#world" hidden>FIREのある暮らし</a>
           <a href="#about">ワクワクFIREとは</a>
-          <a href="my-fire-life/" data-fire-life-nav>自分のFIRE人生</a>
+          <a href="my-fire-life/" data-fire-life-nav>FIRE QUEST</a>
           <a class="site-nav__cta" href="#contents">遊びにいく <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
@@ -84,7 +84,7 @@
               <a class="button button--primary" href="#contents">コンテンツを見る <span aria-hidden="true">↓</span></a>
               <a class="button button--text" href="#about">ワクワクFIREってなに？ <span aria-hidden="true">→</span></a>
               <a class="button hero__fire-life-link" href="./my-fire-life/">
-                <span aria-hidden="true">🔥</span><span>自分のFIRE人生</span><strong data-fire-life-level>Lv.1</strong><span aria-hidden="true">↗</span>
+                <span aria-hidden="true">🔥</span><span>FIRE QUEST</span><strong data-fire-life-level>Lv.1</strong><span aria-hidden="true">↗</span>
               </a>
             </div>
             <div class="hero__notes" aria-label="ワクワクFIREの特徴">
@@ -110,12 +110,12 @@
 
       <section class="section fire-life-entry-section" id="fire-life-entry" aria-labelledby="fire-life-entry-title">
         <div class="container">
-          <a class="fire-life-entry" href="./my-fire-life/" aria-label="自分のFIRE人生を開く">
+          <a class="fire-life-entry" href="./my-fire-life/" aria-label="FIRE QUESTを開く">
             <span class="fire-life-entry__icon" aria-hidden="true">🔥</span>
             <span class="fire-life-entry__copy">
               <span class="fire-life-entry__eyebrow">YOUR FIRE LIFE</span>
-              <strong id="fire-life-entry-title">自分のFIRE人生</strong>
-              <small>読むほど、遊ぶほど、あなたのFIRE人生が育っていく。</small>
+              <strong id="fire-life-entry-title">FIRE QUEST</strong>
+              <small>読むほど、遊ぶほど、あなたの冒険が育っていく。</small>
             </span>
             <span class="fire-life-entry__meta">
               <strong data-fire-life-level>Lv.1</strong>
@@ -266,27 +266,6 @@
         </div>
       </section>
 
-      <section class="section fire-card-section" id="fire-card-section" aria-labelledby="fire-card-title">
-        <div class="container">
-          <div class="fire-card-panel">
-            <div class="fire-card-panel__copy">
-              <p class="eyebrow eyebrow--yellow">DAILY FIRE CARD</p>
-              <h2 id="fire-card-title">🔥 FIREカード<br /><span>毎日1枚GET。</span></h2>
-              <p>今日のあなたに届く、FIREの小さなヒント。<br />10枚集めて、第1弾をコンプリートしよう。</p>
-            </div>
-            <div class="fire-card-panel__action">
-              <div class="fire-card-count" aria-live="polite"><strong id="fire-card-count">0 / 10</strong><span>COLLECTED</span></div>
-              <p class="fire-card-status" id="fire-card-status">本日のカードを受け取ろう！</p>
-              <p class="fire-card-next" id="fire-card-next" aria-live="polite"></p>
-              <div class="fire-card-actions">
-                <button class="button button--primary fire-card-draw-button" id="fire-card-draw-button" type="button">今日のカードをGET！ <span aria-hidden="true">✦</span></button>
-                <button class="button button--outline fire-card-collection-button" id="fire-card-collection-button" type="button">🔥 FIREカード 0 / 10</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="fire-calendar-preview" id="fire-calendar-preview" aria-labelledby="fire-calendar-preview-title" hidden>
         <div class="container">
           <div class="fire-calendar-preview__card">
@@ -314,64 +293,13 @@
 
     </main>
 
-    <div class="fire-card-modal" id="fire-card-daily-modal" hidden>
-      <div class="fire-card-modal__backdrop" data-fire-card-close="daily"></div>
-      <section class="fire-card-modal__panel fire-card-daily-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fire-card-daily-title">
-        <button class="fire-card-modal__close" type="button" data-fire-card-close="daily" aria-label="カード画面を閉じる">×</button>
-        <p class="eyebrow eyebrow--yellow">TODAY'S BONUS</p>
-        <h2 id="fire-card-daily-title">今日のFIREカードをGET！</h2>
-        <p class="fire-card-modal__lead">何が出るんだろう？カードを引いてみよう。</p>
-        <div class="fire-card-draw-stage" id="fire-card-daily-stage">
-          <div class="fire-card-back" aria-hidden="true"><span>FIRE</span><strong>?</strong><small>DAILY BONUS</small></div>
-          <img class="fire-card-reveal" id="fire-card-daily-image" alt="" hidden />
-          <span class="fire-card-new-badge" id="fire-card-daily-new" hidden>NEW!</span>
-        </div>
-        <div class="fire-card-result" id="fire-card-daily-result" hidden>
-          <p class="fire-card-result__label">GET!</p>
-          <h3 id="fire-card-daily-name"></h3>
-          <p id="fire-card-daily-rarity"></p>
-          <p class="fire-card-complete-message" id="fire-card-daily-complete" hidden>🎉 FIREカード COMPLETE！<br /><span>全10種類コンプリート！</span></p>
-        </div>
-        <div class="fire-card-modal__actions">
-          <button class="button button--primary" id="fire-card-daily-action" type="button">カードを引く</button>
-          <button class="button button--text" type="button" data-fire-card-close="daily">あとで見る</button>
-        </div>
-      </section>
-    </div>
-
-    <div class="fire-card-modal" id="fire-card-collection-modal" hidden>
-      <div class="fire-card-modal__backdrop" data-fire-card-close="collection"></div>
-      <section class="fire-card-modal__panel fire-card-collection-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fire-card-collection-title">
-        <button class="fire-card-modal__close" type="button" data-fire-card-close="collection" aria-label="カード図鑑を閉じる">×</button>
-        <p class="eyebrow eyebrow--yellow">FIRE CARD COLLECTION</p>
-        <h2 id="fire-card-collection-title">🔥 FIREカード図鑑</h2>
-        <p class="fire-card-modal__lead">集めたカードは、いつでもここで見返せます。</p>
-        <p class="fire-card-collection-count" id="fire-card-collection-count">0 / 10</p>
-        <div class="fire-card-collection-grid" id="fire-card-collection-grid"></div>
-        <p class="fire-card-collection-status" id="fire-card-collection-status"></p>
-      </section>
-    </div>
-
-    <div class="fire-card-modal" id="fire-card-detail-modal" hidden>
-      <div class="fire-card-modal__backdrop" data-fire-card-close="detail"></div>
-      <section class="fire-card-modal__panel fire-card-detail-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fire-card-detail-name">
-        <button class="fire-card-modal__close" type="button" data-fire-card-close="detail" aria-label="カード詳細を閉じる">×</button>
-        <div class="fire-card-detail-visual"><img id="fire-card-detail-image" alt="" hidden /></div>
-        <p class="fire-card-detail-locked" id="fire-card-detail-locked" hidden>まだ出会っていないFIREカードです。</p>
-        <h2 id="fire-card-detail-name"></h2>
-        <p id="fire-card-detail-rarity"></p>
-      </section>
-    </div>
-
     <footer class="site-footer">
       <div class="container site-footer__top"><a class="brand brand--footer" href="#top" aria-label="ワクワクFIRE トップへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a><p>会社を辞めたら、<br /><strong>人生もっと遊べる。</strong></p><nav class="footer-nav" aria-label="フッターメニュー"><a href="#top">ホーム</a><a href="#contents">楽しいコンテンツ</a><a href="articles/">FIREコラム</a><a href="about/">運営者情報</a><a href="privacy/">プライバシーポリシー</a><a href="contact/">お問い合わせ</a><a href="business/">企業・メディアの皆さまへ</a></nav></div>
       <div class="container site-footer__bottom"><small>© <span id="current-year">2026</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div>
     </footer>
 
-    <script src="data/fire-cards.js"></script>
     <script src="data/books.js"></script>
     <script src="script.js"></script>
-    <script src="fire-card.js"></script>
     <script src="fire-calendar-home.js"></script>
   </body>
 </html>

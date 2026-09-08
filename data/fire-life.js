@@ -1,5 +1,5 @@
 const STORAGE_KEY = "wakuwaku-fire-life";
-const DATA_VERSION = 2;
+const DATA_VERSION = 3;
 
 const categoryLabels = Object.freeze({
   level: "LEVEL",

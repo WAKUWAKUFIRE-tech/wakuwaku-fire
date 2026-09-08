@@ -172,7 +172,7 @@ test("FIRE人生の足あとを時系列で組み立て、バックアップか�
   const restored = parseBackup(backup);
   assert.equal(restored.nickname, "まる");
   assert.equal(restored.articleReadHistory[0].title, "足あとになる記事");
-  assert.equal(restored.version, 2);
+  assert.equal(restored.version, 3);
   assert.equal(restoreBackup(backup).totalExp, state.totalExp);
 });
 

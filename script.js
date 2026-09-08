@@ -484,7 +484,7 @@ if (!document.querySelector('link[data-fire-life-style="true"]')) {
   document.head.appendChild(fireLifeStylesheet);
 }
 
-const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js", fireLifeAssetRoot).href);
+const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js?v=3", fireLifeAssetRoot).href);
 window.__wakuwakuFireLifeReady = fireLifeReady;
 
 const fireLifeToastQueue = [];
@@ -572,7 +572,7 @@ function updateFireLifeEntry(state, api) {
   });
 
   document.querySelectorAll("[data-fire-life-entry-label]").forEach((element) => {
-    element.textContent = state.welcomeSeen ? "FIRE人生の続きを見る" : "FIRE人生を始める";
+    element.textContent = state.welcomeSeen ? "FIRE QUESTの続きを見る" : "FIRE QUESTを始める";
   });
 }
 
@@ -810,7 +810,7 @@ function addFireLifeNavigationLink() {
 
   const link = document.createElement("a");
   link.href = new URL("my-fire-life/", fireLifeAssetRoot).href;
-  link.textContent = "自分のFIRE人生";
+  link.textContent = "FIRE QUEST";
   link.dataset.fireLifeNav = "true";
   if (window.location.pathname.includes("/my-fire-life")) link.setAttribute("aria-current", "page");
 
