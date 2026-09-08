@@ -209,7 +209,7 @@ function renderLifePage(api) {
   const earnedBadges = api.getEarnedBadges(state);
   const nextBadges = api.getNextBadges(state, 3);
   const footprints = api.getFootprints(state, 8);
-  const displayName = state.nickname || "FIRE QUEST";
+  const displayName = state.nickname || "名無しの冒険者";
 
   if (lifeElements.level) lifeElements.level.textContent = String(level);
   if (lifeElements.exp) lifeElements.exp.textContent = `${state.totalExp.toLocaleString("ja-JP")} EXP`;
