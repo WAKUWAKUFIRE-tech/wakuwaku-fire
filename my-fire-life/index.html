@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="記事を読むほど育っていく、あなたのFIRE人生。レベル・バッジ・足あとを確認できます。" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#ea3e31" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="ワクワクFIRE" />
+    <meta property="og:title" content="自分のFIRE人生｜ワクワクFIRE" />
+    <meta property="og:description" content="記事を読むほど育っていく、あなたのFIRE人生。" />
+    <link rel="icon" href="../favicon.ico?v=20260826" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=20260826" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png?v=20260826" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=20260826" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../fire-life.css" data-fire-life-style="true" />
+    <link rel="stylesheet" href="./my-fire-life.css" />
+    <title>自分のFIRE人生｜ワクワクFIRE</title>
+  </head>
+  <body class="page-shell my-fire-life-page">
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a class="brand" href="../" aria-label="ワクワクFIRE トップへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__line"></span><span class="nav-toggle__line"></span><span class="nav-toggle__label">メニュー</span></button>
+        <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+          <a href="../#contents">楽しいコンテンツ</a><a href="../articles/">FIREコラム</a><a href="../#about">ワクワクFIREとは</a><a class="site-nav__cta" href="../#contents">遊びにいく <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="my-life-hero" aria-labelledby="my-life-title">
+        <div class="container">
+          <nav class="breadcrumbs my-life-breadcrumbs" aria-label="パンくずリスト"><a href="../">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">自分のFIRE人生</span></nav>
+          <div class="my-life-hero__grid">
+            <div class="my-life-hero__copy">
+              <p class="eyebrow eyebrow--yellow">YOUR FIRE LIFE</p>
+              <h1 id="my-life-title">自分の<br /><span>FIRE人生。</span></h1>
+              <p class="my-life-hero__lead">読むほど、遊ぶほど、あなたのFIRE人生が育っていく。</p>
+              <p class="my-life-hero__note">お金だけでは測れない、自由・時間・遊び・学びの積み重ね。</p>
+              <div class="my-life-hero__actions">
+                <a class="button button--yellow" href="../articles/">FIREコラムを読む <span aria-hidden="true">→</span></a>
+                <a class="button button--text my-life-hero__jump" href="#badges">獲得バッジを見る <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+
+            <article class="life-profile-card" aria-label="あなたのFIRE人生プロフィール">
+              <div class="life-profile-card__topline"><span>WAKUWAKU FIRE / MVP</span><span class="life-profile-card__local-chip">この端末に保存</span></div>
+              <div class="life-profile-card__identity">
+                <div class="life-profile-card__avatar" aria-hidden="true">W</div>
+                <div class="life-profile-card__identity-copy"><span>YOUR FIRE LIFE</span><h2 id="life-display-name">自分のFIRE人生</h2><p id="life-phrase">まだ何も決めなくていい。</p></div>
+                <div class="life-level-orb"><span>LEVEL</span><strong id="life-level">1</strong></div>
+              </div>
+              <div class="life-profile-card__exp-row">
+                <div><span class="life-stat-label">TOTAL EXP</span><strong id="life-exp">0 EXP</strong></div>
+                <div class="life-profile-card__next"><span class="life-stat-label">次のLEVELまで</span><strong id="life-next">Lv.2まであと100 EXP</strong></div>
+              </div>
+              <div class="life-exp-bar" role="progressbar" aria-label="次のレベルまでのEXP" aria-valuemin="0" aria-valuemax="99" aria-valuenow="0"><span id="life-exp-bar"></span></div>
+              <div class="life-visit-stats">
+                <div class="life-visit-stat"><span class="life-visit-stat__icon" aria-hidden="true">🔥</span><span><small>連続訪問</small><strong id="life-streak">0日</strong></span></div>
+                <div class="life-visit-stat"><span class="life-visit-stat__icon" aria-hidden="true">📅</span><span><small>累計訪問</small><strong id="life-visits">0日</strong></span></div>
+              </div>
+              <p class="life-profile-card__local-note">現在のFIRE人生データは、この端末に保存されています。ブラウザデータを削除すると消える場合があります。</p>
+              <form class="life-nickname-form" data-nickname-form>
+                <label for="life-nickname-input">ニックネーム（任意）</label>
+                <div class="life-nickname-form__row">
+                  <input id="life-nickname-input" name="nickname" type="text" maxlength="24" autocomplete="nickname" placeholder="例：まる" />
+                  <button class="button button--outline" type="submit">保存</button>
+                </div>
+                <p class="life-nickname-form__hint" data-nickname-status aria-live="polite">いつでも変更できます。</p>
+              </form>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section life-badges-section" id="badges" aria-labelledby="earned-badges-title">
+        <div class="container">
+          <div class="life-section-heading">
+            <div><p class="eyebrow eyebrow--red">YOUR COLLECTION</p><h2 id="earned-badges-title">獲得バッジ</h2></div>
+            <p class="life-badge-count" aria-live="polite">獲得バッジ <strong id="badge-count">0個</strong></p>
+          </div>
+          <p class="life-section-intro">サイトでどんな時間を過ごしてきたか。あなたのFIRE人生らしい足あとが並びます。</p>
+          <div class="earned-badges" id="earned-badges" aria-live="polite"></div>
+          <div class="badge-empty" id="badge-empty" hidden>
+            <span class="badge-empty__mark" aria-hidden="true">✦</span>
+            <div><h3>ここから、最初の足あと。</h3><p>まずは気になるFIREコラムを1本、読みにいこう。</p><p>コラムを読んでどんどんレベルを上げよう！</p><a class="text-link" href="../articles/">FIREコラムを見る →</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section next-badges-section" aria-labelledby="next-badges-title">
+        <div class="container">
+          <div class="life-section-heading life-section-heading--compact">
+            <div><p class="eyebrow eyebrow--yellow">A LITTLE FURTHER</p><h2 id="next-badges-title">次に狙えそうなバッジ</h2></div>
+          </div>
+          <p class="life-section-intro">全部を集めなくていい。次の寄り道が、ひとつ見えていれば十分です。</p>
+          <div class="next-badges" id="next-badges-list" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section life-footprints-section" id="footprints" aria-labelledby="life-footprints-title">
+        <div class="container">
+          <div class="life-section-heading life-section-heading--compact">
+            <div><p class="eyebrow eyebrow--purple">YOUR TRAIL</p><h2 id="life-footprints-title">FIRE人生の<br /><span>足あと。</span></h2></div>
+            <p class="life-footprints-heading-note">積み重ねの記録</p>
+          </div>
+          <p class="life-section-intro">訪れた日、読んだ記事、手にしたバッジ。あなたが歩いてきた時間を、静かに残します。</p>
+          <div class="life-footprints" id="life-footprints" aria-live="polite"></div>
+          <div class="life-footprints__empty" id="life-footprints-empty" hidden>
+            <span aria-hidden="true">⌁</span>
+            <p>ここから、あなたのFIRE人生の足あとが始まります。</p>
+          </div>
+          <p class="life-footprints__note" id="life-footprints-note" hidden>最近の足あとを表示しています。</p>
+        </div>
+      </section>
+
+      <section class="life-data-section" aria-labelledby="life-data-title">
+        <div class="container">
+          <div class="life-data-panel">
+            <div>
+              <p class="eyebrow eyebrow--purple">KEEP YOUR TRAIL</p>
+              <h2 id="life-data-title">FIRE人生を、<br /><span>持ち歩こう。</span></h2>
+              <p>普段はこの端末に自動保存。端末を変えるときは、データをファイルに保存して復元できます。</p>
+            </div>
+            <div class="life-data-panel__actions">
+              <div class="life-data-panel__buttons">
+                <button class="button button--outline" type="button" data-export-fire-life>データを保存</button>
+                <button class="button button--outline" type="button" data-import-fire-life>データを復元</button>
+                <input id="fire-life-import-file" type="file" accept="application/json,.json" data-import-fire-life-input hidden />
+              </div>
+              <p class="life-data-panel__status" data-data-status aria-live="polite">この端末に自動保存されています。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="life-save-section" aria-labelledby="life-save-title">
+        <div class="container">
+          <div class="life-save-panel">
+            <div><p class="eyebrow eyebrow--yellow">NEXT CHAPTER</p><h2 id="life-save-title">このFIRE人生の続きを、<br /><span>どこからでも。</span></h2><p>いつか端末を変えても、今日までの足あとから続けられるマイページを準備中です。</p></div>
+            <div class="life-save-panel__action"><button class="button button--yellow" type="button" data-future-cta>マイページで続きから</button><small>会員機能は準備中です</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="life-settings-section" aria-label="開発用設定">
+        <div class="container">
+          <details class="life-dev-tools" data-dev-tools hidden>
+            <summary>開発用の設定</summary>
+            <div class="life-dev-tools__body"><p>プレビュー確認用。通常利用では触る必要はありません。</p><div class="life-dev-tools__actions"><div class="life-dev-tools__level"><span>レベル表示テスト</span><div role="group" aria-label="レベル表示テスト"><button type="button" data-dev-level="1">Lv.1</button><button type="button" data-dev-level="5">Lv.5</button><button type="button" data-dev-level="10">Lv.10</button><button type="button" data-dev-level="50">Lv.50</button><button type="button" data-dev-level="100">Lv.100</button></div></div><button class="button button--outline" type="button" data-reset-fire-life>FIRE人生データを初期化</button></div></div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="badge-detail-dialog" id="badge-detail-dialog" aria-labelledby="badge-detail-title">
+      <div class="badge-detail-dialog__inner">
+        <button class="badge-detail-dialog__close" type="button" data-close-badge-dialog aria-label="バッジ詳細を閉じる">×</button>
+        <div class="badge-detail-dialog__badge" id="badge-detail-mark" aria-hidden="true"></div>
+        <p class="badge-detail-dialog__category" id="badge-detail-category"></p>
+        <h2 id="badge-detail-title"></h2>
+        <dl class="badge-detail-dialog__list"><div><dt>獲得条件</dt><dd id="badge-detail-condition"></dd></div><div><dt>獲得日</dt><dd id="badge-detail-date"></dd></div></dl>
+        <p class="badge-detail-dialog__description" id="badge-detail-description"></p>
+        <p class="badge-detail-dialog__legacy" id="badge-detail-legacy" hidden>現在は獲得できないバッジです。</p>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <div class="container site-footer__top">
+        <a class="brand brand--footer" href="../" aria-label="ワクワクFIRE トップへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a>
+        <p>会社を辞めたら、<br /><strong>人生もっと遊べる。</strong></p>
+        <nav class="footer-nav" aria-label="フッターメニュー"><a href="../">ホーム</a><a href="../#contents">楽しいコンテンツ</a><a href="../articles/">FIREコラム</a><a href="../about/">運営者情報</a><a href="../privacy/">プライバシーポリシー</a><a href="../contact/">お問い合わせ</a><a href="../business/">企業・メディアの皆さまへ</a></nav>
+      </div>
+      <div class="container site-footer__bottom"><small>© <span id="current-year">2026</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div>
+    </footer>
+
+    <script src="../script.js" defer></script>
+    <script src="./my-fire-life.js" defer></script>
+  </body>
+</html>
+
+

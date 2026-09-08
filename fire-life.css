@@ -1,0 +1,462 @@
+/* 自分のFIRE人生 - shared MVP UI */
+
+:root {
+  --fire-life-ink: #241f28;
+  --fire-life-muted: #756d78;
+  --fire-life-red: #ea3e31;
+  --fire-life-red-dark: #b92835;
+  --fire-life-yellow: #ffcf45;
+  --fire-life-yellow-soft: #fff5c9;
+  --fire-life-cream: #fffaf0;
+  --fire-life-paper: #ffffff;
+  --fire-life-line: rgba(36, 31, 40, 0.12);
+}
+
+/* Top-entry block */
+.fire-life-entry-section {
+  padding: clamp(1.25rem, 3vw, 2rem) 0;
+  background:
+    radial-gradient(circle at 7% 50%, rgba(255, 207, 69, 0.22), transparent 17rem),
+    var(--fire-life-cream);
+}
+
+.fire-life-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.85rem, 2.4vw, 1.5rem);
+  min-height: 7rem;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
+  overflow: hidden;
+  color: var(--fire-life-ink);
+  text-decoration: none;
+  background: var(--fire-life-paper);
+  border: 1px solid rgba(234, 62, 49, 0.13);
+  border-radius: 1.5rem;
+  box-shadow: 0 0.75rem 2rem rgba(104, 60, 35, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.fire-life-entry::after {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -4rem;
+  width: 9rem;
+  height: 9rem;
+  content: "";
+  pointer-events: none;
+  background: rgba(255, 207, 69, 0.25);
+  border-radius: 50%;
+}
+
+.fire-life-entry:hover,
+.fire-life-entry:focus-visible {
+  border-color: rgba(234, 62, 49, 0.34);
+  box-shadow: 0 1rem 2.25rem rgba(104, 60, 35, 0.14);
+  transform: translateY(-2px);
+}
+
+.fire-life-entry:focus-visible {
+  outline: 3px solid rgba(255, 207, 69, 0.9);
+  outline-offset: 3px;
+}
+
+.fire-life-entry__icon {
+  display: grid;
+  place-items: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  font-size: 1.65rem;
+  background: linear-gradient(145deg, #fff3ba, #ffe084);
+  border: 1px solid rgba(224, 154, 19, 0.24);
+  border-radius: 1.1rem;
+  box-shadow: inset 0 -0.25rem 0 rgba(255, 255, 255, 0.42);
+}
+
+.fire-life-entry__copy {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.fire-life-entry__eyebrow,
+.fire-life-entry__meta-label {
+  color: var(--fire-life-red-dark);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.fire-life-entry__copy strong {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.fire-life-entry__copy small {
+  color: var(--fire-life-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.fire-life-entry__meta {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: end;
+  gap: 0.15rem;
+  min-width: 7.25rem;
+  text-align: right;
+}
+
+.fire-life-entry__meta strong {
+  color: var(--fire-life-red);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  line-height: 1;
+}
+
+.fire-life-entry__meta span {
+  color: var(--fire-life-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.fire-life-entry__meta b {
+  margin-top: 0.15rem;
+  color: var(--fire-life-red-dark);
+  font-size: 1.2rem;
+}
+
+/* Hero entry: keep the FIRE life visible from the first screen */
+.hero__fire-life-link {
+  color: var(--fire-life-red-dark);
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(234, 62, 49, 0.42);
+  box-shadow: 0 4px 0 rgba(185, 40, 53, 0.15);
+}
+
+.hero__fire-life-link:hover,
+.hero__fire-life-link:focus-visible {
+  color: var(--fire-life-paper);
+  background: var(--fire-life-red);
+  border-color: var(--fire-life-red);
+  box-shadow: 0 6px 0 var(--fire-life-red-dark);
+}
+
+.hero__fire-life-link strong {
+  color: var(--fire-life-red);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0;
+}
+
+.hero__fire-life-link:hover strong,
+.hero__fire-life-link:focus-visible strong {
+  color: inherit;
+}
+
+/* Shared toast notifications */
+.fire-life-toast-layer {
+  position: fixed;
+  z-index: 1200;
+  top: max(0.75rem, env(safe-area-inset-top));
+  left: 50%;
+  display: grid;
+  gap: 0.6rem;
+  width: min(calc(100% - 1.5rem), 26rem);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.fire-life-toast {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  color: #fff;
+  background: rgba(36, 31, 40, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.15rem;
+  box-shadow: 0 0.9rem 2rem rgba(36, 31, 40, 0.22);
+  animation: fire-life-toast-in 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.fire-life-toast.is-leaving {
+  animation: fire-life-toast-out 280ms ease both;
+}
+
+.fire-life-toast--level-up {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 207, 69, 0.42), transparent 5rem),
+    linear-gradient(135deg, #b92835, #ea3e31);
+  border-color: rgba(255, 223, 123, 0.64);
+}
+
+.fire-life-toast--badge {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(255, 207, 69, 0.26), transparent 5rem),
+    #302735;
+}
+
+.fire-life-toast__mark {
+  display: grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 auto;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.8rem;
+}
+
+.fire-life-toast--level-up .fire-life-toast__mark,
+.fire-life-toast--badge .fire-life-toast__mark {
+  background: rgba(255, 207, 69, 0.2);
+}
+
+.fire-life-toast__body {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.fire-life-toast__kicker {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.fire-life-toast__title {
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fire-life-toast--level-up .fire-life-toast__title {
+  color: var(--fire-life-yellow);
+  font-size: 1.25rem;
+}
+
+.fire-life-toast__detail {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* First-visit START presentation */
+body.fire-life-welcome-open {
+  overflow: hidden;
+}
+
+.fire-life-welcome {
+  position: fixed;
+  z-index: 1250;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  overflow-y: auto;
+  background: rgba(36, 31, 40, 0.68);
+  backdrop-filter: blur(8px);
+  animation: fire-life-welcome-fade 260ms ease both;
+}
+
+.fire-life-welcome__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.9fr) minmax(0, 1.1fr);
+  width: min(100%, 42rem);
+  overflow: hidden;
+  background: var(--fire-life-cream);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 1.6rem;
+  box-shadow: 0 1.5rem 4rem rgba(22, 15, 23, 0.3);
+  animation: fire-life-welcome-rise 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.fire-life-welcome__visual {
+  min-height: 21rem;
+  background: #392835;
+}
+
+.fire-life-welcome__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 21rem;
+  object-fit: cover;
+}
+
+.fire-life-welcome__copy {
+  display: grid;
+  align-content: center;
+  gap: 0.85rem;
+  padding: clamp(1.4rem, 5vw, 2.5rem);
+}
+
+.fire-life-welcome__eyebrow {
+  margin: 0;
+  color: var(--fire-life-red-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.fire-life-welcome h2 {
+  margin: 0;
+  color: var(--fire-life-ink);
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  line-height: 1.25;
+}
+
+.fire-life-welcome h2 span {
+  color: var(--fire-life-red);
+}
+
+.fire-life-welcome__copy > p:not(.fire-life-welcome__eyebrow) {
+  margin: 0;
+  color: var(--fire-life-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.fire-life-welcome__start {
+  justify-self: start;
+  min-height: 2.9rem;
+  padding: 0.7rem 1.35rem;
+  color: var(--fire-life-ink);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  background: var(--fire-life-yellow);
+  border: 1px solid rgba(177, 122, 10, 0.24);
+  border-radius: 999px;
+  box-shadow: 0 0.4rem 0 #dba918;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.fire-life-welcome__start:hover,
+.fire-life-welcome__start:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 0 #dba918;
+}
+
+.fire-life-welcome__start:active {
+  transform: translateY(2px);
+  box-shadow: 0 0.2rem 0 #dba918;
+}
+
+.fire-life-welcome__start:focus-visible {
+  outline: 3px solid rgba(234, 62, 49, 0.45);
+  outline-offset: 3px;
+}
+
+@keyframes fire-life-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-130%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fire-life-toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+}
+
+@keyframes fire-life-welcome-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fire-life-welcome-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .fire-life-entry {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .fire-life-entry__meta {
+    grid-column: 2;
+    grid-template-columns: auto 1fr auto;
+    justify-items: start;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .fire-life-entry__meta strong {
+    font-size: 1.25rem;
+  }
+
+  .fire-life-entry__meta b {
+    margin: 0 0 0 auto;
+  }
+
+  .fire-life-welcome__panel {
+    grid-template-columns: 1fr;
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+  }
+
+  .fire-life-welcome__visual,
+  .fire-life-welcome__visual img {
+    min-height: 10.5rem;
+    max-height: 13rem;
+  }
+
+  .fire-life-welcome__copy {
+    gap: 0.65rem;
+    padding: 1.35rem;
+  }
+
+  .fire-life-welcome h2 {
+    font-size: 1.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fire-life-entry,
+  .fire-life-welcome__start {
+    transition: none;
+  }
+
+  .fire-life-toast,
+  .fire-life-welcome,
+  .fire-life-welcome__panel {
+    animation-duration: 1ms;
+  }
+}
+
+

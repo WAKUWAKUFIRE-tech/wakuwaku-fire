@@ -407,7 +407,6 @@ document.querySelectorAll("[data-analytics-event]").forEach((link) => {
     }
   });
 });
-
 // トップページのデザイン刷新用。スクロール演出は軽量な transform/opacity だけで行います。
 const designRefresh = document.body?.classList.contains("design-refresh");
 
@@ -468,3 +467,383 @@ if (designRefresh) {
     window.addEventListener("pagehide", () => window.cancelAnimationFrame(parallaxFrame), { once: true });
   }
 }
+
+// 「自分のFIRE人生」のMVP共通処理。
+// 記事側のSEO本文には触れず、ページの外側で訪問・読了・通知だけを管理します。
+const fireLifeScriptElement = document.currentScript || Array.from(document.scripts).find((script) => script.src.endsWith("/script.js"));
+const fireLifeAssetRoot = new URL(
+  "./",
+  fireLifeScriptElement?.src || new URL("script.js", document.baseURI).href,
+);
+
+if (!document.querySelector('link[data-fire-life-style="true"]')) {
+  const fireLifeStylesheet = document.createElement("link");
+  fireLifeStylesheet.rel = "stylesheet";
+  fireLifeStylesheet.href = new URL("fire-life.css", fireLifeAssetRoot).href;
+  fireLifeStylesheet.dataset.fireLifeStyle = "true";
+  document.head.appendChild(fireLifeStylesheet);
+}
+
+const fireLifeReady = window.__wakuwakuFireLifeReady || import(new URL("data/fire-life.js", fireLifeAssetRoot).href);
+window.__wakuwakuFireLifeReady = fireLifeReady;
+
+const fireLifeToastQueue = [];
+let fireLifeToastIsShowing = false;
+
+function getFireLifeToastLayer() {
+  let layer = document.querySelector(".fire-life-toast-layer");
+  if (layer) return layer;
+
+  layer = document.createElement("div");
+  layer.className = "fire-life-toast-layer";
+  layer.setAttribute("aria-live", "polite");
+  layer.setAttribute("aria-atomic", "true");
+  document.body.appendChild(layer);
+  return layer;
+}
+
+function createFireLifeToast(notification) {
+  const toast = document.createElement("article");
+  toast.className = `fire-life-toast fire-life-toast--${notification.type || "exp"}`;
+
+  const mark = document.createElement("span");
+  mark.className = "fire-life-toast__mark";
+  mark.setAttribute("aria-hidden", "true");
+  mark.textContent = notification.icon || "🔥";
+
+  const body = document.createElement("span");
+  body.className = "fire-life-toast__body";
+
+  const kicker = document.createElement("span");
+  kicker.className = "fire-life-toast__kicker";
+  kicker.textContent = notification.kicker || "FIRE LIFE";
+
+  const title = document.createElement("strong");
+  title.className = "fire-life-toast__title";
+  title.textContent = notification.title || "";
+
+  const detail = document.createElement("span");
+  detail.className = "fire-life-toast__detail";
+  detail.textContent = notification.detail || "";
+
+  body.append(kicker, title, detail);
+  toast.append(mark, body);
+  return toast;
+}
+
+function showNextFireLifeToast() {
+  if (fireLifeToastIsShowing || fireLifeToastQueue.length === 0) return;
+  fireLifeToastIsShowing = true;
+
+  const notification = fireLifeToastQueue.shift();
+  const layer = getFireLifeToastLayer();
+  const toast = createFireLifeToast(notification);
+  layer.appendChild(toast);
+
+  const duration = notification.duration || (notification.type === "level-up" ? 3600 : 2800);
+  window.setTimeout(() => {
+    toast.classList.add("is-leaving");
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      toast.remove();
+      fireLifeToastIsShowing = false;
+      showNextFireLifeToast();
+    };
+    toast.addEventListener("animationend", finish, { once: true });
+    window.setTimeout(finish, 600);
+  }, duration);
+}
+
+function enqueueFireLifeToasts(notifications) {
+  fireLifeToastQueue.push(...notifications.filter(Boolean));
+  showNextFireLifeToast();
+}
+
+function announceFireLifeUpdate(state) {
+  window.dispatchEvent(new CustomEvent("wakuwaku:fire-life-updated", { detail: { state } }));
+}
+
+function updateFireLifeEntry(state, api) {
+  const level = api.getLevelFromExp(state.totalExp);
+  document.querySelectorAll("[data-fire-life-level]").forEach((element) => {
+    element.textContent = `Lv.${level}`;
+  });
+
+  document.querySelectorAll("[data-fire-life-entry-label]").forEach((element) => {
+    element.textContent = state.welcomeSeen ? "FIRE人生の続きを見る" : "FIRE人生を始める";
+  });
+}
+
+function showFireLifeWelcome(api, state) {
+  if (state.welcomeSeen || document.querySelector(".fire-life-welcome")) return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "fire-life-welcome";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-labelledby", "fire-life-welcome-title");
+
+  const panel = document.createElement("div");
+  panel.className = "fire-life-welcome__panel";
+
+  const visual = document.createElement("div");
+  visual.className = "fire-life-welcome__visual";
+  const image = document.createElement("img");
+  image.src = new URL("焚火.png", fireLifeAssetRoot).href;
+  image.alt = "焚き火を囲みながら始まるワクワクFIREの旅";
+  image.width = 1254;
+  image.height = 1254;
+  visual.appendChild(image);
+
+  const copy = document.createElement("div");
+  copy.className = "fire-life-welcome__copy";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "fire-life-welcome__eyebrow";
+  eyebrow.textContent = "LV.1 START";
+
+  const heading = document.createElement("h2");
+  heading.id = "fire-life-welcome-title";
+  heading.innerHTML = "ワクワクFIREへ<br /><span>ようこそ！</span>";
+
+  const message = document.createElement("p");
+  message.textContent = "ワクワクなFIRE人生の始まりだ！";
+
+  const description = document.createElement("p");
+  description.textContent = "記事を読んだり、いろんなコンテンツを楽しむとEXPやバッジが貯まります。";
+
+  const startButton = document.createElement("button");
+  startButton.className = "fire-life-welcome__start";
+  startButton.type = "button";
+  startButton.textContent = "はじめる";
+
+  const closeWelcome = () => {
+    state.welcomeSeen = true;
+    const savedState = api.saveState(state);
+    overlay.remove();
+    document.body.classList.remove("fire-life-welcome-open");
+    updateFireLifeEntry(savedState, api);
+    announceFireLifeUpdate(savedState);
+  };
+
+  startButton.addEventListener("click", closeWelcome);
+  overlay.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeWelcome();
+  });
+
+  copy.append(eyebrow, heading, message, description, startButton);
+  panel.append(visual, copy);
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+  document.body.classList.add("fire-life-welcome-open");
+  window.requestAnimationFrame(() => startButton.focus());
+}
+
+function setupFireLifeArticleTracker(api, state) {
+  const article = api.getArticleContext(window.location.pathname, document);
+  if (!article || state.readArticles.includes(article.id)) return;
+
+  const startedAt = Date.now();
+  let reachedReadingTarget = false;
+  let awarded = false;
+  let timerId = null;
+
+  const getReadingRatio = () => {
+    const bodyTop = article.body.getBoundingClientRect().top + window.scrollY;
+    const bodyHeight = Math.max(article.body.scrollHeight, article.body.offsetHeight, 1);
+    const visibleBottom = window.scrollY + window.innerHeight;
+    return Math.max(0, Math.min(1, (visibleBottom - bodyTop) / bodyHeight));
+  };
+
+  const cleanup = () => {
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+    window.removeEventListener("pagehide", cleanup);
+    if (timerId) window.clearTimeout(timerId);
+  };
+
+  const tryComplete = () => {
+    if (awarded || !reachedReadingTarget || Date.now() - startedAt < 30000) return;
+    awarded = true;
+    cleanup();
+
+    const result = api.recordArticleRead(state, article.id, new Date(), { title: article.title });
+    if (!result.awarded) return;
+
+    const savedState = api.saveState(state);
+    updateFireLifeEntry(savedState, api);
+
+    const notifications = [{
+      type: "exp",
+      icon: "🔥",
+      kicker: "記事読了！",
+      title: "+10 EXP",
+      detail: `Lv.${result.level}まであと${api.getExpToNextLevel(savedState.totalExp)} EXP`,
+    }];
+
+    if (result.levelUp) {
+      notifications.push({
+        type: "level-up",
+        icon: "✦",
+        kicker: "LEVEL UP!",
+        title: `Lv.${result.level}`,
+        detail: "FIRE人生が一段、育ちました。",
+      });
+    }
+
+    result.newlyEarnedBadges.forEach((badge) => {
+      notifications.push({
+        type: "badge",
+        icon: badge.icon,
+        kicker: "NEW BADGE",
+        title: `「${badge.name}」`,
+        detail: badge.description,
+      });
+    });
+
+    enqueueFireLifeToasts(notifications);
+    announceFireLifeUpdate(savedState);
+  };
+
+  function onScroll() {
+    if (getReadingRatio() >= 0.7) reachedReadingTarget = true;
+    tryComplete();
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  window.addEventListener("pagehide", cleanup);
+  onScroll();
+  timerId = window.setTimeout(tryComplete, 30000);
+}
+
+function handleFireLifeContentClick(event) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (!(event.target instanceof Element)) return;
+
+  const link = event.target.closest("a[data-fire-life-content-id]");
+  if (!link || !link.href) return;
+
+  event.preventDefault();
+  const destination = link.href;
+  const target = link.getAttribute("target");
+
+  fireLifeReady.then((api) => {
+    const state = api.loadState();
+    const result = api.recordDiscovery(state, link.dataset.fireLifeContentId);
+    const savedState = api.saveState(state);
+    updateFireLifeEntry(savedState, api);
+
+    if (result.newlyEarnedBadges.length > 0) {
+      enqueueFireLifeToasts(result.newlyEarnedBadges.map((badge) => ({
+        type: "badge",
+        icon: badge.icon,
+        kicker: "NEW BADGE",
+        title: `「${badge.name}」`,
+        detail: badge.description,
+      })));
+    }
+    announceFireLifeUpdate(savedState);
+  }).catch(() => {}).finally(() => {
+    if (target === "_blank") {
+      window.open(destination, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.assign(destination);
+    }
+  });
+}
+
+document.addEventListener("click", handleFireLifeContentClick, true);
+
+function startFireLifeMvp(api) {
+  const state = api.loadState();
+  const hadBadgesBeforeSync = state.badges.length > 0;
+  const visitResult = api.recordVisit(state);
+  const notifications = visitResult.newlyEarnedBadges.map((badge) => ({
+    type: "badge",
+    icon: badge.icon,
+    kicker: "NEW BADGE",
+    title: `「${badge.name}」`,
+    detail: badge.description,
+  }));
+
+  const discovery = api.getDiscoveryForPath(window.location.pathname);
+  if (discovery) {
+    const discoveryResult = api.recordDiscovery(state, discovery.sourceContentId);
+    discoveryResult.newlyEarnedBadges.forEach((badge) => {
+      notifications.push({
+        type: "badge",
+        icon: badge.icon,
+        kicker: "NEW BADGE",
+        title: `「${badge.name}」`,
+        detail: badge.description,
+      });
+    });
+  }
+
+  const syncedThresholds = api.syncEligibleBadges(state);
+  if (!hadBadgesBeforeSync) {
+    syncedThresholds.newlyEarnedBadges.forEach((badge) => {
+      notifications.push({
+        type: "badge",
+        icon: badge.icon,
+        kicker: "NEW BADGE",
+        title: `「${badge.name}」`,
+        detail: badge.description,
+      });
+    });
+  }
+
+  const savedState = api.saveState(state);
+  updateFireLifeEntry(savedState, api);
+  setupFireLifeArticleTracker(api, savedState);
+
+  if (!savedState.welcomeSeen) showFireLifeWelcome(api, savedState);
+  enqueueFireLifeToasts(notifications);
+  announceFireLifeUpdate(savedState);
+}
+
+function addFireLifeNavigationLink() {
+  if (!siteNav || siteNav.querySelector("[data-fire-life-nav]")) return;
+
+  const link = document.createElement("a");
+  link.href = new URL("my-fire-life/", fireLifeAssetRoot).href;
+  link.textContent = "自分のFIRE人生";
+  link.dataset.fireLifeNav = "true";
+  if (window.location.pathname.includes("/my-fire-life")) link.setAttribute("aria-current", "page");
+
+  const cta = siteNav.querySelector(".site-nav__cta");
+  siteNav.insertBefore(link, cta || null);
+}
+
+function addFireLifeContentIds(api) {
+  const externalContentIds = new Map([
+    ["wakuwaku-fire-lab.marumarufire.chatgpt.site", "fire-lab"],
+  ]);
+
+  document.querySelectorAll("a[href]").forEach((link) => {
+    if (link.dataset.fireLifeContentId) return;
+
+    let url;
+    try {
+      url = new URL(link.href, document.baseURI);
+    } catch {
+      return;
+    }
+
+    const discovery = api.getDiscoveryForPath(url.pathname);
+    const contentId = discovery?.sourceContentId || externalContentIds.get(url.hostname);
+    if (contentId) link.dataset.fireLifeContentId = contentId;
+  });
+}
+
+addFireLifeNavigationLink();
+fireLifeReady.then((api) => {
+  window.WakuwakuFireLife = api;
+  addFireLifeContentIds(api);
+  startFireLifeMvp(api);
+}).catch(() => {
+  // 既存ページは、MVP用モジュールが読み込めない場合も通常どおり表示します。
+});
