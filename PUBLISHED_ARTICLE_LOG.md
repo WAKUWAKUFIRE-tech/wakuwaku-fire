@@ -426,3 +426,24 @@ thumbnail text: FIREまで何年？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREで本当に大事なのは貯蓄率？年収より重要な理由
+
+article id: seo-017
+priority_order: 17
+公開日・時刻（JST）: 2026-09-08 18:00:00
+公開枠: 2026-09-08T18:00:00+09:00
+main keyword: FIRE 貯蓄率
+title: FIREで本当に大事なのは貯蓄率？年収より重要な理由
+slug: fire-chochikuritsu
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-chochikuritsu/
+thumbnail file: articles/fire-chochikuritsu/thumbnail.png
+thumbnail text: 貯蓄率が命
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/seo_experience_map.md, content_sources/knowledge_base/family_and_fire.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
