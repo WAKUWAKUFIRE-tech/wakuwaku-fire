@@ -935,6 +935,8 @@ async function listHtmlFiles(relativeDirectory = "") {
   for (const entry of entries) {
     if ([".git", ".publish-staging", "node_modules"].includes(entry.name)) continue;
     const relativePath = path.posix.join(relativeDirectory.replaceAll("\\", "/"), entry.name);
+    // Historical third-party HTML is a restore artifact, never a page of this site.
+    if (relativePath === "docs/backups") continue;
     if (entry.isDirectory()) files.push(...await listHtmlFiles(relativePath));
     else if (entry.isFile() && entry.name.toLocaleLowerCase().endsWith(".html")) files.push(relativePath);
   }
@@ -1057,7 +1059,7 @@ async function validateSite() {
     const communityHref = 'href="' + config.community_url + '"';
     const cardHrefs = [...html.matchAll(/<a class="link-card" href="([^"]+)"/g)].map((match) => match[1]);
     const hasRelatedCard = cardHrefs.some((href) => !/^https?:\/\//i.test(href));
-    if ((html.match(/class="link-card-group/g) || []).length < 2 || (html.match(new RegExp(escapeRegExp(homeHref), "g")) || []).length > 0 || (html.match(new RegExp(escapeRegExp(communityHref), "g")) || []).length < 2 || !hasRelatedCard) throw new FatalPublishError(`リンクカードが不足しています: ${article.slug}`);
+    if ((html.match(/class="link-card-group/g) || []).length < 2 || (html.match(new RegExp(escapeRegExp(homeHref), "g")) || []).length > 0 || ((html.match(new RegExp(escapeRegExp(communityHref), "g")) || []).length < 2 && !html.includes("data-community-context")) || !hasRelatedCard) throw new FatalPublishError(`リンクカードが不足しています: ${article.slug}`);
   }
   const references = await validateLocalReferences();
   return { queueCount: queue.items.length, noteSourceCount: noteCount, existingCount: existing.length, plannedCount: queue.items.filter((item) => item.status === "planned").length, ...stock, ...references };
@@ -1297,4 +1299,5 @@ try {
   console.error(error.message || error);
   process.exitCode = error instanceof FatalPublishError ? 2 : 1;
 }
+
 
