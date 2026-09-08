@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?v=20260826" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../fire-life.css?v=3" data-fire-life-style="true" />
-    <link rel="stylesheet" href="./my-fire-life.css?v=7" />
+    <link rel="stylesheet" href="./my-fire-life.css?v=8" />
     <title>FIRE QUEST｜冒険の書｜ワクワクFIRE</title>
   </head>
   <body class="page-shell my-fire-life-page">
@@ -75,7 +75,7 @@
             </div>
             <div class="life-profile-card__exp-row">
               <div><span class="life-stat-label">TOTAL EXP</span><strong id="life-exp">0 EXP</strong></div>
-              <div class="life-profile-card__next"><span class="life-stat-label">次のLEVELまで</span><strong id="life-next">Lv.2まであと100 EXP</strong></div>
+              <div class="life-profile-card__next"><span class="life-stat-label">次のLEVELまで</span><strong id="life-next">Lv.2まであと30 EXP</strong></div>
             </div>
             <div class="life-exp-bar" role="progressbar" aria-label="次のレベルまでのEXP" aria-valuemin="0" aria-valuemax="99" aria-valuenow="0"><span id="life-exp-bar"></span></div>
             <p class="life-profile-card__exp-note">コラムをしっかり読むと、1記事につき＋10 EXP。<br />同じコラムでEXPが貯まるのは最初の1回だけです。</p>
@@ -136,6 +136,9 @@
             <p>ここから、あなたのFIRE人生の足あとが始まります。</p>
           </div>
           <p class="life-footprints__note" id="life-footprints-note" hidden>最近の足あとを表示しています。</p>
+          <button class="life-footprints__toggle" type="button" data-footprints-toggle hidden aria-expanded="false" aria-controls="life-footprints">
+            すべての足あとを見る
+          </button>
         </div>
       </section>
 
@@ -270,9 +273,9 @@
     </footer>
 
     <script src="../data/fire-cards.js?v=1" defer></script>
-    <script src="../script.js" defer></script>
+    <script src="../script.js?v=7" defer></script>
     <script src="../fire-card.js?v=2" defer></script>
-    <script src="./my-fire-life.js?v=8" defer></script>
+    <script src="./my-fire-life.js?v=9" defer></script>
   </body>
 </html>
 

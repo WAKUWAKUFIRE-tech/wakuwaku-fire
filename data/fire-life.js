@@ -1,5 +1,12 @@
 const STORAGE_KEY = "wakuwaku-fire-life";
 const DATA_VERSION = 3;
+const LEVEL_EARLY_MAX = 5;
+const LEVEL_EARLY_STEP_EXP = 30;
+const LEVEL_MID_MAX = 10;
+const LEVEL_MID_STEP_EXP = 50;
+const LEVEL_STANDARD_STEP_EXP = 100;
+const EXP_AT_LEVEL_5 = (LEVEL_EARLY_MAX - 1) * LEVEL_EARLY_STEP_EXP;
+const EXP_AT_LEVEL_10 = EXP_AT_LEVEL_5 + (LEVEL_MID_MAX - LEVEL_EARLY_MAX) * LEVEL_MID_STEP_EXP;
 
 const categoryLabels = Object.freeze({
   level: "LEVEL",
@@ -332,16 +339,37 @@ export function formatDate(dateValue) {
 }
 
 export function getLevelFromExp(totalExp) {
-  return Math.floor(Math.max(0, Number(totalExp) || 0) / 100) + 1;
+  const exp = normalizeTotalExp(totalExp);
+  if (exp < EXP_AT_LEVEL_5) return Math.floor(exp / LEVEL_EARLY_STEP_EXP) + 1;
+  if (exp < EXP_AT_LEVEL_10) return LEVEL_EARLY_MAX + Math.floor((exp - EXP_AT_LEVEL_5) / LEVEL_MID_STEP_EXP);
+  return LEVEL_MID_MAX + Math.floor((exp - EXP_AT_LEVEL_10) / LEVEL_STANDARD_STEP_EXP);
 }
 
 export function getExpToNextLevel(totalExp) {
+  const exp = normalizeTotalExp(totalExp);
   const level = getLevelFromExp(totalExp);
-  return Math.max(0, (level * 100) - Math.max(0, Number(totalExp) || 0));
+  return Math.max(0, getExpForLevel(level + 1) - exp);
 }
 
 export function getLevelProgress(totalExp) {
-  return Math.max(0, Math.min(99, Math.max(0, Number(totalExp) || 0) % 100));
+  const exp = normalizeTotalExp(totalExp);
+  const level = getLevelFromExp(exp);
+  const currentLevelExp = getExpForLevel(level);
+  const nextLevelExp = getExpForLevel(level + 1);
+  const levelSpan = Math.max(1, nextLevelExp - currentLevelExp);
+  return Math.max(0, Math.min(99, Math.floor(((exp - currentLevelExp) / levelSpan) * 100)));
+}
+
+function normalizeTotalExp(totalExp) {
+  const exp = Number(totalExp);
+  return Number.isFinite(exp) ? Math.max(0, exp) : 0;
+}
+
+export function getExpForLevel(level) {
+  const targetLevel = Math.max(1, Math.floor(Number(level) || 1));
+  if (targetLevel <= LEVEL_EARLY_MAX) return (targetLevel - 1) * LEVEL_EARLY_STEP_EXP;
+  if (targetLevel <= LEVEL_MID_MAX) return EXP_AT_LEVEL_5 + (targetLevel - LEVEL_EARLY_MAX) * LEVEL_MID_STEP_EXP;
+  return EXP_AT_LEVEL_10 + (targetLevel - LEVEL_MID_MAX) * LEVEL_STANDARD_STEP_EXP;
 }
 
 function getEarnedRecord(state, badgeId) {

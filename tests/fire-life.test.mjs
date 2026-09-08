@@ -6,8 +6,11 @@ import {
   getDefaultState,
   getBadgeDistance,
   getDiscoveryForPath,
+  getExpForLevel,
+  getExpToNextLevel,
   getFootprints,
   getLevelFromExp,
+  getLevelProgress,
   parseBackup,
   recordArticleRead,
   recordVisit,
@@ -41,8 +44,24 @@ const requestedLevelTitles = [
 
 test("FIRE人生のLEVELはEXPから上限なしで計算する", () => {
   assert.equal(getLevelFromExp(0), 1);
-  assert.equal(getLevelFromExp(100), 2);
-  assert.equal(getLevelFromExp(10_000), 101);
+  assert.equal(getExpToNextLevel(0), 30);
+  assert.equal(getExpForLevel(5), 120);
+  assert.equal(getLevelFromExp(29), 1);
+  assert.equal(getLevelFromExp(30), 2);
+  assert.equal(getLevelFromExp(119), 4);
+  assert.equal(getLevelFromExp(120), 5);
+  assert.equal(getExpToNextLevel(120), 50);
+  assert.equal(getExpForLevel(10), 370);
+  assert.equal(getLevelFromExp(169), 5);
+  assert.equal(getLevelFromExp(170), 6);
+  assert.equal(getLevelFromExp(369), 9);
+  assert.equal(getLevelFromExp(370), 10);
+  assert.equal(getExpToNextLevel(370), 100);
+  assert.equal(getLevelFromExp(470), 11);
+  assert.equal(getLevelProgress(0), 0);
+  assert.equal(getLevelProgress(15), 50);
+  assert.equal(getLevelProgress(30), 0);
+  assert.equal(getLevelFromExp(10_000), 106);
 });
 
 test("以前の仮デフォルト名は未設定として名無しの冒険者に戻せる", () => {
@@ -145,7 +164,7 @@ test("VISITバッジは称号を繰り上げ、1000日定義を新規付与し�
 
 test("次のバッジにカテゴリごとの距離を表示できる", () => {
   const state = getDefaultState();
-  state.totalExp = 1_600;
+  state.totalExp = 1_070;
   state.currentStreak = 5;
   state.totalVisitDays = 8;
 

@@ -1,4 +1,4 @@
-const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=6");
+const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=7");
 
 const lifeElements = {
   level: document.querySelector("#life-level"),
@@ -20,6 +20,7 @@ const lifeElements = {
   footprints: document.querySelector("#life-footprints"),
   footprintsEmpty: document.querySelector("#life-footprints-empty"),
   footprintsNote: document.querySelector("#life-footprints-note"),
+  footprintsToggle: document.querySelector("[data-footprints-toggle]"),
   detailDialog: document.querySelector("#badge-detail-dialog"),
   detailMark: document.querySelector("#badge-detail-mark"),
   detailCategory: document.querySelector("#badge-detail-category"),
@@ -37,6 +38,8 @@ const lifeElements = {
   devTools: document.querySelector("[data-dev-tools]"),
   devLevels: document.querySelectorAll("[data-dev-level]"),
 };
+
+let footprintsExpanded = false;
 
 function getNicknameInitial(nickname) {
   return nickname ? Array.from(nickname)[0] : "W";
@@ -788,7 +791,10 @@ function renderLifePage(api) {
   const progress = api.getLevelProgress(state.totalExp);
   const earnedBadges = api.getEarnedBadges(state);
   const nextBadges = api.getNextBadges(state, 3);
-  const footprints = api.getFootprints(state, 8);
+  const allFootprints = api.getFootprints(state, Number.MAX_SAFE_INTEGER);
+  const hasMoreFootprints = allFootprints.length > 8;
+  if (!hasMoreFootprints) footprintsExpanded = false;
+  const footprints = footprintsExpanded ? allFootprints : allFootprints.slice(0, 8);
   const displayName = state.nickname || "名無しの冒険者";
 
   if (lifeElements.level) lifeElements.level.textContent = String(level);
@@ -824,14 +830,27 @@ function renderLifePage(api) {
   }
   if (lifeElements.footprintsEmpty) lifeElements.footprintsEmpty.toggleAttribute("hidden", footprints.length > 0);
   if (lifeElements.footprintsNote) {
-    const sourceEventCount = (state.firstVisitDate ? 1 : 0) + Math.max(0, state.visitDates.length - (state.firstVisitDate ? 1 : 0)) + state.articleReadHistory.length + state.badges.length;
-    lifeElements.footprintsNote.toggleAttribute("hidden", sourceEventCount <= footprints.length);
+    lifeElements.footprintsNote.hidden = !hasMoreFootprints;
+    lifeElements.footprintsNote.textContent = footprintsExpanded
+      ? "すべての足あとを表示しています。"
+      : "最近の足あとを表示しています。";
+  }
+  if (lifeElements.footprintsToggle) {
+    lifeElements.footprintsToggle.hidden = !hasMoreFootprints;
+    lifeElements.footprintsToggle.textContent = footprintsExpanded
+      ? "足あとを閉じる"
+      : "すべての足あとを見る";
+    lifeElements.footprintsToggle.setAttribute("aria-expanded", String(footprintsExpanded));
   }
 }
 
 fireLifePageReady.then((api) => {
   renderLifePage(api);
   window.addEventListener("wakuwaku:fire-life-updated", () => renderLifePage(api));
+  lifeElements.footprintsToggle?.addEventListener("click", () => {
+    footprintsExpanded = !footprintsExpanded;
+    renderLifePage(api);
+  });
 
   const params = new URLSearchParams(window.location.search);
   const isLocalPreview = ["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname);
@@ -913,7 +932,7 @@ fireLifePageReady.then((api) => {
       const targetLevel = Number(button.dataset.devLevel);
       if (!Number.isFinite(targetLevel) || targetLevel < 1) return;
       const state = api.loadState();
-      state.totalExp = (targetLevel - 1) * 100;
+      state.totalExp = api.getExpForLevel(targetLevel);
       api.syncEligibleBadges(state);
       api.saveState(state);
       renderLifePage(api);

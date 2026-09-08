@@ -7,6 +7,8 @@ const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const siteHeader = document.querySelector(".site-header");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ARTICLE_READ_DWELL_MS = 20_000;
+const ARTICLE_READ_SCROLL_RATIO = 0.7;
 
 function closeNavigation() {
   if (!navToggle || !siteNav) return;
@@ -726,7 +728,7 @@ function setupFireLifeArticleTracker(api, state) {
   };
 
   const tryComplete = () => {
-    if (awarded || !reachedReadingTarget || Date.now() - startedAt < 30000) return;
+    if (awarded || !reachedReadingTarget || Date.now() - startedAt < ARTICLE_READ_DWELL_MS) return;
     awarded = true;
     cleanup();
 
@@ -770,7 +772,7 @@ function setupFireLifeArticleTracker(api, state) {
   };
 
   function onScroll() {
-    if (getReadingRatio() >= 0.7) reachedReadingTarget = true;
+    if (getReadingRatio() >= ARTICLE_READ_SCROLL_RATIO) reachedReadingTarget = true;
     tryComplete();
   }
 
@@ -778,7 +780,7 @@ function setupFireLifeArticleTracker(api, state) {
   window.addEventListener("resize", onScroll, { passive: true });
   window.addEventListener("pagehide", cleanup);
   onScroll();
-  timerId = window.setTimeout(tryComplete, 30000);
+  timerId = window.setTimeout(tryComplete, ARTICLE_READ_DWELL_MS);
 }
 
 function handleFireLifeContentClick(event) {

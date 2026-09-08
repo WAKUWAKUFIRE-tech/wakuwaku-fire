@@ -2497,3 +2497,45 @@ button.badge-card:focus-visible {
   }
 }
 
+.my-fire-life-page .life-footprints__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  margin-top: 1.1rem;
+  padding: 0.7rem 1.1rem;
+  color: var(--red-dark);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: var(--paper);
+  border: 1px solid rgba(234, 62, 49, 0.34);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.my-fire-life-page .life-footprints__toggle[hidden] {
+  display: none;
+}
+
+.my-fire-life-page .life-footprints__toggle:hover,
+.my-fire-life-page .life-footprints__toggle:focus-visible {
+  color: var(--paper);
+  background: var(--red);
+  transform: translateY(-2px);
+}
+
+.my-fire-life-page .life-footprints__toggle:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@media (max-width: 699px) {
+  .my-fire-life-page .life-footprints__toggle {
+    width: 100%;
+    margin-top: 0.9rem;
+  }
+}
+
