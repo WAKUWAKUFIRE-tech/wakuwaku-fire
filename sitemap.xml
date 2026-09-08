@@ -9,6 +9,10 @@
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
+    <loc>https://wakuwaku-fire-git.pages.dev/articles/fire-nenshu/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
     <loc>https://wakuwaku-fire-git.pages.dev/articles/fire-chochikuritsu/</loc>
     <lastmod>2026-09-08</lastmod>
   </url>
@@ -141,6 +145,14 @@
     <lastmod>2026-09-06</lastmod>
   </url>
   <url>
+    <loc>https://wakuwaku-fire-git.pages.dev/community/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://wakuwaku-fire-git.pages.dev/community/weekly/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
     <loc>https://wakuwaku-fire-git.pages.dev/contact/</loc>
     <lastmod>2026-08-25</lastmod>
   </url>
@@ -180,6 +192,4 @@
     <loc>https://wakuwaku-fire-git.pages.dev/risk-runner/</loc>
     <lastmod>2026-08-25</lastmod>
   </url>
-  <url><loc>https://wakuwaku-fire-git.pages.dev/community/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://wakuwaku-fire-git.pages.dev/community/weekly/</loc><changefreq>weekly</changefreq></url>
 </urlset>
