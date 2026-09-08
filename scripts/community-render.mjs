@@ -69,7 +69,7 @@ export function build() {
  else home=home.replace(/(?=\s*<section class="section column-preview")/,`\n${teaser}\n`);
  if(!home.includes('/community/community.css')) home=home.replace('</head>','<link rel="stylesheet" href="/community/community.css"><script src="/community/community.js" defer></script>\n</head>');
  home=home.replace(/(<a[^>]*data-category="community"[^>]*href=")[^"]+("[^>]*>)/g,(_,a,b)=>`${a}/community/${b.replace(/ target="_blank"| rel="noopener noreferrer"/g,'')}`);
- home=home.replace('data-category="community" href="/community/"','data-category="community" href="/community/" data-analytics-event="community_home_to_lp_click" data-analytics-label="homepage-card" data-analytics-category="community"');
+ home=home.replace(/(<a[^>]*data-category="community"[^>]*href="\/community\/"[^>]*)>/g,(_,attrs)=>attrs.includes('data-analytics-event=')?`${attrs}>`:`${attrs} data-analytics-event="community_home_to_lp_click" data-analytics-label="homepage-card" data-analytics-category="community">`);
  fs.writeFileSync(homeFile,home);
  const sitemap=path.join(ROOT,'sitemap.xml');let xml=fs.readFileSync(sitemap,'utf8');for(const route of ['/community/','/community/weekly/'])if(!xml.includes(`${SITE}${route}</loc>`))xml=xml.replace('</urlset>',`  <url><loc>${SITE}${route}</loc><changefreq>weekly</changefreq></url>\n</urlset>`);fs.writeFileSync(sitemap,xml);
  console.log('Community pages and homepage teaser generated.');
