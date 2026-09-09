@@ -2617,3 +2617,91 @@ button.badge-card:focus-visible {
   }
 }
 
+/* LEVELは「次に出会う一枚」を見せ、未取得の紋章だけを？で封印します。 */
+.my-fire-life-page .earned-badges__grid .badge-card--locked {
+  background: linear-gradient(160deg, #fffdf8 0%, #f3ece2 100%);
+  border-color: rgba(106, 77, 53, 0.2);
+}
+
+.my-fire-life-page .earned-badges__grid .badge-card--locked .badge-card__visual {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 214, 104, 0.14), transparent 42%),
+    linear-gradient(145deg, #101b2d 0%, #1e3048 55%, #0d1727 100%);
+  border-style: dashed;
+  border-color: rgba(255, 220, 132, 0.34);
+}
+
+.my-fire-life-page .earned-badges__grid .badge-card--locked .badge-emblem--locked {
+  opacity: 1;
+  filter: drop-shadow(0 0.45rem 0.42rem rgba(6, 8, 13, 0.28));
+}
+
+.my-fire-life-page .earned-badges__grid .badge-card--locked .badge-emblem--locked .badge-emblem__rim {
+  fill: #171d2b;
+  stroke: #c9a45d;
+}
+
+.my-fire-life-page .earned-badges__grid .badge-card--locked .badge-emblem--locked .badge-emblem__face {
+  fill: #263b54;
+  stroke: #8aa0b1;
+}
+
+.my-fire-life-page .earned-badges__grid .badge-card--locked .badge-emblem--locked .badge-emblem__question {
+  fill: #ffe6a0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.7rem;
+  font-style: italic;
+  filter: drop-shadow(0 0.08rem 0.08rem rgba(0, 0, 0, 0.42));
+}
+
+.my-fire-life-page .badge-card__state {
+  padding-top: 0.45rem;
+  color: var(--red-dark);
+  border-top: 1px dashed var(--line);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.my-fire-life-page .badge-card--locked .badge-card__state {
+  color: #806d57;
+}
+
+.my-fire-life-page .earned-badges__toggle {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  margin-top: 0.1rem;
+  padding: 0.7rem 1.15rem;
+  color: var(--red-dark);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: var(--paper);
+  border: 1px solid rgba(234, 62, 49, 0.32);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.my-fire-life-page .earned-badges__toggle:hover,
+.my-fire-life-page .earned-badges__toggle:focus-visible {
+  color: var(--paper);
+  background: var(--red);
+  transform: translateY(-2px);
+}
+
+.my-fire-life-page .earned-badges__toggle:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@media (max-width: 699px) {
+  .my-fire-life-page .earned-badges__toggle {
+    width: 100%;
+    margin-top: 0.05rem;
+  }
+}
+

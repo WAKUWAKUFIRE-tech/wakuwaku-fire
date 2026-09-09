@@ -41,6 +41,7 @@ const lifeElements = {
 };
 
 let footprintsExpanded = false;
+let levelBadgesExpanded = false;
 
 const PREVIEW_BADGE_IDS = Object.freeze({
   level: "level-50-time-traveler",
@@ -568,15 +569,16 @@ function createBadgeEmblem(badge, { locked = false } = {}) {
   return svg;
 }
 
-function createBadgeCard(api, badge) {
+function createBadgeCard(api, badge, { locked = false, next = false } = {}) {
   const card = document.createElement("button");
   card.type = "button";
   card.className = `badge-card badge-card--${badge.category} badge-tone-${badge.tone || "gray"} badge-tier-${badge.tier || "side"}`;
-  card.setAttribute("aria-label", `${badge.name}の詳細を見る`);
+  card.classList.toggle("badge-card--locked", locked);
+  card.setAttribute("aria-label", locked ? `${badge.name}（未取得バッジ）の詳細を見る` : `${badge.name}の詳細を見る`);
 
   const visual = document.createElement("span");
   visual.className = "badge-card__visual";
-  const seal = createBadgeEmblem(badge);
+  const seal = createBadgeEmblem(badge, { locked });
   seal.classList.add("badge-card__seal");
   seal.setAttribute("aria-hidden", "true");
   visual.appendChild(seal);
@@ -596,11 +598,19 @@ function createBadgeCard(api, badge) {
   condition.className = "badge-card__condition";
   condition.textContent = badge.condition;
 
-  const date = document.createElement("span");
-  date.className = "badge-card__date";
-  date.textContent = `獲得日：${api.formatDate(badge.earnedAt)}`;
+  body.append(category, name, condition);
 
-  body.append(category, name, condition, date);
+  if (locked) {
+    const status = document.createElement("span");
+    status.className = "badge-card__state";
+    status.textContent = next ? "次に出会うLEVELバッジ" : "まだ見ぬLEVELバッジ";
+    body.appendChild(status);
+  } else {
+    const date = document.createElement("span");
+    date.className = "badge-card__date";
+    date.textContent = `獲得日：${api.formatDate(badge.earnedAt)}`;
+    body.appendChild(date);
+  }
 
   if (badge.legacy) {
     const legacy = document.createElement("span");
@@ -610,7 +620,7 @@ function createBadgeCard(api, badge) {
   }
 
   card.append(visual, body);
-  card.addEventListener("click", () => openBadgeDetail(api, badge));
+  card.addEventListener("click", () => openBadgeDetail(api, badge, { locked }));
   return card;
 }
 
@@ -684,6 +694,43 @@ function getEarnedBadgeGroups(earnedBadges) {
   return groups;
 }
 
+function getLevelBadgeGroup(api, state, earnedBadges) {
+  const definitions = (Array.isArray(api.badgeDefinitions) ? api.badgeDefinitions : [])
+    .filter((badge) => badge.category === "level" && !badge.legacy && badge.enabled && Number(badge.threshold) <= 100)
+    .sort((a, b) => Number(a.threshold) - Number(b.threshold));
+  const earnedById = new Map(
+    earnedBadges
+      .filter((badge) => badge.category === "level")
+      .map((badge) => [badge.id, badge]),
+  );
+  const earnedDefinitions = definitions
+    .filter((badge) => earnedById.has(badge.id))
+    .map((badge) => ({ ...badge, earnedAt: earnedById.get(badge.id).earnedAt }));
+  const currentLevel = api.getLevelFromExp(state.totalExp);
+  const nextBadge = definitions.find((badge) => !earnedById.has(badge.id) && Number(badge.threshold) > currentLevel);
+  const badges = levelBadgesExpanded
+    ? definitions.map((badge) => earnedById.has(badge.id)
+      ? { ...badge, earnedAt: earnedById.get(badge.id).earnedAt }
+      : { ...badge, locked: true })
+    : [
+      ...earnedDefinitions,
+      ...(nextBadge ? [{ ...nextBadge, locked: true, isNextLevelPreview: true }] : []),
+    ];
+
+  if (badges.length === 0) return null;
+
+  return {
+    category: "level",
+    label: "LEVEL",
+    title: "積み重ねたレベル",
+    note: "記事を読むほど、ここに新しい景色が増えていきます。",
+    badges,
+    earnedCount: earnedDefinitions.length,
+    expanded: levelBadgesExpanded,
+    canToggle: definitions.length > earnedDefinitions.length,
+  };
+}
+
 function createEarnedBadgeGroup(api, group) {
   const section = document.createElement("section");
   section.className = `earned-badges__group earned-badges__group--${group.category}`;
@@ -709,13 +756,31 @@ function createEarnedBadgeGroup(api, group) {
 
   const count = document.createElement("span");
   count.className = "earned-badges__group-count";
-  count.textContent = `${group.badges.length}個`;
+  count.textContent = `${group.earnedCount ?? group.badges.length}個`;
   heading.append(headingCopy, count);
 
   const grid = document.createElement("div");
   grid.className = "earned-badges__grid";
-  grid.append(...group.badges.map((badge) => createBadgeCard(api, badge)));
+  grid.id = `${titleId}-grid`;
+  grid.append(...group.badges.map((badge) => createBadgeCard(api, badge, {
+    locked: Boolean(badge.locked),
+    next: Boolean(badge.isNextLevelPreview),
+  })));
   section.append(heading, grid);
+
+  if (group.category === "level" && group.canToggle) {
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "earned-badges__toggle";
+    toggle.textContent = group.expanded ? "表示を戻す" : "もっとバッジを見る";
+    toggle.setAttribute("aria-expanded", String(Boolean(group.expanded)));
+    toggle.setAttribute("aria-controls", grid.id);
+    toggle.addEventListener("click", () => {
+      levelBadgesExpanded = !levelBadgesExpanded;
+      renderLifePage(api);
+    });
+    section.appendChild(toggle);
+  }
   return section;
 }
 
@@ -765,17 +830,17 @@ function createFootprint(api, footprint) {
   return item;
 }
 
-function openBadgeDetail(api, badge) {
+function openBadgeDetail(api, badge, { locked = false } = {}) {
   if (!lifeElements.detailDialog) return;
 
   lifeElements.detailMark.className = "badge-detail-dialog__badge";
-  lifeElements.detailMark.replaceChildren(createBadgeEmblem(badge));
+  lifeElements.detailMark.replaceChildren(createBadgeEmblem(badge, { locked }));
   lifeElements.detailCategory.textContent = getCategoryLabel(api, badge.category);
   lifeElements.detailTitle.textContent = badge.name;
   lifeElements.detailCondition.textContent = badge.condition;
-  lifeElements.detailDate.textContent = api.formatDate(badge.earnedAt);
+  lifeElements.detailDate.textContent = locked ? "まだ獲得していません" : api.formatDate(badge.earnedAt);
   lifeElements.detailDescription.textContent = badge.description;
-  lifeElements.detailLegacy.hidden = !badge.legacy;
+  lifeElements.detailLegacy.hidden = locked || !badge.legacy;
 
   if (typeof lifeElements.detailDialog.showModal === "function") {
     lifeElements.detailDialog.showModal();
@@ -798,7 +863,8 @@ function renderLifePage(api) {
   const level = api.getLevelFromExp(state.totalExp);
   const progress = api.getLevelProgress(state.totalExp);
   const earnedBadges = api.getEarnedBadges(state);
-  const nextBadges = api.getNextBadges(state, 3);
+  const nextBadges = api.getNextBadges(state, 4).filter((badge) => badge.category !== "level").slice(0, 3);
+  const levelBadgeGroup = getLevelBadgeGroup(api, state, earnedBadges);
   const allFootprints = api.getFootprints(state, Number.MAX_SAFE_INTEGER);
   const hasMoreFootprints = allFootprints.length > 8;
   if (!hasMoreFootprints) footprintsExpanded = false;
@@ -818,7 +884,9 @@ function renderLifePage(api) {
   if (lifeElements.badgeCount) lifeElements.badgeCount.textContent = `${earnedBadges.length}個`;
 
   if (lifeElements.earnedBadges) {
-    lifeElements.earnedBadges.replaceChildren(...getEarnedBadgeGroups(earnedBadges).map((group) => createEarnedBadgeGroup(api, group)));
+    const badgeGroups = getEarnedBadgeGroups(earnedBadges).filter((group) => group.category !== "level");
+    if (levelBadgeGroup) badgeGroups.unshift(levelBadgeGroup);
+    lifeElements.earnedBadges.replaceChildren(...badgeGroups.map((group) => createEarnedBadgeGroup(api, group)));
   }
   if (lifeElements.badgeEmpty) lifeElements.badgeEmpty.toggleAttribute("hidden", earnedBadges.length > 0);
 
