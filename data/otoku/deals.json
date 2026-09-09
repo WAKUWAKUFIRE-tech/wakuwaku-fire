@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalUrl": "https://wakuwaku-fire-git.pages.dev/otoku/",
   "publishedAt": "2026-09-02T06:00:00+09:00",
-  "checkedAt": "2026-09-09T06:03:41+09:00",
-  "contentModifiedAt": "2026-09-08T06:03:42+09:00",
+  "checkedAt": "2026-09-10T06:04:17+09:00",
+  "contentModifiedAt": "2026-09-10T06:04:17+09:00",
   "titleYearMonth": {
     "year": 2026,
     "month": 9
@@ -144,31 +144,6 @@
       "maruComment": "固定費の支払い方法を変えるだけなら、家計の流れを崩しにくいかも。"
     },
     {
-      "id": "kojinabi-gourmet-1e9f64df0ece",
-      "title": "【9月1日～中学生以上の学生限定】クリスピー・クリーム・ドーナツでドーナツorドリンク注文でオリジナル・グレーズドが1個無料でプレゼント。～9月9日まで。",
-      "merchant": "グルメ・外食",
-      "service": "期間限定キャンペーン",
-      "benefitShort": "期間中のグルメキャンペーン",
-      "benefit": "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
-      "condition": "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
-      "target": "公式ページに記載された対象店舗・サービスを利用できる人。",
-      "action": "公式ページで最新条件を確認してから利用する。",
-      "startDate": "2026-09-01",
-      "endDate": "2026-09-09",
-      "endDateLabel": "",
-      "applicationRequired": false,
-      "officialUrl": "https://krispykreme.jp/news/16324/",
-      "canonicalizedOfficialUrl": "https://krispykreme.jp/news/16324/",
-      "category": "food",
-      "monetizationCategory": "food",
-      "note": "掲載元の期間表示を判定し、公式ページへ案内しています（9/1 〜 9/9）。利用前に公式ページの最新条件を確認してください。",
-      "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
-      "linkLabel": "公式ページを見る",
-      "verificationLabel": "公式ページを確認済み",
-      "dynamicType": "kojinabi-gourmet-category",
-      "dynamicSourceId": "kojinabi"
-    },
-    {
       "id": "kojinabi-gourmet-4e4bad67447a",
       "title": "【9月7日各日14:00～】バーガーキングでワッパーセットが300円引きの790円～で販売。ワッパーチーズ／ダブルワッパーチーズ／スモーキーBBQ／テリヤキ／スパイシーの5種が対象、ワッパー祭り開催。～9月11日まで。",
       "merchant": "グルメ・外食",
@@ -219,6 +194,31 @@
       "dynamicSourceId": "kojinabi"
     },
     {
+      "id": "kojinabi-gourmet-4c3b44dd5d13",
+      "title": "松屋フーズ 松弁ネットで14時～18時は松屋ポイント2倍キャンペーンが実施中。～9月14日まで。",
+      "merchant": "グルメ・外食",
+      "service": "期間限定キャンペーン",
+      "benefitShort": "期間中のグルメキャンペーン",
+      "benefit": "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
+      "condition": "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
+      "target": "公式ページに記載された対象店舗・サービスを利用できる人。",
+      "action": "公式ページで最新条件を確認してから利用する。",
+      "startDate": null,
+      "endDate": "2026-09-14",
+      "endDateLabel": "",
+      "applicationRequired": false,
+      "officialUrl": "https://www.matsuyafoods.co.jp/whatsnew/campaign/175013.html",
+      "canonicalizedOfficialUrl": "https://www.matsuyafoods.co.jp/whatsnew/campaign/175013.html",
+      "category": "food",
+      "monetizationCategory": "food",
+      "note": "掲載元の期間表示を判定し、公式ページへ案内しています（〜 9/14）。利用前に公式ページの最新条件を確認してください。",
+      "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
+      "linkLabel": "公式ページを見る",
+      "verificationLabel": "公式ページを確認済み",
+      "dynamicType": "kojinabi-gourmet-category",
+      "dynamicSourceId": "kojinabi"
+    },
+    {
       "id": "kojinabi-gourmet-bd9db5c11c31",
       "title": "なか卯 LINEクーポンで「親子丼100円引き」アプリで「朝食全品50円引き」(最安270円～)「定食各種50円引き」「絶品炭火焼き親子重50円引き」等のクーポンが配布中。～9月15日まで。",
       "merchant": "グルメ・外食",
@@ -234,6 +234,31 @@
       "applicationRequired": false,
       "officialUrl": "https://www.nakau.co.jp/jp/news/9_1/",
       "canonicalizedOfficialUrl": "https://www.nakau.co.jp/jp/news/9_1/",
+      "category": "food",
+      "monetizationCategory": "food",
+      "note": "掲載元の期間表示を判定し、公式ページへ案内しています（〜 9/15）。利用前に公式ページの最新条件を確認してください。",
+      "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
+      "linkLabel": "公式ページを見る",
+      "verificationLabel": "公式ページを確認済み",
+      "dynamicType": "kojinabi-gourmet-category",
+      "dynamicSourceId": "kojinabi"
+    },
+    {
+      "id": "kojinabi-gourmet-bbbd2d5465ba",
+      "title": "松屋のテイクアウトシリーズ MATSUYA DELI 牛皿DELI 2個で740円→440円(1個220円)などとなるキャンペーンが実施中。店頭でも2個セット300円引き等のおためしフェアも。～9月15日まで。",
+      "merchant": "グルメ・外食",
+      "service": "期間限定キャンペーン",
+      "benefitShort": "期間中のグルメキャンペーン",
+      "benefit": "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
+      "condition": "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
+      "target": "公式ページに記載された対象店舗・サービスを利用できる人。",
+      "action": "公式ページで最新条件を確認してから利用する。",
+      "startDate": null,
+      "endDate": "2026-09-15",
+      "endDateLabel": "",
+      "applicationRequired": false,
+      "officialUrl": "https://www.matsuyafoods.co.jp/whatsnew/menu/173515.html",
+      "canonicalizedOfficialUrl": "https://www.matsuyafoods.co.jp/whatsnew/menu/173515.html",
       "category": "food",
       "monetizationCategory": "food",
       "note": "掲載元の期間表示を判定し、公式ページへ案内しています（〜 9/15）。利用前に公式ページの最新条件を確認してください。",
@@ -608,7 +633,7 @@
     },
     {
       "id": "kojinabi-gourmet-04f731a2ae9b",
-      "title": "松屋フーズアプリで松のや「おろしロースかつ丼」が550円、「鬼おろしポン酢ロースかつ定食」が590円等となるクーポンが配布中。",
+      "title": "松屋フーズアプリで松のや ロースかつ丼 弁当550円／店内590円、超厚切りリブロース版が弁当830円／店内890円となるクーポンが配布中。",
       "merchant": "グルメ・外食",
       "service": "期間限定キャンペーン",
       "benefitShort": "期間中のグルメキャンペーン",
@@ -653,5 +678,5 @@
       "maruComment": "普段の買い物を寄せられるなら、応募口数を増やす条件も確認してみよ。"
     }
   ],
-  "dealCount": 25
+  "dealCount": 26
 }
