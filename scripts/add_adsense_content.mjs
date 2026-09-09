@@ -149,8 +149,7 @@ await updateMainPage("my-fire-life/index.html", "myLife", "my-life");
 await updateMainPage("fire-calendar/index.html", "calendar");
 
 let worldTour = await read("ワールドツアー/index.html");
-if (!worldTour.includes("ADSENSE-CONTENT-VALUE:world-tour:START")) {
-  const worldTourSection = `<!-- ADSENSE-CONTENT-VALUE:world-tour:START -->
+const worldTourSection = `<!-- ADSENSE-CONTENT-VALUE:world-tour:START -->
 <section class="content-value world-tour-value" aria-labelledby="world-tour-value-title">
   <h2 id="world-tour-value-title">世界を旅するテキストアドベンチャー</h2>
   <p>FIREワールドツアーは、自由になった後に行ってみたい国や街を、マルとシバくんと一緒に選ぶ短い旅のゲームです。表示される場面で行き先や過ごし方を選び、旅先の空気と「どんな時間を使いたいか」を想像します。</p>
@@ -166,11 +165,22 @@ if (!worldTour.includes("ADSENSE-CONTENT-VALUE:world-tour:START")) {
 </section>
 <!-- ADSENSE-CONTENT-VALUE:world-tour:END -->
 `;
-  const scriptNeedle = '<script type="module" crossorigin';
-  const scriptIndex = worldTour.indexOf(scriptNeedle);
-  if (scriptIndex < 0) throw new Error("ワールドツアーの起動スクリプトが見つかりません");
-  worldTour = worldTour.slice(0, scriptIndex) + worldTourSection + worldTour.slice(scriptIndex);
+const worldTourStartMarker = "<!-- ADSENSE-CONTENT-VALUE:world-tour:START -->";
+const worldTourEndMarker = "<!-- ADSENSE-CONTENT-VALUE:world-tour:END -->";
+let worldTourContent = worldTourSection;
+const existingWorldTourStart = worldTour.indexOf(worldTourStartMarker);
+if (existingWorldTourStart >= 0) {
+  const existingWorldTourEnd = worldTour.indexOf(worldTourEndMarker, existingWorldTourStart);
+  if (existingWorldTourEnd < 0) throw new Error("ワールドツアーの説明欄が閉じられていません");
+  const endIndex = existingWorldTourEnd + worldTourEndMarker.length;
+  worldTourContent = worldTour.slice(existingWorldTourStart, endIndex);
+  worldTour = worldTour.slice(0, existingWorldTourStart) + worldTour.slice(endIndex);
 }
+const rootNeedle = '<div id="root"></div>';
+const rootIndex = worldTour.indexOf(rootNeedle);
+if (rootIndex < 0) throw new Error("ワールドツアーのアプリ領域が見つかりません");
+const rootEnd = rootIndex + rootNeedle.length;
+worldTour = worldTour.slice(0, rootEnd) + "\n" + worldTourContent.trim() + "\n" + worldTour.slice(rootEnd);
 if (!worldTour.includes('href="./content-value.css"')) {
   worldTour = worldTour.replace('</head>', '    <link rel="stylesheet" href="./content-value.css" />\n  </head>');
 }
