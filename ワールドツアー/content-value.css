@@ -1,0 +1,21 @@
+.world-tour-value {
+  box-sizing: border-box;
+  width: min(760px, calc(100% - 32px));
+  margin: 48px auto 56px;
+  padding: clamp(24px, 4vw, 42px) clamp(20px, 4vw, 38px);
+  border: 1px solid rgba(16, 43, 69, .2);
+  border-radius: 20px;
+  color: #102b45;
+  background: #f7f4ed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+.world-tour-value > h2 { margin: 0 0 12px; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.35; }
+.world-tour-value h3 { margin: 24px 0 7px; font-size: 1.05rem; }
+.world-tour-value p { color: #42576a; font-size: .94rem; line-height: 1.9; }
+.world-tour-value__note,
+.world-tour-value .content-value__note { padding: 14px 16px; border-left: 3px solid #d9a82e; background: #fff3c7; }
+.world-tour-value a { color: #0d6381; text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .world-tour-value { width: min(100% - 24px, 760px); margin-top: 32px; margin-bottom: 40px; border-radius: 15px; }
+  .world-tour-value p { font-size: .9rem; line-height: 1.8; }
+}

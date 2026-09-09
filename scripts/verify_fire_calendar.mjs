@@ -54,7 +54,7 @@ for (const entry of allEntries) {
     if (!sitePath.startsWith("/")) invalidLinks.push(entry.date + ":" + link);
     if (sitePath === "/" || sitePath === "") continue;
     const relative = sitePath.replace(/^\/+/, "").replace(/\/$/, "");
-    if (relative && !["articles", "fire-migration-japan", "fire-migration-world", "risk-runner"].includes(relative)) {
+    if (relative && !["articles", "fire-migration-japan", "fire-migration-world"].includes(relative)) {
       invalidLinks.push(entry.date + ":" + link);
     }
   }

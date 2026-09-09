@@ -77,7 +77,7 @@ export async function buildExternalGrowth({root = ROOT, now = new Date()} = {}) 
   }
   await write('feed.xml',renderFeed(articles,site,now));
   // Explicit public roots prevent build copies, administration and tests from leaking into discovery.
-  const publicRoots = ['about','articles','business','community','contact','privacy','diagnoses','fire-calendar','fire-animal-test','fire-migration-japan','fire-migration-world','fire-strengths','fire-world-tour','fire-cards','risk-runner','otoku','my-fire-life','fire-level-rewards'];
+  const publicRoots = ['about','articles','business','community','contact','privacy','diagnoses','fire-calendar','fire-animal-test','fire-migration-japan','fire-migration-world','fire-strengths','fire-world-tour','fire-cards','otoku','my-fire-life','fire-level-rewards'];
   const files = ['index.html'];
   async function walk(dir) {
     for (const e of await fs.readdir(path.join(root,dir),{withFileTypes:true}).catch(()=>[])) {

@@ -34,13 +34,13 @@ const CATEGORY_META = {
   "健康": { icon: "🌿", link: "/articles/" },
   "人間関係": { icon: "🤝", link: "/articles/" },
   "旅行": { icon: "✈️", link: "/fire-migration-world/" },
-  "遊び": { icon: "🎮", link: "/risk-runner/" },
+  "遊び": { icon: "🎮", link: "/articles/" },
   "学び": { icon: "📚", link: "/articles/" },
   "挑戦": { icon: "🚀", link: "/articles/" },
   "節約": { icon: "🧺", link: "/articles/" },
   "制度": { icon: "🧾", link: "/articles/" },
   "老後": { icon: "🌅", link: "/articles/" },
-  "趣味": { icon: "🎨", link: "/risk-runner/" }
+  "趣味": { icon: "🎨", link: "/articles/" }
 };
 
 const CATEGORY_CYCLE = [

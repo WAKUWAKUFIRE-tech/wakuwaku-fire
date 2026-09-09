@@ -62,7 +62,7 @@ try {
   if (urls.some((url) => /[?#]/.test(url) || /\/404(?:\.html)?\/?$/i.test(url))) fail("sitemap.xmlに一時URL・404 URLが含まれています。");
 
   const pageResults = [];
-  for (const url of [`${siteUrl}/`, `${siteUrl}/articles/fire-ikura-hitsuyou/`, `${siteUrl}/fire-animal-test/`, `${siteUrl}/fire-migration-japan/`, `${siteUrl}/fire-migration-world/`, `${siteUrl}/risk-runner/`]) {
+  for (const url of [`${siteUrl}/`, `${siteUrl}/articles/fire-ikura-hitsuyou/`, `${siteUrl}/fire-animal-test/`, `${siteUrl}/fire-migration-japan/`, `${siteUrl}/fire-migration-world/`]) {
     pageResults.push(await checkPublicPage(url));
   }
 

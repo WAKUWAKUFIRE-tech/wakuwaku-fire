@@ -206,7 +206,7 @@ const FIRE_TYPES = Object.freeze([
     },
     recommendations: ["完全FIRE", "趣味中心", "静かな地方生活", "読書", "散歩", "ゲーム"],
     alert: "快適すぎて、生活の刺激や社会接点まで消さない。",
-    links: [{ label: "FIRE後の退屈を考える記事", href: "../articles/fire-after-boredom/" }, { label: "RISK RUNNER", href: "../risk-runner/" }]
+    links: [{ label: "FIRE後の退屈を考える記事", href: "../articles/fire-after-boredom/" }, { label: "FIRE QUEST", href: "../my-fire-life/" }]
   }),
   freezeType({
     id: "creator",

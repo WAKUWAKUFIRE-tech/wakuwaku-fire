@@ -71,7 +71,6 @@
       "/articles/": "FIREコラムを読む",
       "/fire-migration-japan/": "国内移住診断を見る",
       "/fire-migration-world/": "海外移住診断を見る",
-      "/risk-runner/": "RISK RUNNERで遊ぶ",
       "/#contents": "楽しいコンテンツを見る"
     };
     return labels[link] || "関連コンテンツを見る";
