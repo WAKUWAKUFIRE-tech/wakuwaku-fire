@@ -477,7 +477,7 @@ const fireLifeAssetRoot = new URL(
 if (!document.querySelector('link[data-fire-life-style="true"]')) {
   const fireLifeStylesheet = document.createElement("link");
   fireLifeStylesheet.rel = "stylesheet";
-  fireLifeStylesheet.href = new URL("fire-life.css?v=3", fireLifeAssetRoot).href;
+  fireLifeStylesheet.href = new URL("fire-life.css?v=4", fireLifeAssetRoot).href;
   fireLifeStylesheet.dataset.fireLifeStyle = "true";
   document.head.appendChild(fireLifeStylesheet);
 }
@@ -511,11 +511,15 @@ const FIRE_LIFE_TOAST_ART = Object.freeze({
   badge: '<path class="fire-life-toast__art-fill" d="M18 6l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/>',
 });
 
-function createFireLifeToastMark(notification) {
-  const mark = document.createElement("span");
-  mark.className = "fire-life-toast__mark";
-  mark.setAttribute("aria-hidden", "true");
+const FIRE_LIFE_CONFETTI_PALETTES = Object.freeze({
+  level: Object.freeze(["#ffd447", "#ea3e31", "#fff1a8", "#f28c28", "#ffffff"]),
+  discovery: Object.freeze(["#6ecbd4", "#ffd447", "#ffffff", "#8f7bd8", "#f6a5c0"]),
+  streak: Object.freeze(["#ff7043", "#ea3e31", "#ffd447", "#fff1a8", "#ffffff"]),
+  visit: Object.freeze(["#8dcc72", "#ffd447", "#ffffff", "#75a7d6", "#f4a261"]),
+  badge: Object.freeze(["#ffd447", "#ea3e31", "#ffffff", "#8f7bd8"]),
+});
 
+function createFireLifeToastSvg(notification) {
   const svg = document.createElementNS(FIRE_LIFE_TOAST_SVG_NS, "svg");
   const artKey = notification.type === "badge"
     ? notification.category || "badge"
@@ -528,13 +532,47 @@ function createFireLifeToastMark(notification) {
     <circle class="fire-life-toast__emblem-face" cx="18" cy="18" r="12" />
     <g>${FIRE_LIFE_TOAST_ART[artKey] || FIRE_LIFE_TOAST_ART.badge}</g>
   `;
-  mark.appendChild(svg);
+  return svg;
+}
+
+function createFireLifeToastMark(notification) {
+  const mark = document.createElement("span");
+  mark.className = "fire-life-toast__mark";
+  mark.setAttribute("aria-hidden", "true");
+
+  let imageUrl = "";
+  if (notification.imagePath) {
+    try {
+      imageUrl = new URL(notification.imagePath, document.baseURI).href;
+    } catch {
+      imageUrl = "";
+    }
+  }
+
+  if (imageUrl) {
+    const image = document.createElement("img");
+    image.className = "fire-life-toast__badge-image";
+    image.src = imageUrl;
+    image.alt = "";
+    image.loading = "eager";
+    image.decoding = "async";
+    image.draggable = false;
+    image.addEventListener("error", () => image.replaceWith(createFireLifeToastSvg(notification)), { once: true });
+    mark.appendChild(image);
+  } else {
+    mark.appendChild(createFireLifeToastSvg(notification));
+  }
   return mark;
 }
 
 function createFireLifeToast(notification) {
   const toast = document.createElement("article");
   toast.className = `fire-life-toast fire-life-toast--${notification.type || "exp"}`;
+  if (notification.category) toast.dataset.category = notification.category;
+  if (notification.preview) {
+    toast.classList.add("fire-life-toast--preview");
+    toast.dataset.preview = "true";
+  }
 
   const mark = createFireLifeToastMark(notification);
 
@@ -558,6 +596,34 @@ function createFireLifeToast(notification) {
   return toast;
 }
 
+function createFireLifeConfetti(notification) {
+  if (prefersReducedMotion) return null;
+
+  const confetti = document.createElement("div");
+  confetti.className = "fire-life-confetti";
+  confetti.setAttribute("aria-hidden", "true");
+
+  const palette = FIRE_LIFE_CONFETTI_PALETTES[notification.category] || FIRE_LIFE_CONFETTI_PALETTES.badge;
+  const viewportWidth = Math.max(320, window.innerWidth || 360);
+  const spread = Math.min(280, Math.max(160, viewportWidth * 0.5));
+  const pieceCount = viewportWidth < 640 ? 28 : 36;
+
+  for (let index = 0; index < pieceCount; index += 1) {
+    const piece = document.createElement("span");
+    piece.className = `fire-life-confetti__piece fire-life-confetti__piece--${index % 4}`;
+    piece.style.setProperty("--confetti-x", `${Math.round((Math.random() - 0.5) * spread * 2)}px`);
+    piece.style.setProperty("--confetti-y", `${Math.round(94 + Math.random() * 106)}px`);
+    piece.style.setProperty("--confetti-rotate", `${Math.round(-540 + Math.random() * 1080)}deg`);
+    piece.style.setProperty("--confetti-delay", `${Math.round(-120 + Math.random() * 260)}ms`);
+    piece.style.setProperty("--confetti-duration", `${Math.round(1800 + Math.random() * 800)}ms`);
+    piece.style.setProperty("--confetti-color", palette[index % palette.length]);
+    piece.style.setProperty("--confetti-scale", `${(0.78 + Math.random() * 0.52).toFixed(2)}`);
+    confetti.appendChild(piece);
+  }
+
+  return confetti;
+}
+
 function showNextFireLifeToast() {
   if (fireLifeToastIsShowing || fireLifeToastQueue.length === 0) return;
   fireLifeToastIsShowing = true;
@@ -565,9 +631,13 @@ function showNextFireLifeToast() {
   const notification = fireLifeToastQueue.shift();
   const layer = getFireLifeToastLayer();
   const toast = createFireLifeToast(notification);
+  const confetti = notification.type === "badge" && notification.celebrate !== false
+    ? createFireLifeConfetti(notification)
+    : null;
+  if (confetti) layer.appendChild(confetti);
   layer.appendChild(toast);
 
-  const duration = notification.duration || (notification.type === "level-up" ? 3600 : 2800);
+  const duration = notification.duration || (notification.type === "badge" || notification.type === "level-up" ? 3600 : 2800);
   window.setTimeout(() => {
     toast.classList.add("is-leaving");
     let finished = false;
@@ -575,6 +645,7 @@ function showNextFireLifeToast() {
       if (finished) return;
       finished = true;
       toast.remove();
+      confetti?.remove();
       fireLifeToastIsShowing = false;
       showNextFireLifeToast();
     };
@@ -584,9 +655,28 @@ function showNextFireLifeToast() {
 }
 
 function enqueueFireLifeToasts(notifications) {
-  fireLifeToastQueue.push(...notifications.filter(Boolean));
+  let badgeCelebrationAssigned = false;
+  const batch = notifications.filter(Boolean).map((notification) => {
+    if (notification.type !== "badge") return notification;
+    const shouldCelebrate = notification.celebrate ?? !badgeCelebrationAssigned;
+    badgeCelebrationAssigned = true;
+    return { ...notification, celebrate: shouldCelebrate };
+  });
+  fireLifeToastQueue.push(...batch);
   showNextFireLifeToast();
 }
+
+window.addEventListener("wakuwaku:fire-life-preview-badge", (event) => {
+  const notification = event.detail;
+  if (!notification || typeof notification !== "object") return;
+  enqueueFireLifeToasts([{
+    type: "badge",
+    ...notification,
+    preview: true,
+    celebrate: true,
+    duration: 3600,
+  }]);
+});
 
 function announceFireLifeUpdate(state) {
   window.dispatchEvent(new CustomEvent("wakuwaku:fire-life-updated", { detail: { state } }));
@@ -761,6 +851,7 @@ function setupFireLifeArticleTracker(api, state) {
         type: "badge",
         icon: badge.icon,
         category: badge.category,
+        imagePath: badge.imagePath || null,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
@@ -805,6 +896,7 @@ function handleFireLifeContentClick(event) {
         type: "badge",
         icon: badge.icon,
         category: badge.category,
+        imagePath: badge.imagePath || null,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
@@ -874,6 +966,7 @@ function startFireLifeMvp(api) {
     type: "badge",
     icon: badge.icon,
     category: badge.category,
+    imagePath: badge.imagePath || null,
     kicker: "NEW BADGE",
     title: `「${badge.name}」`,
     detail: badge.description,
@@ -887,6 +980,7 @@ function startFireLifeMvp(api) {
         type: "badge",
         icon: badge.icon,
         category: badge.category,
+        imagePath: badge.imagePath || null,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,
@@ -901,6 +995,7 @@ function startFireLifeMvp(api) {
         type: "badge",
         icon: badge.icon,
         category: badge.category,
+        imagePath: badge.imagePath || null,
         kicker: "NEW BADGE",
         title: `「${badge.name}」`,
         detail: badge.description,

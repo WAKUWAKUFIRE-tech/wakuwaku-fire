@@ -37,9 +37,17 @@ const lifeElements = {
   futureCta: document.querySelector("[data-future-cta]"),
   devTools: document.querySelector("[data-dev-tools]"),
   devLevels: document.querySelectorAll("[data-dev-level]"),
+  previewBadges: document.querySelectorAll("[data-preview-badge-category]"),
 };
 
 let footprintsExpanded = false;
+
+const PREVIEW_BADGE_IDS = Object.freeze({
+  level: "level-50-time-traveler",
+  discovery: "discovery-world-tour",
+  streak: "streak-30",
+  visit: "visit-30-usual-seat",
+});
 
 function getNicknameInitial(nickname) {
   return nickname ? Array.from(nickname)[0] : "W";
@@ -937,6 +945,24 @@ fireLifePageReady.then((api) => {
       api.saveState(state);
       renderLifePage(api);
       window.dispatchEvent(new CustomEvent("wakuwaku:fire-life-updated"));
+    });
+  });
+
+  lifeElements.previewBadges.forEach((button) => {
+    button.addEventListener("click", () => {
+      const category = button.dataset.previewBadgeCategory;
+      const badge = api.getBadgeDefinition(PREVIEW_BADGE_IDS[category]);
+      if (!badge) return;
+
+      window.dispatchEvent(new CustomEvent("wakuwaku:fire-life-preview-badge", {
+        detail: {
+          category: badge.category,
+          kicker: "演出プレビュー",
+          title: `「${badge.name}」`,
+          detail: badge.description,
+          imagePath: badge.imagePath || null,
+        },
+      }));
     });
   });
 

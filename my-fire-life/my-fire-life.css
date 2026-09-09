@@ -2539,3 +2539,81 @@ button.badge-card:focus-visible {
   }
 }
 
+/* バッジ獲得演出は、開発用設定から何度でも状態を変えずに確認できます。 */
+.my-fire-life-page .life-dev-tools__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.my-fire-life-page .life-dev-tools__preview {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.7rem;
+  width: 100%;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--line);
+}
+
+.my-fire-life-page .life-dev-tools__preview-copy {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.my-fire-life-page .life-dev-tools__preview-copy strong {
+  color: var(--red-dark);
+  font-size: 0.72rem;
+}
+
+.my-fire-life-page .life-dev-tools__preview-copy span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.my-fire-life-page .life-dev-tools__preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.my-fire-life-page .life-dev-tools__preview-actions button {
+  min-height: 2rem;
+  padding: 0.35rem 0.65rem;
+  color: var(--ink);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  background: var(--paper);
+  border: 1px solid rgba(234, 62, 49, 0.28);
+  border-radius: 999px;
+  transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.my-fire-life-page .life-dev-tools__preview-actions button:hover,
+.my-fire-life-page .life-dev-tools__preview-actions button:focus-visible {
+  color: var(--paper);
+  background: var(--red);
+  transform: translateY(-1px);
+}
+
+.my-fire-life-page .life-dev-tools__preview-actions button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+@media (max-width: 699px) {
+  .my-fire-life-page .life-dev-tools__body {
+    grid-template-columns: 1fr;
+  }
+
+  .my-fire-life-page .life-dev-tools__preview {
+    grid-column: auto;
+  }
+
+  .my-fire-life-page .life-dev-tools__preview-actions button {
+    flex: 1 1 calc(50% - 0.35rem);
+  }
+}
+
