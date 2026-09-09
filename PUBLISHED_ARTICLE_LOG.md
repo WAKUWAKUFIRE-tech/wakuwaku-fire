@@ -468,3 +468,24 @@ thumbnail text: 年収いくら？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: 月20万円で暮らすならFIREにいくら必要？
+
+article id: seo-019
+priority_order: 19
+公開日・時刻（JST）: 2026-09-09 18:00:00
+公開枠: 2026-09-09T18:00:00+09:00
+main keyword: FIRE 月20万円
+title: 月20万円で暮らすならFIREにいくら必要？
+slug: fire-20man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-20man/
+thumbnail file: articles/fire-20man/thumbnail.png
+thumbnail text: 月20万でFIRE？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/family_and_fire.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
