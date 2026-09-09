@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateSitemap } from "./generate_sitemap.mjs";
+import { buildExternalGrowth } from "./external_growth.mjs";
 import { ARTICLE_CATEGORIES, categoryForArticle, categoryFromValue, isCanonicalCategoryName } from "./article_categories.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -810,6 +811,7 @@ async function updateSitemap(allArticles, date) {
     publishedArticles: allArticles,
     fallbackLastmod: date
   });
+  await buildExternalGrowth();
 }
 
 function logSources(noteSources, generated, item) {

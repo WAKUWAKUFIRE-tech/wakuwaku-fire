@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:growth": "node scripts/external_growth.mjs",
     "validate:site": "node scripts/auto_publish.mjs --validate",
     "auto-publish:status": "node scripts/auto_publish.mjs --status",
     "auto-publish:dry-run": "node scripts/auto_publish.mjs --dry-run",
@@ -26,4 +27,5 @@
     "test:community": "node --test tests/community.test.mjs"
   }
 }
+
 

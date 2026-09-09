@@ -60,7 +60,7 @@ jobs:
         run: |
           git config user.name "wakuwaku-fire-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md index.html articles sitemap.xml content_sources/editorial_notes automation/article_stock
+          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md index.html articles sitemap.xml feed.xml content_sources/editorial_notes automation/article_stock
           if git diff --cached --quiet; then
             echo "No generated site changes to commit."
           else
@@ -96,7 +96,7 @@ jobs:
           node scripts/auto_publish.mjs --mark-failed --id "$id" --reason "公開URL確認失敗（GitHub Actions）"
           git config user.name "wakuwaku-fire-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md index.html articles sitemap.xml content_sources/editorial_notes automation/article_stock
+          git add SEO_ARTICLE_QUEUE.json PUBLISHED_ARTICLE_LOG.md index.html articles sitemap.xml feed.xml content_sources/editorial_notes automation/article_stock
           if git diff --cached --quiet; then
             echo "No verification failure changes to commit."
           else
@@ -108,3 +108,4 @@ jobs:
       - name: Fail the workflow when generation needs attention
         if: steps.publish.outcome == 'failure'
         run: exit 1
+
