@@ -489,3 +489,24 @@ thumbnail text: 月20万でFIRE？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: 月25万円生活のFIRE必要資産は？
+
+article id: seo-020
+priority_order: 20
+公開日・時刻（JST）: 2026-09-10 07:00:00
+公開枠: 2026-09-10T07:00:00+09:00
+main keyword: FIRE 月25万円
+title: 月25万円生活のFIRE必要資産は？
+slug: fire-25man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-25man/
+thumbnail file: articles/fire-25man/thumbnail.png
+thumbnail text: 月25万でFIRE？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/family_and_fire.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
