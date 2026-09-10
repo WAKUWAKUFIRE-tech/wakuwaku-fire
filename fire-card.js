@@ -56,7 +56,6 @@
   const collectedIdSet = new Set(cards.map((card) => Number(card.id)));
   let pendingCard = null;
   let isDrawing = false;
-  let autoOpenedDate = null;
   let lastObservedDate = getTokyoDateKey();
 
   function storageGet(key) {
@@ -364,24 +363,12 @@
     }
   }
 
-  function maybeOpenForToday() {
-    const today = getTokyoDateKey();
-    if (autoOpenedDate === today) return;
-    const state = getState();
-    if (state.completed || state.lastDrawDate === today) return;
-
-    autoOpenedDate = today;
-    window.setTimeout(() => {
-      if (!document.hidden) openDailyModal();
-    }, 650);
-  }
-
   function handleDateChange() {
     const today = getTokyoDateKey();
     if (today !== lastObservedDate) {
       lastObservedDate = today;
       renderSummary();
-      maybeOpenForToday();
+      
     } else {
       renderSummary();
     }
@@ -427,5 +414,5 @@
 
   window.resetWakuwakuFireCards = resetForDevelopment;
   renderSummary();
-  maybeOpenForToday();
+  
 })();
