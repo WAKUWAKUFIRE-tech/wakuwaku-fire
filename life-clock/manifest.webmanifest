@@ -1,0 +1,17 @@
+{
+  "id": "/life-clock/",
+  "name": "FIRE人生時計",
+  "short_name": "人生時計",
+  "description": "残りの人生を、時間・お金・体験で見える化。",
+  "lang": "ja",
+  "start_url": "/life-clock/",
+  "scope": "/life-clock/",
+  "display": "standalone",
+  "theme_color": "#df3528",
+  "background_color": "#f7f7f2",
+  "icons": [
+    { "src": "/life-clock/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/life-clock/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/life-clock/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
