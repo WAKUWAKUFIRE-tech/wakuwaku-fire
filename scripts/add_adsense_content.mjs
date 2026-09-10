@@ -29,7 +29,7 @@ const sections = {
   <p>資産額の目標だけでは、FIRE後の景色を想像しにくいことがあります。日本の中にも、海辺で過ごす、山の近くで趣味を続ける、便利な街で人と会うなど、違う選択肢があります。少しふざけた案内所で候補地をのぞき、現地の情報を調べる一歩につなげてほしいと考えました。</p>
   <h3>こんな人におすすめ</h3>
   <p>退職後の住まいをまだ決めていない人、旅行の延長で暮らしの候補地を探したい人、生活費以外の条件も含めて移住を考えたい人に向いています。</p>
-  <p class="content-value__note">結果を見たら、候補地の公式情報や現地の下見で確かめましょう。<a href="../fire-migration-world/">海外版の案内所</a>や、毎日のテーマから暮らしを考える<a href="../fire-calendar/">365日FIREカレンダー</a>も関連します。</p>
+  <p class="content-value__note">結果を見たら、候補地の公式情報や現地の下見で確かめましょう。<a href="../fire-migration-world/">海外版の案内所</a>も参考になります。</p>
 </section>
 <!-- ADSENSE-CONTENT-VALUE:japan:END -->
 `,
@@ -57,7 +57,7 @@ const sections = {
   <p>FIREの話は「いつ辞められるか」に集中しがちですが、辞めた翌朝をどう過ごしたいかは人によって違います。二択という軽い遊びでその違いを見えるようにし、診断結果を家族との会話や、次の休日の小さな実験につなげてほしいと考えました。</p>
   <h3>こんな人におすすめ</h3>
   <p>貯蓄額の話だけではFIRE後のイメージが湧かない人、働き方や趣味の優先順位を整理したい人、診断結果を家族との会話のきっかけにしたい人に向いています。</p>
-  <p class="content-value__note">診断後は<a href="./stats.html">みんなの結果</a>で傾向を眺め、<a href="../my-fire-life/">FIRE QUEST</a>で読んだコラムや遊びの足あとを残せます。</p>
+  <p class="content-value__note"><a href="../my-fire-life/">FIRE QUEST</a>では、読んだコラムや遊びの足あとを残せます。診断結果が10件以上集まったら、匿名の全体傾向も公開します。</p>
 </section>
 <!-- ADSENSE-CONTENT-VALUE:strengths:END -->
 `,
@@ -84,7 +84,7 @@ const sections = {
   <p>FIREを目指す途中は、残高の変化だけを成果にしやすいものです。読んだ、考えた、誰かと話した、遊んだという小さな行動も未来の暮らしをつくる材料として残せるように、ゲームのような記録画面にしました。全部集める必要はなく、次の寄り道を一つ選ぶために使ってください。</p>
   <h3>こんな人におすすめ</h3>
   <p>FIREの準備を続ける力を見える形で残したい人、読書や診断を一度きりで終わらせず次の行動につなげたい人、家族と遊びの記録を共有したい人に向いています。</p>
-  <p class="content-value__note">最初の寄り道には<a href="../fire-strengths/">FIREストレングス診断</a>や、今日のテーマを選べる<a href="../fire-calendar/">365日FIREカレンダー</a>がおすすめです。</p>
+  <p class="content-value__note">最初の寄り道には<a href="../fire-strengths/">FIREストレングス診断</a>がおすすめです。</p>
 </section>
 <!-- ADSENSE-CONTENT-VALUE:my-life:END -->
 `,
@@ -161,7 +161,7 @@ const worldTourSection = `<!-- ADSENSE-CONTENT-VALUE:world-tour:START -->
   <p>世界一周のような大きな夢も、最初は一つの行き先を選ぶところから始まります。画面の中で寄り道を楽しみながら、現実の休日や将来の旅に持ち帰れる好奇心を残したくて作りました。</p>
   <h3>こんな人におすすめ</h3>
   <p>旅行の行き先を考えるだけで気分が上がる人、FIRE後に使いたい時間を先に想像したい人、短い物語を家族や友人と一緒に楽しみたい人に向いています。</p>
-  <p class="content-value__note">移住の条件をもう少し整理したい人は<a href="../fire-migration-world/">海外FIRE移住診断</a>へ、毎日の小さな問いを楽しみたい人は<a href="../fire-calendar/">365日FIREカレンダー</a>へどうぞ。</p>
+  <p class="content-value__note">移住の条件をもう少し整理したい人は<a href="../fire-migration-world/">海外FIRE移住診断</a>へどうぞ。</p>
 </section>
 <!-- ADSENSE-CONTENT-VALUE:world-tour:END -->
 `;

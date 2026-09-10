@@ -8,7 +8,7 @@ import {
   calculateFireStrengthResult
 } from "../data/fire-strengths-data.js";
 import { onRequestPost } from "../functions/api/fire-strengths/results.js";
-import { onRequestGet } from "../functions/api/fire-strengths/stats.js";
+import { MINIMUM_RESULTS, onRequestGet } from "../functions/api/fire-strengths/stats.js";
 
 function bodyFor(answers = Array(QUESTIONS.length).fill("A"), responseTimes = Array(QUESTIONS.length).fill(1200)) {
   const result = calculateFireStrengthResult(answers, responseTimes);
@@ -127,20 +127,38 @@ test("統計APIはSQL集計値から12タイプと1位資質の割合を返す",
   const database = {
     prepare(sql) {
       queries.push(sql);
-      if (sql.includes("COUNT(*) AS total_results")) return { all: async () => ({ results: [{ total_results: 2 }] }) };
-      if (sql.includes("fire_type_id")) return { all: async () => ({ results: [{ fire_type_id: "enjoy_life", count: 1 }, { fire_type_id: "adventure", count: 1 }] }) };
-      return { all: async () => ({ results: [{ trait_id: "play", count: 1 }, { trait_id: "experience", count: 1 }] }) };
+      if (sql.includes("COUNT(*) AS total_results")) return { all: async () => ({ results: [{ total_results: MINIMUM_RESULTS }] }) };
+      if (sql.includes("fire_type_id")) return { all: async () => ({ results: [{ fire_type_id: "enjoy_life", count: 5 }, { fire_type_id: "adventure", count: 5 }] }) };
+      return { all: async () => ({ results: [{ trait_id: "play", count: 5 }, { trait_id: "experience", count: 5 }] }) };
     }
   };
   const response = await onRequestGet({ env: { DB: database }, request: new Request("https://example.test/api/fire-strengths/stats") });
   const payload = await response.json();
   assert.equal(response.status, 200);
   assert.equal(payload.available, true);
-  assert.equal(payload.totalResults, 2);
+  assert.equal(payload.totalResults, MINIMUM_RESULTS);
   assert.equal(payload.types.length, 12);
   assert.equal(payload.types[0].typeId, "adventure");
   assert.equal(payload.types.find((type) => type.typeId === "enjoy_life").percentage, 50);
   assert.equal(payload.topTraits.length, 15);
   assert.equal(payload.topTraits[0].percentage, 50);
   assert.ok(queries.some((sql) => sql.includes("top_trait_1")));
+});
+
+test("統計APIは回答が10件未満なら集計内容を返さない", async () => {
+  const queries = [];
+  const database = {
+    prepare(sql) {
+      queries.push(sql);
+      return { all: async () => ({ results: [{ total_results: MINIMUM_RESULTS - 1 }] }) };
+    }
+  };
+  const response = await onRequestGet({ env: { DB: database }, request: new Request("https://example.test/api/fire-strengths/stats") });
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.available, false);
+  assert.equal(payload.reason, "insufficient_results");
+  assert.equal(payload.minimumResults, MINIMUM_RESULTS);
+  assert.equal(payload.totalResults, MINIMUM_RESULTS - 1);
+  assert.equal(queries.length, 1);
 });

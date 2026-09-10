@@ -1,5 +1,7 @@
 import { FIRE_TYPES, TRAITS } from "../../../data/fire-strengths-data.js";
 
+export const MINIMUM_RESULTS = 10;
+
 function json(payload, status = 200) {
   return new Response(JSON.stringify(payload), {
     status,
@@ -15,12 +17,22 @@ export async function onRequestGet(context) {
   if (!database) return json({ ok: false, available: false, error: "database_unavailable" }, 503);
 
   try {
-    const [totalQuery, typeQuery, traitQuery] = await Promise.all([
-      database.prepare("SELECT COUNT(*) AS total_results FROM fire_strength_results").all(),
+    const totalQuery = await database.prepare("SELECT COUNT(*) AS total_results FROM fire_strength_results").all();
+    const totalResults = Number(totalQuery.results?.[0]?.total_results) || 0;
+    if (totalResults < MINIMUM_RESULTS) {
+      return json({
+        ok: true,
+        available: false,
+        reason: "insufficient_results",
+        minimumResults: MINIMUM_RESULTS,
+        totalResults
+      });
+    }
+
+    const [typeQuery, traitQuery] = await Promise.all([
       database.prepare("SELECT fire_type_id, MAX(fire_type_name) AS fire_type_name, COUNT(*) AS count FROM fire_strength_results GROUP BY fire_type_id").all(),
       database.prepare("SELECT top_trait_1 AS trait_id, COUNT(*) AS count FROM fire_strength_results WHERE top_trait_1 IS NOT NULL GROUP BY top_trait_1").all()
     ]);
-    const totalResults = Number(totalQuery.results?.[0]?.total_results) || 0;
     const typeCounts = Object.fromEntries((typeQuery.results || []).map((row) => [row.fire_type_id, Number(row.count) || 0]));
     const traitCounts = Object.fromEntries((traitQuery.results || []).map((row) => [row.trait_id, Number(row.count) || 0]));
     const typeOrder = Object.fromEntries(FIRE_TYPES.map((type, index) => [type.id, index]));

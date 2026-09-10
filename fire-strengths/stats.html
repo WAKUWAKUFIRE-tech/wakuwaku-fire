@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="FIREストレングス診断の結果を匿名で集計。12タイプの人数・割合と、みんなのFIRE資質ランキングを見られます。" />
     <meta name="keywords" content="FIREストレングス,みんなの結果,FIREタイプランキング,ワクワクFIRE" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#ea3e31" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
@@ -27,7 +27,6 @@
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"WebPage","name":"みんなのFIREストレングス","description":"FIREストレングス診断の結果を匿名で集計した統計ページです。","url":"https://wakuwaku-fire-git.pages.dev/fire-strengths/stats.html","inLanguage":"ja-JP"}
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9422971410274449" crossorigin="anonymous"></script>
   <link rel="alternate" type="application/rss+xml" title="ワクワクFIRE" href="/feed.xml" />
 </head>
   <body class="fire-strengths-body">
@@ -44,17 +43,18 @@
         <nav class="diagnosis-breadcrumb" aria-label="パンくず"><a href="../">ワクワクFIRE</a><span aria-hidden="true">/</span><a href="./">FIREストレングス診断</a><span aria-hidden="true">/</span><span aria-current="page">みんなの結果</span></nav>
         <div id="fire-strengths-app" class="fire-strengths-app" data-page="stats">
           <div class="fs-live" id="fs-live" aria-live="polite" aria-atomic="true"></div>
-          <section class="fs-stats-hero" aria-labelledby="fs-stats-title"><div><p class="fs-kicker">WAKUWAKU FIRE / COMMUNITY DATA</p><h1 id="fs-stats-title">みんなのFIREストレングス</h1><p>診断を終えた人たちの結果を、匿名の集計データとして紹介します。個人の名前や回答内容は公開していません。</p></div><a class="fs-button fs-button--primary" href="./">自分も診断する <span aria-hidden="true">→</span></a></section>
-          <section class="fs-stats-summary" aria-label="診断者数の概要"><div class="fs-stat-number-card"><span>COMPLETED RESULTS</span><strong id="fs-stats-total">—</strong><em>人が診断</em></div><div class="fs-stat-number-card"><span>MOST COMMON TYPE</span><strong id="fs-stats-most">—</strong><em id="fs-stats-most-count">集計中</em></div><div class="fs-stat-number-card"><span>LEAST COMMON TYPE</span><strong id="fs-stats-least">—</strong><em id="fs-stats-least-count">集計中</em></div><div class="fs-stat-number-card"><span>TRAIT LEADERS</span><strong id="fs-stats-trait-leader">—</strong><em>1位になった資質</em></div></section>
-          <section class="fs-stats-section" aria-labelledby="fs-stats-types-title"><div class="fs-section-heading"><p class="fs-section-kicker">12 FIRE TYPES</p><h2 id="fs-stats-types-title">FIREタイプランキング</h2><p>人数の多さは優劣ではなく、今集まっている価値観の傾向です。</p></div><div id="fs-stats-type-list" class="fs-stats-type-list"><p class="fs-loading-copy">みんなの結果を集計中…</p></div></section>
-          <section class="fs-stats-section" aria-labelledby="fs-stats-traits-title"><div class="fs-section-heading"><p class="fs-section-kicker">TOP TRAITS</p><h2 id="fs-stats-traits-title">1位になったFIRE資質</h2><p>それぞれの診断で、最も上位になった資質の集計です。</p></div><div id="fs-stats-trait-list" class="fs-stats-trait-list"><p class="fs-loading-copy">みんなの結果を集計中…</p></div></section>
+          <section class="fs-stats-hero" aria-labelledby="fs-stats-title"><div><p class="fs-kicker">WAKUWAKU FIRE / COMMUNITY DATA</p><h1 id="fs-stats-title">みんなのFIREストレングス</h1><p>診断を終えた人たちの結果を、匿名の集計データとして紹介します。回答が10件以上集まった時点で、全体の傾向を公開します。</p></div><a class="fs-button fs-button--primary" href="./">自分も診断する <span aria-hidden="true">→</span></a></section>
+          <section class="fs-stats-gate" id="fs-stats-gate" aria-live="polite"><p class="fs-section-kicker">COMMUNITY DATA</p><h2>回答が集まるまで、もう少し。</h2><p>統計は、診断結果が10件以上集まってから表示します。今はあなた自身の診断を楽しんでください。</p><a class="fs-button fs-button--primary" href="./">FIREストレングス診断をはじめる <span aria-hidden="true">→</span></a></section>
+          <section class="fs-stats-summary" data-stats-content aria-label="診断者数の概要" hidden><div class="fs-stat-number-card"><span>COMPLETED RESULTS</span><strong id="fs-stats-total">—</strong><em>人が診断</em></div><div class="fs-stat-number-card"><span>MOST COMMON TYPE</span><strong id="fs-stats-most">—</strong><em id="fs-stats-most-count">集計中</em></div><div class="fs-stat-number-card"><span>LEAST COMMON TYPE</span><strong id="fs-stats-least">—</strong><em id="fs-stats-least-count">集計中</em></div><div class="fs-stat-number-card"><span>TRAIT LEADERS</span><strong id="fs-stats-trait-leader">—</strong><em>1位になった資質</em></div></section>
+          <section class="fs-stats-section" data-stats-content aria-labelledby="fs-stats-types-title" hidden><div class="fs-section-heading"><p class="fs-section-kicker">12 FIRE TYPES</p><h2 id="fs-stats-types-title">FIREタイプランキング</h2><p>人数の多さは優劣ではなく、今集まっている価値観の傾向です。</p></div><div id="fs-stats-type-list" class="fs-stats-type-list"><p class="fs-loading-copy">みんなの結果を集計中…</p></div></section>
+          <section class="fs-stats-section" data-stats-content aria-labelledby="fs-stats-traits-title" hidden><div class="fs-section-heading"><p class="fs-section-kicker">TOP TRAITS</p><h2 id="fs-stats-traits-title">1位になったFIRE資質</h2><p>それぞれの診断で、最も上位になった資質の集計です。</p></div><div id="fs-stats-trait-list" class="fs-stats-trait-list"><p class="fs-loading-copy">みんなの結果を集計中…</p></div></section>
           <div id="fs-stats-message" class="fs-stats-message" hidden></div>
-          <section class="fs-stats-footer"><p>あなたも45問の二択で、自分のFIRE資質を見つけてみませんか？</p><a class="fs-button fs-button--primary" href="./">FIREストレングス診断をはじめる <span aria-hidden="true">→</span></a></section>
-          <p class="fs-disclaimer">この集計は、FIREに関する価値観を楽しみながら可視化するワクワクFIRE独自の診断結果を匿名で集計したものです。医学・心理学上の診断や、将来の幸福を保証するものではありません。</p>
+          <section class="fs-stats-footer" data-stats-content hidden><p>あなたも45問の二択で、自分のFIRE資質を見つけてみませんか？</p><a class="fs-button fs-button--primary" href="./">FIREストレングス診断をはじめる <span aria-hidden="true">→</span></a></section>
+          <p class="fs-disclaimer" data-stats-content hidden>この集計は、FIREに関する価値観を楽しみながら可視化するワクワクFIRE独自の診断結果を匿名で集計したものです。医学・心理学上の診断や、将来の幸福を保証するものではありません。回答数が少ない時期は、数字が大きく動くため公開していません。</p>
         </div>
       </div>
     <!-- ADSENSE-CONTENT-VALUE:stats:START -->
-<section class="content-value" aria-labelledby="stats-value-title">
+<section class="content-value" data-stats-content aria-labelledby="stats-value-title" hidden>
   <h2 id="stats-value-title">この集計ページの読み方</h2>
   <p>ここに表示するのは、FIREストレングス診断を完了した人の結果を匿名で集計したものです。12タイプの人数や、各診断で1位になった資質の傾向を眺められます。人数の多さは優劣や正しさを示しません。回答数が少ない時期は、数字が大きく動くこともあります。</p>
   <h3>このページがFIREとつながる理由</h3>

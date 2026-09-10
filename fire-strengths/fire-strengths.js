@@ -30,6 +30,23 @@ if (app) {
   const qsa = (selector) => [...app.querySelectorAll(selector)];
   const live = qs("#fs-live");
 
+  function setStatsAvailability(available) {
+    document.querySelectorAll("[data-stats-content]").forEach((node) => {
+      node.hidden = !available;
+    });
+    const gate = qs("#fs-stats-gate");
+    if (gate) gate.hidden = available;
+  }
+
+  function statsUnavailableMessage(stats) {
+    if (stats?.reason === "insufficient_results") {
+      const minimum = Number(stats.minimumResults) || 10;
+      const total = Number(stats.totalResults) || 0;
+      return `現在は回答が${total}件です。${minimum}件以上集まるまで、匿名の統計は表示しません。診断そのものはいつでも利用できます。`;
+    }
+    return "現在集計を取得できません。あなたの診断結果はそのまま表示されています。時間をおいてもう一度ご覧ください。";
+  }
+
   function announce(message) {
     if (live) live.textContent = message;
   }
@@ -660,13 +677,13 @@ if (app) {
     if (!slot) return;
     slot.replaceChildren();
     if (!state.stats || state.stats.available !== true || !state.result) {
-      appendText(slot, "p", "fs-comparison-unavailable", "現在集計を取得できません。あなたの診断結果はそのまま表示されています。");
+      appendText(slot, "p", "fs-comparison-unavailable", statsUnavailableMessage(state.stats));
       return;
     }
     const total = Number(state.stats.totalResults) || 0;
     const current = state.stats.types.find((type) => type.typeId === state.result.fireType.id);
     if (!current) {
-      appendText(slot, "p", "fs-comparison-unavailable", "現在集計を取得できません。あなたの診断結果はそのまま表示されています。");
+      appendText(slot, "p", "fs-comparison-unavailable", statsUnavailableMessage(state.stats));
       return;
     }
     const card = document.createElement("div");
@@ -696,10 +713,10 @@ if (app) {
     try {
       const response = await fetch("/api/fire-strengths/stats", { headers: { Accept: "application/json" }, credentials: "same-origin", cache: "no-store" });
       const payload = await response.json().catch(() => ({}));
-      if (!response.ok || payload.available !== true) return { available: false };
-      return payload;
+      if (!response.ok) return { available: false, reason: "unavailable" };
+      return { ...payload, available: payload.available === true };
     } catch (error) {
-      return { available: false };
+      return { available: false, reason: "unavailable" };
     }
   }
 
@@ -761,11 +778,12 @@ if (app) {
     });
   }
 
-  function renderStatsError() {
+  function renderStatsError(data = {}) {
+    setStatsAvailability(false);
     const message = qs("#fs-stats-message");
     if (message) {
       message.hidden = false;
-      message.textContent = "現在集計を取得できません。診断そのものはいつでも利用できます。時間をおいてもう一度ご覧ください。";
+      message.textContent = statsUnavailableMessage(data);
     }
     ["#fs-stats-type-list", "#fs-stats-trait-list"].forEach((selector) => {
       const list = qs(selector);
@@ -778,9 +796,12 @@ if (app) {
 
   function renderStatsPage(data) {
     if (!data || data.available !== true) {
-      renderStatsError();
+      renderStatsError(data);
       return;
     }
+    setStatsAvailability(true);
+    const message = qs("#fs-stats-message");
+    if (message) message.hidden = true;
     const types = Array.isArray(data.types) ? data.types : [];
     const traits = Array.isArray(data.topTraits) ? data.topTraits : [];
     const total = Number(data.totalResults) || 0;
@@ -891,6 +912,7 @@ if (app) {
   });
 
   if (isStatsPage) {
+    setStatsAvailability(false);
     fetchStats().then(renderStatsPage);
   } else {
     setScreen("home", false);

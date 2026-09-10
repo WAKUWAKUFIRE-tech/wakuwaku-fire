@@ -43,6 +43,16 @@ async function checkPublicPage(url) {
   return { url, status: response.status, bytes: Buffer.byteLength(text, "utf8") };
 }
 
+async function checkNoindexPage(url, { requireNoAds = false } = {}) {
+  const { response, text } = await fetchText(url);
+  if (!response.ok) fail(`${url} がHTTP ${response.status}です。`);
+  const headerRobots = response.headers.get("x-robots-tag") || "";
+  const metaRobots = /name="robots"\s+content="[^\"]*noindex/i.test(text);
+  if (!/noindex/i.test(headerRobots) && !metaRobots) fail(`${url} にnoindex指定がありません。`);
+  if (requireNoAds && /adsbygoogle|pagead2\.googlesyndication/i.test(text)) fail(`${url} にAdSenseコードが残っています。`);
+  return { url, status: response.status, bytes: Buffer.byteLength(text, "utf8") };
+}
+
 if (!/^https:\/\//i.test(siteUrl)) fail("SITE_URLがHTTPS URLではありません。");
 
 try {
@@ -61,10 +71,34 @@ try {
   if (!urls.includes(`${siteUrl}/articles/fire-ikura-hitsuyou/`)) fail("sitemap.xmlにFIREいくら必要記事がありません。");
   if (urls.some((url) => /[?#]/.test(url) || /\/404(?:\.html)?\/?$/i.test(url))) fail("sitemap.xmlに一時URL・404 URLが含まれています。");
 
+  const noindexUrls = [
+    `${siteUrl}/risk-runner/`,
+    `${siteUrl}/my-fire-life/`,
+    `${siteUrl}/fire-calendar/`,
+    `${siteUrl}/fire-strengths/stats.html`
+  ];
+  if (urls.some((url) => noindexUrls.includes(url))) fail("sitemap.xmlにnoindex対象ページが含まれています。");
+
   const pageResults = [];
-  for (const url of [`${siteUrl}/`, `${siteUrl}/articles/fire-ikura-hitsuyou/`, `${siteUrl}/fire-animal-test/`, `${siteUrl}/fire-migration-japan/`, `${siteUrl}/fire-migration-world/`]) {
+  for (const url of [
+    `${siteUrl}/`,
+    `${siteUrl}/articles/`,
+    `${siteUrl}/articles/fire-25man/`,
+    `${siteUrl}/articles/fire-20man/`,
+    `${siteUrl}/articles/fire-nenshu/`,
+    `${siteUrl}/articles/fire-ikura-hitsuyou/`,
+    `${siteUrl}/fire-animal-test/`,
+    `${siteUrl}/fire-migration-japan/`,
+    `${siteUrl}/fire-migration-world/`,
+    `${siteUrl}/fire-strengths/`,
+    `${siteUrl}/business/`,
+    `${siteUrl}/community/`,
+    `${siteUrl}/community/weekly/`
+  ]) {
     pageResults.push(await checkPublicPage(url));
   }
+  const noindexResults = [];
+  for (const url of noindexUrls) noindexResults.push(await checkNoindexPage(url, { requireNoAds: true }));
 
   const missingUrl = `${siteUrl}/seo-verification-missing-${Date.now()}/`;
   const missingResult = await fetchText(missingUrl);
@@ -75,6 +109,7 @@ try {
     robots: { url: robotsUrl, status: robotsResult.response.status, contentType: robotsResult.response.headers.get("content-type") || "" },
     sitemap: { url: sitemapUrl, status: sitemapResult.response.status, count: urls.length, contentType: sitemapResult.response.headers.get("content-type") || "" },
     pages: pageResults,
+    noindexPages: noindexResults,
     missingUrl: { url: missingUrl, status: missingResult.response.status }
   }, null, 2));
 } catch (error) {
