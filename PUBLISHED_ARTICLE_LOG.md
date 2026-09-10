@@ -510,3 +510,24 @@ thumbnail text: 月25万でFIRE？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: 月30万円で暮らすFIREは現実的？必要資産を考える
+
+article id: seo-021
+priority_order: 21
+公開日・時刻（JST）: 2026-09-10 18:00:00
+公開枠: 2026-09-10T18:00:00+09:00
+main keyword: FIRE 月30万円
+title: 月30万円で暮らすFIREは現実的？必要資産を考える
+slug: fire-30man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-30man/
+thumbnail file: articles/fire-30man/thumbnail.png
+thumbnail text: 月30万FIRE？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/numbers_and_facts.md, content_sources/knowledge_base/family_and_fire.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
