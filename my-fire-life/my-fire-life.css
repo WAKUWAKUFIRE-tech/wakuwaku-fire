@@ -2357,22 +2357,22 @@ button.badge-card:focus-visible {
   height: 100%;
 }
 
-/* 制作済みのLEVEL画像を主役にする。横長の黒い余白を減らし、縦方向へ逃がします。 */
-.my-fire-life-page .badge-card--level .badge-card__visual {
+/* すべてのバッジ画像をLEVEL画像と同じ大きさで主役にする。 */
+.my-fire-life-page .badge-card__visual {
   min-height: 0;
   aspect-ratio: 1 / 1.14;
   padding: 0.2rem;
 }
 
-.my-fire-life-page .badge-card--level .badge-card__seal {
+.my-fire-life-page .badge-card__seal {
   width: 100%;
   height: auto;
   aspect-ratio: 1;
   margin: 0;
 }
 
-.my-fire-life-page .badge-card--level .badge-card__seal .badge-emblem--image,
-.my-fire-life-page .badge-card--level .badge-card__seal .badge-emblem__image {
+.my-fire-life-page .badge-card__seal .badge-emblem--image,
+.my-fire-life-page .badge-card__seal .badge-emblem__image {
   width: 100%;
   height: 100%;
 }
@@ -2380,18 +2380,10 @@ button.badge-card:focus-visible {
 @media (max-width: 699px) {
   .my-fire-life-page .badge-card__visual {
     min-height: 6.9rem;
-  }
-
-  .my-fire-life-page .badge-card__seal {
-    width: 5.35rem;
-    height: 5.35rem;
-  }
-
-  .my-fire-life-page .badge-card--level .badge-card__visual {
     aspect-ratio: 1 / 1.1;
   }
 
-  .my-fire-life-page .badge-card--level .badge-card__seal {
+  .my-fire-life-page .badge-card__seal {
     width: 100%;
     height: auto;
   }

@@ -93,6 +93,31 @@ const levelBadgeImagePaths = Object.freeze({
   "level-100-fire-legend": "/badge-images/levels/lv-100-fire-legend.png",
 });
 
+const categoryBadgeImagePaths = Object.freeze({
+  "discovery-fire-strengths": "/badge-images/discovery/discovery-fire-strengths.png",
+  "discovery-world-tour": "/badge-images/discovery/discovery-world-tour.png",
+  "discovery-fire-lab": "/badge-images/discovery/discovery-fire-lab.png",
+  "discovery-fire-animal": "/badge-images/discovery/discovery-fire-animal.png",
+  "discovery-migration-japan": "/badge-images/discovery/discovery-migration-japan.png",
+  "discovery-migration-world": "/badge-images/discovery/discovery-migration-world.png",
+  "discovery-risk-runner": "/badge-images/discovery/discovery-risk-runner.png",
+  "discovery-otoku": "/badge-images/discovery/discovery-otoku.png",
+  "streak-3": "/badge-images/streak/streak-003-three-day-breakthrough.png",
+  "streak-7": "/badge-images/streak/streak-007-one-week-firekeeper.png",
+  "streak-14": "/badge-images/streak/streak-014-habit-sprout.png",
+  "streak-30": "/badge-images/streak/streak-030-every-day-fire.png",
+  "streak-50": "/badge-images/streak/streak-050-fire-in-everyday.png",
+  "streak-100": "/badge-images/streak/streak-100-rooted-flame.png",
+  "streak-365": "/badge-images/streak/streak-365-year-together.png",
+  "visit-3-regular": "/badge-images/visit/visit-003-regular.png",
+  "visit-10-wakuwaku-regular": "/badge-images/visit/visit-010-wakuwaku-regular.png",
+  "visit-30-usual-seat": "/badge-images/visit/visit-030-usual-seat.png",
+  "visit-50-quite-living": "/badge-images/visit/visit-050-quite-living.png",
+  "visit-100-almost-resident": "/badge-images/visit/visit-100-almost-resident.png",
+  "visit-300-long-relationship": "/badge-images/visit/visit-300-long-relationship.png",
+  "visit-500-home": "/badge-images/visit/visit-500-home.png",
+});
+
 const levelBadges = [
   { id: "level-1-free-fire", name: "自由の火を灯す者", threshold: 1, icon: "🔥", tone: "red", shape: "circle", description: "自由を考え始めた瞬間に、自分のFIRE人生へ最初の火を灯した証です。", condition: "Lv.1に到達する" },
   { id: "level-5-rookie", name: "FIREルーキー", threshold: 5, icon: "✦", tone: "blue", shape: "medal", description: "まだ知らない自由へ向かって、最初のページをめくった人です。", condition: "Lv.5に到達する" },
@@ -169,7 +194,7 @@ export const badgeDefinitions = Object.freeze([
 ].map((badge) => ({
   ...badge,
   artKey: badgeArtKeys[badge.id] || `${badge.category}-default`,
-  imagePath: levelBadgeImagePaths[badge.id] || null,
+  imagePath: categoryBadgeImagePaths[badge.id] || levelBadgeImagePaths[badge.id] || null,
   tier: badge.category === "level"
     ? badge.threshold >= 65 ? "legend" : badge.threshold >= 30 ? "relic" : "origin"
     : "side",

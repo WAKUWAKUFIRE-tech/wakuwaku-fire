@@ -1,4 +1,6 @@
-const fireLifePageReady = window.__wakuwakuFireLifeReady || import("../data/fire-life.js?v=8");
+const fireLifePageReady = import("../data/fire-life.js?v=11");
+window.__wakuwakuFireLifeReady = fireLifePageReady;
+const fireLifeBadgeAssetRoot = new URL("../", document.baseURI);
 
 const lifeElements = {
   level: document.querySelector("#life-level"),
@@ -496,7 +498,7 @@ const BADGE_SHAPE_ORNAMENTS = Object.freeze({
 let badgeEmblemSequence = 0;
 
 function createBadgeEmblem(badge, { locked = false } = {}) {
-  if (!locked && badge.category === "level" && badge.imagePath) {
+  if (!locked && badge.imagePath) {
     const imageEmblem = document.createElement("span");
     imageEmblem.className = `badge-emblem badge-emblem--image badge-tone-${badge.tone || "gray"}`;
     imageEmblem.classList.add(`badge-tier-${badge.tier || "side"}`, "badge-emblem--earned");
@@ -505,7 +507,7 @@ function createBadgeEmblem(badge, { locked = false } = {}) {
 
     const image = document.createElement("img");
     image.className = "badge-emblem__image";
-    image.src = badge.imagePath;
+    image.src = new URL(badge.imagePath, fireLifeBadgeAssetRoot).href;
     image.alt = "";
     image.loading = "lazy";
     image.decoding = "async";
