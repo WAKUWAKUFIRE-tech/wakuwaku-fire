@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-11",
+  "updated_at": "2026-09-12",
   "items": [
     {
       "id": "seo-001",
@@ -889,7 +889,7 @@
     {
       "id": "seo-024",
       "priority_order": 24,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE 1億円",
       "secondary_keywords": [
         "1億円 FIRE",
@@ -913,13 +913,17 @@
       ],
       "thumbnail_text_hint": "1億でFIRE？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-1oku/",
+      "published_at": "2026-09-12",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-12T07:00:00+09:00",
       "stock_path": "automation/article_stock/fire-1oku",
-      "category": "FIRE準備・必要資産"
+      "category": "FIRE準備・必要資産",
+      "generated_title": "1億円あればFIREできる？安心できる人と不安が残る人の違い",
+      "generated_meta_description": "1億円あればFIREできるのかを、年間生活費と資産変動への向き合い方から考えます。1億4000万円以上まで増えた後に大きく減らした本人の経験も時点を分けて整理します。",
+      "generated_category": "FIRE準備・必要資産",
+      "generated_thumbnail_text": "1億でFIRE？"
     },
     {
       "id": "seo-025",
