@@ -552,3 +552,24 @@ thumbnail text: 月40万円で？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: 3000万円でFIREできる？かなり厳しい？それでも可能性はある？
+
+article id: seo-023
+priority_order: 23
+公開日・時刻（JST）: 2026-09-11 18:00:00
+公開枠: 2026-09-11T18:00:00+09:00
+main keyword: FIRE 3000万円
+title: 3000万円でFIREできる？かなり厳しい？それでも可能性はある？
+slug: fire-3000man
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-3000man/
+thumbnail file: articles/fire-3000man/thumbnail.png
+thumbnail text: 3000万円で？
+参照knowledge_base: content_sources/knowledge_base/money_philosophy.md, content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/numbers_and_facts.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

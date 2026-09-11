@@ -851,7 +851,7 @@
     {
       "id": "seo-023",
       "priority_order": 23,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE 3000万円",
       "secondary_keywords": [
         "3000万円 FIRE",
@@ -874,13 +874,17 @@
       ],
       "thumbnail_text_hint": "3000万円で？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/fire-3000man/",
+      "published_at": "2026-09-11",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "18:00:00",
+      "published_slot": "2026-09-11T18:00:00+09:00",
       "stock_path": "automation/article_stock/fire-3000man",
-      "category": "FIRE準備・必要資産"
+      "category": "FIRE準備・必要資産",
+      "generated_title": "3000万円でFIREできる？かなり厳しい？それでも可能性はある？",
+      "generated_meta_description": "3000万円でFIREできるのかを、生活費・取り崩し・Lean FIRE・Side FIREの違いから考えます。6000万円でサイドFIREを始めた経験も、読者の必要額と混同せず整理します。",
+      "generated_category": "FIRE準備・必要資産",
+      "generated_thumbnail_text": "3000万円で？"
     },
     {
       "id": "seo-024",
