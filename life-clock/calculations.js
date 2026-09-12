@@ -10,16 +10,19 @@ export function validateProfile(p) {
   if (p.assets < 0 || p.assets > 1e12) errors.assets = '金融資産は0〜1億万円で入力してください。';
   if (p.spending <= 0 || p.spending > 1e10) errors.spending = '年間生活費は0より大きい額（100万万円以下）を入力してください。';
   if (p.rate < -50 || p.rate > 50) errors.rate = '利回りは−50〜50%で入力してください。';
-  if (!Number.isInteger(p.lifespan) || p.lifespan <= p.age || p.lifespan > 130) errors.lifespan = '想定寿命は現在年齢より大きく、130歳以下にしてください。';
-  if (!Number.isInteger(p.healthspan) || p.healthspan < p.age || p.healthspan > p.lifespan) errors.healthspan = '健康寿命は現在年齢以上、想定寿命以下にしてください。';
+  if (!Number.isInteger(p.lifespan) || p.lifespan <= p.age || p.lifespan > 130) errors.lifespan = '平均寿命の目安は現在年齢より大きく、130歳以下にしてください。';
+  if (!Number.isInteger(p.healthspan) || p.healthspan < p.age || p.healthspan > p.lifespan) errors.healthspan = '健康寿命の目安は現在年齢以上、平均寿命の目安以下にしてください。';
   return errors;
 }
 export function elapsedDays(anchor, now = Date.now()) {
   return Math.max(0, Math.floor((now - Date.parse(anchor)) / DAY_MS)) || 0;
 }
+export function calculateRemainingDays(age, horizon, daysElapsed = 0) {
+  // Include the final partial day so an exact year horizon does not display one fewer day.
+  return Math.max(0, Math.ceil((horizon - age) * DAYS_PER_YEAR) - daysElapsed);
+}
 export function calculateHealthyDays(age, healthspan, daysElapsed = 0) {
-  // Include the final partial day so an exact 39-year horizon does not display 38 annual events.
-  return Math.max(0, Math.ceil((healthspan - age) * DAYS_PER_YEAR) - daysElapsed);
+  return calculateRemainingDays(age, healthspan, daysElapsed);
 }
 export function calculateDailyLifeBudget(assets, rate, days) {
   if (days <= 0 || assets <= 0) return 0;
@@ -58,3 +61,4 @@ export function calculateProjection(p, daysElapsed = 0) {
   points.sort((a, b) => a.age - b.age);
   return { ageNow, lifetime, zeroAge: ageNow + lifetime, points, finalAssets: calculateProjectedAssets(p.assets, p.spending, p.rate, yearsLeft) };
 }
+

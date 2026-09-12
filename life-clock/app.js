@@ -1,4 +1,4 @@
-import { DAYS_PER_YEAR, elapsedDays, validateProfile, calculateHealthyDays, calculateDailyLifeBudget, calculateProjection, calculateRemainingEvents } from './calculations.js';
+import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLifeBudget, calculateProjection, calculateRemainingEvents } from './calculations.js';
 import { createStorage, emptyState } from './storage.js';
 
 const $ = id => document.getElementById(id);
@@ -43,7 +43,41 @@ function openForm() {
 function metrics() {
   const p = state.profile, elapsed = elapsedDays(p.anchor);
   const days = calculateHealthyDays(p.age, p.healthspan, elapsed);
-  return { p, days, projection: calculateProjection(p, elapsed) };
+  return { p, elapsed, days, projection: calculateProjection(p, elapsed) };
+}
+function lifeClockMetrics() {
+  const { p, elapsed } = metrics();
+  const mode = state.lifeMode === 'health' ? 'health' : 'average';
+  const horizon = mode === 'health' ? p.healthspan : p.lifespan;
+  const days = calculateRemainingDays(p.age, horizon, elapsed);
+  const targetAt = Date.parse(p.anchor) + (horizon - p.age) * DAYS_PER_YEAR * DAY_MS;
+  return { mode, horizon, days, targetAt, age: p.age + elapsed / DAYS_PER_YEAR, totalDays: Math.max(1, horizon * DAYS_PER_YEAR) };
+}
+function renderLifeClock() {
+  if (!state.profile) return;
+  const { p } = metrics();
+  const m = lifeClockMetrics();
+  const remainingMs = Math.max(0, m.targetAt - Date.now());
+  const yearsDecimal = remainingMs / (DAYS_PER_YEAR * DAY_MS);
+  // Break the countdown from the same fractional-year value used in the ring.
+  // This keeps an exact 52-year horizon from rendering as 51 years and 365 days.
+  const years = Math.floor(yearsDecimal + 1e-7);
+  const afterYearsMs = Math.max(0, Math.floor(remainingMs - years * DAYS_PER_YEAR * DAY_MS));
+  const days = Math.floor(afterYearsMs / DAY_MS);
+  const hours = Math.floor(afterYearsMs % DAY_MS / 3600000);
+  const minutes = Math.floor(afterYearsMs % 3600000 / 60000);
+  const seconds = Math.floor(afterYearsMs % 60000 / 1000);
+  write('life-card-subtitle', `${p.age}歳 ・ ${m.mode === 'average' ? '平均寿命の目安' : '健康寿命の目安'} ${m.horizon}歳`);
+  write('life-remaining-years', yearsDecimal.toFixed(2));
+  write('life-remaining-days', `${fmt(m.days)}日`);
+  write('life-countdown-years', fmt(years)); write('life-countdown-days', fmt(days)); write('life-countdown-hours', String(hours).padStart(2, '0')); write('life-countdown-minutes', String(minutes).padStart(2, '0')); write('life-countdown-seconds', String(seconds).padStart(2, '0'));
+  write('life-card-note', m.mode === 'average' ? `平均寿命の目安までの残り時間。健康に動ける時間は「健康寿命」で切り替えて確認できます。` : `元気にやりたいことを楽しむ期間の目安。設定はあとから自由に見直せます。`);
+  const circumference = 2 * Math.PI * 99;
+  const progress = Math.min(1, Math.max(0, m.days / m.totalDays));
+  const ring = $('life-ring-progress'); ring.style.strokeDasharray = String(circumference); ring.style.strokeDashoffset = String(circumference * (1 - progress));
+  ring.setAttribute('aria-label', `${m.mode === 'average' ? '平均寿命' : '健康寿命'}まで残り${fmt(m.days)}日`);
+  $('life-mode-average').setAttribute('aria-selected', String(m.mode === 'average')); $('life-mode-health').setAttribute('aria-selected', String(m.mode === 'health'));
+  $('life-mode-average').classList.toggle('is-active', m.mode === 'average'); $('life-mode-health').classList.toggle('is-active', m.mode === 'health');
 }
 function svgNode(tag, attrs, text) {
   const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -59,7 +93,7 @@ function drawChart() {
   const peak = Math.max(p.assets, ...m.points.map(pt => pt.assets), 10000) * 1.1;
   const y = assets => height - bottom - assets / peak * (height - top - bottom);
   const svg = svgNode('svg', { viewBox: `0 0 ${width} ${height}`, role: 'img', 'aria-labelledby': 'chart-title chart-desc' });
-  svg.append(svgNode('title', { id: 'chart-title' }, '現在から想定寿命までの金融資産推移'));
+  svg.append(svgNode('title', { id: 'chart-title' }, '現在から平均寿命の目安までの金融資産推移'));
   svg.append(svgNode('desc', { id: 'chart-desc' }, $('chart-summary').textContent));
   for (let i = 0; i <= 3; i++) {
     const value = peak * i / 3;
@@ -109,20 +143,14 @@ function renderLogs() {
 function renderDashboard() {
   const { p, days, projection: m } = metrics();
   write('today-date', new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' }));
-  write('healthy-days', fmt(days));
-  const months = Math.floor(days / DAYS_PER_YEAR * 12);
-  write('healthy-years', days ? `あと${Math.floor(months / 12)}年${months % 12}か月` : '設定した健康寿命に達しました。目安はいつでも見直せます。');
-  write('age-label', `現在 ${Math.floor(m.ageNow)}歳`); write('health-label', `健康寿命 ${p.healthspan}歳`);
-  const percent = Math.min(100, m.ageNow / Math.max(1, p.healthspan) * 100);
-  $('time-progress').firstElementChild.style.width = `${percent}%`;
-  $('time-progress').setAttribute('aria-label', `設定した健康寿命までの期間の${Math.round(percent)}%が経過`);
+  renderLifeClock();
   write('daily-budget', days ? fmt(calculateDailyLifeBudget(p.assets, p.rate, days)) : '—');
   write('asset-lifetime', Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳` : '尽きない計算');
-  write('lifetime-message', !Number.isFinite(m.lifetime) ? 'この固定利回りでは運用益が生活費を補う計算です。将来の保証ではありません。' : Math.abs(m.zeroAge - p.lifespan) <= 2 ? '人生と資産のペースは、近い状態です。' : m.zeroAge > p.lifespan ? '想定寿命より先まで、資産が持つ予測です。これから楽しみたいことも考えてみましょう。' : '想定寿命より先に、資産が尽きる可能性があります。生活費や収入の計画を見直すきっかけに。');
+  write('lifetime-message', !Number.isFinite(m.lifetime) ? 'この固定利回りでは運用益が生活費を補う計算です。将来の保証ではありません。' : Math.abs(m.zeroAge - p.lifespan) <= 2 ? '人生と資産のペースは、近い状態です。' : m.zeroAge > p.lifespan ? '平均寿命の目安より先まで、資産が持つ予測です。これから楽しみたいことも考えてみましょう。' : '平均寿命の目安より先に、資産が尽きる可能性があります。生活費や収入の計画を見直すきっかけに。');
   write('final-assets-title', `${p.lifespan}歳時点の推定資産`);
   write('final-assets', `${fmt(m.finalAssets / 10000)}万円`);
   write('final-assets-note', m.zeroAge < p.lifespan ? `${p.lifespan}歳までに資産が尽きる可能性があります。` : '残すお金と、今楽しむお金。そのバランスを考えよう。');
-  write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 破線：健康寿命 ${p.healthspan}歳 ／ 点線：想定寿命 ${p.lifespan}歳 ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
+  write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 破線：健康寿命 ${p.healthspan}歳 ／ 点線：平均寿命の目安 ${p.lifespan}歳 ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
   write('snapshot-note', `資産は${new Date(p.updatedAt || p.anchor).toLocaleDateString('ja-JP')}に入力した額を現在の残高として使用。実際の増減は自動反映されません。残り日数は日付とともに更新します。`);
   write('summer-count', fmt(calculateRemainingEvents(days, 1)));
   renderEvents(days); renderLogs(); requestAnimationFrame(drawChart);
@@ -130,6 +158,10 @@ function renderDashboard() {
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
 $('cancel-setup').addEventListener('click', () => { show(state.profile ? 'dashboard' : 'welcome'); if (state.profile) drawChart(); });
+for (const [id, mode] of [['life-mode-average', 'average'], ['life-mode-health', 'health']]) $(id).addEventListener('click', () => {
+  if (!state.profile || state.lifeMode === mode) return;
+  if (persist({ ...state, lifeMode: mode })) renderLifeClock();
+});
 $('profile-form').addEventListener('submit', event => {
   event.preventDefault(); const data = new FormData(event.currentTarget), profile = {};
   for (const key of ['age', 'assets', 'spending', 'rate', 'lifespan', 'healthspan']) {
@@ -210,9 +242,10 @@ if (state.profile) {
 let resizeTimer;
 window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(drawChart, 150); });
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state.profile) renderDashboard(); });
-setInterval(() => { if (state.profile && document.visibilityState === 'visible') renderDashboard(); }, 60000);
+setInterval(() => { if (state.profile && document.visibilityState === 'visible') renderLifeClock(); }, 1000);
 window.addEventListener('storage', event => {
   if (event.key !== 'wakuwaku.life-clock.v1') return;
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
   catch { notice('別のタブの変更を読み込めませんでした。再読み込みしてください。', true); }
 });
+

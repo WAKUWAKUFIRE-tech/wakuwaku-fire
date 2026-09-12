@@ -19,8 +19,17 @@ try {
   assert.equal(await page.locator('#profile-form input').count(), 6);
   await page.locator('[name=age]').fill('36'); await page.locator('#profile-form button[type=submit]').click();
   await page.locator('#dashboard').waitFor({ state: 'visible' });
-  assert.equal(await page.locator('#healthy-days').textContent(), '14,245');
-  assert.match(await page.locator('#asset-lifetime').textContent(), /^66\./); record('Case A form to calculated dashboard');
+  assert.match(await page.locator('#life-remaining-years').textContent(), /^52\./);
+  assert.equal(await page.locator('#life-remaining-days').textContent(), '18,993日');
+  assert.match(await page.locator('#life-card-subtitle').textContent(), /平均寿命の目安 88歳/);
+  assert.equal(await page.locator('#life-mode-average').getAttribute('aria-selected'), 'true');
+  await page.locator('#life-mode-health').click();
+  assert.equal(await page.locator('#life-mode-health').getAttribute('aria-selected'), 'true');
+  assert.equal(await page.locator('#life-remaining-days').textContent(), '14,245日');
+  assert.match(await page.locator('#life-card-subtitle').textContent(), /健康寿命の目安 75歳/);
+  assert.equal(await page.getByText('人生の消化率', { exact: true }).count(), 0);
+  await page.locator('#life-mode-average').click();
+  assert.match(await page.locator('#asset-lifetime').textContent(), /^66\./); record('Case A form to calculated dashboard and life horizon toggle');
   await page.evaluate(await readFile(createRequire(import.meta.url).resolve('axe-core/axe.min.js'), 'utf8'));
   const accessibility = await page.evaluate(async () => (await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] } })).violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => n.target) })));
   assert.deepEqual(accessibility, []); record('Automated WCAG A/AA accessibility audit');
@@ -62,7 +71,8 @@ try {
   await page.locator('[name=healthspan]').fill('90'); await page.locator('#profile-form button[type=submit]').click();
   assert.ok(await page.locator('#error-healthspan').textContent()); record('Healthspan beyond lifespan validation');
   await page.locator('[name=healthspan]').fill('36'); await page.locator('[name=assets]').fill('0'); await page.locator('#profile-form button[type=submit]').click();
-  assert.equal(await page.locator('#healthy-days').textContent(), '0'); assert.equal(await page.locator('#daily-budget').textContent(), '—'); assert.match(await page.locator('#final-assets').textContent(), /^0/); record('Zero assets and health horizon do not crash');
+  await page.locator('#life-mode-health').click();
+  assert.equal(await page.locator('#life-remaining-days').textContent(), '0日'); assert.equal(await page.locator('#daily-budget').textContent(), '—'); assert.match(await page.locator('#final-assets').textContent(), /^0/); record('Zero assets and health horizon do not crash');
   await page.evaluate(() => { const key = 'wakuwaku.life-clock.v1', p = JSON.parse(localStorage.getItem(key)); p.lastVisit = new Date(Date.now() - 7 * 86400000).toISOString(); localStorage.setItem(key, JSON.stringify(p)); localStorage.setItem('other-app', 'preserved'); });
   await page.reload(); assert.match(await page.locator('#return-message').textContent(), /前回から7日/); record('Seven-day revisit message');
   await page.locator('[data-nav=settings]').click();
@@ -80,3 +90,4 @@ try {
   const qp = await quota.newPage(); await qp.goto(`${base}/life-clock/`); await qp.locator('#start').click(); await qp.locator('[name=age]').fill('36'); await qp.locator('#profile-form button[type=submit]').click(); assert.match(await qp.locator('#notice').textContent(), /保存できません/); assert.equal(await qp.locator('#dashboard').isVisible(), false); record('Storage failure never claims saved success'); await quota.close();
   await writeFile(new URL('browser-results.json', artifacts), JSON.stringify({ passed: results.length, results, errors, installability, requests: requests.length }, null, 2));
 } finally { await browser.close(); }
+
