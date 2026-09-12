@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>FIRE人生時計｜残りの人生・資産寿命・自由時間を見える化</title>
+  <meta name="description" content="残りの人生を、平均寿命・健康寿命・お金・体験で見える化。残りの時間、資産寿命、残りの夏、人生ログをひとつに。無料・ログイン不要のFIRE向け人生ダッシュボード。">
+  <meta name="theme-color" content="#df3528">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="人生時計">
+  <meta property="og:title" content="FIRE人生時計｜残りの人生、どう使う？">
+  <meta property="og:description" content="人生の残高を、時間とお金で見える化する。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://wakuwaku-fire-git.pages.dev/life-clock/">
+  <meta property="og:image" content="https://wakuwaku-fire-git.pages.dev/life-clock/ogp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://wakuwaku-fire-git.pages.dev/life-clock/">
+  <link rel="manifest" href="/life-clock/manifest.webmanifest">
+  <link rel="icon" href="/life-clock/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/life-clock/apple-touch-icon.png">
+  <link rel="stylesheet" href="/life-clock/styles.css">
+  <script type="module" src="/life-clock/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">本文へスキップ</a>
+  <header class="topbar"><a class="brand" href="/"><img src="/life-clock/icon.svg" width="38" height="38" alt=""><span>ワクワクFIRE<small>人生を楽しむ、その先へ。</small></span></a><span class="app-tag">FIRE人生時計</span></header>
+  <main id="main" class="shell">
+    <div id="notice" role="status" aria-live="polite"></div>
+    <section id="welcome" class="welcome" hidden>
+      <span class="eyebrow">TIME IS YOUR ASSET</span>
+      <h1>FIRE人生時計</h1><p class="lead">あと何年生きるかではなく、<br>残りの人生をどう使うか。</p>
+      <p>お金を増やす。その先にある、あなたの時間。<br class="desktop">人生の残高を「時間・お金・体験」で見てみよう。</p>
+      <button class="primary" id="start">あなたの人生残高を計算する <span aria-hidden="true">↗</span></button>
+      <p class="privacy">ログイン不要・無料 ｜ 入力データはこの端末内に保存</p>
+      <div class="intro-trio"><div><span>01 / TIME</span><strong>健康に動ける時間</strong><p>やりたいことに使える日々。</p></div><div><span>02 / MONEY</span><strong>自由を支えるお金</strong><p>今の生活費で、何歳まで？</p></div><div><span>03 / EXPERIENCE</span><strong>これからの体験</strong><p>次の夏を、どんな思い出に。</p></div></div>
+    </section>
+    <section id="setup" class="panel setup" hidden aria-labelledby="setup-title">
+      <span class="eyebrow">YOUR LIFE, YOUR PACE</span><h1 id="setup-title">あなたの人生残高を計算する</h1><p>まずは6項目。あとからいつでも変更できます。</p>
+      <form id="profile-form" novalidate>
+        <div class="form-grid">
+          <label>現在年齢 <span class="input-unit"><input name="age" type="number" inputmode="numeric" min="0" max="120" step="1" placeholder="36" required aria-describedby="error-age"><span>歳</span></span><small id="error-age" class="error"></small></label>
+          <label>金融資産 <span class="input-unit"><input name="assets" type="number" inputmode="decimal" min="0" max="100000000" step="any" value="6000" required aria-describedby="error-assets"><span>万円</span></span><small id="error-assets" class="error"></small></label>
+          <label>年間生活費 <span class="input-unit"><input name="spending" type="number" inputmode="decimal" min="0.0001" max="1000000" step="any" value="300" required aria-describedby="error-spending"><span>万円</span></span><small id="error-spending" class="error"></small></label>
+          <label>想定運用利回り <span class="input-unit"><input name="rate" type="number" inputmode="decimal" min="-50" max="50" step="any" value="3" required aria-describedby="error-rate"><span>% / 年</span></span><small id="error-rate" class="error"></small></label>
+          <label>平均寿命の目安 <span class="input-unit"><input name="lifespan" type="number" inputmode="numeric" min="1" max="130" step="1" value="88" required aria-describedby="error-lifespan"><span>歳</span></span><small id="error-lifespan" class="error"></small></label>
+          <label>健康寿命の目安 <span class="input-unit"><input name="healthspan" type="number" inputmode="numeric" min="0" max="130" step="1" value="75" required aria-describedby="error-healthspan"><span>歳</span></span><small id="error-healthspan" class="error"></small></label>
+        </div>
+        <p class="muted">年齢以外はサンプル値です。平均寿命・健康寿命の目安は自由に変更できます。医学的・統計的な個人予測ではありません。</p>
+        <div class="actions"><button class="primary" type="submit">人生残高を計算する ↗</button><button type="button" id="cancel-setup" class="secondary">戻る</button></div>
+      </form>
+    </section>
+    <div id="dashboard" hidden>
+      <section id="home" aria-labelledby="dashboard-title">
+        <div class="section-head"><div><span class="eyebrow" id="today-date"></span><h1 id="dashboard-title">人生ダッシュボード</h1></div><button class="text-button" id="edit-profile">条件を見直す ↗</button></div>
+        <p id="return-message" class="return-message" hidden></p>
+        <div class="hero-grid">
+          <article class="life-card" aria-labelledby="life-card-title">
+            <div class="life-card-head"><div><span class="life-card-kicker">YOUR LIFE CLOCK</span><h2 id="life-card-title">あなたの残り時間</h2><p id="life-card-subtitle" class="life-card-subtitle"></p></div><span class="life-card-badge">TIME</span></div>
+            <div class="life-tabs" role="tablist" aria-label="表示する寿命"><button id="life-mode-average" type="button" role="tab" aria-selected="true" aria-controls="life-meter">平均寿命</button><button id="life-mode-health" type="button" role="tab" aria-selected="false" aria-controls="life-meter">健康寿命</button></div>
+            <div id="life-meter" class="life-meter" role="tabpanel" tabindex="-1" aria-live="polite">
+              <div class="life-ring"><svg viewBox="0 0 240 240" aria-hidden="true"><circle class="life-ring-track" cx="120" cy="120" r="99"></circle><circle id="life-ring-progress" class="life-ring-progress" cx="120" cy="120" r="99"></circle></svg><div class="life-ring-value"><strong id="life-remaining-years">—</strong><span>年</span><small id="life-remaining-days">—</small></div></div>
+              <div class="life-countdown" aria-label="残り時間のカウントダウン"><div><strong id="life-countdown-years">—</strong><span>年</span></div><b>:</b><div><strong id="life-countdown-days">—</strong><span>日</span></div><b>:</b><div><strong id="life-countdown-hours">—</strong><span>時</span></div><b>:</b><div><strong id="life-countdown-minutes">—</strong><span>分</span></div><b>:</b><div><strong id="life-countdown-seconds">—</strong><span>秒</span></div></div>
+              <p id="life-card-note" class="life-card-note"></p>
+            </div>
+          </article>
+          <div class="budget-stack">
+            <article class="budget-card budget-card--living" aria-labelledby="living-budget-title">
+              <div class="card-top"><span id="living-budget-title">今日の生活予算</span><span class="pill">KEEP</span></div>
+              <p class="budget-number"><span id="daily-living-budget">—</span><span class="unit">円 / 日</span></p>
+              <p class="budget-card-lead">今の資産を想定寿命まで生活に使う場合の目安です。</p>
+              <div class="budget-compare" aria-label="現在の生活費との比較">
+                <div><span>現在の生活費</span><strong id="current-daily-living-cost">—</strong><small>円 / 日</small></div>
+                <div><span>差</span><strong id="living-budget-difference">—</strong><small>円 / 日</small></div>
+              </div>
+              <p id="living-budget-message" class="budget-message" aria-live="polite"></p>
+              <p class="muted">想定寿命までの残り日数と想定運用利回りから計算した参考値です。税金・年金・インフレ等は含みません。</p>
+            </article>
+            <article id="budget-wakuwaku" class="budget-card budget-card--wakuwaku" aria-labelledby="wakuwaku-budget-title">
+              <div class="card-top"><span id="wakuwaku-budget-title">今日のワクワク予算</span><span class="pill">PLAY</span></div>
+              <p class="budget-number"><span id="daily-wakuwaku-budget">—</span><span class="unit">円 / 日</span></p>
+              <p id="wakuwaku-budget-note" class="budget-card-lead">将来の生活費を確保したうえで、元気な今に使えるお金です。</p>
+              <div class="wakuwaku-surplus"><span>健康な今に使える推定余剰資金</span><strong id="wakuwaku-surplus">—</strong></div>
+              <div id="wakuwaku-intro" class="wakuwaku-intro" hidden>
+                <strong>ワクワク予算とは？</strong>
+                <p>生活費とは別に、旅行・趣味・家族との体験など、健康な今だからこそ使える余剰予算です。将来の生活費を先に確保したうえで計算しています。</p>
+                <button id="dismiss-wakuwaku-intro" type="button" class="intro-dismiss">わかった</button>
+              </div>
+              <p id="wakuwaku-budget-followup" class="budget-zero-note" hidden>生活費や想定利回りを見直すと結果が変わります。</p>
+              <a class="primary dark" href="#life-log">今日、何に人生を使う？ ↗</a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="assets" class="asset-section" aria-labelledby="asset-title"><div class="section-head"><div><span class="eyebrow">MONEY & FREEDOM</span><h2 id="asset-title">お金と人生の、これから。</h2></div><span class="muted">固定利回りの参考値</span></div>
+        <div class="stat-grid"><article class="panel"><h3>資産寿命 <small>推定</small></h3><p class="stat-number" id="asset-lifetime"></p><p id="lifetime-message"></p></article><article class="panel"><h3 id="final-assets-title"></h3><p class="stat-number" id="final-assets"></p><p id="final-assets-note"></p></article></div>
+        <article class="panel chart-panel"><div class="section-head"><h3>人生と資産の地図</h3><span class="muted">金融資産（万円）</span></div><div id="chart"></div><p id="chart-summary" class="chart-summary"></p><p id="snapshot-note" class="muted"></p><details><summary>計算の前提を見る</summary><p>年間利回りを月利に換算し、毎月末に年間生活費の12分の1を取り崩します。資産寿命と生活予算は、この資産推移と同じ前提で計算します。</p><p>生活予算は想定寿命までの残り期間、ワクワク予算は将来必要な生活資金を差し引いた余剰を健康寿命までの残り期間で割った参考値です。</p><p>税金・年金・収入・インフレ・手数料・運用収益の変動を考慮しない簡易計算です。生活予算・ワクワク予算は入力された資産、生活費、想定利回り、想定寿命等をもとにした簡易シミュレーションであり、実際の将来支出や投資収益を保証するものではありません。</p></details></article>
+      </section>
+      <section id="experiences" aria-labelledby="experience-title"><div class="section-head"><div><span class="eyebrow">MAKE IT A MEMORY</span><h2 id="experience-title">あと何回、楽しもう。</h2></div></div>
+        <article class="summer-card"><div><span>あなたに残された夏</span><p><strong id="summer-count"></strong><span>回</span></p><span>次に迎える夏も、そのうちの1回です。</span></div><div class="season-mark" aria-hidden="true">SUMMER<br><span>IS YOURS.</span></div></article>
+        <p class="muted">健康寿命までの残り日数 × 頻度の概算です。端数は切り捨てます。季節・誕生日の具体的な日付は考慮しません。</p><div id="events-grid" class="events-grid"></div>
+        <details class="panel"><summary>＋ 自分だけの「あと何回？」を追加</summary><form id="event-form" class="event-form"><label>体験の名前<input name="name" maxlength="50" placeholder="海外旅行、親と会う、キャンプ…" required></label><label>頻度<select name="period"><option value="year">年に</option><option value="month">月に</option></select></label><label>回数<input name="frequency" type="number" inputmode="decimal" min="0.01" max="1000" step="any" value="2" required></label><button class="primary" type="submit">追加する</button></form></details>
+      </section>
+      <section id="life-log" aria-labelledby="log-title"><div class="section-head"><div><span class="eyebrow">LIFE WELL SPENT</span><h2 id="log-title">今日、何に人生を使いますか？</h2></div><div class="memory-total">思い出資産 <strong id="memory-count">0</strong></div></div><div class="panel"><p>大きな冒険も、何もしない日も。あなたらしい時間を残そう。</p><form id="log-form"><label for="log-text">今日の人生ログ</label><textarea id="log-text" name="text" rows="3" maxlength="500" placeholder="子どもと公園。帰り道のアイスがおいしかった。" required></textarea><div class="log-actions"><small class="muted">1件の記録 = 思い出資産 +1</small><button class="primary" type="submit">今日を記録する ＋</button></div></form><div id="logs-list"></div><button id="more-logs" class="secondary" hidden>以前の記録を見る</button></div></section>
+      <section class="share-section panel"><div><h2>次の夏、何をしよう。</h2><p>残りの夏をシェアして、誰かを誘うきっかけに。</p><small>資産額・年齢・人生ログは共有しません。</small></div><button class="secondary" id="share">残りの夏をシェア ↗</button><textarea id="share-fallback" readonly hidden aria-label="コピーして共有する文章"></textarea></section>
+    </div>
+    <section id="settings" class="panel settings" hidden aria-labelledby="settings-title"><span class="eyebrow">YOUR SETTINGS</span><h1 id="settings-title">設定とデータ</h1><p>入力データはこの端末の、このブラウザ内に保存され、サーバーへ送信しません。別の端末やブラウザとは同期されません。</p><p>ブラウザのデータ削除や端末の故障で記録が失われることがあります。プライベートブラウズでは保存が維持されない場合があります。</p><button id="settings-edit" class="secondary">プロフィール・計算条件を変更</button><hr><h2>保存データの削除</h2><p>プロフィール、独自イベント、人生ログをすべて削除します。</p><button id="reset" class="danger">保存データをすべて削除</button><p><a href="#home" id="back-home">ダッシュボードへ戻る</a></p></section>
+    <aside id="install-card" class="install-card"><div><h2>FIRE人生時計をホーム画面に置く</h2><p>毎回検索しなくても、アプリのようにすぐ開けます。</p><p id="install-help" class="muted"></p></div><button id="install" class="secondary">追加方法を見る ＋</button></aside>
+    <section class="explanation" aria-labelledby="about-title"><span class="eyebrow">ABOUT FIRE LIFE CLOCK</span><h2 id="about-title">資産を増やすだけが、FIREではありません。</h2><p>FIRE人生時計は、経済的な自立や早期退職を目指す人、すでにFIRE・サイドFIREを実現した人のための人生ダッシュボードです。「いくらあれば辞められるか」の先にある、「自由になった時間をどう使うか」を考える入り口になります。</p><h3>資産寿命とは</h3><p>今ある金融資産を、一定の生活費と運用利回りの条件で取り崩したときに、残高が0になるまでの期間です。同じ資産額でも、生活費や利回りによって結果は変わります。この画面では毎月の取り崩しで試算し、平均寿命の目安時点の資産と並べて確認できます。運用益が支出を補う設定では資産が尽きない計算になりますが、将来の安全を保証するものではありません。</p><h3>健康寿命と人生設計</h3><p>ここでの健康寿命は、あなたが「元気にやりたいことを楽しむ期間」として設定する目安です。統計に基づく個人の健康予測ではありません。旅行や趣味、家族との時間をいつ楽しみたいか、自分の希望に合わせて自由に見直してください。設定した期間を過ぎても、体験や日々の価値がなくなるわけではありません。</p><h3>お金と自由時間を同時に考える</h3><p>仕事を続ければ、貯蓄を増やせるかもしれません。一方で、子どもと遊べる夏や、親と出かけられる休日は、後から同じ形で取り戻せないこともあります。FIRE後に重要なのは資産額だけではなく、自由な時間を何に使いたいか。残りの季節と人生ログを、次の予定をひとつ決めるきっかけにしてください。</p><h3>数字を、行動のきっかけに</h3><p>FIRE人生時計では、想定寿命までの生活資金を確保したうえで、健康な今だからこそ使える余剰資金を「ワクワク予算」として見える化します。健康寿命はワクワク予算を使う期間の目安、想定寿命は生活資金を確保する期限として扱います。生活費と楽しみのお金を分けて、これからの暮らし全体とのバランスを考えるための参考値としてお使いください。</p><div class="disclaimer"><strong>ご利用にあたって</strong><p>このツールは人生設計を考えるための簡易シミュレーションです。医学的な寿命予測、投資助言、税務・年金・保険等の専門的助言を提供するものではありません。実際の寿命・健康寿命・投資収益・物価・支出は変動します。計算結果は参考値であり、将来の結果を保証しません。</p><p>生活予算・ワクワク予算は入力された資産、生活費、想定利回り、想定寿命等をもとにした簡易シミュレーションです。実際の将来支出や投資収益を保証するものではありません。</p></div></section>
+    <noscript><p class="panel">計算と端末内保存にはJavaScriptが必要です。ブラウザの設定で有効にしてください。</p></noscript>
+    <footer><a href="/">ワクワクFIREへ</a><span>FIRE人生時計 · 人生を使うためのアプリ</span></footer>
+  </main>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="アプリナビゲーション" hidden><a href="#home" data-nav="home"><span aria-hidden="true">◷</span>ホーム</a><a href="#assets" data-nav="assets"><span aria-hidden="true">▥</span>資産</a><a href="#life-log" data-nav="life-log"><span aria-hidden="true">＋</span>人生ログ</a><a href="#settings" data-nav="settings"><span aria-hidden="true">⚙</span>設定</a></nav>
+</body></html>
