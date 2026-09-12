@@ -1,5 +1,5 @@
-import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents } from './calculations.js';
-import { createStorage, emptyState } from './storage.js';
+import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents, calculateRemainingPersonMeetings, calculateYearRemaining, calculateTrueFreeTime, calculateBucketDaysUntil } from './calculations.js';
+import { createStorage, emptyState, createDefaultPeople, createDefaultTimeCategories } from './storage.js';
 
 const $ = id => document.getElementById(id);
 const nf = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 0 });
@@ -7,7 +7,6 @@ const fmt = n => nf.format(n);
 const write = (id, text) => { $(id).textContent = text; };
 const defaults = [
   { name: '🌸 桜を見る', frequency: 1, period: 'year', unit: '回' },
-  { name: '🌊 夏を迎える', frequency: 1, period: 'year', unit: '回' },
   { name: '🎂 誕生日', frequency: 1, period: 'year', unit: '回' },
   { name: '✈ 年2回の旅行', frequency: 2, period: 'year', unit: '回' },
   { name: '🍜 月2回のラーメン', frequency: 2, period: 'month', unit: '杯' },
@@ -38,7 +37,35 @@ function show(view) {
 function openForm() {
   const p = state.profile;
   if (p) for (const key of ['age', 'assets', 'spending', 'rate', 'lifespan', 'healthspan']) $('profile-form').elements.namedItem(key).value = p[key] / (['assets', 'spending'].includes(key) ? 10000 : 1);
+  renderPeopleEditor(state.people?.length ? state.people : createDefaultPeople(p?.age || 36));
   show('setup'); $('setup-title').tabIndex = -1; $('setup-title').focus(); window.scrollTo(0, 0);
+}
+function renderPeopleEditor(people) {
+  const host = $('people-editor');
+  if (!host) return;
+  host.replaceChildren();
+  (Array.isArray(people) ? people : createDefaultPeople()).forEach(person => {
+    const row = document.createElement('div'); row.className = 'person-row'; row.dataset.id = person.id || crypto.randomUUID();
+    row.innerHTML = '<label>相手の名前<input name="person-name" maxlength="50" placeholder="親、親友、恩師…" required></label><label>相手の年齢<span class="input-unit"><input name="person-age" type="number" inputmode="numeric" min="0" max="130" step="1" required><span>歳</span></span></label><label>会う頻度<span class="input-unit"><input name="person-frequency" type="number" inputmode="decimal" min="0.01" max="1000" step="any" required><span>回</span></span></label><label>期間<select name="person-period"><option value="year">年に</option><option value="month">月に</option></select></label><button type="button" class="remove-person" aria-label="この人を削除">削除</button>';
+    row.querySelector('[name="person-name"]').value = person.name || '';
+    row.querySelector('[name="person-age"]').value = Number.isFinite(person.age) ? person.age : 36;
+    row.querySelector('[name="person-frequency"]').value = Number.isFinite(person.frequency) ? person.frequency : 1;
+    row.querySelector('[name="person-period"]').value = person.period === 'month' ? 'month' : 'year';
+    row.querySelector('.remove-person').addEventListener('click', () => row.remove());
+    host.append(row);
+  });
+}
+function readPeopleEditor() {
+  const people = [];
+  for (const row of document.querySelectorAll('[data-person-row], #people-editor .person-row')) {
+    const name = row.querySelector('[name="person-name"]').value.trim();
+    const age = Number(row.querySelector('[name="person-age"]').value);
+    const frequency = Number(row.querySelector('[name="person-frequency"]').value);
+    const period = row.querySelector('[name="person-period"]').value;
+    if (!name || name.length > 50 || !Number.isFinite(age) || age < 0 || age > 130 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000 || !['month', 'year'].includes(period)) return { error: '大切な人の名前・年齢・会う頻度を確認してください。' };
+    people.push({ id: row.dataset.id || crypto.randomUUID(), name, age, frequency, period });
+  }
+  return { people };
 }
 function metrics() {
   const p = state.profile, elapsed = elapsedDays(p.anchor);
@@ -105,9 +132,19 @@ function drawChart() {
   const line = m.points.map((point, i) => `${i ? 'L' : 'M'}${x(point.age).toFixed(2)},${y(point.assets).toFixed(2)}`).join(' ');
   svg.append(svgNode('path', { d: `${line} L${x(m.points.at(-1).age)},${y(0)} L${left},${y(0)} Z`, fill: '#fff3b3' }));
   svg.append(svgNode('path', { d: line, fill: 'none', stroke: '#ba2e23', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
-  if (p.healthspan >= m.ageNow) svg.append(svgNode('line', { x1: x(p.healthspan), x2: x(p.healthspan), y1: top, y2: y(0), stroke: '#756413', 'stroke-dasharray': '5 4', 'stroke-width': 2 }));
+  const addHorizonMarker = (age, kind, title, subtitle) => {
+    const markerX = Math.min(width - right - 4, Math.max(left + 4, x(age))), color = kind === 'health' ? '#a86600' : '#ba2e23';
+    svg.append(svgNode('rect', { x: markerX - 8, y: top, width: 16, height: y(0) - top, fill: color, opacity: .12 }));
+    svg.append(svgNode('line', { x1: markerX, x2: markerX, y1: top, y2: y(0), stroke: color, 'stroke-dasharray': kind === 'health' ? '10 6' : '1 0', 'stroke-width': 4 }));
+    if (kind === 'health') svg.append(svgNode('circle', { cx: markerX, cy: top + 6, r: 6, fill: color }));
+    else svg.append(svgNode('rect', { x: markerX - 6, y: top, width: 12, height: 12, rx: 2, fill: color }));
+    const nearRight = markerX > width - 105, labelX = nearRight ? markerX - 11 : markerX + 11, anchor = nearRight ? 'end' : 'start';
+    svg.append(svgNode('text', { x: labelX, y: top + 14, 'text-anchor': anchor, fill: color, 'font-size': 12, 'font-weight': 800 }, title));
+    svg.append(svgNode('text', { x: labelX, y: top + 29, 'text-anchor': anchor, fill: color, 'font-size': 11 }, subtitle));
+  };
+  if (p.healthspan >= m.ageNow) addHorizonMarker(p.healthspan, 'health', '健康寿命', `${p.healthspan}歳`);
   svg.append(svgNode('circle', { cx: left, cy: y(p.assets), r: 5, fill: '#242420' }));
-  svg.append(svgNode('line', { x1: x(Math.max(m.ageNow, p.lifespan)), x2: x(Math.max(m.ageNow, p.lifespan)), y1: top, y2: y(0), stroke: '#55554c', 'stroke-dasharray': '2 4' }));
+  addHorizonMarker(Math.max(m.ageNow, p.lifespan), 'lifespan', '平均寿命', `${p.lifespan}歳`);
   if (m.zeroAge <= p.lifespan) svg.append(svgNode('rect', { x: x(m.zeroAge) - 5, y: y(0) - 5, width: 10, height: 10, fill: '#ba2e23' }));
   [m.ageNow, (m.ageNow + Math.max(m.ageNow, p.lifespan)) / 2, Math.max(m.ageNow, p.lifespan)].forEach((age, i) => {
     svg.append(svgNode('text', { x: x(age), y: height - 10, 'text-anchor': i === 0 ? 'start' : i === 2 ? 'end' : 'middle', fill: '#66665b', 'font-size': 13 }, `${i === 0 ? '現在 ' : ''}${age.toFixed(0)}歳`));
@@ -129,6 +166,70 @@ function renderEvents(days) {
       card.append(remove);
     }
     $('events-grid').append(card);
+  });
+}
+function renderYearTime() {
+  const time = calculateYearRemaining();
+  const now = new Date(), end = new Date(now.getFullYear(), 11, 31);
+  write('year-time-date', `${end.toLocaleDateString('ja-JP', { month: 'long', day: 'numeric' })}まで`);
+  write('year-remaining-days', fmt(time.days));
+  write('year-remaining-hours', fmt(Math.floor(time.remainingMs / 3600000)));
+  write('year-remaining-minutes', String(Math.floor(time.remainingMs % 3600000 / 60000)).padStart(2, '0'));
+}
+function updateTimeCategory(id, delta) {
+  const categories = state.timeCategories.map(category => category.id === id ? { ...category, hours: Math.min(24, Math.max(0, Math.round((category.hours + delta) * 10) / 10)) } : category);
+  if (persist({ ...state, timeCategories: categories })) renderFreeTime();
+}
+function renderFreeTime() {
+  if (!state.profile) return;
+  const { lifespanDays } = metrics(), remainingYears = lifespanDays / DAYS_PER_YEAR;
+  const model = calculateTrueFreeTime(remainingYears, state.timeCategories);
+  write('true-free-years', model.freeYears.toFixed(1));
+  write('true-free-detail', `1日あたり ${model.freeHours.toFixed(1)}時間 × 残り ${remainingYears.toFixed(1)}年`);
+  write('free-time-tip', `⚡ スマホ・テレビを1日1時間減らすと、自由時間が約${model.oneHourGainYears.toFixed(1)}年増えます`);
+  const host = $('time-category-list'); host.replaceChildren();
+  state.timeCategories.forEach(category => {
+    const row = document.createElement('article'); row.className = 'time-category-row';
+    const copy = document.createElement('div'); copy.className = 'time-category-copy';
+    const name = document.createElement('strong'); name.textContent = `${category.icon || ''} ${category.name}`.trim();
+    const detail = document.createElement('small'); detail.textContent = `残り人生で約${(remainingYears * category.hours / 24).toFixed(1)}年`;
+    copy.append(name, detail);
+    const controls = document.createElement('div'); controls.className = 'time-category-controls';
+    const minus = document.createElement('button'); minus.type = 'button'; minus.className = 'round-control'; minus.textContent = '−'; minus.setAttribute('aria-label', `${category.name}を0.5時間減らす`); minus.disabled = category.hours <= 0; minus.addEventListener('click', () => updateTimeCategory(category.id, -.5));
+    const hours = document.createElement('strong'); hours.textContent = `${category.hours.toFixed(1)}h`;
+    const plus = document.createElement('button'); plus.type = 'button'; plus.className = 'round-control'; plus.textContent = '+'; plus.setAttribute('aria-label', `${category.name}を0.5時間増やす`); plus.disabled = category.hours >= 24; plus.addEventListener('click', () => updateTimeCategory(category.id, .5));
+    controls.append(minus, hours, plus); row.append(copy, controls); host.append(row);
+  });
+}
+function renderPeople() {
+  if (!state.profile) return;
+  const { p, days, elapsed } = metrics();
+  const host = $('people-grid'); host.replaceChildren();
+  const people = calculateRemainingPersonMeetings(p, state.people, days, elapsed);
+  if (!people.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = '設定画面から、会いたい人を追加できます。'; host.append(empty); return; }
+  people.forEach(person => {
+    const card = document.createElement('article'); card.className = 'person-card';
+    const title = document.createElement('h3'); title.textContent = person.name;
+    const number = document.createElement('strong'); number.textContent = fmt(person.count);
+    const count = document.createElement('p'); count.className = 'person-count'; count.append('あと ', number, '回');
+    const detail = document.createElement('small'); detail.textContent = `${person.age}歳 ・ ${person.period === 'month' ? '月' : '年'}${person.frequency}回で計算`;
+    card.append(title, count, detail); host.append(card);
+  });
+}
+function renderBucketList() {
+  const host = $('bucket-list'); if (!host) return;
+  host.replaceChildren();
+  const items = [...state.bucketList].sort((a, b) => Number(a.done) - Number(b.done) || a.dueDate.localeCompare(b.dueDate));
+  if (!items.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ登録されていません。期限を決めて、最初のひとつを追加しましょう。'; host.append(empty); return; }
+  items.forEach(item => {
+    const card = document.createElement('article'); card.className = `bucket-item${item.done ? ' is-done' : ''}`;
+    const check = document.createElement('input'); check.type = 'checkbox'; check.checked = item.done; check.id = `bucket-check-${item.id}`; check.setAttribute('aria-label', `${item.title}を完了にする`); check.addEventListener('change', () => { persist({ ...state, bucketList: state.bucketList.map(v => v.id === item.id ? { ...v, done: check.checked } : v) }); renderBucketList(); });
+    const copy = document.createElement('div'); copy.className = 'bucket-item-copy';
+    const title = document.createElement('label'); title.htmlFor = check.id; title.textContent = item.title;
+    const due = document.createElement('small'); const days = calculateBucketDaysUntil(item.dueDate); const dateText = new Date(`${item.dueDate}T00:00:00`).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }); due.textContent = `${dateText} ・ ${Number.isFinite(days) ? days >= 0 ? `あと${fmt(days)}日` : `期限から${fmt(Math.abs(days))}日` : '期限を確認してください'}`;
+    copy.append(title, due);
+    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-bucket'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${item.title}を削除`); remove.addEventListener('click', () => { if (confirm(`「${item.title}」を削除しますか？`) && persist({ ...state, bucketList: state.bucketList.filter(v => v.id !== item.id) })) renderBucketList(); });
+    card.append(check, copy, remove); host.append(card);
   });
 }
 function renderLogs() {
@@ -167,13 +268,24 @@ function renderDashboard() {
   write('final-assets-title', `${p.lifespan}歳時点の推定資産`);
   write('final-assets', `${fmt(m.finalAssets / 10000)}万円`);
   write('final-assets-note', m.zeroAge < p.lifespan ? `${p.lifespan}歳までに資産が尽きる可能性があります。` : '残すお金と、今楽しむお金。そのバランスを考えよう。');
-  write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 破線：健康寿命 ${p.healthspan}歳（ワクワク予算の期間目安） ／ 点線：平均寿命の目安 ${p.lifespan}歳（生活資金を確保する期限） ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
+  write('chart-legend-health', `健康寿命 ${p.healthspan}歳 ・ワクワク期間の目安`);
+  write('chart-legend-lifespan', `平均寿命 ${p.lifespan}歳 ・生活資金の期限`);
+  write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 黄色帯＋橙色マーカー：健康寿命 ${p.healthspan}歳（ワクワク予算の期間目安） ／ 赤帯＋赤マーカー：平均寿命 ${p.lifespan}歳（生活資金を確保する期限） ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
   write('snapshot-note', `資産は${new Date(p.updatedAt || p.anchor).toLocaleDateString('ja-JP')}に入力した額を現在の残高として使用。実際の増減は自動反映されません。残り日数は日付とともに更新します。生活予算・ワクワク予算は、資産・生活費・利回り・想定寿命をもとにした簡易シミュレーションです。`);
   write('summer-count', fmt(calculateRemainingEvents(days, 1)));
-  renderEvents(days); renderLogs(); requestAnimationFrame(drawChart);
+  renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderLogs(); requestAnimationFrame(drawChart);
 }
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
+$('edit-people').addEventListener('click', openForm);
+$('add-person').addEventListener('click', () => {
+  const people = [...document.querySelectorAll('#people-editor .person-row')].map(row => ({
+    id: row.dataset.id, name: row.querySelector('[name="person-name"]').value, age: Number(row.querySelector('[name="person-age"]').value), frequency: Number(row.querySelector('[name="person-frequency"]').value), period: row.querySelector('[name="person-period"]').value,
+  }));
+  people.push({ id: crypto.randomUUID(), name: '', age: state.profile?.age || 36, frequency: 1, period: 'year' });
+  renderPeopleEditor(people);
+  $('people-editor').lastElementChild?.querySelector('[name="person-name"]')?.focus();
+});
 $('dismiss-wakuwaku-intro').addEventListener('click', () => {
   if (persist({ ...state, wakuwakuIntroSeen: true })) $('wakuwaku-intro').hidden = true;
 });
@@ -192,10 +304,12 @@ $('profile-form').addEventListener('submit', event => {
     write(`error-${key}`, errors[key] || ''); event.currentTarget.elements.namedItem(key).setAttribute('aria-invalid', String(Boolean(errors[key])));
   }
   if (Object.keys(errors).length) { event.currentTarget.elements.namedItem(Object.keys(errors)[0]).focus(); return; }
+  const peopleResult = readPeopleEditor();
+  if (peopleResult.error) { notice(peopleResult.error); $('people-editor').querySelector('[name="person-name"]')?.focus(); return; }
   const now = new Date().toISOString();
   profile.anchor = state.profile?.age === profile.age ? state.profile.anchor : now;
   profile.updatedAt = now;
-  if (!persist({ ...state, profile, lastVisit: now })) return;
+  if (!persist({ ...state, profile, people: peopleResult.people, lastVisit: now })) return;
   emit('life_clock_calculated'); show('dashboard'); renderDashboard(); window.scrollTo(0, 0); $('dashboard-title').tabIndex = -1; $('dashboard-title').focus();
   notice('人生残高を保存しました。今日を、何に使おう。');
 });
@@ -213,6 +327,12 @@ $('log-form').addEventListener('submit', event => {
   }
 });
 $('more-logs').addEventListener('click', () => { logLimit += 10; renderLogs(); });
+$('bucket-date').min = new Date().toISOString().slice(0, 10);
+$('bucket-form').addEventListener('submit', event => {
+  event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate'));
+  if (!title || title.length > 120 || !/^\d{4}-\d{2}-\d{2}$/.test(dueDate) || !Number.isFinite(Date.parse(`${dueDate}T23:59:59`))) { notice('やりたいことと、正しい期限を入力してください。'); return; }
+  if (persist({ ...state, bucketList: [...state.bucketList, { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() }] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); notice('バケットリストに追加しました。'); }
+});
 function navigate() {
   const target = location.hash.slice(1);
   if (target === 'settings') show('settings');
@@ -225,7 +345,7 @@ document.querySelectorAll('[data-nav], #back-home').forEach(link => link.addEven
 }));
 $('reset').addEventListener('click', () => {
   if (!confirm('FIRE人生時計のプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
-  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 10; $('profile-form').reset(); $('event-form').reset(); $('log-form').reset(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
+  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 10; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; renderPeopleEditor(state.people); history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
   catch { notice('削除できませんでした。ブラウザのサイトデータ設定から削除してください。', true); }
 });
 $('share').addEventListener('click', async () => {
@@ -262,7 +382,7 @@ if (state.profile) {
 let resizeTimer;
 window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(drawChart, 150); });
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && state.profile) renderDashboard(); });
-setInterval(() => { if (state.profile && document.visibilityState === 'visible') renderLifeClock(); }, 1000);
+setInterval(() => { if (state.profile && document.visibilityState === 'visible') { renderLifeClock(); renderYearTime(); renderBucketList(); } }, 1000);
 window.addEventListener('storage', event => {
   if (event.key !== 'wakuwaku.life-clock.v1') return;
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
