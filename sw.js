@@ -26,7 +26,7 @@ self.addEventListener("fetch", function (event) {
   var request = event.request;
   var url = new URL(request.url);
 
-  if (request.method !== "GET" || url.origin !== self.location.origin || url.pathname.indexOf("/api/") === 0) {
+  if (request.method !== "GET" || url.origin !== self.location.origin || url.pathname.indexOf("/api/") === 0 || url.pathname.indexOf("/life-clock/") === 0) {
     return;
   }
 
