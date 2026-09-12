@@ -615,3 +615,24 @@ thumbnail text: FIRE後つまらん？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後に後悔することは？達成して初めて見える落とし穴
+
+article id: seo-026
+priority_order: 26
+公開日・時刻（JST）: 2026-09-13 07:00:00
+公開枠: 2026-09-13T07:00:00+09:00
+main keyword: FIRE後 後悔
+title: FIRE後に後悔することは？達成して初めて見える落とし穴
+slug: after-fire-koukai
+URL: https://wakuwaku-fire-git.pages.dev/articles/after-fire-koukai/
+thumbnail file: articles/after-fire-koukai/thumbnail.png
+thumbnail text: その後悔
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/lessons_learned.md, content_sources/knowledge_base/contradictions_and_updates.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

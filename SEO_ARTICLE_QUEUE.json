@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-12",
+  "updated_at": "2026-09-13",
   "items": [
     {
       "id": "seo-001",
@@ -966,7 +966,7 @@
     {
       "id": "seo-026",
       "priority_order": 26,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE後 後悔",
       "secondary_keywords": [
         "FIRE後 失敗",
@@ -989,13 +989,17 @@
       ],
       "thumbnail_text_hint": "その後悔",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/after-fire-koukai/",
+      "published_at": "2026-09-13",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-13T07:00:00+09:00",
       "stock_path": "automation/article_stock/after-fire-koukai",
-      "category": "FIRE後の暮らし・心"
+      "category": "FIRE後の暮らし・心",
+      "generated_title": "FIRE後に後悔することは？達成して初めて見える落とし穴",
+      "generated_meta_description": "FIRE後に後悔しやすいことを、生活リズム・能力低下・人との接点・資産不安から整理します。2年半ゲーム中心だった本人の経験と、その後の変化を時点つきで紹介します。",
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "その後悔"
     },
     {
       "id": "seo-027",
