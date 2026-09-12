@@ -77,6 +77,31 @@ export function calculateProjectedAssets(assets, spending, rate, years) {
 export function calculateRemainingEvents(days, frequency, period = 'year') {
   return Math.max(0, Math.floor(days / DAYS_PER_YEAR * frequency * (period === 'month' ? 12 : 1) + 1e-9));
 }
+export function calculateRemainingPersonMeetings(profile, people, healthDays, daysElapsed = 0) {
+  if (!profile || !Array.isArray(people)) return [];
+  return people.map(person => {
+    const personDays = Math.max(0, Math.ceil((profile.lifespan - person.age) * DAYS_PER_YEAR) - daysElapsed);
+    const days = Math.min(Math.max(0, healthDays), personDays);
+    return { ...person, days, count: calculateRemainingEvents(days, person.frequency, person.period) };
+  });
+}
+export function calculateYearRemaining(now = Date.now()) {
+  const current = new Date(now), nextYear = new Date(current.getFullYear() + 1, 0, 1);
+  const remainingMs = Math.max(0, nextYear.getTime() - now);
+  return { remainingMs, days: Math.ceil(remainingMs / DAY_MS), hours: Math.floor(remainingMs / 3600000), nextYear: nextYear.toISOString() };
+}
+export function calculateTrueFreeTime(remainingYears, categories) {
+  const usedHours = (Array.isArray(categories) ? categories : []).reduce((sum, category) => sum + (Number.isFinite(category.hours) ? category.hours : 0), 0);
+  const freeHours = Math.max(0, 24 - usedHours);
+  const safeYears = Math.max(0, Number.isFinite(remainingYears) ? remainingYears : 0);
+  return { usedHours, freeHours, freeYears: safeYears * freeHours / 24, oneHourGainYears: safeYears / 24 };
+}
+export function calculateBucketDaysUntil(dueDate, now = Date.now()) {
+  if (typeof dueDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(dueDate)) return NaN;
+  const due = Date.parse(`${dueDate}T23:59:59`);
+  if (!Number.isFinite(due)) return NaN;
+  return Math.ceil((due - now) / DAY_MS);
+}
 export function calculateProjection(p, daysElapsed = 0) {
   const ageNow = p.age + daysElapsed / DAYS_PER_YEAR;
   const yearsLeft = Math.max(0, p.lifespan - ageNow);
