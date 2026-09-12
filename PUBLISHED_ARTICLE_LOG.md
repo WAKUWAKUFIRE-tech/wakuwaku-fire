@@ -594,3 +594,24 @@ thumbnail text: 1億でFIRE？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIREするとつまらない？自由になっても満たされない理由
+
+article id: seo-025
+priority_order: 25
+公開日・時刻（JST）: 2026-09-12 18:00:00
+公開枠: 2026-09-12T18:00:00+09:00
+main keyword: FIRE つまらない
+title: FIREするとつまらない？自由になっても満たされない理由
+slug: fire-tsumaranai
+URL: https://wakuwaku-fire-git.pages.dev/articles/fire-tsumaranai/
+thumbnail file: articles/fire-tsumaranai/thumbnail.png
+thumbnail text: FIRE後つまらん？
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/happiness_and_life.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
