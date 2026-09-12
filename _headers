@@ -1,2 +1,13 @@
 /automation/*
   X-Robots-Tag: noindex, nofollow
+
+/life-clock/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+
+/life-clock/sw.js
+  Cache-Control: no-cache
+
+/life-clock/index.html
+  Cache-Control: no-cache
