@@ -14,13 +14,17 @@ export const createDefaultTimeCategories = () => [
   { id: 'screen', icon: '📱', name: 'スマホ・動画', hours: 3 },
   { id: 'exercise', icon: '🏃', name: '運動・健康', hours: 0.5 },
 ];
-export const emptyState = () => ({ version: 1, profile: null, events: [], eventFrequencyOverrides: {}, logs: [], lastVisit: null, lifeMode: 'average', wakuwakuIntroSeen: false, peopleDefaultsVersion: 3, people: createDefaultPeople(), timeCategories: createDefaultTimeCategories(), bucketList: [] });
+export const emptyState = () => ({ version: 1, profile: null, events: [], eventOrder: [], removedDefaultEvents: [], eventFrequencyOverrides: {}, logs: [], lastVisit: null, lifeMode: 'average', wakuwakuIntroSeen: false, peopleDefaultsVersion: 3, people: createDefaultPeople(), timeCategories: createDefaultTimeCategories(), bucketList: [] });
 export function validateState(data) {
   if (!data || data.version !== 1 || !Array.isArray(data.events) || !Array.isArray(data.logs)) throw new Error('保存データの形式を読み取れません。');
   if (data.lifeMode === undefined) data.lifeMode = 'average';
   if (!['average', 'health'].includes(data.lifeMode)) throw new Error('保存表示設定を読み取れません。');
   if (data.wakuwakuIntroSeen === undefined) data.wakuwakuIntroSeen = false;
   if (typeof data.wakuwakuIntroSeen !== 'boolean') throw new Error('保存表示設定を読み取れません。');
+  if (data.eventOrder === undefined) data.eventOrder = [];
+  if (!Array.isArray(data.eventOrder) || data.eventOrder.some(id => typeof id !== 'string')) throw new Error('保存している体験の並び順を読み取れません。');
+  if (data.removedDefaultEvents === undefined) data.removedDefaultEvents = [];
+  if (!Array.isArray(data.removedDefaultEvents) || data.removedDefaultEvents.some(id => typeof id !== 'string')) throw new Error('保存している体験の削除設定を読み取れません。');
   if (data.eventFrequencyOverrides === undefined) data.eventFrequencyOverrides = {};
   if (!data.eventFrequencyOverrides || typeof data.eventFrequencyOverrides !== 'object' || Array.isArray(data.eventFrequencyOverrides) || Object.values(data.eventFrequencyOverrides).some(value => !Number.isFinite(value) || value <= 0 || value > 1000)) throw new Error('保存している体験の回数設定を読み取れません。');
   if (data.peopleDefaultsVersion === undefined) data.peopleDefaultsVersion = 1;
@@ -58,3 +62,4 @@ export function createStorage(storage) {
     reset() { storage.removeItem(STORAGE_KEY); },
   };
 }
+
