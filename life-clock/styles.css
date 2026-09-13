@@ -83,6 +83,18 @@
 .remove-log:hover{background:#ffe9e4}
 @media(max-width:700px){.log-entry{padding-right:4.5rem}.remove-log{top:11px;padding:5px 9px;font-size:.72rem}}
 
+/* Reorderable experience cards: drag on desktop, long-press on touch screens. */
+.event-card-action{cursor:grab;user-select:none;touch-action:pan-y}
+.event-card-action:active{cursor:grabbing}
+.event-card-action.is-dragging{opacity:.58;cursor:grabbing}
+.event-card-action.is-drag-over{border-color:var(--red);box-shadow:0 0 0 3px #ba2e2326;transform:translateY(-1px)}
+.event-order-controls{display:flex;align-items:center;gap:4px;margin-left:2px}
+.event-order-control{width:30px;height:30px;min-height:30px;padding:0;border:1px solid #d7a29c;border-radius:8px;background:#fff7f4;color:var(--red);font-size:.9rem;font-weight:900;line-height:1}
+.event-order-control:hover{background:#ffe9e4}
+.event-order-control:disabled{opacity:.4;cursor:not-allowed;color:#968c82;border-color:#d8d0c7;background:#f0ede8}
+.people-add-row{display:flex;justify-content:flex-end;margin-top:14px}
+@media(max-width:700px){.event-order-controls{gap:3px;margin-left:0}.event-order-control{width:28px;height:28px;min-height:28px;font-size:.82rem}.people-add-row{justify-content:flex-start;margin-top:10px}}
+
 /* Life expectancy card: compact, dark app-like treatment inspired by the supplied mobile reference. */
 .hero-grid{grid-template-columns:1fr}
 .life-card{border:1px solid #4a3e31;border-radius:22px;padding:28px 32px;background:#211d18;color:#fffdf5;box-shadow:0 18px 45px #211d181c}
