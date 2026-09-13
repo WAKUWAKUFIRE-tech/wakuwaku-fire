@@ -191,8 +191,17 @@ function eventFrequency(event) {
 function frequencyText(frequency) {
   return Number.isInteger(frequency) ? fmt(frequency) : frequency.toFixed(1);
 }
+function eventNameKey(name) {
+  return String(name || '').trim().normalize('NFKC').toLocaleLowerCase('ja-JP');
+}
+function hasEventName(name) {
+  const key = eventNameKey(name);
+  return [...defaults, ...state.events].some(event => eventNameKey(event.name) === key);
+}
 function adjustEvent(event, delta) {
-  const current = eventFrequency(event), frequency = Math.min(1000, Math.max(1, Math.round(current + delta)));
+  const current = eventFrequency(event);
+  if ((delta < 0 && current <= 1) || (delta > 0 && current >= 1000)) return;
+  const frequency = Math.min(1000, Math.max(1, Math.round(current + delta)));
   if (!Number.isFinite(frequency) || frequency < 1 || frequency > 1000) { notice('年あたりの回数は1〜1,000回で設定してください。'); return; }
   const next = event.id?.startsWith('default-')
     ? { ...state, eventFrequencyOverrides: { ...state.eventFrequencyOverrides, [event.id]: frequency } }
@@ -202,8 +211,9 @@ function adjustEvent(event, delta) {
 function incrementEvent(event) { adjustEvent(event, 1); }
 function addEvent(name, frequency, icon = '✨') {
   if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) { notice('行動の名前と、年あたりの回数を確認してください。'); return false; }
+  if (hasEventName(name)) { notice(`「${name}」はすでに追加されています。削除すると、もう一度追加できます。`); return false; }
   const event = { id: crypto.randomUUID(), name, icon, frequency, period: 'year', unit: '回' };
-  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); emit('life_event_added'); notice(`「${name}」を追加しました。カードをタップすると年1回ずつ増やせます。`); return true; }
+  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); emit('life_event_added'); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
   return false;
 }
 function renderEventExamples() {
@@ -211,7 +221,8 @@ function renderEventExamples() {
   if (!host) return;
   host.replaceChildren();
   eventExamples.forEach(example => {
-    const button = document.createElement('button'); button.type = 'button'; button.className = 'secondary event-example'; button.textContent = `${example.icon} ${example.name}（年${frequencyText(example.frequency)}回）`;
+    const added = hasEventName(example.name);
+    const button = document.createElement('button'); button.type = 'button'; button.className = `secondary event-example${added ? ' is-added' : ''}`; button.disabled = added; button.setAttribute('aria-label', added ? `${example.name}は追加済み` : `${example.name}を追加`); button.textContent = `${example.icon} ${example.name}（年${frequencyText(example.frequency)}回）${added ? '（追加済み）' : ''}`;
     button.addEventListener('click', () => addEvent(example.name, example.frequency, example.icon)); host.append(button);
   });
 }
@@ -219,20 +230,17 @@ function renderEvents(days) {
   $('events-grid').replaceChildren();
   [...defaults, ...state.events].forEach(event => {
     const frequency = eventFrequency(event), card = document.createElement('article');
-    card.className = 'event-card event-card-action'; card.setAttribute('aria-label', `${event.name}。タップで年1回追加`);
+    card.className = 'event-card event-card-action'; card.setAttribute('aria-label', `${event.name}。年あたりの回数は増減ボタンで調整できます`);
     const title = document.createElement('h3'); title.textContent = `${event.icon || '✨'} ${event.name}`.trim();
     const detail = document.createElement('small'); detail.className = 'event-detail'; detail.textContent = `年${frequencyText(frequency)}回`;
     const count = document.createElement('p'); count.className = 'event-count'; count.append('あと ');
     const number = document.createElement('strong'); number.textContent = fmt(calculateRemainingEvents(days, frequency, 'year'));
     count.append(number, event.unit || '回');
     const actions = document.createElement('div'); actions.className = 'event-actions';
-    if (frequency > 1) {
-      const decrease = document.createElement('button'); decrease.type = 'button'; decrease.className = 'event-adjust event-decrease'; decrease.textContent = '−1回'; decrease.setAttribute('aria-label', `${event.name}を年1回減らす`); decrease.addEventListener('click', eventObject => { eventObject.stopPropagation(); adjustEvent(event, -1); }); actions.append(decrease);
-    }
+    const decrease = document.createElement('button'); decrease.type = 'button'; decrease.className = 'event-adjust event-decrease'; decrease.textContent = '−1回'; decrease.disabled = frequency <= 1; decrease.setAttribute('aria-label', `${event.name}を年1回減らす`); decrease.addEventListener('click', eventObject => { eventObject.stopPropagation(); adjustEvent(event, -1); }); actions.append(decrease);
     const increase = document.createElement('button'); increase.type = 'button'; increase.className = 'event-adjust event-increase'; increase.textContent = '＋1回'; increase.setAttribute('aria-label', `${event.name}を年1回増やす`); increase.addEventListener('click', eventObject => { eventObject.stopPropagation(); incrementEvent(event); });
-    if (frequency > 1) actions.append(increase);
+    increase.disabled = frequency >= 1000; actions.append(increase);
     card.append(title, detail, count, actions);
-    card.addEventListener('click', eventObject => { if (!eventObject.target.closest('button')) incrementEvent(event); });
     if (!event.id?.startsWith('default-')) {
       const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-event'; remove.textContent = '×'; remove.setAttribute('aria-label', `${event.name}を削除`);
       remove.addEventListener('click', eventObject => { eventObject.stopPropagation(); if (confirm(`「${event.name}」を削除しますか？`) && persist({ ...state, events: state.events.filter(value => value.id !== event.id) })) { renderEvents(days); notice('行動を削除しました。'); } });
@@ -240,6 +248,7 @@ function renderEvents(days) {
     }
     $('events-grid').append(card);
   });
+  renderEventExamples();
 }
 function renderYearTime() {
   const time = calculateYearRemaining();
@@ -324,7 +333,10 @@ function renderLogs() {
   [...state.logs].reverse().slice(0, logLimit).forEach(log => {
     const entry = document.createElement('article'); entry.className = 'log-entry';
     const date = document.createElement('time'); date.dateTime = log.date; date.textContent = new Date(log.date).toLocaleString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    const text = document.createElement('p'); text.textContent = log.text; entry.append(date, text); $('logs-list').append(entry);
+    const text = document.createElement('p'); text.textContent = log.text;
+    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-log'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${date.textContent}の人生ログを削除`);
+    remove.addEventListener('click', () => { if (confirm('この人生ログを削除しますか？') && persist({ ...state, logs: state.logs.filter(value => value.id !== log.id) })) { renderLogs(); notice('人生ログを削除しました。'); } });
+    entry.append(date, text, remove); $('logs-list').append(entry);
   });
   $('more-logs').hidden = state.logs.length <= logLimit;
 }
