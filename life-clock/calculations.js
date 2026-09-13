@@ -80,7 +80,8 @@ export function calculateRemainingEvents(days, frequency, period = 'year') {
 export function calculateRemainingPersonMeetings(profile, people, healthDays, daysElapsed = 0) {
   if (!profile || !Array.isArray(people)) return [];
   return people.map(person => {
-    const personDays = Math.max(0, Math.ceil((profile.lifespan - person.age) * DAYS_PER_YEAR) - daysElapsed);
+    const personLifespan = Number.isFinite(person.lifespan) ? person.lifespan : profile.lifespan;
+    const personDays = Math.max(0, Math.ceil((personLifespan - person.age) * DAYS_PER_YEAR) - daysElapsed);
     const days = Math.min(Math.max(0, healthDays), personDays);
     return { ...person, days, count: calculateRemainingEvents(days, person.frequency, person.period) };
   });
@@ -89,6 +90,16 @@ export function calculateYearRemaining(now = Date.now()) {
   const current = new Date(now), nextYear = new Date(current.getFullYear() + 1, 0, 1);
   const remainingMs = Math.max(0, nextYear.getTime() - now);
   return { remainingMs, days: Math.ceil(remainingMs / DAY_MS), hours: Math.floor(remainingMs / 3600000), nextYear: nextYear.toISOString() };
+}
+export function calculateYearProgress(now = Date.now()) {
+  const current = new Date(now);
+  const start = new Date(current.getFullYear(), 0, 1).getTime();
+  const nextYear = new Date(current.getFullYear() + 1, 0, 1).getTime();
+  const totalMs = Math.max(1, nextYear - start);
+  const elapsedMs = Math.min(totalMs, Math.max(0, now - start));
+  const remainingMs = Math.max(0, totalMs - elapsedMs);
+  const consumedRatio = elapsedMs / totalMs;
+  return { start, nextYear, totalMs, elapsedMs, remainingMs, consumedRatio, remainingRatio: 1 - consumedRatio, consumedPercent: consumedRatio * 100, remainingPercent: (1 - consumedRatio) * 100 };
 }
 export function calculateTrueFreeTime(remainingYears, categories) {
   const usedHours = (Array.isArray(categories) ? categories : []).reduce((sum, category) => sum + (Number.isFinite(category.hours) ? category.hours : 0), 0);
