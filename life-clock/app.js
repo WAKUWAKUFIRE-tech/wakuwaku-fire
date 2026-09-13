@@ -132,7 +132,7 @@ function renderLifeClock() {
   write('life-card-subtitle', `${p.age}歳 ・ ${m.mode === 'average' ? '平均寿命の目安' : '健康寿命の目安'} ${m.horizon}歳`);
   write('life-remaining-years', yearsDecimal.toFixed(2));
   write('life-remaining-days', `${fmt(m.days)}日`);
-  write('life-countdown-years', fmt(years)); write('life-countdown-days', fmt(days)); write('life-countdown-hours', String(hours).padStart(2, '0')); write('life-countdown-minutes', String(minutes).padStart(2, '0')); write('life-countdown-seconds', String(seconds).padStart(2, '0'));
+  write('life-countdown-days', fmt(days)); write('life-countdown-hours', String(hours).padStart(2, '0')); write('life-countdown-minutes', String(minutes).padStart(2, '0')); write('life-countdown-seconds', String(seconds).padStart(2, '0'));
   write('life-card-note', m.mode === 'average' ? `平均寿命の目安までの残り時間。健康に動ける時間は「健康寿命」で切り替えて確認できます。` : `元気にやりたいことを楽しむ期間の目安。設定はあとから自由に見直せます。`);
   const circumference = 2 * Math.PI * 99;
   const progress = Math.min(1, Math.max(0, m.days / m.totalDays));
@@ -475,3 +475,4 @@ window.addEventListener('storage', event => {
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
   catch { notice('別のタブの変更を読み込めませんでした。再読み込みしてください。', true); }
 });
+
