@@ -39,6 +39,10 @@ const eventExamples = [
   { icon: '📸', name: '家族写真を撮る', frequency: 1 },
   { icon: '🎂', name: '誕生日を祝う', frequency: 1 },
   { icon: '🎄', name: 'クリスマスを迎える', frequency: 1 },
+  { icon: '🧳', name: '国内を旅する', frequency: 2 },
+  { icon: '🍜', name: 'ラーメンをすする', frequency: 24 },
+  { icon: '☕', name: '友だちと語らう', frequency: 12 },
+  { icon: '🎨', name: '趣味に没頭する', frequency: 12 },
 ];
 const allowedEvents = new Set(['life_clock_start', 'life_clock_calculated', 'life_event_added', 'life_log_added', 'pwa_install_clicked', 'share_clicked', 'return_visit']);
 // Local extension hook only. No analytics endpoint, profile, identifiers, or log text.
