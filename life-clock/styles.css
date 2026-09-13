@@ -31,8 +31,9 @@
 .event-card-action .event-detail{grid-area:detail;color:var(--muted);font-size:.78rem}
 .event-card-action .event-count{grid-area:count;margin:0;text-align:right;white-space:nowrap;font-size:.78rem;color:var(--muted)}
 .event-card-action .event-count strong{font-size:1.85rem;color:var(--red);margin:0 4px;font-variant-numeric:tabular-nums}
-.event-add-one{grid-area:action;justify-self:end;min-height:32px;padding:3px 11px;border:1px solid #d7a29c;border-radius:999px;background:#fff7f4;color:var(--red);font-size:.75rem;font-weight:800}
-.event-add-one:hover{background:#ffe9e4}
+.event-actions{grid-area:action;display:flex;justify-content:flex-end;gap:6px;min-height:32px}
+.event-adjust{min-height:32px;padding:3px 9px;border:1px solid #d7a29c;border-radius:999px;background:#fff7f4;color:var(--red);font-size:.72rem;font-weight:800;white-space:nowrap}
+.event-adjust:hover{background:#ffe9e4}
 .remove-event{z-index:1}
 .event-add-panel{margin-top:16px}
 .event-form{grid-template-columns:minmax(0,1fr) minmax(150px,.45fr) auto}
