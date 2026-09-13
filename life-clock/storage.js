@@ -3,6 +3,7 @@ export const STORAGE_KEY = 'wakuwaku.life-clock.v1';
 export const createDefaultPeople = (age = 36) => [
   { id: 'person-mother', name: '母親', age: 65, lifespan: 87, frequency: 2, period: 'year' },
   { id: 'person-father', name: '父親', age: 65, lifespan: 81, frequency: 2, period: 'year' },
+  { id: 'person-friend', name: '親友', age, lifespan: 88, frequency: 3, period: 'year' },
 ];
 export const createDefaultTimeCategories = () => [
   { id: 'sleep', icon: '🛏️', name: '睡眠', hours: 8.5 },
@@ -13,7 +14,7 @@ export const createDefaultTimeCategories = () => [
   { id: 'screen', icon: '📱', name: 'スマホ・動画', hours: 3 },
   { id: 'exercise', icon: '🏃', name: '運動・健康', hours: 0.5 },
 ];
-export const emptyState = () => ({ version: 1, profile: null, events: [], eventFrequencyOverrides: {}, logs: [], lastVisit: null, lifeMode: 'average', wakuwakuIntroSeen: false, people: createDefaultPeople(), timeCategories: createDefaultTimeCategories(), bucketList: [] });
+export const emptyState = () => ({ version: 1, profile: null, events: [], eventFrequencyOverrides: {}, logs: [], lastVisit: null, lifeMode: 'average', wakuwakuIntroSeen: false, peopleDefaultsVersion: 2, people: createDefaultPeople(), timeCategories: createDefaultTimeCategories(), bucketList: [] });
 export function validateState(data) {
   if (!data || data.version !== 1 || !Array.isArray(data.events) || !Array.isArray(data.logs)) throw new Error('保存データの形式を読み取れません。');
   if (data.lifeMode === undefined) data.lifeMode = 'average';
@@ -22,10 +23,18 @@ export function validateState(data) {
   if (typeof data.wakuwakuIntroSeen !== 'boolean') throw new Error('保存表示設定を読み取れません。');
   if (data.eventFrequencyOverrides === undefined) data.eventFrequencyOverrides = {};
   if (!data.eventFrequencyOverrides || typeof data.eventFrequencyOverrides !== 'object' || Array.isArray(data.eventFrequencyOverrides) || Object.values(data.eventFrequencyOverrides).some(value => !Number.isFinite(value) || value <= 0 || value > 1000)) throw new Error('保存している体験の回数設定を読み取れません。');
+  if (data.peopleDefaultsVersion === undefined) data.peopleDefaultsVersion = 1;
+  if (!Number.isInteger(data.peopleDefaultsVersion) || data.peopleDefaultsVersion < 1 || data.peopleDefaultsVersion > 2) throw new Error('保存している大切な人の設定バージョンを読み取れません。');
   if (data.people === undefined) data.people = createDefaultPeople(data.profile?.age ?? 36);
   if (!Array.isArray(data.people)) throw new Error('保存している大切な人の設定を読み取れません。');
   const legacyDefaultPeople = data.people.length === 2 && data.people.every(person => ['person-parent', 'person-friend'].includes(person.id) || ['親', '親友'].includes(person.name));
+  const defaultMotherFatherOnly = data.people.length === 2
+    && data.people.some(person => person.id === 'person-mother' || person.name === '母親')
+    && data.people.some(person => person.id === 'person-father' || person.name === '父親')
+    && !data.people.some(person => person.id === 'person-friend' || person.name === '親友');
   if (legacyDefaultPeople) data.people = createDefaultPeople(data.profile?.age ?? 36);
+  else if (data.peopleDefaultsVersion < 2 && defaultMotherFatherOnly) data.people = [...data.people, createDefaultPeople(data.profile?.age ?? 36).find(person => person.id === 'person-friend')];
+  data.peopleDefaultsVersion = 2;
   data.people = data.people.map(person => {
     const frequency = person.period === 'month' ? person.frequency * 12 : person.frequency;
     const fallbackLifespan = Number.isFinite(data.profile?.lifespan) ? data.profile.lifespan : Math.min(130, Math.max(person.age + 1, 88));
