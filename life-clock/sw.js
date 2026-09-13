@@ -1,6 +1,6 @@
 /* App-specific scope and cache: never intercept the homepage or FIRE QUEST. */
 // Bump this version whenever a shell asset changes; waiting updates activate after old tabs close.
-const CACHE = 'fire-life-clock-shell-20260913-5';
+const CACHE = 'fire-life-clock-shell-20260913-6';
 const ROOT = '/life-clock/';
 const SHELL = [ROOT, `${ROOT}index.html`, `${ROOT}styles.css`, `${ROOT}app.js`, `${ROOT}calculations.js`, `${ROOT}storage.js`, `${ROOT}manifest.webmanifest`, `${ROOT}icon.svg`, `${ROOT}icon-192.png`, `${ROOT}icon-512.png`, `${ROOT}icon-maskable.png`, `${ROOT}apple-touch-icon.png`];
 self.addEventListener('install', event => { self.skipWaiting(); event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL))); });
