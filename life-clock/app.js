@@ -455,7 +455,7 @@ $('install').addEventListener('click', async () => {
   try { await installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; write('install', '追加方法を見る ＋'); }
   catch { notice(installHelp()); }
 });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/life-clock/sw.js', { scope: '/life-clock/' }).catch(() => notice('オフライン用の準備ができませんでした。オンラインで再度開いてください。', true));
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/life-clock/sw-v6.js', { scope: '/life-clock/' }).catch(() => notice('オフライン用の準備ができませんでした。オンラインで再度開いてください。', true));
 renderEventExamples();
 if (state.profile) {
   const daysAway = state.lastVisit ? elapsedDays(state.lastVisit) : 0;
