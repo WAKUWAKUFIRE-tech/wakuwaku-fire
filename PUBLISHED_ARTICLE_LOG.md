@@ -636,3 +636,24 @@ thumbnail text: その後悔
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後は孤独になりやすい？会社を辞めると失いやすいもの
+
+article id: seo-027
+priority_order: 27
+公開日・時刻（JST）: 2026-09-13 18:00:00
+公開枠: 2026-09-13T18:00:00+09:00
+main keyword: FIRE後 孤独
+title: FIRE後は孤独になりやすい？会社を辞めると失いやすいもの
+slug: after-fire-kodoku
+URL: https://wakuwaku-fire-git.pages.dev/articles/after-fire-kodoku/
+thumbnail file: articles/after-fire-kodoku/thumbnail.png
+thumbnail text: FIRE後は孤独？
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/family_and_fire.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

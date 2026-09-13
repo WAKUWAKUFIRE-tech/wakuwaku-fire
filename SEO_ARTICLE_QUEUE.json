@@ -1004,7 +1004,7 @@
     {
       "id": "seo-027",
       "priority_order": 27,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE後 孤独",
       "secondary_keywords": [
         "FIRE 孤独",
@@ -1027,13 +1027,17 @@
       ],
       "thumbnail_text_hint": "FIRE後は孤独？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/after-fire-kodoku/",
+      "published_at": "2026-09-13",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "18:00:00",
+      "published_slot": "2026-09-13T18:00:00+09:00",
       "stock_path": "automation/article_stock/after-fire-kodoku",
-      "category": "FIRE後の暮らし・心"
+      "category": "FIRE後の暮らし・心",
+      "generated_title": "FIRE後は孤独になりやすい？会社を辞めると失いやすいもの",
+      "generated_meta_description": "FIRE後に孤独を感じる理由を、会社がくれていた会話・役割・生活リズムの変化から考えます。コミュニティを作った本人の経験をもとに、一人の自由との違いを整理します。",
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "FIRE後は孤独？"
     },
     {
       "id": "seo-028",
