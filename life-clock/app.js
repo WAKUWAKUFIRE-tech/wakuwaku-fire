@@ -194,9 +194,37 @@ function frequencyText(frequency) {
 function eventNameKey(name) {
   return String(name || '').trim().normalize('NFKC').toLocaleLowerCase('ja-JP');
 }
+function activeDefaults() {
+  const removed = new Set(state.removedDefaultEvents || []);
+  return defaults.filter(event => !removed.has(event.id));
+}
+function activeEvents() {
+  return [...activeDefaults(), ...state.events];
+}
+function orderedEvents() {
+  const active = activeEvents(), byId = new Map(active.map(event => [event.id, event]));
+  const ordered = [], seen = new Set();
+  for (const id of state.eventOrder || []) {
+    const event = byId.get(id);
+    if (event && !seen.has(id)) { ordered.push(event); seen.add(id); }
+  }
+  for (const event of active) if (!seen.has(event.id)) { ordered.push(event); seen.add(event.id); }
+  return ordered;
+}
+function saveEventOrder(ids) {
+  const valid = new Set(activeEvents().map(event => event.id));
+  const order = ids.filter(id => valid.has(id));
+  if (persist({ ...state, eventOrder: order })) { renderEvents(metrics().days); notice('並び順を保存しました。'); }
+}
+function moveEvent(eventId, delta) {
+  const ids = orderedEvents().map(event => event.id), index = ids.indexOf(eventId), target = index + delta;
+  if (index < 0 || target < 0 || target >= ids.length) return;
+  [ids[index], ids[target]] = [ids[target], ids[index]];
+  saveEventOrder(ids);
+}
 function hasEventName(name) {
   const key = eventNameKey(name);
-  return [...defaults, ...state.events].some(event => eventNameKey(event.name) === key);
+  return activeEvents().some(event => eventNameKey(event.name) === key);
 }
 function adjustEvent(event, delta) {
   const current = eventFrequency(event);
@@ -227,10 +255,12 @@ function renderEventExamples() {
   });
 }
 function renderEvents(days) {
-  $('events-grid').replaceChildren();
-  [...defaults, ...state.events].forEach(event => {
+  const host = $('events-grid');
+  host.replaceChildren();
+  const events = orderedEvents();
+  events.forEach((event, index) => {
     const frequency = eventFrequency(event), card = document.createElement('article');
-    card.className = 'event-card event-card-action'; card.setAttribute('aria-label', `${event.name}。年あたりの回数は増減ボタンで調整できます`);
+    card.className = 'event-card event-card-action'; card.draggable = true; card.dataset.eventId = event.id; card.setAttribute('aria-label', `${event.name}。年あたりの回数は増減ボタンで調整できます。ドラッグ（スマホは長押し）または上下ボタンで並び替えできます`);
     const title = document.createElement('h3'); title.textContent = `${event.icon || '✨'} ${event.name}`.trim();
     const detail = document.createElement('small'); detail.className = 'event-detail'; detail.textContent = `年${frequencyText(frequency)}回`;
     const count = document.createElement('p'); count.className = 'event-count'; count.append('あと ');
@@ -240,13 +270,60 @@ function renderEvents(days) {
     const decrease = document.createElement('button'); decrease.type = 'button'; decrease.className = 'event-adjust event-decrease'; decrease.textContent = '−1回'; decrease.disabled = frequency <= 1; decrease.setAttribute('aria-label', `${event.name}を年1回減らす`); decrease.addEventListener('click', eventObject => { eventObject.stopPropagation(); adjustEvent(event, -1); }); actions.append(decrease);
     const increase = document.createElement('button'); increase.type = 'button'; increase.className = 'event-adjust event-increase'; increase.textContent = '＋1回'; increase.setAttribute('aria-label', `${event.name}を年1回増やす`); increase.addEventListener('click', eventObject => { eventObject.stopPropagation(); incrementEvent(event); });
     increase.disabled = frequency >= 1000; actions.append(increase);
+    const orderControls = document.createElement('div'); orderControls.className = 'event-order-controls';
+    const up = document.createElement('button'); up.type = 'button'; up.className = 'event-order-control'; up.textContent = '↑'; up.disabled = index === 0; up.setAttribute('aria-label', `${event.name}を上へ移動`); up.addEventListener('click', eventObject => { eventObject.stopPropagation(); moveEvent(event.id, -1); });
+    const down = document.createElement('button'); down.type = 'button'; down.className = 'event-order-control'; down.textContent = '↓'; down.disabled = index === events.length - 1; down.setAttribute('aria-label', `${event.name}を下へ移動`); down.addEventListener('click', eventObject => { eventObject.stopPropagation(); moveEvent(event.id, 1); });
+    orderControls.append(up, down); actions.append(orderControls);
     card.append(title, detail, count, actions);
-    if (!event.id?.startsWith('default-')) {
-      const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-event'; remove.textContent = '×'; remove.setAttribute('aria-label', `${event.name}を削除`);
-      remove.addEventListener('click', eventObject => { eventObject.stopPropagation(); if (confirm(`「${event.name}」を削除しますか？`) && persist({ ...state, events: state.events.filter(value => value.id !== event.id) })) { renderEvents(days); notice('行動を削除しました。'); } });
-      card.append(remove);
-    }
-    $('events-grid').append(card);
+    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-event'; remove.textContent = '×'; remove.setAttribute('aria-label', `${event.name}を削除`);
+    remove.addEventListener('click', eventObject => {
+      eventObject.stopPropagation();
+      if (!confirm(`「${event.name}」を削除しますか？`)) return;
+      const next = event.id?.startsWith('default-')
+        ? { ...state, removedDefaultEvents: [...new Set([...(state.removedDefaultEvents || []), event.id])], eventOrder: (state.eventOrder || []).filter(id => id !== event.id) }
+        : { ...state, events: state.events.filter(value => value.id !== event.id), eventOrder: (state.eventOrder || []).filter(id => id !== event.id) };
+      if (persist(next)) { renderEvents(days); notice('行動を削除しました。'); }
+    });
+    card.append(remove);
+
+    card.addEventListener('dragstart', eventObject => {
+      if (!eventObject.dataTransfer) return;
+      eventObject.dataTransfer.effectAllowed = 'move'; eventObject.dataTransfer.setData('text/plain', event.id); card.classList.add('is-dragging');
+    });
+    card.addEventListener('dragend', () => { card.classList.remove('is-dragging'); host.querySelectorAll('.event-card').forEach(value => value.classList.remove('is-drag-over')); });
+    card.addEventListener('dragover', eventObject => { eventObject.preventDefault(); if (eventObject.dataTransfer) eventObject.dataTransfer.dropEffect = 'move'; if (!card.classList.contains('is-dragging')) card.classList.add('is-drag-over'); });
+    card.addEventListener('dragleave', () => card.classList.remove('is-drag-over'));
+    card.addEventListener('drop', eventObject => {
+      eventObject.preventDefault(); card.classList.remove('is-drag-over');
+      const id = eventObject.dataTransfer?.getData('text/plain'), source = [...host.querySelectorAll('.event-card')].find(value => value.dataset.eventId === id);
+      if (!source || source === card) return;
+      const rect = card.getBoundingClientRect();
+      if (eventObject.clientY > rect.top + rect.height / 2) card.after(source); else card.before(source);
+      saveEventOrder([...host.querySelectorAll('.event-card')].map(value => value.dataset.eventId));
+    });
+
+    let longPressTimer = null, pressY = 0, touchReordering = false;
+    const cancelLongPress = () => { if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; } };
+    card.addEventListener('pointerdown', eventObject => {
+      if (eventObject.pointerType !== 'touch' || eventObject.target.closest('button')) return;
+      pressY = eventObject.clientY;
+      longPressTimer = setTimeout(() => { touchReordering = true; card.classList.add('is-dragging'); card.setPointerCapture?.(eventObject.pointerId); notice('長押し中です。指を上下に動かして並び替えます。'); }, 520);
+    });
+    card.addEventListener('pointermove', eventObject => {
+      if (!touchReordering || eventObject.pointerType !== 'touch') { if (longPressTimer && Math.abs(eventObject.clientY - pressY) > 12) cancelLongPress(); return; }
+      eventObject.preventDefault();
+      const target = [...host.querySelectorAll('.event-card')].find(value => { if (value === card) return false; const rect = value.getBoundingClientRect(); return eventObject.clientY >= rect.top && eventObject.clientY <= rect.bottom; });
+      if (target) { const rect = target.getBoundingClientRect(); if (eventObject.clientY > rect.top + rect.height / 2) target.after(card); else target.before(card); }
+    });
+    const finishTouchReorder = eventObject => {
+      cancelLongPress();
+      if (!touchReordering || eventObject.pointerType !== 'touch') return;
+      touchReordering = false; card.classList.remove('is-dragging');
+      if (card.hasPointerCapture?.(eventObject.pointerId)) card.releasePointerCapture(eventObject.pointerId);
+      saveEventOrder([...host.querySelectorAll('.event-card')].map(value => value.dataset.eventId));
+    };
+    card.addEventListener('pointerup', finishTouchReorder); card.addEventListener('pointercancel', finishTouchReorder);
+    host.append(card);
   });
   renderEventExamples();
 }
