@@ -63,7 +63,12 @@
             <div class="life-tabs" role="tablist" aria-label="表示する寿命"><button id="life-mode-average" type="button" role="tab" aria-selected="true" aria-controls="life-meter">平均寿命</button><button id="life-mode-health" type="button" role="tab" aria-selected="false" aria-controls="life-meter">健康寿命</button></div>
             <div id="life-meter" class="life-meter" role="tabpanel" tabindex="-1" aria-live="polite">
               <div class="life-ring"><svg viewBox="0 0 240 240" aria-hidden="true"><circle class="life-ring-track" cx="120" cy="120" r="99"></circle><circle id="life-ring-progress" class="life-ring-progress" cx="120" cy="120" r="99"></circle></svg><div class="life-ring-value"><strong id="life-remaining-years">—</strong><span>年</span><small id="life-remaining-days">—</small></div></div>
-              <div class="life-countdown" aria-label="残り時間のカウントダウン"><div><strong id="life-countdown-years">—</strong><span>年</span></div><b>:</b><div><strong id="life-countdown-days">—</strong><span>日</span></div><b>:</b><div><strong id="life-countdown-hours">—</strong><span>時</span></div><b>:</b><div><strong id="life-countdown-minutes">—</strong><span>分</span></div><b>:</b><div><strong id="life-countdown-seconds">—</strong><span>秒</span></div></div>
+              <div class="life-subcount-grid" aria-label="年を除く残り時間のカウントダウン">
+                <div class="life-subcount-card"><strong id="life-countdown-days">—</strong><span>日</span></div>
+                <div class="life-subcount-card"><strong id="life-countdown-hours">—</strong><span>時</span></div>
+                <div class="life-subcount-card"><strong id="life-countdown-minutes">—</strong><span>分</span></div>
+                <div class="life-subcount-card"><strong id="life-countdown-seconds">—</strong><span>秒</span></div>
+              </div>
               <p id="life-card-note" class="life-card-note"></p>
             </div>
           </article>
@@ -118,3 +123,4 @@
   </main>
   <nav id="bottom-nav" class="bottom-nav" aria-label="アプリナビゲーション" hidden><a href="#home" data-nav="home"><span aria-hidden="true">◷</span>ホーム</a><a href="#assets" data-nav="assets"><span aria-hidden="true">▥</span>資産</a><a href="#bucket" data-nav="bucket"><span aria-hidden="true">✓</span>リスト</a><a href="#settings" data-nav="settings"><span aria-hidden="true">⚙</span>設定</a></nav>
 </body></html>
+
