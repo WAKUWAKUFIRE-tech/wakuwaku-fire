@@ -657,3 +657,24 @@ thumbnail text: FIRE後は孤独？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後の人間関係はどう変わる？友達・家族・社会との距離感
+
+article id: seo-028
+priority_order: 28
+公開日・時刻（JST）: 2026-09-14 07:00:00
+公開枠: 2026-09-14T07:00:00+09:00
+main keyword: FIRE後 人間関係
+title: FIRE後の人間関係はどう変わる？友達・家族・社会との距離感
+slug: after-fire-relationships
+URL: https://wakuwaku-fire-git.pages.dev/articles/after-fire-relationships/
+thumbnail file: articles/after-fire-relationships/thumbnail.png
+thumbnail text: 人間関係どう？
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/family_and_fire.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
