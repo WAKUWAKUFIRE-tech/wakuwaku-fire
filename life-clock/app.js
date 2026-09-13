@@ -12,18 +12,33 @@ const defaults = [
   { id: 'default-ramen', icon: '🍜', name: 'ラーメンをすする', frequency: 24, period: 'year', unit: '回' },
 ];
 const eventExamples = [
-  { icon: '🌸', name: '桜を見に行く', frequency: 1 },
-  { icon: '🎍', name: '初日の出を見る', frequency: 1 },
-  { icon: '🎆', name: '花火を眺める', frequency: 1 },
-  { icon: '🍁', name: '紅葉を歩く', frequency: 1 },
-  { icon: '🌕', name: '満月を眺める', frequency: 12 },
-  { icon: '🧳', name: '国内を旅する', frequency: 2 },
-  { icon: '♨️', name: '温泉につかる', frequency: 2 },
-  { icon: '🍜', name: 'ラーメンをすする', frequency: 24 },
+  { icon: '🌅', name: '初日の出を見る', frequency: 1 },
+  { icon: '🎍', name: '正月を迎える', frequency: 1 },
+  { icon: '🌸', name: '桜を見る', frequency: 1 },
+  { icon: '🌕', name: '満月を見る', frequency: 12 },
+  { icon: '🍁', name: '紅葉を見る', frequency: 1 },
+  { icon: '🎆', name: '花火を見る', frequency: 2 },
+  { icon: '❄️', name: '雪を見る', frequency: 1 },
+  { icon: '🌊', name: '海へ行く', frequency: 4 },
+  { icon: '♨️', name: '温泉に入る', frequency: 4 },
+  { icon: '🏕️', name: 'キャンプに行く', frequency: 3 },
+  { icon: '🚄', name: '遠くへ旅する', frequency: 2 },
+  { icon: '✈️', name: '海外へ行く', frequency: 2 },
+  { icon: '☕', name: 'お気に入りの店に行く', frequency: 12 },
+  { icon: '🍣', name: '寿司を食べる', frequency: 6 },
+  { icon: '🍰', name: 'ケーキを食べる', frequency: 6 },
+  { icon: '🍺', name: '親友と乾杯する', frequency: 3 },
+  { icon: '🎬', name: '映画館へ行く', frequency: 6 },
+  { icon: '🎵', name: 'ライブに行く', frequency: 2 },
+  { icon: '⚾', name: 'スポーツ観戦する', frequency: 4 },
+  { icon: '📚', name: '本を読み終える', frequency: 12 },
+  { icon: '🎮', name: '新しいゲームを遊ぶ', frequency: 4 },
+  { icon: '🚶', name: '散歩する', frequency: 104 },
+  { icon: '🚲', name: '自転車で出かける', frequency: 24 },
+  { icon: '👨‍👩‍👧', name: '家族旅行に行く', frequency: 1 },
+  { icon: '📸', name: '家族写真を撮る', frequency: 1 },
   { icon: '🎂', name: '誕生日を祝う', frequency: 1 },
-  { icon: '☕', name: '友だちと語らう', frequency: 12 },
-  { icon: '📚', name: '好きな本を読む', frequency: 24 },
-  { icon: '🎨', name: '趣味に没頭する', frequency: 12 },
+  { icon: '🎄', name: 'クリスマスを迎える', frequency: 1 },
 ];
 const allowedEvents = new Set(['life_clock_start', 'life_clock_calculated', 'life_event_added', 'life_log_added', 'pwa_install_clicked', 'share_clicked', 'return_visit']);
 // Local extension hook only. No analytics endpoint, profile, identifiers, or log text.
@@ -172,14 +187,15 @@ function eventFrequency(event) {
 function frequencyText(frequency) {
   return Number.isInteger(frequency) ? fmt(frequency) : frequency.toFixed(1);
 }
-function incrementEvent(event) {
-  const current = eventFrequency(event), frequency = Math.round((current + 1) * 10) / 10;
-  if (!Number.isFinite(frequency) || frequency > 1000) { notice('年あたりの回数は1,000回までです。'); return; }
+function adjustEvent(event, delta) {
+  const current = eventFrequency(event), frequency = Math.min(1000, Math.max(1, Math.round(current + delta)));
+  if (!Number.isFinite(frequency) || frequency < 1 || frequency > 1000) { notice('年あたりの回数は1〜1,000回で設定してください。'); return; }
   const next = event.id?.startsWith('default-')
     ? { ...state, eventFrequencyOverrides: { ...state.eventFrequencyOverrides, [event.id]: frequency } }
     : { ...state, events: state.events.map(value => value.id === event.id ? { ...value, frequency, period: 'year' } : value) };
-  if (persist(next)) { renderEvents(metrics().days); notice(`「${event.name}」を年${frequencyText(frequency)}回に増やしました。`); }
+  if (persist(next)) { renderEvents(metrics().days); notice(`「${event.name}」を年${frequencyText(frequency)}回に${delta < 0 ? '減らしました' : '増やしました'}。`); }
 }
+function incrementEvent(event) { adjustEvent(event, 1); }
 function addEvent(name, frequency, icon = '✨') {
   if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) { notice('行動の名前と、年あたりの回数を確認してください。'); return false; }
   const event = { id: crypto.randomUUID(), name, icon, frequency, period: 'year', unit: '回' };
@@ -205,8 +221,13 @@ function renderEvents(days) {
     const count = document.createElement('p'); count.className = 'event-count'; count.append('あと ');
     const number = document.createElement('strong'); number.textContent = fmt(calculateRemainingEvents(days, frequency, 'year'));
     count.append(number, event.unit || '回');
-    const action = document.createElement('button'); action.type = 'button'; action.className = 'event-add-one'; action.textContent = '＋1回'; action.setAttribute('aria-label', `${event.name}を年1回増やす`); action.addEventListener('click', eventObject => { eventObject.stopPropagation(); incrementEvent(event); });
-    card.append(title, detail, count, action);
+    const actions = document.createElement('div'); actions.className = 'event-actions';
+    if (frequency > 1) {
+      const decrease = document.createElement('button'); decrease.type = 'button'; decrease.className = 'event-adjust event-decrease'; decrease.textContent = '−1回'; decrease.setAttribute('aria-label', `${event.name}を年1回減らす`); decrease.addEventListener('click', eventObject => { eventObject.stopPropagation(); adjustEvent(event, -1); }); actions.append(decrease);
+    }
+    const increase = document.createElement('button'); increase.type = 'button'; increase.className = 'event-adjust event-increase'; increase.textContent = '＋1回'; increase.setAttribute('aria-label', `${event.name}を年1回増やす`); increase.addEventListener('click', eventObject => { eventObject.stopPropagation(); incrementEvent(event); });
+    if (frequency > 1) actions.append(increase);
+    card.append(title, detail, count, actions);
     card.addEventListener('click', eventObject => { if (!eventObject.target.closest('button')) incrementEvent(event); });
     if (!event.id?.startsWith('default-')) {
       const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-event'; remove.textContent = '×'; remove.setAttribute('aria-label', `${event.name}を削除`);
@@ -224,14 +245,12 @@ function renderYearTime() {
   write('year-remaining-days', fmt(time.days));
   write('year-remaining-hours', fmt(Math.floor(time.remainingMs / 3600000)));
   write('year-remaining-minutes', String(Math.floor(time.remainingMs % 3600000 / 60000)).padStart(2, '0'));
-  write('year-consumed-rate', `${progress.consumedPercent.toFixed(1)}%`);
-  const remainingLabel = `残り${progress.remainingPercent.toFixed(1)}%`;
-  write('year-days-progress-label', `あと ${fmt(time.days)}日 ・ ${remainingLabel}`);
-  write('year-hours-progress-label', `あと ${fmt(Math.floor(time.remainingMs / 3600000))}時間 ・ ${remainingLabel}`);
-  for (const [id, label] of [['year-days-progress-fill', 'あと何日'], ['year-hours-progress-fill', 'あと何時間']]) {
-    const fill = $(id); if (!fill) continue;
+  write('year-remaining-rate', `${progress.remainingPercent.toFixed(1)}%`);
+  write('year-progress-label', `残り${progress.remainingPercent.toFixed(1)}%`);
+  const fill = $('year-progress-fill');
+  if (fill) {
     fill.style.width = `${(progress.remainingRatio * 100).toFixed(2)}%`;
-    const track = fill.parentElement; track.setAttribute('aria-valuenow', progress.remainingPercent.toFixed(1)); track.setAttribute('aria-valuetext', `${label} ${progress.remainingPercent.toFixed(1)}%`);
+    const track = fill.parentElement; track.setAttribute('aria-valuenow', progress.remainingPercent.toFixed(1)); track.setAttribute('aria-valuetext', `今年の残存率 ${progress.remainingPercent.toFixed(1)}%`);
   }
 }
 function updateTimeCategory(id, delta) {
