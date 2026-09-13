@@ -1,15 +1,29 @@
-import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents, calculateRemainingPersonMeetings, calculateYearRemaining, calculateTrueFreeTime, calculateBucketDaysUntil } from './calculations.js';
-import { createStorage, emptyState, createDefaultPeople, createDefaultTimeCategories } from './storage.js';
+import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents, calculateRemainingPersonMeetings, calculateYearRemaining, calculateYearProgress, calculateTrueFreeTime, calculateBucketDaysUntil } from './calculations.js';
+import { createStorage, emptyState } from './storage.js';
 
 const $ = id => document.getElementById(id);
 const nf = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 0 });
 const fmt = n => nf.format(n);
 const write = (id, text) => { $(id).textContent = text; };
 const defaults = [
-  { name: '🌸 桜を見る', frequency: 1, period: 'year', unit: '回' },
-  { name: '🎂 誕生日', frequency: 1, period: 'year', unit: '回' },
-  { name: '✈ 年2回の旅行', frequency: 2, period: 'year', unit: '回' },
-  { name: '🍜 月2回のラーメン', frequency: 2, period: 'month', unit: '杯' },
+  { id: 'default-sakura', icon: '🌸', name: '桜を見に行く', frequency: 1, period: 'year', unit: '回' },
+  { id: 'default-birthday', icon: '🎂', name: '誕生日を祝う', frequency: 1, period: 'year', unit: '回' },
+  { id: 'default-trip', icon: '✈️', name: '旅行に出る', frequency: 2, period: 'year', unit: '回' },
+  { id: 'default-ramen', icon: '🍜', name: 'ラーメンをすする', frequency: 24, period: 'year', unit: '回' },
+];
+const eventExamples = [
+  { icon: '🌸', name: '桜を見に行く', frequency: 1 },
+  { icon: '🎍', name: '初日の出を見る', frequency: 1 },
+  { icon: '🎆', name: '花火を眺める', frequency: 1 },
+  { icon: '🍁', name: '紅葉を歩く', frequency: 1 },
+  { icon: '🌕', name: '満月を眺める', frequency: 12 },
+  { icon: '🧳', name: '国内を旅する', frequency: 2 },
+  { icon: '♨️', name: '温泉につかる', frequency: 2 },
+  { icon: '🍜', name: 'ラーメンをすする', frequency: 24 },
+  { icon: '🎂', name: '誕生日を祝う', frequency: 1 },
+  { icon: '☕', name: '友だちと語らう', frequency: 12 },
+  { icon: '📚', name: '好きな本を読む', frequency: 24 },
+  { icon: '🎨', name: '趣味に没頭する', frequency: 12 },
 ];
 const allowedEvents = new Set(['life_clock_start', 'life_clock_calculated', 'life_event_added', 'life_log_added', 'pwa_install_clicked', 'share_clicked', 'return_visit']);
 // Local extension hook only. No analytics endpoint, profile, identifiers, or log text.
@@ -37,35 +51,36 @@ function show(view) {
 function openForm() {
   const p = state.profile;
   if (p) for (const key of ['age', 'assets', 'spending', 'rate', 'lifespan', 'healthspan']) $('profile-form').elements.namedItem(key).value = p[key] / (['assets', 'spending'].includes(key) ? 10000 : 1);
-  renderPeopleEditor(state.people?.length ? state.people : createDefaultPeople(p?.age || 36));
   show('setup'); $('setup-title').tabIndex = -1; $('setup-title').focus(); window.scrollTo(0, 0);
 }
-function renderPeopleEditor(people) {
-  const host = $('people-editor');
-  if (!host) return;
-  host.replaceChildren();
-  (Array.isArray(people) ? people : createDefaultPeople()).forEach(person => {
-    const row = document.createElement('div'); row.className = 'person-row'; row.dataset.id = person.id || crypto.randomUUID();
-    row.innerHTML = '<label>相手の名前<input name="person-name" maxlength="50" placeholder="親、親友、恩師…" required></label><label>相手の年齢<span class="input-unit"><input name="person-age" type="number" inputmode="numeric" min="0" max="130" step="1" required><span>歳</span></span></label><label>会う頻度<span class="input-unit"><input name="person-frequency" type="number" inputmode="decimal" min="0.01" max="1000" step="any" required><span>回</span></span></label><label>期間<select name="person-period"><option value="year">年に</option><option value="month">月に</option></select></label><button type="button" class="remove-person" aria-label="この人を削除">削除</button>';
-    row.querySelector('[name="person-name"]').value = person.name || '';
-    row.querySelector('[name="person-age"]').value = Number.isFinite(person.age) ? person.age : 36;
-    row.querySelector('[name="person-frequency"]').value = Number.isFinite(person.frequency) ? person.frequency : 1;
-    row.querySelector('[name="person-period"]').value = person.period === 'month' ? 'month' : 'year';
-    row.querySelector('.remove-person').addEventListener('click', () => row.remove());
-    host.append(row);
-  });
+function closePeopleForm() {
+  const form = $('people-form');
+  if (!form) return;
+  form.hidden = true;
+  form.reset();
+  form.dataset.editingId = '';
+  $('toggle-people-form')?.setAttribute('aria-expanded', 'false');
 }
-function readPeopleEditor() {
-  const people = [];
-  for (const row of document.querySelectorAll('[data-person-row], #people-editor .person-row')) {
-    const name = row.querySelector('[name="person-name"]').value.trim();
-    const age = Number(row.querySelector('[name="person-age"]').value);
-    const frequency = Number(row.querySelector('[name="person-frequency"]').value);
-    const period = row.querySelector('[name="person-period"]').value;
-    if (!name || name.length > 50 || !Number.isFinite(age) || age < 0 || age > 130 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000 || !['month', 'year'].includes(period)) return { error: '大切な人の名前・年齢・会う頻度を確認してください。' };
-    people.push({ id: row.dataset.id || crypto.randomUUID(), name, age, frequency, period });
-  }
-  return { people };
+function openPeopleForm(person = null) {
+  const form = $('people-form');
+  if (!form) return;
+  form.hidden = false;
+  form.dataset.editingId = person?.id || '';
+  form.elements.namedItem('person-name').value = person?.name || '';
+  form.elements.namedItem('person-age').value = Number.isFinite(person?.age) ? person.age : (state.profile?.age || 36);
+  form.elements.namedItem('person-lifespan').value = Number.isFinite(person?.lifespan) ? person.lifespan : (state.profile?.lifespan || 88);
+  form.elements.namedItem('person-frequency').value = Number.isFinite(person?.frequency) ? person.frequency : 1;
+  $('toggle-people-form')?.setAttribute('aria-expanded', 'true');
+  form.elements.namedItem('person-name').focus();
+}
+function readPeopleForm() {
+  const form = $('people-form');
+  const name = String(form.elements.namedItem('person-name').value).trim();
+  const age = Number(form.elements.namedItem('person-age').value);
+  const lifespan = Number(form.elements.namedItem('person-lifespan').value);
+  const frequency = Number(form.elements.namedItem('person-frequency').value);
+  if (!name || name.length > 50 || !Number.isInteger(age) || age < 0 || age > 130 || !Number.isInteger(lifespan) || lifespan <= age || lifespan > 130 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) return { error: '名前・相手の年齢・平均寿命の目安・年あたりの回数を確認してください。' };
+  return { id: form.dataset.editingId || crypto.randomUUID(), name, age, lifespan, frequency, period: 'year' };
 }
 function metrics() {
   const p = state.profile, elapsed = elapsedDays(p.anchor);
@@ -151,18 +166,51 @@ function drawChart() {
   });
   $('chart').replaceChildren(svg);
 }
+function eventFrequency(event) {
+  return event.id?.startsWith('default-') && Number.isFinite(state.eventFrequencyOverrides?.[event.id]) ? state.eventFrequencyOverrides[event.id] : event.frequency;
+}
+function frequencyText(frequency) {
+  return Number.isInteger(frequency) ? fmt(frequency) : frequency.toFixed(1);
+}
+function incrementEvent(event) {
+  const current = eventFrequency(event), frequency = Math.round((current + 1) * 10) / 10;
+  if (!Number.isFinite(frequency) || frequency > 1000) { notice('年あたりの回数は1,000回までです。'); return; }
+  const next = event.id?.startsWith('default-')
+    ? { ...state, eventFrequencyOverrides: { ...state.eventFrequencyOverrides, [event.id]: frequency } }
+    : { ...state, events: state.events.map(value => value.id === event.id ? { ...value, frequency, period: 'year' } : value) };
+  if (persist(next)) { renderEvents(metrics().days); notice(`「${event.name}」を年${frequencyText(frequency)}回に増やしました。`); }
+}
+function addEvent(name, frequency, icon = '✨') {
+  if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) { notice('行動の名前と、年あたりの回数を確認してください。'); return false; }
+  const event = { id: crypto.randomUUID(), name, icon, frequency, period: 'year', unit: '回' };
+  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); emit('life_event_added'); notice(`「${name}」を追加しました。カードをタップすると年1回ずつ増やせます。`); return true; }
+  return false;
+}
+function renderEventExamples() {
+  const host = $('event-examples');
+  if (!host) return;
+  host.replaceChildren();
+  eventExamples.forEach(example => {
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'secondary event-example'; button.textContent = `${example.icon} ${example.name}（年${frequencyText(example.frequency)}回）`;
+    button.addEventListener('click', () => addEvent(example.name, example.frequency, example.icon)); host.append(button);
+  });
+}
 function renderEvents(days) {
   $('events-grid').replaceChildren();
-  [...defaults, ...state.events].forEach(e => {
-    const card = document.createElement('article'); card.className = 'event-card';
-    const title = document.createElement('h3'); title.textContent = e.name;
-    const count = document.createElement('p'); count.append('あと ');
-    const number = document.createElement('strong'); number.textContent = fmt(calculateRemainingEvents(days, e.frequency, e.period));
-    count.append(number, e.unit || '回'); card.append(title, count);
-    if (e.id) {
-      const detail = document.createElement('small'); detail.textContent = `${e.period === 'month' ? '月' : '年'}${e.frequency}回`; card.append(detail);
-      const remove = document.createElement('button'); remove.className = 'remove-event'; remove.textContent = '×'; remove.setAttribute('aria-label', `${e.name}を削除`);
-      remove.addEventListener('click', () => { if (confirm(`「${e.name}」を削除しますか？`) && persist({ ...state, events: state.events.filter(v => v.id !== e.id) })) { renderEvents(days); notice('イベントを削除しました。'); } });
+  [...defaults, ...state.events].forEach(event => {
+    const frequency = eventFrequency(event), card = document.createElement('article');
+    card.className = 'event-card event-card-action'; card.setAttribute('aria-label', `${event.name}。タップで年1回追加`);
+    const title = document.createElement('h3'); title.textContent = `${event.icon || '✨'} ${event.name}`.trim();
+    const detail = document.createElement('small'); detail.className = 'event-detail'; detail.textContent = `年${frequencyText(frequency)}回`;
+    const count = document.createElement('p'); count.className = 'event-count'; count.append('あと ');
+    const number = document.createElement('strong'); number.textContent = fmt(calculateRemainingEvents(days, frequency, 'year'));
+    count.append(number, event.unit || '回');
+    const action = document.createElement('button'); action.type = 'button'; action.className = 'event-add-one'; action.textContent = '＋1回'; action.setAttribute('aria-label', `${event.name}を年1回増やす`); action.addEventListener('click', eventObject => { eventObject.stopPropagation(); incrementEvent(event); });
+    card.append(title, detail, count, action);
+    card.addEventListener('click', eventObject => { if (!eventObject.target.closest('button')) incrementEvent(event); });
+    if (!event.id?.startsWith('default-')) {
+      const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-event'; remove.textContent = '×'; remove.setAttribute('aria-label', `${event.name}を削除`);
+      remove.addEventListener('click', eventObject => { eventObject.stopPropagation(); if (confirm(`「${event.name}」を削除しますか？`) && persist({ ...state, events: state.events.filter(value => value.id !== event.id) })) { renderEvents(days); notice('行動を削除しました。'); } });
       card.append(remove);
     }
     $('events-grid').append(card);
@@ -170,11 +218,21 @@ function renderEvents(days) {
 }
 function renderYearTime() {
   const time = calculateYearRemaining();
+  const progress = calculateYearProgress();
   const now = new Date(), end = new Date(now.getFullYear(), 11, 31);
   write('year-time-date', `${end.toLocaleDateString('ja-JP', { month: 'long', day: 'numeric' })}まで`);
   write('year-remaining-days', fmt(time.days));
   write('year-remaining-hours', fmt(Math.floor(time.remainingMs / 3600000)));
   write('year-remaining-minutes', String(Math.floor(time.remainingMs % 3600000 / 60000)).padStart(2, '0'));
+  write('year-consumed-rate', `${progress.consumedPercent.toFixed(1)}%`);
+  const remainingLabel = `残り${progress.remainingPercent.toFixed(1)}%`;
+  write('year-days-progress-label', `あと ${fmt(time.days)}日 ・ ${remainingLabel}`);
+  write('year-hours-progress-label', `あと ${fmt(Math.floor(time.remainingMs / 3600000))}時間 ・ ${remainingLabel}`);
+  for (const [id, label] of [['year-days-progress-fill', 'あと何日'], ['year-hours-progress-fill', 'あと何時間']]) {
+    const fill = $(id); if (!fill) continue;
+    fill.style.width = `${(progress.remainingRatio * 100).toFixed(2)}%`;
+    const track = fill.parentElement; track.setAttribute('aria-valuenow', progress.remainingPercent.toFixed(1)); track.setAttribute('aria-valuetext', `${label} ${progress.remainingPercent.toFixed(1)}%`);
+  }
 }
 function updateTimeCategory(id, delta) {
   const categories = state.timeCategories.map(category => category.id === id ? { ...category, hours: Math.min(24, Math.max(0, Math.round((category.hours + delta) * 10) / 10)) } : category);
@@ -185,8 +243,8 @@ function renderFreeTime() {
   const { lifespanDays } = metrics(), remainingYears = lifespanDays / DAYS_PER_YEAR;
   const model = calculateTrueFreeTime(remainingYears, state.timeCategories);
   write('true-free-years', model.freeYears.toFixed(1));
-  write('true-free-detail', `1日あたり ${model.freeHours.toFixed(1)}時間 × 残り ${remainingYears.toFixed(1)}年`);
-  write('free-time-tip', `⚡ スマホ・テレビを1日1時間減らすと、自由時間が約${model.oneHourGainYears.toFixed(1)}年増えます`);
+  write('true-free-detail', `1日${model.freeHours.toFixed(1)}時間を、自分で選べる時間として残り${remainingYears.toFixed(1)}年に重ねて計算`);
+  write('free-time-tip', `⚡ 画面を見る時間を毎日1時間手放すと、人生で選べる時間が約${model.oneHourGainYears.toFixed(1)}年広がります`);
   const host = $('time-category-list'); host.replaceChildren();
   state.timeCategories.forEach(category => {
     const row = document.createElement('article'); row.className = 'time-category-row';
@@ -195,9 +253,9 @@ function renderFreeTime() {
     const detail = document.createElement('small'); detail.textContent = `残り人生で約${(remainingYears * category.hours / 24).toFixed(1)}年`;
     copy.append(name, detail);
     const controls = document.createElement('div'); controls.className = 'time-category-controls';
-    const minus = document.createElement('button'); minus.type = 'button'; minus.className = 'round-control'; minus.textContent = '−'; minus.setAttribute('aria-label', `${category.name}を0.5時間減らす`); minus.disabled = category.hours <= 0; minus.addEventListener('click', () => updateTimeCategory(category.id, -.5));
+    const minus = document.createElement('button'); minus.type = 'button'; minus.className = 'round-control'; minus.textContent = '−'; minus.setAttribute('aria-label', `${category.name}を0.1時間減らす`); minus.disabled = category.hours <= 0; minus.addEventListener('click', () => updateTimeCategory(category.id, -.1));
     const hours = document.createElement('strong'); hours.textContent = `${category.hours.toFixed(1)}h`;
-    const plus = document.createElement('button'); plus.type = 'button'; plus.className = 'round-control'; plus.textContent = '+'; plus.setAttribute('aria-label', `${category.name}を0.5時間増やす`); plus.disabled = category.hours >= 24; plus.addEventListener('click', () => updateTimeCategory(category.id, .5));
+    const plus = document.createElement('button'); plus.type = 'button'; plus.className = 'round-control'; plus.textContent = '+'; plus.setAttribute('aria-label', `${category.name}を0.1時間増やす`); plus.disabled = category.hours >= 24; plus.addEventListener('click', () => updateTimeCategory(category.id, .1));
     controls.append(minus, hours, plus); row.append(copy, controls); host.append(row);
   });
 }
@@ -206,14 +264,19 @@ function renderPeople() {
   const { p, days, elapsed } = metrics();
   const host = $('people-grid'); host.replaceChildren();
   const people = calculateRemainingPersonMeetings(p, state.people, days, elapsed);
-  if (!people.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = '設定画面から、会いたい人を追加できます。'; host.append(empty); return; }
+  if (!people.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = '「会いたい人を追加」から、これから会いたい相手を登録できます。'; host.append(empty); return; }
   people.forEach(person => {
-    const card = document.createElement('article'); card.className = 'person-card';
+    const card = document.createElement('article'); card.className = 'person-card person-card-action';
     const title = document.createElement('h3'); title.textContent = person.name;
     const number = document.createElement('strong'); number.textContent = fmt(person.count);
     const count = document.createElement('p'); count.className = 'person-count'; count.append('あと ', number, '回');
-    const detail = document.createElement('small'); detail.textContent = `${person.age}歳 ・ ${person.period === 'month' ? '月' : '年'}${person.frequency}回で計算`;
-    card.append(title, count, detail); host.append(card);
+    const detail = document.createElement('small'); detail.textContent = `${person.age}歳 ・ 平均寿命の目安${person.lifespan}歳 ・ 年${frequencyText(person.frequency)}回で計算`;
+    const actions = document.createElement('div'); actions.className = 'person-card-actions';
+    const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'person-edit'; edit.textContent = '編集'; edit.addEventListener('click', event => { event.stopPropagation(); openPeopleForm(person); });
+    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-person'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${person.name}を削除`); remove.addEventListener('click', event => { event.stopPropagation(); if (confirm(`「${person.name}」を削除しますか？`) && persist({ ...state, people: state.people.filter(value => value.id !== person.id) })) { renderPeople(); notice('大切な人を削除しました。'); } });
+    actions.append(edit, remove); card.append(title, count, detail, actions);
+    card.addEventListener('click', () => openPeopleForm(person));
+    host.append(card);
   });
 }
 function renderBucketList() {
@@ -272,19 +335,22 @@ function renderDashboard() {
   write('chart-legend-lifespan', `平均寿命 ${p.lifespan}歳 ・生活資金の期限`);
   write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 黄色帯＋橙色マーカー：健康寿命 ${p.healthspan}歳（ワクワク予算の期間目安） ／ 赤帯＋赤マーカー：平均寿命 ${p.lifespan}歳（生活資金を確保する期限） ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
   write('snapshot-note', `資産は${new Date(p.updatedAt || p.anchor).toLocaleDateString('ja-JP')}に入力した額を現在の残高として使用。実際の増減は自動反映されません。残り日数は日付とともに更新します。生活予算・ワクワク予算は、資産・生活費・利回り・想定寿命をもとにした簡易シミュレーションです。`);
-  write('summer-count', fmt(calculateRemainingEvents(days, 1)));
   renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderLogs(); requestAnimationFrame(drawChart);
 }
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
-$('edit-people').addEventListener('click', openForm);
-$('add-person').addEventListener('click', () => {
-  const people = [...document.querySelectorAll('#people-editor .person-row')].map(row => ({
-    id: row.dataset.id, name: row.querySelector('[name="person-name"]').value, age: Number(row.querySelector('[name="person-age"]').value), frequency: Number(row.querySelector('[name="person-frequency"]').value), period: row.querySelector('[name="person-period"]').value,
-  }));
-  people.push({ id: crypto.randomUUID(), name: '', age: state.profile?.age || 36, frequency: 1, period: 'year' });
-  renderPeopleEditor(people);
-  $('people-editor').lastElementChild?.querySelector('[name="person-name"]')?.focus();
+$('toggle-people-form').addEventListener('click', () => {
+  if ($('people-form').hidden) openPeopleForm(); else closePeopleForm();
+});
+$('people-form-cancel').addEventListener('click', closePeopleForm);
+$('people-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const result = readPeopleForm();
+  if (result.error) { notice(result.error); return; }
+  const people = result.id && state.people.some(person => person.id === result.id)
+    ? state.people.map(person => person.id === result.id ? result : person)
+    : [...state.people, result];
+  if (persist({ ...state, people })) { closePeopleForm(); renderPeople(); notice(result.id ? '大切な人の設定を更新しました。' : '大切な人を追加しました。'); }
 });
 $('dismiss-wakuwaku-intro').addEventListener('click', () => {
   if (persist({ ...state, wakuwakuIntroSeen: true })) $('wakuwaku-intro').hidden = true;
@@ -304,19 +370,16 @@ $('profile-form').addEventListener('submit', event => {
     write(`error-${key}`, errors[key] || ''); event.currentTarget.elements.namedItem(key).setAttribute('aria-invalid', String(Boolean(errors[key])));
   }
   if (Object.keys(errors).length) { event.currentTarget.elements.namedItem(Object.keys(errors)[0]).focus(); return; }
-  const peopleResult = readPeopleEditor();
-  if (peopleResult.error) { notice(peopleResult.error); $('people-editor').querySelector('[name="person-name"]')?.focus(); return; }
   const now = new Date().toISOString();
   profile.anchor = state.profile?.age === profile.age ? state.profile.anchor : now;
   profile.updatedAt = now;
-  if (!persist({ ...state, profile, people: peopleResult.people, lastVisit: now })) return;
+  if (!persist({ ...state, profile, lastVisit: now })) return;
   emit('life_clock_calculated'); show('dashboard'); renderDashboard(); window.scrollTo(0, 0); $('dashboard-title').tabIndex = -1; $('dashboard-title').focus();
   notice('人生残高を保存しました。今日を、何に使おう。');
 });
 $('event-form').addEventListener('submit', event => {
-  event.preventDefault(); const data = new FormData(event.currentTarget), name = String(data.get('name')).trim(), frequency = Number(data.get('frequency')), period = String(data.get('period'));
-  if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000 || !['month', 'year'].includes(period)) { notice('体験の名前と、0より大きく1,000以下の回数を入力してください。'); return; }
-  if (persist({ ...state, events: [...state.events, { id: crypto.randomUUID(), name, frequency, period }] })) { event.currentTarget.reset(); renderEvents(metrics().days); emit('life_event_added'); notice('楽しみにしたい体験を追加しました。'); }
+  event.preventDefault(); const data = new FormData(event.currentTarget), name = String(data.get('name')).trim(), frequency = Number(data.get('frequency'));
+  if (addEvent(name, frequency)) event.currentTarget.reset();
 });
 $('log-form').addEventListener('submit', event => {
   event.preventDefault(); const text = String(new FormData(event.currentTarget).get('text')).trim();
@@ -345,7 +408,7 @@ document.querySelectorAll('[data-nav], #back-home').forEach(link => link.addEven
 }));
 $('reset').addEventListener('click', () => {
   if (!confirm('FIRE人生時計のプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
-  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 10; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; renderPeopleEditor(state.people); history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
+  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 10; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
   catch { notice('削除できませんでした。ブラウザのサイトデータ設定から削除してください。', true); }
 });
 $('share').addEventListener('click', async () => {
@@ -374,6 +437,7 @@ $('install').addEventListener('click', async () => {
   catch { notice(installHelp()); }
 });
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/life-clock/sw.js', { scope: '/life-clock/' }).catch(() => notice('オフライン用の準備ができませんでした。オンラインで再度開いてください。', true));
+renderEventExamples();
 if (state.profile) {
   const daysAway = state.lastVisit ? elapsedDays(state.lastVisit) : 0;
   if (daysAway > 0) { write('return-message', `前回から${fmt(daysAway)}日。人生を${fmt(daysAway)}日使いました。この${fmt(daysAway)}日で、何か思い出は増えましたか？ 下の人生ログに残してみよう。`); $('return-message').hidden = false; emit('return_visit'); }
