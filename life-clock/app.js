@@ -54,7 +54,8 @@ const UI_PREFS_KEY = 'lifeClockUiPreferences';
 const ACCORDION_DEFS = [
   { id: 'time', icon: '⏳', title: 'あとどれくらい時間がある？', summaryId: 'accordion-summary-time' },
   { id: 'money', icon: '💰', title: 'あとどれくらい使える？', summaryId: 'accordion-summary-money' },
-  { id: 'experience', icon: '✨', title: 'あと何をやりたい？', summaryId: 'accordion-summary-experience' },
+  { id: 'bucket', icon: '🗺️', title: 'バケットリスト', summaryId: 'accordion-summary-bucket' },
+  { id: 'experiences', icon: '✨', title: '残された、愛しき回数', summaryId: 'accordion-summary-experiences' },
   { id: 'people', icon: '❤️', title: 'あと何度、大切な人に会える？', summaryId: 'accordion-summary-people' },
   { id: 'log', icon: '📖', title: '今日は何を残した？', summaryId: 'accordion-summary-log' },
 ];
@@ -64,12 +65,12 @@ const FEATURE_DEFS = [
   { id: 'free-time', category: 'time', label: '真の自由時間' },
   { id: 'money-budgets', category: 'money', label: '今日の生活予算・ワクワク予算' },
   { id: 'assets', category: 'money', label: '資産寿命・人生と資産の地図' },
-  { id: 'experiences', category: 'experience', label: '残された、愛しき回数' },
-  { id: 'bucket', category: 'experience', label: 'バケットリスト' },
+  { id: 'bucket', category: 'bucket', label: 'バケットリスト' },
+  { id: 'experiences', category: 'experiences', label: '残された、愛しき回数' },
   { id: 'people', category: 'people', label: '大切な人' },
   { id: 'life-log', category: 'log', label: '人生ログ・思い出資産' },
 ];
-const HASH_TO_ACCORDION = { assets: 'money', 'year-time': 'time', 'free-time': 'time', experiences: 'experience', bucket: 'experience', people: 'people', 'life-log': 'log' };
+const HASH_TO_ACCORDION = { assets: 'money', 'year-time': 'time', 'free-time': 'time', experiences: 'experiences', bucket: 'bucket', people: 'people', 'life-log': 'log' };
 let state = emptyState(), storage, storageBroken = false, noticeTimer, logLimit = 5, logsExpanded = false, logQuery = '', installPrompt = null, bucketCategoryId = BUCKET_CATEGORIES[0]?.id || '';
 function notice(text, persistent = false) {
   clearTimeout(noticeTimer); write('notice', text);
@@ -84,8 +85,13 @@ function loadUiPreferences() {
     const raw = window.localStorage.getItem(UI_PREFS_KEY);
     if (!raw) return fallback;
     const parsed = JSON.parse(raw);
+    const savedExpanded = Array.isArray(parsed?.expandedSections) ? parsed.expandedSections : [];
+    // The former single experience section contained both lists. Keep its
+    // meaning when restoring preferences after the two sections are split.
+    const expandedSections = [...new Set(savedExpanded.flatMap(id => id === 'experience' ? ['bucket', 'experiences'] : [id]))]
+      .filter(id => ACCORDION_DEFS.some(def => def.id === id));
     return {
-      expandedSections: Array.isArray(parsed?.expandedSections) ? parsed.expandedSections.filter(id => ACCORDION_DEFS.some(def => def.id === id)) : [],
+      expandedSections,
       hiddenItems: Array.isArray(parsed?.hiddenItems) ? parsed.hiddenItems.filter(id => FEATURE_DEFS.some(def => def.id === id)) : [],
     };
   } catch { return fallback; }
@@ -166,7 +172,8 @@ function setupDashboardLayout() {
   const nodes = {
     time: [lifeCard, $('year-time'), $('free-time')],
     money: [budgetStack, $('assets')],
-    experience: [$('experiences'), $('bucket')],
+    bucket: [$('bucket')],
+    experiences: [$('experiences')],
     people: [$('people')],
     log: [$('life-log')],
   };
@@ -190,7 +197,10 @@ function setupDashboardLayout() {
     const button = document.createElement('button'); button.type = 'button'; button.id = `accordion-toggle-${def.id}`; button.className = 'dashboard-accordion-toggle'; button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-controls', `accordion-panel-${def.id}`);
     button.innerHTML = `<span class="dashboard-accordion-icon" aria-hidden="true">${def.icon}</span><span class="dashboard-accordion-copy"><strong class="dashboard-accordion-title">${def.title}</strong><span id="${def.summaryId}" class="dashboard-accordion-summary">—</span></span><span class="dashboard-accordion-arrow" aria-hidden="true">›</span>`;
     const panel = document.createElement('div'); panel.id = `accordion-panel-${def.id}`; panel.className = 'dashboard-accordion-panel'; panel.setAttribute('aria-hidden', 'true');
-    const inner = document.createElement('div'); inner.className = 'dashboard-accordion-panel-inner'; def.id === 'time' ? inner.append(...nodes.time) : def.id === 'money' ? inner.append(...nodes.money) : def.id === 'experience' ? inner.append(...nodes.experience) : def.id === 'people' ? inner.append(...nodes.people) : inner.append(...nodes.log);
+    const inner = document.createElement('div'); inner.className = 'dashboard-accordion-panel-inner'; inner.append(...nodes[def.id]);
+    const close = document.createElement('button'); close.type = 'button'; close.className = 'dashboard-accordion-close secondary'; close.textContent = '閉じる'; close.setAttribute('aria-label', `${def.title}を閉じる`);
+    close.addEventListener('click', () => { setAccordionOpen(def.id, false); button.focus(); });
+    inner.append(close);
     panel.append(inner); card.append(button, panel); list.append(card);
     button.addEventListener('click', () => setAccordionOpen(def.id, !card.classList.contains('is-open')));
   });
@@ -717,7 +727,8 @@ function renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget) {
   write('accordion-summary-time', `健康寿命まで${healthYears}年・今年あと${fmt(year.days)}日`);
   write('accordion-summary-money', `生活予算 ${fmt(Math.round(dailyLivingBudget))}円 / ワクワク予算 ${fmt(Math.round(dailyWakuwakuBudget))}円`);
   const experienceCount = orderedEvents().length, bucketCount = state.bucketList.length;
-  write('accordion-summary-experience', `体験${experienceCount}件・バケットリスト${bucketCount}件`);
+  write('accordion-summary-bucket', bucketCount ? `やりたいこと${bucketCount}件` : '最初のやりたいことを追加');
+  write('accordion-summary-experiences', experienceCount ? `楽しみたい行動${experienceCount}件` : '楽しみたい行動を追加');
   const peopleCount = state.people.length;
   write('accordion-summary-people', peopleCount ? `${peopleCount}人登録` : '大切な人を登録してみる');
   write('accordion-summary-log', state.logs.length ? `思い出資産 ${fmt(state.logs.length)}` : '最初の思い出を残してみる');
@@ -889,4 +900,3 @@ window.addEventListener('storage', event => {
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
   catch { notice('別のタブの変更を読み込めませんでした。再読み込みしてください。', true); }
 });
-
