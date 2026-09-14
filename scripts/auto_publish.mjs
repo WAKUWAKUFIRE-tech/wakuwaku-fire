@@ -790,6 +790,16 @@ async function updateArticleIndexes(allArticles) {
   await writeText("articles/index.html", updated);
 }
 
+
+async function syncPublishedIndexes() {
+  const allArticles = await readPublishedArticles();
+  if (allArticles.length === 0) throw new FatalPublishError("公開済み記事が見つからないため、一覧を同期できません。");
+  await updateArticleIndexes(allArticles);
+  await updateSideFireComparisonHub(allArticles);
+  await updateSitemap(allArticles, currentJst().date);
+  console.log(`公開済み記事${allArticles.length}件を基準にトップと記事一覧を同期しました。`);
+}
+
 async function updateSideFireComparisonHub(allArticles) {
   const parentPath = "articles/side-fire-toha/index.html";
   if (!(await exists(parentPath))) return;
@@ -1292,10 +1302,12 @@ try {
     await markFailed(argValue("--id"), argValue("--reason"));
   } else if (process.argv.includes("--approve-stock")) {
     await approveStock(argValue("--id"));
+  } else if (process.argv.includes("--sync-indexes")) {
+    await syncPublishedIndexes();
   } else if (process.argv.includes("--publish")) {
     await publishOne(argValue("--mode") || "manual");
   } else {
-    console.log("使い方: --validate | --status | --dry-run | --approve-stock --id ID | --publish --mode scheduled|manual | --mark-failed --id ID --reason 理由");
+    console.log("使い方: --validate | --status | --dry-run | --approve-stock --id ID | --sync-indexes | --publish --mode scheduled|manual | --mark-failed --id ID --reason 理由");
   }
 } catch (error) {
   console.error(error.message || error);
