@@ -22,11 +22,24 @@
   <link rel="manifest" href="/life-clock/manifest.webmanifest">
   <link rel="icon" href="/life-clock/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/life-clock/icon.svg">
-  <link rel="stylesheet" href="/life-clock/styles.css?v=20260914-03">
-  <script type="module" src="/life-clock/app.js?v=20260914-03"></script>
-  <script type="module" src="/life-clock/reignite-fire-life.js?v=20260914-01"></script>
+  <link rel="stylesheet" href="/life-clock/styles.css?v=20260914-04">
+  <script type="module" src="/life-clock/app.js?v=20260914-04"></script>
 </head>
 <body>
+  <div id="life-world" class="life-world" data-stage="0" aria-hidden="true">
+    <div class="life-world-base-sky"></div>
+    <div class="life-world-distant-glow"></div>
+    <div class="life-world-stars"></div>
+    <div class="life-world-mountains"><div class="life-world-mountain life-world-mountain-back"></div><div class="life-world-mountain life-world-mountain-front"></div></div>
+    <div class="life-world-city-lights"></div>
+    <div class="life-world-birds"></div>
+    <div class="life-world-balloons"></div>
+    <div class="life-world-particles"></div>
+    <div class="life-world-fireworks"><i></i><i></i></div>
+    <div class="life-world-readability"></div>
+    <div id="life-world-effects" class="life-world-effects"></div>
+  </div>
+  <div id="life-world-intro" class="life-world-intro" hidden role="dialog" aria-labelledby="life-world-intro-title" aria-describedby="life-world-intro-copy"><strong id="life-world-intro-title">未来を追加するほど、世界にも光が戻ります。</strong><p id="life-world-intro-copy">やりたいことや大切な人、残したい今日を登録すると、RE:IGNITEの景色が少しずつ育っていきます。</p><button type="button" class="secondary">わかった</button></div>
   <a class="skip" href="#main">本文へスキップ</a>
   <header class="topbar"><a class="brand" href="/"><img src="/life-clock/icon.svg" width="38" height="38" alt=""><span>ワクワクFIRE<small>人生を楽しむ、その先へ。</small></span></a><span class="app-tag">RE:IGNITE</span></header>
   <main id="main" class="shell">
