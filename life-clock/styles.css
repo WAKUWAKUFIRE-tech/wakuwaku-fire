@@ -71,6 +71,17 @@ body.life-world-paused .life-world *{animation-play-state:paused!important}
 @media(max-width:700px){.life-world-readability{background:linear-gradient(180deg,rgba(247,247,242,.9),rgba(247,247,242,.8) 52%,rgba(247,247,242,.92))}.life-world-mountains{height:34%}.world-star:nth-child(n+45){display:none}.world-city-light:nth-child(n+15){display:none}.world-bird:nth-child(n+4){display:none}.world-balloon:nth-child(n+2){display:none}.world-particle:nth-child(n+10){display:none}.life-world-intro{bottom:max(86px,calc(env(safe-area-inset-bottom) + 76px));padding:16px}.life-world-toast{max-width:calc(100vw - 28px);font-size:.8rem}}
 @media(prefers-reduced-motion:reduce){.life-world,.life-world *{animation:none!important;transition:none!important}.life-world-toast{transition:opacity .2s ease,transform .2s ease}.life-celebration{display:none}}
 
+/* Celebration effects are portaled to body so they always sit above the app UI. */
+.life-world-effects.is-portal{position:fixed!important;inset:0!important;z-index:50!important;overflow:visible;pointer-events:none!important}
+.life-world-effects.is-portal .life-celebration{z-index:51}
+.life-world-effects.is-portal .life-celebration-fireworks::before{width:34px;height:34px;border-width:3px;box-shadow:0 0 0 3px #e65b3b,0 0 38px #ffd66c}
+.life-world-effects.is-portal .life-celebration-fireworks::after{width:24px;height:24px;border-width:2px}
+.life-world-effects.is-portal .life-celebration-ring::before{width:32px;height:32px;border-width:3px;box-shadow:0 0 26px #ffc857}
+.life-world-effects.is-portal .life-celebration-ring::after{width:28px;height:28px;border-width:2px}
+.life-world-effects.is-portal .celebration-piece{width:8px;height:8px;box-shadow:0 0 14px #ffe16e}
+.life-world-effects.is-portal .life-celebration-embers .celebration-piece{width:7px;height:13px;box-shadow:0 0 16px #ffba43}
+.life-world-effects.is-portal .life-celebration-shooting-star::before{width:140px;height:3px;box-shadow:0 0 14px #fff8dc}
+
 /* Dashboard refinements: compact action cards, readable progress bars, and inline editors. */
 .year-time-card{align-items:stretch}
 .year-time-main{min-width:0;flex:1}
