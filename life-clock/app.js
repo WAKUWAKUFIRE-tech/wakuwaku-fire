@@ -1,5 +1,5 @@
 import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents, calculateRemainingPersonMeetings, calculateYearRemaining, calculateYearProgress, calculateTrueFreeTime, calculateBucketDaysUntil } from './calculations.js';
-import { createStorage, emptyState } from './storage.js';
+import { createStorage, emptyState, validateState } from './storage.js';
 import { BUCKET_CATEGORIES } from './bucket-data.js';
 import { createLifeWorld } from './life-world.js';
 
@@ -8,6 +8,14 @@ const lifeWorld = createLifeWorld(document.getElementById('life-world'));
 const nf = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 0 });
 const fmt = n => nf.format(n);
 const write = (id, text) => { $(id).textContent = text; };
+const BUCKET_CUSTOM_CATEGORY = Object.freeze({ id: 'bucket-custom', name: '自由入力・その他', icon: '✍️' });
+const bucketCategories = () => [...BUCKET_CATEGORIES, BUCKET_CUSTOM_CATEGORY];
+function bucketCategoryForItem(item) {
+  const saved = bucketCategories().find(category => category.id === item.categoryId);
+  if (saved) return saved;
+  const candidate = BUCKET_CATEGORIES.find(category => category.items.some(value => value.title.trim() === item.title.trim()));
+  return candidate || BUCKET_CUSTOM_CATEGORY;
+}
 const defaults = [
   { id: 'default-sakura', icon: '🌸', name: '桜を見に行く', frequency: 1, period: 'year', unit: '回' },
   { id: 'default-birthday', icon: '🎂', name: '誕生日を祝う', frequency: 1, period: 'year', unit: '回' },
@@ -619,14 +627,22 @@ function defaultBucketDueDate() {
   date.setFullYear(date.getFullYear() + 1);
   return date.toISOString().slice(0, 10);
 }
+function renderBucketCategoryOptions(select, includeCustom = false) {
+  if (!select) return;
+  const categories = includeCustom ? bucketCategories() : BUCKET_CATEGORIES;
+  const current = select.value;
+  select.replaceChildren();
+  categories.forEach(category => {
+    const option = document.createElement('option'); option.value = category.id; option.textContent = `${category.icon} ${category.name}`; select.append(option);
+  });
+  if (categories.some(category => category.id === current)) select.value = current;
+  else if (includeCustom) select.value = BUCKET_CUSTOM_CATEGORY.id;
+  else if (categories[0]) select.value = categories[0].id;
+}
 function renderBucketSuggestions() {
   const select = $('bucket-category'), host = $('bucket-candidates');
   if (!select || !host) return;
-  if (!select.options.length) {
-    BUCKET_CATEGORIES.forEach(category => {
-      const option = document.createElement('option'); option.value = category.id; option.textContent = `${category.icon} ${category.name}`; select.append(option);
-    });
-  }
+  renderBucketCategoryOptions(select);
   if (!BUCKET_CATEGORIES.some(category => category.id === bucketCategoryId)) bucketCategoryId = BUCKET_CATEGORIES[0]?.id || '';
   select.value = bucketCategoryId;
   const category = BUCKET_CATEGORIES.find(value => value.id === bucketCategoryId);
@@ -660,12 +676,34 @@ function renderBucketList() {
   host.replaceChildren();
   const items = [...state.bucketList].sort((a, b) => Number(a.done) - Number(b.done) || a.dueDate.localeCompare(b.dueDate));
   if (!items.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ登録されていません。期限を決めて、最初のひとつを追加しましょう。'; host.append(empty); refreshLifeSummary(); return; }
+  const groups = new Map();
   items.forEach(item => {
+    const category = bucketCategoryForItem(item);
+    if (!groups.has(category.id)) groups.set(category.id, { category, items: [] });
+    groups.get(category.id).items.push(item);
+  });
+  const categoryOrder = new Map(bucketCategories().map((category, index) => [category.id, index]));
+  [...groups.values()].sort((a, b) => (categoryOrder.get(a.category.id) ?? 999) - (categoryOrder.get(b.category.id) ?? 999)).forEach(({ category, items: groupItems }) => {
+    const group = document.createElement('section'); group.className = 'bucket-group'; group.dataset.bucketCategory = category.id; group.setAttribute('aria-labelledby', `bucket-group-${category.id}`);
+    const head = document.createElement('div'); head.className = 'bucket-group-head';
+    const heading = document.createElement('h3'); heading.id = `bucket-group-${category.id}`; heading.textContent = `${category.icon} ${category.name}`;
+    const count = document.createElement('span'); count.className = 'bucket-group-count'; count.textContent = `${groupItems.length}件`;
+    head.append(heading, count);
+    const groupList = document.createElement('div'); groupList.className = 'bucket-group-list';
+    groupItems.forEach(item => {
     const card = document.createElement('article'); card.className = `bucket-item${item.done ? ' is-done' : ''}`; card.dataset.bucketId = item.id;
     const check = document.createElement('input'); check.type = 'checkbox'; check.checked = item.done; check.id = `bucket-check-${item.id}`; check.setAttribute('aria-label', `${item.title}を完了にする`); check.addEventListener('change', () => { if (persist({ ...state, bucketList: state.bucketList.map(v => v.id === item.id ? { ...v, done: check.checked } : v) })) { renderBucketList(); renderBucketSuggestions(); } });
     const copy = document.createElement('div'); copy.className = 'bucket-item-copy';
     const title = document.createElement('label'); title.htmlFor = check.id; title.textContent = item.title;
     const due = document.createElement('small'); const days = calculateBucketDaysUntil(item.dueDate); const dateText = new Date(`${item.dueDate}T00:00:00`).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }); due.textContent = `${dateText} ・ ${Number.isFinite(days) ? days >= 0 ? `あと${fmt(days)}日` : `期限から${fmt(Math.abs(days))}日` : '期限を確認してください'}`;
+    const categoryEditor = document.createElement('div'); categoryEditor.className = 'bucket-item-category';
+    const categoryLabel = document.createElement('span'); categoryLabel.textContent = 'ジャンル';
+    const categorySelect = document.createElement('select'); categorySelect.setAttribute('aria-label', `${item.title}のジャンル`); renderBucketCategoryOptions(categorySelect, true); categorySelect.value = category.id;
+    categorySelect.addEventListener('change', () => {
+      const nextCategory = bucketCategories().find(value => value.id === categorySelect.value) || BUCKET_CUSTOM_CATEGORY;
+      if (persist({ ...state, bucketList: state.bucketList.map(value => value.id === item.id ? { ...value, categoryId: nextCategory.id, categoryName: nextCategory.name } : value) })) { renderBucketList(); notice(`ジャンルを「${nextCategory.name}」に変更しました。`); }
+    });
+    categoryEditor.append(categoryLabel, categorySelect);
     const editDue = document.createElement('button'); editDue.type = 'button'; editDue.className = 'edit-bucket secondary'; editDue.textContent = '期限を編集'; editDue.setAttribute('aria-label', `${item.title}の期限を編集`);
     const editor = document.createElement('div'); editor.className = 'bucket-due-editor'; editor.hidden = true;
     const dueInput = document.createElement('input'); dueInput.type = 'date'; dueInput.value = item.dueDate; dueInput.min = new Date().toISOString().slice(0, 10); dueInput.setAttribute('aria-label', `${item.title}の新しい期限`);
@@ -679,9 +717,11 @@ function renderBucketList() {
       if (persist({ ...state, bucketList: state.bucketList.map(value => value.id === item.id ? { ...value, dueDate: nextDate } : value) })) { renderBucketList(); notice('バケットリストの期限を更新しました。'); }
     });
     editor.append(dueInput, saveDue, cancelDue);
-    copy.append(title, due, editDue, editor);
+    copy.append(title, due, categoryEditor, editDue, editor);
     const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-bucket'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${item.title}を削除`); remove.addEventListener('click', () => { if (confirm(`「${item.title}」を削除しますか？`) && persist({ ...state, bucketList: state.bucketList.filter(v => v.id !== item.id) })) { renderBucketList(); renderBucketSuggestions(); } });
-    card.append(check, copy, remove); host.append(card);
+    card.append(check, copy, remove); groupList.append(card);
+    });
+    group.append(head, groupList); host.append(group);
   });
   refreshLifeSummary();
 }
@@ -774,6 +814,8 @@ function renderDashboard() {
   renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderBucketSuggestions(); renderLogs(); renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget); applyHiddenItems(); requestAnimationFrame(drawChart);
 }
 setupDashboardLayout();
+ensureDataTransferControls();
+ensureBucketCategoryField();
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
 $('toggle-people-form').addEventListener('click', () => {
@@ -836,13 +878,37 @@ $('download-logs').addEventListener('click', () => {
   const blob = new Blob([content], { type: 'text/plain;charset=utf-8' }), url = URL.createObjectURL(blob), link = document.createElement('a');
   link.href = url; link.download = `RE-IGNITE人生ログ-${new Date().toISOString().slice(0, 10)}.txt`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 0); notice('人生ログをテキストで保存しました。');
 });
+const DATA_EXPORT_FORMAT = 'reignite-life-clock/v1';
+function downloadDataFile() {
+  const payload = { format: DATA_EXPORT_FORMAT, exportedAt: new Date().toISOString(), state };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob), link = document.createElement('a');
+  link.href = url; link.download = `RE-IGNITEデータ-${new Date().toISOString().slice(0, 10)}.json`; document.body.append(link); link.click(); link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 0); notice('データを書き出しました。PCとスマホの間でこのファイルを移してください。');
+}
+$('export-data')?.addEventListener('click', downloadDataFile);
+$('import-data')?.addEventListener('change', async event => {
+  const input = event.currentTarget, file = input.files?.[0];
+  if (!file) return;
+  try {
+    const parsed = JSON.parse(await file.text());
+    if (parsed?.format && parsed.format !== DATA_EXPORT_FORMAT) throw new Error('format');
+    const imported = validateState(parsed?.state || parsed);
+    if (!confirm('この端末のRE:IGNITEデータを、選んだファイルの内容に置き換えます。続けますか？')) return;
+    if (!persist(imported)) return;
+    if (imported.profile) { show('dashboard'); renderDashboard(); navigate(); } else show('welcome');
+    notice('データを読み込みました。');
+  } catch { notice('RE:IGNITEの有効なデータファイルを選んでください。', true); }
+  input.value = '';
+});
 $('bucket-category').addEventListener('change', event => { bucketCategoryId = String(event.currentTarget.value || ''); renderBucketSuggestions(); });
 $('bucket-date').min = new Date().toISOString().slice(0, 10);
+renderBucketCategoryOptions($('bucket-entry-category'), true);
 $('bucket-form').addEventListener('submit', event => {
-  event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate'));
+  event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate')), category = bucketCategories().find(value => value.id === String(data.get('categoryId') || '')) || BUCKET_CUSTOM_CATEGORY;
   if (!title || title.length > 120 || !/^\d{4}-\d{2}-\d{2}$/.test(dueDate) || !Number.isFinite(Date.parse(`${dueDate}T23:59:59`))) { notice('やりたいことと、正しい期限を入力してください。'); return; }
-  const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() };
-  if (persist({ ...state, bucketList: [...state.bucketList, item] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); pulseAddedCard(`[data-bucket-id="${item.id}"]`); lifeWorld.celebrate({ source: 'bucket-list', anchor: event.submitter }); notice('バケットリストに追加しました。'); }
+  const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString(), categoryId: category.id, categoryName: category.name };
+  if (persist({ ...state, bucketList: [...state.bucketList, item] })) { event.currentTarget.reset(); $('bucket-entry-category').value = BUCKET_CUSTOM_CATEGORY.id; $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); pulseAddedCard(`[data-bucket-id="${item.id}"]`); lifeWorld.celebrate({ source: 'bucket-list', anchor: event.submitter }); notice('バケットリストに追加しました。'); }
 });
 function navigate() {
   const target = location.hash.slice(1);
@@ -916,6 +982,24 @@ function ensureInstallTopButton() {
   }
   return button;
 }
+function ensureDataTransferControls() {
+  const settings = $('settings');
+  if (!settings || $('export-data')) return;
+  const panel = document.createElement('div'); panel.className = 'data-transfer-panel';
+  panel.innerHTML = '<h2>PC・スマホ間でデータを移す</h2><p>このアプリはログインなしで使える端末内保存です。別の端末でも続けるときは、データを書き出してファイルを移し、移行先で読み込んでください。</p><div class="data-transfer-actions"><button id="export-data" class="secondary" type="button">データを書き出す</button><label class="secondary data-import-label">データを読み込む<input id="import-data" type="file" accept="application/json,.json" hidden></label></div><small class="muted">書き出したファイルには資産額・年齢・記録などが含まれます。共有先とファイルの保管場所にご注意ください。</small>';
+  const resetHeading = [...settings.querySelectorAll('h2')].find(node => node.textContent.includes('保存データの削除'));
+  if (resetHeading) settings.insertBefore(panel, resetHeading);
+  else settings.append(panel);
+}
+function ensureBucketCategoryField() {
+  const form = $('bucket-form');
+  if (!form || $('bucket-entry-category')) return;
+  const label = document.createElement('label'); label.textContent = 'ジャンル';
+  const select = document.createElement('select'); select.id = 'bucket-entry-category'; select.name = 'categoryId'; select.setAttribute('aria-label', '追加するバケットリストのジャンル');
+  label.append(select);
+  const dueLabel = form.querySelector('input[name="dueDate"]')?.closest('label');
+  if (dueLabel) form.insertBefore(label, dueLabel); else form.insertBefore(label, form.querySelector('button'));
+}
 const installCard = $('install-card'), installTop = ensureInstallTopButton();
 const syncInstallVisibility = () => {
   const hidden = Boolean(standalone());
@@ -956,3 +1040,4 @@ window.addEventListener('storage', event => {
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
   catch { notice('別のタブの変更を読み込めませんでした。再読み込みしてください。', true); }
 });
+
