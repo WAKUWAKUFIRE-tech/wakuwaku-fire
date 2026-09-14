@@ -81,6 +81,13 @@ body.life-world-paused .life-world *{animation-play-state:paused!important}
 .life-world-effects.is-portal .celebration-piece{width:8px;height:8px;box-shadow:0 0 14px #ffe16e}
 .life-world-effects.is-portal .life-celebration-embers .celebration-piece{width:7px;height:13px;box-shadow:0 0 16px #ffba43}
 .life-world-effects.is-portal .life-celebration-shooting-star::before{width:140px;height:3px;box-shadow:0 0 14px #fff8dc}
+.life-world-effects.is-portal{z-index:70!important}
+.life-world-effects.is-portal .life-celebration{z-index:71;filter:drop-shadow(0 3px 6px rgba(128,28,19,.55))}
+.life-world-effects.is-portal .celebration-piece{background:#d73a29;box-shadow:0 0 0 2px rgba(255,248,220,.92),0 0 16px #e65b3b}
+.life-world-effects.is-portal .life-celebration-particles .celebration-piece{background:#ffe16e;box-shadow:0 0 0 2px #c83024,0 0 16px #ffd66c}
+.life-world-effects.is-portal .life-celebration-shooting-star::before{filter:drop-shadow(0 0 4px #c83024)}
+.life-world-effects.is-portal .life-celebration-stars::before,.life-world-effects.is-portal .life-celebration-embers::before,.life-world-effects.is-portal .life-celebration-particles::before{content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:#ffe16e;box-shadow:0 0 0 3px #c83024,0 0 28px #ffd66c;transform:translate(-50%,-50%) scale(.2);opacity:0;animation:celebration-core 1.8s ease-out}
+@keyframes celebration-core{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}22%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(4.4)}}
 
 /* Dashboard refinements: compact action cards, readable progress bars, and inline editors. */
 .year-time-card{align-items:stretch}
