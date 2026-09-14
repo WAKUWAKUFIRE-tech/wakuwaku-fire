@@ -51,6 +51,14 @@ export function createLifeWorld(host) {
   const birds = host.querySelector('.life-world-birds');
   const balloons = host.querySelector('.life-world-balloons');
   const effects = host.querySelector('.life-world-effects');
+  // The world itself stays behind the app UI, but celebration effects need to
+  // appear above cards and the bottom navigation.  Portal this transient layer
+  // to body so the world container's low stacking context cannot hide it.
+  if (effects) {
+    document.body.append(effects);
+    effects.classList.add('is-portal');
+    effects.setAttribute('aria-hidden', 'true');
+  }
   const toast = document.createElement('div');
   toast.className = 'life-world-toast';
   toast.setAttribute('role', 'status');
