@@ -47,7 +47,7 @@ const eventExamples = [
 const allowedEvents = new Set(['life_clock_start', 'life_clock_calculated', 'life_event_added', 'life_log_added', 'pwa_install_clicked', 'share_clicked', 'return_visit']);
 // Local extension hook only. No analytics endpoint, profile, identifiers, or log text.
 function emit(name) { if (allowedEvents.has(name)) window.dispatchEvent(new CustomEvent('life-clock:event', { detail: { name } })); }
-let state = emptyState(), storage, storageBroken = false, noticeTimer, logLimit = 10, installPrompt = null;
+let state = emptyState(), storage, storageBroken = false, noticeTimer, logLimit = 5, logsExpanded = false, logQuery = '', installPrompt = null;
 function notice(text, persistent = false) {
   clearTimeout(noticeTimer); write('notice', text);
   if (!persistent) noticeTimer = setTimeout(() => write('notice', ''), 6000);
@@ -368,23 +368,86 @@ function renderFreeTime() {
     controls.append(minus, hours, plus); row.append(copy, controls); host.append(row);
   });
 }
+function orderedPeople(people) {
+  const byId = new Map(people.map(person => [person.id, person])), ordered = [], seen = new Set();
+  for (const id of state.peopleOrder || []) {
+    const person = byId.get(id);
+    if (person && !seen.has(id)) { ordered.push(person); seen.add(id); }
+  }
+  for (const person of people) if (!seen.has(person.id)) { ordered.push(person); seen.add(person.id); }
+  return ordered;
+}
+function savePeopleOrder(ids) {
+  const valid = new Set((state.people || []).map(person => person.id)), order = [], seen = new Set();
+  for (const id of ids) if (valid.has(id) && !seen.has(id)) { order.push(id); seen.add(id); }
+  if (persist({ ...state, peopleOrder: order })) { renderPeople(); notice('大切な人の並び順を保存しました。'); }
+}
+function movePerson(personId, delta) {
+  const { p, days, elapsed } = metrics(), ids = orderedPeople(calculateRemainingPersonMeetings(p, state.people, days, elapsed)).map(person => person.id);
+  const index = ids.indexOf(personId), target = index + delta;
+  if (index < 0 || target < 0 || target >= ids.length) return;
+  [ids[index], ids[target]] = [ids[target], ids[index]];
+  savePeopleOrder(ids);
+}
 function renderPeople() {
   if (!state.profile) return;
   const { p, days, elapsed } = metrics();
   const host = $('people-grid'); host.replaceChildren();
-  const people = calculateRemainingPersonMeetings(p, state.people, days, elapsed);
+  const people = orderedPeople(calculateRemainingPersonMeetings(p, state.people, days, elapsed));
   if (!people.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = '「会いたい人を追加」から、これから会いたい相手を登録できます。'; host.append(empty); return; }
-  people.forEach(person => {
-    const card = document.createElement('article'); card.className = 'person-card person-card-action';
+  people.forEach((person, index) => {
+    const card = document.createElement('article'); card.className = 'person-card person-card-action'; card.draggable = true; card.dataset.personId = person.id; card.setAttribute('aria-label', `${person.name}。カードをタップすると設定を編集できます。ドラッグ（スマホは長押し）または上下ボタンで並び替えできます`);
     const title = document.createElement('h3'); title.textContent = person.name;
     const number = document.createElement('strong'); number.textContent = fmt(person.count);
     const count = document.createElement('p'); count.className = 'person-count'; count.append('あと ', number, '回');
     const detail = document.createElement('small'); detail.textContent = `${person.age}歳 ・ 平均寿命の目安${person.lifespan}歳 ・ 年${frequencyText(person.frequency)}回で計算`;
     const actions = document.createElement('div'); actions.className = 'person-card-actions';
     const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'person-edit'; edit.textContent = '編集'; edit.addEventListener('click', event => { event.stopPropagation(); openPeopleForm(person); });
-    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-person'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${person.name}を削除`); remove.addEventListener('click', event => { event.stopPropagation(); if (confirm(`「${person.name}」を削除しますか？`) && persist({ ...state, people: state.people.filter(value => value.id !== person.id) })) { renderPeople(); notice('大切な人を削除しました。'); } });
-    actions.append(edit, remove); card.append(title, count, detail, actions);
-    card.addEventListener('click', () => openPeopleForm(person));
+    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-person'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${person.name}を削除`); remove.addEventListener('click', event => {
+      event.stopPropagation();
+      if (!confirm(`「${person.name}」を削除しますか？`)) return;
+      const next = { ...state, people: state.people.filter(value => value.id !== person.id), peopleOrder: (state.peopleOrder || []).filter(id => id !== person.id) };
+      if (persist(next)) { renderPeople(); notice('大切な人を削除しました。'); }
+    });
+    const orderControls = document.createElement('div'); orderControls.className = 'person-order-controls';
+    const up = document.createElement('button'); up.type = 'button'; up.className = 'person-order-control'; up.textContent = '↑'; up.disabled = index === 0; up.setAttribute('aria-label', `${person.name}を上へ移動`); up.addEventListener('click', event => { event.stopPropagation(); movePerson(person.id, -1); });
+    const down = document.createElement('button'); down.type = 'button'; down.className = 'person-order-control'; down.textContent = '↓'; down.disabled = index === people.length - 1; down.setAttribute('aria-label', `${person.name}を下へ移動`); down.addEventListener('click', event => { event.stopPropagation(); movePerson(person.id, 1); });
+    orderControls.append(up, down); actions.append(edit, remove, orderControls); card.append(title, count, detail, actions);
+
+    let longPressTimer = null, pressY = 0, touchReordering = false, suppressClickUntil = 0;
+    const cancelLongPress = () => { if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; } };
+    card.addEventListener('click', event => { if (Date.now() < suppressClickUntil) { event.stopPropagation(); return; } openPeopleForm(person); });
+    card.addEventListener('dragstart', event => { if (!event.dataTransfer) return; suppressClickUntil = Date.now() + 800; event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', person.id); card.classList.add('is-dragging'); });
+    card.addEventListener('dragend', () => { card.classList.remove('is-dragging'); host.querySelectorAll('.person-card').forEach(value => value.classList.remove('is-drag-over')); });
+    card.addEventListener('dragover', event => { event.preventDefault(); if (event.dataTransfer) event.dataTransfer.dropEffect = 'move'; if (!card.classList.contains('is-dragging')) card.classList.add('is-drag-over'); });
+    card.addEventListener('dragleave', () => card.classList.remove('is-drag-over'));
+    card.addEventListener('drop', event => {
+      event.preventDefault(); card.classList.remove('is-drag-over');
+      const id = event.dataTransfer?.getData('text/plain'), source = [...host.querySelectorAll('.person-card')].find(value => value.dataset.personId === id);
+      if (!source || source === card) return;
+      const rect = card.getBoundingClientRect();
+      if (event.clientY > rect.top + rect.height / 2) card.after(source); else card.before(source);
+      savePeopleOrder([...host.querySelectorAll('.person-card')].map(value => value.dataset.personId));
+    });
+    card.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'touch' || event.target.closest('button')) return;
+      pressY = event.clientY;
+      longPressTimer = setTimeout(() => { touchReordering = true; suppressClickUntil = Date.now() + 1000; card.classList.add('is-dragging'); card.setPointerCapture?.(event.pointerId); notice('長押し中です。指を上下に動かして並び替えます。'); }, 520);
+    });
+    card.addEventListener('pointermove', event => {
+      if (!touchReordering || event.pointerType !== 'touch') { if (longPressTimer && Math.abs(event.clientY - pressY) > 12) cancelLongPress(); return; }
+      event.preventDefault();
+      const target = [...host.querySelectorAll('.person-card')].find(value => { if (value === card) return false; const rect = value.getBoundingClientRect(); return event.clientY >= rect.top && event.clientY <= rect.bottom; });
+      if (target) { const rect = target.getBoundingClientRect(); if (event.clientY > rect.top + rect.height / 2) target.after(card); else target.before(card); }
+    });
+    const finishTouchReorder = event => {
+      cancelLongPress();
+      if (!touchReordering || event.pointerType !== 'touch') return;
+      touchReordering = false; card.classList.remove('is-dragging');
+      if (card.hasPointerCapture?.(event.pointerId)) card.releasePointerCapture(event.pointerId);
+      savePeopleOrder([...host.querySelectorAll('.person-card')].map(value => value.dataset.personId));
+    };
+    card.addEventListener('pointerup', finishTouchReorder); card.addEventListener('pointercancel', finishTouchReorder);
     host.append(card);
   });
 }
@@ -405,17 +468,36 @@ function renderBucketList() {
   });
 }
 function renderLogs() {
-  write('memory-count', fmt(state.logs.length)); $('logs-list').replaceChildren();
-  if (!state.logs.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ記録はありません。今日の小さなひとコマから。'; $('logs-list').append(empty); }
-  [...state.logs].reverse().slice(0, logLimit).forEach(log => {
+  write('memory-count', fmt(state.logs.length));
+  const host = $('logs-list'); host.replaceChildren();
+  const query = eventNameKey(logQuery);
+  const filtered = [...state.logs].reverse().filter(log => !query || eventNameKey(`${log.text} ${log.date}`).includes(query));
+  if (!filtered.length) {
+    const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = state.logs.length && query ? '検索に一致する人生ログはありません。' : 'まだ記録はありません。今日の小さなひとコマから。'; host.append(empty);
+  }
+  const visibleLogs = logsExpanded ? filtered : filtered.slice(0, logLimit);
+  visibleLogs.forEach(log => {
     const entry = document.createElement('article'); entry.className = 'log-entry';
     const date = document.createElement('time'); date.dateTime = log.date; date.textContent = new Date(log.date).toLocaleString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
     const text = document.createElement('p'); text.textContent = log.text;
+    const editor = document.createElement('textarea'); editor.className = 'log-edit-input'; editor.rows = 3; editor.maxLength = 500; editor.value = log.text; editor.hidden = true; editor.setAttribute('aria-label', `${date.textContent}の人生ログを編集`);
+    const actions = document.createElement('div'); actions.className = 'log-entry-actions';
+    const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'edit-log'; edit.textContent = '編集'; edit.setAttribute('aria-label', `${date.textContent}の人生ログを編集`);
+    const save = document.createElement('button'); save.type = 'button'; save.className = 'save-log primary'; save.textContent = '保存'; save.hidden = true;
+    const cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'cancel-log secondary'; cancel.textContent = 'キャンセル'; cancel.hidden = true;
     const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-log'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${date.textContent}の人生ログを削除`);
+    edit.addEventListener('click', () => { text.hidden = true; editor.hidden = false; edit.hidden = true; remove.hidden = true; save.hidden = false; cancel.hidden = false; editor.focus(); });
+    save.addEventListener('click', () => {
+      const nextText = editor.value.trim();
+      if (!nextText || nextText.length > 500) { notice('人生ログを1〜500文字で入力してください。'); editor.focus(); return; }
+      if (persist({ ...state, logs: state.logs.map(value => value.id === log.id ? { ...value, text: nextText } : value) })) { renderLogs(); notice('人生ログを更新しました。'); }
+    });
+    cancel.addEventListener('click', () => renderLogs());
     remove.addEventListener('click', () => { if (confirm('この人生ログを削除しますか？') && persist({ ...state, logs: state.logs.filter(value => value.id !== log.id) })) { renderLogs(); notice('人生ログを削除しました。'); } });
-    entry.append(date, text, remove); $('logs-list').append(entry);
+    actions.append(edit, save, cancel, remove); entry.append(date, text, editor, actions); host.append(entry);
   });
-  $('more-logs').hidden = state.logs.length <= logLimit;
+  const more = $('more-logs'); more.hidden = filtered.length <= logLimit; more.textContent = logsExpanded ? `最初の${logLimit}件に戻す` : `過去の記録をさらに${fmt(Math.max(0, filtered.length - logLimit))}件見る`;
+  const download = $('download-logs'); if (download) download.hidden = state.logs.length === 0;
 }
 function renderDashboard() {
   const { p, days, lifespanDays, projection: m } = metrics();
@@ -501,7 +583,14 @@ $('log-form').addEventListener('submit', event => {
     $('memory-count').classList.remove('memory-pop'); requestAnimationFrame(() => $('memory-count').classList.add('memory-pop'));
   }
 });
-$('more-logs').addEventListener('click', () => { logLimit += 10; renderLogs(); });
+$('log-search').addEventListener('input', event => { logQuery = String(event.currentTarget.value || '').trim(); logsExpanded = Boolean(logQuery); renderLogs(); });
+$('more-logs').addEventListener('click', () => { logsExpanded = !logsExpanded; renderLogs(); });
+$('download-logs').addEventListener('click', () => {
+  if (!state.logs.length) { notice('保存する人生ログがありません。'); return; }
+  const content = [...state.logs].reverse().map(log => `${new Date(log.date).toLocaleString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}\n${log.text}`).join('\n\n');
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' }), url = URL.createObjectURL(blob), link = document.createElement('a');
+  link.href = url; link.download = `RE-IGNITE人生ログ-${new Date().toISOString().slice(0, 10)}.txt`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 0); notice('人生ログをテキストで保存しました。');
+});
 $('bucket-date').min = new Date().toISOString().slice(0, 10);
 $('bucket-form').addEventListener('submit', event => {
   event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate'));
@@ -519,15 +608,15 @@ document.querySelectorAll('[data-nav], #back-home').forEach(link => link.addEven
   if (state.profile && target !== 'settings') requestAnimationFrame(drawChart);
 }));
 $('reset').addEventListener('click', () => {
-  if (!confirm('FIRE人生時計のプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
-  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 10; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
+  if (!confirm('RE:IGNITEのプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
+  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 5; logsExpanded = false; logQuery = ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
   catch { notice('削除できませんでした。ブラウザのサイトデータ設定から削除してください。', true); }
 });
 $('share').addEventListener('click', async () => {
-  const text = `FIRE人生時計\n残りの夏：${calculateRemainingEvents(metrics().days, 1)}回\n次に迎える夏も、そのうちの1回。\n${location.origin}/life-clock/`;
+  const text = `RE:IGNITE｜人生を再点火するカウンター\n残りの夏：${calculateRemainingEvents(metrics().days, 1)}回\n次に迎える夏も、そのうちの1回。\n${location.origin}/life-clock/`;
   emit('share_clicked');
   try {
-    if (navigator.share) await navigator.share({ title: 'FIRE人生時計', text });
+    if (navigator.share) await navigator.share({ title: 'RE:IGNITE｜人生を再点火するカウンター', text });
     else { await navigator.clipboard.writeText(text); notice('共有用の文章をコピーしました。'); }
   } catch (error) {
     if (error.name === 'AbortError') return;
