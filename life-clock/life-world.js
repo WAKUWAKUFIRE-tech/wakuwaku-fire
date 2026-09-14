@@ -215,7 +215,7 @@ export function createLifeWorld(host) {
     active = false;
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
-    if (ctx) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, width, height); }
+    if (ctx) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.clearRect(0, 0, width, height); }
     host.classList.remove('is-celebrating', 'is-stage-up');
   };
 
@@ -278,13 +278,14 @@ export function createLifeWorld(host) {
   const addRing = (x, y, color = '#ffe16e', life = .95, size = 24) => rings.push({ x, y, age: 0, life, size, color });
 
   const explodeFirework = (x, y, huge = false) => {
-    const scale = huge ? 1.18 : 1;
-    addRing(x, y, '#ffe16e', huge ? 1.2 : 1, 34 * scale);
-    addRing(x, y, '#e65b3b', huge ? 1.45 : 1.15, 18 * scale);
-    const mainCount = effectReduced ? 12 : huge ? 72 : 52;
-    addRadialParticles(mainCount, 82 * scale, 238 * scale, { x, y, gravity: 82, lifeMin: 1.15, lifeMax: huge ? 1.95 : 1.7, sizeMin: 1.2, sizeMax: huge ? 5.2 : 4.2, trail: 16, colors: ['#ffe16e', '#ffd166', '#ffb347', '#fff7d1', '#e65b3b'] });
-    const microCount = effectReduced ? 4 : huge ? 34 : 22;
-    addRadialParticles(microCount, 35 * scale, 142 * scale, { x, y, gravity: 110, delayMax: .42, lifeMin: 1.05, lifeMax: 1.7, sizeMin: .65, sizeMax: 2.2, trail: 8, colors: ['#fff7d1', '#ffe16e', '#ffb347'] });
+    const scale = huge ? 1.35 : 1.16;
+    addRing(x, y, '#ffe16e', huge ? 1.4 : 1.18, 54 * scale);
+    addRing(x, y, '#e65b3b', huge ? 1.65 : 1.32, 28 * scale);
+    addRing(x, y, '#fff7d1', huge ? 1.05 : .92, 9 * scale);
+    const mainCount = effectReduced ? 18 : huge ? 108 : 76;
+    addRadialParticles(mainCount, 105 * scale, 318 * scale, { x, y, gravity: 92, lifeMin: 1.12, lifeMax: huge ? 2.15 : 1.78, sizeMin: 2.2, sizeMax: huge ? 8.6 : 6.8, trail: 25, colors: ['#ffe16e', '#ffd166', '#ffb347', '#fff7d1', '#e65b3b'] });
+    const microCount = effectReduced ? 8 : huge ? 56 : 34;
+    addRadialParticles(microCount, 42 * scale, 176 * scale, { x, y, gravity: 118, delayMax: .48, lifeMin: .92, lifeMax: 1.72, sizeMin: 1.1, sizeMax: huge ? 3.8 : 3.2, trail: 12, colors: ['#fff7d1', '#ffe16e', '#ffb347'] });
   };
 
   const startGrandFireworks = (huge = false) => {
@@ -298,37 +299,41 @@ export function createLifeWorld(host) {
   };
 
   const startCelebrationBurst = () => {
-    addRing(origin.x, origin.y, '#ffe16e', 1.1, 24);
-    addRing(origin.x, origin.y, '#e65b3b', .9, 12);
-    addRadialParticles(effectReduced ? 9 : 34, 70, 210, { gravity: 30, lifeMin: .9, lifeMax: 1.5, sizeMin: 1.4, sizeMax: 4.8, trail: 12 });
-    addRadialParticles(effectReduced ? 3 : 14, 30, 88, { delayMax: .32, gravity: 20, lifeMin: 1, lifeMax: 1.45, sizeMin: .7, sizeMax: 2.2, trail: 7, colors: ['#fff7d1', '#ffe16e'] });
+    addRing(origin.x, origin.y, '#ffe16e', 1.26, 44);
+    addRing(origin.x, origin.y, '#e65b3b', 1.08, 24);
+    addRing(origin.x, origin.y, '#fff7d1', .82, 8);
+    addRadialParticles(effectReduced ? 14 : 62, 104, 304, { gravity: 34, lifeMin: .92, lifeMax: 1.62, sizeMin: 2.2, sizeMax: 7.2, trail: 23, colors: ['#ffe16e', '#ffd166', '#ffb347', '#fff7d1', '#e65b3b'] });
+    addRadialParticles(effectReduced ? 5 : 26, 36, 126, { delayMax: .36, gravity: 26, lifeMin: 1.02, lifeMax: 1.58, sizeMin: 1.1, sizeMax: 3.4, trail: 10, colors: ['#fff7d1', '#ffe16e'] });
   };
 
   const startEmberIgnition = () => {
-    addRing(origin.x, origin.y, '#e65b3b', .8, 20);
-    const count = effectReduced ? 8 : 34;
+    addRing(origin.x, origin.y, '#e65b3b', .94, 32);
+    addRing(origin.x, origin.y, '#ffe16e', .72, 12);
+    const count = effectReduced ? 10 : 52;
     for (let i = 0; i < count; i += 1) {
-      addParticle({ x: origin.x + randomBetween(-10, 10), y: origin.y + randomBetween(-5, 9), vx: randomBetween(-128, 128), vy: -randomBetween(95, 285), gravity: randomBetween(70, 145), drag: .985, delay: randomBetween(0, .26), life: randomBetween(.9, 1.55), size: randomBetween(1.6, 5), color: pick(['#e65b3b', '#ff8d3a', '#ffd166', '#ffe16e']), shape: 'ember', trail: 18, wobble: 22 });
+      addParticle({ x: origin.x + randomBetween(-18, 18), y: origin.y + randomBetween(-8, 12), vx: randomBetween(-168, 168), vy: -randomBetween(110, 340), gravity: randomBetween(70, 155), drag: .985, delay: randomBetween(0, .28), life: randomBetween(.92, 1.65), size: randomBetween(2.5, 7), color: pick(['#e65b3b', '#ff8d3a', '#ffd166', '#ffe16e']), shape: 'ember', trail: 24, wobble: 30 });
     }
-    if (!effectReduced) addRadialParticles(12, 20, 80, { gravity: 55, delayMax: .38, lifeMin: .75, lifeMax: 1.25, sizeMin: .7, sizeMax: 2, trail: 7, colors: ['#ffe16e', '#ffb347'] });
+    if (!effectReduced) addRadialParticles(24, 24, 112, { gravity: 55, delayMax: .42, lifeMin: .75, lifeMax: 1.3, sizeMin: 1.1, sizeMax: 3.1, trail: 10, colors: ['#ffe16e', '#ffb347'] });
   };
 
   const startGoldenAscent = () => {
-    addRing(origin.x, origin.y, '#ffe16e', .8, 17);
-    const count = effectReduced ? 9 : 36;
+    addRing(origin.x, origin.y, '#ffe16e', .94, 28);
+    addRing(origin.x, origin.y, '#fff7d1', .66, 9);
+    const count = effectReduced ? 12 : 58;
     for (let i = 0; i < count; i += 1) {
-      addParticle({ x: origin.x + randomBetween(-22, 22), y: origin.y + randomBetween(-4, 12), vx: randomBetween(-72, 72), vy: -randomBetween(72, 205), gravity: randomBetween(18, 52), drag: .99, delay: randomBetween(0, .22), life: randomBetween(1.1, 1.75), size: randomBetween(1.1, 4.2), color: pick(['#ffe16e', '#ffd166', '#fff7d1', '#ffb347']), shape: Math.random() < .25 ? 'star' : 'dot', trail: 12, wobble: randomBetween(10, 30) });
+      addParticle({ x: origin.x + randomBetween(-30, 30), y: origin.y + randomBetween(-8, 16), vx: randomBetween(-100, 100), vy: -randomBetween(92, 260), gravity: randomBetween(18, 58), drag: .99, delay: randomBetween(0, .26), life: randomBetween(1.08, 1.82), size: randomBetween(2, 6.5), color: pick(['#ffe16e', '#ffd166', '#fff7d1', '#ffb347']), shape: Math.random() < .3 ? 'star' : 'dot', trail: 18, wobble: randomBetween(14, 38) });
     }
   };
 
   const startStarBloom = () => {
-    addRing(origin.x, origin.y, '#ffe16e', 1.2, 26);
-    addRing(origin.x, origin.y, '#fff7d1', 1.35, 10);
-    const count = effectReduced ? 8 : 28;
+    addRing(origin.x, origin.y, '#ffe16e', 1.3, 46);
+    addRing(origin.x, origin.y, '#fff7d1', 1.42, 20);
+    addRing(origin.x, origin.y, '#e65b3b', .96, 9);
+    const count = effectReduced ? 12 : 44;
     for (let i = 0; i < count; i += 1) {
       const angle = Math.PI * 2 * i / count + randomBetween(-.12, .12);
       const speed = randomBetween(38, 164) * (effectReduced ? .45 : 1);
-      addParticle({ x: origin.x, y: origin.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, gravity: 8, drag: .987, delay: randomBetween(0, .28), life: randomBetween(1.1, 1.8), size: randomBetween(2, 5.2), color: pick(['#fff7d1', '#ffe16e', '#ffd166']), shape: 'star', trail: 7, twinkle: true, rotation: angle });
+      addParticle({ x: origin.x, y: origin.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, gravity: 8, drag: .987, delay: randomBetween(0, .3), life: randomBetween(1.1, 1.86), size: randomBetween(3, 8), color: pick(['#fff7d1', '#ffe16e', '#ffd166']), shape: 'star', trail: 10, twinkle: true, rotation: angle });
     }
   };
 
@@ -336,8 +341,8 @@ export function createLifeWorld(host) {
     const count = effectReduced ? 1 : (Math.random() < .35 ? 3 : 2);
     for (let i = 0; i < count; i += 1) {
       const startX = randomBetween(-width * .08, width * .65);
-      const startY = randomBetween(height * .08, height * .32) + i * 20;
-      streaks.push({ x: startX, y: startY, px: startX, py: startY, vx: randomBetween(330, 520), vy: randomBetween(150, 250), age: -i * .16, life: randomBetween(1.05, 1.42), color: i % 2 ? '#ffe16e' : '#fff7d1', trail: randomBetween(95, 150), done: false });
+      const startY = randomBetween(height * .08, height * .34) + i * 24;
+      streaks.push({ x: startX, y: startY, px: startX, py: startY, vx: randomBetween(390, 610), vy: randomBetween(170, 300), age: -i * .16, life: randomBetween(1.05, 1.48), color: i % 2 ? '#ffe16e' : '#fff7d1', trail: randomBetween(145, 230), done: false });
     }
     if (!effectReduced) startStarBloom();
   };
@@ -349,13 +354,14 @@ export function createLifeWorld(host) {
     const elapsed = (now - startedAt) / 1000;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, width, height);
+    ctx.globalCompositeOperation = 'lighter';
 
     const flashT = clamp(elapsed / (effectHuge ? .72 : .58), 0, 1);
-    const flash = Math.sin(flashT * Math.PI) * (effectHuge ? .14 : .085);
+    const flash = Math.sin(flashT * Math.PI) * (effectHuge ? .3 : .2);
     if (flash > 0) { ctx.fillStyle = `rgba(255, 180, 74, ${flash})`; ctx.fillRect(0, 0, width, height); }
-    if (elapsed < 1.3) {
-      const glow = ctx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, Math.max(width, height) * .42);
-      glow.addColorStop(0, `rgba(255, 211, 104, ${Math.max(0, .13 * (1 - elapsed / 1.3))})`); glow.addColorStop(1, 'rgba(255, 174, 69, 0)');
+    if (elapsed < 1.45) {
+      const glow = ctx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, Math.max(width, height) * .68);
+      glow.addColorStop(0, `rgba(255, 239, 164, ${Math.max(0, (effectHuge ? .42 : .3) * (1 - elapsed / 1.45))})`); glow.addColorStop(.28, `rgba(255, 181, 66, ${Math.max(0, (effectHuge ? .22 : .14) * (1 - elapsed / 1.45))})`); glow.addColorStop(1, 'rgba(255, 174, 69, 0)');
       ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
     }
 
@@ -363,7 +369,7 @@ export function createLifeWorld(host) {
       const rocket = rockets[i]; rocket.age += dt; if (rocket.age < rocket.delay) continue;
       const t = clamp((rocket.age - rocket.delay) / rocket.life, 0, 1); rocket.px = rocket.x; rocket.py = rocket.y;
       const eased = 1 - Math.pow(1 - t, 2.5); rocket.x = rocket.x + (rocket.tx - rocket.x) * eased; rocket.y = rocket.y + (rocket.ty - rocket.y) * eased;
-      ctx.save(); ctx.globalAlpha = .9; ctx.strokeStyle = rocket.color; ctx.shadowColor = '#ffb347'; ctx.shadowBlur = 15; ctx.lineWidth = effectHuge ? 4 : 3;
+      ctx.save(); ctx.globalAlpha = .98; ctx.strokeStyle = rocket.color; ctx.shadowColor = '#ffb347'; ctx.shadowBlur = effectHuge ? 34 : 26; ctx.lineWidth = effectHuge ? 7 : 5;
       ctx.beginPath(); ctx.moveTo(rocket.px, rocket.py); ctx.lineTo(rocket.x, rocket.y); ctx.stroke(); ctx.fillStyle = '#fff7d1'; ctx.beginPath(); ctx.arc(rocket.x, rocket.y, effectHuge ? 5 : 3.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       if (t >= 1) { explodeFirework(rocket.tx, rocket.ty, rocket.huge); rockets.splice(i, 1); }
     }
@@ -373,13 +379,13 @@ export function createLifeWorld(host) {
       const t = clamp(streak.age / streak.life, 0, 1); streak.px = streak.x; streak.py = streak.y; streak.x += streak.vx * dt; streak.y += streak.vy * dt;
       ctx.save(); ctx.globalAlpha = Math.sin(Math.min(1, t) * Math.PI) * .96;
       const gradient = ctx.createLinearGradient(streak.x - streak.trail, streak.y - streak.trail * .46, streak.x, streak.y); gradient.addColorStop(0, 'rgba(255,255,255,0)'); gradient.addColorStop(.55, streak.color); gradient.addColorStop(1, '#fff7d1');
-      ctx.strokeStyle = gradient; ctx.lineWidth = effectHuge ? 5 : 3; ctx.shadowColor = streak.color; ctx.shadowBlur = 18; ctx.beginPath(); ctx.moveTo(streak.x - streak.trail, streak.y - streak.trail * .46); ctx.lineTo(streak.x, streak.y); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(streak.x, streak.y, 4.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      ctx.strokeStyle = gradient; ctx.lineWidth = effectHuge ? 8 : 5; ctx.shadowColor = streak.color; ctx.shadowBlur = 30; ctx.beginPath(); ctx.moveTo(streak.x - streak.trail, streak.y - streak.trail * .46); ctx.lineTo(streak.x, streak.y); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.shadowColor = '#fff7d1'; ctx.shadowBlur = 22; ctx.beginPath(); ctx.arc(streak.x, streak.y, effectHuge ? 8 : 6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       if (t >= 1) { for (let j = 0; j < (effectReduced ? 2 : 7); j += 1) addParticle({ x: streak.x, y: streak.y, vx: randomBetween(-30, 30), vy: randomBetween(-38, 38), gravity: 14, delay: randomBetween(0, .12), life: randomBetween(.5, .9), size: randomBetween(1, 2.8), color: streak.color, shape: 'star', trail: 4 }); streaks.splice(i, 1); }
     }
 
     for (let i = rings.length - 1; i >= 0; i -= 1) {
       const ring = rings[i]; ring.age += dt; const t = clamp(ring.age / ring.life, 0, 1);
-      ctx.save(); ctx.globalAlpha = Math.sin((1 - t) * Math.PI) * .8; ctx.strokeStyle = ring.color; ctx.shadowColor = ring.color; ctx.shadowBlur = 22; ctx.lineWidth = effectHuge ? 4 : 3; ctx.beginPath(); ctx.arc(ring.x, ring.y, ring.size + t * (effectHuge ? 210 : 170), 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+      ctx.save(); ctx.globalAlpha = Math.sin((1 - t) * Math.PI) * .95; ctx.strokeStyle = ring.color; ctx.shadowColor = ring.color; ctx.shadowBlur = effectHuge ? 42 : 34; ctx.lineWidth = effectHuge ? 8 : 5; ctx.beginPath(); ctx.arc(ring.x, ring.y, ring.size + t * (effectHuge ? 340 : 280), 0, Math.PI * 2); ctx.stroke(); ctx.restore();
       if (t >= 1) rings.splice(i, 1);
     }
 
@@ -390,10 +396,11 @@ export function createLifeWorld(host) {
       const fade = t < .13 ? t / .13 : Math.pow(1 - t, .72); const twinkle = p.twinkle ? .68 + .32 * (0.5 + 0.5 * Math.sin(p.age * 18 + p.phase)) : 1;
       ctx.save(); ctx.globalAlpha = clamp(fade * twinkle, 0, 1);
       if (p.trail) { ctx.strokeStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = p.glow; ctx.globalAlpha *= .38; ctx.lineWidth = Math.max(1, p.size * .65); ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.globalAlpha = clamp(fade * twinkle, 0, 1); }
-      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = p.glow;
+      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = Math.max(18, p.glow * 1.8);
       if (p.shape === 'star') drawStar(ctx, p.x, p.y, p.size * (1 + .22 * Math.sin(p.age * 9 + p.phase)), p.rotation + p.age * .4);
       else if (p.shape === 'ember') { ctx.translate(p.x, p.y); ctx.rotate(Math.atan2(p.vy, p.vx) + Math.PI / 2); ctx.beginPath(); ctx.ellipse(0, 0, p.size * .55, p.size * 1.6, 0, 0, Math.PI * 2); ctx.fill(); }
       else { ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill(); }
+      if (p.size >= 4) { ctx.globalAlpha = clamp(fade * .62, 0, 1); ctx.fillStyle = '#fff7d1'; ctx.shadowColor = '#fff7d1'; ctx.shadowBlur = 18; ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1.1, p.size * .28), 0, Math.PI * 2); ctx.fill(); }
       ctx.restore();
     }
 
