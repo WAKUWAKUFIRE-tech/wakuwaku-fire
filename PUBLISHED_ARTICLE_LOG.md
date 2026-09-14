@@ -699,3 +699,24 @@ thumbnail text: FIRE後の趣味
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後は何をする？やることがない問題への向き合い方
+
+article id: seo-030
+priority_order: 30
+公開日・時刻（JST）: 2026-09-15 07:00:00
+公開枠: 2026-09-15T07:00:00+09:00
+main keyword: FIRE後 やること
+title: FIRE後は何をする？やることがない問題への向き合い方
+slug: after-fire-yarukoto
+URL: https://wakuwaku-fire-git.pages.dev/articles/after-fire-yarukoto/
+thumbnail file: articles/after-fire-yarukoto/thumbnail.png
+thumbnail text: FIRE後何する？
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/side_fire_and_work.md, content_sources/knowledge_base/seo_experience_map.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED

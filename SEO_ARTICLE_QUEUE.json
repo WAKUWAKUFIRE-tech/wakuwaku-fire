@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-09-14",
+  "updated_at": "2026-09-15",
   "items": [
     {
       "id": "seo-001",
@@ -1118,7 +1118,7 @@
     {
       "id": "seo-030",
       "priority_order": 30,
-      "status": "stocked",
+      "status": "published",
       "main_keyword": "FIRE後 やること",
       "secondary_keywords": [
         "FIRE後 何する",
@@ -1141,13 +1141,17 @@
       ],
       "thumbnail_text_hint": "FIRE後何する？",
       "latest_fact_check_required": false,
-      "published_url": "",
-      "published_at": "",
+      "published_url": "https://wakuwaku-fire-git.pages.dev/articles/after-fire-yarukoto/",
+      "published_at": "2026-09-15",
       "failed_reason": "",
-      "published_time": "",
-      "published_slot": "",
+      "published_time": "07:00:00",
+      "published_slot": "2026-09-15T07:00:00+09:00",
       "stock_path": "automation/article_stock/after-fire-yarukoto",
-      "category": "FIRE後の暮らし・心"
+      "category": "FIRE後の暮らし・心",
+      "generated_title": "FIRE後は何をする？やることがない問題への向き合い方",
+      "generated_meta_description": "FIRE後にやることがないと感じた時の考え方と、予定・家事・発信・人との接点を作る方法を紹介します。ゲーム中心から生活の軸を作り直した本人の試行錯誤も整理します。",
+      "generated_category": "FIRE後の暮らし・心",
+      "generated_thumbnail_text": "FIRE後何する？"
     },
     {
       "id": "seo-031",
