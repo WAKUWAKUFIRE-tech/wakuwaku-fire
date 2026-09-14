@@ -22,8 +22,8 @@
   <link rel="manifest" href="/life-clock/manifest.webmanifest">
   <link rel="icon" href="/life-clock/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/life-clock/icon.svg">
-  <link rel="stylesheet" href="/life-clock/styles.css?v=20260914-01">
-  <script type="module" src="/life-clock/app.js?v=20260914-01"></script>
+  <link rel="stylesheet" href="/life-clock/styles.css?v=20260914-02">
+  <script type="module" src="/life-clock/app.js?v=20260914-02"></script>
 </head>
 <body>
   <a class="skip" href="#main">本文へスキップ</a>
@@ -64,7 +64,7 @@
         <p class="welcome-memento"><strong>Memento Mori. Memento Vivere.</strong><br>死を忘れるな。だから、生きることも忘れるな。</p>
       </section>
       <section id="home" aria-labelledby="dashboard-title">
-        <div class="section-head"><div><span class="eyebrow" id="today-date"></span><h1 id="dashboard-title">人生ダッシュボード</h1></div><button class="text-button" id="edit-profile">条件を見直す ↗</button></div>
+        <div class="section-head"><div><span class="eyebrow" id="today-date"></span><h1 id="dashboard-title">RE:IGNITE 人生カウンター</h1></div><button class="text-button" id="edit-profile">条件を見直す ↗</button></div>
         <p id="return-message" class="return-message" hidden></p>
         <div class="hero-grid">
           <article class="life-card" aria-labelledby="life-card-title">
@@ -126,7 +126,7 @@
     </div>
     <section id="settings" class="panel settings" hidden aria-labelledby="settings-title"><span class="eyebrow">YOUR SETTINGS</span><h1 id="settings-title">設定とデータ</h1><p>入力データはこの端末の、このブラウザ内に保存され、サーバーへ送信しません。別の端末やブラウザとは同期されません。</p><p>ブラウザのデータ削除や端末の故障で記録が失われることがあります。プライベートブラウズでは保存が維持されない場合があります。</p><button id="settings-edit" class="secondary">プロフィール・計算条件を変更</button><hr><h2>保存データの削除</h2><p>プロフィール、大切な人、独自イベント、自由時間、バケットリスト、人生ログをすべて削除します。</p><button id="reset" class="danger">保存データをすべて削除</button><p><a href="#home" id="back-home">ダッシュボードへ戻る</a></p></section>
     <aside id="install-card" class="install-card"><div><h2>RE:IGNITEをホーム画面に置く</h2><p>毎回検索しなくても、アプリのようにすぐ開けます。</p><p id="install-help" class="muted"></p></div><button id="install" class="secondary">追加方法を見る ＋</button></aside>
-    <section class="explanation" aria-labelledby="about-title"><span class="eyebrow">ABOUT RE:IGNITE</span><h2 id="about-title">資産を増やすだけが、FIREではありません。</h2><p>RE:IGNITEは、経済的な自立や早期退職を目指す人、すでにFIRE・サイドFIREを実現した人のための人生ダッシュボードです。「いくらあれば辞められるか」の先にある、「自由になった時間をどう使うか」を考える入り口になります。</p><h3>資産寿命とは</h3><p>今ある金融資産を、一定の生活費と運用利回りの条件で取り崩したときに、残高が0になるまでの期間です。同じ資産額でも、生活費や利回りによって結果は変わります。この画面では毎月の取り崩しで試算し、平均寿命の目安時点の資産と並べて確認できます。運用益が支出を補う設定では資産が尽きない計算になりますが、将来の安全を保証するものではありません。</p><h3>健康寿命と人生設計</h3><p>ここでの健康寿命は、あなたが「元気にやりたいことを楽しむ期間」として設定する目安です。統計に基づく個人の健康予測ではありません。旅行や趣味、家族との時間をいつ楽しみたいか、自分の希望に合わせて自由に見直してください。設定した期間を過ぎても、体験や日々の価値がなくなるわけではありません。</p><h3>お金と自由時間を同時に考える</h3><p>仕事を続ければ、貯蓄を増やせるかもしれません。一方で、子どもと遊べる夏や、親と出かけられる休日は、後から同じ形で取り戻せないこともあります。FIRE後に重要なのは資産額だけではなく、自由な時間を何に使いたいか。残りの季節と人生ログを、次の予定をひとつ決めるきっかけにしてください。</p><h3>数字を、行動のきっかけに</h3><p>RE:IGNITEでは、想定寿命までの生活資金を確保したうえで、健康な今だからこそ使える余剰資金を「ワクワク予算」として見える化します。健康寿命はワクワク予算を使う期間の目安、想定寿命は生活資金を確保する期限として扱います。生活費と楽しみのお金を分けて、これからの暮らし全体とのバランスを考えるための参考値としてお使いください。</p><div class="disclaimer"><strong>ご利用にあたって</strong><p>このツールは人生設計を考えるための簡易シミュレーションです。医学的な寿命予測、投資助言、税務・年金・保険等の専門的助言を提供するものではありません。実際の寿命・健康寿命・投資収益・物価・支出は変動します。計算結果は参考値であり、将来の結果を保証しません。</p><p>生活予算・ワクワク予算は入力された資産、生活費、想定利回り、想定寿命等をもとにした簡易シミュレーションです。実際の将来支出や投資収益を保証するものではありません。</p></div></section>
+    <section class="explanation" aria-labelledby="about-title"><span class="eyebrow">ABOUT RE:IGNITE</span><h2 id="about-title">資産を増やすだけが、FIREではありません。</h2><p>RE:IGNITEは、経済的な自立や早期退職を目指す人、すでにFIRE・サイドFIREを実現した人のための人生カウンターです。「いくらあれば辞められるか」の先にある、「自由になった時間をどう使うか」を考える入り口になります。</p><h3>資産寿命とは</h3><p>今ある金融資産を、一定の生活費と運用利回りの条件で取り崩したときに、残高が0になるまでの期間です。同じ資産額でも、生活費や利回りによって結果は変わります。この画面では毎月の取り崩しで試算し、平均寿命の目安時点の資産と並べて確認できます。運用益が支出を補う設定では資産が尽きない計算になりますが、将来の安全を保証するものではありません。</p><h3>健康寿命と人生設計</h3><p>ここでの健康寿命は、あなたが「元気にやりたいことを楽しむ期間」として設定する目安です。統計に基づく個人の健康予測ではありません。旅行や趣味、家族との時間をいつ楽しみたいか、自分の希望に合わせて自由に見直してください。設定した期間を過ぎても、体験や日々の価値がなくなるわけではありません。</p><h3>お金と自由時間を同時に考える</h3><p>仕事を続ければ、貯蓄を増やせるかもしれません。一方で、子どもと遊べる夏や、親と出かけられる休日は、後から同じ形で取り戻せないこともあります。FIRE後に重要なのは資産額だけではなく、自由な時間を何に使いたいか。残りの季節と人生ログを、次の予定をひとつ決めるきっかけにしてください。</p><h3>数字を、行動のきっかけに</h3><p>RE:IGNITEでは、想定寿命までの生活資金を確保したうえで、健康な今だからこそ使える余剰資金を「ワクワク予算」として見える化します。健康寿命はワクワク予算を使う期間の目安、想定寿命は生活資金を確保する期限として扱います。生活費と楽しみのお金を分けて、これからの暮らし全体とのバランスを考えるための参考値としてお使いください。</p><div class="disclaimer"><strong>ご利用にあたって</strong><p>このツールは人生設計を考えるための簡易シミュレーションです。医学的な寿命予測、投資助言、税務・年金・保険等の専門的助言を提供するものではありません。実際の寿命・健康寿命・投資収益・物価・支出は変動します。計算結果は参考値であり、将来の結果を保証しません。</p><p>生活予算・ワクワク予算は入力された資産、生活費、想定利回り、想定寿命等をもとにした簡易シミュレーションです。実際の将来支出や投資収益を保証するものではありません。</p></div></section>
     <noscript><p class="panel">計算と端末内保存にはJavaScriptが必要です。ブラウザの設定で有効にしてください。</p></noscript>
     <footer><a href="/">ワクワクFIREへ</a><span>RE:IGNITE · 人生を使うためのアプリ</span></footer>
   </main>
