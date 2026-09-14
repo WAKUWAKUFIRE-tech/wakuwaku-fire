@@ -1,0 +1,17 @@
+{
+  "id": "/life-clock/",
+  "name": "RE:IGNITE｜人生を再点火するカウンター",
+  "short_name": "RE:IGNITE",
+  "description": "残りの人生時間・使えるお金・これからできる体験回数を見える化する、人生カウンター。",
+  "lang": "ja",
+  "start_url": "/life-clock/",
+  "scope": "/life-clock/",
+  "display": "standalone",
+  "theme_color": "#df3528",
+  "background_color": "#f7f7f2",
+  "icons": [
+    { "src": "/life-clock/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/life-clock/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/life-clock/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

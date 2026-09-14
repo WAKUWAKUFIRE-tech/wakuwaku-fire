@@ -14,6 +14,7 @@ import {
   parseBackup,
   recordArticleRead,
   recordFireQuestVisit,
+  recordReigniteVisit,
   recordVisit,
   restoreBackup,
   syncEligibleBadges,
@@ -197,7 +198,7 @@ test("FIRE人生の足あとを時系列で組み立て、バックアップか�
   const restored = parseBackup(backup);
   assert.equal(restored.nickname, "まる");
   assert.equal(restored.articleReadHistory[0].title, "足あとになる記事");
-  assert.equal(restored.version, 4);
+  assert.equal(restored.version, 5);
   assert.equal(restoreBackup(backup).totalExp, state.totalExp);
 });
 
@@ -224,6 +225,19 @@ test("FIRE QUEST訪問EXPはJSTの1日1回で、10日ごとと30日ごとのボ�
   assert.equal(duplicate.isNewDay, false);
   assert.equal(duplicate.expGained, 0);
   assert.equal(state.totalExp, 700);
+});
+
+test("RE:IGNITE訪問EXPはJSTの同じ日を重複せず、日付を別管理する", () => {
+  const state = getDefaultState();
+  const first = recordReigniteVisit(state, new Date("2026-09-14T23:59:00+09:00"));
+  const sameDay = recordReigniteVisit(state, new Date("2026-09-14T23:59:59+09:00"));
+  const nextDay = recordReigniteVisit(state, new Date("2026-09-15T00:01:00+09:00"));
+
+  assert.equal(first.expGained, 5);
+  assert.equal(sameDay.expGained, 0);
+  assert.equal(nextDay.expGained, 5);
+  assert.deepEqual(state.reigniteVisitDates, ["2026-09-14", "2026-09-15"]);
+  assert.equal(state.totalExp, 10);
 });
 
 
