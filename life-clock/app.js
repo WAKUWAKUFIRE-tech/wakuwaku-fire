@@ -246,12 +246,21 @@ function captureCelebrationAnchor(anchor) {
   const rect = anchor.getBoundingClientRect();
   return { getBoundingClientRect: () => rect };
 }
+function pulseAddedCard(selector) {
+  const card = document.querySelector(selector);
+  if (!card) return;
+  card.classList.remove('is-recent');
+  requestAnimationFrame(() => {
+    card.classList.add('is-recent');
+    setTimeout(() => card.classList.remove('is-recent'), 1500);
+  });
+}
 function addEvent(name, frequency, icon = '✨', anchor = null) {
   if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) { notice('行動の名前と、年あたりの回数を確認してください。'); return false; }
   if (hasEventName(name)) { notice(`「${name}」はすでに追加されています。削除すると、もう一度追加できます。`); return false; }
   const celebrationAnchor = captureCelebrationAnchor(anchor);
   const event = { id: crypto.randomUUID(), name, icon, frequency, period: 'year', unit: '回' };
-  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); renderEventExamples(); emit('life_event_added'); lifeWorld.celebrate({ source: 'experience', anchor: celebrationAnchor }); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
+  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); renderEventExamples(); pulseAddedCard(`[data-event-id="${event.id}"]`); emit('life_event_added'); lifeWorld.celebrate({ source: 'experience', anchor: celebrationAnchor }); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
   return false;
 }
 function renderEventExamples() {
@@ -498,7 +507,7 @@ function addBucketCandidate(category, candidate, anchor = null) {
   const dueDate = defaultBucketDueDate();
   const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString(), categoryId: category.id, categoryName: category.name };
   if (persist({ ...state, bucketList: [...state.bucketList, item] })) {
-    renderBucketList(); renderBucketSuggestions(); lifeWorld.celebrate({ source: 'bucket-list', anchor: celebrationAnchor });
+    renderBucketList(); renderBucketSuggestions(); pulseAddedCard(`[data-bucket-id="${item.id}"]`); lifeWorld.celebrate({ source: 'bucket-list', anchor: celebrationAnchor });
     notice(`「${title}」を追加しました。期限は1年後で仮設定しています。必要ならリスト内で変更できます。`);
   }
 }
@@ -508,7 +517,7 @@ function renderBucketList() {
   const items = [...state.bucketList].sort((a, b) => Number(a.done) - Number(b.done) || a.dueDate.localeCompare(b.dueDate));
   if (!items.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ登録されていません。期限を決めて、最初のひとつを追加しましょう。'; host.append(empty); return; }
   items.forEach(item => {
-    const card = document.createElement('article'); card.className = `bucket-item${item.done ? ' is-done' : ''}`;
+    const card = document.createElement('article'); card.className = `bucket-item${item.done ? ' is-done' : ''}`; card.dataset.bucketId = item.id;
     const check = document.createElement('input'); check.type = 'checkbox'; check.checked = item.done; check.id = `bucket-check-${item.id}`; check.setAttribute('aria-label', `${item.title}を完了にする`); check.addEventListener('change', () => { if (persist({ ...state, bucketList: state.bucketList.map(v => v.id === item.id ? { ...v, done: check.checked } : v) })) { renderBucketList(); renderBucketSuggestions(); } });
     const copy = document.createElement('div'); copy.className = 'bucket-item-copy';
     const title = document.createElement('label'); title.htmlFor = check.id; title.textContent = item.title;
@@ -541,7 +550,7 @@ function renderLogs() {
   }
   const visibleLogs = logsExpanded ? filtered : filtered.slice(0, logLimit);
   visibleLogs.forEach(log => {
-    const entry = document.createElement('article'); entry.className = 'log-entry';
+    const entry = document.createElement('article'); entry.className = 'log-entry'; entry.dataset.logId = log.id;
     const date = document.createElement('time'); date.dateTime = log.date; date.textContent = new Date(log.date).toLocaleString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
     const text = document.createElement('p'); text.textContent = log.text;
     const editor = document.createElement('textarea'); editor.className = 'log-edit-input'; editor.rows = 3; editor.maxLength = 500; editor.value = log.text; editor.hidden = true; editor.setAttribute('aria-label', `${date.textContent}の人生ログを編集`);
@@ -609,7 +618,7 @@ $('people-form').addEventListener('submit', event => {
   const people = isEditing
     ? state.people.map(person => person.id === result.id ? result : person)
     : [...state.people, result];
-  if (persist({ ...state, people })) { closePeopleForm(); renderPeople(); if (!isEditing) lifeWorld.celebrate({ source: 'person', anchor: event.submitter }); notice(isEditing ? '大切な人の設定を更新しました。' : '大切な人を追加しました。'); }
+  if (persist({ ...state, people })) { closePeopleForm(); renderPeople(); if (!isEditing) { pulseAddedCard(`[data-person-id="${result.id}"]`); lifeWorld.celebrate({ source: 'person', anchor: event.submitter }); } notice(isEditing ? '大切な人の設定を更新しました。' : '大切な人を追加しました。'); }
 });
 $('dismiss-wakuwaku-intro').addEventListener('click', () => {
   if (persist({ ...state, wakuwakuIntroSeen: true })) $('wakuwaku-intro').hidden = true;
@@ -643,8 +652,9 @@ $('event-form').addEventListener('submit', event => {
 $('log-form').addEventListener('submit', event => {
   event.preventDefault(); const text = String(new FormData(event.currentTarget).get('text')).trim();
   if (!text || text.length > 500) { notice('今日のひとコマを1〜500文字で入力してください。'); return; }
-  if (persist({ ...state, logs: [...state.logs, { id: crypto.randomUUID(), date: new Date().toISOString(), text }] })) {
-    event.currentTarget.reset(); renderLogs(); emit('life_log_added'); lifeWorld.celebrate({ source: 'life-log', anchor: event.submitter }); notice('思い出資産 +1。今日のひとコマを保存しました。');
+  const log = { id: crypto.randomUUID(), date: new Date().toISOString(), text };
+  if (persist({ ...state, logs: [...state.logs, log] })) {
+    event.currentTarget.reset(); renderLogs(); pulseAddedCard(`[data-log-id="${log.id}"]`); emit('life_log_added'); lifeWorld.celebrate({ source: 'life-log', anchor: event.submitter }); notice('思い出資産 +1。今日のひとコマを保存しました。');
     $('memory-count').classList.remove('memory-pop'); requestAnimationFrame(() => $('memory-count').classList.add('memory-pop'));
   }
 });
@@ -661,7 +671,8 @@ $('bucket-date').min = new Date().toISOString().slice(0, 10);
 $('bucket-form').addEventListener('submit', event => {
   event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate'));
   if (!title || title.length > 120 || !/^\d{4}-\d{2}-\d{2}$/.test(dueDate) || !Number.isFinite(Date.parse(`${dueDate}T23:59:59`))) { notice('やりたいことと、正しい期限を入力してください。'); return; }
-  if (persist({ ...state, bucketList: [...state.bucketList, { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() }] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); lifeWorld.celebrate({ source: 'bucket-list', anchor: event.submitter }); notice('バケットリストに追加しました。'); }
+  const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() };
+  if (persist({ ...state, bucketList: [...state.bucketList, item] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); pulseAddedCard(`[data-bucket-id="${item.id}"]`); lifeWorld.celebrate({ source: 'bucket-list', anchor: event.submitter }); notice('バケットリストに追加しました。'); }
 });
 function navigate() {
   const target = location.hash.slice(1);
