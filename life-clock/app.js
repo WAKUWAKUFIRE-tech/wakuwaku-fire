@@ -1,5 +1,6 @@
 import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents, calculateRemainingPersonMeetings, calculateYearRemaining, calculateYearProgress, calculateTrueFreeTime, calculateBucketDaysUntil } from './calculations.js';
 import { createStorage, emptyState } from './storage.js';
+import { BUCKET_CATEGORIES } from './bucket-data.js';
 
 const $ = id => document.getElementById(id);
 const nf = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 0 });
@@ -47,7 +48,7 @@ const eventExamples = [
 const allowedEvents = new Set(['life_clock_start', 'life_clock_calculated', 'life_event_added', 'life_log_added', 'pwa_install_clicked', 'share_clicked', 'return_visit']);
 // Local extension hook only. No analytics endpoint, profile, identifiers, or log text.
 function emit(name) { if (allowedEvents.has(name)) window.dispatchEvent(new CustomEvent('life-clock:event', { detail: { name } })); }
-let state = emptyState(), storage, storageBroken = false, noticeTimer, logLimit = 5, logsExpanded = false, logQuery = '', installPrompt = null;
+let state = emptyState(), storage, storageBroken = false, noticeTimer, logLimit = 5, logsExpanded = false, logQuery = '', installPrompt = null, bucketCategoryId = BUCKET_CATEGORIES[0]?.id || '';
 function notice(text, persistent = false) {
   clearTimeout(noticeTimer); write('notice', text);
   if (!persistent) noticeTimer = setTimeout(() => write('notice', ''), 6000);
@@ -451,6 +452,46 @@ function renderPeople() {
     host.append(card);
   });
 }
+function defaultBucketDueDate() {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() + 1);
+  return date.toISOString().slice(0, 10);
+}
+function renderBucketSuggestions() {
+  const select = $('bucket-category'), host = $('bucket-candidates');
+  if (!select || !host) return;
+  if (!select.options.length) {
+    BUCKET_CATEGORIES.forEach(category => {
+      const option = document.createElement('option'); option.value = category.id; option.textContent = `${category.icon} ${category.name}`; select.append(option);
+    });
+  }
+  if (!BUCKET_CATEGORIES.some(category => category.id === bucketCategoryId)) bucketCategoryId = BUCKET_CATEGORIES[0]?.id || '';
+  select.value = bucketCategoryId;
+  const category = BUCKET_CATEGORIES.find(value => value.id === bucketCategoryId);
+  host.replaceChildren();
+  if (!category) return;
+  const existing = new Set(state.bucketList.map(item => item.title.trim()));
+  category.items.forEach(candidate => {
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'bucket-suggestion';
+    const added = existing.has(candidate.title.trim()); button.disabled = added; button.setAttribute('aria-label', added ? `${candidate.title}（追加済み）` : `${candidate.title}を追加`);
+    const title = document.createElement('span'); title.textContent = candidate.title;
+    const status = document.createElement('small'); status.textContent = added ? '追加済み' : '追加';
+    button.append(title, status);
+    if (!added) button.addEventListener('click', () => addBucketCandidate(category, candidate));
+    host.append(button);
+  });
+}
+function addBucketCandidate(category, candidate) {
+  const title = candidate.title.trim();
+  if (!title) return;
+  if (state.bucketList.some(item => item.title.trim() === title)) { notice('その項目はすでにバケットリストに追加されています。'); renderBucketSuggestions(); return; }
+  const dueDate = defaultBucketDueDate();
+  const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString(), categoryId: category.id, categoryName: category.name };
+  if (persist({ ...state, bucketList: [...state.bucketList, item] })) {
+    renderBucketList(); renderBucketSuggestions();
+    notice(`「${title}」を追加しました。期限は1年後で仮設定しています。必要ならリスト内で変更できます。`);
+  }
+}
 function renderBucketList() {
   const host = $('bucket-list'); if (!host) return;
   host.replaceChildren();
@@ -458,12 +499,25 @@ function renderBucketList() {
   if (!items.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ登録されていません。期限を決めて、最初のひとつを追加しましょう。'; host.append(empty); return; }
   items.forEach(item => {
     const card = document.createElement('article'); card.className = `bucket-item${item.done ? ' is-done' : ''}`;
-    const check = document.createElement('input'); check.type = 'checkbox'; check.checked = item.done; check.id = `bucket-check-${item.id}`; check.setAttribute('aria-label', `${item.title}を完了にする`); check.addEventListener('change', () => { persist({ ...state, bucketList: state.bucketList.map(v => v.id === item.id ? { ...v, done: check.checked } : v) }); renderBucketList(); });
+    const check = document.createElement('input'); check.type = 'checkbox'; check.checked = item.done; check.id = `bucket-check-${item.id}`; check.setAttribute('aria-label', `${item.title}を完了にする`); check.addEventListener('change', () => { if (persist({ ...state, bucketList: state.bucketList.map(v => v.id === item.id ? { ...v, done: check.checked } : v) })) { renderBucketList(); renderBucketSuggestions(); } });
     const copy = document.createElement('div'); copy.className = 'bucket-item-copy';
     const title = document.createElement('label'); title.htmlFor = check.id; title.textContent = item.title;
     const due = document.createElement('small'); const days = calculateBucketDaysUntil(item.dueDate); const dateText = new Date(`${item.dueDate}T00:00:00`).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }); due.textContent = `${dateText} ・ ${Number.isFinite(days) ? days >= 0 ? `あと${fmt(days)}日` : `期限から${fmt(Math.abs(days))}日` : '期限を確認してください'}`;
-    copy.append(title, due);
-    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-bucket'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${item.title}を削除`); remove.addEventListener('click', () => { if (confirm(`「${item.title}」を削除しますか？`) && persist({ ...state, bucketList: state.bucketList.filter(v => v.id !== item.id) })) renderBucketList(); });
+    const editDue = document.createElement('button'); editDue.type = 'button'; editDue.className = 'edit-bucket secondary'; editDue.textContent = '期限を編集'; editDue.setAttribute('aria-label', `${item.title}の期限を編集`);
+    const editor = document.createElement('div'); editor.className = 'bucket-due-editor'; editor.hidden = true;
+    const dueInput = document.createElement('input'); dueInput.type = 'date'; dueInput.value = item.dueDate; dueInput.min = new Date().toISOString().slice(0, 10); dueInput.setAttribute('aria-label', `${item.title}の新しい期限`);
+    const saveDue = document.createElement('button'); saveDue.type = 'button'; saveDue.className = 'save-bucket-due primary'; saveDue.textContent = '保存';
+    const cancelDue = document.createElement('button'); cancelDue.type = 'button'; cancelDue.className = 'cancel-bucket-due secondary'; cancelDue.textContent = '取消';
+    editDue.addEventListener('click', () => { editDue.hidden = true; editor.hidden = false; dueInput.focus(); });
+    cancelDue.addEventListener('click', () => renderBucketList());
+    saveDue.addEventListener('click', () => {
+      const nextDate = dueInput.value;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(nextDate) || !Number.isFinite(Date.parse(`${nextDate}T23:59:59`))) { notice('正しい期限を入力してください。'); dueInput.focus(); return; }
+      if (persist({ ...state, bucketList: state.bucketList.map(value => value.id === item.id ? { ...value, dueDate: nextDate } : value) })) { renderBucketList(); notice('バケットリストの期限を更新しました。'); }
+    });
+    editor.append(dueInput, saveDue, cancelDue);
+    copy.append(title, due, editDue, editor);
+    const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-bucket'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${item.title}を削除`); remove.addEventListener('click', () => { if (confirm(`「${item.title}」を削除しますか？`) && persist({ ...state, bucketList: state.bucketList.filter(v => v.id !== item.id) })) { renderBucketList(); renderBucketSuggestions(); } });
     card.append(check, copy, remove); host.append(card);
   });
 }
@@ -529,7 +583,7 @@ function renderDashboard() {
   write('chart-legend-lifespan', `平均寿命 ${p.lifespan}歳 ・生活資金の期限`);
   write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 黄色帯＋橙色マーカー：健康寿命 ${p.healthspan}歳（ワクワク予算の期間目安） ／ 赤帯＋赤マーカー：平均寿命 ${p.lifespan}歳（生活資金を確保する期限） ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
   write('snapshot-note', `資産は${new Date(p.updatedAt || p.anchor).toLocaleDateString('ja-JP')}に入力した額を現在の残高として使用。実際の増減は自動反映されません。残り日数は日付とともに更新します。生活予算・ワクワク予算は、資産・生活費・利回り・想定寿命をもとにした簡易シミュレーションです。`);
-  renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderLogs(); requestAnimationFrame(drawChart);
+  renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderBucketSuggestions(); renderLogs(); requestAnimationFrame(drawChart);
 }
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
@@ -591,11 +645,12 @@ $('download-logs').addEventListener('click', () => {
   const blob = new Blob([content], { type: 'text/plain;charset=utf-8' }), url = URL.createObjectURL(blob), link = document.createElement('a');
   link.href = url; link.download = `RE-IGNITE人生ログ-${new Date().toISOString().slice(0, 10)}.txt`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 0); notice('人生ログをテキストで保存しました。');
 });
+$('bucket-category').addEventListener('change', event => { bucketCategoryId = String(event.currentTarget.value || ''); renderBucketSuggestions(); });
 $('bucket-date').min = new Date().toISOString().slice(0, 10);
 $('bucket-form').addEventListener('submit', event => {
   event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate'));
   if (!title || title.length > 120 || !/^\d{4}-\d{2}-\d{2}$/.test(dueDate) || !Number.isFinite(Date.parse(`${dueDate}T23:59:59`))) { notice('やりたいことと、正しい期限を入力してください。'); return; }
-  if (persist({ ...state, bucketList: [...state.bucketList, { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() }] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); notice('バケットリストに追加しました。'); }
+  if (persist({ ...state, bucketList: [...state.bucketList, { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() }] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); notice('バケットリストに追加しました。'); }
 });
 function navigate() {
   const target = location.hash.slice(1);
@@ -609,7 +664,7 @@ document.querySelectorAll('[data-nav], #back-home').forEach(link => link.addEven
 }));
 $('reset').addEventListener('click', () => {
   if (!confirm('RE:IGNITEのプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
-  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 5; logsExpanded = false; logQuery = ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
+  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 5; logsExpanded = false; logQuery = ''; bucketCategoryId = BUCKET_CATEGORIES[0]?.id || ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
   catch { notice('削除できませんでした。ブラウザのサイトデータ設定から削除してください。', true); }
 });
 $('share').addEventListener('click', async () => {
