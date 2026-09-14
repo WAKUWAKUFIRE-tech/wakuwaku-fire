@@ -105,6 +105,22 @@
 }
 
 .fs-hero-actions { margin-top: 28px; }
+.fs-history-section { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--fs-line); }
+.fs-history-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.fs-history-heading h2 { margin: 6px 0 0; font-size: 1.1rem; font-weight: 950; letter-spacing: -.05em; }
+.fs-history-limit { padding: 5px 9px; color: var(--fs-red-dark); background: var(--fs-yellow-soft); border-radius: 999px; font-size: .68rem; font-weight: 900; white-space: nowrap; }
+.fs-history-lead { margin: 8px 0 0; color: var(--fs-muted); font-size: .72rem; line-height: 1.6; }
+.fs-history-list { display: grid; gap: 8px; margin-top: 12px; }
+.fs-history-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; width: 100%; padding: 12px 14px; color: var(--fs-ink); background: rgba(255,255,255,.78); border: 1px solid var(--fs-line); border-radius: 15px; font: inherit; text-align: left; cursor: pointer; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.fs-history-card:hover,
+.fs-history-card:focus-visible { border-color: rgba(234,62,49,.35); box-shadow: var(--fs-shadow-small); transform: translateY(-1px); }
+.fs-history-card:focus-visible { outline: 3px solid rgba(234,62,49,.2); outline-offset: 2px; }
+.fs-history-card__info { display: grid; gap: 3px; min-width: 0; }
+.fs-history-card__meta { color: var(--fs-muted); font-size: .67rem; line-height: 1.4; }
+.fs-history-card__type { color: var(--fs-red-dark); font-size: .95rem; font-weight: 950; line-height: 1.25; }
+.fs-history-card__traits { overflow: hidden; color: var(--fs-muted); font-size: .68rem; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+.fs-history-card__open { color: var(--fs-red-dark); font-size: .7rem; font-weight: 950; white-space: nowrap; }
+.fs-history-empty { margin: 12px 0 0; color: var(--fs-muted); font-size: .72rem; line-height: 1.6; }
 .fs-button {
   display: inline-flex;
   min-height: 48px;
@@ -464,6 +480,8 @@
   .fs-hero-actions { align-items: stretch; flex-direction: column; }
   .fs-hero-actions .fs-button,
   .fs-hero-actions .fs-text-link { width: 100%; }
+  .fs-history-card { grid-template-columns: 1fr; gap: 8px; }
+  .fs-history-card__open { justify-self: start; }
   .fs-feature-strip { grid-template-columns: repeat(2, 1fr); border-radius: 17px; }
   .fs-feature-strip > div { min-height: 78px; }
   .fs-home-note { font-size: .74rem; }
