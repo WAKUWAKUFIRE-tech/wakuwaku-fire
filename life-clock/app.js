@@ -1,8 +1,10 @@
 import { DAYS_PER_YEAR, DAY_MS, elapsedDays, validateProfile, calculateRemainingDays, calculateHealthyDays, calculateDailyLivingBudget, calculateRequiredLifetimeAssets, calculateWakuwakuSurplus, calculateDailyWakuwakuBudget, calculateCurrentDailyLivingCost, calculateProjection, calculateRemainingEvents, calculateRemainingPersonMeetings, calculateYearRemaining, calculateYearProgress, calculateTrueFreeTime, calculateBucketDaysUntil } from './calculations.js';
 import { createStorage, emptyState } from './storage.js';
 import { BUCKET_CATEGORIES } from './bucket-data.js';
+import { createLifeWorld } from './life-world.js';
 
 const $ = id => document.getElementById(id);
+const lifeWorld = createLifeWorld(document.getElementById('life-world'));
 const nf = new Intl.NumberFormat('ja-JP', { maximumFractionDigits: 0 });
 const fmt = n => nf.format(n);
 const write = (id, text) => { $(id).textContent = text; };
@@ -55,9 +57,10 @@ function notice(text, persistent = false) {
 }
 try { storage = createStorage(window.localStorage); state = storage.load(); }
 catch { storageBroken = true; notice('保存データを読み込めません。ブラウザの保存設定をご確認ください。データを上書きせず停止しています。設定から削除してやり直すこともできます。', true); }
+lifeWorld.sync(state, { animate: false });
 function persist(next) {
   if (storageBroken) { notice('保存データを保護しています。設定で削除するか、ブラウザの保存設定をご確認ください。', true); return false; }
-  try { storage.save(next); state = next; return true; }
+  try { storage.save(next); state = next; lifeWorld.sync(next); return true; }
   catch { notice('保存できませんでした。変更は確定していません。端末の空き容量やブラウザの保存設定をご確認ください。', true); return false; }
 }
 function show(view) {
@@ -238,11 +241,11 @@ function adjustEvent(event, delta) {
   if (persist(next)) { renderEvents(metrics().days); notice(`「${event.name}」を年${frequencyText(frequency)}回に${delta < 0 ? '減らしました' : '増やしました'}。`); }
 }
 function incrementEvent(event) { adjustEvent(event, 1); }
-function addEvent(name, frequency, icon = '✨') {
+function addEvent(name, frequency, icon = '✨', anchor = null) {
   if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) { notice('行動の名前と、年あたりの回数を確認してください。'); return false; }
   if (hasEventName(name)) { notice(`「${name}」はすでに追加されています。削除すると、もう一度追加できます。`); return false; }
   const event = { id: crypto.randomUUID(), name, icon, frequency, period: 'year', unit: '回' };
-  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); emit('life_event_added'); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
+  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); renderEventExamples(); emit('life_event_added'); lifeWorld.celebrate({ source: 'experience', anchor }); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
   return false;
 }
 function renderEventExamples() {
@@ -252,7 +255,7 @@ function renderEventExamples() {
   eventExamples.forEach(example => {
     const added = hasEventName(example.name);
     const button = document.createElement('button'); button.type = 'button'; button.className = `secondary event-example${added ? ' is-added' : ''}`; button.disabled = added; button.setAttribute('aria-label', added ? `${example.name}は追加済み` : `${example.name}を追加`); button.textContent = `${example.icon} ${example.name}（年${frequencyText(example.frequency)}回）${added ? '（追加済み）' : ''}`;
-    button.addEventListener('click', () => addEvent(example.name, example.frequency, example.icon)); host.append(button);
+    button.addEventListener('click', () => addEvent(example.name, example.frequency, example.icon, button)); host.append(button);
   });
 }
 function renderEvents(days) {
@@ -477,18 +480,18 @@ function renderBucketSuggestions() {
     const title = document.createElement('span'); title.textContent = candidate.title;
     const status = document.createElement('small'); status.textContent = added ? '追加済み' : '追加';
     button.append(title, status);
-    if (!added) button.addEventListener('click', () => addBucketCandidate(category, candidate));
+    if (!added) button.addEventListener('click', () => addBucketCandidate(category, candidate, button));
     host.append(button);
   });
 }
-function addBucketCandidate(category, candidate) {
+function addBucketCandidate(category, candidate, anchor = null) {
   const title = candidate.title.trim();
   if (!title) return;
   if (state.bucketList.some(item => item.title.trim() === title)) { notice('その項目はすでにバケットリストに追加されています。'); renderBucketSuggestions(); return; }
   const dueDate = defaultBucketDueDate();
   const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString(), categoryId: category.id, categoryName: category.name };
   if (persist({ ...state, bucketList: [...state.bucketList, item] })) {
-    renderBucketList(); renderBucketSuggestions();
+    renderBucketList(); renderBucketSuggestions(); lifeWorld.celebrate({ source: 'bucket-list', anchor });
     notice(`「${title}」を追加しました。期限は1年後で仮設定しています。必要ならリスト内で変更できます。`);
   }
 }
@@ -595,10 +598,11 @@ $('people-form').addEventListener('submit', event => {
   event.preventDefault();
   const result = readPeopleForm();
   if (result.error) { notice(result.error); return; }
-  const people = result.id && state.people.some(person => person.id === result.id)
+  const isEditing = result.id && state.people.some(person => person.id === result.id);
+  const people = isEditing
     ? state.people.map(person => person.id === result.id ? result : person)
     : [...state.people, result];
-  if (persist({ ...state, people })) { closePeopleForm(); renderPeople(); notice(result.id ? '大切な人の設定を更新しました。' : '大切な人を追加しました。'); }
+  if (persist({ ...state, people })) { closePeopleForm(); renderPeople(); if (!isEditing) lifeWorld.celebrate({ source: 'person', anchor: event.submitter }); notice(isEditing ? '大切な人の設定を更新しました。' : '大切な人を追加しました。'); }
 });
 $('dismiss-wakuwaku-intro').addEventListener('click', () => {
   if (persist({ ...state, wakuwakuIntroSeen: true })) $('wakuwaku-intro').hidden = true;
@@ -622,7 +626,7 @@ $('profile-form').addEventListener('submit', event => {
   profile.anchor = state.profile?.age === profile.age ? state.profile.anchor : now;
   profile.updatedAt = now;
   if (!persist({ ...state, profile, lastVisit: now })) return;
-  emit('life_clock_calculated'); show('dashboard'); renderDashboard(); window.scrollTo(0, 0); $('dashboard-title').tabIndex = -1; $('dashboard-title').focus();
+  emit('life_clock_calculated'); show('dashboard'); renderDashboard(); lifeWorld.maybeShowIntro(); window.scrollTo(0, 0); $('dashboard-title').tabIndex = -1; $('dashboard-title').focus();
   notice('人生残高を保存しました。今日を、何に使おう。');
 });
 $('event-form').addEventListener('submit', event => {
@@ -633,7 +637,7 @@ $('log-form').addEventListener('submit', event => {
   event.preventDefault(); const text = String(new FormData(event.currentTarget).get('text')).trim();
   if (!text || text.length > 500) { notice('今日のひとコマを1〜500文字で入力してください。'); return; }
   if (persist({ ...state, logs: [...state.logs, { id: crypto.randomUUID(), date: new Date().toISOString(), text }] })) {
-    event.currentTarget.reset(); renderLogs(); emit('life_log_added'); notice('思い出資産 +1。今日のひとコマを保存しました。');
+    event.currentTarget.reset(); renderLogs(); emit('life_log_added'); lifeWorld.celebrate({ source: 'life-log', anchor: event.submitter }); notice('思い出資産 +1。今日のひとコマを保存しました。');
     $('memory-count').classList.remove('memory-pop'); requestAnimationFrame(() => $('memory-count').classList.add('memory-pop'));
   }
 });
@@ -650,7 +654,7 @@ $('bucket-date').min = new Date().toISOString().slice(0, 10);
 $('bucket-form').addEventListener('submit', event => {
   event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title')).trim(), dueDate = String(data.get('dueDate'));
   if (!title || title.length > 120 || !/^\d{4}-\d{2}-\d{2}$/.test(dueDate) || !Number.isFinite(Date.parse(`${dueDate}T23:59:59`))) { notice('やりたいことと、正しい期限を入力してください。'); return; }
-  if (persist({ ...state, bucketList: [...state.bucketList, { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() }] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); notice('バケットリストに追加しました。'); }
+  if (persist({ ...state, bucketList: [...state.bucketList, { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString() }] })) { event.currentTarget.reset(); $('bucket-date').min = new Date().toISOString().slice(0, 10); renderBucketList(); renderBucketSuggestions(); lifeWorld.celebrate({ source: 'bucket-list', anchor: event.submitter }); notice('バケットリストに追加しました。'); }
 });
 function navigate() {
   const target = location.hash.slice(1);
@@ -664,7 +668,7 @@ document.querySelectorAll('[data-nav], #back-home').forEach(link => link.addEven
 }));
 $('reset').addEventListener('click', () => {
   if (!confirm('RE:IGNITEのプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
-  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); logLimit = 5; logsExpanded = false; logQuery = ''; bucketCategoryId = BUCKET_CATEGORIES[0]?.id || ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
+  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); lifeWorld.sync(state); logLimit = 5; logsExpanded = false; logQuery = ''; bucketCategoryId = BUCKET_CATEGORIES[0]?.id || ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
   catch { notice('削除できませんでした。ブラウザのサイトデータ設定から削除してください。', true); }
 });
 $('share').addEventListener('click', async () => {
@@ -697,7 +701,7 @@ renderEventExamples();
 if (state.profile) {
   const daysAway = state.lastVisit ? elapsedDays(state.lastVisit) : 0;
   if (daysAway > 0) { write('return-message', `前回から${fmt(daysAway)}日。人生を${fmt(daysAway)}日使いました。この${fmt(daysAway)}日で、何か思い出は増えましたか？ 下の人生ログに残してみよう。`); $('return-message').hidden = false; emit('return_visit'); }
-  persist({ ...state, lastVisit: new Date().toISOString() }); show('dashboard'); renderDashboard(); navigate();
+  persist({ ...state, lastVisit: new Date().toISOString() }); show('dashboard'); renderDashboard(); lifeWorld.maybeShowIntro(); navigate();
 } else show(storageBroken ? 'settings' : 'welcome');
 let resizeTimer;
 window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(drawChart, 150); });
