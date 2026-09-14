@@ -477,6 +477,7 @@ function renderEvents(days) {
     host.append(card);
   });
   renderEventExamples();
+  refreshLifeSummary();
 }
 function renderYearTime() {
   const time = calculateYearRemaining();
@@ -545,7 +546,7 @@ function renderPeople() {
   const { p, days, elapsed } = metrics();
   const host = $('people-grid'); host.replaceChildren();
   const people = orderedPeople(calculateRemainingPersonMeetings(p, state.people, days, elapsed));
-  if (!people.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = '「会いたい人を追加」から、これから会いたい相手を登録できます。'; host.append(empty); return; }
+  if (!people.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = '「会いたい人を追加」から、これから会いたい相手を登録できます。'; host.append(empty); refreshLifeSummary(); return; }
   people.forEach((person, index) => {
     const card = document.createElement('article'); card.className = 'person-card person-card-action'; card.draggable = true; card.dataset.personId = person.id; card.setAttribute('aria-label', `${person.name}。カードをタップすると設定を編集できます。ドラッグ（スマホは長押し）または上下ボタンで並び替えできます`);
     const title = document.createElement('h3'); title.textContent = person.name;
@@ -601,6 +602,7 @@ function renderPeople() {
     card.addEventListener('pointerup', finishTouchReorder); card.addEventListener('pointercancel', finishTouchReorder);
     host.append(card);
   });
+  refreshLifeSummary();
 }
 function defaultBucketDueDate() {
   const date = new Date();
@@ -647,7 +649,7 @@ function renderBucketList() {
   const host = $('bucket-list'); if (!host) return;
   host.replaceChildren();
   const items = [...state.bucketList].sort((a, b) => Number(a.done) - Number(b.done) || a.dueDate.localeCompare(b.dueDate));
-  if (!items.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ登録されていません。期限を決めて、最初のひとつを追加しましょう。'; host.append(empty); return; }
+  if (!items.length) { const empty = document.createElement('p'); empty.className = 'empty-log'; empty.textContent = 'まだ登録されていません。期限を決めて、最初のひとつを追加しましょう。'; host.append(empty); refreshLifeSummary(); return; }
   items.forEach(item => {
     const card = document.createElement('article'); card.className = `bucket-item${item.done ? ' is-done' : ''}`; card.dataset.bucketId = item.id;
     const check = document.createElement('input'); check.type = 'checkbox'; check.checked = item.done; check.id = `bucket-check-${item.id}`; check.setAttribute('aria-label', `${item.title}を完了にする`); check.addEventListener('change', () => { if (persist({ ...state, bucketList: state.bucketList.map(v => v.id === item.id ? { ...v, done: check.checked } : v) })) { renderBucketList(); renderBucketSuggestions(); } });
@@ -671,6 +673,7 @@ function renderBucketList() {
     const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'remove-bucket'; remove.textContent = '削除'; remove.setAttribute('aria-label', `${item.title}を削除`); remove.addEventListener('click', () => { if (confirm(`「${item.title}」を削除しますか？`) && persist({ ...state, bucketList: state.bucketList.filter(v => v.id !== item.id) })) { renderBucketList(); renderBucketSuggestions(); } });
     card.append(check, copy, remove); host.append(card);
   });
+  refreshLifeSummary();
 }
 function renderLogs() {
   write('memory-count', fmt(state.logs.length));
@@ -703,6 +706,7 @@ function renderLogs() {
   });
   const more = $('more-logs'); more.hidden = filtered.length <= logLimit; more.textContent = logsExpanded ? `最初の${logLimit}件に戻す` : `過去の記録をさらに${fmt(Math.max(0, filtered.length - logLimit))}件見る`;
   const download = $('download-logs'); if (download) download.hidden = state.logs.length === 0;
+  refreshLifeSummary();
 }
 function renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget) {
   const year = calculateYearRemaining();
@@ -717,6 +721,14 @@ function renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget) {
   const peopleCount = state.people.length;
   write('accordion-summary-people', peopleCount ? `${peopleCount}人登録` : '大切な人を登録してみる');
   write('accordion-summary-log', state.logs.length ? `思い出資産 ${fmt(state.logs.length)}` : '最初の思い出を残してみる');
+}
+function refreshLifeSummary() {
+  if (!state.profile || !$('summary-health-time')) return;
+  const { days, lifespanDays, p } = metrics();
+  const dailyLivingBudget = calculateDailyLivingBudget(p.assets, p.rate, lifespanDays);
+  const requiredLifetimeAssets = calculateRequiredLifetimeAssets(p.spending, p.rate, lifespanDays);
+  const dailyWakuwakuBudget = calculateDailyWakuwakuBudget(calculateWakuwakuSurplus(p.assets, requiredLifetimeAssets), days);
+  renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget);
 }
 function renderDashboard() {
   const { p, days, lifespanDays, projection: m } = metrics();
