@@ -404,7 +404,7 @@ export function createLifeWorld(host) {
   const startCanvasCelebration = (type, anchor, { huge = false } = {}) => {
     if (!ctx) return false;
     clearEffect(); effectType = type; effectHuge = huge; effectReduced = reducedMotion(); origin = pointFromAnchor(anchor);
-    startedAt = performance.now(); lastFrame = startedAt; finishAt = effectReduced ? 1.1 : huge ? 2.8 : 2.35; active = true;
+    startedAt = performance.now(); lastFrame = startedAt; finishAt = effectReduced ? 1.1 : huge ? 2.8 : 1.8; active = true;
     host.classList.add('is-celebrating'); if (huge) host.classList.add('is-stage-up');
     if (type === 'grand-fireworks') startGrandFireworks(huge);
     else if (type === 'combo') { startGrandFireworks(true); startShootingStarShow(); }
