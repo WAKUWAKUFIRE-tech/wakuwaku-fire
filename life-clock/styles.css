@@ -95,6 +95,32 @@
 .people-add-row{display:flex;justify-content:flex-end;margin-top:14px}
 @media(max-width:700px){.event-order-controls{gap:3px;margin-left:0}.event-order-control{width:28px;height:28px;min-height:28px;font-size:.82rem}.people-add-row{justify-content:flex-start;margin-top:10px}}
 
+/* Life log tools and people card reordering. */
+.year-time-prefix{font-size:1.15rem;font-weight:800;white-space:nowrap}
+.log-search{display:block;margin-top:24px;font-size:.875rem}
+.log-search input{margin-top:6px}
+.log-list-controls{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:14px}
+.log-entry{padding-right:0}
+.log-entry-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.edit-log,.remove-log,.save-log,.cancel-log{position:static;min-height:36px;padding:5px 12px;border:1px solid #d7a29c;border-radius:999px;font-size:.76rem;font-weight:800}
+.edit-log,.remove-log{background:#fff7f4;color:var(--red)}
+.edit-log:hover,.remove-log:hover{background:#ffe9e4}
+.log-edit-input{margin-top:10px}
+.person-card-action{cursor:grab;user-select:none;touch-action:pan-y}
+.person-card-action:active{cursor:grabbing}
+.person-card-action.is-dragging{opacity:.58;cursor:grabbing}
+.person-card-action.is-drag-over{border-color:var(--red);box-shadow:0 0 0 3px #ba2e2326;transform:translateY(-1px)}
+.person-order-controls{display:flex;align-items:center;gap:4px;margin-left:auto}
+.person-order-control{width:30px;height:30px;min-height:30px;padding:0;border:1px solid #d7a29c;border-radius:8px;background:#fff7f4;color:var(--red);font-size:.9rem;font-weight:900;line-height:1}
+.person-order-control:hover{background:#ffe9e4}
+.person-order-control:disabled{opacity:.4;cursor:not-allowed;color:#968c82;border-color:#d8d0c7;background:#f0ede8}
+@media(max-width:700px){
+  .year-time-prefix{font-size:1rem}
+  .log-list-controls{justify-content:flex-start}
+  .person-order-controls{gap:3px;margin-left:0}
+  .person-order-control{width:28px;height:28px;min-height:28px;font-size:.82rem}
+}
+
 /* Life expectancy card: compact, dark app-like treatment inspired by the supplied mobile reference. */
 .hero-grid{grid-template-columns:1fr}
 .life-card{border:1px solid #4a3e31;border-radius:22px;padding:28px 32px;background:#211d18;color:#fffdf5;box-shadow:0 18px 45px #211d181c}
