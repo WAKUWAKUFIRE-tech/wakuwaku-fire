@@ -97,10 +97,16 @@ export function createLifeWorld(host) {
   let width = Math.max(1, window.innerWidth || document.documentElement.clientWidth || 1);
   let height = Math.max(1, window.innerHeight || document.documentElement.clientHeight || 1);
   let dpr = 1;
+  let qualityScale = 1;
+  let baseQualityScale = 1;
+  let slowFrameStreak = 0;
   const resizeCanvas = () => {
     width = Math.max(1, window.innerWidth || document.documentElement.clientWidth || 1);
     height = Math.max(1, window.innerHeight || document.documentElement.clientHeight || 1);
-    dpr = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
+    const compactViewport = width <= 700 || height <= 600;
+    dpr = Math.min(compactViewport ? 1.25 : 1.5, Math.max(1, window.devicePixelRatio || 1));
+    baseQualityScale = compactViewport ? .56 : (width * height > 1100000 ? .7 : .84);
+    qualityScale = baseQualityScale;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     canvas.style.width = `${width}px`;
@@ -136,6 +142,8 @@ export function createLifeWorld(host) {
   let effectType = '';
   let effectReduced = false;
   let effectHuge = false;
+
+  const countForQuality = count => Math.max(1, Math.round(count * (effectReduced ? Math.min(.42, qualityScale) : qualityScale)));
 
   const buildLayers = () => {
     if (stars && !stars.children.length) {
@@ -261,8 +269,9 @@ export function createLifeWorld(host) {
   };
 
   const addRadialParticles = (count, speedMin, speedMax, options = {}) => {
-    for (let i = 0; i < count; i += 1) {
-      const angle = (Math.PI * 2 * i / count) + randomBetween(-.055, .055);
+    const scaledCount = countForQuality(count);
+    for (let i = 0; i < scaledCount; i += 1) {
+      const angle = (Math.PI * 2 * i / scaledCount) + randomBetween(-.055, .055);
       const speed = randomBetween(speedMin, speedMax) * (effectReduced ? .42 : 1);
       addParticle({
         x: options.x ?? origin.x, y: options.y ?? origin.y,
@@ -309,7 +318,7 @@ export function createLifeWorld(host) {
   const startEmberIgnition = () => {
     addRing(origin.x, origin.y, '#e65b3b', .94, 32);
     addRing(origin.x, origin.y, '#ffe16e', .72, 12);
-    const count = effectReduced ? 10 : 52;
+    const count = countForQuality(effectReduced ? 10 : 52);
     for (let i = 0; i < count; i += 1) {
       addParticle({ x: origin.x + randomBetween(-18, 18), y: origin.y + randomBetween(-8, 12), vx: randomBetween(-168, 168), vy: -randomBetween(110, 340), gravity: randomBetween(70, 155), drag: .985, delay: randomBetween(0, .28), life: randomBetween(.92, 1.65), size: randomBetween(2.5, 7), color: pick(['#e65b3b', '#ff8d3a', '#ffd166', '#ffe16e']), shape: 'ember', trail: 24, wobble: 30 });
     }
@@ -319,7 +328,7 @@ export function createLifeWorld(host) {
   const startGoldenAscent = () => {
     addRing(origin.x, origin.y, '#ffe16e', .94, 28);
     addRing(origin.x, origin.y, '#fff7d1', .66, 9);
-    const count = effectReduced ? 12 : 58;
+    const count = countForQuality(effectReduced ? 12 : 58);
     for (let i = 0; i < count; i += 1) {
       addParticle({ x: origin.x + randomBetween(-30, 30), y: origin.y + randomBetween(-8, 16), vx: randomBetween(-100, 100), vy: -randomBetween(92, 260), gravity: randomBetween(18, 58), drag: .99, delay: randomBetween(0, .26), life: randomBetween(1.08, 1.82), size: randomBetween(2, 6.5), color: pick(['#ffe16e', '#ffd166', '#fff7d1', '#ffb347']), shape: Math.random() < .3 ? 'star' : 'dot', trail: 18, wobble: randomBetween(14, 38) });
     }
@@ -329,7 +338,7 @@ export function createLifeWorld(host) {
     addRing(origin.x, origin.y, '#ffe16e', 1.3, 46);
     addRing(origin.x, origin.y, '#fff7d1', 1.42, 20);
     addRing(origin.x, origin.y, '#e65b3b', .96, 9);
-    const count = effectReduced ? 12 : 44;
+    const count = countForQuality(effectReduced ? 12 : 44);
     for (let i = 0; i < count; i += 1) {
       const angle = Math.PI * 2 * i / count + randomBetween(-.12, .12);
       const speed = randomBetween(38, 164) * (effectReduced ? .45 : 1);
@@ -349,12 +358,16 @@ export function createLifeWorld(host) {
 
   const frame = (now) => {
     if (!active || !ctx) return;
-    const dt = Math.min(.034, Math.max(.008, ((now - lastFrame) || 16) / 1000));
+    const rawDt = ((now - lastFrame) || 16) / 1000;
+    if (rawDt > .032) slowFrameStreak += 1; else slowFrameStreak = Math.max(0, slowFrameStreak - 1);
+    if (slowFrameStreak >= 3) qualityScale = Math.max(.48, qualityScale * .82);
+    const dt = Math.min(.034, Math.max(.008, rawDt));
     lastFrame = now;
     const elapsed = (now - startedAt) / 1000;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, width, height);
-    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalCompositeOperation = qualityScale >= .78 && !effectReduced ? 'lighter' : 'source-over';
+    const glowEnabled = qualityScale >= .76 && !effectReduced;
 
     const flashT = clamp(elapsed / (effectHuge ? .72 : .58), 0, 1);
     const flash = Math.sin(flashT * Math.PI) * (effectHuge ? .3 : .2);
@@ -369,7 +382,7 @@ export function createLifeWorld(host) {
       const rocket = rockets[i]; rocket.age += dt; if (rocket.age < rocket.delay) continue;
       const t = clamp((rocket.age - rocket.delay) / rocket.life, 0, 1); rocket.px = rocket.x; rocket.py = rocket.y;
       const eased = 1 - Math.pow(1 - t, 2.5); rocket.x = rocket.x + (rocket.tx - rocket.x) * eased; rocket.y = rocket.y + (rocket.ty - rocket.y) * eased;
-      ctx.save(); ctx.globalAlpha = .98; ctx.strokeStyle = rocket.color; ctx.shadowColor = '#ffb347'; ctx.shadowBlur = effectHuge ? 34 : 26; ctx.lineWidth = effectHuge ? 7 : 5;
+      ctx.save(); ctx.globalAlpha = .98; ctx.strokeStyle = rocket.color; ctx.shadowColor = '#ffb347'; ctx.shadowBlur = glowEnabled ? (effectHuge ? 26 : 18) : 0; ctx.lineWidth = effectHuge ? 7 : 5;
       ctx.beginPath(); ctx.moveTo(rocket.px, rocket.py); ctx.lineTo(rocket.x, rocket.y); ctx.stroke(); ctx.fillStyle = '#fff7d1'; ctx.beginPath(); ctx.arc(rocket.x, rocket.y, effectHuge ? 5 : 3.5, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       if (t >= 1) { explodeFirework(rocket.tx, rocket.ty, rocket.huge); rockets.splice(i, 1); }
     }
@@ -379,13 +392,13 @@ export function createLifeWorld(host) {
       const t = clamp(streak.age / streak.life, 0, 1); streak.px = streak.x; streak.py = streak.y; streak.x += streak.vx * dt; streak.y += streak.vy * dt;
       ctx.save(); ctx.globalAlpha = Math.sin(Math.min(1, t) * Math.PI) * .96;
       const gradient = ctx.createLinearGradient(streak.x - streak.trail, streak.y - streak.trail * .46, streak.x, streak.y); gradient.addColorStop(0, 'rgba(255,255,255,0)'); gradient.addColorStop(.55, streak.color); gradient.addColorStop(1, '#fff7d1');
-      ctx.strokeStyle = gradient; ctx.lineWidth = effectHuge ? 8 : 5; ctx.shadowColor = streak.color; ctx.shadowBlur = 30; ctx.beginPath(); ctx.moveTo(streak.x - streak.trail, streak.y - streak.trail * .46); ctx.lineTo(streak.x, streak.y); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.shadowColor = '#fff7d1'; ctx.shadowBlur = 22; ctx.beginPath(); ctx.arc(streak.x, streak.y, effectHuge ? 8 : 6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      ctx.strokeStyle = gradient; ctx.lineWidth = effectHuge ? 8 : 5; ctx.shadowColor = streak.color; ctx.shadowBlur = glowEnabled ? 22 : 0; ctx.beginPath(); ctx.moveTo(streak.x - streak.trail, streak.y - streak.trail * .46); ctx.lineTo(streak.x, streak.y); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.shadowColor = '#fff7d1'; ctx.shadowBlur = glowEnabled ? 16 : 0; ctx.beginPath(); ctx.arc(streak.x, streak.y, effectHuge ? 8 : 6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       if (t >= 1) { for (let j = 0; j < (effectReduced ? 2 : 7); j += 1) addParticle({ x: streak.x, y: streak.y, vx: randomBetween(-30, 30), vy: randomBetween(-38, 38), gravity: 14, delay: randomBetween(0, .12), life: randomBetween(.5, .9), size: randomBetween(1, 2.8), color: streak.color, shape: 'star', trail: 4 }); streaks.splice(i, 1); }
     }
 
     for (let i = rings.length - 1; i >= 0; i -= 1) {
       const ring = rings[i]; ring.age += dt; const t = clamp(ring.age / ring.life, 0, 1);
-      ctx.save(); ctx.globalAlpha = Math.sin((1 - t) * Math.PI) * .95; ctx.strokeStyle = ring.color; ctx.shadowColor = ring.color; ctx.shadowBlur = effectHuge ? 42 : 34; ctx.lineWidth = effectHuge ? 8 : 5; ctx.beginPath(); ctx.arc(ring.x, ring.y, ring.size + t * (effectHuge ? 340 : 280), 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+      ctx.save(); ctx.globalAlpha = Math.sin((1 - t) * Math.PI) * .95; ctx.strokeStyle = ring.color; ctx.shadowColor = ring.color; ctx.shadowBlur = glowEnabled ? (effectHuge ? 32 : 20) : 0; ctx.lineWidth = effectHuge ? 8 : 5; ctx.beginPath(); ctx.arc(ring.x, ring.y, ring.size + t * (effectHuge ? 340 : 280), 0, Math.PI * 2); ctx.stroke(); ctx.restore();
       if (t >= 1) rings.splice(i, 1);
     }
 
@@ -395,12 +408,12 @@ export function createLifeWorld(host) {
       p.px = p.x; p.py = p.y; p.vx *= Math.pow(p.drag, dt * 60); p.vy = p.vy * Math.pow(p.drag, dt * 60) + p.gravity * dt; p.x += p.vx * dt; p.y += p.vy * dt; if (p.wobble) p.x += Math.sin(p.age * 6 + p.phase) * p.wobble * dt;
       const fade = t < .13 ? t / .13 : Math.pow(1 - t, .72); const twinkle = p.twinkle ? .68 + .32 * (0.5 + 0.5 * Math.sin(p.age * 18 + p.phase)) : 1;
       ctx.save(); ctx.globalAlpha = clamp(fade * twinkle, 0, 1);
-      if (p.trail) { ctx.strokeStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = p.glow; ctx.globalAlpha *= .38; ctx.lineWidth = Math.max(1, p.size * .65); ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.globalAlpha = clamp(fade * twinkle, 0, 1); }
-      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = Math.max(18, p.glow * 1.8);
+      if (p.trail) { ctx.strokeStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = glowEnabled ? Math.min(14, p.glow) : 0; ctx.globalAlpha *= .38; ctx.lineWidth = Math.max(1, p.size * .65); ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.globalAlpha = clamp(fade * twinkle, 0, 1); }
+      ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = glowEnabled && p.size >= 3.8 ? Math.min(18, p.glow * 1.25) : 0;
       if (p.shape === 'star') drawStar(ctx, p.x, p.y, p.size * (1 + .22 * Math.sin(p.age * 9 + p.phase)), p.rotation + p.age * .4);
       else if (p.shape === 'ember') { ctx.translate(p.x, p.y); ctx.rotate(Math.atan2(p.vy, p.vx) + Math.PI / 2); ctx.beginPath(); ctx.ellipse(0, 0, p.size * .55, p.size * 1.6, 0, 0, Math.PI * 2); ctx.fill(); }
       else { ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill(); }
-      if (p.size >= 4) { ctx.globalAlpha = clamp(fade * .62, 0, 1); ctx.fillStyle = '#fff7d1'; ctx.shadowColor = '#fff7d1'; ctx.shadowBlur = 18; ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1.1, p.size * .28), 0, Math.PI * 2); ctx.fill(); }
+      if (p.size >= 4) { ctx.globalAlpha = clamp(fade * .62, 0, 1); ctx.fillStyle = '#fff7d1'; ctx.shadowColor = '#fff7d1'; ctx.shadowBlur = glowEnabled ? 12 : 0; ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1.1, p.size * .28), 0, Math.PI * 2); ctx.fill(); }
       ctx.restore();
     }
 
@@ -410,7 +423,7 @@ export function createLifeWorld(host) {
 
   const startCanvasCelebration = (type, anchor, { huge = false } = {}) => {
     if (!ctx) return false;
-    clearEffect(); effectType = type; effectHuge = huge; effectReduced = reducedMotion(); origin = pointFromAnchor(anchor);
+    clearEffect(); effectType = type; effectHuge = huge; effectReduced = reducedMotion(); slowFrameStreak = 0; qualityScale = baseQualityScale; origin = pointFromAnchor(anchor);
     startedAt = performance.now(); lastFrame = startedAt; finishAt = effectReduced ? 1.1 : huge ? 2.8 : 1.8; active = true;
     host.classList.add('is-celebrating'); if (huge) host.classList.add('is-stage-up');
     if (type === 'grand-fireworks') startGrandFireworks(huge);
