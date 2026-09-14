@@ -70,7 +70,7 @@ const QUESTIONS = Object.freeze([
   makeQuestion(28, "ひとつのことを極める", "生活全体をもっと効率よく快適にする", "growth", "optimize"),
   makeQuestion(29, "もう収入のために働かなくてもいい状態", "働くかどうかより、一人で好きなように過ごせる状態", "work_release", "solo"),
   makeQuestion(30, "かなり余裕のある資産額まで待つ", "最低限の安全性があるなら、自由な時間を早く取りに行く", "security", "freedom"),
-  makeQuestion(31, "最高。何もしなくても気楽に過ごせる", "最高。一人で好きな場所や趣味を楽しむ", "margin", "solo"),
+  makeQuestion(31, "何もしなくても気楽に過ごせるのが最高", "一人で好きな場所や趣味を楽しめるのが最高", "margin", "solo"),
   makeQuestion(32, "生活を工夫して支出を100万円減らす", "好きな方法で年間100万円稼ぐ", "optimize", "income"),
   makeQuestion(33, "若く元気な今だからこそ、時間を惜しまず楽しむ", "今だからこそ、お金を使って特別な経験を増やす", "now", "experience"),
   makeQuestion(34, "人の役に立つ活動を見つける", "やりたかった趣味や娯楽をやり尽くす", "social", "play"),
