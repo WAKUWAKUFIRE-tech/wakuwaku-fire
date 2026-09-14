@@ -88,13 +88,13 @@ body.life-world-paused .life-world *{animation-play-state:paused!important}
 .life-world-effects.is-portal .life-celebration-shooting-star::before{filter:drop-shadow(0 0 4px #c83024)}
 .life-world-effects.is-portal .life-celebration-stars::before,.life-world-effects.is-portal .life-celebration-embers::before,.life-world-effects.is-portal .life-celebration-particles::before{content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:#ffe16e;box-shadow:0 0 0 3px #c83024,0 0 28px #ffd66c;transform:translate(-50%,-50%) scale(.2);opacity:0;animation:celebration-core 1.8s ease-out}
 @keyframes celebration-core{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}22%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(4.4)}}
-.life-world-canvas{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;z-index:70!important;pointer-events:none!important;display:block}
+.life-world-canvas{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;z-index:70!important;pointer-events:none!important;display:block;mix-blend-mode:screen}
 body.life-world-paused .life-world-canvas{display:none}
 .life-world.is-celebrating .life-world-distant-glow{opacity:1!important;transform:scale(1.08);filter:brightness(1.3)}
 .life-world.is-celebrating .world-star{animation-duration:.8s!important}
 .life-world.is-stage-up{filter:saturate(1.32) brightness(1.12)!important}
-.life-world-toast{z-index:90;min-height:44px;padding:11px 22px;border-width:2px;background:linear-gradient(110deg,rgba(53,27,34,.97),rgba(75,35,31,.96));box-shadow:0 0 0 1px rgba(255,225,110,.16),0 10px 34px rgba(126,42,24,.42),0 0 34px rgba(255,193,73,.2);text-shadow:0 1px 8px rgba(255,218,133,.32)}
-.life-world-toast[data-rarity="super-rare"]{border-color:#ffe16e;box-shadow:0 0 0 2px rgba(230,91,59,.3),0 12px 44px rgba(126,42,24,.5),0 0 42px rgba(255,193,73,.34);font-size:.95rem;letter-spacing:.02em}
+.life-world-toast{z-index:90;min-height:48px;padding:14px 28px;border-width:3px;background:linear-gradient(110deg,rgba(53,27,34,.98),rgba(105,42,27,.97) 56%,rgba(53,27,34,.98));box-shadow:0 0 0 2px rgba(255,225,110,.2),0 14px 44px rgba(126,42,24,.58),0 0 58px rgba(255,193,73,.38);text-shadow:0 1px 12px rgba(255,218,133,.48);font-size:1rem;letter-spacing:.025em}
+.life-world-toast[data-rarity="super-rare"]{border-color:#ffe16e;box-shadow:0 0 0 3px rgba(230,91,59,.42),0 16px 58px rgba(126,42,24,.68),0 0 70px rgba(255,193,73,.52);font-size:1.08rem;letter-spacing:.04em}
 .life-world-toast.is-stage-up{border-radius:14px;padding:13px 24px;color:#fff8dc;letter-spacing:.05em}
 .event-card.is-recent,.person-card.is-recent,.bucket-item.is-recent,.log-entry.is-recent{animation:life-card-reward 1.5s cubic-bezier(.22,.9,.35,1);border-color:#e65b3b;box-shadow:0 0 0 2px rgba(255,225,110,.48),0 10px 30px rgba(198,48,36,.16)}
 @keyframes life-card-reward{0%{transform:scale(.96);filter:brightness(1)}30%{transform:scale(1.025);filter:brightness(1.12)}62%{transform:scale(.995);filter:brightness(1.04)}100%{transform:scale(1);filter:brightness(1)}}
