@@ -61,6 +61,42 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 const filterButtons = document.querySelectorAll(".filter-button");
 const contentCards = document.querySelectorAll(".content-card");
 
+// RE:IGNITEをホーム画面に追加する導線は、古いトップページにも復元できるように補います。
+function addLifeClockInstallLink() {
+  const entry = document.querySelector(".life-clock-entry");
+  if (!entry || document.querySelector(".life-clock-install-link")) return;
+
+  const link = document.createElement("a");
+  link.className = "life-clock-install-link";
+  link.href = "/life-clock/?install=1";
+  link.setAttribute("aria-label", "RE:IGNITEをホーム画面に追加してアプリのように使う");
+
+  const icon = document.createElement("span");
+  icon.className = "life-clock-install-link__icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.textContent = "📲";
+
+  const copy = document.createElement("span");
+  copy.className = "life-clock-install-link__copy";
+  const title = document.createElement("strong");
+  title.textContent = "ホーム画面に追加";
+  const detail = document.createElement("small");
+  detail.textContent = "次回からワンタップでRE:IGNITEを開く";
+  copy.append(title, detail);
+
+  const cta = document.createElement("span");
+  cta.className = "life-clock-install-link__cta";
+  cta.textContent = "アプリのように使う ＋";
+
+  link.append(icon, copy, cta);
+  const stack = document.createElement("div");
+  stack.className = "life-clock-entry-stack";
+  entry.parentNode?.insertBefore(stack, entry);
+  stack.append(entry, link);
+}
+
+addLifeClockInstallLink();
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedFilter = button.dataset.filter;

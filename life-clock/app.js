@@ -872,18 +872,74 @@ $('share').addEventListener('click', async () => {
 });
 const standalone = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const installRequested = new URLSearchParams(location.search).get('install') === '1';
 function installHelp() {
-  return isIOS ? 'iPhone・iPadのSafariで「共有」→「ホーム画面に追加」を選んでください。' : 'ブラウザのメニューから「アプリをインストール」または「ホーム画面に追加」を選んでください。表示がない場合は対応ブラウザで開いてください。';
+  return isIOS
+    ? 'iPhone・iPad：Safariの共有ボタン → 「ホーム画面に追加」 → 「追加」を選んでください。'
+    : 'Android・PC：ブラウザのメニューから「アプリをインストール」または「ホーム画面に追加」を選んでください。';
 }
-write('install-help', installHelp()); $('install-card').hidden = Boolean(standalone());
-window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); installPrompt = event; write('install', 'ホーム画面に追加 ＋'); });
-window.addEventListener('appinstalled', () => { $('install-card').hidden = true; installPrompt = null; notice('ホーム画面に追加しました。次の思い出も、ここに。'); });
-$('install').addEventListener('click', async () => {
+function focusInstallCard() {
+  const card = $('install-card');
+  if (!card || standalone()) return;
+  card.hidden = false;
+  card.classList.remove('install-card--focus');
+  requestAnimationFrame(() => {
+    card.classList.add('install-card--focus');
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(() => card.classList.remove('install-card--focus'), 1900);
+  });
+}
+function syncInstallControls(label = 'ホーム画面に追加 ＋') {
+  write('install', label);
+  write('install-top', label.replace(' ＋', ''));
+}
+function ensureInstallTopButton() {
+  const topbar = document.querySelector('.topbar');
+  if (!topbar) return null;
+  let actions = topbar.querySelector('.topbar-actions');
+  const appTag = topbar.querySelector('.app-tag');
+  if (!actions) {
+    actions = document.createElement('div');
+    actions.className = 'topbar-actions';
+    if (appTag) { appTag.replaceWith(actions); actions.append(appTag); }
+    else topbar.append(actions);
+  }
+  let button = actions.querySelector('#install-top');
+  if (!button) {
+    button = document.createElement('button');
+    button.id = 'install-top';
+    button.className = 'topbar-install';
+    button.type = 'button';
+    button.hidden = true;
+    button.textContent = 'ホーム画面に追加';
+    actions.append(button);
+  }
+  return button;
+}
+const installCard = $('install-card'), installTop = ensureInstallTopButton();
+const syncInstallVisibility = () => {
+  const hidden = Boolean(standalone());
+  if (installCard) installCard.hidden = hidden;
+  if (installTop) installTop.hidden = hidden;
+};
+async function openInstallFlow() {
   emit('pwa_install_clicked');
+  focusInstallCard();
   if (!installPrompt) { notice(installHelp()); return; }
-  try { await installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; write('install', '追加方法を見る ＋'); }
-  catch { notice(installHelp()); }
-});
+  try {
+    await installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    syncInstallControls();
+  } catch { notice(installHelp()); }
+}
+write('install-help', installHelp());
+syncInstallVisibility();
+window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); installPrompt = event; syncInstallControls('ホーム画面に追加 ＋'); });
+window.addEventListener('appinstalled', () => { installPrompt = null; syncInstallVisibility(); notice('ホーム画面に追加しました。次の思い出も、ここに。'); });
+$('install')?.addEventListener('click', openInstallFlow);
+installTop?.addEventListener('click', openInstallFlow);
+if (installRequested) window.setTimeout(focusInstallCard, 120);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/life-clock/sw-v6.js', { scope: '/life-clock/' }).catch(() => notice('オフライン用の準備ができませんでした。オンラインで再度開いてください。', true));
 renderEventExamples();
 if (state.profile) {
