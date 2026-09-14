@@ -35,6 +35,9 @@ jobs:
       - name: Sync the latest main branch
         run: git pull --rebase origin main
 
+      - name: Synchronize homepage and article indexes
+        run: node scripts/auto_publish.mjs --sync-indexes
+
       - name: Validate the site before publishing
         run: npm run validate:site
 
