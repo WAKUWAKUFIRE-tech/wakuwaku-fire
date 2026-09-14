@@ -50,6 +50,26 @@ const eventExamples = [
 const allowedEvents = new Set(['life_clock_start', 'life_clock_calculated', 'life_event_added', 'life_log_added', 'pwa_install_clicked', 'share_clicked', 'return_visit']);
 // Local extension hook only. No analytics endpoint, profile, identifiers, or log text.
 function emit(name) { if (allowedEvents.has(name)) window.dispatchEvent(new CustomEvent('life-clock:event', { detail: { name } })); }
+const UI_PREFS_KEY = 'lifeClockUiPreferences';
+const ACCORDION_DEFS = [
+  { id: 'time', icon: '⏳', title: 'あとどれくらい時間がある？', summaryId: 'accordion-summary-time' },
+  { id: 'money', icon: '💰', title: 'あとどれくらい使える？', summaryId: 'accordion-summary-money' },
+  { id: 'experience', icon: '✨', title: 'あと何をやりたい？', summaryId: 'accordion-summary-experience' },
+  { id: 'people', icon: '❤️', title: 'あと何度、大切な人に会える？', summaryId: 'accordion-summary-people' },
+  { id: 'log', icon: '📖', title: '今日は何を残した？', summaryId: 'accordion-summary-log' },
+];
+const FEATURE_DEFS = [
+  { id: 'life-clock', category: 'time', label: '残り人生時間' },
+  { id: 'year-time', category: 'time', label: '今年の残り時間' },
+  { id: 'free-time', category: 'time', label: '真の自由時間' },
+  { id: 'money-budgets', category: 'money', label: '今日の生活予算・ワクワク予算' },
+  { id: 'assets', category: 'money', label: '資産寿命・人生と資産の地図' },
+  { id: 'experiences', category: 'experience', label: '残された、愛しき回数' },
+  { id: 'bucket', category: 'experience', label: 'バケットリスト' },
+  { id: 'people', category: 'people', label: '大切な人' },
+  { id: 'life-log', category: 'log', label: '人生ログ・思い出資産' },
+];
+const HASH_TO_ACCORDION = { assets: 'money', 'year-time': 'time', 'free-time': 'time', experiences: 'experience', bucket: 'experience', people: 'people', 'life-log': 'log' };
 let state = emptyState(), storage, storageBroken = false, noticeTimer, logLimit = 5, logsExpanded = false, logQuery = '', installPrompt = null, bucketCategoryId = BUCKET_CATEGORIES[0]?.id || '';
 function notice(text, persistent = false) {
   clearTimeout(noticeTimer); write('notice', text);
@@ -58,6 +78,22 @@ function notice(text, persistent = false) {
 try { storage = createStorage(window.localStorage); state = storage.load(); }
 catch { storageBroken = true; notice('保存データを読み込めません。ブラウザの保存設定をご確認ください。データを上書きせず停止しています。設定から削除してやり直すこともできます。', true); }
 lifeWorld.sync(state, { animate: false });
+function loadUiPreferences() {
+  const fallback = { expandedSections: [], hiddenItems: [] };
+  try {
+    const raw = window.localStorage.getItem(UI_PREFS_KEY);
+    if (!raw) return fallback;
+    const parsed = JSON.parse(raw);
+    return {
+      expandedSections: Array.isArray(parsed?.expandedSections) ? parsed.expandedSections.filter(id => ACCORDION_DEFS.some(def => def.id === id)) : [],
+      hiddenItems: Array.isArray(parsed?.hiddenItems) ? parsed.hiddenItems.filter(id => FEATURE_DEFS.some(def => def.id === id)) : [],
+    };
+  } catch { return fallback; }
+}
+let uiPrefs = loadUiPreferences();
+function saveUiPreferences() {
+  try { window.localStorage.setItem(UI_PREFS_KEY, JSON.stringify(uiPrefs)); } catch { /* UI preferences are optional. */ }
+}
 function persist(next) {
   if (storageBroken) { notice('保存データを保護しています。設定で削除するか、ブラウザの保存設定をご確認ください。', true); return false; }
   try { storage.save(next); state = next; lifeWorld.sync(next); return true; }
@@ -70,6 +106,102 @@ function show(view) {
     if ((view === 'settings' && a.dataset.nav === 'settings') || (view === 'dashboard' && a.dataset.nav === (location.hash.slice(1) || 'home'))) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
   });
+}
+function setAccordionOpen(id, open, persist = true) {
+  const card = document.querySelector(`[data-accordion="${id}"]`), button = $(`accordion-toggle-${id}`), panel = $(`accordion-panel-${id}`);
+  if (!card || !button || !panel || (card.hidden && open)) return;
+  const next = Boolean(open);
+  card.classList.toggle('is-open', next);
+  button.setAttribute('aria-expanded', String(next));
+  panel.setAttribute('aria-hidden', String(!next));
+  if (persist) {
+    const expanded = new Set(uiPrefs.expandedSections);
+    if (next) expanded.add(id); else expanded.delete(id);
+    uiPrefs.expandedSections = ACCORDION_DEFS.map(def => def.id).filter(value => expanded.has(value));
+    saveUiPreferences();
+  }
+}
+function syncAccordionState() {
+  ACCORDION_DEFS.forEach(def => setAccordionOpen(def.id, uiPrefs.expandedSections.includes(def.id), false));
+}
+function applyHiddenItems() {
+  const hidden = new Set(uiPrefs.hiddenItems);
+  document.querySelectorAll('[data-ui-item]').forEach(node => { node.hidden = hidden.has(node.dataset.uiItem); });
+  document.querySelectorAll('.dashboard-accordion').forEach(card => {
+    const visibleItems = [...card.querySelectorAll('[data-ui-item]')].some(node => !node.hidden);
+    card.hidden = !visibleItems;
+    if (!visibleItems) setAccordionOpen(card.dataset.accordion, false, false);
+  });
+  syncAccordionState();
+}
+function openAccordionForHash(target) {
+  const id = HASH_TO_ACCORDION[target];
+  if (id) setAccordionOpen(id, true);
+}
+function buildDisplayPreferences(panel) {
+  const list = panel.querySelector('.display-preferences-list');
+  if (!list) return;
+  list.replaceChildren();
+  ACCORDION_DEFS.forEach(def => {
+    const group = document.createElement('fieldset'); group.className = 'display-preferences-group';
+    const legend = document.createElement('legend'); legend.textContent = `${def.icon} ${def.title}`; group.append(legend);
+    FEATURE_DEFS.filter(feature => feature.category === def.id).forEach(feature => {
+      const label = document.createElement('label'); label.className = 'display-preference-option';
+      const input = document.createElement('input'); input.type = 'checkbox'; input.checked = !uiPrefs.hiddenItems.includes(feature.id); input.dataset.uiPreference = feature.id;
+      input.addEventListener('change', () => {
+        const nextHidden = new Set(uiPrefs.hiddenItems);
+        if (input.checked) nextHidden.delete(feature.id); else nextHidden.add(feature.id);
+        uiPrefs.hiddenItems = FEATURE_DEFS.map(value => value.id).filter(id => nextHidden.has(id));
+        saveUiPreferences(); applyHiddenItems();
+      });
+      const text = document.createElement('span'); text.textContent = feature.label; label.append(input, text); group.append(label);
+    });
+    list.append(group);
+  });
+}
+function setupDashboardLayout() {
+  const dashboard = $('dashboard'), home = $('home');
+  if (!dashboard || !home || dashboard.dataset.layoutReady === 'true') return;
+  const hero = home.querySelector('.hero-grid'), lifeCard = hero?.querySelector('.life-card'), budgetStack = hero?.querySelector('.budget-stack');
+  const nodes = {
+    time: [lifeCard, $('year-time'), $('free-time')],
+    money: [budgetStack, $('assets')],
+    experience: [$('experiences'), $('bucket')],
+    people: [$('people')],
+    log: [$('life-log')],
+  };
+  if (!hero || !lifeCard || !budgetStack || Object.values(nodes).some(list => list.some(node => !node))) return;
+  lifeCard.dataset.uiItem = 'life-clock'; budgetStack.dataset.uiItem = 'money-budgets';
+  $('year-time').dataset.uiItem = 'year-time'; $('free-time').dataset.uiItem = 'free-time'; $('assets').dataset.uiItem = 'assets';
+  $('experiences').dataset.uiItem = 'experiences'; $('bucket').dataset.uiItem = 'bucket'; $('people').dataset.uiItem = 'people'; $('life-log').dataset.uiItem = 'life-log';
+  const sectionHead = home.querySelector('.section-head'), returnMessage = $('return-message');
+  home.replaceChildren();
+  if (sectionHead) home.append(sectionHead);
+  if (returnMessage) home.append(returnMessage);
+  const summary = document.createElement('section'); summary.id = 'life-summary'; summary.className = 'life-summary'; summary.setAttribute('aria-labelledby', 'life-summary-title');
+  summary.innerHTML = `<div class="life-summary-heading"><span class="eyebrow">AT A GLANCE</span><h2 id="life-summary-title">人生サマリー</h2></div><div class="life-summary-grid"><article class="life-summary-card life-summary-card--health"><span>残り健康時間</span><strong id="summary-health-time">—</strong><small>健康寿命まで</small></article><article class="life-summary-card life-summary-card--living"><span>今日の生活予算</span><strong id="summary-living-budget">—</strong><small>円 / 日</small></article><article class="life-summary-card life-summary-card--wakuwaku"><span>今日のワクワク予算</span><strong id="summary-wakuwaku-budget">—</strong><small>円 / 日</small></article></div>`;
+  home.append(summary);
+  const controls = document.createElement('div'); controls.className = 'dashboard-controls'; controls.innerHTML = '<span class="dashboard-controls-label">MY LIFE</span><button id="accordion-open-all" class="text-button" type="button">すべて開く</button><button id="accordion-close-all" class="text-button" type="button">すべて閉じる</button><button id="display-preferences-open" class="text-button" type="button" aria-expanded="false" aria-controls="display-preferences-panel">⚙️ 表示する項目を編集</button>';
+  const preferences = document.createElement('section'); preferences.id = 'display-preferences-panel'; preferences.className = 'display-preferences panel'; preferences.hidden = true; preferences.setAttribute('aria-labelledby', 'display-preferences-title'); preferences.innerHTML = '<div class="section-head"><div><span class="eyebrow">MY VIEW</span><h2 id="display-preferences-title">表示する項目を編集</h2></div><button id="display-preferences-close" class="text-button" type="button">閉じる</button></div><p class="muted">必要な項目だけを残して、RE:IGNITEを自分の視界に合わせられます。</p><div class="display-preferences-list"></div><button id="display-preferences-reset" class="secondary" type="button">おすすめ表示に戻す</button>';
+  buildDisplayPreferences(preferences);
+  const list = document.createElement('div'); list.id = 'dashboard-accordion-list'; list.className = 'dashboard-accordion-list';
+  ACCORDION_DEFS.forEach(def => {
+    const card = document.createElement('section'); card.className = 'dashboard-accordion'; card.dataset.accordion = def.id; card.setAttribute('aria-labelledby', `accordion-toggle-${def.id}`);
+    const button = document.createElement('button'); button.type = 'button'; button.id = `accordion-toggle-${def.id}`; button.className = 'dashboard-accordion-toggle'; button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-controls', `accordion-panel-${def.id}`);
+    button.innerHTML = `<span class="dashboard-accordion-icon" aria-hidden="true">${def.icon}</span><span class="dashboard-accordion-copy"><strong class="dashboard-accordion-title">${def.title}</strong><span id="${def.summaryId}" class="dashboard-accordion-summary">—</span></span><span class="dashboard-accordion-arrow" aria-hidden="true">›</span>`;
+    const panel = document.createElement('div'); panel.id = `accordion-panel-${def.id}`; panel.className = 'dashboard-accordion-panel'; panel.setAttribute('aria-hidden', 'true');
+    const inner = document.createElement('div'); inner.className = 'dashboard-accordion-panel-inner'; def.id === 'time' ? inner.append(...nodes.time) : def.id === 'money' ? inner.append(...nodes.money) : def.id === 'experience' ? inner.append(...nodes.experience) : def.id === 'people' ? inner.append(...nodes.people) : inner.append(...nodes.log);
+    panel.append(inner); card.append(button, panel); list.append(card);
+    button.addEventListener('click', () => setAccordionOpen(def.id, !card.classList.contains('is-open')));
+  });
+  const share = dashboard.querySelector('.share-section');
+  dashboard.insertBefore(controls, share || null); dashboard.insertBefore(preferences, share || null); dashboard.insertBefore(list, share || null);
+  $('accordion-open-all').addEventListener('click', () => { uiPrefs.expandedSections = ACCORDION_DEFS.map(def => def.id); saveUiPreferences(); applyHiddenItems(); });
+  $('accordion-close-all').addEventListener('click', () => { uiPrefs.expandedSections = []; saveUiPreferences(); syncAccordionState(); });
+  $('display-preferences-open').addEventListener('click', () => { preferences.hidden = false; $('display-preferences-open').setAttribute('aria-expanded', 'true'); buildDisplayPreferences(preferences); });
+  $('display-preferences-close').addEventListener('click', () => { preferences.hidden = true; $('display-preferences-open').setAttribute('aria-expanded', 'false'); });
+  $('display-preferences-reset').addEventListener('click', () => { uiPrefs = { expandedSections: [], hiddenItems: [] }; saveUiPreferences(); applyHiddenItems(); buildDisplayPreferences(preferences); notice('おすすめ表示に戻しました。'); });
+  dashboard.dataset.layoutReady = 'true'; applyHiddenItems();
 }
 function openForm() {
   const p = state.profile;
@@ -572,6 +704,20 @@ function renderLogs() {
   const more = $('more-logs'); more.hidden = filtered.length <= logLimit; more.textContent = logsExpanded ? `最初の${logLimit}件に戻す` : `過去の記録をさらに${fmt(Math.max(0, filtered.length - logLimit))}件見る`;
   const download = $('download-logs'); if (download) download.hidden = state.logs.length === 0;
 }
+function renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget) {
+  const year = calculateYearRemaining();
+  const healthYears = Math.max(0, days / DAYS_PER_YEAR).toFixed(1);
+  write('summary-health-time', `${healthYears}年`);
+  write('summary-living-budget', fmt(Math.round(dailyLivingBudget)));
+  write('summary-wakuwaku-budget', fmt(Math.round(dailyWakuwakuBudget)));
+  write('accordion-summary-time', `健康寿命まで${healthYears}年・今年あと${fmt(year.days)}日`);
+  write('accordion-summary-money', `生活予算 ${fmt(Math.round(dailyLivingBudget))}円 / ワクワク予算 ${fmt(Math.round(dailyWakuwakuBudget))}円`);
+  const experienceCount = orderedEvents().length, bucketCount = state.bucketList.length;
+  write('accordion-summary-experience', `体験${experienceCount}件・バケットリスト${bucketCount}件`);
+  const peopleCount = state.people.length;
+  write('accordion-summary-people', peopleCount ? `${peopleCount}人登録` : '大切な人を登録してみる');
+  write('accordion-summary-log', state.logs.length ? `思い出資産 ${fmt(state.logs.length)}` : '最初の思い出を残してみる');
+}
 function renderDashboard() {
   const { p, days, lifespanDays, projection: m } = metrics();
   const dailyLivingBudget = calculateDailyLivingBudget(p.assets, p.rate, lifespanDays);
@@ -602,8 +748,9 @@ function renderDashboard() {
   write('chart-legend-lifespan', `平均寿命 ${p.lifespan}歳 ・生活資金の期限`);
   write('chart-summary', `● 現在 ${Math.floor(m.ageNow)}歳 ／ 黄色帯＋橙色マーカー：健康寿命 ${p.healthspan}歳（ワクワク予算の期間目安） ／ 赤帯＋赤マーカー：平均寿命 ${p.lifespan}歳（生活資金を確保する期限） ／ ■ 資産ゼロ：${Number.isFinite(m.zeroAge) ? `${m.zeroAge.toFixed(1)}歳${m.zeroAge > p.lifespan ? '（グラフ範囲外）' : ''}` : 'この条件では尽きない計算'}`);
   write('snapshot-note', `資産は${new Date(p.updatedAt || p.anchor).toLocaleDateString('ja-JP')}に入力した額を現在の残高として使用。実際の増減は自動反映されません。残り日数は日付とともに更新します。生活予算・ワクワク予算は、資産・生活費・利回り・想定寿命をもとにした簡易シミュレーションです。`);
-  renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderBucketSuggestions(); renderLogs(); requestAnimationFrame(drawChart);
+  renderYearTime(); renderFreeTime(); renderEvents(days); renderPeople(); renderBucketList(); renderBucketSuggestions(); renderLogs(); renderLifeSummary(days, dailyLivingBudget, dailyWakuwakuBudget); applyHiddenItems(); requestAnimationFrame(drawChart);
 }
+setupDashboardLayout();
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
 $('toggle-people-form').addEventListener('click', () => {
@@ -677,16 +824,16 @@ $('bucket-form').addEventListener('submit', event => {
 function navigate() {
   const target = location.hash.slice(1);
   if (target === 'settings') show('settings');
-  else if (state.profile) { show('dashboard'); drawChart(); }
+  else if (state.profile) { show('dashboard'); openAccordionForHash(target); drawChart(); }
 }
 window.addEventListener('hashchange', navigate);
 document.querySelectorAll('[data-nav], #back-home').forEach(link => link.addEventListener('click', () => {
   const target = link.getAttribute('href').slice(1); show(target === 'settings' ? 'settings' : state.profile ? 'dashboard' : 'welcome');
-  if (state.profile && target !== 'settings') requestAnimationFrame(drawChart);
+  if (state.profile && target !== 'settings') { openAccordionForHash(target); requestAnimationFrame(drawChart); }
 }));
 $('reset').addEventListener('click', () => {
   if (!confirm('RE:IGNITEのプロフィール、独自イベント、人生ログをすべて削除します。この操作は元に戻せません。削除しますか？')) return;
-  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); lifeWorld.sync(state); logLimit = 5; logsExpanded = false; logQuery = ''; bucketCategoryId = BUCKET_CATEGORIES[0]?.id || ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
+  try { (storage || createStorage(window.localStorage)).reset(); storage = createStorage(window.localStorage); storageBroken = false; state = emptyState(); uiPrefs = { expandedSections: [], hiddenItems: [] }; saveUiPreferences(); lifeWorld.sync(state); logLimit = 5; logsExpanded = false; logQuery = ''; bucketCategoryId = BUCKET_CATEGORIES[0]?.id || ''; $('profile-form').reset(); $('event-form').reset(); $('bucket-form').reset(); $('log-search').value = ''; closePeopleForm(); $('share-fallback').value = ''; $('share-fallback').hidden = true; $('return-message').hidden = true; history.replaceState(null, '', location.pathname); show('welcome'); notice('保存データをすべて削除しました。'); window.scrollTo(0, 0); }
   catch { notice('削除できませんでした。ブラウザのサイトデータ設定から削除してください。', true); }
 });
 $('share').addEventListener('click', async () => {

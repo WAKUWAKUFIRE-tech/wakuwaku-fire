@@ -1,5 +1,5 @@
 /* Versioned worker used to move visitors off older cached life-clock shells. */
-const CACHE = 'fire-life-clock-shell-20260914-13';
+const CACHE = 'fire-life-clock-shell-20260914-14';
 const ROOT = '/life-clock/';
 const ASSETS = [`${ROOT}index.html`, `${ROOT}styles.css`, `${ROOT}app.js`, `${ROOT}calculations.js`, `${ROOT}storage.js`, `${ROOT}bucket-data.js`, `${ROOT}life-world.js`, `${ROOT}manifest.webmanifest`, `${ROOT}icon.svg`, `${ROOT}icon-192.png`, `${ROOT}icon-512.png`, `${ROOT}icon-maskable.png`, `${ROOT}apple-touch-icon.png`];
 
@@ -24,3 +24,4 @@ self.addEventListener('fetch', event => {
     }).catch(() => caches.match(url.pathname)));
   }
 });
+
