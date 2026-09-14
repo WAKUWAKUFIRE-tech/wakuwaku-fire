@@ -105,7 +105,10 @@ export function createLifeWorld(host) {
     height = Math.max(1, window.innerHeight || document.documentElement.clientHeight || 1);
     const compactViewport = width <= 700 || height <= 600;
     dpr = Math.min(compactViewport ? 1.25 : 1.5, Math.max(1, window.devicePixelRatio || 1));
-    baseQualityScale = compactViewport ? .56 : (width * height > 1100000 ? .7 : .84);
+    // Keep the celebration responsive on ordinary laptops and phones. The
+    // visible ring and particles remain, while glow-heavy paths stay off by
+    // default to protect frame rate.
+    baseQualityScale = compactViewport ? .5 : (width * height > 1600000 ? .62 : .7);
     qualityScale = baseQualityScale;
     host.dataset.fxQuality = baseQualityScale < .76 ? 'light' : 'full';
     canvas.width = Math.round(width * dpr);
