@@ -56,7 +56,7 @@ const ACCORDION_DEFS = [
   { id: 'money', icon: '💰', title: 'あとどれくらい使える？', summaryId: 'accordion-summary-money' },
   { id: 'bucket', icon: '🗺️', title: 'バケットリスト', summaryId: 'accordion-summary-bucket' },
   { id: 'experiences', icon: '✨', title: '残された、愛しき回数', summaryId: 'accordion-summary-experiences' },
-  { id: 'people', icon: '❤️', title: '大切な人に、あと何度会えるだろう？', summaryId: 'accordion-summary-people' },
+  { id: 'people', icon: '❤️', title: '大切な人に、あと何度会える？', summaryId: 'accordion-summary-people' },
   { id: 'log', icon: '📖', title: '今日は何を残した？', summaryId: 'accordion-summary-log' },
 ];
 const FEATURE_DEFS = [
