@@ -107,6 +107,7 @@ export function createLifeWorld(host) {
     dpr = Math.min(compactViewport ? 1.25 : 1.5, Math.max(1, window.devicePixelRatio || 1));
     baseQualityScale = compactViewport ? .56 : (width * height > 1100000 ? .7 : .84);
     qualityScale = baseQualityScale;
+    host.dataset.fxQuality = baseQualityScale < .76 ? 'light' : 'full';
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     canvas.style.width = `${width}px`;
@@ -361,6 +362,8 @@ export function createLifeWorld(host) {
     const rawDt = ((now - lastFrame) || 16) / 1000;
     if (rawDt > .032) slowFrameStreak += 1; else slowFrameStreak = Math.max(0, slowFrameStreak - 1);
     if (slowFrameStreak >= 3) qualityScale = Math.max(.48, qualityScale * .82);
+    const nextQuality = qualityScale < .76 ? 'light' : 'full';
+    if (host.dataset.fxQuality !== nextQuality) host.dataset.fxQuality = nextQuality;
     const dt = Math.min(.034, Math.max(.008, rawDt));
     lastFrame = now;
     const elapsed = (now - startedAt) / 1000;
@@ -371,8 +374,8 @@ export function createLifeWorld(host) {
 
     const flashT = clamp(elapsed / (effectHuge ? .72 : .58), 0, 1);
     const flash = Math.sin(flashT * Math.PI) * (effectHuge ? .3 : .2);
-    if (flash > 0) { ctx.fillStyle = `rgba(255, 180, 74, ${flash})`; ctx.fillRect(0, 0, width, height); }
-    if (elapsed < 1.45) {
+    if (flash > 0 && qualityScale >= .62) { ctx.fillStyle = `rgba(255, 180, 74, ${flash * (qualityScale < .76 ? .72 : 1)})`; ctx.fillRect(0, 0, width, height); }
+    if (elapsed < 1.45 && qualityScale >= .72) {
       const glow = ctx.createRadialGradient(origin.x, origin.y, 0, origin.x, origin.y, Math.max(width, height) * .68);
       glow.addColorStop(0, `rgba(255, 239, 164, ${Math.max(0, (effectHuge ? .42 : .3) * (1 - elapsed / 1.45))})`); glow.addColorStop(.28, `rgba(255, 181, 66, ${Math.max(0, (effectHuge ? .22 : .14) * (1 - elapsed / 1.45))})`); glow.addColorStop(1, 'rgba(255, 174, 69, 0)');
       ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
@@ -498,4 +501,3 @@ export function createLifeWorld(host) {
   pauseWhenHidden();
   return { sync, celebrate, maybeShowIntro };
 }
-
