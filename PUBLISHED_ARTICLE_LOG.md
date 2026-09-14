@@ -678,3 +678,24 @@ thumbnail text: 人間関係どう？
 external sources:
 - なし
 公開結果: PUBLISHED
+
+## PUBLISHED: FIRE後の趣味は何がいい？時間が増えてからこそ難しい理由
+
+article id: seo-029
+priority_order: 29
+公開日・時刻（JST）: 2026-09-14 18:00:00
+公開枠: 2026-09-14T18:00:00+09:00
+main keyword: FIRE後 趣味
+title: FIRE後の趣味は何がいい？時間が増えてからこそ難しい理由
+slug: after-fire-hobby
+URL: https://wakuwaku-fire-git.pages.dev/articles/after-fire-hobby/
+thumbnail file: articles/after-fire-hobby/thumbnail.png
+thumbnail text: FIRE後の趣味
+参照knowledge_base: content_sources/knowledge_base/life_after_fire.md, content_sources/knowledge_base/happiness_and_life.md, content_sources/knowledge_base/recurring_stories.md
+参照note原記事:
+- なし
+使用本人フレーズ: なし
+最新情報確認: なし
+external sources:
+- なし
+公開結果: PUBLISHED
