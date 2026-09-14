@@ -13,6 +13,8 @@ const app = document.querySelector("#fire-strengths-app");
 if (app) {
   const isStatsPage = app.dataset.page === "stats";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const HISTORY_STORAGE_KEY = "wakuwakuFireStrengthHistoryV1";
+  const HISTORY_LIMIT = 3;
   const state = {
     displayName: "",
     answers: [],
@@ -89,6 +91,108 @@ if (app) {
     return String(value || "").trim().replace(/[\t\r\n ]+/g, " ");
   }
 
+  function readHistory() {
+    try {
+      const parsed = JSON.parse(window.localStorage.getItem(HISTORY_STORAGE_KEY) || "[]");
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter((entry) => (
+          entry &&
+          typeof entry.id === "string" &&
+          Array.isArray(entry.answers) &&
+          entry.answers.length === QUESTIONS.length &&
+          entry.answers.every((answer) => answer === "A" || answer === "B") &&
+          Array.isArray(entry.responseTimes) &&
+          entry.responseTimes.length === QUESTIONS.length &&
+          entry.responseTimes.every((time) => Number.isFinite(Number(time)) && Number(time) >= 0)
+        ))
+        .sort((left, right) => (Date.parse(right.completedAt) || 0) - (Date.parse(left.completedAt) || 0))
+        .slice(0, HISTORY_LIMIT);
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function historyDate(value) {
+    const timestamp = Date.parse(value);
+    if (!Number.isFinite(timestamp)) return "日時不明";
+    return new Intl.DateTimeFormat("ja-JP", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(new Date(timestamp));
+  }
+
+  function saveCurrentResultToHistory() {
+    if (isStatsPage || !state.result) return;
+    const entry = {
+      id: state.resultId || randomUuid(),
+      displayName: normalizeName(state.displayName),
+      completedAt: new Date().toISOString(),
+      answers: [...state.result.answers],
+      responseTimes: [...state.result.responseTimes]
+    };
+    try {
+      const next = [entry, ...readHistory().filter((item) => item.id !== entry.id)].slice(0, HISTORY_LIMIT);
+      window.localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(next));
+    } catch (error) {
+      // ブラウザの保存領域が無効でも、現在の診断結果は表示できます。
+    }
+    renderPastResults();
+  }
+
+  function renderPastResults() {
+    const list = qs("#fs-history-list");
+    const empty = qs("#fs-history-empty");
+    if (!list) return;
+    list.replaceChildren();
+    const history = readHistory();
+    if (empty) empty.hidden = history.length > 0;
+    history.forEach((entry) => {
+      let result;
+      try {
+        result = calculateFireStrengthResult(entry.answers, entry.responseTimes);
+      } catch (error) {
+        return;
+      }
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "fs-history-card";
+      const info = document.createElement("span");
+      info.className = "fs-history-card__info";
+      appendText(info, "span", "fs-history-card__meta", `${entry.displayName || "あなた"}さん ・ ${historyDate(entry.completedAt)}`);
+      appendText(info, "strong", "fs-history-card__type", result.fireType.name);
+      appendText(info, "span", "fs-history-card__traits", `TOP3：${result.topTraits.slice(0, 3).map((trait) => trait.name).join("・")}`);
+      const open = document.createElement("span");
+      open.className = "fs-history-card__open";
+      open.textContent = "この結果を開く →";
+      button.append(info, open);
+      button.addEventListener("click", () => openHistoryResult(entry.id));
+      list.appendChild(button);
+    });
+  }
+
+  function openHistoryResult(historyId) {
+    const entry = readHistory().find((item) => item.id === historyId);
+    if (!entry) {
+      renderPastResults();
+      return;
+    }
+    state.displayName = normalizeName(entry.displayName) || "あなた";
+    state.answers = [...entry.answers];
+    state.responseTimes = [...entry.responseTimes];
+    state.resultId = entry.id;
+    state.result = calculateFireStrengthResult(state.answers, state.responseTimes);
+    state.stats = null;
+    state.pendingSave = null;
+    renderResult({ fromHistory: true });
+    setScreen("result");
+    track("fire_strength_history_open", { fire_type: state.result.fireType.id });
+    loadStatsForResult();
+  }
+
   function validName(value) {
     const length = [...value].length;
     return length >= 1 && length <= 20;
@@ -111,6 +215,10 @@ if (app) {
     state.answers = [];
     state.responseTimes = [];
     state.result = null;
+    state.resultId = "";
+    state.stats = null;
+    state.pendingSave = null;
+    renderPastResults();
     setScreen("home");
   }
 
@@ -120,6 +228,9 @@ if (app) {
     state.questionIndex = 0;
     state.answerLocked = false;
     state.result = null;
+    state.resultId = "";
+    state.stats = null;
+    state.pendingSave = null;
     setScreen("quiz");
     renderQuestion();
     track("fire_strength_start");
@@ -187,6 +298,7 @@ if (app) {
     state.answerLocked = true;
     state.result = calculateFireStrengthResult(state.answers, state.responseTimes);
     state.resultId = randomUuid();
+    saveCurrentResultToHistory();
     setScreen("analysis");
     window.setTimeout(() => {
       renderResult();
@@ -476,7 +588,7 @@ if (app) {
       : `現在${total}人の集計では、あなたと同じ「${current.name}」は${current.count}人・${percentage.toFixed(1)}%。これは価値観の集まり方を示す目安で、珍しい＝優秀という意味ではありません。`;
   }
 
-  function renderResult() {
+  function renderResult({ fromHistory = false } = {}) {
     if (!state.result) return;
     const result = state.result;
     const type = result.fireType;
@@ -511,7 +623,7 @@ if (app) {
     renderShareCard();
     renderResultRanking([]);
     renderRarity();
-    setSaveStatus("結果を匿名で集計に反映しています…", false);
+    setSaveStatus(fromHistory ? "過去の結果を表示中です。" : "結果を匿名で集計に反映しています…", false);
     const checkbox = qs("#fs-hide-share-name");
     if (checkbox) checkbox.checked = false;
   }
@@ -915,6 +1027,7 @@ if (app) {
     setStatsAvailability(false);
     fetchStats().then(renderStatsPage);
   } else {
+    renderPastResults();
     setScreen("home", false);
   }
 }
