@@ -128,7 +128,7 @@ export function createLifeWorld(host) {
   };
   buildLayers();
 
-  const showToast = (message, duration = 1500) => {
+  const showToast = (message, duration = 2200) => {
     clearTimeout(toastTimer);
     toast.textContent = message;
     toast.hidden = false;
@@ -197,7 +197,7 @@ export function createLifeWorld(host) {
     if (!effect) return;
     effect.dataset.source = source;
     effects.append(effect);
-    effectTimer = window.setTimeout(clearEffect, 1400);
+    effectTimer = window.setTimeout(clearEffect, 2300);
   };
 
   const maybeShowIntro = () => {
