@@ -241,11 +241,17 @@ function adjustEvent(event, delta) {
   if (persist(next)) { renderEvents(metrics().days); notice(`「${event.name}」を年${frequencyText(frequency)}回に${delta < 0 ? '減らしました' : '増やしました'}。`); }
 }
 function incrementEvent(event) { adjustEvent(event, 1); }
+function captureCelebrationAnchor(anchor) {
+  if (!anchor?.getBoundingClientRect) return anchor;
+  const rect = anchor.getBoundingClientRect();
+  return { getBoundingClientRect: () => rect };
+}
 function addEvent(name, frequency, icon = '✨', anchor = null) {
   if (!name || name.length > 50 || !Number.isFinite(frequency) || frequency <= 0 || frequency > 1000) { notice('行動の名前と、年あたりの回数を確認してください。'); return false; }
   if (hasEventName(name)) { notice(`「${name}」はすでに追加されています。削除すると、もう一度追加できます。`); return false; }
+  const celebrationAnchor = captureCelebrationAnchor(anchor);
   const event = { id: crypto.randomUUID(), name, icon, frequency, period: 'year', unit: '回' };
-  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); renderEventExamples(); emit('life_event_added'); lifeWorld.celebrate({ source: 'experience', anchor }); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
+  if (persist({ ...state, events: [...state.events, event] })) { renderEvents(metrics().days); renderEventExamples(); emit('life_event_added'); lifeWorld.celebrate({ source: 'experience', anchor: celebrationAnchor }); notice(`「${name}」を追加しました。年あたりの回数は増減ボタンで調整できます。`); return true; }
   return false;
 }
 function renderEventExamples() {
@@ -488,10 +494,11 @@ function addBucketCandidate(category, candidate, anchor = null) {
   const title = candidate.title.trim();
   if (!title) return;
   if (state.bucketList.some(item => item.title.trim() === title)) { notice('その項目はすでにバケットリストに追加されています。'); renderBucketSuggestions(); return; }
+  const celebrationAnchor = captureCelebrationAnchor(anchor);
   const dueDate = defaultBucketDueDate();
   const item = { id: crypto.randomUUID(), title, dueDate, done: false, createdAt: new Date().toISOString(), categoryId: category.id, categoryName: category.name };
   if (persist({ ...state, bucketList: [...state.bucketList, item] })) {
-    renderBucketList(); renderBucketSuggestions(); lifeWorld.celebrate({ source: 'bucket-list', anchor });
+    renderBucketList(); renderBucketSuggestions(); lifeWorld.celebrate({ source: 'bucket-list', anchor: celebrationAnchor });
     notice(`「${title}」を追加しました。期限は1年後で仮設定しています。必要ならリスト内で変更できます。`);
   }
 }
