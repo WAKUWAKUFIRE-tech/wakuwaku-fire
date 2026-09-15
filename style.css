@@ -6501,12 +6501,6 @@ body.fire-card-modal-open { overflow: hidden; }
   }
 }
 
-Exception: 
-Line |
-   5 |  … art -lt 0 -or $end -lt 0) { throw 'top-entry style block not found' }
-     |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | top-entry style block not found
-
 /* アプリ追加ブロックはサムネイルがないため、元の📲表示を維持する。 */
 .reference-home .top-entry-card--install .top-entry-card__icon {
   display: grid;
