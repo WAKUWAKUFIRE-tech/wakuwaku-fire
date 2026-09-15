@@ -941,7 +941,9 @@ const standalone = () => window.matchMedia('(display-mode: standalone)').matches
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 const installRequested = new URLSearchParams(location.search).get('install') === '1';
 function installHelp() {
-  return 'このブラウザではホーム画面への追加ダイアログを直接起動できません。';
+  if (isIOS) return 'iPhone・iPad：共有ボタン →「ホーム画面に追加」→「追加」。';
+  if (/Android/i.test(navigator.userAgent)) return 'Android：ブラウザのメニュー →「ホーム画面に追加」または「アプリをインストール」。';
+  return 'Windows：Ctrl＋Dでお気に入りに追加できます。\nMac：⌘＋Dでお気に入りに追加できます。';
 }
 function ensureInstallHeroButtons() {
   document.querySelectorAll('#welcome, .dashboard-brand').forEach(section => {
@@ -1019,15 +1021,15 @@ const syncInstallVisibility = () => {
   heroButtons.forEach(button => { button.hidden = hidden; });
 };
 function showInstallFallback() {
-  // beforeinstallprompt is the only web API that can open the native
-  // install dialog. Do not replace it with a long, manual instruction block.
-  document.querySelectorAll('[data-install-help]').forEach(node => { node.textContent = ''; node.hidden = true; });
+  // beforeinstallprompt is the only web API that can open the native install dialog.
+  // When the browser does not expose it, show the platform's short fallback here.
+  const help = installHelp();
+  document.querySelectorAll('[data-install-help]').forEach(node => { node.textContent = help; node.hidden = false; });
   document.querySelectorAll('[data-install-action]').forEach(button => {
     button.classList.remove('is-unavailable');
     requestAnimationFrame(() => button.classList.add('is-unavailable'));
     window.setTimeout(() => button.classList.remove('is-unavailable'), 1200);
   });
-  notice(installHelp());
 }
 async function openInstallFlow() {
   emit('pwa_install_clicked');
@@ -1037,21 +1039,22 @@ async function openInstallFlow() {
     await installPrompt.userChoice;
     installPrompt = null;
     syncInstallControls();
-  } catch { notice(installHelp()); }
+  } catch { showInstallFallback(); }
 }
-write('install-help', '');
+write('install-help', installHelp());
 syncInstallVisibility();
 window.addEventListener('beforeinstallprompt', event => {
   event.preventDefault();
   installPrompt = event;
+  document.querySelectorAll('[data-install-help]').forEach(node => { node.textContent = ''; node.hidden = true; });
   document.querySelectorAll('[data-install-action]').forEach(button => { button.dataset.installReady = 'true'; button.classList.remove('is-unavailable'); });
   syncInstallControls('ホーム画面に追加 ＋');
 });
-window.addEventListener('appinstalled', () => { installPrompt = null; syncInstallVisibility(); notice('ホーム画面に追加しました。次の思い出も、ここに。'); });
+window.addEventListener('appinstalled', () => { installPrompt = null; document.querySelectorAll('[data-install-help]').forEach(node => { node.textContent = ''; node.hidden = true; }); syncInstallVisibility(); notice('ホーム画面に追加しました。次の思い出も、ここに。'); });
 $('install')?.addEventListener('click', openInstallFlow);
 installTop?.addEventListener('click', openInstallFlow);
 document.querySelectorAll('[data-install-action]').forEach(button => button.addEventListener('click', openInstallFlow));
-if (installRequested) window.setTimeout(() => { focusInstallHero(); }, 220);
+if (installRequested) window.setTimeout(() => { focusInstallHero(); if (!installPrompt) showInstallFallback(); }, 320);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/life-clock/sw-v6.js', { scope: '/life-clock/' }).catch(() => notice('オフライン用の準備ができませんでした。オンラインで再度開いてください。', true));
 renderEventExamples();
 if (state.profile) {
@@ -1068,3 +1071,4 @@ window.addEventListener('storage', event => {
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
   catch { notice('別のタブの変更を読み込めませんでした。再読み込みしてください。', true); }
 });
+

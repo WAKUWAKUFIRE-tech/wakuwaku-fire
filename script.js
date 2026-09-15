@@ -61,76 +61,83 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 const filterButtons = document.querySelectorAll(".filter-button");
 const contentCards = document.querySelectorAll(".content-card");
 
-// RE:IGNITEをホーム画面に追加する導線は、古いトップページにも復元できるように補います。
-let lifeClockInstallPrompt = null;
-const lifeClockIsIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+// トップページ自身をホーム画面・お気に入りへ追加する導線です。
+let homeInstallPrompt = null;
+const homeInstallIsIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-function lifeClockInstallHelp() {
-  if (lifeClockIsIOS) return "iPhone・iPad：Safariの共有ボタン → 「ホーム画面に追加」 → 「追加」を選んでください。";
-  if (/Android/i.test(navigator.userAgent)) return "Android：ブラウザのメニューから「ホーム画面に追加」または「アプリをインストール」を選んでください。";
-  return "PC：アプリとして追加できます。ボタンが出ない場合は Ctrl＋D（Macは⌘＋D）でお気に入りに追加してください。";
+function homeInstallHelp() {
+  if (homeInstallIsIOS) return "iPhone・iPad：共有ボタン →「ホーム画面に追加」→「追加」。";
+  if (/Android/i.test(navigator.userAgent)) return "Android：ブラウザのメニュー →「ホーム画面に追加」または「アプリをインストール」。";
+  return "Windows：Ctrl＋Dでお気に入りに追加。\nMac：⌘＋Dでお気に入りに追加。";
+}
+
+function showHomeInstallFallback(link) {
+  document.querySelectorAll("[data-home-install-help]").forEach((help) => {
+    help.textContent = homeInstallHelp();
+    help.hidden = false;
+  });
+  if (link) {
+    link.classList.remove("is-unavailable");
+    requestAnimationFrame(() => link.classList.add("is-unavailable"));
+    window.setTimeout(() => link.classList.remove("is-unavailable"), 1200);
+  }
 }
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
-  lifeClockInstallPrompt = event;
-  document.querySelectorAll(".life-clock-install-link__cta").forEach((cta) => { cta.textContent = "このまま追加 ＋"; });
+  homeInstallPrompt = event;
+  document.querySelectorAll(".home-install-link__cta").forEach((cta) => { cta.textContent = "このまま追加 ＋"; });
+  document.querySelectorAll("[data-home-install-help]").forEach((help) => { help.textContent = ""; help.hidden = true; });
 });
 
 window.addEventListener("appinstalled", () => {
-  lifeClockInstallPrompt = null;
-  document.querySelectorAll(".life-clock-install-link__cta").forEach((cta) => { cta.textContent = "追加しました ✓"; });
+  homeInstallPrompt = null;
+  document.querySelectorAll(".home-install-link__cta").forEach((cta) => { cta.textContent = "追加しました ✓"; });
+  document.querySelectorAll("[data-home-install-help]").forEach((help) => { help.textContent = ""; help.hidden = true; });
 });
 
-async function openLifeClockInstall(event) {
+async function openHomeInstall(event) {
   event.preventDefault();
-  if (!lifeClockInstallPrompt) {
-    window.location.href = "/life-clock/?install=1";
+  const link = event.currentTarget;
+  if (!homeInstallPrompt) {
+    showHomeInstallFallback(link);
     return;
   }
   try {
-    await lifeClockInstallPrompt.prompt();
-    await lifeClockInstallPrompt.userChoice;
-    lifeClockInstallPrompt = null;
+    await homeInstallPrompt.prompt();
+    await homeInstallPrompt.userChoice;
+    homeInstallPrompt = null;
   } catch {
-    window.location.href = "/life-clock/?install=1";
+    showHomeInstallFallback(link);
   }
 }
 
-function wireLifeClockInstallLink(link) {
+function wireHomeInstallLink(link) {
   if (!link || link.dataset.installWired === "true") return;
   link.dataset.installWired = "true";
-  link.setAttribute("data-life-clock-install", "true");
-  link.href = "/life-clock/?install=1";
-  link.setAttribute("aria-label", "RE:IGNITEをホーム画面やPCに追加する");
-  const title = link.querySelector(".life-clock-install-link__copy strong");
-  const detail = link.querySelector(".life-clock-install-link__copy small");
-  const cta = link.querySelector(".life-clock-install-link__cta");
-  if (title) title.textContent = "RE:IGNITEをアプリに追加";
-  if (detail) detail.textContent = "スマホのホーム画面・PCからワンタップで開く";
-  if (cta) cta.textContent = "ホーム画面に追加 ＋";
-  link.addEventListener("click", openLifeClockInstall);
+  link.href = "/";
+  link.setAttribute("aria-label", "ワクワクFIREをホーム画面やお気に入りに追加する");
+  link.addEventListener("click", openHomeInstall);
 }
 
-function addLifeClockInstallLink() {
-  const entry = document.querySelector(".life-clock-entry");
-  let link = document.querySelector(".life-clock-install-link");
-  if (!link && entry) {
-    link = document.createElement("a");
-    link.className = "life-clock-install-link";
-    link.innerHTML = '<span class="life-clock-install-link__icon" aria-hidden="true">📲</span><span class="life-clock-install-link__copy"><strong>RE:IGNITEをアプリに追加</strong><small>スマホのホーム画面・PCからワンタップで開く</small></span><span class="life-clock-install-link__cta">ホーム画面に追加 ＋</span>';
-    const stack = entry.closest(".life-clock-entry-stack") || document.createElement("div");
-    if (!stack.classList.contains("life-clock-entry-stack")) {
-      stack.className = "life-clock-entry-stack";
-      entry.parentNode?.insertBefore(stack, entry);
-      stack.append(entry);
+function addHomeInstallLink() {
+  let link = document.querySelector("[data-home-install-link]");
+  // 古いHTMLが残っている場合も、RE:IGNITEではなくトップページの導線へ修正します。
+  if (!link) {
+    link = document.querySelector(".life-clock-install-link");
+    if (link) {
+      link.classList.replace("life-clock-install-link", "home-install-link");
+      link.querySelector(".life-clock-install-link__icon")?.classList.replace("life-clock-install-link__icon", "home-install-link__icon");
+      link.querySelector(".life-clock-install-link__copy")?.classList.replace("life-clock-install-link__copy", "home-install-link__copy");
+      link.querySelector(".life-clock-install-link__cta")?.classList.replace("life-clock-install-link__cta", "home-install-link__cta");
+      link.dataset.homeInstallLink = "true";
     }
-    stack.append(link);
   }
-  wireLifeClockInstallLink(link);
+  wireHomeInstallLink(link);
 }
 
-addLifeClockInstallLink();
+addHomeInstallLink();
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(() => {});
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -1125,3 +1132,4 @@ fireLifeReady.then((api) => {
 }).catch(() => {
   // 既存ページは、MVP用モジュールが読み込めない場合も通常どおり表示します。
 });
+

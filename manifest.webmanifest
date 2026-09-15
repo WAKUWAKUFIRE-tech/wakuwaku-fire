@@ -1,26 +1,17 @@
 {
-  "name": "ワクワクFIRE",
+  "id": "/",
+  "name": "ワクワクFIRE｜会社を辞めたら、人生もっと遊べる。",
   "short_name": "ワクワクFIRE",
-  "description": "FIREを、もっと楽しく。FIREの診断・ゲーム・シミュレーター・移住・学びを楽しめる総合サイト",
+  "description": "FIREをもっと楽しく、もっと身近に。ワクワクFIREのトップページをアプリのように使えます。",
+  "lang": "ja",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "any",
   "theme_color": "#ea3e31",
-  "background_color": "#fffaf0",
-  "lang": "ja",
+  "background_color": "#f7f7f2",
   "icons": [
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
+

@@ -12,3 +12,7 @@
 
 /life-clock/index.html
   Cache-Control: no-cache
+
+/manifest.webmanifest
+  Cache-Control: no-cache
+

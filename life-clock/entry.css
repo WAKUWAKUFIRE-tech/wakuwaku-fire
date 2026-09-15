@@ -3,13 +3,19 @@
 .life-clock-entry-stack{display:grid;gap:12px}
 .life-clock-entry{display:flex;align-items:center;gap:24px;padding:28px 32px;background:#ffe257;border:2px solid #242420;border-radius:20px;box-shadow:5px 5px 0 #242420;color:#242420;text-decoration:none}
 .life-clock-entry img{flex-shrink:0;border-radius:14px}.life-clock-entry__copy{display:flex;flex-direction:column;gap:5px;flex:1}.life-clock-entry__copy small{font-size:12px;letter-spacing:.12em;font-weight:800}.life-clock-entry__copy strong{font-size:28px;font-weight:900;line-height:1.4}.life-clock-entry__copy>span{font-size:16px;line-height:1.6}.life-clock-entry__cta{display:flex;align-items:center;gap:18px;min-height:48px;background:#c83024;color:#fff;padding:13px 22px;border-radius:10px;font-weight:800;font-size:16px}.life-clock-entry:hover .life-clock-entry__cta{background:#a42218}.life-clock-entry:focus-visible{outline:3px solid #1462bd;outline-offset:6px}
-.life-clock-install-link{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 20px;background:#fffdf4;border:2px solid #c83024;border-radius:14px;box-shadow:4px 4px 0 #c83024;color:#242420;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
-.life-clock-install-link:hover{background:#fff7cf;transform:translateY(-1px);box-shadow:5px 5px 0 #a42218}
-.life-clock-install-link:focus-visible{outline:3px solid #1462bd;outline-offset:5px}
-.life-clock-install-link__icon{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#ffe257;font-size:21px;flex-shrink:0}
-.life-clock-install-link__copy{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
-.life-clock-install-link__copy strong{font-size:16px;font-weight:900;line-height:1.35}
-.life-clock-install-link__copy small{font-size:13px;line-height:1.45;color:#635a48}
-.life-clock-install-link__cta{display:flex;align-items:center;gap:10px;min-height:42px;padding:9px 16px;border-radius:9px;background:#c83024;color:#fff;font-size:14px;font-weight:800;white-space:nowrap}
-.life-clock-install-link:hover .life-clock-install-link__cta{background:#a42218}
-@media(max-width:700px){.life-clock-entry{gap:14px;padding:22px;flex-wrap:wrap}.life-clock-entry img{width:48px;height:48px}.life-clock-entry__copy strong{font-size:23px}.life-clock-entry__copy>span{font-size:14px}.life-clock-entry__cta{width:100%;justify-content:space-between}.life-clock-install-link{gap:10px;padding:12px 14px}.life-clock-install-link__icon{width:36px;height:36px;font-size:18px}.life-clock-install-link__copy strong{font-size:14px}.life-clock-install-link__copy small{font-size:11px}.life-clock-install-link__cta{min-height:40px;padding:8px 10px;font-size:12px;gap:5px}}
+.home-install-action{display:grid;gap:8px}
+.home-install-link{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 20px;background:#fffdf4;border:2px solid #c83024;border-radius:14px;box-shadow:4px 4px 0 #c83024;color:#242420;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.home-install-link:hover{background:#fff7cf;transform:translateY(-1px);box-shadow:5px 5px 0 #a42218}
+.home-install-link:focus-visible{outline:3px solid #1462bd;outline-offset:5px}
+.home-install-link.is-unavailable{animation:home-install-unavailable .22s ease-out}
+.home-install-link__icon{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#ffe257;font-size:21px;flex-shrink:0}
+.home-install-link__copy{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.home-install-link__copy strong{font-size:16px;font-weight:900;line-height:1.35}
+.home-install-link__copy small{font-size:13px;line-height:1.45;color:#635a48}
+.home-install-link__cta{display:flex;align-items:center;gap:10px;min-height:42px;padding:9px 16px;border-radius:9px;background:#c83024;color:#fff;font-size:14px;font-weight:800;white-space:nowrap}
+.home-install-link:hover .home-install-link__cta{background:#a42218}
+.home-install-help{margin:0;padding:0 10px;color:#635a48;font-size:13px;line-height:1.6;white-space:pre-line}
+.home-install-help[hidden]{display:none}
+@keyframes home-install-unavailable{0%{transform:translateX(0)}35%{transform:translateX(-3px)}70%{transform:translateX(3px)}100%{transform:translateX(0)}}
+@media(max-width:700px){.life-clock-entry{gap:14px;padding:22px;flex-wrap:wrap}.life-clock-entry img{width:48px;height:48px}.life-clock-entry__copy strong{font-size:23px}.life-clock-entry__copy>span{font-size:14px}.life-clock-entry__cta{width:100%;justify-content:space-between}.home-install-link{gap:10px;padding:12px 14px}.home-install-link__icon{width:36px;height:36px;font-size:18px}.home-install-link__copy strong{font-size:14px}.home-install-link__copy small{font-size:11px}.home-install-link__cta{min-height:40px;padding:8px 10px;font-size:12px;gap:5px}.home-install-help{font-size:12px;padding:0 4px}}
+
