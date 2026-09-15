@@ -6026,3 +6026,30 @@ body.fire-card-modal-open { overflow: hidden; }
   .content-value p, .content-value li { font-size: .9rem; line-height: 1.8; }
   .content-value__links { display: grid; }
 }
+
+/* スマホでは背景の主役を右側へ寄せ、キャラを画面内に残す。 */
+@media (max-width: 979px) {
+  .reference-home .reference-hero__backdrop {
+    background-position: 80% center;
+  }
+
+  .reference-home .reference-hero__wash {
+    background: linear-gradient(90deg, rgba(3, 35, 78, 0.64) 0%, rgba(3, 35, 78, 0.36) 58%, rgba(3, 35, 78, 0.12) 100%);
+  }
+}
+
+Exception: 
+Line |
+   5 |  … art -lt 0 -or $end -lt 0) { throw 'top-entry style block not found' }
+     |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | top-entry style block not found
+
+/* アプリ追加ブロックはサムネイルがないため、元の📲表示を維持する。 */
+.reference-home .top-entry-card--install .top-entry-card__icon {
+  display: grid;
+  place-items: center;
+  color: var(--top-entry-red);
+  background: var(--top-entry-yellow);
+  font-size: 2.35rem;
+  line-height: 1;
+}

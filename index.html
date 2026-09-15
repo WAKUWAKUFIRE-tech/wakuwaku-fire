@@ -26,7 +26,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20260826" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=20260826" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260826" />
-    <link rel="stylesheet" href="style.css?v=20260908-home-single-background" />
+    <link rel="stylesheet" href="style.css?v=20260915-top-entry-blocks" />
     <link rel="stylesheet" href="/life-clock/entry.css?v=20260915-install-guidance" />
     <title>ワクワクFIRE｜会社を辞めたら、人生もっと遊べる。</title>
     <!-- GOOGLE_SITE_VERIFICATION_SLOT -->
@@ -94,39 +94,41 @@
         </div>
       </section>
 
-      <section class="section fire-life-entry-section" id="fire-life-entry" aria-labelledby="fire-life-entry-title">
-        <div class="container">
-          <a class="fire-life-entry" href="./my-fire-life/" aria-label="FIRE QUESTを開く">
-            <span class="fire-life-entry__icon" aria-hidden="true">🔥</span>
-            <span class="fire-life-entry__copy">
+      <section class="section fire-life-entry-section top-entry-section" id="fire-life-entry" aria-label="ワクワクFIREのおすすめ3ブロック">
+        <div class="container top-entry-stack">
+          <a class="top-entry-card top-entry-card--quest fire-life-entry" href="./my-fire-life/" aria-label="FIRE QUESTを開く">
+            <img class="top-entry-card__thumbnail" src="./FIREクエスト3.png" width="1672" height="941" alt="FIRE QUEST。冒険の書の世界観を描いたサムネイル" decoding="async" />
+            <span class="top-entry-card__copy">
               <strong id="fire-life-entry-title">FIRE QUEST</strong>
-              <small>読むほど、遊ぶほど、あなたの冒険が育っていく。</small>
+              <span class="top-entry-card__description">読むほど、遊ぶほど、あなたの冒険が育っていく。</span>
             </span>
-            <span class="fire-life-entry__meta">
+            <span class="top-entry-card__quest-meta fire-life-entry__meta">
               <strong data-fire-life-level>Lv.1</strong>
-              <b aria-hidden="true">↗</b>
+              <span class="top-entry-card__progress" data-fire-life-progress role="progressbar" aria-label="FIRE QUESTの進み具合" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1"><span data-fire-life-progress-fill></span></span>
+              <small data-fire-life-progress-label>1 / 10</small>
+              <b class="top-entry-card__quest-arrow" aria-hidden="true">→</b>
             </span>
           </a>
-        </div>
-      </section>
 
-      <section class="section life-clock-entry-section" aria-labelledby="life-clock-entry-title">
-        <div class="container">
-          <div class="life-clock-entry-stack">
-            <a class="life-clock-entry" href="/life-clock/" aria-label="RE:IGNITE｜人生を再点火するカウンターを開く">
-              <img src="/life-clock/icon.svg" width="64" height="64" alt="" />
-              <span class="life-clock-entry__copy"><small>RE:IGNITE</small><strong id="life-clock-entry-title">人生を再点火するカウンター</strong><span>残りの人生時間・使えるお金・これからできる体験回数を見える化する、人生カウンター。</span></span>
-              <span class="life-clock-entry__cta">人生を再点火する <b aria-hidden="true">↗</b></span>
-            </a>
-            <div class="home-install-action">
-              <a class="home-install-link" href="/" data-home-install-link aria-label="ワクワクFIREをホーム画面やお気に入りに追加する">
-                <span class="home-install-link__icon" aria-hidden="true">📲</span>
-                <span class="home-install-link__copy"><strong>ワクワクFIREをアプリに追加</strong><small>このトップページをスマホのホーム画面・PCのお気に入りに保存</small></span>
-                <span class="home-install-link__cta">ホーム画面に追加 ＋</span>
-              </a>
-              <p class="home-install-help" data-home-install-help hidden></p>
-            </div>
-          </div>
+          <a class="top-entry-card top-entry-card--ignite" href="./life-clock/" aria-label="RE:IGNITE｜人生を再点火するカウンターを開く">
+            <img class="top-entry-card__thumbnail" src="./REIGNITE人生を再点火するカウンター.png" width="1254" height="1254" alt="RE:IGNITE。人生を再点火するカウンターのサムネイル" decoding="async" />
+            <span class="top-entry-card__copy">
+              <small class="top-entry-card__eyebrow">RE:IGNITE</small>
+              <strong id="life-clock-entry-title">人生を再点火するカウンター</strong>
+              <span class="top-entry-card__description">残りの人生時間・使えるお金・これからできる体験回数を見える化する、人生カウンター。</span>
+            </span>
+            <span class="top-entry-card__cta">人生を再点火する <b aria-hidden="true">→</b></span>
+          </a>
+
+          <article class="top-entry-card top-entry-card--install" id="home-install-entry">
+            <span class="top-entry-card__icon" aria-hidden="true">📲</span>
+            <span class="top-entry-card__copy">
+              <strong id="home-install-title">ワクワクFIREをアプリに追加</strong>
+              <span class="top-entry-card__description">このトップページをスマホのホーム画面・PCのお気に入りに保存</span>
+            </span>
+            <button class="top-entry-card__cta top-entry-card__cta--outline" type="button" data-home-install-button aria-describedby="home-install-help">ホーム画面に追加 <b aria-hidden="true">＋</b></button>
+          </article>
+          <p class="top-entry-install-help" id="home-install-help" data-home-install-help aria-live="polite" hidden></p>
         </div>
       </section>
 

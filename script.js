@@ -61,83 +61,72 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 const filterButtons = document.querySelectorAll(".filter-button");
 const contentCards = document.querySelectorAll(".content-card");
 
-// トップページ自身をホーム画面・お気に入りへ追加する導線です。
-let homeInstallPrompt = null;
-const homeInstallIsIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+// トップページの「ホーム画面に追加」導線。対応ブラウザではネイティブの追加画面を開き、
+// それ以外では端末に合わせた保存方法をカード下へ案内します。
+const homeInstallButton = document.querySelector("[data-home-install-button]");
+const homeInstallHelp = document.querySelector("[data-home-install-help]");
+let deferredHomeInstallPrompt = null;
 
-function homeInstallHelp() {
-  if (homeInstallIsIOS) return "iPhone・iPad：共有ボタン →「ホーム画面に追加」→「追加」。";
-  if (/Android/i.test(navigator.userAgent)) return "Android：ブラウザのメニュー →「ホーム画面に追加」または「アプリをインストール」。";
-  return "Windows：Ctrl＋Dでお気に入りに追加。\nMac：⌘＋Dでお気に入りに追加。";
+function showHomeInstallHelp(message) {
+  if (!homeInstallHelp) return;
+  homeInstallHelp.textContent = message;
+  homeInstallHelp.hidden = !message;
 }
 
-function showHomeInstallFallback(link) {
-  document.querySelectorAll("[data-home-install-help]").forEach((help) => {
-    help.textContent = homeInstallHelp();
-    help.hidden = false;
-  });
-  if (link) {
-    link.classList.remove("is-unavailable");
-    requestAnimationFrame(() => link.classList.add("is-unavailable"));
-    window.setTimeout(() => link.classList.remove("is-unavailable"), 1200);
-  }
-}
-
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault();
-  homeInstallPrompt = event;
-  document.querySelectorAll(".home-install-link__cta").forEach((cta) => { cta.textContent = "このまま追加 ＋"; });
-  document.querySelectorAll("[data-home-install-help]").forEach((help) => { help.textContent = ""; help.hidden = true; });
-});
-
-window.addEventListener("appinstalled", () => {
-  homeInstallPrompt = null;
-  document.querySelectorAll(".home-install-link__cta").forEach((cta) => { cta.textContent = "追加しました ✓"; });
-  document.querySelectorAll("[data-home-install-help]").forEach((help) => { help.textContent = ""; help.hidden = true; });
-});
-
-async function openHomeInstall(event) {
-  event.preventDefault();
-  const link = event.currentTarget;
-  if (!homeInstallPrompt) {
-    showHomeInstallFallback(link);
-    return;
-  }
+function isHomeStandalone() {
   try {
-    await homeInstallPrompt.prompt();
-    await homeInstallPrompt.userChoice;
-    homeInstallPrompt = null;
+    return Boolean(window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true);
   } catch {
-    showHomeInstallFallback(link);
+    return false;
   }
 }
 
-function wireHomeInstallLink(link) {
-  if (!link || link.dataset.installWired === "true") return;
-  link.dataset.installWired = "true";
-  link.href = "/";
-  link.setAttribute("aria-label", "ワクワクFIREをホーム画面やお気に入りに追加する");
-  link.addEventListener("click", openHomeInstall);
-}
+if (homeInstallButton) {
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredHomeInstallPrompt = event;
+  });
 
-function addHomeInstallLink() {
-  let link = document.querySelector("[data-home-install-link]");
-  // 古いHTMLが残っている場合も、RE:IGNITEではなくトップページの導線へ修正します。
-  if (!link) {
-    link = document.querySelector(".life-clock-install-link");
-    if (link) {
-      link.classList.replace("life-clock-install-link", "home-install-link");
-      link.querySelector(".life-clock-install-link__icon")?.classList.replace("life-clock-install-link__icon", "home-install-link__icon");
-      link.querySelector(".life-clock-install-link__copy")?.classList.replace("life-clock-install-link__copy", "home-install-link__copy");
-      link.querySelector(".life-clock-install-link__cta")?.classList.replace("life-clock-install-link__cta", "home-install-link__cta");
-      link.dataset.homeInstallLink = "true";
+  window.addEventListener("appinstalled", () => {
+    deferredHomeInstallPrompt = null;
+    showHomeInstallHelp("ホーム画面に追加しました。次回からすぐに開けます。");
+  });
+
+  homeInstallButton.addEventListener("click", async () => {
+    if (isHomeStandalone()) {
+      showHomeInstallHelp("すでにホーム画面から開いています。");
+      return;
     }
-  }
-  wireHomeInstallLink(link);
-}
 
-addHomeInstallLink();
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(() => {});
+    if (deferredHomeInstallPrompt) {
+      const promptEvent = deferredHomeInstallPrompt;
+      deferredHomeInstallPrompt = null;
+      try {
+        promptEvent.prompt();
+        const choice = await promptEvent.userChoice;
+        showHomeInstallHelp(choice?.outcome === "accepted" ? "ホーム画面に追加しました。次回からすぐに開けます。" : "追加はキャンセルされました。");
+      } catch {
+        showHomeInstallHelp("ブラウザのメニューからホーム画面への追加をお試しください。");
+      }
+      return;
+    }
+
+    const userAgent = window.navigator.userAgent || "";
+    const platform = window.navigator.platform || "";
+    const isIos = /iPad|iPhone|iPod/.test(userAgent) || (platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+    showHomeInstallHelp(isIos
+      ? "Safariの共有メニューから「ホーム画面に追加」を選べます。"
+      : "ブラウザのメニューから「ホーム画面に追加」または、お気に入りへの追加をご利用ください。");
+  });
+
+  if (document.body.classList.contains("reference-home") && "serviceWorker" in navigator && /^https?:$/.test(window.location.protocol)) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch(() => {
+        // ローカル確認時や非対応環境でも、ページ本体の動作は止めません。
+      });
+    }, { once: true });
+  }
+}
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
