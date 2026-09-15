@@ -21,10 +21,14 @@ function renderImage(line) {
   const match = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
   if (!match) return null;
   const alt = escapeHtml(match[1]);
-  const source = match[2].startsWith("assets/")
-    ? `/community/secret-base/member/assets/${encodeURIComponent(match[2].slice("assets/".length))}`
+  const assetName = match[2].startsWith("assets/") ? match[2].slice("assets/".length) : "";
+  const source = assetName
+    ? `/community/secret-base/member/assets/${encodeURIComponent(assetName)}`
     : match[2];
-  return `<figure><img src="${escapeHtml(source)}" alt="${alt}" loading="lazy" decoding="async" /></figure>`;
+  const isWideOverview = assetName === "asset-sharing-11.png" || match[1].includes("全員分");
+  const figureClass = isWideOverview ? ' class="secret-base-detail__gallery-figure secret-base-detail__gallery-figure--wide"' : ' class="secret-base-detail__gallery-figure"';
+  const dimensions = isWideOverview ? ' width="5610" height="2804"' : "";
+  return `<figure${figureClass}><img src="${escapeHtml(source)}" alt="${alt}"${dimensions} loading="lazy" decoding="async" /></figure>`;
 }
 
 function renderMarkdown(markdown, options = {}) {
