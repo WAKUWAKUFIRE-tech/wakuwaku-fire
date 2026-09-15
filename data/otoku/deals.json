@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalUrl": "https://wakuwaku-fire-git.pages.dev/otoku/",
   "publishedAt": "2026-09-02T06:00:00+09:00",
-  "checkedAt": "2026-09-15T06:04:15+09:00",
-  "contentModifiedAt": "2026-09-15T06:04:15+09:00",
+  "checkedAt": "2026-09-16T06:03:46+09:00",
+  "contentModifiedAt": "2026-09-16T06:03:46+09:00",
   "titleYearMonth": {
     "year": 2026,
     "month": 9
@@ -11,10 +11,10 @@
   "deals": [
     {
       "id": "paypay-local-aggregate",
-      "title": "PayPay地域キャンペーン（46自治体で開催中）",
+      "title": "PayPay地域キャンペーン（47自治体で開催中）",
       "merchant": "PayPay",
       "service": "PayPay自治体キャンペーン",
-      "benefitShort": "開催中46自治体からおすすめ3件",
+      "benefitShort": "開催中47自治体からおすすめ3件",
       "benefit": "PayPay公式一覧の開催中自治体から、還元率と期間あたりの上限を公式詳細で比較し、最大3地域をおすすめとして掲載しています。",
       "condition": "PayPayのポイント還元やプレミアム商品券は自治体ごとに条件が異なります。対象店舗・還元率・住民限定かどうか・購入条件を公式一覧と各詳細ページで確認してください。",
       "target": "開催中の自治体キャンペーンの対象地域・対象店舗を利用できるPayPayユーザー。住民限定のキャンペーンもあります。",
@@ -31,7 +31,7 @@
       "maruComment": "近くで使える地域があれば、買い物の予定と合わせて公式ページを見てみよ。",
       "dynamicType": "paypay-local-aggregate",
       "dynamicSourceId": "paypay-local",
-      "localCampaignTotal": 46,
+      "localCampaignTotal": 47,
       "localRecommendations": [
         {
           "region": "近畿地方",
@@ -144,56 +144,6 @@
       "maruComment": "固定費の支払い方法を変えるだけなら、家計の流れを崩しにくいかも。"
     },
     {
-      "id": "kojinabi-gourmet-bd9db5c11c31",
-      "title": "なか卯 LINEクーポンで「親子丼100円引き」アプリで「朝食全品50円引き」(最安270円～)「定食各種50円引き」「絶品炭火焼き親子重50円引き」等のクーポンが配布中。～9月15日まで。",
-      "merchant": "グルメ・外食",
-      "service": "期間限定キャンペーン",
-      "benefitShort": "期間中のグルメキャンペーン",
-      "benefit": "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
-      "condition": "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
-      "target": "公式ページに記載された対象店舗・サービスを利用できる人。",
-      "action": "公式ページで最新条件を確認してから利用する。",
-      "startDate": null,
-      "endDate": "2026-09-15",
-      "endDateLabel": "",
-      "applicationRequired": false,
-      "officialUrl": "https://www.nakau.co.jp/jp/news/9_1/",
-      "canonicalizedOfficialUrl": "https://www.nakau.co.jp/jp/news/9_1/",
-      "category": "food",
-      "monetizationCategory": "food",
-      "note": "掲載元の期間表示を判定し、公式ページへ案内しています（〜 9/15）。利用前に公式ページの最新条件を確認してください。",
-      "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
-      "linkLabel": "公式ページを見る",
-      "verificationLabel": "公式ページを確認済み",
-      "dynamicType": "kojinabi-gourmet-category",
-      "dynamicSourceId": "kojinabi"
-    },
-    {
-      "id": "kojinabi-gourmet-bbbd2d5465ba",
-      "title": "松屋のテイクアウトシリーズ MATSUYA DELI 牛皿DELI 2個で740円→440円(1個220円)などとなるキャンペーンが実施中。店頭でも2個セット300円引き等のおためしフェアも。～9月15日まで。",
-      "merchant": "グルメ・外食",
-      "service": "期間限定キャンペーン",
-      "benefitShort": "期間中のグルメキャンペーン",
-      "benefit": "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
-      "condition": "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
-      "target": "公式ページに記載された対象店舗・サービスを利用できる人。",
-      "action": "公式ページで最新条件を確認してから利用する。",
-      "startDate": null,
-      "endDate": "2026-09-15",
-      "endDateLabel": "",
-      "applicationRequired": false,
-      "officialUrl": "https://www.matsuyafoods.co.jp/whatsnew/menu/173515.html",
-      "canonicalizedOfficialUrl": "https://www.matsuyafoods.co.jp/whatsnew/menu/173515.html",
-      "category": "food",
-      "monetizationCategory": "food",
-      "note": "掲載元の期間表示を判定し、公式ページへ案内しています（〜 9/15）。利用前に公式ページの最新条件を確認してください。",
-      "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
-      "linkLabel": "公式ページを見る",
-      "verificationLabel": "公式ページを確認済み",
-      "dynamicType": "kojinabi-gourmet-category",
-      "dynamicSourceId": "kojinabi"
-    },
-    {
       "id": "kojinabi-gourmet-318e0638f50c",
       "title": "【9月7日～平日限定】牛角で生ビールが約3分の1価格の1杯209円、牛タンが半額の539円～で提供。～9月18日まで。",
       "merchant": "グルメ・外食",
@@ -287,6 +237,31 @@
       "category": "food",
       "monetizationCategory": "food",
       "note": "掲載元の期間表示を判定し、公式ページへ案内しています（〜 9/28）。利用前に公式ページの最新条件を確認してください。",
+      "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
+      "linkLabel": "公式ページを見る",
+      "verificationLabel": "公式ページを確認済み",
+      "dynamicType": "kojinabi-gourmet-category",
+      "dynamicSourceId": "kojinabi"
+    },
+    {
+      "id": "kojinabi-gourmet-4b90404a1447",
+      "title": "【9月16日～】やよい軒で対象の定食6メニューが何度でも100円引き。公式アプリで「なんどもパス」が配布。～9月30日まで。",
+      "merchant": "グルメ・外食",
+      "service": "期間限定キャンペーン",
+      "benefitShort": "期間中のグルメキャンペーン",
+      "benefit": "掲載元で期間中と判断できるグルメ案件です。具体的な特典・対象商品・利用条件は公式ページで確認してください。",
+      "condition": "公式ページで期間・対象店舗・対象商品・クーポン条件を確認する。",
+      "target": "公式ページに記載された対象店舗・サービスを利用できる人。",
+      "action": "公式ページで最新条件を確認してから利用する。",
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-30",
+      "endDateLabel": "",
+      "applicationRequired": false,
+      "officialUrl": "https://www.yayoiken.com/contents/news/260915_snscp_2.html",
+      "canonicalizedOfficialUrl": "https://www.yayoiken.com/contents/news/260915_snscp_2.html",
+      "category": "food",
+      "monetizationCategory": "food",
+      "note": "掲載元の期間表示を判定し、公式ページへ案内しています（9/16 〜 9/30）。利用前に公式ページの最新条件を確認してください。",
       "maruComment": "食費の予定に自然に入るものだけ、無理なく使ってみよ。",
       "linkLabel": "公式ページを見る",
       "verificationLabel": "公式ページを確認済み",
@@ -558,7 +533,7 @@
     },
     {
       "id": "kojinabi-gourmet-008cb64a5941",
-      "title": "スパゲティ専門店「壁の穴」で対象メニューが半額以下の550円で提供。毎月第3火曜日は大感謝祭開催中。",
+      "title": "スパゲティ専門店「壁の穴」で対象メニューが最大半額以下の550円で提供。毎月第3火曜日は大感謝祭開催中。",
       "merchant": "グルメ・外食",
       "service": "期間限定キャンペーン",
       "benefitShort": "期間中のグルメキャンペーン",
@@ -628,5 +603,5 @@
       "maruComment": "普段の買い物を寄せられるなら、応募口数を増やす条件も確認してみよ。"
     }
   ],
-  "dealCount": 24
+  "dealCount": 23
 }

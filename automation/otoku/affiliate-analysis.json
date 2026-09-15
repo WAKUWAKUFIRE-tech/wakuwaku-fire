@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "analyzedAt": "2026-09-15T06:04:15+09:00",
+  "analyzedAt": "2026-09-16T06:03:46+09:00",
   "source": "data/otoku/deals.json",
-  "dealCount": 24,
+  "dealCount": 23,
   "displayCategoryCounts": {
     "cashless": 5,
-    "food": 16,
+    "food": 15,
     "telecom": 1,
     "shopping": 2
   },
@@ -17,7 +17,7 @@
     "investment": 0,
     "travel": 0,
     "shopping": 2,
-    "food": 16,
+    "food": 15,
     "insurance": 0,
     "utility": 1,
     "general": 0
@@ -26,7 +26,7 @@
     {
       "category": "food",
       "label": "飲食・デリバリー",
-      "count": 16
+      "count": 15
     },
     {
       "category": "payment",

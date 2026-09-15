@@ -37,4 +37,8 @@
   <url><loc>https://wakuwaku-fire-git.pages.dev/privacy/</loc></url>
   <url><loc>https://wakuwaku-fire-git.pages.dev/risk-runner/</loc></url>
   <url><loc>https://wakuwaku-fire-git.pages.dev/community/secret-base/</loc><changefreq>weekly</changefreq></url>
+  <url>
+    <loc>https://wakuwaku-fire-git.pages.dev/otoku/</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
 </urlset>
