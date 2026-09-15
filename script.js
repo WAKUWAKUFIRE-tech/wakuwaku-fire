@@ -62,37 +62,72 @@ const filterButtons = document.querySelectorAll(".filter-button");
 const contentCards = document.querySelectorAll(".content-card");
 
 // RE:IGNITEをホーム画面に追加する導線は、古いトップページにも復元できるように補います。
+let lifeClockInstallPrompt = null;
+const lifeClockIsIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+function lifeClockInstallHelp() {
+  if (lifeClockIsIOS) return "iPhone・iPad：Safariの共有ボタン → 「ホーム画面に追加」 → 「追加」を選んでください。";
+  if (/Android/i.test(navigator.userAgent)) return "Android：ブラウザのメニューから「ホーム画面に追加」または「アプリをインストール」を選んでください。";
+  return "PC：アプリとして追加できます。ボタンが出ない場合は Ctrl＋D（Macは⌘＋D）でお気に入りに追加してください。";
+}
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  lifeClockInstallPrompt = event;
+  document.querySelectorAll(".life-clock-install-link__cta").forEach((cta) => { cta.textContent = "このまま追加 ＋"; });
+});
+
+window.addEventListener("appinstalled", () => {
+  lifeClockInstallPrompt = null;
+  document.querySelectorAll(".life-clock-install-link__cta").forEach((cta) => { cta.textContent = "追加しました ✓"; });
+});
+
+async function openLifeClockInstall(event) {
+  event.preventDefault();
+  if (!lifeClockInstallPrompt) {
+    window.location.href = "/life-clock/?install=1";
+    return;
+  }
+  try {
+    await lifeClockInstallPrompt.prompt();
+    await lifeClockInstallPrompt.userChoice;
+    lifeClockInstallPrompt = null;
+  } catch {
+    window.location.href = "/life-clock/?install=1";
+  }
+}
+
+function wireLifeClockInstallLink(link) {
+  if (!link || link.dataset.installWired === "true") return;
+  link.dataset.installWired = "true";
+  link.setAttribute("data-life-clock-install", "true");
+  link.href = "/life-clock/?install=1";
+  link.setAttribute("aria-label", "RE:IGNITEをホーム画面やPCに追加する");
+  const title = link.querySelector(".life-clock-install-link__copy strong");
+  const detail = link.querySelector(".life-clock-install-link__copy small");
+  const cta = link.querySelector(".life-clock-install-link__cta");
+  if (title) title.textContent = "RE:IGNITEをアプリに追加";
+  if (detail) detail.textContent = "スマホのホーム画面・PCからワンタップで開く";
+  if (cta) cta.textContent = "ホーム画面に追加 ＋";
+  link.addEventListener("click", openLifeClockInstall);
+}
+
 function addLifeClockInstallLink() {
   const entry = document.querySelector(".life-clock-entry");
-  if (!entry || document.querySelector(".life-clock-install-link")) return;
-
-  const link = document.createElement("a");
-  link.className = "life-clock-install-link";
-  link.href = "/life-clock/?install=1";
-  link.setAttribute("aria-label", "RE:IGNITEをホーム画面に追加してアプリのように使う");
-
-  const icon = document.createElement("span");
-  icon.className = "life-clock-install-link__icon";
-  icon.setAttribute("aria-hidden", "true");
-  icon.textContent = "📲";
-
-  const copy = document.createElement("span");
-  copy.className = "life-clock-install-link__copy";
-  const title = document.createElement("strong");
-  title.textContent = "ホーム画面に追加";
-  const detail = document.createElement("small");
-  detail.textContent = "次回からワンタップでRE:IGNITEを開く";
-  copy.append(title, detail);
-
-  const cta = document.createElement("span");
-  cta.className = "life-clock-install-link__cta";
-  cta.textContent = "アプリのように使う ＋";
-
-  link.append(icon, copy, cta);
-  const stack = document.createElement("div");
-  stack.className = "life-clock-entry-stack";
-  entry.parentNode?.insertBefore(stack, entry);
-  stack.append(entry, link);
+  let link = document.querySelector(".life-clock-install-link");
+  if (!link && entry) {
+    link = document.createElement("a");
+    link.className = "life-clock-install-link";
+    link.innerHTML = '<span class="life-clock-install-link__icon" aria-hidden="true">📲</span><span class="life-clock-install-link__copy"><strong>RE:IGNITEをアプリに追加</strong><small>スマホのホーム画面・PCからワンタップで開く</small></span><span class="life-clock-install-link__cta">ホーム画面に追加 ＋</span>';
+    const stack = entry.closest(".life-clock-entry-stack") || document.createElement("div");
+    if (!stack.classList.contains("life-clock-entry-stack")) {
+      stack.className = "life-clock-entry-stack";
+      entry.parentNode?.insertBefore(stack, entry);
+      stack.append(entry);
+    }
+    stack.append(link);
+  }
+  wireLifeClockInstallLink(link);
 }
 
 addLifeClockInstallLink();

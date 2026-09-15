@@ -816,6 +816,7 @@ function renderDashboard() {
 setupDashboardLayout();
 ensureDataTransferControls();
 ensureBucketCategoryField();
+ensureInstallHeroButtons();
 $('start').addEventListener('click', () => { emit('life_clock_start'); openForm(); });
 for (const id of ['edit-profile', 'settings-edit']) $(id).addEventListener('click', openForm);
 $('toggle-people-form').addEventListener('click', () => {
@@ -940,24 +941,35 @@ const standalone = () => window.matchMedia('(display-mode: standalone)').matches
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 const installRequested = new URLSearchParams(location.search).get('install') === '1';
 function installHelp() {
-  return isIOS
-    ? 'iPhone・iPad：Safariの共有ボタン → 「ホーム画面に追加」 → 「追加」を選んでください。'
-    : 'Android・PC：ブラウザのメニューから「アプリをインストール」または「ホーム画面に追加」を選んでください。';
+  if (isIOS) return 'iPhone・iPad：Safariの共有ボタン → 「ホーム画面に追加」 → 「追加」を選んでください。';
+  if (/Android/i.test(navigator.userAgent)) return 'Android：ブラウザのメニューから「ホーム画面に追加」または「アプリをインストール」を選んでください。';
+  return 'PC：このボタンでアプリとして追加できます。ボタンが出ない場合は Ctrl＋D（Macは⌘＋D）でお気に入りに追加してください。';
 }
-function focusInstallCard() {
-  const card = $('install-card');
-  if (!card || standalone()) return;
-  card.hidden = false;
-  card.classList.remove('install-card--focus');
+function ensureInstallHeroButtons() {
+  document.querySelectorAll('#welcome, .dashboard-brand').forEach(section => {
+    if (section.querySelector('[data-install-action]')) return;
+    const lead = section.querySelector('.lead');
+    if (!lead) return;
+    const wrap = document.createElement('div'); wrap.className = 'hero-install-wrap';
+    wrap.innerHTML = '<button class="hero-install-button" type="button" data-install-action>📲 ホーム画面に追加 ＋</button><small class="hero-install-help" data-install-help hidden></small>';
+    lead.insertAdjacentElement('afterend', wrap);
+  });
+}
+function focusInstallHero() {
+  if (standalone()) return;
+  const target = [...document.querySelectorAll('[data-install-action]')].find(node => !node.closest('[hidden]'));
+  if (!target) return;
+  target.classList.remove('is-focus');
   requestAnimationFrame(() => {
-    card.classList.add('install-card--focus');
-    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    window.setTimeout(() => card.classList.remove('install-card--focus'), 1900);
+    target.classList.add('is-focus');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(() => target.classList.remove('is-focus'), 1900);
   });
 }
 function syncInstallControls(label = 'ホーム画面に追加 ＋') {
   write('install', label);
   write('install-top', label.replace(' ＋', ''));
+  document.querySelectorAll('[data-install-action]').forEach(button => { button.textContent = `📲 ${label}`; });
 }
 function ensureInstallTopButton() {
   const topbar = document.querySelector('.topbar');
@@ -1003,13 +1015,19 @@ function ensureBucketCategoryField() {
 const installCard = $('install-card'), installTop = ensureInstallTopButton();
 const syncInstallVisibility = () => {
   const hidden = Boolean(standalone());
-  if (installCard) installCard.hidden = hidden;
-  if (installTop) installTop.hidden = hidden;
+  const heroButtons = document.querySelectorAll('[data-install-action]');
+  if (installCard) installCard.hidden = hidden || heroButtons.length > 0;
+  if (installTop) installTop.hidden = true;
+  heroButtons.forEach(button => { button.hidden = hidden; });
 };
+function showInstallFallback() {
+  const help = installHelp();
+  document.querySelectorAll('[data-install-help]').forEach(node => { node.textContent = help; node.hidden = false; });
+  notice(help);
+}
 async function openInstallFlow() {
   emit('pwa_install_clicked');
-  focusInstallCard();
-  if (!installPrompt) { notice(installHelp()); return; }
+  if (!installPrompt) { showInstallFallback(); return; }
   try {
     await installPrompt.prompt();
     await installPrompt.userChoice;
@@ -1023,7 +1041,8 @@ window.addEventListener('beforeinstallprompt', event => { event.preventDefault()
 window.addEventListener('appinstalled', () => { installPrompt = null; syncInstallVisibility(); notice('ホーム画面に追加しました。次の思い出も、ここに。'); });
 $('install')?.addEventListener('click', openInstallFlow);
 installTop?.addEventListener('click', openInstallFlow);
-if (installRequested) window.setTimeout(focusInstallCard, 120);
+document.querySelectorAll('[data-install-action]').forEach(button => button.addEventListener('click', openInstallFlow));
+if (installRequested) window.setTimeout(() => { focusInstallHero(); showInstallFallback(); }, 220);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/life-clock/sw-v6.js', { scope: '/life-clock/' }).catch(() => notice('オフライン用の準備ができませんでした。オンラインで再度開いてください。', true));
 renderEventExamples();
 if (state.profile) {
@@ -1040,4 +1059,3 @@ window.addEventListener('storage', event => {
   try { state = storage.load(); if (state.profile) { show('dashboard'); renderDashboard(); } else show('welcome'); notice('別のタブで変更されたデータを反映しました。'); }
   catch { notice('別のタブの変更を読み込めませんでした。再読み込みしてください。', true); }
 });
-
