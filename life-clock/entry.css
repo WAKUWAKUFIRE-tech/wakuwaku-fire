@@ -14,7 +14,7 @@
 .home-install-link__copy small{font-size:13px;line-height:1.45;color:#635a48}
 .home-install-link__cta{display:flex;align-items:center;gap:10px;min-height:42px;padding:9px 16px;border-radius:9px;background:#c83024;color:#fff;font-size:14px;font-weight:800;white-space:nowrap}
 .home-install-link:hover .home-install-link__cta{background:#a42218}
-.home-install-help{margin:0;padding:0 10px;color:#635a48;font-size:13px;line-height:1.6;white-space:pre-line}
+.home-install-help{margin:0;padding:0 10px;color:#fff7cf;font-size:13px;font-weight:700;line-height:1.6;white-space:pre-line}
 .home-install-help[hidden]{display:none}
 @keyframes home-install-unavailable{0%{transform:translateX(0)}35%{transform:translateX(-3px)}70%{transform:translateX(3px)}100%{transform:translateX(0)}}
 @media(max-width:700px){.life-clock-entry{gap:14px;padding:22px;flex-wrap:wrap}.life-clock-entry img{width:48px;height:48px}.life-clock-entry__copy strong{font-size:23px}.life-clock-entry__copy>span{font-size:14px}.life-clock-entry__cta{width:100%;justify-content:space-between}.home-install-link{gap:10px;padding:12px 14px}.home-install-link__icon{width:36px;height:36px;font-size:18px}.home-install-link__copy strong{font-size:14px}.home-install-link__copy small{font-size:11px}.home-install-link__cta{min-height:40px;padding:8px 10px;font-size:12px;gap:5px}.home-install-help{font-size:12px;padding:0 4px}}
