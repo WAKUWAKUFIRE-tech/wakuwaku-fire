@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="ワクワクFIREは、FIREに興味がある人が診断・ゲーム・移住・読書・コラムを楽しみながら、自分らしい暮らしを考えられるサイトです。" />
-    <meta name="keywords" content="FIRE,セミリタイア,早期リタイア,移住,人生ゲーム,診断,ワクワクFIRE" />
+    <meta name="keywords" content="FIRE,セミリタイア,早期リタイア,移住,人生ゲーム,診断,ワクワクFIRE,RISK RUNNER" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#ea3e31" />
-    <link rel="manifest" href="/manifest.webmanifest" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
@@ -26,11 +25,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20260826" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=20260826" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260826" />
-    <link rel="stylesheet" href="style.css?v=20260915-top-entry-blocks-v2" />
-    <link rel="stylesheet" href="/life-clock/entry.css?v=20260915-install-guidance" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="style.css?v=20260915-top-entry-blocks" />
     <title>ワクワクFIRE｜会社を辞めたら、人生もっと遊べる。</title>
-    <!-- GOOGLE_SITE_VERIFICATION_SLOT -->
-    <meta name="google-site-verification" content="jGOyTENf6-oPittj5Z1-Ah3zhKcaLD6HBUX5bOolQgQ" />
 
     <script type="application/ld+json">
       {
@@ -43,11 +40,10 @@
       }
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9422971410274449" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/community/community.css"><script src="/community/community.js" defer></script>
-<link rel="alternate" type="application/rss+xml" title="ワクワクFIRE" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="ワクワクFIRE" href="/feed.xml" />
 </head>
 
-  <body class="reference-home design-refresh">
+  <body class="reference-home">
     <a class="skip-link" href="#main-content">本文へ移動</a>
 
     <header class="site-header site-header--reference" id="top">
@@ -55,8 +51,8 @@
         <a class="brand" href="#top" aria-label="ワクワクFIRE トップへ戻る">
           <span class="brand__mark" aria-hidden="true">W</span>
           <span class="brand__text">ワクワク<span>FIRE</span></span>
-          <span class="brand__tagline">好きで生きる。大人の冒険を。</span>
         </a>
+        <p class="brand__tagline">好きで生きる。大人の冒険を。</p>
 
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           <span class="nav-toggle__line"></span>
@@ -91,6 +87,7 @@
               <a class="button reference-hero__button reference-hero__button--outline" href="./my-fire-life/">FIRE QUESTを始める <span aria-hidden="true">→</span></a>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -121,13 +118,25 @@
           </a>
 
           <article class="top-entry-card top-entry-card--install" id="home-install-entry">
-            <span class="top-entry-card__icon" aria-hidden="true">📲</span>
+            <img class="top-entry-card__icon" src="./assets/top-entry-install.png" width="88" height="88" alt="" />
             <span class="top-entry-card__copy">
               <strong id="home-install-title">ワクワクFIREをアプリに追加</strong>
               <span class="top-entry-card__description">このトップページをスマホのホーム画面・PCのお気に入りに保存</span>
             </span>
             <button class="top-entry-card__cta top-entry-card__cta--outline" type="button" data-home-install-button aria-describedby="home-install-help">ホーム画面に追加 <b aria-hidden="true">＋</b></button>
           </article>
+          <a class="top-entry-card top-entry-card--secret-base" href="./community/secret-base/" aria-label="大人の秘密基地。コミュニティメンバー限定エリアをのぞく">
+            <span class="top-entry-card__secret-media">
+              <img src="./コミュニティメンバー限定エリア.png" width="2433" height="1367" alt="大人の秘密基地。コミュニティメンバー限定エリアのサムネイル" decoding="async" />
+              <span class="top-entry-card__secret-label">🔒 メンバー限定</span>
+            </span>
+            <span class="top-entry-card__copy">
+              <small class="top-entry-card__eyebrow">COMMUNITY MEMBERS ONLY</small>
+              <strong>🔒 大人の秘密基地</strong>
+              <span class="top-entry-card__description">ワクワクFIREコミュニティ メンバー限定。限定資料、厳選コンテンツ、コミュニティ限定企画をまとめています。</span>
+            </span>
+            <span class="top-entry-card__cta top-entry-card__cta--secret">秘密基地をのぞく <b aria-hidden="true">→</b></span>
+          </a>
           <p class="top-entry-install-help" id="home-install-help" data-home-install-help aria-live="polite" hidden></p>
         </div>
       </section>
@@ -145,7 +154,7 @@
         <div class="container intro__grid">
           <div class="section-heading">
             <p class="eyebrow eyebrow--red">ABOUT WAKUWAKU FIRE</p>
-            <h2 id="about-title"><span class="intro__title-line intro__title-line--ink">FIREをもっと、</span><br /><span>楽しく。</span></h2>
+            <h2 id="about-title">FIREをもっと、<br /><span>楽しく。</span></h2>
           </div>
           <div class="intro__body">
             <p class="intro__lead">FIREは「働かないこと」がゴールじゃない。<br /><strong>自分の時間を、自分で選べること。</strong></p>
@@ -177,23 +186,6 @@
           </div>
         </div>
       </section>
-<!-- community-teaser:start --><a class="community-teaser" href="/community/weekly/" aria-labelledby="community-teaser-title" data-analytics-event="community_home_to_weekly_click" data-analytics-label="homepage" data-analytics-category="community"><div><h2 id="community-teaser-title">🔥 今週のワクワクFIREコミュニティ</h2><p>ワクワクFIREコミュニティから、ちょっとお便り。</p><span class="community-text-link">今週のワクワクFIREコミュニティを見る →</span></div><div data-weekly-current data-weekly-report data-week-ends="2026-09-05T23:59:59+09:00"><p class="community-note">2026/08/30 〜 2026/09/05</p><ul><li>「人生の楽しさをテコ入れする会」という通話イベントの開催告知がありました。</li><li>ポイ活をDiscordへの手動投稿からホームページの自動更新へ移し、毎朝6時の更新を安定させる動きがありました。</li><li>NISAの積立調整、FX資産の移動、不動産や海外移住時の国内資産の扱いを考える投稿がありました。</li></ul></div></a><!-- community-teaser:end -->
-
-
-      <section class="section column-preview" id="fire-column-preview" aria-labelledby="fire-column-preview-title">
-        <div class="container">
-          <div class="section-heading"><p class="eyebrow eyebrow--red">WAKUWAKU MEDIA</p><h2 id="fire-column-preview-title">FIREコラム。<br /><span>気になる記事から。</span></h2></div>
-          <p class="contents__intro column-preview__intro">FIRE後の暮らし、時間の使い方、仲間との関わり方。実際の体験と考えをもとにした読み物です。</p>
-          <div class="article-preview-grid article-preview-grid--compact">
-            <!-- AUTO-PUBLISH:HOME-LATEST-START -->
-            <article class="article-preview-card"><div class="article-preview-card__media"><img src="./articles/fire-happiness/thumbnail.png" alt="FIREすれば幸せになれる？お金と幸福のズレを経験者が語るのサムネイル" width="1280" height="1280" loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">2026年9月15日</p><p class="article-preview-card__category">FIRE入門・考え方</p><h3>FIREすれば幸せになれる？お金と幸福のズレを経験者が語る</h3><p>FIREすれば幸せになれるのかを、資産額と日々の満足が同じではなかった経験から考えます。100人のFIRE発信を読んだ整理も、調査の限界と合わせて紹介します。</p><a class="article-preview-card__more" href="./articles/fire-happiness/">記事を読む ↗</a></div></article>
-            <article class="article-preview-card"><div class="article-preview-card__media"><img src="./articles/after-fire-yarukoto/thumbnail.png" alt="FIRE後は何をする？やることがない問題への向き合い方のサムネイル" width="1280" height="1280" loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">2026年9月15日</p><p class="article-preview-card__category">FIRE後の暮らし・心</p><h3>FIRE後は何をする？やることがない問題への向き合い方</h3><p>FIRE後にやることがないと感じた時の考え方と、予定・家事・発信・人との接点を作る方法を紹介します。ゲーム中心から生活の軸を作り直した本人の試行錯誤も整理します。</p><a class="article-preview-card__more" href="./articles/after-fire-yarukoto/">記事を読む ↗</a></div></article>
-            <article class="article-preview-card"><div class="article-preview-card__media"><img src="./articles/after-fire-hobby/thumbnail.png" alt="FIRE後の趣味は何がいい？時間が増えてからこそ難しい理由のサムネイル" width="1280" height="1280" loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">2026年9月14日</p><p class="article-preview-card__category">FIRE後の暮らし・心</p><h3>FIRE後の趣味は何がいい？時間が増えてからこそ難しい理由</h3><p>FIRE後の趣味が自然に見つからない理由と、時間が増えた後に小さく試す方法を整理します。ゲーム中心になった時期やラーメン、散歩、発信へ広がった本人の経験も紹介します。</p><a class="article-preview-card__more" href="./articles/after-fire-hobby/">記事を読む ↗</a></div></article>
-            <!-- AUTO-PUBLISH:HOME-LATEST-END -->
-          </div>
-          <p class="column-preview__more"><a class="button button--outline" href="./articles/">FIREコラムをもっと見る →</a></p>
-        </div>
-      </section>
 
       <section class="section contents" id="contents" aria-labelledby="contents-title">
         <div class="container">
@@ -215,18 +207,19 @@
           </div>
 
           <div class="contents-grid" id="contents-grid">
-            <a class="content-card content-card--link content-card--red content-card--with-image" data-category="play" href="/life-clock/" aria-label="RE:IGNITE 人生カウンターを開く"><div class="content-card__media"><img src="./REIGNITE人生を再点火するカウンター.png" alt="RE:IGNITE 人生を再点火するカウンター。残り時間・使えるお金・体験回数を見える化するイメージ" width="2048" height="2048" loading="eager" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🔥</span><span class="status status--live">再点火する</span></div><div class="content-card__body"><p class="content-card__category">RE:IGNITE / LIFE COUNTER</p><h3>RE:IGNITE<br />人生カウンター</h3><p>残りの人生時間・使えるお金・これからできる体験回数を見える化。</p></div><div class="content-card__footer"><span>人生を再点火する</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--blue content-card--with-image" data-category="play" href="./ワールドツアー/"><div class="content-card__media"><img src="./ワールドツアーサムネ.png" alt="FIREワールドツアー。マルとシバくんが世界を旅するテキストアドベンチャー" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">✈️</span><span class="status status--live">旅に出る</span></div><div class="content-card__body"><p class="content-card__category">PLAY / WORLD TOUR</p><h3>FIREワールドツアー</h3><p>マルとシバくんと一緒に、訪れる国・食事・観光地を選びながら世界を旅しよう。</p></div><div class="content-card__footer"><span>START JOURNEY</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--mint content-card--with-image" data-category="diagnosis" href="https://wakuwaku-fire-lab.marumarufire.chatgpt.site/"><div class="content-card__media"><img src="./FIRE研究室/研究室全体サムネ.png" alt="ワクワクFIRE研究室。FIRE人生を数字でシミュレーションする研究室のイメージ" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">📊</span><span class="status status--live">検証中</span></div><div class="content-card__body"><p class="content-card__category">FIRE LAB / TOOLS</p><h3>ワクワクFIRE研究室</h3><p>あなたのFIREを数字で徹底診断！そのFIRE、本当に大丈夫？FIRE人生を全部シミュレーションしちゃおう！</p></div><div class="content-card__footer"><span>OPEN FIRE LAB</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--red content-card--with-image" data-category="diagnosis" href="./fire-animal-test/"><div class="content-card__media"><img src="./animal-fire-diagnosis.png" alt="動物FIRE診断。12問でFIREタイプがわかるイラスト" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🐾</span><span class="status status--live">診断する</span></div><div class="content-card__body"><p class="content-card__category">DIAGNOSIS 01</p><h3>動物FIRE診断</h3><p>あなたはどの動物タイプ？12問で、自分らしいFIREの形を見つけよう。</p></div><div class="content-card__footer"><span>OPEN DIAGNOSIS</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a><a class="content-card content-card--link content-card--yellow content-card--with-image" data-category="diagnosis" href="./fire-strengths/"><div class="content-card__media"><img src="./ストレングス.png" alt="FIREストレングス診断。45問の二択で自分のFIRE資質を見つける診断" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🔥</span><span class="status status--live">診断する</span></div><div class="content-card__body"><p class="content-card__category">DIAGNOSIS 02</p><h3>FIREストレングス診断</h3><p>45問の究極の二択で、FIRE後に大切にしたいあなたの価値観を見つけよう。</p></div><div class="content-card__footer"><span>OPEN DIAGNOSIS</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--mint content-card--with-image" data-category="life" href="./fire-migration-japan/"><div class="content-card__media"><img src="./moving-guide-japan.png" alt="移住場所 勝手に案内所 国内版。日本地図とさまざまな暮らしの風景" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🗾</span><span class="status status--live">案内所へ</span></div><div class="content-card__body"><p class="content-card__category">LIFE STYLE / JAPAN</p><h3>移住場所 勝手に案内所<br />国内版</h3><p>会社を辞めたらどこへ行く？日本の「好き」を旅する案内所。</p></div><div class="content-card__footer"><span>OPEN GUIDE</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--blue content-card--with-image" data-category="life" href="./fire-migration-world/"><div class="content-card__media"><img src="./moving-guide-overseas.png" alt="移住場所 勝手に案内所 海外版。世界地図と海外の暮らしの風景" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🌏</span><span class="status status--live">診断する</span></div><div class="content-card__body"><p class="content-card__category">LIFE STYLE / WORLD</p><h3>移住場所 勝手に案内所<br />海外版</h3><p>海外FIRE移住診断で、いつか暮らしたい国や街をのぞいてみよう。</p></div><div class="content-card__footer"><span>OPEN GUIDE</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--yellow content-card--with-image" data-category="diagnosis" data-fire-life-content-id="fire-strengths" href="./fire-strengths/"><div class="content-card__media"><img src="./ストレングス.png" alt="FIREストレングス診断。AとBの選択からFIRE資質を見つける診断サムネイル" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">✦</span><span class="status status--live">診断する</span></div><div class="content-card__body"><p class="content-card__category">DIAGNOSIS 02 / SPECIAL</p><h3>FIREストレングス診断</h3><p>45問の究極の二択から、あなたのFIRE資質TOP5と12種類のFIREタイプを見つけよう。</p></div><div class="content-card__footer"><span>OPEN DIAGNOSIS</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--blue content-card--with-image" data-category="play" data-fire-life-content-id="world-tour" href="./ワールドツアー/"><div class="content-card__media"><img src="./ワールドツアーサムネ.png" alt="FIREワールドツアー。マルとシバくんが世界を旅するテキストアドベンチャー" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">✈️</span><span class="status status--live">旅に出る</span></div><div class="content-card__body"><p class="content-card__category">PLAY / WORLD TOUR</p><h3>FIREワールドツアー</h3><p>マルとシバくんと一緒に、訪れる国・食事・観光地を選びながら世界を旅しよう。</p></div><div class="content-card__footer"><span>START JOURNEY</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--mint content-card--with-image" data-category="diagnosis" data-fire-life-content-id="fire-lab" href="https://wakuwaku-fire-lab.marumarufire.chatgpt.site/"><div class="content-card__media"><img src="./FIRE研究室/研究室全体サムネ.png" alt="ワクワクFIRE研究室。FIRE人生を数字でシミュレーションする研究室のイメージ" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">📊</span><span class="status status--live">検証中</span></div><div class="content-card__body"><p class="content-card__category">FIRE LAB / TOOLS</p><h3>ワクワクFIRE研究室</h3><p>あなたのFIREを数字で徹底診断！そのFIRE、本当に大丈夫？FIRE人生を全部シミュレーションしちゃおう！</p></div><div class="content-card__footer"><span>OPEN FIRE LAB</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--red content-card--with-image" data-category="diagnosis" data-fire-life-content-id="fire-animal" href="./fire-animal-test/"><div class="content-card__media"><img src="./animal-fire-diagnosis.png" alt="動物FIRE診断。12問でFIREタイプがわかるイラスト" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🐾</span><span class="status status--live">診断する</span></div><div class="content-card__body"><p class="content-card__category">DIAGNOSIS 01</p><h3>動物FIRE診断</h3><p>あなたはどの動物タイプ？12問で、自分らしいFIREの形を見つけよう。</p></div><div class="content-card__footer"><span>OPEN DIAGNOSIS</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--mint content-card--with-image" data-category="life" data-fire-life-content-id="migration-japan" href="./fire-migration-japan/"><div class="content-card__media"><img src="./moving-guide-japan.png" alt="移住場所 勝手に案内所 国内版。日本地図とさまざまな暮らしの風景" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🗾</span><span class="status status--live">案内所へ</span></div><div class="content-card__body"><p class="content-card__category">LIFE STYLE / JAPAN</p><h3>移住場所 勝手に案内所<br />国内版</h3><p>会社を辞めたらどこへ行く？日本の「好き」を旅する案内所。</p></div><div class="content-card__footer"><span>OPEN GUIDE</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--blue content-card--with-image" data-category="life" data-fire-life-content-id="migration-world" href="./fire-migration-world/"><div class="content-card__media"><img src="./moving-guide-overseas.png" alt="移住場所 勝手に案内所 海外版。世界地図と海外の暮らしの風景" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🌏</span><span class="status status--live">診断する</span></div><div class="content-card__body"><p class="content-card__category">LIFE STYLE / WORLD</p><h3>移住場所 勝手に案内所<br />海外版</h3><p>海外FIRE移住診断で、いつか暮らしたい国や街をのぞいてみよう。</p></div><div class="content-card__footer"><span>OPEN GUIDE</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
             <a class="content-card content-card--link content-card--red content-card--with-image" data-category="play" href="https://inochi-tsukashi-okane.marumarufire.chatgpt.site/game" target="_blank" rel="noopener noreferrer"><div class="content-card__media"><img src="./命短し使えよお金.png" alt="命短し使えよお金。～お金を使いきって、満足に昇天せよ～" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🎲</span><span class="status status--live">遊べる</span></div><div class="content-card__body"><p class="content-card__category">PLAY / LIFE</p><h3>命短し<br />使えよお金</h3><p>～お金を使いきって、満足に昇天せよ～</p></div><div class="content-card__footer"><span>PLAY NOW</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--orange content-card--with-image" data-category="play" data-fire-life-content-id="risk-runner" href="./risk-runner/index.html"><div class="content-card__media"><img src="./リスクトレーダー.png" alt="RISK RUNNER。相場の急落に慌てるFIREキャラクター" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🎮</span><span class="status status--live">遊べる</span></div><div class="content-card__body"><p class="content-card__category">PLAY / LIVE</p><h3>RISK RUNNER</h3><p>売るだけで、生き残れ。FIREの資産を守りながら、何年生き残れる？</p></div><div class="content-card__footer"><span>PLAY NOW</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
             <a class="content-card content-card--link content-card--red content-card--with-image" data-category="media" href="https://www.youtube.com/@MARU.SIDEFIRE" target="_blank" rel="noopener noreferrer"><div class="content-card__media"><img src="./YouTube.png" alt="ワクワクFIRE YouTubeチャンネル。青空を背景に手を伸ばすキャラクター" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">▶</span><span class="status status--live">見る</span></div><div class="content-card__body"><p class="content-card__category">VIDEO</p><h3>YouTube</h3><p>FIREのこと、暮らしのこと。動画でゆるく、楽しくお届けします。</p></div><div class="content-card__footer"><span>OPEN CHANNEL</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--red content-card--with-image" data-category="media" href="./otoku/"><div class="content-card__media"><img src="./ポイ活お得.png" alt="今日・今週のお得一覧。ポイ活・クーポン・ポイント還元をまとめた画像" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🉐</span><span class="status status--live">見る</span></div><div class="content-card__body"><p class="content-card__category">WAKUWAKU OTOKU</p><h3>今日・今週のお得一覧</h3><p>公式ページで確認した、ポイ活・ポイント還元・クーポンをチェックしよう。</p></div><div class="content-card__footer"><span>OPEN OTOKU</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--red content-card--with-image" data-category="media" data-fire-life-content-id="otoku" href="./otoku/"><div class="content-card__media"><img src="./ポイ活お得.png" alt="今日・今週のお得一覧。ポイ活・クーポン・ポイント還元をまとめた画像" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🉐</span><span class="status status--live">見る</span></div><div class="content-card__body"><p class="content-card__category">WAKUWAKU OTOKU</p><h3>今日・今週のお得一覧</h3><p>公式ページで確認した、ポイ活・ポイント還元・クーポンをチェックしよう。</p></div><div class="content-card__footer"><span>OPEN OTOKU</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
             <a class="content-card content-card--link content-card--yellow content-card--with-image" data-category="media" href="./articles/"><div class="content-card__media"><img src="./FIREコラム.png" alt="ワクワクFIRE FIREコラム。FIREや自由な暮らしを考える記事の入口" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">✎</span><span class="status status--live">読む</span></div><div class="content-card__body"><p class="content-card__category">WAKUWAKU MEDIA</p><h3>FIREコラム</h3><p>FIRE、サイドFIRE、資産形成、移住、自由な暮らし。気になる記事から読んでみよう。</p></div><div class="content-card__footer"><span>OPEN COLUMN</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
             <a class="content-card content-card--link content-card--yellow content-card--with-image" data-category="media" href="https://note.com/wakuwaku_fire" target="_blank" rel="noopener noreferrer"><div class="content-card__media"><img src="./note.png" alt="note「ワクワクFIRE」。FIREの考え方や日々の発信を読むための画像" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">✎</span><span class="status status--live">読む</span></div><div class="content-card__body"><p class="content-card__category">JOURNAL</p><h3>note</h3><p>FIREの考え方や、サイトの裏側をnoteで発信しています。</p></div><div class="content-card__footer"><span>OPEN NOTE</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
-            <a class="content-card content-card--link content-card--mint content-card--with-image" data-category="community" href="/community/" data-analytics-event="community_home_to_lp_click" data-analytics-label="homepage-card" data-analytics-category="community"><div class="content-card__media"><img src="./FIREコミュニティ.png" alt="ワクワクFIREコミュニティ。仲間と楽しく資産形成を語るキャラクター" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🫶</span><span class="status status--live">参加する</span></div><div class="content-card__body"><p class="content-card__category">COMMUNITY</p><h3>ワクワクFIREコミュニティ</h3><p>ひとりで考えなくていい場所。ワクワクする仲間とつながろう。</p></div><div class="content-card__footer"><span>OPEN COMMUNITY</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
+            <a class="content-card content-card--link content-card--mint content-card--with-image" data-category="community" href="https://community.camp-fire.jp/projects/view/778625" target="_blank" rel="noopener noreferrer"><div class="content-card__media"><img src="./FIREコミュニティ.png" alt="ワクワクFIREコミュニティ。仲間と楽しく資産形成を語るキャラクター" width="2048" height="2048" loading="lazy" decoding="async" /></div><div class="content-card__top"><span class="content-card__icon" aria-hidden="true">🫶</span><span class="status status--live">参加する</span></div><div class="content-card__body"><p class="content-card__category">COMMUNITY</p><h3>ワクワクFIREコミュニティ</h3><p>ひとりで考えなくていい場所。ワクワクする仲間とつながろう。</p></div><div class="content-card__footer"><span>OPEN COMMUNITY</span><span class="content-card__arrow" aria-hidden="true">↗</span></div></a>
           </div>
         </div>
       </section>
@@ -242,25 +235,23 @@
               <div class="daily-book__stamp"><span>DAILY PICK</span><strong id="daily-book-date">今日の一冊</strong></div>
             </div>
 
-            <a class="daily-book__card-link" id="daily-book-card-link" target="_blank" rel="noopener noreferrer sponsored" hidden>
-              <article class="daily-book__card" aria-live="polite">
-                <div class="daily-book__cover" role="img" aria-label="本を読む人と本に囲まれた読書スペース">
-                  <img class="daily-book__cover-image" id="daily-book-image" src="reading.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
-                  <span class="daily-book__cover-label">WAKUWAKU<br />READING</span>
-                  <span class="daily-book__cover-spark" aria-hidden="true">✦</span>
-                </div>
-                <div class="daily-book__content">
-                  <p class="daily-book__category" id="daily-book-category"></p>
-                  <h3 class="daily-book__book-title" id="daily-book-book-title"></h3>
-                  <p class="daily-book__author" id="daily-book-author"></p>
-                  <p class="daily-book__catch" id="daily-book-catch"></p>
-                  <p class="daily-book__description" id="daily-book-description"></p>
-                  <div class="daily-book__tags" id="daily-book-tags" aria-label="本のカテゴリー"></div>
-                  <span class="button button--primary daily-book__link" id="daily-book-link" aria-hidden="true" hidden>Amazonで見る <span aria-hidden="true">↗</span></span>
-                  <p class="daily-book__disclosure">※当サイトはAmazonアソシエイト・プログラムを利用しています。</p>
-                </div>
-              </article>
-            </a>
+            <article class="daily-book__card" aria-live="polite">
+              <div class="daily-book__cover" role="img" aria-label="本を読む人と本に囲まれた読書スペース">
+                <img class="daily-book__cover-image" id="daily-book-image" src="reading.png" alt="" width="1254" height="1254" loading="lazy" decoding="async" />
+                <span class="daily-book__cover-label">WAKUWAKU<br />READING</span>
+                <span class="daily-book__cover-spark" aria-hidden="true">✦</span>
+              </div>
+              <div class="daily-book__content">
+                <p class="daily-book__category" id="daily-book-category"></p>
+                <h3 class="daily-book__book-title" id="daily-book-book-title"></h3>
+                <p class="daily-book__author" id="daily-book-author"></p>
+                <p class="daily-book__catch" id="daily-book-catch"></p>
+                <p class="daily-book__description" id="daily-book-description"></p>
+                <div class="daily-book__tags" id="daily-book-tags" aria-label="本のカテゴリー"></div>
+                <a class="button button--primary daily-book__link" id="daily-book-link" target="_blank" rel="noopener noreferrer sponsored" hidden>Amazonで見る <span aria-hidden="true">↗</span></a>
+                <p class="daily-book__disclosure">※当サイトはAmazonアソシエイト・プログラムを利用しています。</p>
+              </div>
+            </article>
             <p class="daily-book__note">リンクを登録した本の中から、日本時間の日付で毎日1冊を紹介します。</p>
             <aside class="daily-book__affiliate" aria-label="おすすめ情報">
               <p class="daily-book__affiliate-label">RECOMMENDED</p>
@@ -274,94 +265,36 @@
         </div>
       </section>
 
-      <section class="section fire-card-section" id="fire-card-section" aria-labelledby="fire-card-title">
+      <section class="section column-preview" id="fire-column-preview" aria-labelledby="fire-column-preview-title">
         <div class="container">
-          <div class="fire-card-panel">
-            <div class="fire-card-panel__copy">
-              <p class="eyebrow eyebrow--yellow">DAILY FIRE CARD</p>
-              <h2 id="fire-card-title">🔥 FIREカード<br /><span>毎日1枚GET。</span></h2>
-              <p>今日のあなたに届く、FIREの小さなヒント。<br />10枚集めて、第1弾をコンプリートしよう。</p>
-            </div>
-            <div class="fire-card-panel__action">
-              <div class="fire-card-count" aria-live="polite"><strong id="fire-card-count">0 / 10</strong><span>COLLECTED</span></div>
-              <p class="fire-card-status" id="fire-card-status">本日のカードを受け取ろう！</p>
-              <p class="fire-card-next" id="fire-card-next" aria-live="polite"></p>
-              <div class="fire-card-actions">
-                <button class="button button--primary fire-card-draw-button" id="fire-card-draw-button" type="button">今日のカードをGET！ <span aria-hidden="true">✦</span></button>
-                <button class="button button--outline fire-card-collection-button" id="fire-card-collection-button" type="button">🔥 FIREカード 0 / 10</button>
-              </div>
-            </div>
+          <div class="section-heading"><p class="eyebrow eyebrow--red">WAKUWAKU MEDIA</p><h2 id="fire-column-preview-title">FIREコラム。<br /><span>気になる記事から。</span></h2></div>
+          <p class="contents__intro column-preview__intro">FIRE後の暮らし、時間の使い方、仲間との関わり方。実際の体験と考えをもとにした読み物です。</p>
+          <div class="article-preview-grid article-preview-grid--compact">
+            <!-- AUTO-PUBLISH:HOME-LATEST-START -->
+            <article class="article-preview-card"><div class="article-preview-card__media"><img src="./articles/fire-ikura-hitsuyou/thumbnail.png" alt="FIREはいくら必要？生活費・年齢・家族構成別に考える現実的な目安のサムネイル" width="1280" height="1280" loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">2026年8月31日</p><p class="article-preview-card__category">FIREの必要資産</p><h3>FIREはいくら必要？生活費・年齢・家族構成別に考える現実的な目安</h3><p>FIREはいくら必要なのか。30歳・資産6000万円で会社を辞めた僕が、FIRE直後のゲーム三昧、資産の増減、家族ができて変わった不安まで踏まえて、生活費から必要額を考えます。</p><a class="article-preview-card__more" href="./articles/fire-ikura-hitsuyou/">記事を読む ↗</a></div></article>
+            <article class="article-preview-card"><div class="article-preview-card__media"><img src="./ブログ13記事/ChatGPT Image 2026年8月19日 09_51_27 (3).png" alt="20人以上が続けてくれたFIREコミュニティで、運営して分かったことのサムネイル" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">2026年8月25日</p><p class="article-preview-card__category">コミュニティ</p><h3>20人以上が続けてくれたFIREコミュニティで、運営して分かったこと</h3><p>オンラインコミュニティを始めた直後、無料募集に数日で約150人が集まりました。数字だけ見れば大成功です。しかし、運営してみると、参加人数が多いことと、安心して話せる場所であることは別だと分かりました。</p><a class="article-preview-card__more" href="./articles/fire-community/">記事を読む ↗</a></div></article>
+            <article class="article-preview-card"><div class="article-preview-card__media"><img src="./ブログ13記事/ChatGPT Image 2026年8月19日 09_51_27 (4).png" alt="FIREしたい理由を聞いてみて、僕が考え直したことのサムネイル" width="1254" height="1254" loading="lazy" decoding="async" /></div><div class="article-preview-card__body"><p class="article-preview-card__date">2026年8月24日</p><p class="article-preview-card__category">FIREの考え方</p><h3>FIREしたい理由を聞いてみて、僕が考え直したこと</h3><p>「なぜFIREしたいのですか？」と聞かれたとき、資産額や利回りの話だけでは答えきれない人が多いのではないでしょうか。のんびりしたい、家族と過ごしたい、働く量を自分で決めたい。反対に、定年まで働きたくない、忙しすぎる、お金が不安という理由もあります。</p><a class="article-preview-card__more" href="./articles/fire-reasons/">記事を読む ↗</a></div></article>
+            <!-- AUTO-PUBLISH:HOME-LATEST-END -->
           </div>
+          <p class="column-preview__more"><a class="button button--outline" href="./articles/">FIREコラムをもっと見る →</a></p>
         </div>
       </section>
 
-        <section class="section operator-preview" id="operator" aria-labelledby="operator-preview-title">
+      <section class="section operator-preview" id="operator" aria-labelledby="operator-preview-title">
         <div class="container operator-preview__grid">
           <div class="operator-preview__visual"><img src="./まる画像集__1_-removebg-preview.png" alt="ワクワクFIREのキャラクター" width="666" height="380" loading="lazy" decoding="async" /></div>
-          <div class="operator-preview__body"><p class="eyebrow eyebrow--red">ABOUT THE OPERATOR</p><h2 id="operator-preview-title">運営者について。</h2><p class="operator-preview__name">ワクワクFIREのまる</p><p>30歳・資産6000万円でFIRE。FIRE生活6年目。</p><p>実際のFIRE生活で感じたことをベースに、FIREを「目指す」だけではなく「FIRE後をどう楽しむか」をテーマに、診断・ゲーム・コラムなどを制作しています。</p><p>YouTube「ワクワクFIRE」でも発信中。</p><a class="button button--outline" href="./about/">詳しいプロフィール →</a></div>
+          <div class="operator-preview__body"><p class="eyebrow eyebrow--red">ABOUT THE OPERATOR</p><h2 id="operator-preview-title">運営者について。</h2><p class="operator-preview__name">ワクワクFIREのまる</p><p>30歳・資産6000万円でFIRE。FIRE生活6年目。</p><p>実際のFIRE生活で感じたことをベースに、FIREを「目指す」だけではなく「FIRE後をどう楽しむか」をテーマに、診断・ゲーム・コラムなどを制作しています。</p><p>YouTube「ワクワクFIRE」でも発信中。</p><a class="button button--outline" href="./about/">詳しいプロフィール →</a><a class="operator-preview__business-link" href="business/" data-analytics-event="business_page_click" data-analytics-label="homepage">企業・メディア・取材関係者の方はこちら ↗</a></div>
         </div>
       </section>
 
     </main>
-
-    <div class="fire-card-modal" id="fire-card-daily-modal" hidden>
-      <div class="fire-card-modal__backdrop" data-fire-card-close="daily"></div>
-      <section class="fire-card-modal__panel fire-card-daily-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fire-card-daily-title">
-        <button class="fire-card-modal__close" type="button" data-fire-card-close="daily" aria-label="カード画面を閉じる">×</button>
-        <p class="eyebrow eyebrow--yellow">TODAY'S BONUS</p>
-        <h2 id="fire-card-daily-title">今日のFIREカードをGET！</h2>
-        <p class="fire-card-modal__lead">何が出るんだろう？カードを引いてみよう。</p>
-        <div class="fire-card-draw-stage" id="fire-card-daily-stage">
-          <div class="fire-card-back" aria-hidden="true"><span>FIRE</span><strong>?</strong><small>DAILY BONUS</small></div>
-          <img class="fire-card-reveal" id="fire-card-daily-image" alt="" hidden />
-          <span class="fire-card-new-badge" id="fire-card-daily-new" hidden>NEW!</span>
-        </div>
-        <div class="fire-card-result" id="fire-card-daily-result" hidden>
-          <p class="fire-card-result__label">GET!</p>
-          <h3 id="fire-card-daily-name"></h3>
-          <p id="fire-card-daily-rarity"></p>
-          <p class="fire-card-complete-message" id="fire-card-daily-complete" hidden>🎉 FIREカード COMPLETE！<br /><span>全10種類コンプリート！</span></p>
-        </div>
-        <div class="fire-card-modal__actions">
-          <button class="button button--primary" id="fire-card-daily-action" type="button">カードを引く</button>
-          <button class="button button--text" type="button" data-fire-card-close="daily">あとで見る</button>
-        </div>
-      </section>
-    </div>
-
-    <div class="fire-card-modal" id="fire-card-collection-modal" hidden>
-      <div class="fire-card-modal__backdrop" data-fire-card-close="collection"></div>
-      <section class="fire-card-modal__panel fire-card-collection-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fire-card-collection-title">
-        <button class="fire-card-modal__close" type="button" data-fire-card-close="collection" aria-label="カード図鑑を閉じる">×</button>
-        <p class="eyebrow eyebrow--yellow">FIRE CARD COLLECTION</p>
-        <h2 id="fire-card-collection-title">🔥 FIREカード図鑑</h2>
-        <p class="fire-card-modal__lead">集めたカードは、いつでもここで見返せます。</p>
-        <p class="fire-card-collection-count" id="fire-card-collection-count">0 / 10</p>
-        <div class="fire-card-collection-grid" id="fire-card-collection-grid"></div>
-        <p class="fire-card-collection-status" id="fire-card-collection-status"></p>
-      </section>
-    </div>
-
-    <div class="fire-card-modal" id="fire-card-detail-modal" hidden>
-      <div class="fire-card-modal__backdrop" data-fire-card-close="detail"></div>
-      <section class="fire-card-modal__panel fire-card-detail-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fire-card-detail-name">
-        <button class="fire-card-modal__close" type="button" data-fire-card-close="detail" aria-label="カード詳細を閉じる">×</button>
-        <div class="fire-card-detail-visual"><img id="fire-card-detail-image" alt="" hidden /></div>
-        <p class="fire-card-detail-locked" id="fire-card-detail-locked" hidden>まだ出会っていないFIREカードです。</p>
-        <h2 id="fire-card-detail-name"></h2>
-        <p id="fire-card-detail-rarity"></p>
-      </section>
-    </div>
 
     <footer class="site-footer">
       <div class="container site-footer__top"><a class="brand brand--footer" href="#top" aria-label="ワクワクFIRE トップへ戻る"><span class="brand__mark" aria-hidden="true">W</span><span class="brand__text">ワクワク<span>FIRE</span></span></a><p>会社を辞めたら、<br /><strong>人生もっと遊べる。</strong></p><nav class="footer-nav" aria-label="フッターメニュー"><a href="#top">ホーム</a><a href="#contents">楽しいコンテンツ</a><a href="articles/">FIREコラム</a><a href="about/">運営者情報</a><a href="privacy/">プライバシーポリシー</a><a href="contact/">お問い合わせ</a><a href="business/">企業・メディアの皆さまへ</a></nav></div>
       <div class="container site-footer__bottom"><small>© <span id="current-year">2026</span> ワクワクFIRE</small><small>Made with curiosity &amp; a little courage.</small></div>
     </footer>
 
-    <script src="data/fire-cards.js"></script>
     <script src="data/books.js"></script>
     <script src="script.js"></script>
-    <script src="fire-card.js?v=4"></script>
   </body>
 </html>
-
