@@ -427,7 +427,7 @@
 .fs-stat-number-card:nth-child(4) { background: var(--fs-blue); }
 .fs-stat-number-card span { display: block; color: var(--fs-muted); font-family: Arial, sans-serif; font-size: .62rem; font-weight: 900; letter-spacing: .09em; }
 .fs-stat-number-card strong { display: block; margin-top: 10px; font-size: clamp(1.35rem, 3vw, 2.1rem); font-weight: 950; letter-spacing: -.06em; line-height: 1.1; }
-.fs-stat-number-card em { display: block; margin-top: 7px; color: var(--fs-muted); font-size: .73rem; font-style: normal; }
+.fs-stat-number-card em { display: block; margin-top: 7px; color: var(--fs-muted); font-size: clamp(.9rem, 1.5vw, 1rem); font-style: normal; font-weight: 800; line-height: 1.35; }
 .fs-stats-section { margin-top: 62px; }
 .fs-stats-type-list,
 .fs-stats-trait-list { display: grid; gap: 10px; }

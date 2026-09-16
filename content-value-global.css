@@ -1,0 +1,77 @@
+.content-value {
+  box-sizing: border-box;
+  width: min(820px, calc(100% - 40px));
+  margin: clamp(32px, 6vw, 72px) auto 0;
+  padding: clamp(24px, 4vw, 42px) clamp(20px, 4vw, 38px);
+  border: 1px solid var(--line, #ded5c9);
+  border-radius: 20px;
+  background: rgba(255, 253, 248, 0.78);
+}
+
+.content-value > h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.content-value > h2 + p {
+  margin-top: 0;
+}
+
+.content-value h3 {
+  margin: 24px 0 7px;
+  font-size: 1.05rem;
+}
+
+.content-value p,
+.content-value li {
+  color: var(--muted, #6f665d);
+  font-size: 0.94rem;
+  line-height: 1.9;
+}
+
+.content-value ul {
+  margin: 8px 0 0;
+  padding-left: 1.25em;
+}
+
+.content-value__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.content-value__links a {
+  color: var(--red, #bd482b);
+  text-underline-offset: 4px;
+}
+
+.content-value__note {
+  padding: 14px 16px;
+  border-left: 3px solid var(--yellow, #dbad3d);
+  background: rgba(255, 239, 181, 0.35);
+}
+
+/* Keep the explanatory panel aligned with the copy inside diagnosis cards. */
+.diagnosis-page__info > .content-value {
+  width: 100%;
+  max-width: none;
+  margin: 32px 0 0;
+}
+
+@media (max-width: 600px) {
+  .content-value {
+    width: min(820px, calc(100% - 24px));
+    border-radius: 15px;
+  }
+
+  .content-value p,
+  .content-value li {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .content-value__links {
+    display: grid;
+  }
+}
