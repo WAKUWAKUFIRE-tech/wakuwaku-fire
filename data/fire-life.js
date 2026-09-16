@@ -644,20 +644,6 @@ export function getFootprints(state, limit = 8) {
     });
   }
 
-  state.visitDates
-    .filter((date) => date !== firstVisitDate)
-    .forEach((date) => {
-      events.push({
-        id: `visit-${date}`,
-        category: "VISIT",
-        icon: "↺",
-        title: "また、ここへ帰ってきた",
-        detail: "今日も自分のFIRE人生に時間を置きました。",
-        dateValue: date,
-        sortKey: `${date}T00:00:00+09:00`,
-        priority: 1,
-      });
-    });
 
   state.articleReadHistory.forEach((record) => {
     const dateValue = typeof record.readAt === "string" && /^\d{4}-\d{2}-\d{2}/.test(record.readAt) ? record.readAt.slice(0, 10) : null;
