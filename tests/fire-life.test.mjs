@@ -192,6 +192,7 @@ test("FIRE人生の足あとを時系列で組み立て、バックアップか�
   assert.equal(footprints[0].category, "BADGE");
   assert.equal(footprints.some((item) => item.category === "READ" && item.title === "足あとになる記事"), true);
   assert.equal(footprints.some((item) => item.category === "START"), true);
+  assert.equal(footprints.some((item) => item.category === "VISIT"), false);
 
   state.nickname = "まる";
   const backup = createBackup(state, new Date("2026-01-03T00:00:00Z"));
