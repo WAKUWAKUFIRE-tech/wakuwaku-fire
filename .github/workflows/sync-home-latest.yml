@@ -1,0 +1,53 @@
+name: Sync homepage latest FIRE columns
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "articles/**"
+      - "scripts/auto_publish.mjs"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wakuwaku-fire-auto-publish
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Sync the latest main branch
+        run: git pull --rebase origin main
+
+      - name: Synchronize homepage and article indexes
+        run: node scripts/auto_publish.mjs --sync-indexes
+
+      - name: Validate the synchronized homepage
+        run: npm run validate:site
+
+      - name: Commit synchronized generated files
+        run: |
+          git config user.name "wakuwaku-fire-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html articles/index.html sitemap.xml feed.xml
+          if git diff --cached --quiet; then
+            echo "Homepage latest article cards are already current."
+          else
+            git commit -m "Sync homepage latest article cards"
+            git push origin HEAD:main
+          fi
