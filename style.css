@@ -570,6 +570,14 @@ button {
   background: var(--paper);
 }
 
+.intro .section-heading h2 {
+  text-wrap: balance;
+}
+
+.intro .section-heading h2 span {
+  white-space: nowrap;
+}
+
 .intro__grid {
   display: grid;
   gap: 36px;
