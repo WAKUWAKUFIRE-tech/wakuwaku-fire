@@ -771,18 +771,20 @@ ${sections}`;
 }
 
 async function updateArticleIndexes(allArticles) {
-  const latest = allArticles.slice(0, 3).map(renderHomeCard).join("\n");
+  const orderedArticles = [...allArticles].sort(sortArticles);
+  if (orderedArticles.length < 3) throw new FatalPublishError("公開済み記事が3件未満のため、トップの最新記事3件を作成できません。");
+  const latest = orderedArticles.slice(0, 3).map(renderHomeCard).join("\n");
   const rootIndex = await readText("index.html");
   await writeText("index.html", replaceMarkedSection(rootIndex, "<!-- AUTO-PUBLISH:HOME-LATEST-START -->", "<!-- AUTO-PUBLISH:HOME-LATEST-END -->", latest));
 
   const articleIndex = await readText("articles/index.html");
-  const list = renderArticleList(allArticles);
+  const list = renderArticleList(orderedArticles);
   let updated = replaceMarkedSection(articleIndex, "<!-- AUTO-PUBLISH:ARTICLE-LIST-START -->", "<!-- AUTO-PUBLISH:ARTICLE-LIST-END -->", list);
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "ワクワクFIRE FIREコラム",
-    itemListElement: allArticles.map((article, index) => ({ "@type": "ListItem", position: index + 1, name: article.title, url: `${config.site_url}/articles/${article.slug}/` }))
+    itemListElement: orderedArticles.map((article, index) => ({ "@type": "ListItem", position: index + 1, name: article.title, url: `${config.site_url}/articles/${article.slug}/` }))
   };
   const scriptPattern = /<script type="application\/ld\+json">[\s\S]*?<\/script>/;
   if (!scriptPattern.test(updated)) throw new Error("articles/index.htmlのItemList JSON-LDを更新できません。");
@@ -1064,6 +1066,10 @@ async function validateSite() {
   for (const [html, start, end] of [[home, "<!-- AUTO-PUBLISH:HOME-LATEST-START -->", "<!-- AUTO-PUBLISH:HOME-LATEST-END -->"], [articleIndex, "<!-- AUTO-PUBLISH:ARTICLE-LIST-START -->", "<!-- AUTO-PUBLISH:ARTICLE-LIST-END -->"]]) {
     if ((html.match(new RegExp(start.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) || []).length !== 1 || (html.match(new RegExp(end.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) || []).length !== 1) throw new FatalPublishError("一覧更新マーカーが不足または重複しています。");
   }
+  const expectedLatest = [...existing].sort(sortArticles).slice(0, 3);
+  if (expectedLatest.length < 3) throw new FatalPublishError("公開済み記事が3件未満のため、トップの最新記事3件を検証できません。");
+  const expectedHome = replaceMarkedSection(home, "<!-- AUTO-PUBLISH:HOME-LATEST-START -->", "<!-- AUTO-PUBLISH:HOME-LATEST-END -->", expectedLatest.map(renderHomeCard).join("\n"));
+  if (expectedHome !== home) throw new FatalPublishError(`トップのFIREコラムが最新記事3件と一致していません: ${expectedLatest.map((article) => article.slug).join(", ")}`);
   const articleFiles = await Promise.all(existing.map(async (article) => ({ article, html: await readText(`articles/${article.slug}/index.html`) })));
   for (const { article, html } of articleFiles) {
     if (!html.includes(`<link rel="canonical" href="${article.canonical}"`)) throw new FatalPublishError(`canonicalが不一致です: ${article.slug}`);
@@ -1313,5 +1319,4 @@ try {
   console.error(error.message || error);
   process.exitCode = error instanceof FatalPublishError ? 2 : 1;
 }
-
 
